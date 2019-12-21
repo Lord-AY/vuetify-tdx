@@ -2,8 +2,8 @@
   <div class="messaging">
     <div id="wrapper" style="height: 100vh;">
       <!-- LEFT SIDEBAR -->
-
-      <div id="sidebar-nav" class="sidebar">
+      <dsidebar></dsidebar>
+      <!-- <div id="sidebar-nav" class="sidebar">
         <div
           class="slimScrollDiv"
           style="position: relative; overflow: hidden; width: auto; height: 95%;"
@@ -34,7 +34,7 @@
                     ><i class="la la-pencil"></i> <span>Edit Profile</span></a
                   >
                 </li>
-                <!-- <li><a href="https://carspot.scriptsbundle.com/individual/oyink7/ "><i class="la la-user"></i> <span>My Profile</span></a></li> -->
+                <!- <li><a href="https://carspot.scriptsbundle.com/individual/oyink7/ "><i class="la la-user"></i> <span>My Profile</span></a></li> ->
                 <li>
                   <a href="../tempview/messaging.html" class="active"
                     ><i class="la la-envelope"></i> <span>My Messages</span></a
@@ -121,7 +121,7 @@
             style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"
           ></div>
         </div>
-      </div>
+      </div> -->
       <!-- END LEFT SIDEBAR -->
 
       <!-- MAIN -->
@@ -803,7 +803,12 @@ require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.cs
 require("../assets/skins/color-skins/color15.css");
 require("../assets/plugins/horizontal-menu/horizontal.css");
 require("../assets/css/components.css");
+
+import dsidebar from "@/components/Dsidebar";
 export default {
-  name: "messaging"
+  name: "messaging",
+  components: {
+    dsidebar
+  }
 };
 </script>

@@ -13,35 +13,62 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="panel panel-headline">
               <div class="panel-heading">
-                <h3 class="panel-title">Published <span>( 0 )</span></h3>
-                <form
-                  class="form form-inline form-published-search"
-                  method="get"
-                >
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
+                    <h3 class="panel-title">
+                      Published Inventory
+                      <span style="display: inline;">( 0 )</span>
+                    </h3>
+                  </div>
+
+                  <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
+                    <form class="form form-inline form-published-search" method="get">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control search-input"
+                          name="search_title"
+                          value
+                          placeholder="Search Inventory"
+                        />
+                        <input type="hidden" name="page-type" value="published-ads" />
+                      </div>
+                      <div class="form-group">
+                        <button
+                          type="submit"
+                          class="btn btn-theme"
+                          style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
+                        >Search</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!-- <h3 class="panel-title">
+                  Published
+                  <span style="display: inline;">( 0 )</span>
+                </h3>
+                <form class="form form-inline form-published-search" method="get">
                   <div class="form-group">
                     <input
                       type="text"
                       class="form-control"
                       name="search_title"
-                      value=""
+                      value
                       placeholder="Search Inventory"
                     />
-                    <input
-                      type="hidden"
-                      name="page-type"
-                      value="published-ads"
-                    />
+                    <input type="hidden" name="page-type" value="published-ads" />
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-theme">Search</button>
                   </div>
-                </form>
+                </form> -->
               </div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table dashboard-table table-fit">
                     <thead>
                       <tr>
+                        <!-- <th>S/N</th> -->
                         <th></th>
                         <th>detail</th>
                         <th>Category</th>
@@ -52,27 +79,28 @@
                     <tbody>
                       <!-- <tr> <td colspan="5"><h4> no Inventory found</h4></td> </tr> -->
                       <tr>
+                        <!-- <td>1</td> -->
                         <td>
                           <span class="ad-image">
                             <a
                               href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                              ><img
+                            >
+                              <img
                                 src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg"
                                 alt="na me"
                                 class="img-responsive"
-                            /></a>
+                              />
+                            </a>
                           </span>
                         </td>
                         <td>
-                          <a
-                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                          >
-                            <span class="ad-title"> na me </span>
+                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741">
+                            <span class="ad-title">na me</span>
                           </a>
                           <span class="ad-date">
                             <i class="la la-calendar-o"></i> December 3,
-                            2019</span
-                          >
+                            2019
+                          </span>
                           <span class="pending-post-msg">
                             <i class="fa fa-warning"></i> Your post is under
                             review
@@ -80,23 +108,20 @@
                         </td>
                         <td>
                           <span class="ad-cats">
-                            <span class="padding_cats"
-                              ><a
+                            <span class="padding_cats">
+                              <a
                                 href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                                >Aston Martin</a
-                              ></span
-                            ><span class="padding_cats"
-                              ><a
-                                href="https://carspot.scriptsbundle.com/ad_category/db-11/"
-                                >DB 11</a
-                              ></span
-                            ></span
-                          >
+                              >Aston Martin</a>
+                            </span>
+                            <span class="padding_cats">
+                              <a href="https://carspot.scriptsbundle.com/ad_category/db-11/">DB 11</a>
+                            </span>
+                          </span>
                         </td>
                         <td>0</td>
                         <td>
                           <span class="ad-actions">
-                            <ul class="nav navbar-nav">
+                            <ul class="ad-actions-list">
                               <li>
                                 <a
                                   class="protip"
@@ -107,8 +132,8 @@
                                   href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
                                   data-adid="3741"
                                 >
-                                  <i class="la la-edit"></i
-                                ></a>
+                                  <i class="la la-edit"></i>
+                                </a>
                               </li>
                               <li>
                                 <a
@@ -121,8 +146,160 @@
                                   data-adid="3741"
                                   style="color: red;"
                                 >
-                                  <i class="la la-trash"></i
-                                ></a>
+                                  <i class="la la-trash"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <!-- <td>1</td> -->
+                        <td>
+                          <span class="ad-image">
+                            <a
+                              href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
+                            >
+                              <img
+                                src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg"
+                                alt="na me"
+                                class="img-responsive"
+                              />
+                            </a>
+                          </span>
+                        </td>
+                        <td>
+                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741">
+                            <span class="ad-title">na me</span>
+                          </a>
+                          <span class="ad-date">
+                            <i class="la la-calendar-o"></i> December 3,
+                            2019
+                          </span>
+                          <span class="pending-post-msg">
+                            <i class="fa fa-warning"></i> Your post is under
+                            review
+                          </span>
+                        </td>
+                        <td>
+                          <span class="ad-cats">
+                            <span class="padding_cats">
+                              <a
+                                href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
+                              >Aston Martin</a>
+                            </span>
+                            <span class="padding_cats">
+                              <a href="https://carspot.scriptsbundle.com/ad_category/db-11/">DB 11</a>
+                            </span>
+                          </span>
+                        </td>
+                        <td>0</td>
+                        <td>
+                          <span class="ad-actions">
+                            <ul class="ad-actions-list">
+                              <li>
+                                <a
+                                  class="protip"
+                                  data-pt-title=" Edit Ad"
+                                  data-pt-position="top"
+                                  data-pt-scheme="dark-transparent"
+                                  data-pt-size="small"
+                                  href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
+                                  data-adid="3741"
+                                >
+                                  <i class="la la-edit"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a
+                                  class="protip delete_ad"
+                                  data-pt-title=" Delete Ad"
+                                  data-pt-position="top"
+                                  data-pt-scheme="dark-transparent"
+                                  data-pt-size="small"
+                                  href="javascript:void(0);"
+                                  data-adid="3741"
+                                  style="color: red;"
+                                >
+                                  <i class="la la-trash"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <!-- <td>1</td> -->
+                        <td>
+                          <span class="ad-image">
+                            <a
+                              href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
+                            >
+                              <img
+                                src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg"
+                                alt="na me"
+                                class="img-responsive"
+                              />
+                            </a>
+                          </span>
+                        </td>
+                        <td>
+                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741">
+                            <span class="ad-title">na me</span>
+                          </a>
+                          <span class="ad-date">
+                            <i class="la la-calendar-o"></i> December 3,
+                            2019
+                          </span>
+                          <span class="pending-post-msg">
+                            <i class="fa fa-warning"></i> Your post is under
+                            review
+                          </span>
+                        </td>
+                        <td>
+                          <span class="ad-cats">
+                            <span class="padding_cats">
+                              <a
+                                href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
+                              >Aston Martin</a>
+                            </span>
+                            <span class="padding_cats">
+                              <a href="https://carspot.scriptsbundle.com/ad_category/db-11/">DB 11</a>
+                            </span>
+                          </span>
+                        </td>
+                        <td>0</td>
+                        <td>
+                          <span class="ad-actions">
+                            <ul class="ad-actions-list">
+                              <li>
+                                <a
+                                  class="protip"
+                                  data-pt-title=" Edit Ad"
+                                  data-pt-position="top"
+                                  data-pt-scheme="dark-transparent"
+                                  data-pt-size="small"
+                                  href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
+                                  data-adid="3741"
+                                >
+                                  <i class="la la-edit"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a
+                                  class="protip delete_ad"
+                                  data-pt-title=" Delete Ad"
+                                  data-pt-position="top"
+                                  data-pt-scheme="dark-transparent"
+                                  data-pt-size="small"
+                                  href="javascript:void(0);"
+                                  data-adid="3741"
+                                  style="color: red;"
+                                >
+                                  <i class="la la-trash"></i>
+                                </a>
                               </li>
                             </ul>
                           </span>
@@ -146,7 +323,7 @@
 <li><a href="page/2/index.html">2</a></li>
 <li><a href="page/2/index.html" >Next Page &raquo;</a></li>
 </ul>
-    </div> -->
+    </div>-->
 
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />
@@ -273,3 +450,37 @@ export default {
   }
 };
 </script>
+
+<style>
+.table th {
+  font-size: 14px;
+}
+ul.ad-actions-list li{
+  display: inline-block;
+}
+.dashboard-table tr td .ad-actions i{
+  font-size: 24px;
+}
+
+/* .dashboard-table .ad-image img {
+    width: 100px;
+    height: auto !important;
+    border-radius: 5px;
+    margin: 0px auto;
+} */
+.search-input {
+  /* border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; */
+  border-radius: 8px 0px 0px 8px !important;
+}
+.form-published-search{
+  display: flex;
+}
+
+@media (max-width: 992px){
+  .form-published-search{
+    float: left;
+    margin-top: 20px;
+  }
+}
+</style>

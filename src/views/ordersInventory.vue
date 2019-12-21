@@ -2,16 +2,13 @@
   <div class="order-inventory">
     <div id="wrapper">
       <!-- LEFT SIDEBAR -->
-
-      <div id="sidebar-nav" class="sidebar">
+      <dsidebar></dsidebar>
+      <!-- <div id="sidebar-nav" class="sidebar">
         <div
           class="slimScrollDiv"
           style="position: relative; overflow: hidden; width: auto; height: 95%;"
         >
-          <div
-            class="sidebar-scroll"
-            style="overflow: hidden; width: auto; height: 95%;"
-          >
+          <div class="sidebar-scroll" style="overflow: hidden; width: auto; height: 95%;">
             <nav>
               <ul class="nav">
                 <li class="welcome-text">
@@ -21,93 +18,100 @@
                     alt="Profile Picture"
                   />
                   <div class="text-box">
-                    Welcome back: <span>testuser </span>
+                    Welcome back:
+                    <span>testuser</span>
                   </div>
                 </li>
                 <li>
-                  <a href="../tempview/dashboard-carspot.html" class=""
-                    ><i class="la la-home"></i> <span>Dashboard</span></a
-                  >
+                  <a href="../tempview/dashboard-carspot.html" class>
+                    <i class="la la-home"></i>
+                    <span>Dashboard</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="../tempview/edit-profile-carspot.html" class=""
-                    ><i class="la la-pencil"></i> <span>Edit Profile</span></a
-                  >
+                  <a href="../tempview/edit-profile-carspot.html" class>
+                    <i class="la la-pencil"></i>
+                    <span>Edit Profile</span>
+                  </a>
                 </li>
-                <!-- <li><a href="https://carspot.scriptsbundle.com/individual/oyink7/ "><i class="la la-user"></i> <span>My Profile</span></a></li> -->
+                <!- <li><a href="https://carspot.scriptsbundle.com/individual/oyink7/ "><i class="la la-user"></i> <span>My Profile</span></a></li> ->
                 <li>
-                  <a href="#" class=""
-                    ><i class="la la-envelope"></i> <span>My Messages</span></a
-                  >
+                  <a href="#" class>
+                    <i class="la la-envelope"></i>
+                    <span>My Messages</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="#subPages" class="collapsed" data-toggle="collapse"
-                    ><i class="la la-tasks"></i> <span>My Inventory</span>
-                    <i class="icon-submenu la la-chevron-left"></i
-                  ></a>
-                  <div id="subPages" class="collapse ">
+                  <a href="#subPages" class="collapsed" data-toggle="collapse">
+                    <i class="la la-tasks"></i>
+                    <span>My Inventory</span>
+                    <i class="icon-submenu la la-chevron-left"></i>
+                  </a>
+                  <div id="subPages" class="collapse">
                     <ul class="nav">
                       <li>
-                        <a href="../tempview/published-inventory.html" class="">
+                        <a href="../tempview/published-inventory.html" class>
                           Published
-                          <span class="badge">
-                            0
-                          </span>
+                          <span class="badge">0</span>
                         </a>
                       </li>
                       <li>
-                        <a href="../tempview/published-inventory.html" class="">
+                        <a href="../tempview/published-inventory.html" class>
                           Expired
-                          <span class="badge"> 0 </span>
+                          <span class="badge">0</span>
                         </a>
                       </li>
                       <li>
-                        <a href="../tempview/published-inventory.html" class="">
+                        <a href="../tempview/published-inventory.html" class>
                           Sold
-                          <span class="badge"> 0 </span>
+                          <span class="badge">0</span>
                         </a>
                       </li>
                       <li>
-                        <a href="../tempview/published-inventory.html" class="">
+                        <a href="../tempview/published-inventory.html" class>
                           Pending
-                          <span class="badge"> 0 </span>
+                          <span class="badge">0</span>
                         </a>
                       </li>
                       <li>
-                        <a href="../tempview/published-inventory.html" class="">
+                        <a href="../tempview/published-inventory.html" class>
                           Saved
-                          <span class="badge"> 0 </span>
+                          <span class="badge">0</span>
                         </a>
                       </li>
                     </ul>
                   </div>
                 </li>
                 <li>
-                  <a href="#" class=""
-                    ><i class="la la-users"></i> <span>Referral</span
-                    ><span class="badge referral">0</span>
+                  <a href="#" class>
+                    <i class="la la-users"></i>
+                    <span>Referral</span>
+                    <span class="badge referral">0</span>
                   </a>
                 </li>
                 <li>
-                  <a href="../tempview/ratings-inventory.html" class=""
-                    ><i class="la la-star"></i> <span>My Ratings </span></a
-                  >
+                  <a href="../tempview/ratings-inventory.html" class>
+                    <i class="la la-star"></i>
+                    <span>My Ratings</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="../tempview/orders-inventory.html" class="active"
-                    ><i class="la la-check-circle-o"></i>
-                    <span> My Orders</span></a
-                  >
+                  <a href="../tempview/orders-inventory.html" class="active">
+                    <i class="la la-check-circle-o"></i>
+                    <span>My Orders</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="../tempview/settings-carspot.html"
-                    ><i class="la la-cog"></i> <span> Settings</span></a
-                  >
+                  <a href="../tempview/settings-carspot.html">
+                    <i class="la la-cog"></i>
+                    <span>Settings</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="#" class=""
-                    ><i class="fa fa-sign-out"></i> <span>Logout</span></a
-                  >
+                  <a href="#" class>
+                    <i class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -121,7 +125,7 @@
             style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"
           ></div>
         </div>
-      </div>
+      </div>-->
       <!-- END LEFT SIDEBAR -->
 
       <!-- MAIN -->
@@ -131,31 +135,38 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="panel panel-headline">
               <div class="panel-heading">
-                <h3 class="panel-title">Orders <span>( 0 )</span></h3>
-                <form
-                  class="form form-inline form-published-search"
-                  method="get"
-                >
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="search_title"
-                      value=""
-                      placeholder="Search Inventory"
-                    />
-                    <input
-                      type="hidden"
-                      name="page-type"
-                      value="published-ads"
-                    />
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
+                    <h3 class="panel-title">
+                      Orders
+                      <span style="display: inline;">( 0 )</span>
+                    </h3>
                   </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-theme">Search</button>
+
+                  <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
+                    <form class="form form-inline form-published-search" method="get">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control search-input"
+                          name="search_title"
+                          value
+                          placeholder="Search Inventory"
+                        />
+                        <input type="hidden" name="page-type" value="published-ads" />
+                      </div>
+                      <div class="form-group">
+                        <button
+                          type="submit"
+                          class="btn btn-theme"
+                          style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
+                        >Search</button>
+                      </div>
+                    </form>
                   </div>
-                </form>
+                </div>
               </div>
-              <div class="panel-body">
+              <!-- Table view of pending orders <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table dashboard-table table-fit">
                     <thead>
@@ -176,6 +187,36 @@
                     </tbody>
                   </table>
                 </div>
+              </div>-->
+
+              <!-- No Orders -->
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="edit-profile-form dealers-review-section on-backend">
+                      <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                          <div class="alert custom-alert custom-alert-info" role="alert">
+                            <div class="custom-alert_top-side row">
+                              <div class="col-md-12 col-lg-12 col-sm-12 text-center">
+                                <div
+                                  class="alert-icon custom-alert_icon la la-info-circle"
+                                  style="display: inline-block; margin: 0px auto;"
+                                ></div>
+                              </div>
+                              <div class="col-md-12 col-lg-12 col-sm-12 text-center">
+                                <div class="custom-alert_body">
+                                  <h6 class="custom-alert_heading">No Orders Available.</h6>
+                                  <div class="custom-alert_content">Your orders will show up here.</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -191,7 +232,7 @@
 <li><a href="page/2/index.html">2</a></li>
 <li><a href="page/2/index.html" >Next Page &raquo;</a></li>
 </ul>
-    </div> -->
+    </div>-->
 
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />
@@ -307,7 +348,33 @@ require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.cs
 require("../assets/skins/color-skins/color15.css");
 require("../assets/plugins/horizontal-menu/horizontal.css");
 require("../assets/css/components.css");
+
+import dsidebar from "@/components/Dsidebar";
 export default {
-  name: "productDetails"
+  name: "productDetails",
+  components: {
+    dsidebar
+  }
 };
 </script>
+
+<style>
+.table th {
+  font-size: 14px;
+}
+.search-input {
+  /* border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; */
+  border-radius: 8px 0px 0px 8px !important;
+}
+.form-published-search{
+  display: flex;
+}
+
+@media (max-width: 992px){
+  .form-published-search{
+    float: left;
+    margin-top: 20px;
+  }
+}
+</style>

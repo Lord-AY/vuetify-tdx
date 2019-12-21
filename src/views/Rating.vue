@@ -13,37 +13,31 @@
             <!-- OVERVIEW -->
             <div class="row">
               <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                <div class="panel  panel-headline">
+                <div class="panel panel-headline">
                   <div class="panel-heading">
                     <h3 class="panel-title">
-                      My Review and Ratings <span>(0) </span>
+                      My Review and Ratings
+                      <span style="display: inline;">(0)</span>
                     </h3>
-                    <p class="panel-subtitle">Last logged in 2 hours Ago</p>
+                    <!-- <p class="panel-subtitle">Last logged in 2 hours Ago</p> -->
                   </div>
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div
-                          class="edit-profile-form dealers-review-section on-backend"
-                        >
+                        <div class="edit-profile-form dealers-review-section on-backend">
                           <div class="row">
-                            <div
-                              class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
-                            >
-                              <div
-                                class="alert custom-alert custom-alert-info"
-                                role="alert"
-                              >
-                                <div class="custom-alert_top-side">
-                                  <span
-                                    class="alert-icon custom-alert_icon la la-info-circle"
-                                  ></span>
-                                  <div class="custom-alert_body">
-                                    <h6 class="custom-alert_heading">
-                                      No Review Available.
-                                    </h6>
-                                    <div class="custom-alert_content">
-                                      Your reviews will be visible here.
+                            <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                              <div class="alert custom-alert custom-alert-info" role="alert">
+                                <div class="custom-alert_top-side row">
+                                  <div class="col-md-12 col-lg-12 col-sm-12 text-center">
+                                    <div class="alert-icon custom-alert_icon la la-info-circle" style="display: inline-block; margin: 0px auto;"></div>
+                                  </div>
+                                  <div class="col-md-12 col-lg-12 col-sm-12 text-center">
+                                    <div class="custom-alert_body">
+                                      <h6 class="custom-alert_heading">No Review Available.</h6>
+                                      <div
+                                        class="custom-alert_content"
+                                      >Your reviews will be visible here.</div>
                                     </div>
                                   </div>
                                 </div>
@@ -70,7 +64,7 @@
 <li><a href="page/2/index.html">2</a></li>
 <li><a href="page/2/index.html" >Next Page &raquo;</a></li>
 </ul>
-    </div> -->
+    </div>-->
 
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />
@@ -196,3 +190,20 @@ export default {
   }
 };
 </script>
+<style>
+  .search-input {
+  /* border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; */
+  border-radius: 8px 0px 0px 8px !important;
+}
+.form-published-search{
+  display: flex;
+}
+
+@media (max-width: 992px){
+  .form-published-search{
+    float: left;
+    margin-top: 20px;
+  }
+}
+</style>

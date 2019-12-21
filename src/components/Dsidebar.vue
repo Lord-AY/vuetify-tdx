@@ -77,17 +77,17 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/refferal">
+              <router-link to="/rating">
                 <i class="la la-star"></i><span>My Ratings</span>
               </router-link>
             </li>
             <li>
-              <router-link to="/orders">
+              <router-link to="/ordersInventory">
                 <i class="la la-check-circle-o"></i><span>My Orders</span>
               </router-link>
             </li>
             <li>
-              <router-link to="/orders">
+              <router-link to="/mainSettings">
                 <i class="la la-cog"></i><span>Settings</span>
               </router-link>
             </li>

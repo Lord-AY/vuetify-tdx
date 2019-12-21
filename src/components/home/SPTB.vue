@@ -10,7 +10,8 @@
           Popular Categories
         </h2>
         <div class="viewall mobile-hidden">
-          <router-link to="/Gridlist">Show All</router-link>
+          <router-link to="/Gridlist">Show All <i class="fa fa-arrow-circle-right"></i></router-link>
+          
         </div>
         <!-- <p>Explore with some of the top categories on our platform</p> -->
       </div>

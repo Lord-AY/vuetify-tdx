@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-carspot">
     <!--Topbar-->
-    <dheader></dheader>
+    <!-- <dheader></dheader> Is this even neccessary?-->
     <!--/Horizontal-main -->
 
     <div id="wrapper">
@@ -112,7 +112,7 @@
                         ></span>
                         <div class="custom-alert_body">
                           <h6 class="custom-alert_heading">
-                            No Review Available.
+                            No Review Availabler.
                           </h6>
                           <div class="custom-alert_content">
                             Your reviews will be visible here.
@@ -315,12 +315,12 @@ require("../assets/skins/color-skins/color15.css");
 require("../assets/plugins/horizontal-menu/horizontal.css");
 require("../assets/css/components.css");
 import dsidebar from "@/components/Dsidebar";
-import dheader from "@/components/Dheader";
+// import dheader from "@/components/Dheader";
 export default {
   name: "dashboard",
   components: {
-    dsidebar,
-    dheader
+    dsidebar
+    // dheader
   }
 };
 </script>

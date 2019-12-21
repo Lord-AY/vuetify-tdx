@@ -14,394 +14,346 @@
             <!-- OVERVIEW -->
             <div class="row">
               <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                <div class="panel  panel-headline">
+                <div class="panel panel-headline">
                   <div class="panel-heading">
                     <h3 class="panel-title">Edit Profile</h3>
                     <!-- <a href="#" data-target="#myModal" data-toggle="modal">Change Password</a> -->
                     <p class="panel-subtitle">Last logged in 2 hours Ago</p>
                   </div>
-                  <div class="panel-body panel-body-settings">
-                    <div class="row">
-                      <div
-                        class="col-md-12 col-lg-12 col-sm-12 col-xs-12 profile-summary-dashboard"
-                      >
-                        <div class="col-md-6">
-                          <div
-                            class="panel panel-dashbaord-edit panel-headline"
-                          >
-                            <div class="profile-card">
-                              <div class="profile-card-body">
-                                <div class="contact-box">
-                                  <div
-                                    class="contact-box-bg"
-                                    id="store-image"
-                                  ></div>
-                                  <div class="contact-img">
-                                    <a
-                                      href="https://carspot.scriptsbundle.com/individual/oyink7/"
-                                      ><img
-                                        src="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/6.png"
-                                        class="img-responsive"
-                                        id="profile-image"
-                                        alt="Profile Picture"
-                                    /></a>
-                                  </div>
-                                  <div class="contact-caption">
-                                    <h4>testuser</h4>
-
-                                    <div class="clearfix"></div>
-                                    <div class="upload-btn-wrapper">
-                                      <span
-                                        class="tooltip-disabled"
-                                        data-toggle="tooltip"
-                                        title="Disabled in demo"
+                  <div class="row">
+                    <div class="panel-body col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-sm-12 col-xs-12" style="padding: 30px;">
+                      <div class="row">
+                        <div
+                          class="col-md-12 col-lg-12 col-sm-12 col-xs-12 profile-summary-dashboard"
+                        >
+                          <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
+                            <div class="panel panel-dashbaord-edit panel-headline">
+                              <div class="profile-card">
+                                <div class="profile-card-body">
+                                  <div class="contact-box">
+                                    <div class="contact-box-bg" id="store-image"></div>
+                                    <div class="contact-img">
+                                      <a
+                                        href="https://carspot.scriptsbundle.com/individual/oyink7/"
                                       >
-                                        <button class="btn-profile">
-                                          Upload Photo
-                                        </button>
-                                        <input
-                                          type="file"
-                                          id="imgInp"
-                                          name="my_file_upload"
-                                          accept="image/*"
-                                          disabled=""
+                                        <img
+                                          src="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/6.png"
+                                          class="img-responsive"
+                                          id="profile-image"
+                                          alt="Profile Picture"
                                         />
-                                      </span>
+                                      </a>
+                                    </div>
+                                    <div class="contact-caption">
+                                      <h4>testuser</h4>
+
+                                      <div class="clearfix"></div>
+                                      <div class="upload-btn-wrapper">
+                                        <span
+                                          class="tooltip-disabled"
+                                          data-toggle="tooltip"
+                                          title="Disabled in demo"
+                                        >
+                                          <button class="btn-profile">Upload Photo</button>
+                                          <input
+                                            type="file"
+                                            id="imgInp"
+                                            name="my_file_upload"
+                                            accept="image/*"
+                                            disabled
+                                          />
+                                        </span>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div
-                            class="panel panel-dashbaord-edit panel-headline"
-                            style="margin-bottom: 0px;"
-                          >
-                            <div class="panel-heading">
-                              <h3 class="panel-title">Profile Details</h3>
-                            </div>
+                          <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
                             <div
-                              class="panel-body"
-                              style="padding-bottom: 0px;"
+                              class="panel panel-dashbaord-edit panel-headline"
+                              style="margin-bottom: 0px;"
                             >
-                              <ul class="profile-details">
-                                <li>
-                                  <i class="la la-user"></i>
-                                  <div class="profile-meta">
-                                    <h6>Full Name</h6>
-                                    <span>testuser</span>
-                                  </div>
-                                </li>
-                                <li>
-                                  <i class="la la-envelope"></i>
-                                  <div class="profile-meta">
-                                    <h6>Email</h6>
-                                    <span>oyink7@gmail.com</span>
-                                  </div>
-                                </li>
-                                <li>
-                                  <i class="la la-mobile-phone"></i>
-                                  <div class="profile-meta">
-                                    <h6>Phone number</h6>
-                                    <span>0123456789</span>
-                                  </div>
-                                </li>
-                                <li>
-                                  <i class="la la-users"></i>
-                                  <div class="profile-meta">
-                                    <h6>Account Type</h6>
-                                    <span> individual </span>
-                                  </div>
-                                </li>
-                              </ul>
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Profile Details</h3>
+                              </div>
+                              <div class="panel-body" style="padding-bottom: 0px;">
+                                <ul class="profile-details">
+                                  <li>
+                                    <i class="la la-user"></i>
+                                    <div class="profile-meta">
+                                      <h6>Full Name</h6>
+                                      <span>testuser</span>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <i class="la la-envelope"></i>
+                                    <div class="profile-meta">
+                                      <h6>Email</h6>
+                                      <span>oyink7@gmail.com</span>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <i class="la la-mobile-phone"></i>
+                                    <div class="profile-meta">
+                                      <h6>Phone number</h6>
+                                      <span>0123456789</span>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <i class="la la-users"></i>
+                                    <div class="profile-meta">
+                                      <h6>Account Type</h6>
+                                      <span>individual</span>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div
-                        class="col-md-12 col-lg-12 col-sm-12 col-xs-12"
-                        style="margin-top: 24px;"
-                      >
-                        <div class="edit-profile-form">
-                          <form
-                            id="sb_update_profile"
-                            class="sb_update_profile"
-                            data-parsley-validate=""
-                            novalidate=""
-                          >
-                            <div class="row">
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard"
-                                    >First Name</label
-                                  >
-                                  <input
-                                    class="form-control form-control-dashboard"
-                                    type="text"
-                                    name="first_name"
-                                    value="testuser"
-                                    required=""
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard protip"
-                                    >Last Name</label
-                                  >
-                                  <input
-                                    class="protip form-control form-control-dashboard"
-                                    type="email"
-                                    name="last_name"
-                                    value="username"
-                                    readonly=""
-                                    data-pt-title=" You can not edit email address"
-                                    data-pt-position="top"
-                                    data-pt-scheme="dark-transparent"
-                                    data-pt-size="small"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard protip"
-                                    >Email Address</label
-                                  >
-                                  <input
-                                    class="protip form-control form-control-dashboard"
-                                    type="email"
-                                    name="user_email"
-                                    value="oyink7@gmail.com"
-                                    readonly=""
-                                    data-pt-title=" You can not edit email address"
-                                    data-pt-position="top"
-                                    data-pt-scheme="dark-transparent"
-                                    data-pt-size="small"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard"
-                                    >Mobile No</label
-                                  >
-                                  <input
-                                    class="form-control form-control-dashboard"
-                                    data-parsley-type="number"
-                                    type="text"
-                                    name="sb_user_contact"
-                                    value="0123456789"
-                                    required=""
-                                  />
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="row">
-                              <div
-                                class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard"
-                                    >About Yourself</label
-                                  >
-                                  <textarea
-                                    class="form-control dashboard"
-                                    name="sb_user_about"
-                                    required=""
-                                    rows="5"
-                                  ></textarea>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard"
-                                    >City</label
-                                  >
-                                  <select
-                                    class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
-                                    data-placeholder="Select"
-                                  >
-                                    <optgroup label="Categories">
-                                      <option>-- Select City --</option>
-                                      <option value="1">Germany</option>
-                                      <option value="2">USA</option>
-                                      <option value="3">Canada</option>
-                                      <option value="4">Usa</option>
-                                      <option value="5">Afghanistan</option>
-                                      <option value="6">Albania</option>
-                                      <option value="7">China</option>
-                                      <option value="8">Denmark</option>
-                                      <option value="9">Finland</option>
-                                      <option value="10">India</option>
-                                      <option value="11">Kiribati</option>
-                                      <option value="12">Kuwait</option>
-                                      <option value="13">Mexico</option>
-                                      <option value="14">Pakistan</option>
-                                    </optgroup>
-                                  </select>
-                                </div>
-                              </div>
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard protip"
-                                    >Country</label
-                                  >
-                                  <select
-                                    class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
-                                    data-placeholder="Select"
-                                  >
-                                    <optgroup label="Categories">
-                                      <option>-- Select Country --</option>
-                                      <option value="1">Germany</option>
-                                      <option value="2">USA</option>
-                                      <option value="3">Canada</option>
-                                      <option value="4">Usa</option>
-                                      <option value="5">Afghanistan</option>
-                                      <option value="6">Albania</option>
-                                      <option value="7">China</option>
-                                      <option value="8">Denmark</option>
-                                      <option value="9">Finland</option>
-                                      <option value="10">India</option>
-                                      <option value="11">Kiribati</option>
-                                      <option value="12">Kuwait</option>
-                                      <option value="13">Mexico</option>
-                                      <option value="14">Pakistan</option>
-                                    </optgroup>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard"
-                                    >Facebook</label
-                                  >
-                                  <input
-                                    class="form-control form-control-dashboard"
-                                    type="text"
-                                    name="sb_user_name"
-                                    value="https://www.facebook.com/"
-                                    required=""
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard protip"
-                                    >Twitter</label
-                                  >
-                                  <input
-                                    class="protip form-control form-control-dashboard"
-                                    type="email"
-                                    name="user_email"
-                                    value="https://www.twitter.com/"
-                                    readonly=""
-                                    data-pt-title=" You can not edit email address"
-                                    data-pt-position="top"
-                                    data-pt-scheme="dark-transparent"
-                                    data-pt-size="small"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard"
-                                    >Whatsapp</label
-                                  >
-                                  <input
-                                    class="form-control form-control-dashboard"
-                                    type="text"
-                                    name="sb_user_name"
-                                    value="https://www.whatsapp.com/"
-                                    required=""
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                              >
-                                <div class="form-group">
-                                  <label
-                                    class="control-label control-label-dashboard protip"
-                                    >Google</label
-                                  >
-                                  <input
-                                    class="protip form-control form-control-dashboard"
-                                    type="email"
-                                    name="user_email"
-                                    value="https://www.google.com/"
-                                    readonly=""
-                                    data-pt-title=" You can not edit email address"
-                                    data-pt-position="top"
-                                    data-pt-scheme="dark-transparent"
-                                    data-pt-size="small"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-6 col-lg-push-6 col-md-push-6 col-sm-push-6"
-                              >
-                                <div class="form-group">
-                                  <span
-                                    class="tooltip-disabled pull-right"
-                                    data-toggle="tooltip"
-                                    title="Disabled in demo"
-                                  >
+                        <div
+                          class="col-md-12 col-lg-12 col-sm-12 col-xs-12"
+                          style="margin-top: 24px;"
+                        >
+                          <div class="edit-profile-form">
+                            <form
+                              id="sb_update_profile"
+                              class="sb_update_profile"
+                              data-parsley-validate
+                              novalidate
+                            >
+                              <div class="row">
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label class="control-label control-label-dashboard">First Name</label>
                                     <input
-                                      class="btn btn-theme pull-right"
-                                      type="submit"
-                                      value="Update profile"
-                                      style="border-radius: 8px;"
-                                      disabled=""
+                                      class="form-control form-control-dashboard"
+                                      type="text"
+                                      name="first_name"
+                                      value="testuser"
+                                      required
                                     />
-                                  </span>
+                                  </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard protip"
+                                    >Last Name</label>
+                                    <input
+                                      class="protip form-control form-control-dashboard"
+                                      type="email"
+                                      name="last_name"
+                                      value="username"
+                                      readonly
+                                      data-pt-title=" You can not edit email address"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
+                                    />
+                                  </div>
                                 </div>
                               </div>
-                              <div
-                                class="col-md-6 col-lg-6 col-xs-12 col-sm-6 col-lg-pull-6 col-md-pull-6 col-sm-pull-6"
-                              ></div>
-                            </div>
-                          </form>
+                              <div class="row">
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard protip"
+                                    >Email Address</label>
+                                    <input
+                                      class="protip form-control form-control-dashboard"
+                                      type="email"
+                                      name="user_email"
+                                      value="oyink7@gmail.com"
+                                      readonly
+                                      data-pt-title=" You can not edit email address"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label class="control-label control-label-dashboard">Mobile No</label>
+                                    <input
+                                      class="form-control form-control-dashboard"
+                                      data-parsley-type="number"
+                                      type="text"
+                                      name="sb_user_contact"
+                                      value="0123456789"
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                    >About Yourself</label>
+                                    <textarea
+                                      class="form-control dashboard"
+                                      name="sb_user_about"
+                                      required
+                                      rows="5"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label class="control-label control-label-dashboard">City</label>
+                                    <select
+                                      class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
+                                      data-placeholder="Select"
+                                    >
+                                      <optgroup label="Categories">
+                                        <option>-- Select City --</option>
+                                        <option value="1">Germany</option>
+                                        <option value="2">USA</option>
+                                        <option value="3">Canada</option>
+                                        <option value="4">Usa</option>
+                                        <option value="5">Afghanistan</option>
+                                        <option value="6">Albania</option>
+                                        <option value="7">China</option>
+                                        <option value="8">Denmark</option>
+                                        <option value="9">Finland</option>
+                                        <option value="10">India</option>
+                                        <option value="11">Kiribati</option>
+                                        <option value="12">Kuwait</option>
+                                        <option value="13">Mexico</option>
+                                        <option value="14">Pakistan</option>
+                                      </optgroup>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard protip"
+                                    >Country</label>
+                                    <select
+                                      class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
+                                      data-placeholder="Select"
+                                    >
+                                      <optgroup label="Categories">
+                                        <option>-- Select Country --</option>
+                                        <option value="1">Germany</option>
+                                        <option value="2">USA</option>
+                                        <option value="3">Canada</option>
+                                        <option value="4">Usa</option>
+                                        <option value="5">Afghanistan</option>
+                                        <option value="6">Albania</option>
+                                        <option value="7">China</option>
+                                        <option value="8">Denmark</option>
+                                        <option value="9">Finland</option>
+                                        <option value="10">India</option>
+                                        <option value="11">Kiribati</option>
+                                        <option value="12">Kuwait</option>
+                                        <option value="13">Mexico</option>
+                                        <option value="14">Pakistan</option>
+                                      </optgroup>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label class="control-label control-label-dashboard">Facebook</label>
+                                    <input
+                                      class="form-control form-control-dashboard"
+                                      type="text"
+                                      name="sb_user_name"
+                                      value="https://www.facebook.com/"
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard protip"
+                                    >Twitter</label>
+                                    <input
+                                      class="protip form-control form-control-dashboard"
+                                      type="email"
+                                      name="user_email"
+                                      value="https://www.twitter.com/"
+                                      readonly
+                                      data-pt-title=" You can not edit email address"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label class="control-label control-label-dashboard">Whatsapp</label>
+                                    <input
+                                      class="form-control form-control-dashboard"
+                                      type="text"
+                                      name="sb_user_name"
+                                      value="https://www.whatsapp.com/"
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard protip"
+                                    >Google</label>
+                                    <input
+                                      class="protip form-control form-control-dashboard"
+                                      type="email"
+                                      name="user_email"
+                                      value="https://www.google.com/"
+                                      readonly
+                                      data-pt-title=" You can not edit email address"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <!-- <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-6 col-lg-push-6 col-md-push-6 col-sm-push-6"
+                                > -->
+                                <div class="col-md-6 offset-md-9 col-lg-6 offset-lg-9 col-sm-12 col-xs-12">
+                                  <div class="form-group">
+                                    <span
+                                      class="tooltip-disabled"
+                                      data-toggle="tooltip"
+                                      title="Disabled in demo"
+                                    >
+                                      <input
+                                        class="btn btn-theme"
+                                        type="submit"
+                                        value="Update profile"
+                                        style="border-radius: 8px;"
+                                        disabled
+                                      />
+                                    </span>
+                                  </div>
+                                </div>
+                                <!-- <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-6 col-lg-pull-6 col-md-pull-6 col-sm-pull-6"
+                                ></div> -->
+                              </div>
+                            </form>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -416,7 +368,7 @@
               <div class="modal-content">
                 <div class="modal-header rte">
                   <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true"> ✕ </span>
+                    <span aria-hidden="true">✕</span>
                   </button>
                   <h2 class="modal-title">Password Change</h2>
                 </div>
@@ -462,10 +414,8 @@
                         <button
                           class="btn btn-theme btn-block"
                           type="button"
-                          disabled=""
-                        >
-                          Reset My Password
-                        </button>
+                          disabled
+                        >Reset My Password</button>
                       </span>
                     </div>
                   </div>
@@ -604,3 +554,15 @@ export default {
   }
 };
 </script>
+
+
+<style>
+.panel-body-settings {
+  width: auto !important;
+}
+@media (max-width: 1023px) and (min-width: 768px){
+.dashboard-main .profile-details li i {
+    display: inline-block;
+}
+}
+</style>
