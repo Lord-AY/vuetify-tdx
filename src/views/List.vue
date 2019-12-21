@@ -2549,3 +2549,9 @@ export default {
   name: "list"
 };
 </script>
+
+<style>
+  .ad-meta:first-child a{
+    margin-right: 10px;
+  }
+</style>

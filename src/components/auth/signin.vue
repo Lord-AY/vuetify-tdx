@@ -1,6 +1,7 @@
 <template>
   <!--start-->
-  <section class="main-content-reg-tx" style="padding: 120px 0px;">
+  <!-- <section class="main-content-reg-tx" style="padding: 120px 0px;"> -->
+  <section class="main-content-reg-tx">
     <div class="container">
       <div class="row">
         <div class="col-md-2"></div>

@@ -42104,3 +42104,26 @@ span.select2-container--default {
 } */
 
 /* } */
+
+/* experimental shii */
+@media (min-width: 992px){
+	.hidden-lg-up{
+		display: none !important;
+	}
+	
+  }
+  .mobile-hidden {
+	display: none;
+  }
+  .hidden-desktop{
+	display: block;
+  }
+  
+  @media (min-width: 769px) {
+	.mobile-hidden {
+	  display: block;
+	}
+	.hidden-desktop{
+	  display: none !important;
+	}
+  }

@@ -7,7 +7,7 @@
       >
         <div class="container">
           <div class="row value-added-services-row">
-            <div class="col-md-2" style="padding-left: 0px;">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="outline1">
@@ -30,7 +30,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-2 " style="padding-left: 0px;">
+            <div class="col-md-2 col-sm-4 col-xs-4 " style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
@@ -49,7 +49,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-2 " style="padding-left: 0px;">
+            <div class="col-md-2 col-sm-4 col-xs-4 " style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
@@ -68,7 +68,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-2" style="padding-left: 0px;">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
@@ -87,7 +87,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-2" style="padding-left: 0px;">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
@@ -107,8 +107,8 @@
               </a>
             </div>
             <div
-              class="col-md-2"
-              style="padding-left: 0px; padding-right: 0px;"
+              class="col-md-2 col-sm-4 col-xs-4"
+              style="padding-left: 0px; padding-right: 0px; margin-top: 10px; margin-bottom: 10px;"
             >
               <a href="#">
                 <div class="d-flex value-added">
@@ -1667,14 +1667,22 @@
                           <span>January 24, 2019</span>
                         </p>
                         <!-- <ul class="pull-right "><li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Save Ad" href="javascript:void(0);" class="save-ad" data-adid="1375"><i class="flaticon-like-1"></i></a></li><li><a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"><i class="flaticon-message"></i></a></li></ul> -->
-                        <div class="icon-reveal">
+                        <div class="icon-reveal mobile-hidden">
                           <a class="btn icon-reveal-btn">
                             <i class="fa fa-heart-o"></i>
                           </a>
                         </div>
-                        <div class="button-reveal">
+                        <div class="button-reveal mobile-hidden">
                           <a
                             class="btn btn-block button-reveal-btn"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
                             href="productdetail.html"
                           >
                             Contact Seller</a
@@ -1755,16 +1763,25 @@
                           <span>January 24, 2019</span>
                         </p>
                         <!-- <ul class="pull-right "><li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Save Ad" href="javascript:void(0);" class="save-ad" data-adid="1366"><i class="flaticon-like-1"></i></a></li><li><a href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"><i class="flaticon-message"></i></a></li></ul> -->
-                        <div class="icon-reveal">
+                        <div class="icon-reveal mobile-hidden">
                           <a class="btn icon-reveal-btn">
                             <i class="fa fa-heart-o"></i>
                           </a>
                         </div>
-                        <div class="button-reveal">
+                        <div class="button-reveal mobile-hidden">
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
                           >
                         </div>
                       </div>
@@ -1850,16 +1867,25 @@
                           <i class="flaticon-calendar"></i> &nbsp;
                           <span>January 24, 2019</span>
                         </p>
-                        <div class="icon-reveal">
+                        <div class="icon-reveal mobile-hidden">
                           <a class="btn icon-reveal-btn">
                             <i class="fa fa-heart-o"></i>
                           </a>
                         </div>
-                        <div class="button-reveal">
+                        <div class="button-reveal mobile-hidden">
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
                           >
                         </div>
                       </div>
@@ -1932,16 +1958,25 @@
                           <i class="flaticon-calendar"></i> &nbsp;
                           <span>January 24, 2019</span>
                         </p>
-                        <div class="icon-reveal">
+                        <div class="icon-reveal mobile-hidden">
                           <a class="btn icon-reveal-btn">
                             <i class="fa fa-heart-o"></i>
                           </a>
                         </div>
-                        <div class="button-reveal">
+                        <div class="button-reveal mobile-hidden">
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
                           >
                         </div>
                       </div>
@@ -2017,14 +2052,22 @@
                           <i class="flaticon-calendar"></i> &nbsp;
                           <span>January 24, 2019</span>
                         </p>
-                        <div class="icon-reveal">
+                        <div class="icon-reveal mobile-hidden">
                           <a class="btn icon-reveal-btn">
                             <i class="fa fa-heart-o"></i>
                           </a>
                         </div>
-                        <div class="button-reveal">
+                        <div class="button-reveal mobile-hidden">
                           <a
                             class="btn btn-block button-reveal-btn"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
                             href="productdetail.html"
                           >
                             Contact Seller</a
@@ -2094,16 +2137,25 @@
                           <i class="flaticon-calendar"></i> &nbsp;
                           <span>July 21, 2017</span>
                         </p>
-                        <div class="icon-reveal">
+                        <div class="icon-reveal mobile-hidden">
                           <a class="btn icon-reveal-btn">
                             <i class="fa fa-heart-o"></i>
                           </a>
                         </div>
-                        <div class="button-reveal">
+                        <div class="button-reveal mobile-hidden">
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
                           >
                         </div>
                       </div>
@@ -2176,16 +2228,25 @@
                           <i class="flaticon-calendar"></i> &nbsp;
                           <span>July 13, 2017</span>
                         </p>
-                        <div class="icon-reveal">
+                        <div class="icon-reveal mobile-hidden">
                           <a class="btn icon-reveal-btn">
                             <i class="fa fa-heart-o"></i>
                           </a>
                         </div>
-                        <div class="button-reveal">
+                        <div class="button-reveal mobile-hidden">
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
                           >
                         </div>
                       </div>
@@ -2253,18 +2314,27 @@
                         <span>July 13, 2017</span>
                       </p>
                       <!-- <ul class="pull-right "><li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Save Ad" href="javascript:void(0);" class="save-ad" data-adid="873"><i class="flaticon-like-1"></i></a></li><li><a href="../ad/rolls-royce-phantom/index.html"><i class="flaticon-message"></i></a></li></ul> -->
-                      <div class="icon-reveal">
-                        <a class="btn icon-reveal-btn">
-                          <i class="fa fa-heart-o"></i>
-                        </a>
-                      </div>
-                      <div class="button-reveal">
-                        <a
-                          class="btn btn-block button-reveal-btn"
-                          href="productdetail.html"
-                          >Contact Seller</a
-                        >
-                      </div>
+                      <div class="icon-reveal mobile-hidden">
+                          <a class="btn icon-reveal-btn">
+                            <i class="fa fa-heart-o"></i>
+                          </a>
+                        </div>
+                        <div class="button-reveal mobile-hidden">
+                          <a
+                            class="btn btn-block button-reveal-btn"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
                     </div>
                     </div>
                     
@@ -2336,18 +2406,27 @@
                         <i class="flaticon-calendar"></i> &nbsp;
                         <span>June 20, 2017</span>
                       </p>
-                      <div class="icon-reveal">
-                        <a class="btn icon-reveal-btn">
-                          <i class="fa fa-heart-o"></i>
-                        </a>
-                      </div>
-                      <div class="button-reveal">
-                        <a
-                          class="btn btn-block button-reveal-btn"
-                          href="productdetail.html"
-                          >Contact Seller</a
-                        >
-                      </div>
+                      <div class="icon-reveal mobile-hidden">
+                          <a class="btn icon-reveal-btn">
+                            <i class="fa fa-heart-o"></i>
+                          </a>
+                        </div>
+                        <div class="button-reveal mobile-hidden">
+                          <a
+                            class="btn btn-block button-reveal-btn"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
+                        <div class="button-griddy hidden-desktop">
+                          <a
+                            class="btn btn-block btn-theme"
+                            href="productdetail.html"
+                          >
+                            Contact Seller</a
+                          >
+                        </div>
                     </div>
                   </div>
                   <!-- Listing Ad Grid -->
@@ -2432,3 +2511,25 @@ export default {
   }
 };
 </script>
+
+<style>
+
+.category-grid-box-tx .image img{
+  width: 10rem !important;
+  height: 10rem !important;
+}
+
+.short-features{
+    max-width: 100%;
+  }
+
+@media (max-width: 992px){
+  .short-features{
+    max-width: 100%;
+  }
+}
+.button-griddy > a, .button-griddy > a:hover {
+  color: #fff;
+  border-radius: 0px;
+}
+</style>
