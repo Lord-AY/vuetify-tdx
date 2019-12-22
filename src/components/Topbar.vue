@@ -11,11 +11,11 @@
               <div class="clearfix">
                 <ul class="contact">
                   <li class="mr-5 d-lg-none">
-                    <a href="#" class="callnumber text-dark"
-                      ><span
-                        ><i class="fa fa-phone mr-1"></i>: +425 345 8765</span
-                      ></a
-                    >
+                    <a href="#" class="callnumber text-dark">
+                      <span>
+                        <i class="fa fa-phone mr-1"></i>: +425 345 8765
+                      </span>
+                    </a>
                   </li>
                   <li class="select-country mr-5">
                     <select
@@ -165,58 +165,32 @@
                     </select>
                   </li>
                   <li class="dropdown mr-5">
-                    <a
-                      href="#"
-                      class="text-dark dropdown-head"
-                      data-toggle="dropdown"
-                      ><span>
-                        Language <i class="fa fa-caret-down text-muted"></i
-                      ></span>
+                    <a href="#" class="text-dark dropdown-head" data-toggle="dropdown">
+                      <span>
+                        Language
+                        <i class="fa fa-caret-down text-muted"></i>
+                      </span>
                     </a>
-                    <div
-                      class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
-                    >
-                      <a href="#" class="dropdown-item">
-                        English
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        Arabic
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        German
-                      </a>
-                      <a href="#" class="dropdown-item">
-                        Greek
-                      </a>
-                      <a href="#" class="dropdown-item">
-                        Japanese
-                      </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                      <a href="#" class="dropdown-item">English</a>
+                      <a class="dropdown-item" href="#">Arabic</a>
+                      <a class="dropdown-item" href="#">German</a>
+                      <a href="#" class="dropdown-item">Greek</a>
+                      <a href="#" class="dropdown-item">Japanese</a>
                     </div>
                   </li>
                   <li class="dropdown">
-                    <a
-                      href="#"
-                      class="text-dark dropdown-head"
-                      data-toggle="dropdown"
-                      ><span
-                        >Currency
-                        <i class="fa fa-caret-down text-muted"></i></span
-                    ></a>
-                    <div
-                      class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
-                    >
-                      <a href="#" class="dropdown-item">
-                        USD
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        EUR
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        INR
-                      </a>
-                      <a href="#" class="dropdown-item">
-                        GBP
-                      </a>
+                    <a href="#" class="text-dark dropdown-head" data-toggle="dropdown">
+                      <span>
+                        Currency
+                        <i class="fa fa-caret-down text-muted"></i>
+                      </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                      <a href="#" class="dropdown-item">USD</a>
+                      <a class="dropdown-item" href="#">EUR</a>
+                      <a class="dropdown-item" href="#">INR</a>
+                      <a href="#" class="dropdown-item">GBP</a>
                     </div>
                   </li>
                 </ul>
@@ -235,21 +209,25 @@
 							<li>
 								<router-link to="/login" class="btn btn-tx btn-theme text-dark post-ad-header-tx"> POST AN AD</router-link>
 							</li>
-						</ul> -->
+              </ul>-->
               <ul class="listnone custom">
                 <li>
                   <a
                     class="shopping_bag_btn"
                     href="https://carspot.scriptsbundle.com/transparent-1/cart/"
-                    ><i class="fa fa-shopping-cart"></i><span>0</span></a
                   >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>0</span>
+                  </a>
                 </li>
                 <li>
                   <a
                     class="shopping_bag_btn"
                     href="https://carspot.scriptsbundle.com/transparent-1/cart/"
-                    ><i class="fa fa-bell"></i><span>0</span></a
                   >
+                    <i class="fa fa-bell"></i>
+                    <span>0</span>
+                  </a>
                 </li>
 
                 <li class="dropdown">
@@ -261,31 +239,23 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <img
-                      class="img-circle resize"
-                      alt="Avatar"
-                      src="../assets/images/boss.jpg"/>
-                    <span class="caret" style="color: #fff!important"></span
-                  ></a>
+                    <img class="img-circle resize" alt="Avatar" src="../assets/images/boss.jpg" />
+                    <span class="caret" style="color: #fff!important"></span>
+                  </a>
                   <ul class="dropdown-menu">
                     <li class="wallet-balance">
                       <img
                         src="../assets/images/wallet.svg"
                         height="18px"
                         style="margin-top: -4px; margin-right: 5px;"
-                        alt=""
-                        srcset=""
+                        alt
+                        srcset
                       />
-
                       Balance
-
-                      <span> 00.00</span>
+                      <span>00.00</span>
                     </li>
                     <li class="profile-dropdown-list">
-                      <router-link
-                        to="/Dashboard"
-                        class="profile-dropdown-link"
-                      >
+                      <router-link to="/Dashboard" class="profile-dropdown-link">
                         <i class="fa fa-dashboard profile-dropdown-icon"></i>
                         Dashboard
                       </router-link>
@@ -303,9 +273,7 @@
                   <router-link
                     to="/login"
                     class="btn btn-tx btn-theme text-dark post-ad-header-tx"
-                  >
-                    POST AN AD</router-link
-                  >
+                  >POST AN AD</router-link>
                 </li>
               </ul>
             </div>
@@ -316,12 +284,21 @@
     <!--/Topbar-->
 
     <!-- Header -->
-    <div class="horizontal-header clearfix ">
+    <div class="horizontal-header clearfix">
       <div class="container">
-        <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a>
-        <span class="smllogo"
-          ><img src="../assets/images/brand/tradexplora-01.png" alt=""
-        /></span>
+        <!-- <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a> -->
+        <div
+          id="tx-menu-toggle"
+          class="openbtn closed"
+          style="margin: 0px; position: relative; float: left; display: inline-block; top: 16px; height: 100%;"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="smllogo">
+          <img src="../assets/images/brand/tradexplora-01.png" alt />
+        </span>
         <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
       </div>
     </div>
@@ -333,24 +310,51 @@
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
-            <a href="index.html"
-              ><img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt=""
-            /></a>
+            <a href="index.html">
+              <img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt />
+            </a>
           </div>
           <div class="desktoplogo-1">
-            <a href="index.html"
-              ><img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt=""
-            /></a>
+            <a href="index.html">
+              <img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt />
+            </a>
           </div>
           <ul class="horizontalMenu-list" style="margin-top: 12px;">
-            <li aria-haspopup="true"><a href="about.html"> ABOUT US </a></li>
+            <li aria-haspopup="true" style="margin-right: 10px;">
+              <button class="btn">
+                <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
+              </button>
+            </li>
+            <li aria-haspopup="true" style="padding: 0px;">
+              <div class="row">
+                <div class="col-xl-10 col-lg-12 col-md-12 mb-0">
+                  <input
+                    type="text"
+                    class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
+                    id="text4"
+                    placeholder="Search products, brands and categories"
+                  />
+                  <span>
+                    <i class="fa fa-search location-gps mr-1"></i>
+                  </span>
+                </div>
+                <div class="col-xl-2 col-lg-12 col-md-12">
+                  <button
+                    class="header-search-button btn btn-theme"
+                    style="height: 100%; line-height: 13px; font-size: 14px; color: #fff;">
+                    Search
+                  </button>
+                </div>
+              </div>
+            </li>
+            <!-- <li aria-haspopup="true"><a href="about.html"> ABOUT US </a></li>
             <li aria-haspopup="true"><a href="#"> FAQ </a></li>
             <li aria-haspopup="true">
               <a href="contact.html">
                 CONTACT US <span class="hmarrow"></span
               ></a>
             </li>
-            <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0"></li>
+            <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0"></li>-->
           </ul>
           <div class="call-us-now">
             <div class="contact-in-header">
@@ -362,8 +366,7 @@
                 <br />
                 <strong
                   style="font-size: 20px; color: #4CAF50; font-weight: 600!important;"
-                  >(+234) 811-111-1808</strong
-                >
+                >(+234) 811-111-1808</strong>
               </p>
             </div>
           </div>
@@ -375,8 +378,49 @@
 </template>
 
 <script>
+/* eslint-disable no-undef */
 export default {
-  name: "topbar"
+  name: "topbar",
+  methods: {
+    sync() {
+      $(document).ready(function() {
+        $("#tx-menu-toggle").click(function() {
+          $(this).toggleClass("open");
+        });
+
+        // let sideBarTrigger = $(".openbtn");
+        // let sideBar = $("#sidebar-nav");
+        // let dashboardContent = $(".dashboard-main");
+        // sideBarTrigger.click(() => {
+        //   if (sideBarTrigger.hasClass("closed")) {
+        //     //to open
+        //     sideBar.css({ left: "0px" });
+        //     dashboardContent.css({
+        //       left: "250px",
+        //       transition: "all 0.3s ease-in-out;"
+        //     });
+        //     sideBarTrigger.toggleClass("closed");
+        //     console.log("Sidebar is now open");
+        //   } else {
+        //     //to close
+        //     sideBar.css({ left: "-260px" });
+        //     dashboardContent.css({
+        //       left: "0px",
+        //       transition: "all 0.3s ease-in-out;"
+        //     });
+        //     sideBarTrigger.toggleClass("closed");
+        //     console.log("Sidebar is now closed");
+        //   }
+        // });
+      });
+    }
+  },
+  watch: {
+    $route: "sync"
+  },
+  created() {
+    this.sync();
+  }
 };
 </script>
 
