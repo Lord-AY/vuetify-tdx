@@ -986,7 +986,7 @@ export default {
 .mobile-hidden {
   display: none;
 }
-.hidden-desktop{
+.hidden-desktop {
   display: block;
 }
 
@@ -994,7 +994,7 @@ export default {
   .mobile-hidden {
     display: block;
   }
-  .hidden-desktop{
+  .hidden-desktop {
     display: none !important;
   }
 }

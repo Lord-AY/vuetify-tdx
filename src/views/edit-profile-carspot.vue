@@ -21,17 +21,25 @@
                     <p class="panel-subtitle">Last logged in 2 hours Ago</p>
                   </div>
                   <div class="row">
-                    <div class="panel-body col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-sm-12 col-xs-12" style="padding: 30px;">
+                    <div
+                      class="panel-body col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-sm-12 col-xs-12"
+                      style="padding: 30px;"
+                    >
                       <div class="row">
                         <div
                           class="col-md-12 col-lg-12 col-sm-12 col-xs-12 profile-summary-dashboard"
                         >
                           <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
-                            <div class="panel panel-dashbaord-edit panel-headline">
+                            <div
+                              class="panel panel-dashbaord-edit panel-headline"
+                            >
                               <div class="profile-card">
                                 <div class="profile-card-body">
                                   <div class="contact-box">
-                                    <div class="contact-box-bg" id="store-image"></div>
+                                    <div
+                                      class="contact-box-bg"
+                                      id="store-image"
+                                    ></div>
                                     <div class="contact-img">
                                       <a
                                         href="https://carspot.scriptsbundle.com/individual/oyink7/"
@@ -54,7 +62,9 @@
                                           data-toggle="tooltip"
                                           title="Disabled in demo"
                                         >
-                                          <button class="btn-profile">Upload Photo</button>
+                                          <button class="btn-profile">
+                                            Upload Photo
+                                          </button>
                                           <input
                                             type="file"
                                             id="imgInp"
@@ -78,7 +88,10 @@
                               <div class="panel-heading">
                                 <h3 class="panel-title">Profile Details</h3>
                               </div>
-                              <div class="panel-body" style="padding-bottom: 0px;">
+                              <div
+                                class="panel-body"
+                                style="padding-bottom: 0px;"
+                              >
                                 <ul class="profile-details">
                                   <li>
                                     <i class="la la-user"></i>
@@ -125,9 +138,14 @@
                               novalidate
                             >
                               <div class="row">
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
-                                    <label class="control-label control-label-dashboard">First Name</label>
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >First Name</label
+                                    >
                                     <input
                                       class="form-control form-control-dashboard"
                                       type="text"
@@ -137,11 +155,14 @@
                                     />
                                   </div>
                                 </div>
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
                                     <label
                                       class="control-label control-label-dashboard protip"
-                                    >Last Name</label>
+                                      >Last Name</label
+                                    >
                                     <input
                                       class="protip form-control form-control-dashboard"
                                       type="email"
@@ -157,11 +178,14 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
                                     <label
                                       class="control-label control-label-dashboard protip"
-                                    >Email Address</label>
+                                      >Email Address</label
+                                    >
                                     <input
                                       class="protip form-control form-control-dashboard"
                                       type="email"
@@ -175,9 +199,14 @@
                                     />
                                   </div>
                                 </div>
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
-                                    <label class="control-label control-label-dashboard">Mobile No</label>
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >Mobile No</label
+                                    >
                                     <input
                                       class="form-control form-control-dashboard"
                                       data-parsley-type="number"
@@ -191,11 +220,14 @@
                               </div>
 
                               <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
                                     <label
                                       class="control-label control-label-dashboard"
-                                    >About Yourself</label>
+                                      >About Yourself</label
+                                    >
                                     <textarea
                                       class="form-control dashboard"
                                       name="sb_user_about"
@@ -206,9 +238,14 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
-                                    <label class="control-label control-label-dashboard">City</label>
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >City</label
+                                    >
                                     <select
                                       class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
                                       data-placeholder="Select"
@@ -233,11 +270,14 @@
                                     </select>
                                   </div>
                                 </div>
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
                                     <label
                                       class="control-label control-label-dashboard protip"
-                                    >Country</label>
+                                      >Country</label
+                                    >
                                     <select
                                       class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
                                       data-placeholder="Select"
@@ -264,9 +304,14 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
-                                    <label class="control-label control-label-dashboard">Facebook</label>
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >Facebook</label
+                                    >
                                     <input
                                       class="form-control form-control-dashboard"
                                       type="text"
@@ -276,11 +321,14 @@
                                     />
                                   </div>
                                 </div>
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
                                     <label
                                       class="control-label control-label-dashboard protip"
-                                    >Twitter</label>
+                                      >Twitter</label
+                                    >
                                     <input
                                       class="protip form-control form-control-dashboard"
                                       type="email"
@@ -296,9 +344,14 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
-                                    <label class="control-label control-label-dashboard">Whatsapp</label>
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >Whatsapp</label
+                                    >
                                     <input
                                       class="form-control form-control-dashboard"
                                       type="text"
@@ -308,11 +361,14 @@
                                     />
                                   </div>
                                 </div>
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
                                   <div class="form-group">
                                     <label
                                       class="control-label control-label-dashboard protip"
-                                    >Google</label>
+                                      >Google</label
+                                    >
                                     <input
                                       class="protip form-control form-control-dashboard"
                                       type="email"
@@ -331,7 +387,9 @@
                                 <!-- <div
                                   class="col-md-6 col-lg-6 col-xs-12 col-sm-6 col-lg-push-6 col-md-push-6 col-sm-push-6"
                                 > -->
-                                <div class="col-md-6 offset-md-9 col-lg-6 offset-lg-9 col-sm-12 col-xs-12">
+                                <div
+                                  class="col-md-6 offset-md-9 col-lg-6 offset-lg-9 col-sm-12 col-xs-12"
+                                >
                                   <div class="form-group">
                                     <span
                                       class="tooltip-disabled"
@@ -415,7 +473,9 @@
                           class="btn btn-theme btn-block"
                           type="button"
                           disabled
-                        >Reset My Password</button>
+                        >
+                          Reset My Password
+                        </button>
                       </span>
                     </div>
                   </div>
@@ -555,14 +615,13 @@ export default {
 };
 </script>
 
-
 <style>
 .panel-body-settings {
   width: auto !important;
 }
-@media (max-width: 1023px) and (min-width: 768px){
-.dashboard-main .profile-details li i {
+@media (max-width: 1023px) and (min-width: 768px) {
+  .dashboard-main .profile-details li i {
     display: inline-block;
-}
+  }
 }
 </style>

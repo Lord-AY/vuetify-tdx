@@ -24,7 +24,10 @@
         class="slimScrollDiv"
         style="position: relative; overflow: hidden; width: auto; height: 95%;"
       >
-        <div class="sidebar-scroll" style="overflow: hidden; width: auto; height: 95%;">
+        <div
+          class="sidebar-scroll"
+          style="overflow: hidden; width: auto; height: 95%;"
+        >
           <nav>
             <ul class="nav">
               <li class="welcome-text">

@@ -96,7 +96,9 @@
                     <a href class>View All Posts</a>
                   </div>
                   <div class="panel-body table-responsive">
-                    <table class="table dashboard-table table-fit table-striped">
+                    <table
+                      class="table dashboard-table table-fit table-striped"
+                    >
                       <!--<thead>
                                 <tr>
                                     <th></th>
@@ -120,12 +122,21 @@
                     <a href class>View All Reviews</a>
                   </div>
                   <div class="panel-body">
-                    <div class="alert custom-alert custom-alert-info" role="alert">
+                    <div
+                      class="alert custom-alert custom-alert-info"
+                      role="alert"
+                    >
                       <div class="custom-alert_top-side">
-                        <span class="alert-icon custom-alert_icon la la-info-circle"></span>
+                        <span
+                          class="alert-icon custom-alert_icon la la-info-circle"
+                        ></span>
                         <div class="custom-alert_body">
-                          <h6 class="custom-alert_heading">No Review Availabler.</h6>
-                          <div class="custom-alert_content">Your reviews will be visible here.</div>
+                          <h6 class="custom-alert_heading">
+                            No Review Availabler.
+                          </h6>
+                          <div class="custom-alert_content">
+                            Your reviews will be visible here.
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -135,14 +146,21 @@
               <div class="col-md-4">
                 <div class="panel panel-headline">
                   <div class="panel-body">
-                    <div class="alert custom-alert custom-alert-info" role="alert">
+                    <div
+                      class="alert custom-alert custom-alert-info"
+                      role="alert"
+                    >
                       <div class="custom-alert_top-side">
-                        <span class="alert-icon custom-alert_icon la la-info-circle"></span>
+                        <span
+                          class="alert-icon custom-alert_icon la la-info-circle"
+                        ></span>
                         <div class="custom-alert_body">
-                          <h6 class="custom-alert_heading">No Notification Available.</h6>
-                          <div
-                            class="custom-alert_content"
-                          >Notifications from admin will be visible here.</div>
+                          <h6 class="custom-alert_heading">
+                            No Notification Available.
+                          </h6>
+                          <div class="custom-alert_content">
+                            Notifications from admin will be visible here.
+                          </div>
                         </div>
                       </div>
                     </div>

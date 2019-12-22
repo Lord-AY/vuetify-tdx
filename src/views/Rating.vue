@@ -24,20 +24,36 @@
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="edit-profile-form dealers-review-section on-backend">
+                        <div
+                          class="edit-profile-form dealers-review-section on-backend"
+                        >
                           <div class="row">
-                            <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                              <div class="alert custom-alert custom-alert-info" role="alert">
+                            <div
+                              class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
+                            >
+                              <div
+                                class="alert custom-alert custom-alert-info"
+                                role="alert"
+                              >
                                 <div class="custom-alert_top-side row">
-                                  <div class="col-md-12 col-lg-12 col-sm-12 text-center">
-                                    <div class="alert-icon custom-alert_icon la la-info-circle" style="display: inline-block; margin: 0px auto;"></div>
+                                  <div
+                                    class="col-md-12 col-lg-12 col-sm-12 text-center"
+                                  >
+                                    <div
+                                      class="alert-icon custom-alert_icon la la-info-circle"
+                                      style="display: inline-block; margin: 0px auto;"
+                                    ></div>
                                   </div>
-                                  <div class="col-md-12 col-lg-12 col-sm-12 text-center">
+                                  <div
+                                    class="col-md-12 col-lg-12 col-sm-12 text-center"
+                                  >
                                     <div class="custom-alert_body">
-                                      <h6 class="custom-alert_heading">No Review Available.</h6>
-                                      <div
-                                        class="custom-alert_content"
-                                      >Your reviews will be visible here.</div>
+                                      <h6 class="custom-alert_heading">
+                                        No Review Available.
+                                      </h6>
+                                      <div class="custom-alert_content">
+                                        Your reviews will be visible here.
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -191,17 +207,17 @@ export default {
 };
 </script>
 <style>
-  .search-input {
+.search-input {
   /* border-top-right-radius: 0px;
   border-bottom-right-radius: 0px; */
   border-radius: 8px 0px 0px 8px !important;
 }
-.form-published-search{
+.form-published-search {
   display: flex;
 }
 
-@media (max-width: 992px){
-  .form-published-search{
+@media (max-width: 992px) {
+  .form-published-search {
     float: left;
     margin-top: 20px;
   }

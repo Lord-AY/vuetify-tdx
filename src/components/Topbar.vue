@@ -165,13 +165,19 @@
                     </select>
                   </li>
                   <li class="dropdown mr-5">
-                    <a href="#" class="text-dark dropdown-head" data-toggle="dropdown">
+                    <a
+                      href="#"
+                      class="text-dark dropdown-head"
+                      data-toggle="dropdown"
+                    >
                       <span>
                         Language
                         <i class="fa fa-caret-down text-muted"></i>
                       </span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                    <div
+                      class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
+                    >
                       <a href="#" class="dropdown-item">English</a>
                       <a class="dropdown-item" href="#">Arabic</a>
                       <a class="dropdown-item" href="#">German</a>
@@ -180,13 +186,19 @@
                     </div>
                   </li>
                   <li class="dropdown">
-                    <a href="#" class="text-dark dropdown-head" data-toggle="dropdown">
+                    <a
+                      href="#"
+                      class="text-dark dropdown-head"
+                      data-toggle="dropdown"
+                    >
                       <span>
                         Currency
                         <i class="fa fa-caret-down text-muted"></i>
                       </span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                    <div
+                      class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
+                    >
                       <a href="#" class="dropdown-item">USD</a>
                       <a class="dropdown-item" href="#">EUR</a>
                       <a class="dropdown-item" href="#">INR</a>
@@ -239,7 +251,11 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <img class="img-circle resize" alt="Avatar" src="../assets/images/boss.jpg" />
+                    <img
+                      class="img-circle resize"
+                      alt="Avatar"
+                      src="../assets/images/boss.jpg"
+                    />
                     <span class="caret" style="color: #fff!important"></span>
                   </a>
                   <ul class="dropdown-menu">
@@ -255,7 +271,10 @@
                       <span>00.00</span>
                     </li>
                     <li class="profile-dropdown-list">
-                      <router-link to="/Dashboard" class="profile-dropdown-link">
+                      <router-link
+                        to="/Dashboard"
+                        class="profile-dropdown-link"
+                      >
                         <i class="fa fa-dashboard profile-dropdown-icon"></i>
                         Dashboard
                       </router-link>
@@ -273,7 +292,8 @@
                   <router-link
                     to="login"
                     class="btn btn-tx btn-theme text-dark post-ad-header-tx"
-                  >POST AN AD</router-link>
+                    >POST AN AD</router-link
+                  >
                 </li>
               </ul>
             </div>
@@ -341,7 +361,8 @@
                 <div class="col-xl-2 col-lg-12 col-md-12">
                   <button
                     class="header-search-button btn btn-theme"
-                    style="height: 100%; line-height: 13px; font-size: 14px; color: #fff;">
+                    style="height: 100%; line-height: 13px; font-size: 14px; color: #fff;"
+                  >
                     Search
                   </button>
                 </div>
@@ -366,7 +387,8 @@
                 <br />
                 <strong
                   style="font-size: 20px; color: #4CAF50; font-weight: 600!important;"
-                >(+234) 811-111-1808</strong>
+                  >(+234) 811-111-1808</strong
+                >
               </p>
             </div>
           </div>

@@ -21,7 +21,10 @@
                   </div>
 
                   <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
-                    <form class="form form-inline form-published-search" method="get">
+                    <form
+                      class="form form-inline form-published-search"
+                      method="get"
+                    >
                       <div class="form-group">
                         <input
                           type="text"
@@ -30,14 +33,20 @@
                           value
                           placeholder="Search Inventory"
                         />
-                        <input type="hidden" name="page-type" value="published-ads" />
+                        <input
+                          type="hidden"
+                          name="page-type"
+                          value="published-ads"
+                        />
                       </div>
                       <div class="form-group">
                         <button
                           type="submit"
                           class="btn btn-theme"
                           style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
-                        >Search</button>
+                        >
+                          Search
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -83,12 +92,13 @@
                           <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"><img src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg" alt="na me" class="img-responsive"></a>                                     </span>-->
                         </td>
                         <td>
-                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741">
+                          <a
+                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
+                          >
                             <span class="ad-title">Ade Johnson</span>
                           </a>
                           <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3,
-                            2019
+                            <i class="la la-calendar-o"></i> December 3, 2019
                           </span>
                           <!-- <span class="pending-post-msg"> <i class="fa fa-warning"></i> 
                           Your post is under review                                    </span>-->
@@ -98,7 +108,8 @@
                             <span class="padding_cats">
                               <a
                                 href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                              >Whatsapp</a>
+                                >Whatsapp</a
+                              >
                             </span>
                             <span class="padding_cats"></span>
                           </span>
@@ -274,7 +285,7 @@ export default {
 </script>
 
 <style>
-.table th{
+.table th {
   font-size: 14px;
 }
 .search-input {
@@ -282,12 +293,12 @@ export default {
   border-bottom-right-radius: 0px; */
   border-radius: 8px 0px 0px 8px !important;
 }
-.form-published-search{
+.form-published-search {
   display: flex;
 }
 
-@media (max-width: 992px){
-  .form-published-search{
+@media (max-width: 992px) {
+  .form-published-search {
     float: left;
     margin-top: 20px;
   }

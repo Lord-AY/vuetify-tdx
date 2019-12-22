@@ -22,7 +22,10 @@
                   </div>
 
                   <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
-                    <form class="form form-inline form-published-search" method="get">
+                    <form
+                      class="form form-inline form-published-search"
+                      method="get"
+                    >
                       <div class="form-group">
                         <input
                           type="text"
@@ -31,14 +34,20 @@
                           value
                           placeholder="Search Inventory"
                         />
-                        <input type="hidden" name="page-type" value="published-ads" />
+                        <input
+                          type="hidden"
+                          name="page-type"
+                          value="published-ads"
+                        />
                       </div>
                       <div class="form-group">
                         <button
                           type="submit"
                           class="btn btn-theme"
                           style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
-                        >Search</button>
+                        >
+                          Search
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -94,12 +103,13 @@
                           </span>
                         </td>
                         <td>
-                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741">
+                          <a
+                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
+                          >
                             <span class="ad-title">na me</span>
                           </a>
                           <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3,
-                            2019
+                            <i class="la la-calendar-o"></i> December 3, 2019
                           </span>
                           <span class="pending-post-msg">
                             <i class="fa fa-warning"></i> Your post is under
@@ -111,10 +121,14 @@
                             <span class="padding_cats">
                               <a
                                 href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                              >Aston Martin</a>
+                                >Aston Martin</a
+                              >
                             </span>
                             <span class="padding_cats">
-                              <a href="https://carspot.scriptsbundle.com/ad_category/db-11/">DB 11</a>
+                              <a
+                                href="https://carspot.scriptsbundle.com/ad_category/db-11/"
+                                >DB 11</a
+                              >
                             </span>
                           </span>
                         </td>
@@ -170,12 +184,13 @@
                           </span>
                         </td>
                         <td>
-                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741">
+                          <a
+                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
+                          >
                             <span class="ad-title">na me</span>
                           </a>
                           <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3,
-                            2019
+                            <i class="la la-calendar-o"></i> December 3, 2019
                           </span>
                           <span class="pending-post-msg">
                             <i class="fa fa-warning"></i> Your post is under
@@ -187,10 +202,14 @@
                             <span class="padding_cats">
                               <a
                                 href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                              >Aston Martin</a>
+                                >Aston Martin</a
+                              >
                             </span>
                             <span class="padding_cats">
-                              <a href="https://carspot.scriptsbundle.com/ad_category/db-11/">DB 11</a>
+                              <a
+                                href="https://carspot.scriptsbundle.com/ad_category/db-11/"
+                                >DB 11</a
+                              >
                             </span>
                           </span>
                         </td>
@@ -246,12 +265,13 @@
                           </span>
                         </td>
                         <td>
-                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741">
+                          <a
+                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
+                          >
                             <span class="ad-title">na me</span>
                           </a>
                           <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3,
-                            2019
+                            <i class="la la-calendar-o"></i> December 3, 2019
                           </span>
                           <span class="pending-post-msg">
                             <i class="fa fa-warning"></i> Your post is under
@@ -263,10 +283,14 @@
                             <span class="padding_cats">
                               <a
                                 href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                              >Aston Martin</a>
+                                >Aston Martin</a
+                              >
                             </span>
                             <span class="padding_cats">
-                              <a href="https://carspot.scriptsbundle.com/ad_category/db-11/">DB 11</a>
+                              <a
+                                href="https://carspot.scriptsbundle.com/ad_category/db-11/"
+                                >DB 11</a
+                              >
                             </span>
                           </span>
                         </td>
@@ -455,10 +479,10 @@ export default {
 .table th {
   font-size: 14px;
 }
-ul.ad-actions-list li{
+ul.ad-actions-list li {
   display: inline-block;
 }
-.dashboard-table tr td .ad-actions i{
+.dashboard-table tr td .ad-actions i {
   font-size: 24px;
 }
 
@@ -473,12 +497,12 @@ ul.ad-actions-list li{
   border-bottom-right-radius: 0px; */
   border-radius: 8px 0px 0px 8px !important;
 }
-.form-published-search{
+.form-published-search {
   display: flex;
 }
 
-@media (max-width: 992px){
-  .form-published-search{
+@media (max-width: 992px) {
+  .form-published-search {
     float: left;
     margin-top: 20px;
   }
