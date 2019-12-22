@@ -25,9 +25,6 @@ export default {
 			loginError: null
 		}
 	},
-	components: {
-		Login
-	},
 	computed: {
 		...mapGetters('auth', {
 			errors: 'getLoginErrors'

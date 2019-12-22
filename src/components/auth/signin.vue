@@ -116,10 +116,9 @@
 											</div>
 
 											<div class="col-mdm-12 mt-5">
-												<a
+												<button
 													class="btn btn-block btn-primary btn-register-tx text-uppercase"
-													href="account-home.html"
-													>Login</a
+													>Login</button
 												>
 											</div>
 										</form>
