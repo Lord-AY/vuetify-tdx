@@ -114,7 +114,7 @@
               </div>
               <a
                 class="small-box col-md-3 col-sm-3 col-xs-12"
-                style="padding-left: 25px; padding-right: 25px;"
+                style="padding-left: 22px; padding-right: 22px;"
                 href="javascript:void(0);"
                 id="ad_to_fav"
                 data-adid="1375"
@@ -501,8 +501,14 @@
               <div class="row" style="margin-top: 36px;">
                 <div class="col-md-5"></div>
                 <div class="col-md-2">
-                  <div class="viewall-similar">
+                  <!--                   <div class="viewall-similar">
                     <a href="">Show More</a>
+                  </div>
+   -->
+                  <div class="viewall mobile-hidden">
+                    <router-link to="/Gridlist"
+                      >Show All <i class="fa fa-arrow-circle-right"></i
+                    ></router-link>
                   </div>
                 </div>
                 <div class="col-md-5"></div>
