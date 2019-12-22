@@ -261,7 +261,7 @@
                       </router-link>
                     </li>
                     <li class="profile-dropdown-list">
-                      <router-link to="/Login" class="profile-dropdown-link">
+                      <router-link to="login" class="profile-dropdown-link">
                         <i class="fa fa-sign-out profile-dropdown-icon"></i>
                         Logout
                       </router-link>
@@ -271,7 +271,7 @@
 
                 <li>
                   <router-link
-                    to="/login"
+                    to="login"
                     class="btn btn-tx btn-theme text-dark post-ad-header-tx"
                   >POST AN AD</router-link>
                 </li>
