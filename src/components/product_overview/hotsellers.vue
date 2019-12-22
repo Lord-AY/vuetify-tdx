@@ -11,213 +11,234 @@
             </span>
           </div>
         </div>
-        
-        <div class="row">
-          <!-- <div class="col-xs-6 col-sm-4 col-md-2 col-join-tx"> -->
-          <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-            <div class="category-grid-box-1 category-grid-box-tx">
-              <div class="hot-ribbon">
-                <img src="../../assets/images/hoticonv2.png" />
-              </div>
-              <div class="image-price">
-                <div class="image">
-                  <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
-                    <img
-                      src="../../assets/images/add-seller.svg"
-                      alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                      class="img-responsive"
-                    />
-                  </a>
-                </div>
-              </div>
 
-              <div class="short-description-1 hot-sellers-name-tx clearfix">
-                <div class="category-title-tx">
-                  <p>Join Hot Sellers</p>
+        <div class="container">
+          <div class="row">
+            <!-- <div class="col-xs-6 col-sm-4 col-md-2 col-join-tx"> -->
+            <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
+              <div class="category-grid-box-1 category-grid-box-tx">
+                <div class="hot-ribbon">
+                  <img src="../../assets/images/hoticonv2.png" />
+                </div>
+                <div class="image-price">
+                  <div class="image">
+                    <router-link to="/register">
+                      <img
+                        src="../../assets/images/add-seller.svg"
+                        alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                        class="img-responsive"
+                      />
+                    </router-link>
+                  </div>
                 </div>
 
-                <div class="follow">
-                  <p>Join</p>
+                <div class="short-description-1 hot-sellers-name-tx clearfix">
+                  <div class="category-title-tx">
+                    <p>Join Hot Sellers</p>
+                  </div>
+
+                  <div class="follow">
+                    <p>Join</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
-          <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
-            <div class="short-feature-body">
-              <div class="featured-slider-1 owl-carousel owl-theme">
-                <div class="item">
-                  <div
-                    class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                    id="holder-1554"
-                  >
-                    <div class="category-grid-box-1 category-grid-box-tx">
-                      <div class="hot-ribbon">
-                        <img src="../../assets/images/hoticonv2.png" />
-                      </div>
-                      <div class="image-price">
-                        <div class="image">
-                          <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
-                            <img
-                              src="../../assets/images/profile-5.jpg"
-                              alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                              class="img-responsive"
-                            />
-                          </a>
-
-                          <div class="new-hot-sellers">new</div>
+            <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
+            <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
+              <div class="short-feature-body">
+                <div class="featured-slider-1 owl-carousel owl-theme">
+                  <div class="item">
+                    <div
+                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
+                      id="holder-1554"
+                    >
+                      <div class="category-grid-box-1 category-grid-box-tx">
+                        <div class="hot-ribbon">
+                          <img src="../../assets/images/hoticonv2.png" />
                         </div>
-                      </div>
+                        <div class="image-price">
+                          <div class="image">
+                            <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
+                              <img
+                                src="../../assets/images/profile-5.jpg"
+                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                                class="img-responsive"
+                              />
+                            </a>
 
-                      <div class="short-description-1 hot-sellers-name-tx clearfix">
-                        <div class="category-title-tx">
-                          <p>Obed <!--Nwankwo--></p>
+                            <div class="new-hot-sellers">new</div>
+                          </div>
                         </div>
 
-                        <div class="follow-user" style="display: inline-block; padding: 0px;">
-                          
-                          <p class="text-center"><i class="fa fa-user-plus"></i> Follow</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div
-                    class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                    id="holder-81"
-                  >
-                    <div class="category-grid-box-1 category-grid-box-tx">
-                      <div class="hot-ribbon">
-                        <img src="../../assets/images/hoticonv2.png" />
-                      </div>
-                      <div class="image-price">
-                        <div class="image">
-                          <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
-                            <img
-                              src="../../assets/images/profile-4.jpg"
-                              alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                              class="img-responsive"
-                            />
-                          </a>
+                        <div class="short-description-1 hot-sellers-name-tx clearfix">
+                          <div class="category-title-tx">
+                            <p>
+                              Obed
+                              <!--Nwankwo-->
+                            </p>
+                          </div>
 
-                          <div class="new-hot-sellers">new</div>
-                        </div>
-                      </div>
-
-                      <div class="short-description-1 hot-sellers-name-tx clearfix">
-                        <div class="category-title-tx">
-                          <p>Justin <!--Peace--></p>
-                        </div>
-
-                        <div class="follow">
-                          <p>Follow</p>
+                          <div
+                            class="follow-user"
+                            style="display: inline-block; padding: 0px; width: 100%;"
+                          >
+                            <p class="text-center">
+                              <i class="fa fa-user-plus"></i> Following
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div
-                    class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                    id="holder-44"
-                  >
-                    <div class="category-grid-box-1 category-grid-box-tx">
-                      <div class="hot-ribbon">
-                        <img src="../../assets/images/hoticonv2.png" />
-                      </div>
-                      <div class="image-price">
-                        <div class="image">
-                          <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
-                            <img
-                              src="../../assets/images/profile-3.jpg"
-                              alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                              class="img-responsive"
-                            />
-                          </a>
-
-                          <div class="new-hot-sellers">new</div>
+                  <div class="item">
+                    <div
+                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
+                      id="holder-81"
+                    >
+                      <div class="category-grid-box-1 category-grid-box-tx">
+                        <div class="hot-ribbon">
+                          <img src="../../assets/images/hoticonv2.png" />
                         </div>
-                      </div>
+                        <div class="image-price">
+                          <div class="image">
+                            <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
+                              <img
+                                src="../../assets/images/profile-4.jpg"
+                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                                class="img-responsive"
+                              />
+                            </a>
 
-                      <div class="short-description-1 hot-sellers-name-tx clearfix">
-                        <div class="category-title-tx">
-                          <p>Yusuff <!--Isa--></p>
+                            <div class="new-hot-sellers">new</div>
+                          </div>
                         </div>
 
-                        <div class="follow">
-                          <p>Follow</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div
-                    class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                    id="holder-1552"
-                  >
-                    <div class="category-grid-box-1 category-grid-box-tx">
-                      <div class="hot-ribbon">
-                        <img src="../../assets/images/hoticonv2.png" />
-                      </div>
-                      <div class="image-price">
-                        <div class="image">
-                          <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
-                            <img
-                              src="../../assets/images/profile-2.jpg"
-                              alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                              class="img-responsive"
-                            />
-                          </a>
+                        <div class="short-description-1 hot-sellers-name-tx clearfix">
+                          <div class="category-title-tx">
+                            <p>
+                              Justin
+                              <!--Peace-->
+                            </p>
+                          </div>
 
-                          <div class="new-hot-sellers">new</div>
-                        </div>
-                      </div>
-
-                      <div class="short-description-1 hot-sellers-name-tx clearfix">
-                        <div class="category-title-tx">
-                          <p>Yemi <!--Olumide--></p>
-                        </div>
-
-                        <div class="follow">
-                          <p>Follow</p>
+                          <div class="follow">
+                            <p>Follow</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="item">
-                  <div
-                    class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                    id="holder-54"
-                  >
-                    <div class="category-grid-box-1 category-grid-box-tx">
-                      <div class="hot-ribbon">
-                        <img src="../../assets/images/hoticonv2.png" />
-                      </div>
-                      <div class="image-price">
-                        <div class="image">
-                          <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
-                            <img
-                              src="../../assets/images/profile-1.jpg"
-                              alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                              class="img-responsive"
-                            />
-                          </a>
-
-                          <div class="new-hot-sellers">new</div>
+                  <div class="item">
+                    <div
+                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
+                      id="holder-44"
+                    >
+                      <div class="category-grid-box-1 category-grid-box-tx">
+                        <div class="hot-ribbon">
+                          <img src="../../assets/images/hoticonv2.png" />
                         </div>
-                      </div>
+                        <div class="image-price">
+                          <div class="image">
+                            <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
+                              <img
+                                src="../../assets/images/profile-3.jpg"
+                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                                class="img-responsive"
+                              />
+                            </a>
 
-                      <div class="short-description-1 hot-sellers-name-tx clearfix">
-                        <div class="category-title-tx">
-                          <p>Esiri <!--Justice--></p>
+                            <div class="new-hot-sellers">new</div>
+                          </div>
                         </div>
 
-                        <div class="follow">
-                          <p>Follow</p>
+                        <div class="short-description-1 hot-sellers-name-tx clearfix">
+                          <div class="category-title-tx">
+                            <p>
+                              Yusuff
+                              <!--Isa-->
+                            </p>
+                          </div>
+
+                          <div class="follow">
+                            <p>Follow</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div
+                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
+                      id="holder-1552"
+                    >
+                      <div class="category-grid-box-1 category-grid-box-tx">
+                        <div class="hot-ribbon">
+                          <img src="../../assets/images/hoticonv2.png" />
+                        </div>
+                        <div class="image-price">
+                          <div class="image">
+                            <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
+                              <img
+                                src="../../assets/images/profile-2.jpg"
+                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                                class="img-responsive"
+                              />
+                            </a>
+
+                            <div class="new-hot-sellers">new</div>
+                          </div>
+                        </div>
+
+                        <div class="short-description-1 hot-sellers-name-tx clearfix">
+                          <div class="category-title-tx">
+                            <p>
+                              Yemi
+                              <!--Olumide-->
+                            </p>
+                          </div>
+
+                          <div class="follow">
+                            <p>Follow</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div
+                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
+                      id="holder-54"
+                    >
+                      <div class="category-grid-box-1 category-grid-box-tx">
+                        <div class="hot-ribbon">
+                          <img src="../../assets/images/hoticonv2.png" />
+                        </div>
+                        <div class="image-price">
+                          <div class="image">
+                            <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
+                              <img
+                                src="../../assets/images/profile-1.jpg"
+                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                                class="img-responsive"
+                              />
+                            </a>
+
+                            <div class="new-hot-sellers">new</div>
+                          </div>
+                        </div>
+
+                        <div class="short-description-1 hot-sellers-name-tx clearfix">
+                          <div class="category-title-tx">
+                            <p>
+                              Esiri
+                              <!--Justice-->
+                            </p>
+                          </div>
+
+                          <div class="follow">
+                            <p>Follow</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -274,8 +295,8 @@ export default {
 </script>
 
 <style>
-@media (max-width: 767px){
-  .hotseller-sub{
+@media (max-width: 767px) {
+  .hotseller-sub {
     display: inline-block;
     margin-left: 0px;
     margin-top: 10px;

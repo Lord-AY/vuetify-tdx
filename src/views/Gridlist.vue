@@ -1,10 +1,7 @@
 <template>
   <div class="gridlist">
     <div class="main-content-area clearfix">
-      <section
-        class="section-padding gray page-search"
-        style="padding: 8px 0px!important;"
-      >
+      <section class="section-padding gray page-search" style="padding: 8px 0px!important;">
         <div class="container">
           <div class="row value-added-services-row">
             <div
@@ -26,9 +23,7 @@
                     </div>
                   </div>
                   <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Airtime / Data
-                    </h3>
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">Airtime / Data</h3>
                   </div>
                 </div>
               </a>
@@ -48,9 +43,7 @@
                     </span>
                   </div>
                   <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Cable TV
-                    </h3>
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">Cable TV</h3>
                   </div>
                 </div>
               </a>
@@ -63,16 +56,11 @@
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
                     <span class="icon-service1 text-secondary">
-                      <i
-                        class="fa fa-bolt"
-                        style="color: #fff !important; font-size: 25px;"
-                      ></i>
+                      <i class="fa fa-bolt" style="color: #fff !important; font-size: 25px;"></i>
                     </span>
                   </div>
                   <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Electricity
-                    </h3>
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">Electricity</h3>
                   </div>
                 </div>
               </a>
@@ -85,16 +73,11 @@
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
                     <span class="icon-service1 text-primary">
-                      <i
-                        class="fa fa-plane fa-3x"
-                        style="color: #fff !important; font-size: 21px;"
-                      ></i>
+                      <i class="fa fa-plane fa-3x" style="color: #fff !important; font-size: 21px;"></i>
                     </span>
                   </div>
                   <div class="mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Flight
-                    </h3>
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">Flight</h3>
                   </div>
                 </div>
               </a>
@@ -107,16 +90,11 @@
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
                     <span class="icon-service1 text-warning">
-                      <i
-                        class="fa fa-bed"
-                        style="color: #fff !important; font-size: 21px;"
-                      ></i>
+                      <i class="fa fa-bed" style="color: #fff !important; font-size: 21px;"></i>
                     </span>
                   </div>
                   <div class="mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Hotel
-                    </h3>
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">Hotel</h3>
                   </div>
                 </div>
               </a>
@@ -129,16 +107,11 @@
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
                     <span class="icon-service1 text-warning">
-                      <i
-                        class="fa fa-ellipsis-h"
-                        style="color: #fff !important; font-size: 28px;"
-                      ></i>
+                      <i class="fa fa-ellipsis-h" style="color: #fff !important; font-size: 28px;"></i>
                     </span>
                   </div>
                   <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      More Services
-                    </h3>
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">More Services</h3>
                   </div>
                 </div>
               </a>
@@ -150,19 +123,10 @@
           <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12">
               <div class="sidebar">
-                <div
-                  class="panel-group"
-                  id="accordion1"
-                  role="tablist"
-                  aria-multiselectable="true"
-                >
+                <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
                   <div class="panel panel-default" id="red-title">
                     <!-- Heading -->
-                    <div
-                      class="panel-heading red-title"
-                      role="tab"
-                      id="headingMain"
-                    >
+                    <div class="panel-heading red-title" role="tab" id="headingMain">
                       <h4 class="panel-title">
                         <a
                           class="collapsed"
@@ -194,11 +158,7 @@
                         >
                           <div class="panel panel-default" id="red-title">
                             <!-- Heading    -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="headingFive"
-                            >
+                            <div class="panel-heading" role="tab" id="headingFive">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -209,9 +169,7 @@
                                   aria-expanded="true"
                                   aria-controls="collapseFive"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Search By Keyword
                                 </a>
                               </h4>
@@ -248,11 +206,7 @@
                           </div>
                           <div class="panel panel-default" id="red-category">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="headingOne"
-                            >
+                            <div class="panel-heading" role="tab" id="headingOne">
                               <!-- Title -->
                               <h4 class="panel-title">
                                 <a
@@ -263,9 +217,7 @@
                                   aria-expanded="true"
                                   aria-controls="collapseOne"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Select Category
                                 </a>
                               </h4>
@@ -284,13 +236,8 @@
                                 aria-labelledby="headingOne"
                               >
                                 <div class="panel-body">
-                                  <label class="control-label"
-                                    >Select Category</label
-                                  >
-                                  <select
-                                    class="search-select form-control"
-                                    id="make_id"
-                                  >
+                                  <label class="control-label">Select Category</label>
+                                  <select class="search-select form-control" id="make_id">
                                     <option value>Select Any Category</option>
                                     <option value="50">Alfa Romeo</option>
                                     <option value="60">Aston Martin</option>
@@ -330,18 +277,9 @@
                                     <option value="239">Viper</option>
                                     <option value="242">Volt</option>
                                   </select>
-                                  <div
-                                    id="select_modal"
-                                    class="margin-top-10"
-                                  ></div>
-                                  <div
-                                    id="select_modals"
-                                    class="margin-top-10"
-                                  ></div>
-                                  <div
-                                    id="select_forth_div"
-                                    class="margin-top-10"
-                                  ></div>
+                                  <div id="select_modal" class="margin-top-10"></div>
+                                  <div id="select_modals" class="margin-top-10"></div>
+                                  <div id="select_forth_div" class="margin-top-10"></div>
                                   <input
                                     type="submit"
                                     class="btn btn-theme btn-sm margin-top-10 margin-bottom-10"
@@ -350,21 +288,12 @@
                                   />
                                 </div>
                               </div>
-                              <input
-                                type="hidden"
-                                name="cat_id"
-                                id="cat_id"
-                                value
-                              />
+                              <input type="hidden" name="cat_id" id="cat_id" value />
                             </form>
                           </div>
                           <div class="panel panel-default" id="red-country">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="location_heading"
-                            >
+                            <div class="panel-heading" role="tab" id="location_heading">
                               <!-- Title -->
                               <h4 class="panel-title">
                                 <a
@@ -375,9 +304,7 @@
                                   aria-expanded="true"
                                   aria-controls="ad-location"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Ads By Location
                                 </a>
                               </h4>
@@ -398,10 +325,7 @@
                                 <div class="panel-body countries">
                                   <ul>
                                     <li>
-                                      <a
-                                        href="javascript:void(0);"
-                                        data-country-id="230"
-                                      >
+                                      <a href="javascript:void(0);" data-country-id="230">
                                         United States
                                         <span>(12)</span>
                                       </a>
@@ -409,12 +333,7 @@
                                   </ul>
                                 </div>
                               </div>
-                              <input
-                                type="hidden"
-                                name="country_id"
-                                id="country_id"
-                                value
-                              />
+                              <input type="hidden" name="country_id" id="country_id" value />
                             </form>
                             <div
                               class="search-modal modal fade states_model"
@@ -426,11 +345,7 @@
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <button
-                                      type="button"
-                                      class="close"
-                                      data-dismiss="modal"
-                                    >
+                                    <button type="button" class="close" data-dismiss="modal">
                                       <span aria-hidden="true">&#10005;</span>
                                       <span class="sr-only">Close</span>
                                     </button>
@@ -455,9 +370,7 @@
                                       type="submit"
                                       id="country-btn"
                                       class="btn btn-lg btn-block"
-                                    >
-                                      Submit
-                                    </button>
+                                    >Submit</button>
                                   </div>
                                 </div>
                               </div>
@@ -465,11 +378,7 @@
                           </div>
                           <div class="panel panel-default" id="red-price">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="headingfour"
-                            >
+                            <div class="panel-heading" role="tab" id="headingfour">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -480,9 +389,7 @@
                                   aria-expanded="false"
                                   aria-controls="collapsefour"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Price
                                 </a>
                               </h4>
@@ -523,16 +430,8 @@
                                       value="100000"
                                     />
                                   </div>
-                                  <input
-                                    type="hidden"
-                                    id="min_price"
-                                    value="500"
-                                  />
-                                  <input
-                                    type="hidden"
-                                    id="max_price"
-                                    value="100000"
-                                  />
+                                  <input type="hidden" id="min_price" value="500" />
+                                  <input type="hidden" id="max_price" value="100000" />
                                   <input
                                     type="submit"
                                     class="btn btn-theme btn-sm margin-top-10"
@@ -544,11 +443,7 @@
                           </div>
                           <div class="panel panel-default" id="red-milage">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="ad-mileage"
-                            >
+                            <div class="panel-heading" role="tab" id="ad-mileage">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -559,9 +454,7 @@
                                   aria-expanded="true"
                                   aria-controls="ad-mileage"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Ad Mileage (Km)
                                 </a>
                               </h4>
@@ -615,11 +508,7 @@
                           </div>
                           <div class="panel panel-default" id="red-years">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="headingYear"
-                            >
+                            <div class="panel-heading" role="tab" id="headingYear">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -630,9 +519,7 @@
                                   aria-expanded="true"
                                   aria-controls="Yearcollapse"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Year
                                 </a>
                               </h4>
@@ -651,11 +538,7 @@
                                 <div class="panel-body">
                                   <div class="input-group margin-top-10">
                                     <span class="input-group-addon">From</span>
-                                    <select
-                                      id="year_from"
-                                      name="year_from"
-                                      class="form-control"
-                                    >
+                                    <select id="year_from" name="year_from" class="form-control">
                                       <option value="2010">2010</option>
                                       <option value="2011">2011</option>
                                       <option value="2012">2012</option>
@@ -668,11 +551,7 @@
                                   </div>
                                   <div class="input-group">
                                     <span class="input-group-addon">To</span>
-                                    <select
-                                      id="year_to"
-                                      name="year_to"
-                                      class="form-control"
-                                    >
+                                    <select id="year_to" name="year_to" class="form-control">
                                       <option value="2010">2010</option>
                                       <option value="2011">2011</option>
                                       <option value="2012">2012</option>
@@ -693,16 +572,9 @@
                               </div>
                             </form>
                           </div>
-                          <div
-                            class="panel panel-default"
-                            id="red-transmission"
-                          >
+                          <div class="panel panel-default" id="red-transmission">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="body_transmission"
-                            >
+                            <div class="panel-heading" role="tab" id="body_transmission">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -713,9 +585,7 @@
                                   aria-expanded="true"
                                   aria-controls="body_transmission"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Transmission
                                 </a>
                               </h4>
@@ -741,9 +611,7 @@
                                           value="Automatic"
                                           name="transmission[]"
                                         />
-                                        <label for="transmission-type-67"
-                                          >Automatic</label
-                                        >
+                                        <label for="transmission-type-67">Automatic</label>
                                       </li>
                                       <li>
                                         <input
@@ -752,9 +620,7 @@
                                           value="Manual"
                                           name="transmission[]"
                                         />
-                                        <label for="transmission-type-151"
-                                          >Manual</label
-                                        >
+                                        <label for="transmission-type-151">Manual</label>
                                       </li>
                                     </ul>
                                   </div>
@@ -764,11 +630,7 @@
                           </div>
                           <div class="panel panel-default" id="red-engine-type">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="ad_body_type"
-                            >
+                            <div class="panel-heading" role="tab" id="ad_body_type">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -779,9 +641,7 @@
                                   aria-expanded="true"
                                   aria-controls="ad_body_type"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Engine Type
                                 </a>
                               </h4>
@@ -816,9 +676,7 @@
                                           value="Diesel"
                                           name="engine_type[]"
                                         />
-                                        <label for="engine-type-96"
-                                          >Diesel</label
-                                        >
+                                        <label for="engine-type-96">Diesel</label>
                                       </li>
                                       <li>
                                         <input
@@ -827,9 +685,7 @@
                                           value="Hybrid"
                                           name="engine_type[]"
                                         />
-                                        <label for="engine-type-126"
-                                          >Hybrid</label
-                                        >
+                                        <label for="engine-type-126">Hybrid</label>
                                       </li>
                                       <li>
                                         <input
@@ -838,9 +694,7 @@
                                           value="Petrol"
                                           name="engine_type[]"
                                         />
-                                        <label for="engine-type-176"
-                                          >Petrol</label
-                                        >
+                                        <label for="engine-type-176">Petrol</label>
                                       </li>
                                     </ul>
                                   </div>
@@ -848,16 +702,9 @@
                               </div>
                             </form>
                           </div>
-                          <div
-                            class="panel panel-default"
-                            id="red-engine-capacity"
-                          >
+                          <div class="panel panel-default" id="red-engine-capacity">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="engince-capacity"
-                            >
+                            <div class="panel-heading" role="tab" id="engince-capacity">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -868,9 +715,7 @@
                                   aria-expanded="true"
                                   aria-controls="engince-capacity"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Engine Capacity (CC)
                                 </a>
                               </h4>
@@ -896,9 +741,7 @@
                                           value="1000"
                                           name="engine_capacity[]"
                                         />
-                                        <label for="engine-capacity-29"
-                                          >1000 cc</label
-                                        >
+                                        <label for="engine-capacity-29">1000 cc</label>
                                       </li>
                                       <li>
                                         <input
@@ -907,9 +750,7 @@
                                           value="1200"
                                           name="engine_capacity[]"
                                         />
-                                        <label for="engine-capacity-30"
-                                          >1200 cc</label
-                                        >
+                                        <label for="engine-capacity-30">1200 cc</label>
                                       </li>
                                       <li>
                                         <input
@@ -918,9 +759,7 @@
                                           value="1500"
                                           name="engine_capacity[]"
                                         />
-                                        <label for="engine-capacity-31"
-                                          >1500 cc</label
-                                        >
+                                        <label for="engine-capacity-31">1500 cc</label>
                                       </li>
                                       <li>
                                         <input
@@ -929,9 +768,7 @@
                                           value="2000"
                                           name="engine_capacity[]"
                                         />
-                                        <label for="engine-capacity-32"
-                                          >2000 cc</label
-                                        >
+                                        <label for="engine-capacity-32">2000 cc</label>
                                       </li>
                                       <li>
                                         <input
@@ -940,9 +777,7 @@
                                           value="2500"
                                           name="engine_capacity[]"
                                         />
-                                        <label for="engine-capacity-42"
-                                          >2500 cc</label
-                                        >
+                                        <label for="engine-capacity-42">2500 cc</label>
                                       </li>
                                       <li>
                                         <input
@@ -951,9 +786,7 @@
                                           value="3000"
                                           name="engine_capacity[]"
                                         />
-                                        <label for="engine-capacity-43"
-                                          >3000 cc</label
-                                        >
+                                        <label for="engine-capacity-43">3000 cc</label>
                                       </li>
                                       <li>
                                         <input
@@ -962,9 +795,7 @@
                                           value="3500"
                                           name="engine_capacity[]"
                                         />
-                                        <label for="engine-capacity-44"
-                                          >3500 cc</label
-                                        >
+                                        <label for="engine-capacity-44">3500 cc</label>
                                       </li>
                                       <li>
                                         <input
@@ -973,9 +804,7 @@
                                           value="800"
                                           name="engine_capacity[]"
                                         />
-                                        <label for="engine-capacity-45"
-                                          >800 cc</label
-                                        >
+                                        <label for="engine-capacity-45">800 cc</label>
                                       </li>
                                     </ul>
                                   </div>
@@ -996,9 +825,7 @@
                                   aria-expanded="true"
                                   aria-controls="body_type"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Body Type
                                 </a>
                               </h4>
@@ -1024,9 +851,7 @@
                                           value="Convertible"
                                           name="body_type[]"
                                         />
-                                        <label for="body-type-82"
-                                          >Convertible</label
-                                        >
+                                        <label for="body-type-82">Convertible</label>
                                       </li>
                                       <li>
                                         <input
@@ -1044,9 +869,7 @@
                                           value="Crossover"
                                           name="body_type[]"
                                         />
-                                        <label for="body-type-87"
-                                          >Crossover</label
-                                        >
+                                        <label for="body-type-87">Crossover</label>
                                       </li>
                                       <li>
                                         <input
@@ -1055,9 +878,7 @@
                                           value="Electric"
                                           name="body_type[]"
                                         />
-                                        <label for="body-type-100"
-                                          >Electric</label
-                                        >
+                                        <label for="body-type-100">Electric</label>
                                       </li>
                                       <li>
                                         <input
@@ -1066,9 +887,7 @@
                                           value="Hatchback"
                                           name="body_type[]"
                                         />
-                                        <label for="body-type-118"
-                                          >Hatchback</label
-                                        >
+                                        <label for="body-type-118">Hatchback</label>
                                       </li>
                                       <li>
                                         <input
@@ -1077,9 +896,7 @@
                                           value="Hybrid"
                                           name="body_type[]"
                                         />
-                                        <label for="body-type-127"
-                                          >Hybrid</label
-                                        >
+                                        <label for="body-type-127">Hybrid</label>
                                       </li>
                                       <li>
                                         <input
@@ -1088,9 +905,7 @@
                                           value="Luxury"
                                           name="body_type[]"
                                         />
-                                        <label for="body-type-140"
-                                          >Luxury</label
-                                        >
+                                        <label for="body-type-140">Luxury</label>
                                       </li>
                                       <li>
                                         <input
@@ -1126,9 +941,7 @@
                                           value="Van/Minivan"
                                           name="body_type[]"
                                         />
-                                        <label for="body-type-234"
-                                          >Van/Minivan</label
-                                        >
+                                        <label for="body-type-234">Van/Minivan</label>
                                       </li>
                                       <li>
                                         <input
@@ -1145,16 +958,9 @@
                               </div>
                             </form>
                           </div>
-                          <div
-                            class="panel panel-default"
-                            id="red-color-family"
-                          >
+                          <div class="panel panel-default" id="red-color-family">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="ad-color-family"
-                            >
+                            <div class="panel-heading" role="tab" id="ad-color-family">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -1165,9 +971,7 @@
                                   aria-expanded="true"
                                   aria-controls="ad-color-family"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Color Family
                                 </a>
                               </h4>
@@ -1275,11 +1079,7 @@
                           </div>
                           <div class="panel panel-default" id="red-ad-type">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="headingSeven"
-                            >
+                            <div class="panel-heading" role="tab" id="headingSeven">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -1290,9 +1090,7 @@
                                   aria-expanded="true"
                                   aria-controls="collapseSeven"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Car Type
                                 </a>
                               </h4>
@@ -1319,9 +1117,7 @@
                                           name="ad_type[]"
                                           value="Buy"
                                         />
-                                        <label for="minimal-radio-76"
-                                          >Buy</label
-                                        >
+                                        <label for="minimal-radio-76">Buy</label>
                                       </li>
                                       <li>
                                         <input
@@ -1331,9 +1127,7 @@
                                           name="ad_type[]"
                                           value="Sell"
                                         />
-                                        <label for="minimal-radio-204"
-                                          >Sell</label
-                                        >
+                                        <label for="minimal-radio-204">Sell</label>
                                       </li>
                                     </ul>
                                   </div>
@@ -1343,11 +1137,7 @@
                           </div>
                           <div class="panel panel-default" id="red-isurance">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="ad-insurance"
-                            >
+                            <div class="panel-heading" role="tab" id="ad-insurance">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -1358,9 +1148,7 @@
                                   aria-expanded="true"
                                   aria-controls="ad-insurance"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Car Insurance
                                 </a>
                               </h4>
@@ -1405,11 +1193,7 @@
                           </div>
                           <div class="panel panel-default" id="red-assembly">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="ad-assembly-type"
-                            >
+                            <div class="panel-heading" role="tab" id="ad-assembly-type">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -1420,9 +1204,7 @@
                                   aria-expanded="true"
                                   aria-controls="ad-assembly-type"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Car Assembly
                                 </a>
                               </h4>
@@ -1448,9 +1230,7 @@
                                           value="Imported"
                                           name="assembly[]"
                                         />
-                                        <label for="ad-assembly-131"
-                                          >Imported</label
-                                        >
+                                        <label for="ad-assembly-131">Imported</label>
                                       </li>
                                       <li>
                                         <input
@@ -1459,9 +1239,7 @@
                                           value="Local"
                                           name="assembly[]"
                                         />
-                                        <label for="ad-assembly-139"
-                                          >Local</label
-                                        >
+                                        <label for="ad-assembly-139">Local</label>
                                       </li>
                                     </ul>
                                   </div>
@@ -1471,11 +1249,7 @@
                           </div>
                           <div class="panel panel-default" id="red-condition">
                             <!-- Heading -->
-                            <div
-                              class="panel-heading"
-                              role="tab"
-                              id="headingThree"
-                            >
+                            <div class="panel-heading" role="tab" id="headingThree">
                               <h4 class="panel-title">
                                 <a
                                   class="collapsed"
@@ -1486,9 +1260,7 @@
                                   aria-expanded="false"
                                   aria-controls="collapseThree"
                                 >
-                                  <i
-                                    class="more-less glyphicon glyphicon-plus"
-                                  ></i>
+                                  <i class="more-less glyphicon glyphicon-plus"></i>
                                   Condition
                                 </a>
                               </h4>
@@ -1515,9 +1287,7 @@
                                           name="condition[]"
                                           value="New"
                                         />
-                                        <label for="minimal-radio-166"
-                                          >New</label
-                                        >
+                                        <label for="minimal-radio-166">New</label>
                                       </li>
                                       <li>
                                         <input
@@ -1527,9 +1297,7 @@
                                           name="condition[]"
                                           value="Used"
                                         />
-                                        <label for="minimal-radio-231"
-                                          >Used</label
-                                        >
+                                        <label for="minimal-radio-231">Used</label>
                                       </li>
                                     </ul>
                                   </div>
@@ -1548,9 +1316,7 @@
             <div class="col-md-9 col-lg-9 col-xs-12">
               <!-- Row -->
               <div class="row">
-                <div
-                  class="col-md-12 col-xs-12 col-md-search-tx col-sm-12 col-lg-12"
-                >
+                <div class="col-md-12 col-xs-12 col-md-search-tx col-sm-12 col-lg-12">
                   <div class="clearfix"></div>
                   <div class="listingTopFilterBar">
                     <div class="col-md-7 col-xs-12 col-sm-6 no-padding">
@@ -1571,19 +1337,11 @@
                         <h6>Sort by:</h6>
                         <div class="custom-select-box">
                           <form method="get">
-                            <select
-                              name="sort"
-                              id="order_by"
-                              class="custom-select"
-                            >
+                            <select name="sort" id="order_by" class="custom-select">
                               <option value="id-desc">Newest To Oldest</option>
                               <option value="id-asc">Oldest To New</option>
-                              <option value="title-asc"
-                                >Alphabetically [a-z]</option
-                              >
-                              <option value="title-desc"
-                                >Alphabetically [z-a]</option
-                              >
+                              <option value="title-asc">Alphabetically [a-z]</option>
+                              <option value="title-desc">Alphabetically [z-a]</option>
                               <option value="price-desc">Highest price</option>
                               <option value="price-asc">Lowest price</option>
                             </select>
@@ -1609,19 +1367,14 @@
             <div class="col-md-12 col-grid-tx">
               <div class="grid-style-2">
                 <div class="posts-masonry">
-                  <div
-                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                    id=".holder-1375"
-                  >
+                  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-1375">
                     <div class="category-grid-box-1">
                       <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
                       <div class="image">
                         <div class="hot-ribbon">
                           <img src="../assets/images/hot-deals.svg" />
                         </div>
-                        <a
-                          href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                        >
+                        <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html">
                           <img
                             src="../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
                             alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
@@ -1651,24 +1404,29 @@
                         <h3>
                           <a
                             href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                            >2017 Maserati Ghibli...</a
-                          >
+                          >2017 Maserati Ghibli...</a>
                         </h3>
                         <p class="location">
                           <i class="fa fa-map-marker"></i>
-                          <a href="../ad_country/california/index.html"
-                            >California</a
-                          >,
-                          <a href="../ad_country/united-states/index.html"
-                            >United States</a
-                          >
+                          <a href="../ad_country/california/index.html">California</a>,
+                          <a href="../ad_country/united-states/index.html">United States</a>
                         </p>
                         <ul class="list-unstyled">
-                          <li><i class="flaticon-gas-station-1"></i>Petrol</li>
-                          <li><i class="flaticon-dashboard"></i>1,694 Km</li>
-                          <li><i class="flaticon-engine-2"></i>3,000 cc</li>
-                          <li><i class="flaticon-car-2"></i>Sedan</li>
-                          <li><i class="flaticon-cogwheel-outline"></i>Blue</li>
+                          <li>
+                            <i class="flaticon-gas-station-1"></i>Petrol
+                          </li>
+                          <li>
+                            <i class="flaticon-dashboard"></i>1,694 Km
+                          </li>
+                          <li>
+                            <i class="flaticon-engine-2"></i>3,000 cc
+                          </li>
+                          <li>
+                            <i class="flaticon-car-2"></i>Sedan
+                          </li>
+                          <li>
+                            <i class="flaticon-cogwheel-outline"></i>Blue
+                          </li>
                         </ul>
                       </div>
                       <div class="ad-info-1">
@@ -1686,33 +1444,26 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                       </div>
                     </div>
                     <!-- Listing Ad Grid -->
                   </div>
-                  <div
-                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                    id=".holder-1366"
-                  >
+                  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-1366">
                     <div class="category-grid-box-1">
                       <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
                       <div class="image">
                         <div class="hot-ribbon">
                           <img src="../assets/images/hot-deals.svg" />
                         </div>
-                        <a
-                          href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                        >
+                        <a href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html">
                           <img
                             src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20170912_150901428-268x166.jpg"
                             alt="Maserati Ghibli SQ4 Blue 1,695 Miles 2017"
@@ -1742,23 +1493,26 @@
                         <h3>
                           <a
                             href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                            >Maserati Ghibli SQ4 ...</a
-                          >
+                          >Maserati Ghibli SQ4 ...</a>
                         </h3>
                         <p class="location">
                           <i class="fa fa-map-marker"></i>
-                          <a href="../ad_country/california/index.html"
-                            >California</a
-                          >,
-                          <a href="../ad_country/united-states/index.html"
-                            >United States</a
-                          >
+                          <a href="../ad_country/california/index.html">California</a>,
+                          <a href="../ad_country/united-states/index.html">United States</a>
                         </p>
                         <ul class="list-unstyled">
-                          <li><i class="flaticon-gas-station-1"></i>Petrol</li>
-                          <li><i class="flaticon-dashboard"></i>1,695 Km</li>
-                          <li><i class="flaticon-engine-2"></i>2,000 cc</li>
-                          <li><i class="flaticon-car-2"></i>Sedan</li>
+                          <li>
+                            <i class="flaticon-gas-station-1"></i>Petrol
+                          </li>
+                          <li>
+                            <i class="flaticon-dashboard"></i>1,695 Km
+                          </li>
+                          <li>
+                            <i class="flaticon-engine-2"></i>2,000 cc
+                          </li>
+                          <li>
+                            <i class="flaticon-car-2"></i>Sedan
+                          </li>
                           <li>
                             <i class="flaticon-cogwheel-outline"></i>Black
                           </li>
@@ -1779,42 +1533,27 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                       </div>
                     </div>
                     <!-- Listing Ad Grid -->
                   </div>
-                  <div
-                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                    id=".holder-1362"
-                  >
+                  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-1362">
                     <div class="category-grid-box-1">
                       <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
                       <div class="image">
-                        <div class="arrow-ribbon bg-primary bg-tag-tx">
-                          Premium
-                        </div>
-                        <a
-                          href="https://www.youtube.com/watch?v=lr7mPzjTgC0"
-                          class="play-video"
-                        >
-                          <i
-                            class="fa fa-play-circle"
-                            style="font-size: 24px; color: #fff;"
-                          ></i>
+                        <div class="arrow-ribbon bg-primary bg-tag-tx">Premium</div>
+                        <a href="https://www.youtube.com/watch?v=lr7mPzjTgC0" class="play-video">
+                          <i class="fa fa-play-circle" style="font-size: 24px; color: #fff;"></i>
                         </a>
-                        <a
-                          href="../ad/2017-maserati-ghibli-sq4-blue-1694-miles/index.html"
-                        >
+                        <a href="../ad/2017-maserati-ghibli-sq4-blue-1694-miles/index.html">
                           <img
                             src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20171221_162520395-268x166.jpg"
                             alt="2017 Maserati Ghibli SQ4 Blue 1,694 Miles"
@@ -1835,9 +1574,7 @@
                       <div class="short-description-1 clearfix">
                         <div class="category-title">
                           <span class="padding_cats">
-                            <a href="../ad_category/austin/index.html"
-                              >Austin</a
-                            >
+                            <a href="../ad_category/austin/index.html">Austin</a>
                           </span>
                           <span class="padding_cats">
                             <a href="../ad_category/mini/index.html">Mini</a>
@@ -1846,24 +1583,29 @@
                         <h3>
                           <a
                             href="../ad/2017-maserati-ghibli-sq4-blue-1694-miles/index.html"
-                            >2017 Maserati Ghibli...</a
-                          >
+                          >2017 Maserati Ghibli...</a>
                         </h3>
                         <p class="location">
                           <i class="fa fa-map-marker"></i>
-                          <a href="../ad_country/california/index.html"
-                            >California</a
-                          >,
-                          <a href="../ad_country/united-states/index.html"
-                            >United States</a
-                          >
+                          <a href="../ad_country/california/index.html">California</a>,
+                          <a href="../ad_country/united-states/index.html">United States</a>
                         </p>
                         <ul class="list-unstyled">
-                          <li><i class="flaticon-gas-station-1"></i>Petrol</li>
-                          <li><i class="flaticon-dashboard"></i>1,694 Km</li>
-                          <li><i class="flaticon-engine-2"></i>3,500 cc</li>
-                          <li><i class="flaticon-car-2"></i>Sedan</li>
-                          <li><i class="flaticon-cogwheel-outline"></i>Blue</li>
+                          <li>
+                            <i class="flaticon-gas-station-1"></i>Petrol
+                          </li>
+                          <li>
+                            <i class="flaticon-dashboard"></i>1,694 Km
+                          </li>
+                          <li>
+                            <i class="flaticon-engine-2"></i>3,500 cc
+                          </li>
+                          <li>
+                            <i class="flaticon-car-2"></i>Sedan
+                          </li>
+                          <li>
+                            <i class="flaticon-cogwheel-outline"></i>Blue
+                          </li>
                         </ul>
                       </div>
                       <div class="ad-info-1">
@@ -1880,29 +1622,22 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                       </div>
                     </div>
                     <!-- Listing Ad Grid -->
                   </div>
-                  <div
-                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                    id=".holder-1554"
-                  >
+                  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-1554">
                     <div class="category-grid-box-1">
                       <div class="image">
-                        <div class="arrow-ribbon bg-primary bg-tag-tx">
-                          Premium
-                        </div>
+                        <div class="arrow-ribbon bg-primary bg-tag-tx">Premium</div>
                         <a href="../ad/2017-ford-mustang-2/index.html">
                           <img
                             src="../assets/carspot-css/wp-content/uploads/2019/01/3-268x166.jpeg"
@@ -1925,30 +1660,30 @@
                             <a href="../ad_category/ford/index.html">Ford</a>
                           </span>
                           <span class="padding_cats">
-                            <a href="../ad_category/mustang/index.html"
-                              >Mustang</a
-                            >
+                            <a href="../ad_category/mustang/index.html">Mustang</a>
                           </span>
                         </div>
                         <h3>
-                          <a href="../ad/2017-ford-mustang-2/index.html"
-                            >2017 Ford Mustang</a
-                          >
+                          <a href="../ad/2017-ford-mustang-2/index.html">2017 Ford Mustang</a>
                         </h3>
                         <p class="location">
                           <i class="fa fa-map-marker"></i>
-                          <a href="../ad_country/fort-lauderdale/index.html"
-                            >Fort Lauderdale</a
-                          >,
-                          <a href="../ad_country/united-states/index.html"
-                            >United States</a
-                          >
+                          <a href="../ad_country/fort-lauderdale/index.html">Fort Lauderdale</a>,
+                          <a href="../ad_country/united-states/index.html">United States</a>
                         </p>
                         <ul class="list-unstyled">
-                          <li><i class="flaticon-gas-station-1"></i>Petrol</li>
-                          <li><i class="flaticon-dashboard"></i>12,454 Km</li>
-                          <li><i class="flaticon-engine-2"></i>2,000 cc</li>
-                          <li><i class="flaticon-car-2"></i>Coupe</li>
+                          <li>
+                            <i class="flaticon-gas-station-1"></i>Petrol
+                          </li>
+                          <li>
+                            <i class="flaticon-dashboard"></i>12,454 Km
+                          </li>
+                          <li>
+                            <i class="flaticon-engine-2"></i>2,000 cc
+                          </li>
+                          <li>
+                            <i class="flaticon-car-2"></i>Coupe
+                          </li>
                           <li>
                             <i class="flaticon-cogwheel-outline"></i>White
                           </li>
@@ -1968,15 +1703,13 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                       </div>
                     </div>
@@ -1990,10 +1723,7 @@
                     />
                   </div>
                   <!-- </div> -->
-                  <div
-                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                    id=".holder-1552"
-                  >
+                  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-1552">
                     <div class="category-grid-box-1">
                       <div class="image">
                         <div class="arrow-ribbon bg-tag-gold-tx">Gold</div>
@@ -2016,30 +1746,30 @@
                       <div class="short-description-1 clearfix">
                         <div class="category-title">
                           <span class="padding_cats">
-                            <a href="../ad_category/corvette/index.html"
-                              >Corvette</a
-                            >
+                            <a href="../ad_category/corvette/index.html">Corvette</a>
                           </span>
                         </div>
                         <h3>
-                          <a href="../ad/2010-chevrolet-camaro/index.html"
-                            >2010 Chevrolet Camaro</a
-                          >
+                          <a href="../ad/2010-chevrolet-camaro/index.html">2010 Chevrolet Camaro</a>
                         </h3>
                         <p class="location">
                           <i class="fa fa-map-marker"></i>
-                          <a href="../ad_country/fort-lauderdale/index.html"
-                            >Fort Lauderdale</a
-                          >,
-                          <a href="../ad_country/united-states/index.html"
-                            >United States</a
-                          >
+                          <a href="../ad_country/fort-lauderdale/index.html">Fort Lauderdale</a>,
+                          <a href="../ad_country/united-states/index.html">United States</a>
                         </p>
                         <ul class="list-unstyled">
-                          <li><i class="flaticon-gas-station-1"></i>Petrol</li>
-                          <li><i class="flaticon-dashboard"></i>23 Km</li>
-                          <li><i class="flaticon-engine-2"></i>1,500 cc</li>
-                          <li><i class="flaticon-car-2"></i>Coupe</li>
+                          <li>
+                            <i class="flaticon-gas-station-1"></i>Petrol
+                          </li>
+                          <li>
+                            <i class="flaticon-dashboard"></i>23 Km
+                          </li>
+                          <li>
+                            <i class="flaticon-engine-2"></i>1,500 cc
+                          </li>
+                          <li>
+                            <i class="flaticon-car-2"></i>Coupe
+                          </li>
                           <li>
                             <i class="flaticon-cogwheel-outline"></i>White
                           </li>
@@ -2059,24 +1789,19 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                       </div>
                     </div>
                     <!-- Listing Ad Grid -->
                   </div>
-                  <div
-                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                    id=".holder-960"
-                  >
+                  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-960">
                     <div class="category-grid-box-1">
                       <div class="image">
                         <div class="arrow-ribbon bg-tag-gold-tx">Gold</div>
@@ -2106,24 +1831,26 @@
                           </span>
                         </div>
                         <h3>
-                          <a href="../ad/audi-a5-for-sale/index.html"
-                            >Audi A5 For Sale</a
-                          >
+                          <a href="../ad/audi-a5-for-sale/index.html">Audi A5 For Sale</a>
                         </h3>
                         <p class="location">
                           <i class="fa fa-map-marker"></i>
-                          <a href="../ad_country/lake-havasu-city/index.html"
-                            >Lake Havasu City</a
-                          >,
-                          <a href="../ad_country/united-states/index.html"
-                            >United States</a
-                          >
+                          <a href="../ad_country/lake-havasu-city/index.html">Lake Havasu City</a>,
+                          <a href="../ad_country/united-states/index.html">United States</a>
                         </p>
                         <ul class="list-unstyled">
-                          <li><i class="flaticon-gas-station-1"></i>Petrol</li>
-                          <li><i class="flaticon-dashboard"></i>50,000 Km</li>
-                          <li><i class="flaticon-engine-2"></i>1,500 cc</li>
-                          <li><i class="flaticon-car-2"></i>Convertible</li>
+                          <li>
+                            <i class="flaticon-gas-station-1"></i>Petrol
+                          </li>
+                          <li>
+                            <i class="flaticon-dashboard"></i>50,000 Km
+                          </li>
+                          <li>
+                            <i class="flaticon-engine-2"></i>1,500 cc
+                          </li>
+                          <li>
+                            <i class="flaticon-car-2"></i>Convertible
+                          </li>
                           <!-- <li> -->
                         </ul>
                       </div>
@@ -2141,35 +1868,24 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                       </div>
                     </div>
                     <!-- Listing Ad Grid -->
                   </div>
-                  <div
-                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                    id=".holder-877"
-                  >
+                  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-877">
                     <div class="category-grid-box-1">
                       <div class="image">
                         <div class="arrow-ribbon bg-tag-gold-tx">Gold</div>
-                        <a
-                          href="https://www.youtube.com/watch?v=lr7mPzjTgC0"
-                          class="play-video"
-                        >
-                          <i
-                            class="fa fa-play-circle"
-                            style="font-size: 24px; color: #fff;"
-                          ></i>
+                        <a href="https://www.youtube.com/watch?v=lr7mPzjTgC0" class="play-video">
+                          <i class="fa fa-play-circle" style="font-size: 24px; color: #fff;"></i>
                         </a>
                         <!-- <a href="https://www.youtube.com/watch?v=lr7mPzjTgC0" class="play-video"><img src="../wp-content/uploads/2017/08/playbutton-u693-r.png" alt="Icon"></a> -->
                         <a href="../ad/renault-duster-2017/index.html">
@@ -2189,31 +1905,33 @@
                       <div class="short-description-1 clearfix">
                         <div class="category-title">
                           <span class="padding_cats">
-                            <a href="../ad_category/renault/index.html"
-                              >Renault</a
-                            >
+                            <a href="../ad_category/renault/index.html">Renault</a>
                           </span>
                         </div>
                         <h3>
-                          <a href="../ad/renault-duster-2017/index.html"
-                            >Renault Duster 2017</a
-                          >
+                          <a href="../ad/renault-duster-2017/index.html">Renault Duster 2017</a>
                         </h3>
                         <p class="location">
                           <i class="fa fa-map-marker"></i>
-                          <a href="../ad_country/long-beach/index.html"
-                            >Long Beach</a
-                          >,
-                          <a href="../ad_country/united-states/index.html"
-                            >United States</a
-                          >
+                          <a href="../ad_country/long-beach/index.html">Long Beach</a>,
+                          <a href="../ad_country/united-states/index.html">United States</a>
                         </p>
                         <ul class="list-unstyled">
-                          <li><i class="flaticon-gas-station-1"></i>Diesel</li>
-                          <li><i class="flaticon-dashboard"></i>17,000 Km</li>
-                          <li><i class="flaticon-engine-2"></i>3,500 cc</li>
-                          <li><i class="flaticon-car-2"></i>SUV</li>
-                          <li><i class="flaticon-cogwheel-outline"></i>Blue</li>
+                          <li>
+                            <i class="flaticon-gas-station-1"></i>Diesel
+                          </li>
+                          <li>
+                            <i class="flaticon-dashboard"></i>17,000 Km
+                          </li>
+                          <li>
+                            <i class="flaticon-engine-2"></i>3,500 cc
+                          </li>
+                          <li>
+                            <i class="flaticon-car-2"></i>SUV
+                          </li>
+                          <li>
+                            <i class="flaticon-cogwheel-outline"></i>Blue
+                          </li>
                         </ul>
                       </div>
                       <div class="ad-info-1">
@@ -2230,34 +1948,23 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                       </div>
                     </div>
                     <!-- Listing Ad Grid -->
                   </div>
-                  <div
-                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                    id=".holder-873"
-                  >
+                  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-873">
                     <div class="category-grid-box-1">
                       <div class="image">
-                        <a
-                          href="https://www.youtube.com/watch?v=lr7mPzjTgC0"
-                          class="play-video"
-                        >
-                          <i
-                            class="fa fa-play-circle"
-                            style="font-size: 24px; color: #fff;"
-                          ></i>
+                        <a href="https://www.youtube.com/watch?v=lr7mPzjTgC0" class="play-video">
+                          <i class="fa fa-play-circle" style="font-size: 24px; color: #fff;"></i>
                         </a>
                         <a href="../ad/rolls-royce-phantom/index.html">
                           <img
@@ -2275,31 +1982,34 @@
                       <div class="short-description-1 clearfix">
                         <div class="category-title">
                           <span class="padding_cats">
-                            <a href="../ad_category/rolls-royce/index.html"
-                              >Rolls-Royce</a
-                            >
+                            <a href="../ad_category/rolls-royce/index.html">Rolls-Royce</a>
                           </span>
                         </div>
                         <h3>
-                          <a href="../ad/rolls-royce-phantom/index.html"
-                            >Rolls Royce Phantom</a
-                          >
+                          <a href="../ad/rolls-royce-phantom/index.html">Rolls Royce Phantom</a>
                         </h3>
                         <p class="location">
                           <i class="fa fa-map-marker"></i>
                           <a href="../ad_country/dalton/index.html">Dalton</a>,
-                          <a href="../ad_country/georgia/index.html">Georgia</a
-                          >,
-                          <a href="../ad_country/united-states/index.html"
-                            >United States</a
-                          >
+                          <a href="../ad_country/georgia/index.html">Georgia</a>,
+                          <a href="../ad_country/united-states/index.html">United States</a>
                         </p>
                         <ul class="list-unstyled">
-                          <li><i class="flaticon-gas-station-1"></i>Diesel</li>
-                          <li><i class="flaticon-dashboard"></i>70,000 Km</li>
-                          <li><i class="flaticon-engine-2"></i>3,500 cc</li>
-                          <li><i class="flaticon-car-2"></i>Sedan</li>
-                          <li><i class="flaticon-cogwheel-outline"></i>Red</li>
+                          <li>
+                            <i class="flaticon-gas-station-1"></i>Diesel
+                          </li>
+                          <li>
+                            <i class="flaticon-dashboard"></i>70,000 Km
+                          </li>
+                          <li>
+                            <i class="flaticon-engine-2"></i>3,500 cc
+                          </li>
+                          <li>
+                            <i class="flaticon-car-2"></i>Sedan
+                          </li>
+                          <li>
+                            <i class="flaticon-cogwheel-outline"></i>Red
+                          </li>
                         </ul>
                       </div>
                       <div class="ad-info-1">
@@ -2317,36 +2027,25 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                            >Contact Seller</a
-                          >
+                          >Contact Seller</a>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- Listing Ad Grid -->
                 </div>
-                <div
-                  class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
-                  id=".holder-89"
-                >
+                <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-89">
                   <div class="category-grid-box-1">
                     <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
                     <div class="image">
-                      <a
-                        href="https://www.youtube.com/watch?v=lr7mPzjTgC0"
-                        class="play-video"
-                      >
-                        <i
-                          class="fa fa-play-circle"
-                          style="font-size: 24px; color: #fff;"
-                        ></i>
+                      <a href="https://www.youtube.com/watch?v=lr7mPzjTgC0" class="play-video">
+                        <i class="fa fa-play-circle" style="font-size: 24px; color: #fff;"></i>
                       </a>
                       <!-- <a href="https://www.youtube.com/watch?v=lr7mPzjTgC0" class="play-video"><img src="../wp-content/uploads/2017/08/playbutton-u693-r.png" alt="Icon"></a> -->
                       <a href="../ad/land-rover-freelander-2-se/index.html">
@@ -2365,31 +2064,35 @@
                     <div class="short-description-1 clearfix">
                       <div class="category-title">
                         <span class="padding_cats">
-                          <a href="../ad_category/land-rover/index.html"
-                            >Land Rover</a
-                          >
+                          <a href="../ad_category/land-rover/index.html">Land Rover</a>
                         </span>
                       </div>
                       <h3>
-                        <a href="../ad/land-rover-freelander-2-se/index.html"
-                          >Land Rover Freelande...</a
-                        >
+                        <a
+                          href="../ad/land-rover-freelander-2-se/index.html"
+                        >Land Rover Freelande...</a>
                       </h3>
                       <p class="location">
                         <i class="fa fa-map-marker"></i>
-                        <a href="../ad_country/district-of-columbia/index.html"
-                          >District of Columbia</a
-                        >,
-                        <a href="../ad_country/united-states/index.html"
-                          >United States</a
-                        >
+                        <a href="../ad_country/district-of-columbia/index.html">District of Columbia</a>,
+                        <a href="../ad_country/united-states/index.html">United States</a>
                       </p>
                       <ul class="list-unstyled">
-                        <li><i class="flaticon-gas-station-1"></i>Diesel</li>
-                        <li><i class="flaticon-dashboard"></i>1,300 Km</li>
-                        <li><i class="flaticon-engine-2"></i>1,500 cc</li>
-                        <li><i class="flaticon-car-2"></i>Luxury</li>
-                        <li><i class="flaticon-cogwheel-outline"></i>Blue</li>
+                        <li>
+                          <i class="flaticon-gas-station-1"></i>Diesel
+                        </li>
+                        <li>
+                          <i class="flaticon-dashboard"></i>1,300 Km
+                        </li>
+                        <li>
+                          <i class="flaticon-engine-2"></i>1,500 cc
+                        </li>
+                        <li>
+                          <i class="flaticon-car-2"></i>Luxury
+                        </li>
+                        <li>
+                          <i class="flaticon-cogwheel-outline"></i>Blue
+                        </li>
                       </ul>
                     </div>
                     <div class="ad-info-1">
@@ -2406,15 +2109,10 @@
                         <a
                           class="btn btn-block button-reveal-btn"
                           href="productdetail.html"
-                          >Contact Seller</a
-                        >
+                        >Contact Seller</a>
                       </div>
                       <div class="button-griddy hidden-desktop">
-                        <a
-                          class="btn btn-block btn-theme"
-                          href="productdetail.html"
-                          >Contact Seller</a
-                        >
+                        <a class="btn btn-block btn-theme" href="productdetail.html">Contact Seller</a>
                       </div>
                     </div>
                   </div>
@@ -2520,5 +2218,10 @@ export default {
 .button-griddy > a:hover {
   color: #fff;
   border-radius: 0px;
+}
+.custom-select {
+  height: 4rem;
+  margin: 4px 0px;
+  font-size: 12px;
 }
 </style>

@@ -42226,5 +42226,18 @@ experimental shii
 @media screen and (max-width: 767px){  
 	#wrapper #sidebar-nav, #wrapper .main {
 		padding-top: 0px !important;
-  	}
+	  }
+	  ul.filterAdType li{
+		  display: block !important;
+		  margin: 0px 0px 10px 0px;
+	  }
+	  .header-listing{
+		  margin-bottom: 10px;
+	  }
+}
+
+@media (max-width: 767px) and (min-width: 320px){
+.sidebar #accordion {
+    margin-top: 0px !important;
+}
 }

@@ -1,6 +1,6 @@
 <template>
   <!--Section-->
-  <section class="sptb">
+  <section class="sptb" style="padding-top: 30px;">
     <!-- <div class="container" style="padding-top: 70px;"> -->
     <div class="container">
       <div class="row ">
@@ -711,7 +711,7 @@
                                         <input
                                           type="text"
                                           class="form-control"
-                                          placeholder="Search for..."
+                                          placeholder="Card Number"
                                         />
                                         <span class="input-group-append">
                                           <button
