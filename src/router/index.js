@@ -179,7 +179,7 @@ const routes = [
     name: "gridlist",
     component: () => import("../views/Gridlist.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {

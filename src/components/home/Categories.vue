@@ -32,7 +32,8 @@
                     ></span>
                   </div>
                   <div
-                    class="form-group col-xl-4 col-lg-4 col-md-12 select2-lg  mb-0 ">
+                    class="form-group col-xl-4 col-lg-4 col-md-12 select2-lg  mb-0 "
+                  >
                     <select
                       class="form-control select2-show-search  border-bottom-0 select-home-page main-category"
                       data-placeholder="Property Type"

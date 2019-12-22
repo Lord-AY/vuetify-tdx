@@ -13,28 +13,22 @@
             <div class="top-bar-right">
               <ul class="custom">
                 <li>
-                  <a
-                    routerLink="/register"
-                    href="register.html"
-                    class="text-dark text-white"
-                    ><i class="fa fa-user mr-1"></i> <span>Register</span></a
-                  >
+                  <router-link to="/register" class="text-dark text-white">
+                    <i class="fa fa-user mr-1"></i>
+                    <span>Register</span>
+                  </router-link>
                 </li>
                 <li>
-                  <a
-                    routerLink="/login"
-                    href="login.html"
-                    class="text-dark text-white"
-                    ><i class="fa fa-sign-in mr-1"></i> <span>Login</span></a
-                  >
+                  <router-link to="/login" class="text-dark text-white">
+                    <i class="fa fa-sign-in mr-1"></i>
+                    <span>Login</span>
+                  </router-link>
                 </li>
                 <li>
-                  <a
-                    routerLink="/login"
-                    href="#"
+                  <router-link
+                    to="/login"
                     class="btn btn-tx btn-theme text-dark post-ad-header-tx"
-                  >
-                    POST AN AD</a
+                    >POST AN AD</router-link
                   >
                 </li>
               </ul>
@@ -46,12 +40,14 @@
     <!--/Topbar-->
 
     <!-- Header -->
-    <div class="horizontal-header clearfix ">
+    <div class="horizontal-header clearfix">
       <div class="container">
-        <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a>
-        <span class="smllogo"
-          ><img src="../assets/images/brand/tx-logo.png" alt=""
-        /></span>
+        <a id="horizontal-navtoggle" class="animated-arrow">
+          <span></span>
+        </a>
+        <span class="smllogo">
+          <img src="../assets/images/brand/tx-logo.png" alt />
+        </span>
         <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
       </div>
     </div>
@@ -61,66 +57,45 @@
     <div class="horizontal-main bg-dark-transparent clearfix">
       <div class="horizontal-mainwrapper container clearfix">
         <!-- <div class="desktoplogo-1" >
-					<a href="index.html"><img src="../assets/images/brand/tradexplora-main.svg" alt=""></a>
-				</div> -->
+          <a href="index.html"><img src="../assets/images/brand/tradexplora-main.svg" alt=""></a>
+        </div>-->
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
-            <a href="index.html"
-              ><img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt=""
-            /></a>
+            <router-link to="/">
+              <img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt />
+            </router-link>
           </div>
           <ul class="horizontalMenu-list" style="margin-top: 12px;">
-            <!-- <li aria-haspopup="true"><a href="about.html"> ABOUT US </a></li>
-            <li aria-haspopup="true"><a href="#"> FAQ </a></li> -->
-            <li aria-haspopup="true" style="margin-right: 10px;">
-              <button class="btn">
-                <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
-              </button>
+            <li aria-haspopup="true">
+              <router-link to="about">ABOUT US</router-link>
             </li>
-            <li aria-haspopup="true" style="padding: 0px;">
-              <div class="row">
-                <div class="col-xl-10 col-lg-12 col-md-12 mb-0">
-                  <input
-                    type="text"
-                    class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
-                    id="text4"
-                    placeholder="Search products, brands and categories"
-                  />
-                  <span>
-                    <i class="fa fa-search location-gps mr-1"></i>
-                  </span>
-                </div>
-                <div class="col-xl-2 col-lg-12 col-md-12">
-                  <button
-                    class="header-search-button btn btn-theme"
-                    style="height: 100%; line-height: 13px; font-size: 14px; color: #fff;">
-                    Search
-                  </button>
-                </div>
-              </div>
+            <li aria-haspopup="true">
+              <a href="#">FAQ</a>
             </li>
-            <!-- <li aria-haspopup="true"><a href="widgets.html">WIDGETS</a></li>							 -->
+            <!-- <li aria-haspopup="true"><a href="widgets.html">WIDGETS</a></li>              -->
             <!-- <li aria-haspopup="true"><a href="#">CATEGORIES <span class="fa fa-caret-down m-0" style="color: #232323;"></span></a>
-							<ul class="sub-menu">
-								<li aria-haspopup="true"><a href="col-left.html">Vehicles</a></li>
-								<li aria-haspopup="true"><a href="col-right.html">RealEstate</a></li>
-								<li aria-haspopup="true"><a href="col-right.html">Mobile Phones</a></li>
-							</ul>
-						</li> -->
-            <!-- <li aria-haspopup="true">
-              <a href="contact.html">
-                CONTACT US <span class="hmarrow"></span
-              ></a>
+              <ul class="sub-menu">
+                <li aria-haspopup="true"><a href="col-left.html">Vehicles</a></li>
+                <li aria-haspopup="true"><a href="col-right.html">RealEstate</a></li>
+                <li aria-haspopup="true"><a href="col-right.html">Mobile Phones</a></li>
+              </ul>
+            </li>-->
+            <li aria-haspopup="true">
+              <router-link to="contact">
+                CONTACT US
+                <span class="hmarrow"></span>
+              </router-link>
             </li>
             <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0">
-            </li> -->
+              <!-- <span><a class="btn tx-btn-color" href="ad-posts.html">Post Property Ad</a></span> -->
+            </li>
           </ul>
           <!-- <ul class="mb-0">
-						<li aria-haspopup="true" class="mt-3 d-none d-lg-block top-postbtn">
-							<span><a class="btn tx-btn-color ad-post " href="ad-posts.html">Post Property Ad</a></span>
-						</li>
-					</ul> -->
+            <li aria-haspopup="true" class="mt-3 d-none d-lg-block top-postbtn">
+              <span><a class="btn tx-btn-color ad-post " href="ad-posts.html">Post Property Ad</a></span>
+            </li>
+          </ul>-->
           <div class="call-us-now">
             <div class="contact-in-header">
               <i class="flaticon-customer-service"></i>
