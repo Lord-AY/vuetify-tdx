@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <div class="main-content-area clearfix">
-      <section class="section-padding  gray page-search">
+      <section class="section-padding gray page-search">
         <div class="container">
           <!-- Row -->
           <div class="row">
@@ -38,7 +38,7 @@
                       <!-- Content -->
                       <div
                         id="collapseFive"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="headingFive"
                       >
@@ -51,7 +51,7 @@
                               placeholder="search"
                               type="text"
                               name="ad_title"
-                              value=""
+                              value
                             />
                             <button type="submit">
                               <i class="fa fa-search"></i>
@@ -94,54 +94,54 @@
                     >
                       <div
                         id="collapseOne"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="headingOne"
                       >
                         <div class="panel-body">
-                          <label class="control-label"> Select Make </label>
+                          <label class="control-label">Select Make</label>
                           <select
                             class="search-select form-control"
                             id="make_id"
                           >
-                            <option value=""> Select Any Category </option>
-                            <option value="50">Alfa Romeo </option>
-                            <option value="60">Aston Martin </option>
-                            <option value="62">Audi </option>
-                            <option value="65">Austin </option>
-                            <option value="66">Austin Healey </option>
-                            <option value="297">Aveo </option>
-                            <option value="68">Bentley </option>
-                            <option value="71">BMW </option>
-                            <option value="302">Bolt </option>
-                            <option value="307">Brothers </option>
-                            <option value="314">Camaro </option>
-                            <option value="325">Charger </option>
-                            <option value="84">Corvette </option>
-                            <option value="339">Dart </option>
-                            <option value="103">Ferrari </option>
-                            <option value="106">Ford </option>
-                            <option value="119">Honda </option>
-                            <option value="123">Hummer </option>
-                            <option value="132">Jaguar </option>
-                            <option value="134">Joy </option>
-                            <option value="135">Lamborghini </option>
-                            <option value="137">Land Rover </option>
-                            <option value="156">McLaren </option>
-                            <option value="157">Mercedes </option>
-                            <option value="161">Mitsubishi </option>
-                            <option value="167">Nissan </option>
-                            <option value="169">Nitro </option>
-                            <option value="172">Optra </option>
-                            <option value="177">Porsche </option>
-                            <option value="194">Renault </option>
-                            <option value="198">Rolls-Royce </option>
-                            <option value="210">Sonic </option>
-                            <option value="211">Spark </option>
-                            <option value="218">Stealth </option>
-                            <option value="222">Suzuki </option>
-                            <option value="239">Viper </option>
-                            <option value="242">Volt </option>
+                            <option value>Select Any Category</option>
+                            <option value="50">Alfa Romeo</option>
+                            <option value="60">Aston Martin</option>
+                            <option value="62">Audi</option>
+                            <option value="65">Austin</option>
+                            <option value="66">Austin Healey</option>
+                            <option value="297">Aveo</option>
+                            <option value="68">Bentley</option>
+                            <option value="71">BMW</option>
+                            <option value="302">Bolt</option>
+                            <option value="307">Brothers</option>
+                            <option value="314">Camaro</option>
+                            <option value="325">Charger</option>
+                            <option value="84">Corvette</option>
+                            <option value="339">Dart</option>
+                            <option value="103">Ferrari</option>
+                            <option value="106">Ford</option>
+                            <option value="119">Honda</option>
+                            <option value="123">Hummer</option>
+                            <option value="132">Jaguar</option>
+                            <option value="134">Joy</option>
+                            <option value="135">Lamborghini</option>
+                            <option value="137">Land Rover</option>
+                            <option value="156">McLaren</option>
+                            <option value="157">Mercedes</option>
+                            <option value="161">Mitsubishi</option>
+                            <option value="167">Nissan</option>
+                            <option value="169">Nitro</option>
+                            <option value="172">Optra</option>
+                            <option value="177">Porsche</option>
+                            <option value="194">Renault</option>
+                            <option value="198">Rolls-Royce</option>
+                            <option value="210">Sonic</option>
+                            <option value="211">Spark</option>
+                            <option value="218">Stealth</option>
+                            <option value="222">Suzuki</option>
+                            <option value="239">Viper</option>
+                            <option value="242">Volt</option>
                           </select>
                           <div id="select_modal" class="margin-top-10"></div>
 
@@ -160,7 +160,7 @@
                           />
                         </div>
                       </div>
-                      <input type="hidden" name="cat_id" id="cat_id" value="" />
+                      <input type="hidden" name="cat_id" id="cat_id" value />
 
                       <input
                         type="hidden"
@@ -196,7 +196,7 @@
                     >
                       <div
                         id="ad-location"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="location_heading"
                       >
@@ -218,7 +218,7 @@
                         type="hidden"
                         name="country_id"
                         id="country_id"
-                        value=""
+                        value
                       />
                       <input
                         type="hidden"
@@ -241,8 +241,8 @@
                               class="close"
                               data-dismiss="modal"
                             >
-                              <span aria-hidden="true">&#10005;</span
-                              ><span class="sr-only">Close</span>
+                              <span aria-hidden="true">&#10005;</span>
+                              <span class="sr-only">Close</span>
                             </button>
                             <h3 class="modal-title text-center">
                               <i class="icon-gears"></i>
@@ -299,13 +299,14 @@
                     >
                       <div
                         id="collapsefour"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="headingfour"
                       >
                         <div class="panel-body">
-                          <span class="price-slider-value"
-                            >Price (&#8358;) <span id="price-min"></span> -
+                          <span class="price-slider-value">
+                            Price (&#8358;)
+                            <span id="price-min"></span> -
                             <span id="price-max"></span>
                           </span>
                           <div id="price-slider"></div>
@@ -370,7 +371,7 @@
                     >
                       <div
                         id="mileage"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="ad-mileage"
                       >
@@ -385,7 +386,7 @@
                               data-parsley-error-message="Value should be numeric"
                               placeholder="From"
                               id="mileage_from"
-                              value=""
+                              value
                             />
                             <span class="input-group-addon">-</span>
                             <input
@@ -397,7 +398,7 @@
                               placeholder="To"
                               name="mileage_to"
                               id="mileage_to"
-                              value=""
+                              value
                             />
                           </div>
 
@@ -442,26 +443,26 @@
                     >
                       <div
                         id="Yearcollapse"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="headingYear"
                       >
                         <div class="panel-body">
-                          <div class="input-group  margin-top-10">
+                          <div class="input-group margin-top-10">
                             <span class="input-group-addon">From</span>
                             <select
                               id="year_from"
                               name="year_from"
                               class="form-control"
                             >
-                              <option value="2010">2010 </option>
-                              <option value="2011">2011 </option>
-                              <option value="2012">2012 </option>
-                              <option value="2013">2013 </option>
-                              <option value="2014">2014 </option>
-                              <option value="2015">2015 </option>
-                              <option value="2016">2016 </option>
-                              <option value="2017">2017 </option>
+                              <option value="2010">2010</option>
+                              <option value="2011">2011</option>
+                              <option value="2012">2012</option>
+                              <option value="2013">2013</option>
+                              <option value="2014">2014</option>
+                              <option value="2015">2015</option>
+                              <option value="2016">2016</option>
+                              <option value="2017">2017</option>
                             </select>
                           </div>
                           <div class="input-group">
@@ -471,14 +472,14 @@
                               name="year_to"
                               class="form-control"
                             >
-                              <option value="2010">2010 </option>
-                              <option value="2011">2011 </option>
-                              <option value="2012">2012 </option>
-                              <option value="2013">2013 </option>
-                              <option value="2014">2014 </option>
-                              <option value="2015">2015 </option>
-                              <option value="2016">2016 </option>
-                              <option value="2017">2017 </option>
+                              <option value="2010">2010</option>
+                              <option value="2011">2011</option>
+                              <option value="2012">2012</option>
+                              <option value="2013">2013</option>
+                              <option value="2014">2014</option>
+                              <option value="2015">2015</option>
+                              <option value="2016">2016</option>
+                              <option value="2017">2017</option>
                             </select>
                           </div>
                           <input
@@ -526,7 +527,7 @@
                     >
                       <div
                         id="transmission"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="body_transmission"
                       >
@@ -541,8 +542,8 @@
                                   name="transmission[]"
                                 />
                                 <label for="transmission-type-67"
-                                  >Automatic
-                                </label>
+                                  >Automatic</label
+                                >
                               </li>
                               <li>
                                 <input
@@ -552,8 +553,8 @@
                                   name="transmission[]"
                                 />
                                 <label for="transmission-type-151"
-                                  >Manual
-                                </label>
+                                  >Manual</label
+                                >
                               </li>
                             </ul>
                           </div>
@@ -592,7 +593,7 @@
                     >
                       <div
                         id="body_type"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="ad_body_type"
                       >
@@ -606,7 +607,7 @@
                                   value="CNG"
                                   name="engine_type[]"
                                 />
-                                <label for="engine-type-81">CNG </label>
+                                <label for="engine-type-81">CNG</label>
                               </li>
                               <li>
                                 <input
@@ -615,7 +616,7 @@
                                   value="Diesel"
                                   name="engine_type[]"
                                 />
-                                <label for="engine-type-96">Diesel </label>
+                                <label for="engine-type-96">Diesel</label>
                               </li>
                               <li>
                                 <input
@@ -624,7 +625,7 @@
                                   value="Hybrid"
                                   name="engine_type[]"
                                 />
-                                <label for="engine-type-126">Hybrid </label>
+                                <label for="engine-type-126">Hybrid</label>
                               </li>
                               <li>
                                 <input
@@ -633,7 +634,7 @@
                                   value="Petrol"
                                   name="engine_type[]"
                                 />
-                                <label for="engine-type-176">Petrol </label>
+                                <label for="engine-type-176">Petrol</label>
                               </li>
                             </ul>
                           </div>
@@ -672,7 +673,7 @@
                     >
                       <div
                         id="engine_capacity"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="engince-capacity"
                       >
@@ -788,7 +789,7 @@
                     >
                       <div
                         id="ad_bodytype"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="bodytype"
                       >
@@ -802,7 +803,7 @@
                                   value="Convertible"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-82">Convertible </label>
+                                <label for="body-type-82">Convertible</label>
                               </li>
                               <li>
                                 <input
@@ -811,7 +812,7 @@
                                   value="Coupe"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-85">Coupe </label>
+                                <label for="body-type-85">Coupe</label>
                               </li>
                               <li>
                                 <input
@@ -820,7 +821,7 @@
                                   value="Crossover"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-87">Crossover </label>
+                                <label for="body-type-87">Crossover</label>
                               </li>
                               <li>
                                 <input
@@ -829,7 +830,7 @@
                                   value="Electric"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-100">Electric </label>
+                                <label for="body-type-100">Electric</label>
                               </li>
                               <li>
                                 <input
@@ -838,7 +839,7 @@
                                   value="Hatchback"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-118">Hatchback </label>
+                                <label for="body-type-118">Hatchback</label>
                               </li>
                               <li>
                                 <input
@@ -847,7 +848,7 @@
                                   value="Hybrid"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-127">Hybrid </label>
+                                <label for="body-type-127">Hybrid</label>
                               </li>
                               <li>
                                 <input
@@ -856,7 +857,7 @@
                                   value="Luxury"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-140">Luxury </label>
+                                <label for="body-type-140">Luxury</label>
                               </li>
                               <li>
                                 <input
@@ -865,7 +866,7 @@
                                   value="Sedan"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-203">Sedan </label>
+                                <label for="body-type-203">Sedan</label>
                               </li>
                               <li>
                                 <input
@@ -874,7 +875,7 @@
                                   value="SUV"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-220">SUV </label>
+                                <label for="body-type-220">SUV</label>
                               </li>
                               <li>
                                 <input
@@ -883,7 +884,7 @@
                                   value="Truck"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-226">Truck </label>
+                                <label for="body-type-226">Truck</label>
                               </li>
                               <li>
                                 <input
@@ -892,7 +893,7 @@
                                   value="Van/Minivan"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-234">Van/Minivan </label>
+                                <label for="body-type-234">Van/Minivan</label>
                               </li>
                               <li>
                                 <input
@@ -901,7 +902,7 @@
                                   value="Wagon"
                                   name="body_type[]"
                                 />
-                                <label for="body-type-243">Wagon </label>
+                                <label for="body-type-243">Wagon</label>
                               </li>
                             </ul>
                           </div>
@@ -940,7 +941,7 @@
                     >
                       <div
                         id="ad-color"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="ad-color-family"
                       >
@@ -1065,7 +1066,7 @@
                     >
                       <div
                         id="collapseSeven"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="headingSeven"
                       >
@@ -1130,7 +1131,7 @@
                     >
                       <div
                         id="insurance"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="ad-insurance"
                       >
@@ -1192,7 +1193,7 @@
                     >
                       <div
                         id="ad-assembly"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="ad-assembly-type"
                       >
@@ -1259,7 +1260,7 @@
                       />
                       <div
                         id="collapseThree"
-                        class="panel-collapse collapse "
+                        class="panel-collapse collapse"
                         role="tabpanel"
                         aria-labelledby="headingThree"
                       >
@@ -1341,29 +1342,29 @@
                               <div class="ad-archive-desc">
                                 <!-- Price -->
                                 <div class="ad-price">
-                                  &#8358; 64,500<span class=""
-                                    >(Negotiable)</span
-                                  >
+                                  &#8358; 64,500
+                                  <span class>(Negotiable)</span>
                                 </div>
                                 <!-- Title -->
                                 <h3>
                                   <a
                                     href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                                    >2017 Maserati Ghibli SQ4 Blue 1,695
-                                    Miles</a
                                   >
+                                    2017 Maserati Ghibli SQ4 Blue 1,695 Miles
+                                  </a>
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a href="../ad_category/audi/index.html"
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/audi/index.html"
                                       >Audi</a
-                                    ></span
-                                  ><span class="padding_cats"
-                                    ><a href="../ad_category/a3/index.html"
+                                    >
+                                  </span>
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/a3/index.html"
                                       >A3</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -1377,10 +1378,12 @@
                                   <li>
                                     <a
                                       href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-110x60.jpg"
                                         alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -1393,15 +1396,16 @@
                                       href="javascript:void(0);"
                                       data-adid="1375"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
                                       class="btn btn-success"
-                                      ><i class="fa fa-phone"></i> View
-                                      Details</a
                                     >
+                                      <i class="fa fa-phone"></i> View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
@@ -1437,27 +1441,29 @@
                               <div class="ad-archive-desc">
                                 <!-- Price -->
                                 <div class="ad-price">
-                                  &#8358; 20,000<span class="">(Fixed)</span>
+                                  &#8358; 20,000
+                                  <span class>(Fixed)</span>
                                 </div>
                                 <!-- Title -->
                                 <h3>
                                   <a
                                     href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                                    >Maserati Ghibli SQ4 Blue 1,695 Miles
-                                    2017</a
                                   >
+                                    Maserati Ghibli SQ4 Blue 1,695 Miles 2017
+                                  </a>
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a href="../ad_category/audi/index.html"
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/audi/index.html"
                                       >Audi</a
-                                    ></span
-                                  ><span class="padding_cats"
-                                    ><a href="../ad_category/a4/index.html"
+                                    >
+                                  </span>
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/a4/index.html"
                                       >A4</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -1471,42 +1477,52 @@
                                   <li>
                                     <a
                                       href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20170912_150901428-110x60.jpg"
                                         alt="Maserati Ghibli SQ4 Blue 1,695 Miles 2017"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20170912_150915848-110x60.jpg"
                                         alt="Maserati Ghibli SQ4 Blue 1,695 Miles 2017"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20170912_150915666-110x60.jpg"
                                         alt="Maserati Ghibli SQ4 Blue 1,695 Miles 2017"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20170912_150859281-110x60.jpg"
                                         alt="Maserati Ghibli SQ4 Blue 1,695 Miles 2017"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20170912_150859367-110x60.jpg"
                                         alt="Maserati Ghibli SQ4 Blue 1,695 Miles 2017"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -1519,15 +1535,16 @@
                                       href="javascript:void(0);"
                                       data-adid="1366"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
                                       class="btn btn-success"
-                                      ><i class="fa fa-phone"></i> View
-                                      Details</a
                                     >
+                                      <i class="fa fa-phone"></i> View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
@@ -1563,29 +1580,29 @@
                               <div class="ad-archive-desc">
                                 <!-- Price -->
                                 <div class="ad-price">
-                                  &#8358; 64,500<span class=""
-                                    >(Negotiable)</span
-                                  >
+                                  &#8358; 64,500
+                                  <span class>(Negotiable)</span>
                                 </div>
                                 <!-- Title -->
                                 <h3>
                                   <a
                                     href="../ad/2017-maserati-ghibli-sq4-blue-1694-miles/index.html"
-                                    >2017 Maserati Ghibli SQ4 Blue 1,694
-                                    Miles</a
                                   >
+                                    2017 Maserati Ghibli SQ4 Blue 1,694 Miles
+                                  </a>
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a href="../ad_category/austin/index.html"
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/austin/index.html"
                                       >Austin</a
-                                    ></span
-                                  ><span class="padding_cats"
-                                    ><a href="../ad_category/mini/index.html"
+                                    >
+                                  </span>
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/mini/index.html"
                                       >Mini</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -1597,18 +1614,22 @@
                                   <li>
                                     <a
                                       href="../ad/2017-maserati-ghibli-sq4-blue-1694-miles/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20171221_162520395-110x60.jpg"
                                         alt="2017 Maserati Ghibli SQ4 Blue 1,694 Miles"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/2017-maserati-ghibli-sq4-blue-1694-miles/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/12/KakaoTalk_20171221_162528445-110x60.jpg"
                                         alt="2017 Maserati Ghibli SQ4 Blue 1,694 Miles"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -1621,14 +1642,14 @@
                                       href="javascript:void(0);"
                                       data-adid="1362"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/2017-maserati-ghibli-sq4-blue-1694-miles/index.html"
                                       class="btn btn-success"
-                                    >
-                                      View Details</a
+                                      >View Details</a
                                     >
                                   </div>
                                 </div>
@@ -1663,7 +1684,8 @@
                               <div class="ad-archive-desc">
                                 <!-- Price -->
                                 <div class="ad-price">
-                                  &#8358; 37,455<span class="">(Fixed)</span>
+                                  &#8358; 37,455
+                                  <span class>(Fixed)</span>
                                 </div>
                                 <!-- Title -->
                                 <h3>
@@ -1673,15 +1695,16 @@
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a href="../ad_category/ford/index.html"
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/ford/index.html"
                                       >Ford</a
-                                    ></span
-                                  ><span class="padding_cats"
-                                    ><a href="../ad_category/mustang/index.html"
+                                    >
+                                  </span>
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/mustang/index.html"
                                       >Mustang</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -1695,26 +1718,32 @@
                                   <li>
                                     <a
                                       href="../ad/2017-ford-mustang-2/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2019/01/3-110x60.jpg"
                                         alt="2017 Ford Mustang"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/2017-ford-mustang-2/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2019/01/3-110x60-2.jpg"
                                         alt="2017 Ford Mustang"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/2017-ford-mustang-2/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2019/01/wwww-110x60.jpg"
                                         alt="2017 Ford Mustang"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -1727,15 +1756,16 @@
                                       href="javascript:void(0);"
                                       data-adid="1554"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/2017-ford-mustang-2/index.html"
                                       class="btn btn-success"
-                                      ><i class="fa fa-phone"></i> View
-                                      Details</a
                                     >
+                                      <i class="fa fa-phone"></i> View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
@@ -1771,9 +1801,8 @@
                               <div class="ad-archive-desc">
                                 <!-- Price -->
                                 <div class="ad-price">
-                                  &#8358; 37,345<span class=""
-                                    >(Negotiable)</span
-                                  >
+                                  &#8358; 37,345
+                                  <span class>(Negotiable)</span>
                                 </div>
                                 <!-- Title -->
                                 <h3>
@@ -1784,12 +1813,11 @@
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a
-                                      href="../ad_category/corvette/index.html"
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/corvette/index.html"
                                       >Corvette</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -1803,42 +1831,52 @@
                                   <li>
                                     <a
                                       href="../ad/2010-chevrolet-camaro/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2019/01/6-110x60.jpg"
                                         alt="2010 Chevrolet Camaro"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/2010-chevrolet-camaro/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2019/01/3-1-110x60.jpg"
                                         alt="2010 Chevrolet Camaro"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/2010-chevrolet-camaro/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2019/01/4-110x60.jpg"
                                         alt="2010 Chevrolet Camaro"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/2010-chevrolet-camaro/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2019/01/5-110x60.jpg"
                                         alt="2010 Chevrolet Camaro"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/2010-chevrolet-camaro/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2019/01/1-110x60.jpg"
                                         alt="2010 Chevrolet Camaro"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -1851,15 +1889,16 @@
                                       href="javascript:void(0);"
                                       data-adid="1552"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/2010-chevrolet-camaro/index.html"
                                       class="btn btn-success"
-                                      ><i class="fa fa-phone"></i> View
-                                      Details</a
                                     >
+                                      <i class="fa fa-phone"></i> View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
@@ -1867,7 +1906,7 @@
                             </div>
                             <!-- Content Block End -->
                           </div>
-                          <div class="ads-list-archive ">
+                          <div class="ads-list-archive">
                             <!-- Image Block -->
                             <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                               <!-- Img Block -->
@@ -1890,7 +1929,8 @@
                               <div class="ad-archive-desc">
                                 <!-- Price -->
                                 <div class="ad-price">
-                                  &#8358; 95,000<span class="">(Fixed)</span>
+                                  &#8358; 95,000
+                                  <span class>(Fixed)</span>
                                 </div>
                                 <!-- Title -->
                                 <h3>
@@ -1900,15 +1940,16 @@
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a href="../ad_category/audi/index.html"
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/audi/index.html"
                                       >Audi</a
-                                    ></span
-                                  ><span class="padding_cats"
-                                    ><a href="../ad_category/a5/index.html"
+                                    >
+                                  </span>
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/a5/index.html"
                                       >A5</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -1920,18 +1961,20 @@
                                 <!-- Ad Features -->
                                 <ul class="add_info">
                                   <li>
-                                    <a href="../ad/audi-a5-for-sale/index.html"
-                                      ><img
+                                    <a href="../ad/audi-a5-for-sale/index.html">
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/07/1-3-110x60.jpg"
                                         alt="Audi A5 For Sale"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
-                                    <a href="../ad/audi-a5-for-sale/index.html"
-                                      ><img
+                                    <a href="../ad/audi-a5-for-sale/index.html">
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/07/3-3-110x60.jpg"
                                         alt="Audi A5 For Sale"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -1944,15 +1987,16 @@
                                       href="javascript:void(0);"
                                       data-adid="960"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/audi-a5-for-sale/index.html"
                                       class="btn btn-success"
-                                      ><i class="fa fa-phone"></i> View
-                                      Details</a
                                     >
+                                      <i class="fa fa-phone"></i> View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
@@ -1960,7 +2004,7 @@
                             </div>
                             <!-- Content Block End -->
                           </div>
-                          <div class="ads-list-archive ">
+                          <div class="ads-list-archive">
                             <!-- Image Block -->
                             <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                               <!-- Img Block -->
@@ -1968,10 +2012,12 @@
                                 <a
                                   href="https://www.youtube.com/watch?v=lr7mPzjTgC0"
                                   class="play-video"
-                                  ><img
+                                >
+                                  <img
                                     src="../assets/carspot-css/wp-content/uploads/2017/08/playbutton-u693-r.png"
                                     alt="Icon"
-                                /></a>
+                                  />
+                                </a>
                                 <a href="../ad/renault-duster-2017/index.html">
                                   <img
                                     src="../assets/carspot-css/wp-content/uploads/2017/07/1-1-360x270.jpg"
@@ -1998,11 +2044,11 @@
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a href="../ad_category/renault/index.html"
+                                  <span class="padding_cats">
+                                    <a href="../ad_category/renault/index.html"
                                       >Renault</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -2016,26 +2062,32 @@
                                   <li>
                                     <a
                                       href="../ad/renault-duster-2017/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/07/1-1-110x60.jpg"
                                         alt="Renault Duster 2017"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/renault-duster-2017/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/07/2-1-110x60.jpg"
                                         alt="Renault Duster 2017"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/renault-duster-2017/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/07/3-1-110x60.jpg"
                                         alt="Renault Duster 2017"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -2048,15 +2100,16 @@
                                       href="javascript:void(0);"
                                       data-adid="877"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/renault-duster-2017/index.html"
                                       class="btn btn-success"
-                                      ><i class="fa fa-phone"></i> View
-                                      Details</a
                                     >
+                                      <i class="fa fa-phone"></i> View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
@@ -2064,7 +2117,7 @@
                             </div>
                             <!-- Content Block End -->
                           </div>
-                          <div class="ads-list-archive ">
+                          <div class="ads-list-archive">
                             <!-- Image Block -->
                             <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                               <!-- Img Block -->
@@ -2072,10 +2125,12 @@
                                 <a
                                   href="https://www.youtube.com/watch?v=lr7mPzjTgC0"
                                   class="play-video"
-                                  ><img
+                                >
+                                  <img
                                     src="../assets/carspot-css/wp-content/uploads/2017/08/playbutton-u693-r.png"
                                     alt="Icon"
-                                /></a>
+                                  />
+                                </a>
                                 <a href="../ad/rolls-royce-phantom/index.html">
                                   <img
                                     src="../assets/carspot-css/wp-content/uploads/2017/07/5-360x270.jpg"
@@ -2102,12 +2157,12 @@
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a
+                                  <span class="padding_cats">
+                                    <a
                                       href="../ad_category/rolls-royce/index.html"
                                       >Rolls-Royce</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -2121,26 +2176,32 @@
                                   <li>
                                     <a
                                       href="../ad/rolls-royce-phantom/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/07/5-110x60.jpg"
                                         alt="Rolls Royce Phantom"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/rolls-royce-phantom/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/07/6-1-110x60.jpg"
                                         alt="Rolls Royce Phantom"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/rolls-royce-phantom/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/07/7-110x60.jpg"
                                         alt="Rolls Royce Phantom"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -2153,15 +2214,16 @@
                                       href="javascript:void(0);"
                                       data-adid="873"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/rolls-royce-phantom/index.html"
                                       class="btn btn-success"
-                                      ><i class="fa fa-phone"></i> View
-                                      Details</a
                                     >
+                                      <i class="fa fa-phone"></i> View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
@@ -2177,10 +2239,12 @@
                                 <a
                                   href="https://www.youtube.com/watch?v=lr7mPzjTgC0"
                                   class="play-video"
-                                  ><img
+                                >
+                                  <img
                                     src="../assets/carspot-css/wp-content/uploads/2017/08/playbutton-u693-r.png"
                                     alt="Icon"
-                                /></a>
+                                  />
+                                </a>
                                 <a
                                   href="../ad/land-rover-freelander-2-se/index.html"
                                 >
@@ -2213,12 +2277,12 @@
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
-                                  <span class="padding_cats"
-                                    ><a
+                                  <span class="padding_cats">
+                                    <a
                                       href="../ad_category/land-rover/index.html"
                                       >Land Rover</a
-                                    ></span
-                                  >
+                                    >
+                                  </span>
                                 </div>
                                 <!-- Short Description -->
                                 <div class="clearfix visible-xs-block"></div>
@@ -2232,26 +2296,32 @@
                                   <li>
                                     <a
                                       href="../ad/land-rover-freelander-2-se/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/06/1-13-110x60.jpg"
                                         alt="Land Rover Freelander 2 Se"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/land-rover-freelander-2-se/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/06/2-12-110x60.jpg"
                                         alt="Land Rover Freelander 2 Se"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                   <li>
                                     <a
                                       href="../ad/land-rover-freelander-2-se/index.html"
-                                      ><img
+                                    >
+                                      <img
                                         src="../assets/carspot-css/wp-content/uploads/2017/06/3-12-110x60.jpg"
                                         alt="Land Rover Freelander 2 Se"
-                                    /></a>
+                                      />
+                                    </a>
                                   </li>
                                 </ul>
                                 <!-- Ad History -->
@@ -2264,15 +2334,16 @@
                                       href="javascript:void(0);"
                                       data-adid="89"
                                       class="btn save-ad"
-                                      ><i class="fa fa-heart-o"></i>
-                                      Favourite</a
                                     >
+                                      <i class="fa fa-heart-o"></i>
+                                      Favourite
+                                    </a>
                                     <a
                                       href="../ad/land-rover-freelander-2-se/index.html"
                                       class="btn btn-success"
-                                      ><i class="fa fa-phone"></i> View
-                                      Details</a
                                     >
+                                      <i class="fa fa-phone"></i> View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
@@ -2327,7 +2398,7 @@
                   />
                 </a>
                 <hr
-                  class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto"
+                  class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
                 />
                 <p class="p-footer-tx">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -2336,16 +2407,20 @@
                 </p>
                 <ul class="apps-donwloads">
                   <li style="display: inline-block; margin: 0 4px 4px 0;">
-                    <a href="#"
-                      ><img
+                    <a href="#">
+                      <img
                         src="../assets/images/appstore.png"
                         alt="Android App"
-                    /></a>
+                      />
+                    </a>
                   </li>
                   <li style="display: inline-block; margin: 0 4px 4px 0;">
-                    <a href="#"
-                      ><img src="../assets/images/googleplay.png" alt="IOS App"
-                    /></a>
+                    <a href="#">
+                      <img
+                        src="../assets/images/googleplay.png"
+                        alt="IOS App"
+                      />
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -2353,7 +2428,7 @@
               <div class="col-lg-2 col-footer-lg-2-tx col-md-12">
                 <h6>Follow Us</h6>
                 <hr
-                  class="deep-purple  text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto"
+                  class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto"
                 />
                 <ul class="list-unstyled mb-0">
                   <li class="contact-us-tx">
@@ -2361,32 +2436,44 @@
                       class="Facebook btn-floating btn-sm btn-sm-tx rgba-white-slight mx-1 waves-effect waves-light"
                       href="#"
                     >
-                      <i class="fa fa-facebook bg-facebook"></i> </a
-                    ><span><a href="#">Facebook</a></span>
+                      <i class="fa fa-facebook bg-facebook"></i>
+                    </a>
+                    <span>
+                      <a href="#">Facebook</a>
+                    </span>
                   </li>
                   <li class="contact-us-tx">
                     <a
                       class="Twitter btn-floating btn-sm btn-sm-tx rgba-white-slight mx-1 waves-effect waves-light"
                       href="#"
                     >
-                      <i class="fa fa-twitter bg-info"></i> </a
-                    ><span><a href="#">Twitter</a></span>
+                      <i class="fa fa-twitter bg-info"></i>
+                    </a>
+                    <span>
+                      <a href="#">Twitter</a>
+                    </span>
                   </li>
                   <li class="contact-us-tx">
                     <a
                       class="Linkedin btn-floating btn-sm btn-sm-tx rgba-white-slight mx-1 waves-effect waves-light"
                       href="#"
                     >
-                      <i class="fa fa-linkedin bg-linkedin"></i> </a
-                    ><span><a href="#">Linkedin</a></span>
+                      <i class="fa fa-linkedin bg-linkedin"></i>
+                    </a>
+                    <span>
+                      <a href="#">Linkedin</a>
+                    </span>
                   </li>
                   <li class="contact-us-tx">
                     <a
                       class="Google btn-floating btn-sm btn-sm-tx rgba-white-slight mx-1 waves-effect waves-light"
                       href="#"
                     >
-                      <i class="fa fa-google-plus bg-danger-tx"></i> </a
-                    ><span><a href="#">Google</a></span>
+                      <i class="fa fa-google-plus bg-danger-tx"></i>
+                    </a>
+                    <span>
+                      <a href="#">Google</a>
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -2397,18 +2484,30 @@
                   class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto"
                 />
                 <ul class="list-unstyled mb-0">
-                  <li><a href="javascript:;">Home</a></li>
-                  <li><a href="javascript:;">About Us</a></li>
-                  <li><a href="javascript:;">Contant Us</a></li>
-                  <li><a href="javascript:;">FAQ</a></li>
-                  <li><a href="javascript:;">Regions</a></li>
-                  <li><a href="javascript:;">Terms</a></li>
+                  <li>
+                    <a href="javascript:;">Home</a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">About Us</a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">Contant Us</a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">Regions</a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">Terms</a>
+                  </li>
                 </ul>
               </div>
               <div class="col-lg-5 col-footer-lg-5-tx col-md-12">
                 <h6>Subscribe</h6>
                 <hr
-                  class="deep-purple  text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto"
+                  class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto"
                 />
                 <p class="p-footer-tx">
                   We may send you information about related events, webinars,
@@ -2418,13 +2517,13 @@
                 <div class="input-group input-group-footer-tx w-100">
                   <input
                     type="text"
-                    class="form-control form-control-tx br-tl-3  br-bl-3 "
+                    class="form-control form-control-tx br-tl-3 br-bl-3"
                     placeholder="Email"
                   />
-                  <div class="input-group-append ">
+                  <div class="input-group-append">
                     <button
                       type="button"
-                      class="btn btn-primary btn-footer-subscribe-tx br-tr-3  br-br-3"
+                      class="btn btn-primary btn-footer-subscribe-tx br-tr-3 br-br-3"
                     >
                       SUBSCRIBE
                     </button>
@@ -2434,33 +2533,35 @@
                 <div>
                   <ul class="footer-payments" style="margin-top: 27px;">
                     <li class="pl-0" style=" width: 105px;">
-                      <a href="javascript:;"
-                        ><img src="../assets/images/Interswitch Logo.svg"
-                      /></a>
+                      <a href="javascript:;">
+                        <img src="../assets/images/Interswitch Logo.svg" />
+                      </a>
                     </li>
                     <li style=" width: 120px;">
-                      <a href="javascript:;"
-                        ><img src="../assets/images/paystack-02.jpg"
-                      /></a>
+                      <a href="javascript:;">
+                        <img src="../assets/images/paystack-02.jpg" />
+                      </a>
                     </li>
                     <li>
-                      <a href="javascript:;"
-                        ><img
+                      <a href="javascript:;">
+                        <img
                           class="payment-card-icon-footer-tx"
                           src="../assets/images/visa_card.png"
-                      /></a>
+                        />
+                      </a>
                     </li>
                     <li>
-                      <a href="javascript:;"
-                        ><img
+                      <a href="javascript:;">
+                        <img
                           class="payment-card-icon-footer-tx"
                           src="../assets/images/master_card.png"
-                      /></a>
+                        />
+                      </a>
                     </li>
                     <li style=" width: 88px!important;">
-                      <a href="javascript:; "
-                        ><img src="../assets/images/varve-logo-2.png"
-                      /></a>
+                      <a href="javascript:; ">
+                        <img src="../assets/images/varve-logo-2.png" />
+                      </a>
                     </li>
                   </ul>
                   <!-- <div class="mt-0">Copyright © 2019 <a href="#" class="fs-14 text-primary-tx" style="color: #00BF8F !important;">Tradexplora</a>.</div> -->
@@ -2551,7 +2652,7 @@ export default {
 </script>
 
 <style>
-  .ad-meta:first-child a{
-    margin-right: 10px;
-  }
+.ad-meta:first-child a {
+  margin-right: 10px;
+}
 </style>

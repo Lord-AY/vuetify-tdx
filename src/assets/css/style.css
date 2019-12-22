@@ -42105,25 +42105,126 @@ span.select2-container--default {
 
 /* } */
 
-/* experimental shii */
+/* 
+
+experimental shii
+
+*/
+
+/****** Custom Hamburger for the menu ******/
+#tx-menu-toggle {
+	width: 30px;
+	height: 45px;
+	position: relative;
+	margin: 50px auto;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: .5s ease-in-out;
+	-moz-transition: .5s ease-in-out;
+	-o-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+	cursor: pointer !important;
+  }
+  
+  #tx-menu-toggle span {
+	display: block;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	/* background: #d3531a; */
+	background: #a9a9a9;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: .25s ease-in-out;
+	-moz-transition: .25s ease-in-out;
+	-o-transition: .25s ease-in-out;
+	transition: .25s ease-in-out;
+  }
+  
+  #tx-menu-toggle span:nth-child(1) {
+	top: 0px;
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	transform-origin: left center;
+  }
+  
+  #tx-menu-toggle span:nth-child(2) {
+	top: 9px;
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	transform-origin: left center;
+  }
+  
+  #tx-menu-toggle span:nth-child(3) {
+	top: 18px;
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	transform-origin: left center;
+  }
+  
+  #tx-menu-toggle.open span:nth-child(1) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: -3px;
+	left: 8px;
+  }
+  
+  #tx-menu-toggle.open span:nth-child(2) {
+	width: 0%;
+	opacity: 0;
+  }
+  
+  #tx-menu-toggle.open span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	top: 19px;
+	left: 8px;
+  }
+
+  /****** Responsive Shii ******/
+
+
 @media (min-width: 992px){
 	.hidden-lg-up{
 		display: none !important;
 	}
-	
-  }
-  .mobile-hidden {
-	display: none;
-  }
-  .hidden-desktop{
-	display: block;
-  }
+}
+.mobile-hidden {
+	display: none !important;
+}
+.hidden-desktop{
+	display: block !important;
+}
   
-  @media (min-width: 769px) {
+@media (min-width: 769px) {
 	.mobile-hidden {
-	  display: block;
+		display: block !important;
 	}
 	.hidden-desktop{
-	  display: none !important;
+		display: none !important;
 	}
-  }
+}
+  
+.dashboard-main{
+	padding-top: 20px !important;
+}
+
+@media screen and (max-width: 767px){  
+	#wrapper #sidebar-nav, #wrapper .main {
+		padding-top: 0px !important;
+  	}
+}

@@ -87,16 +87,15 @@ export default {
 </script>
 
 <style>
-@media (min-width: 992px){
-  .hidden-lg-up{
-      display: none !important;
+@media (min-width: 992px) {
+  .hidden-lg-up {
+    display: none !important;
   }
-  
 }
 .mobile-hidden {
   display: none;
 }
-.hidden-desktop{
+.hidden-desktop {
   display: block;
 }
 
@@ -104,7 +103,7 @@ export default {
   .mobile-hidden {
     display: block;
   }
-  .hidden-desktop{
+  .hidden-desktop {
     display: none !important;
   }
 }

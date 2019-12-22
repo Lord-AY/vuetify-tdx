@@ -2,7 +2,7 @@
   <!--Topbar-->
   <!--Topbar-->
   <div class="header-main">
-    <div class="top-bar">
+    <div class="top-bar mobile-hidden">
       <div class="container">
         <div class="row">
           <div class="col-xl-8 col-lg-8 col-sm-4 col-6">

@@ -4,6 +4,12 @@
     <!-- <dheader></dheader> Is this even neccessary?-->
     <!--/Horizontal-main -->
 
+    <!-- <button class="hamburger hamburger--collapse" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>-->
+
     <div id="wrapper">
       <!-- LEFT SIDEBAR -->
       <dsidebar></dsidebar>
@@ -22,12 +28,22 @@
                   <div class="panel-heading">
                     <h3 class="panel-title">Dashboard Overview</h3>
                     <p class="panel-subtitle">Last logged in 40 mins Ago</p>
+                    <!-- Sidebar Trigger Button -->
+                    <!-- <div class="hidden-desktop">
+                      <button
+                        class="btn btn-theme openbtn closed"
+                        style="color: #fff;"
+                      >&#9776; Open Sidebar</button>
+                    </div>-->
+                    <!-- End Sidebar Trigger Button -->
                   </div>
-                  <div class="panel-body ">
+                  <div class="panel-body">
                     <div class="row">
                       <div class="col-md-3">
                         <div class="metric">
-                          <span class="icon"><i class="fa fa-star"></i></span>
+                          <span class="icon">
+                            <i class="fa fa-star"></i>
+                          </span>
                           <p>
                             <span class="title">Featured Posts</span>
                             <span class="number">0</span>
@@ -36,7 +52,9 @@
                       </div>
                       <div class="col-md-3">
                         <div class="metric">
-                          <span class="icon"><i class="fa fa-tasks"></i></span>
+                          <span class="icon">
+                            <i class="fa fa-tasks"></i>
+                          </span>
                           <p>
                             <span class="title">Active</span>
                             <span class="number">0</span>
@@ -45,9 +63,9 @@
                       </div>
                       <div class="col-md-3">
                         <div class="metric">
-                          <span class="icon"
-                            ><i class="fa fa-warning"></i
-                          ></span>
+                          <span class="icon">
+                            <i class="fa fa-warning"></i>
+                          </span>
                           <p>
                             <span class="title">Expired</span>
                             <span class="number">0</span>
@@ -56,9 +74,9 @@
                       </div>
                       <div class="col-md-3">
                         <div class="metric">
-                          <span class="icon"
-                            ><i class="fa fa-shopping-bag"></i
-                          ></span>
+                          <span class="icon">
+                            <i class="fa fa-shopping-bag"></i>
+                          </span>
                           <p>
                             <span class="title">Sold</span>
                             <span class="number">0</span>
@@ -72,51 +90,42 @@
             </div>
             <div class="row">
               <div class="col-md-8">
-                <div class="panel  panel-headline">
+                <div class="panel panel-headline">
                   <div class="panel-heading">
                     <h3 class="panel-title">Most Viewed Posts</h3>
-                    <a href="" class=""> View All Posts</a>
+                    <a href class>View All Posts</a>
                   </div>
                   <div class="panel-body table-responsive">
-                    <table
-                      class="table dashboard-table table-fit table-striped"
-                    >
+                    <table class="table dashboard-table table-fit table-striped">
                       <!--<thead>
                                 <tr>
                                     <th></th>
                                     <th> detail</th>
                                     <th> Views</th>
                                 </tr>
-                            </thead>-->
+                      </thead>-->
                       <tbody>
                         <tr>
-                          <td colspan="5"><h4>No Inventory Found</h4></td>
+                          <td colspan="5">
+                            <h4>No Inventory Found</h4>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <div class="panel  panel-headline">
+                <div class="panel panel-headline">
                   <div class="panel-heading">
                     <h3 class="panel-title">Most Recent Reviews</h3>
-                    <a href="" class=""> View All Reviews</a>
+                    <a href class>View All Reviews</a>
                   </div>
                   <div class="panel-body">
-                    <div
-                      class="alert custom-alert custom-alert-info"
-                      role="alert"
-                    >
+                    <div class="alert custom-alert custom-alert-info" role="alert">
                       <div class="custom-alert_top-side">
-                        <span
-                          class="alert-icon custom-alert_icon la la-info-circle"
-                        ></span>
+                        <span class="alert-icon custom-alert_icon la la-info-circle"></span>
                         <div class="custom-alert_body">
-                          <h6 class="custom-alert_heading">
-                            No Review Availabler.
-                          </h6>
-                          <div class="custom-alert_content">
-                            Your reviews will be visible here.
-                          </div>
+                          <h6 class="custom-alert_heading">No Review Availabler.</h6>
+                          <div class="custom-alert_content">Your reviews will be visible here.</div>
                         </div>
                       </div>
                     </div>
@@ -124,29 +133,22 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="panel  panel-headline">
+                <div class="panel panel-headline">
                   <div class="panel-body">
-                    <div
-                      class="alert custom-alert custom-alert-info"
-                      role="alert"
-                    >
+                    <div class="alert custom-alert custom-alert-info" role="alert">
                       <div class="custom-alert_top-side">
-                        <span
-                          class="alert-icon custom-alert_icon la la-info-circle"
-                        ></span>
+                        <span class="alert-icon custom-alert_icon la la-info-circle"></span>
                         <div class="custom-alert_body">
-                          <h6 class="custom-alert_heading">
-                            No Notification Available.
-                          </h6>
-                          <div class="custom-alert_content">
-                            Notifications from admin will be visible here.
-                          </div>
+                          <h6 class="custom-alert_heading">No Notification Available.</h6>
+                          <div
+                            class="custom-alert_content"
+                          >Notifications from admin will be visible here.</div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="panel  panel-headline colored-panel">
+                <div class="panel panel-headline colored-panel">
                   <div class="panel-heading">
                     <h3 class="panel-title">Package Details</h3>
                   </div>
@@ -177,7 +179,7 @@
                         <i class="la la-calendar"></i>
                         <div class="profile-meta">
                           <h6>Package Expiry date</h6>
-                          <span> Never Expire </span>
+                          <span>Never Expire</span>
                         </div>
                       </li>
                     </ul>
@@ -198,7 +200,7 @@
 <li><a href="page/2/index.html">2</a></li>
 <li><a href="page/2/index.html" >Next Page &raquo;</a></li>
 </ul>
-    </div> -->
+    </div>-->
 
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />
@@ -221,6 +223,7 @@
   </div>
 </template>
 <script>
+/* eslint-disable no-undef */
 require("../assets/skins/color-skins/color15.css");
 require("../assets/plugins/horizontal-menu/horizontal.css");
 require("../assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
@@ -268,6 +271,9 @@ require("../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocomm
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css");
 require("../assets/css/user-dashboard/protip.css");
+
+/* Hamburger Menu (Animated) */
+require("../assets/css/hamburger.css");
 
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");

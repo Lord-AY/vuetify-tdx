@@ -2,18 +2,21 @@
   <div class="gridlist">
     <div class="main-content-area clearfix">
       <section
-        class="section-padding  gray page-search"
+        class="section-padding gray page-search"
         style="padding: 8px 0px!important;"
       >
         <div class="container">
           <div class="row value-added-services-row">
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
+            <div
+              class="col-md-2 col-sm-4 col-xs-4"
+              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+            >
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="outline1">
                     <div class="outline2">
                       <div class="icon-bg-service">
-                        <span class=" icon-service1 text-primary">
+                        <span class="icon-service1 text-primary">
                           <i
                             class="fa fa-mobile fa-5x"
                             style="color: #fff !important; font-size: 35px;"
@@ -23,18 +26,21 @@
                     </div>
                   </div>
                   <div class="ml-4 mt-1">
-                    <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
                       Airtime / Data
                     </h3>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4 " style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
+            <div
+              class="col-md-2 col-sm-4 col-xs-4"
+              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+            >
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
-                    <span class=" icon-service1 text-warning">
+                    <span class="icon-service1 text-warning">
                       <i
                         class="fa fa-television"
                         style="color: #fff !important; font-size: 25px; margin-left: 3px;"
@@ -42,18 +48,21 @@
                     </span>
                   </div>
                   <div class="ml-4 mt-1">
-                    <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
                       Cable TV
                     </h3>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4 " style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
+            <div
+              class="col-md-2 col-sm-4 col-xs-4"
+              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+            >
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
-                    <span class=" icon-service1 text-secondary">
+                    <span class="icon-service1 text-secondary">
                       <i
                         class="fa fa-bolt"
                         style="color: #fff !important; font-size: 25px;"
@@ -61,45 +70,51 @@
                     </span>
                   </div>
                   <div class="ml-4 mt-1">
-                    <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
                       Electricity
                     </h3>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
+            <div
+              class="col-md-2 col-sm-4 col-xs-4"
+              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+            >
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
-                    <span class=" icon-service1 text-primary">
+                    <span class="icon-service1 text-primary">
                       <i
                         class="fa fa-plane fa-3x"
                         style="color: #fff !important; font-size: 21px;"
                       ></i>
                     </span>
                   </div>
-                  <div class=" mt-1">
-                    <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
+                  <div class="mt-1">
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
                       Flight
                     </h3>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;">
+            <div
+              class="col-md-2 col-sm-4 col-xs-4"
+              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+            >
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
-                    <span class=" icon-service1 text-warning">
+                    <span class="icon-service1 text-warning">
                       <i
                         class="fa fa-bed"
                         style="color: #fff !important; font-size: 21px;"
                       ></i>
                     </span>
                   </div>
-                  <div class=" mt-1">
-                    <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
+                  <div class="mt-1">
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
                       Hotel
                     </h3>
                   </div>
@@ -113,7 +128,7 @@
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="icon-bg-service">
-                    <span class=" icon-service1 text-warning">
+                    <span class="icon-service1 text-warning">
                       <i
                         class="fa fa-ellipsis-h"
                         style="color: #fff !important; font-size: 28px;"
@@ -121,7 +136,7 @@
                     </span>
                   </div>
                   <div class="ml-4 mt-1">
-                    <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
+                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
                       More Services
                     </h3>
                   </div>
@@ -165,7 +180,7 @@
                     </div>
                     <div
                       id="collapseMain"
-                      class="panel-collapse collapse "
+                      class="panel-collapse collapse"
                       role="tabpanel"
                       aria-labelledby="headingMain"
                       style="height: auto!important;"
@@ -208,7 +223,7 @@
                               <!-- Content -->
                               <div
                                 id="collapseFive"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="headingFive"
                               >
@@ -221,7 +236,7 @@
                                       placeholder="search"
                                       type="text"
                                       name="ad_title"
-                                      value=""
+                                      value
                                     />
                                     <button type="submit">
                                       <i class="fa fa-search"></i>
@@ -264,58 +279,56 @@
                             >
                               <div
                                 id="collapseOne"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="headingOne"
                               >
                                 <div class="panel-body">
-                                  <label class="control-label">
-                                    Select Category
-                                  </label>
+                                  <label class="control-label"
+                                    >Select Category</label
+                                  >
                                   <select
                                     class="search-select form-control"
                                     id="make_id"
                                   >
-                                    <option value="">
-                                      Select Any Category
-                                    </option>
-                                    <option value="50">Alfa Romeo </option>
-                                    <option value="60">Aston Martin </option>
-                                    <option value="62">Audi </option>
-                                    <option value="65">Austin </option>
-                                    <option value="66">Austin Healey </option>
-                                    <option value="297">Aveo </option>
-                                    <option value="68">Bentley </option>
-                                    <option value="71">BMW </option>
-                                    <option value="302">Bolt </option>
-                                    <option value="307">Brothers </option>
-                                    <option value="314">Camaro </option>
-                                    <option value="325">Charger </option>
-                                    <option value="84">Corvette </option>
-                                    <option value="339">Dart </option>
-                                    <option value="103">Ferrari </option>
-                                    <option value="106">Ford </option>
-                                    <option value="119">Honda </option>
-                                    <option value="123">Hummer </option>
-                                    <option value="132">Jaguar </option>
-                                    <option value="134">Joy </option>
-                                    <option value="135">Lamborghini </option>
-                                    <option value="137">Land Rover </option>
-                                    <option value="156">McLaren </option>
-                                    <option value="157">Mercedes </option>
-                                    <option value="161">Mitsubishi </option>
-                                    <option value="167">Nissan </option>
-                                    <option value="169">Nitro </option>
-                                    <option value="172">Optra </option>
-                                    <option value="177">Porsche </option>
-                                    <option value="194">Renault </option>
-                                    <option value="198">Rolls-Royce </option>
-                                    <option value="210">Sonic </option>
-                                    <option value="211">Spark </option>
-                                    <option value="218">Stealth </option>
-                                    <option value="222">Suzuki </option>
-                                    <option value="239">Viper </option>
-                                    <option value="242">Volt </option>
+                                    <option value>Select Any Category</option>
+                                    <option value="50">Alfa Romeo</option>
+                                    <option value="60">Aston Martin</option>
+                                    <option value="62">Audi</option>
+                                    <option value="65">Austin</option>
+                                    <option value="66">Austin Healey</option>
+                                    <option value="297">Aveo</option>
+                                    <option value="68">Bentley</option>
+                                    <option value="71">BMW</option>
+                                    <option value="302">Bolt</option>
+                                    <option value="307">Brothers</option>
+                                    <option value="314">Camaro</option>
+                                    <option value="325">Charger</option>
+                                    <option value="84">Corvette</option>
+                                    <option value="339">Dart</option>
+                                    <option value="103">Ferrari</option>
+                                    <option value="106">Ford</option>
+                                    <option value="119">Honda</option>
+                                    <option value="123">Hummer</option>
+                                    <option value="132">Jaguar</option>
+                                    <option value="134">Joy</option>
+                                    <option value="135">Lamborghini</option>
+                                    <option value="137">Land Rover</option>
+                                    <option value="156">McLaren</option>
+                                    <option value="157">Mercedes</option>
+                                    <option value="161">Mitsubishi</option>
+                                    <option value="167">Nissan</option>
+                                    <option value="169">Nitro</option>
+                                    <option value="172">Optra</option>
+                                    <option value="177">Porsche</option>
+                                    <option value="194">Renault</option>
+                                    <option value="198">Rolls-Royce</option>
+                                    <option value="210">Sonic</option>
+                                    <option value="211">Spark</option>
+                                    <option value="218">Stealth</option>
+                                    <option value="222">Suzuki</option>
+                                    <option value="239">Viper</option>
+                                    <option value="242">Volt</option>
                                   </select>
                                   <div
                                     id="select_modal"
@@ -341,7 +354,7 @@
                                 type="hidden"
                                 name="cat_id"
                                 id="cat_id"
-                                value=""
+                                value
                               />
                             </form>
                           </div>
@@ -378,7 +391,7 @@
                             >
                               <div
                                 id="ad-location"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="location_heading"
                               >
@@ -390,7 +403,6 @@
                                         data-country-id="230"
                                       >
                                         United States
-
                                         <span>(12)</span>
                                       </a>
                                     </li>
@@ -401,7 +413,7 @@
                                 type="hidden"
                                 name="country_id"
                                 id="country_id"
-                                value=""
+                                value
                               />
                             </form>
                             <div
@@ -483,14 +495,13 @@
                             >
                               <div
                                 id="collapsefour"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="headingfour"
                               >
                                 <div class="panel-body">
-                                  <span class="price-slider-value"
-                                    >Price ($ )
-
+                                  <span class="price-slider-value">
+                                    Price ($ )
                                     <span id="price-min"></span> -
                                     <span id="price-max"></span>
                                   </span>
@@ -563,7 +574,7 @@
                             >
                               <div
                                 id="mileage"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="ad-mileage"
                               >
@@ -578,7 +589,7 @@
                                       data-parsley-error-message="Value should be numeric"
                                       placeholder="From"
                                       id="mileage_from"
-                                      value=""
+                                      value
                                     />
                                     <span class="input-group-addon">-</span>
                                     <input
@@ -590,7 +601,7 @@
                                       placeholder="To"
                                       name="mileage_to"
                                       id="mileage_to"
-                                      value=""
+                                      value
                                     />
                                   </div>
                                   <input
@@ -633,12 +644,12 @@
                             >
                               <div
                                 id="Yearcollapse"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="headingYear"
                               >
                                 <div class="panel-body">
-                                  <div class="input-group  margin-top-10">
+                                  <div class="input-group margin-top-10">
                                     <span class="input-group-addon">From</span>
                                     <select
                                       id="year_from"
@@ -716,7 +727,7 @@
                             >
                               <div
                                 id="transmission"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="body_transmission"
                               >
@@ -782,7 +793,7 @@
                             >
                               <div
                                 id="body_type"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="ad_body_type"
                               >
@@ -871,7 +882,7 @@
                             >
                               <div
                                 id="engine_capacity"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="engince-capacity"
                               >
@@ -999,7 +1010,7 @@
                             >
                               <div
                                 id="ad_bodytype"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="bodytype"
                               >
@@ -1168,7 +1179,7 @@
                             >
                               <div
                                 id="ad-color"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="ad-color-family"
                               >
@@ -1293,7 +1304,7 @@
                             >
                               <div
                                 id="collapseSeven"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="headingSeven"
                               >
@@ -1361,7 +1372,7 @@
                             >
                               <div
                                 id="insurance"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="ad-insurance"
                               >
@@ -1423,7 +1434,7 @@
                             >
                               <div
                                 id="ad-assembly"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="ad-assembly-type"
                               >
@@ -1489,7 +1500,7 @@
                             >
                               <div
                                 id="collapseThree"
-                                class="panel-collapse collapse "
+                                class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="headingThree"
                               >
@@ -1548,8 +1559,8 @@
                           <a
                             href="javascript:void(0)"
                             style="background-color: #e0e0e0; color: #232323;"
-                            >Found Ads
-
+                          >
+                            Found Ads
                             <small>(12)</small>
                           </a>
                         </li>
@@ -1599,7 +1610,7 @@
               <div class="grid-style-2">
                 <div class="posts-masonry">
                   <div
-                    class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                     id=".holder-1375"
                   >
                     <div class="category-grid-box-1">
@@ -1621,10 +1632,9 @@
                         <!-- <div class="play-video"><i class="fa fa-camera price-tag-tx camera-icon"></i></div> -->
                         <div class="price-tag">
                           <div class="price">
-                            <span class="price-tag-tx"
-                              >&#8358; 64,500
-
-                              <span class="">(Negotiable)</span>
+                            <span class="price-tag-tx">
+                              &#8358; 64,500
+                              <span class>(Negotiable)</span>
                             </span>
                           </div>
                         </div>
@@ -1676,16 +1686,14 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                       </div>
@@ -1693,7 +1701,7 @@
                     <!-- Listing Ad Grid -->
                   </div>
                   <div
-                    class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                     id=".holder-1366"
                   >
                     <div class="category-grid-box-1">
@@ -1715,10 +1723,9 @@
                         <!-- <div class="play-video"><i class="fa fa-camera price-tag-tx camera-icon"></i></div> -->
                         <div class="price-tag">
                           <div class="price">
-                            <span class="price-tag-tx"
-                              >&#8358; 20,000
-
-                              <span class="">(Fixed)</span>
+                            <span class="price-tag-tx">
+                              &#8358; 20,000
+                              <span class>(Fixed)</span>
                             </span>
                           </div>
                         </div>
@@ -1772,16 +1779,14 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                       </div>
@@ -1789,7 +1794,7 @@
                     <!-- Listing Ad Grid -->
                   </div>
                   <div
-                    class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                     id=".holder-1362"
                   >
                     <div class="category-grid-box-1">
@@ -1820,10 +1825,9 @@
                         <!-- <div class="play-video"><i class="fa fa-camera price-tag-tx camera-icon"></i><i class="fa fa-video-camera price-tag-tx camera-icon"></i></div> -->
                         <div class="price-tag">
                           <div class="price">
-                            <span class="price-tag-tx"
-                              >&#8358; 64,500
-
-                              <span class="">(Negotiable)</span>
+                            <span class="price-tag-tx">
+                              &#8358; 64,500
+                              <span class>(Negotiable)</span>
                             </span>
                           </div>
                         </div>
@@ -1876,16 +1880,14 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                       </div>
@@ -1893,7 +1895,7 @@
                     <!-- Listing Ad Grid -->
                   </div>
                   <div
-                    class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                     id=".holder-1554"
                   >
                     <div class="category-grid-box-1">
@@ -1910,10 +1912,9 @@
                         </a>
                         <div class="price-tag">
                           <div class="price">
-                            <span class="price-tag-tx"
-                              >&#8358; 37,455
-
-                              <span class="">(Fixed)</span>
+                            <span class="price-tag-tx">
+                              &#8358; 37,455
+                              <span class>(Fixed)</span>
                             </span>
                           </div>
                         </div>
@@ -1967,16 +1968,14 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                       </div>
@@ -1992,7 +1991,7 @@
                   </div>
                   <!-- </div> -->
                   <div
-                    class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                     id=".holder-1552"
                   >
                     <div class="category-grid-box-1">
@@ -2007,10 +2006,9 @@
                         </a>
                         <div class="price-tag">
                           <div class="price">
-                            <span class="price-tag-tx"
-                              >&#8358; 37,345
-
-                              <span class="">(Negotiable)</span>
+                            <span class="price-tag-tx">
+                              &#8358; 37,345
+                              <span class>(Negotiable)</span>
                             </span>
                           </div>
                         </div>
@@ -2061,16 +2059,14 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                       </div>
@@ -2078,7 +2074,7 @@
                     <!-- Listing Ad Grid -->
                   </div>
                   <div
-                    class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                     id=".holder-960"
                   >
                     <div class="category-grid-box-1">
@@ -2093,10 +2089,9 @@
                         </a>
                         <div class="price-tag">
                           <div class="price">
-                            <span class="price-tag-tx"
-                              >&#8358; 95,000
-
-                              <span class="">(Fixed)</span>
+                            <span class="price-tag-tx">
+                              &#8358; 95,000
+                              <span class>(Fixed)</span>
                             </span>
                           </div>
                         </div>
@@ -2146,16 +2141,14 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                       </div>
@@ -2163,7 +2156,7 @@
                     <!-- Listing Ad Grid -->
                   </div>
                   <div
-                    class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                     id=".holder-877"
                   >
                     <div class="category-grid-box-1">
@@ -2237,16 +2230,14 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                       </div>
@@ -2254,7 +2245,7 @@
                     <!-- Listing Ad Grid -->
                   </div>
                   <div
-                    class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                    class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                     id=".holder-873"
                   >
                     <div class="category-grid-box-1">
@@ -2276,45 +2267,48 @@
                           />
                         </a>
                         <div class="price-tag">
-                          <div class="price"><span class="price-tag-tx">₦ 77,900</span></div>
+                          <div class="price">
+                            <span class="price-tag-tx">₦ 77,900</span>
+                          </div>
                         </div>
                       </div>
                       <div class="short-description-1 clearfix">
-                      <div class="category-title">
-                        <span class="padding_cats">
-                          <a href="../ad_category/rolls-royce/index.html"
-                            >Rolls-Royce</a
+                        <div class="category-title">
+                          <span class="padding_cats">
+                            <a href="../ad_category/rolls-royce/index.html"
+                              >Rolls-Royce</a
+                            >
+                          </span>
+                        </div>
+                        <h3>
+                          <a href="../ad/rolls-royce-phantom/index.html"
+                            >Rolls Royce Phantom</a
                           >
-                        </span>
+                        </h3>
+                        <p class="location">
+                          <i class="fa fa-map-marker"></i>
+                          <a href="../ad_country/dalton/index.html">Dalton</a>,
+                          <a href="../ad_country/georgia/index.html">Georgia</a
+                          >,
+                          <a href="../ad_country/united-states/index.html"
+                            >United States</a
+                          >
+                        </p>
+                        <ul class="list-unstyled">
+                          <li><i class="flaticon-gas-station-1"></i>Diesel</li>
+                          <li><i class="flaticon-dashboard"></i>70,000 Km</li>
+                          <li><i class="flaticon-engine-2"></i>3,500 cc</li>
+                          <li><i class="flaticon-car-2"></i>Sedan</li>
+                          <li><i class="flaticon-cogwheel-outline"></i>Red</li>
+                        </ul>
                       </div>
-                      <h3>
-                        <a href="../ad/rolls-royce-phantom/index.html"
-                          >Rolls Royce Phantom</a
-                        >
-                      </h3>
-                      <p class="location">
-                        <i class="fa fa-map-marker"></i>
-                        <a href="../ad_country/dalton/index.html">Dalton</a>,
-                        <a href="../ad_country/georgia/index.html">Georgia</a>,
-                        <a href="../ad_country/united-states/index.html"
-                          >United States</a
-                        >
-                      </p>
-                      <ul class="list-unstyled">
-                        <li><i class="flaticon-gas-station-1"></i>Diesel</li>
-                        <li><i class="flaticon-dashboard"></i>70,000 Km</li>
-                        <li><i class="flaticon-engine-2"></i>3,500 cc</li>
-                        <li><i class="flaticon-car-2"></i>Sedan</li>
-                        <li><i class="flaticon-cogwheel-outline"></i>Red</li>
-                      </ul>
-                    </div>
-                    <div class="ad-info-1">
-                      <p>
-                        <i class="flaticon-calendar"></i> &nbsp;
-                        <span>July 13, 2017</span>
-                      </p>
-                      <!-- <ul class="pull-right "><li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Save Ad" href="javascript:void(0);" class="save-ad" data-adid="873"><i class="flaticon-like-1"></i></a></li><li><a href="../ad/rolls-royce-phantom/index.html"><i class="flaticon-message"></i></a></li></ul> -->
-                      <div class="icon-reveal mobile-hidden">
+                      <div class="ad-info-1">
+                        <p>
+                          <i class="flaticon-calendar"></i> &nbsp;
+                          <span>July 13, 2017</span>
+                        </p>
+                        <!-- <ul class="pull-right "><li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Save Ad" href="javascript:void(0);" class="save-ad" data-adid="873"><i class="flaticon-like-1"></i></a></li><li><a href="../ad/rolls-royce-phantom/index.html"><i class="flaticon-message"></i></a></li></ul> -->
+                        <div class="icon-reveal mobile-hidden">
                           <a class="btn icon-reveal-btn">
                             <i class="fa fa-heart-o"></i>
                           </a>
@@ -2323,26 +2317,23 @@
                           <a
                             class="btn btn-block button-reveal-btn"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
                         <div class="button-griddy hidden-desktop">
                           <a
                             class="btn btn-block btn-theme"
                             href="productdetail.html"
-                          >
-                            Contact Seller</a
+                            >Contact Seller</a
                           >
                         </div>
+                      </div>
                     </div>
-                    </div>
-                    
                   </div>
                   <!-- Listing Ad Grid -->
                 </div>
                 <div
-                  class="col-md-3  col-lg-3 col-sm-6 col-xs-12"
+                  class="col-md-3 col-lg-3 col-sm-6 col-xs-12"
                   id=".holder-89"
                 >
                   <div class="category-grid-box-1">
@@ -2407,26 +2398,24 @@
                         <span>June 20, 2017</span>
                       </p>
                       <div class="icon-reveal mobile-hidden">
-                          <a class="btn icon-reveal-btn">
-                            <i class="fa fa-heart-o"></i>
-                          </a>
-                        </div>
-                        <div class="button-reveal mobile-hidden">
-                          <a
-                            class="btn btn-block button-reveal-btn"
-                            href="productdetail.html"
-                          >
-                            Contact Seller</a
-                          >
-                        </div>
-                        <div class="button-griddy hidden-desktop">
-                          <a
-                            class="btn btn-block btn-theme"
-                            href="productdetail.html"
-                          >
-                            Contact Seller</a
-                          >
-                        </div>
+                        <a class="btn icon-reveal-btn">
+                          <i class="fa fa-heart-o"></i>
+                        </a>
+                      </div>
+                      <div class="button-reveal mobile-hidden">
+                        <a
+                          class="btn btn-block button-reveal-btn"
+                          href="productdetail.html"
+                          >Contact Seller</a
+                        >
+                      </div>
+                      <div class="button-griddy hidden-desktop">
+                        <a
+                          class="btn btn-block btn-theme"
+                          href="productdetail.html"
+                          >Contact Seller</a
+                        >
+                      </div>
                     </div>
                   </div>
                   <!-- Listing Ad Grid -->
@@ -2513,22 +2502,22 @@ export default {
 </script>
 
 <style>
-
-.category-grid-box-tx .image img{
+.category-grid-box-tx .image img {
   width: 10rem !important;
   height: 10rem !important;
 }
 
-.short-features{
-    max-width: 100%;
-  }
+.short-features {
+  max-width: 100%;
+}
 
-@media (max-width: 992px){
-  .short-features{
+@media (max-width: 992px) {
+  .short-features {
     max-width: 100%;
   }
 }
-.button-griddy > a, .button-griddy > a:hover {
+.button-griddy > a,
+.button-griddy > a:hover {
   color: #fff;
   border-radius: 0px;
 }
