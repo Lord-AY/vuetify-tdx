@@ -255,7 +255,10 @@
                       <span>00.00</span>
                     </li>
                     <li class="profile-dropdown-list">
-                      <router-link to="/Dashboard" class="profile-dropdown-link">
+                      <router-link
+                        to="/maindashboard"
+                        class="profile-dropdown-link"
+                      >
                         <i class="fa fa-dashboard profile-dropdown-icon"></i>
                         Dashboard
                       </router-link>

@@ -53,7 +53,7 @@
                                       </a>
                                     </div>
                                     <div class="contact-caption">
-                                      <h4>testuser</h4>
+                                      <h4>{{ user.firstname }} {{ user.lastname }}</h4>
 
                                       <div class="clearfix"></div>
                                       <div class="upload-btn-wrapper">
@@ -97,21 +97,21 @@
                                     <i class="la la-user"></i>
                                     <div class="profile-meta">
                                       <h6>Full Name</h6>
-                                      <span>testuser</span>
+                                      <span>{{ user.firstname }} {{ user.lastname }}</span>
                                     </div>
                                   </li>
                                   <li>
                                     <i class="la la-envelope"></i>
                                     <div class="profile-meta">
                                       <h6>Email</h6>
-                                      <span>oyink7@gmail.com</span>
+                                      <span>{{ user.email }}</span>
                                     </div>
                                   </li>
                                   <li>
                                     <i class="la la-mobile-phone"></i>
                                     <div class="profile-meta">
                                       <h6>Phone number</h6>
-                                      <span>0123456789</span>
+                                      <span>{{ user.phone }}</span>
                                     </div>
                                   </li>
                                   <li>
@@ -150,7 +150,7 @@
                                       class="form-control form-control-dashboard"
                                       type="text"
                                       name="first_name"
-                                      value="testuser"
+                                      :value="user.firstname"
                                       required
                                     />
                                   </div>
@@ -167,7 +167,7 @@
                                       class="protip form-control form-control-dashboard"
                                       type="email"
                                       name="last_name"
-                                      value="username"
+                                      :value="user.lastname"
                                       readonly
                                       data-pt-title=" You can not edit email address"
                                       data-pt-position="top"
@@ -190,7 +190,7 @@
                                       class="protip form-control form-control-dashboard"
                                       type="email"
                                       name="user_email"
-                                      value="oyink7@gmail.com"
+                                      :value="user.email"
                                       readonly
                                       data-pt-title=" You can not edit email address"
                                       data-pt-position="top"
@@ -212,7 +212,7 @@
                                       data-parsley-type="number"
                                       type="text"
                                       name="sb_user_contact"
-                                      value="0123456789"
+                                      :value="user.phone"
                                       required
                                     />
                                   </div>
@@ -401,7 +401,7 @@
                                         type="submit"
                                         value="Update profile"
                                         style="border-radius: 8px;"
-                                        disabled
+                                        @click.prevent="getStates"
                                       />
                                     </span>
                                   </div>
@@ -606,11 +606,18 @@ require("../assets/plugins/horizontal-menu/horizontal.css");
 require("../assets/css/components.css");
 
 import dsidebar from "@/components/Dsidebar";
+import { mapState, mapActions } from 'vuex';
 // import dheader from "@/components/Dheader";
 export default {
   name: "editProf",
   components: {
     dsidebar
+  },
+  computed: {
+    ...mapState('auth', ['user'])
+  },
+  methods: {
+    ...mapActions('user', ['getStates'])
   }
 };
 </script>
