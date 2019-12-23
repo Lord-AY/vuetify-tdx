@@ -41,9 +41,9 @@
     <!--/Topbar-->
 
     <!-- Header -->
-    <div class="horizontal-header clearfix " style="z-index: 1001;">
+    <!-- <div class="horizontal-header clearfix " style="z-index: 1001;">
       <div class="container">
-        <!-- <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a> -->
+        <!- <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a> ->
         <div
           id="tx-menu-toggle"
           class="openbtn closed"
@@ -56,11 +56,32 @@
         <span class="smllogo" style="margin-top: 0px;"
           ><img src="../assets/images/brand/tx-logo.png" alt=""
         /></span>
-        <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
+        <!- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> ->
+      </div>
+    </div> -->
+    <div class="horizontal-header clearfix" style="z-index: 1001;">
+      <div class="container">
+        <!-- <a id="horizontal-navtoggle" class="animated-arrow openbtn closed">
+            <span></span>
+        </a>-->
+        <div
+          id="tx-menu-toggle"
+          class="openbtn closed"
+          style="margin: 0px; position: relative; float: left; display: inline-block; top: 16px; height: 100%;"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <!-- <span class="smllogo" style="margin-top: 15px;"> -->
+        <span class="smllogo">
+
+          <img src="/img/tx-logo.e570eaab.png" alt style="max-height: 125px;" />
+        </span>
       </div>
     </div>
     <div id="tempSidebar" class="sidenav hidden-desktop">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
       <a href="#">Home</a>
       <a href="#">Categories</a>
       <a href="#">My Profile</a>

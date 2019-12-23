@@ -822,3 +822,10 @@ export default {
   }
 };
 </script>
+<style>
+.horizontalMenu-list input.main-search {
+  position: relative;
+  height: 50px !important;
+  padding-left: 30px !important;
+}
+</style>
