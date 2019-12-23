@@ -21,6 +21,7 @@
 
 <style></style>
 <script>
+// require("./assets/plugins/select2/select2.min.css");
 /* eslint-disable no-undef*/
 import topbar from "@/components/Topbar";
 import topbar2 from "@/components/Topbar2";

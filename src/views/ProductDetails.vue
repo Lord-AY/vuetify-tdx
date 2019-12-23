@@ -1,5 +1,5 @@
 <template>
-  <div class="product_details">
+  <div class="product_details generic-wrapper">
     <div class="main-content-area clearfix">
       <section
         class="section-padding .margin-top-30 gray"
@@ -501,14 +501,8 @@
               <div class="row" style="margin-top: 36px;">
                 <div class="col-md-5"></div>
                 <div class="col-md-2">
-                  <!--                   <div class="viewall-similar">
+                  <div class="viewall-similar">
                     <a href="">Show More</a>
-                  </div>
-   -->
-                  <div class="viewall mobile-hidden">
-                    <router-link to="/Gridlist"
-                      >Show All <i class="fa fa-arrow-circle-right"></i
-                    ></router-link>
                   </div>
                 </div>
                 <div class="col-md-5"></div>
@@ -599,8 +593,8 @@
                   <!-- Email Button trigger modal -->
                   <h5>
                     <a
-                      class="btn btn-block btn-warning follow-seller"
-                      style="color: #fff; padding: 16px; border-radius: 0px; background-color:#f0ad4e;"
+                      class="btn btn-block btn-warning"
+                      style="color: #fff; padding: 16px;"
                       href="../../sign-in-to-your-account/index.html"
                       >Follow Seller
                     </a>
@@ -615,7 +609,6 @@
                 <h5>
                   <a
                     class="btn btn-block btn-primary contact-seller"
-                    style="border-radius: 0px;"
                     href="../../sign-in-to-your-account/index.html"
                   >
                     <i class="fa fa-commenting-o"></i> Chat With Seller</a
@@ -822,10 +815,3 @@ export default {
   }
 };
 </script>
-<style>
-.horizontalMenu-list input.main-search {
-  position: relative;
-  height: 50px !important;
-  padding-left: 30px;
-}
-</style>
