@@ -400,12 +400,12 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 /* eslint-disable no-undef */
 export default {
   name: "topbar",
   computed: {
-    ...mapGetters("auth", ['isLoggedIn'])
+    ...mapGetters("auth", ["isLoggedIn"])
   },
   methods: {
     sync() {
