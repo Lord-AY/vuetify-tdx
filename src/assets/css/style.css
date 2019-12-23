@@ -42217,6 +42217,9 @@ experimental shii
 	.hidden-desktop{
 		display: none !important;
 	}
+	#wrapper .sidebar{
+		left: 0px !important;
+	}
 }
   
 .dashboard-main{

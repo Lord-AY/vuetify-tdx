@@ -1,6 +1,6 @@
 <template>
   <div class="header-main">
-    <div class="top-bar">
+    <div class="top-bar mobile-hidden">
       <div class="container">
         <div class="row">
           <div class="col-xl-8 col-lg-8 col-sm-4 col-6">
@@ -41,7 +41,7 @@
     <!--/Topbar-->
 
     <!-- Header -->
-    <div class="horizontal-header clearfix ">
+    <div class="horizontal-header clearfix " style="z-index: 1001;">
       <div class="container">
         <!-- <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a> -->
         <div
@@ -53,16 +53,25 @@
           <span></span>
           <span></span>
         </div>
-        <span class="smllogo"
+        <span class="smllogo" style="margin-top: 0px;"
           ><img src="../assets/images/brand/tx-logo.png" alt=""
         /></span>
         <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
       </div>
     </div>
+    <div id="tempSidebar" class="sidenav hidden-desktop">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">My Profile</a>
+      <a href="#">My Messages</a>
+      <a href="#">Favorites</a>
+      <a href="#">Notifications</a>
+    </div>
     <!--/Header -->
 
     <!--Start Horizontal-main -->
-    <div class="horizontal-main bg-dark-transparent clearfix">
+    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden">
       <div class="horizontal-mainwrapper container clearfix">
         <!-- <div class="desktoplogo-1" >
 					<a href="index.html"><img src="../assets/images/brand/tradexplora-main.svg" alt=""></a>
@@ -165,30 +174,32 @@ export default {
           $(this).toggleClass("open");
         });
 
-        // let sideBarTrigger = $(".openbtn");
+        let sideBarTrigger = $(".openbtn");
         // let sideBar = $("#sidebar-nav");
-        // let dashboardContent = $(".dashboard-main");
-        // sideBarTrigger.click(() => {
-        //   if (sideBarTrigger.hasClass("closed")) {
-        //     //to open
-        //     sideBar.css({ left: "0px" });
-        //     dashboardContent.css({
-        //       left: "250px",
-        //       transition: "all 0.3s ease-in-out;"
-        //     });
-        //     sideBarTrigger.toggleClass("closed");
-        //     console.log("Sidebar is now open");
-        //   } else {
-        //     //to close
-        //     sideBar.css({ left: "-260px" });
-        //     dashboardContent.css({
-        //       left: "0px",
-        //       transition: "all 0.3s ease-in-out;"
-        //     });
-        //     sideBarTrigger.toggleClass("closed");
-        //     console.log("Sidebar is now closed");
-        //   }
-        // });
+        let sideBar = $("#tempSidebar");
+        let dashboardContent = $(".dashboard-main");
+        // let closeBtn = $("")
+        sideBarTrigger.click(() => {
+          if (sideBarTrigger.hasClass("closed")) {
+            //to open
+            sideBar.css({ left: "0px" });
+            dashboardContent.css({
+              left: "250px",
+              transition: "all 0.3s ease-in-out;"
+            });
+            sideBarTrigger.toggleClass("closed");
+            console.log("Sidebar is now open");
+          } else {
+            //to close
+            sideBar.css({ left: "-260px" });
+            dashboardContent.css({
+              left: "0px",
+              transition: "all 0.3s ease-in-out;"
+            });
+            sideBarTrigger.toggleClass("closed");
+            console.log("Sidebar is now closed");
+          }
+        });
       });
     }
   },
@@ -201,4 +212,57 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+/* Sidebar Test Styles => Don't remove */
+
+.sidenav {
+  box-shadow: 3px 5px 30px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  /* width: 0; */
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -260px;
+  background-color: #fff;
+  color: #000;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 10px 8px 10px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:not(:first-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sidenav a:not(:first-child):hover {
+  color: #fff;
+  background: #4caf50;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 10px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+</style>
