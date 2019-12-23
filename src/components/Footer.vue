@@ -11,12 +11,10 @@
                   src="../assets/images/TRADEXPLORA_V4.1_mini.png"
                   class="img-responsive"
                   alt="Site logo"
-                  style="margin-bottom: 0.05rem; width: 7rem;"
+                  style="margin-bottom: -0.8rem; min-width: 1rem important;"
                 />
               </router-link>
-              <hr
-                class="deep-purple  mb-4 mt-0 d-inline-block mx-auto"
-              />
+              <hr class="deep-purple  mb-4 mt-0 d-inline-block mx-auto"/>
               <p class="mobile-hidden">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

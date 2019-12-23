@@ -2426,7 +2426,7 @@
         </div>
       </section>
     </div>
-  </div>
+  </div> 
 </template>
 <script>
 require("../assets/skins/color-skins/color15.css");
@@ -2439,11 +2439,11 @@ require("../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocomm
 require("../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
 require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-require("../assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
+// require("../assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-require("../assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
@@ -2467,6 +2467,7 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.cs
 require("../assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
 require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
+// require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 import hotsellers from "@/components/product_overview/hotsellers";
 export default {
   name: "gridlist",

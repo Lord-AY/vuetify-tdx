@@ -1402,7 +1402,7 @@
                                     </a>
                                     <a
                                       href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -1541,7 +1541,7 @@
                                     </a>
                                     <a
                                       href="../ad/maserati-ghibli-sq4-blue-1695-miles-2017/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -1648,7 +1648,7 @@
                                     </a>
                                     <a
                                       href="../ad/2017-maserati-ghibli-sq4-blue-1694-miles/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                       >View Details</a
                                     >
                                   </div>
@@ -1762,7 +1762,7 @@
                                     </a>
                                     <a
                                       href="../ad/2017-ford-mustang-2/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -1895,7 +1895,7 @@
                                     </a>
                                     <a
                                       href="../ad/2010-chevrolet-camaro/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -1993,7 +1993,7 @@
                                     </a>
                                     <a
                                       href="../ad/audi-a5-for-sale/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -2106,7 +2106,7 @@
                                     </a>
                                     <a
                                       href="../ad/renault-duster-2017/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -2220,7 +2220,7 @@
                                     </a>
                                     <a
                                       href="../ad/rolls-royce-phantom/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -2340,7 +2340,7 @@
                                     </a>
                                     <a
                                       href="../ad/land-rover-freelander-2-se/index.html"
-                                      class="btn btn-success"
+                                      class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -2382,209 +2382,7 @@
       </section>
     </div>
 
-    <!--Footer Section-->
-    <section>
-      <footer class="footer-bg">
-        <div class="footer-main">
-          <div class="container">
-            <div class="row row-tx">
-              <div class="col-lg-3 col-footer-lg-3-tx col-md-12">
-                <a href="../index.html">
-                  <img
-                    src="../assets/images/footer-logo.png"
-                    class="img-responsive"
-                    alt="Site logo"
-                    style="margin-bottom: 16px"
-                  />
-                </a>
-                <hr
-                  class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
-                />
-                <p class="p-footer-tx">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                </p>
-                <ul class="apps-donwloads">
-                  <li style="display: inline-block; margin: 0 4px 4px 0;">
-                    <a href="#">
-                      <img
-                        src="../assets/images/appstore.png"
-                        alt="Android App"
-                      />
-                    </a>
-                  </li>
-                  <li style="display: inline-block; margin: 0 4px 4px 0;">
-                    <a href="#">
-                      <img
-                        src="../assets/images/googleplay.png"
-                        alt="IOS App"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
 
-              <div class="col-lg-2 col-footer-lg-2-tx col-md-12">
-                <h6>Follow Us</h6>
-                <hr
-                  class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto"
-                />
-                <ul class="list-unstyled mb-0">
-                  <li class="contact-us-tx">
-                    <a
-                      class="Facebook btn-floating btn-sm btn-sm-tx rgba-white-slight mx-1 waves-effect waves-light"
-                      href="#"
-                    >
-                      <i class="fa fa-facebook bg-facebook"></i>
-                    </a>
-                    <span>
-                      <a href="#">Facebook</a>
-                    </span>
-                  </li>
-                  <li class="contact-us-tx">
-                    <a
-                      class="Twitter btn-floating btn-sm btn-sm-tx rgba-white-slight mx-1 waves-effect waves-light"
-                      href="#"
-                    >
-                      <i class="fa fa-twitter bg-info"></i>
-                    </a>
-                    <span>
-                      <a href="#">Twitter</a>
-                    </span>
-                  </li>
-                  <li class="contact-us-tx">
-                    <a
-                      class="Linkedin btn-floating btn-sm btn-sm-tx rgba-white-slight mx-1 waves-effect waves-light"
-                      href="#"
-                    >
-                      <i class="fa fa-linkedin bg-linkedin"></i>
-                    </a>
-                    <span>
-                      <a href="#">Linkedin</a>
-                    </span>
-                  </li>
-                  <li class="contact-us-tx">
-                    <a
-                      class="Google btn-floating btn-sm btn-sm-tx rgba-white-slight mx-1 waves-effect waves-light"
-                      href="#"
-                    >
-                      <i class="fa fa-google-plus bg-danger-tx"></i>
-                    </a>
-                    <span>
-                      <a href="#">Google</a>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-lg-2 col-footer-lg-2-tx col-md-12">
-                <h6>Quick Links</h6>
-                <hr
-                  class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto"
-                />
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="javascript:;">Home</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">About Us</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">Contant Us</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">FAQ</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">Regions</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">Terms</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-5 col-footer-lg-5-tx col-md-12">
-                <h6>Subscribe</h6>
-                <hr
-                  class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto"
-                />
-                <p class="p-footer-tx">
-                  We may send you information about related events, webinars,
-                  products and services which we believe.
-                </p>
-                <div class="clearfix"></div>
-                <div class="input-group input-group-footer-tx w-100">
-                  <input
-                    type="text"
-                    class="form-control form-control-tx br-tl-3 br-bl-3"
-                    placeholder="Email"
-                  />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-footer-subscribe-tx br-tr-3 br-br-3"
-                    >
-                      SUBSCRIBE
-                    </button>
-                  </div>
-                </div>
-                <!-- <div class="mt-5">Copyright © 2019 <a href="#" class="fs-14 text-primary-tx" style="color: #00BF8F !important;">Tradexplora</a>.</div> -->
-                <div>
-                  <ul class="footer-payments" style="margin-top: 27px;">
-                    <li class="pl-0" style=" width: 105px;">
-                      <a href="javascript:;">
-                        <img src="../assets/images/Interswitch Logo.svg" />
-                      </a>
-                    </li>
-                    <li style=" width: 120px;">
-                      <a href="javascript:;">
-                        <img src="../assets/images/paystack-02.jpg" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:;">
-                        <img
-                          class="payment-card-icon-footer-tx"
-                          src="../assets/images/visa_card.png"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:;">
-                        <img
-                          class="payment-card-icon-footer-tx"
-                          src="../assets/images/master_card.png"
-                        />
-                      </a>
-                    </li>
-                    <li style=" width: 88px!important;">
-                      <a href="javascript:; ">
-                        <img src="../assets/images/varve-logo-2.png" />
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- <div class="mt-0">Copyright © 2019 <a href="#" class="fs-14 text-primary-tx" style="color: #00BF8F !important;">Tradexplora</a>.</div> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="text-center payment-card-spacing-footer-tx">
-              <div class="mt-0" style="color: #070510">
-                Copyright © 2019
-                <a
-                  href="#"
-                  class="fs-14 text-primary-tx"
-                  style="color: #4CAF50 !important;"
-                  >Tradexplora</a
-                >. All rights reserved
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </section>
-    <!--/Footer Section-->
 
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />
@@ -2609,19 +2407,21 @@
 <script>
 require("../assets/skins/color-skins/color15.css");
 require("../assets/plugins/horizontal-menu/horizontal.css");
-require("../assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
+// require("../assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
 require("../assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-require("../assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
+// require("../assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
 require("../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
 require("../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
 require("../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
 require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-require("../assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
+// require("../assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-require("../assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+// require("../assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
