@@ -8,7 +8,7 @@
     <div v-else-if="$route.meta.header === 3"><topbar2></topbar2></div>
     <div v-else-if="$route.meta.header === 4"><topbar2></topbar2></div>
     <!-- <topbar></topbar> -->
-    <router-view />
+    <div class="tdx-main-view"><router-view /></div>
     <div v-if="$route.meta.header === 1"><Footer></Footer></div>
     <div v-if="$route.meta.header === 3"><Footer></Footer></div>
     <div v-if="$route.meta.header === 4"><Footer></Footer></div>

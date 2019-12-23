@@ -325,7 +325,7 @@
     <!--/Header -->
 
     <!--Start Horizontal-main -->
-    <div class="horizontal-main bg-dark-transparent clearfix">
+    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden">
       <div class="horizontal-mainwrapper container clearfix">
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">

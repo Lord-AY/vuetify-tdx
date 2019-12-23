@@ -43,7 +43,16 @@
     <!-- Header -->
     <div class="horizontal-header clearfix ">
       <div class="container">
-        <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a>
+        <!-- <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a> -->
+        <div
+          id="tx-menu-toggle"
+          class="openbtn closed"
+          style="margin: 0px; position: relative; float: left; display: inline-block; top: 16px; height: 100%;"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <span class="smllogo"
           ><img src="../assets/images/brand/tx-logo.png" alt=""
         /></span>
@@ -141,8 +150,54 @@
 </template>
 
 <script>
+// export default {
+//   name: "topbar2"
+// };
+</script>
+<script>
+/* eslint-disable no-undef */
 export default {
-  name: "topbar2"
+  name: "topbar2",
+  methods: {
+    sync() {
+      $(document).ready(function() {
+        $("#tx-menu-toggle").click(function() {
+          $(this).toggleClass("open");
+        });
+
+        // let sideBarTrigger = $(".openbtn");
+        // let sideBar = $("#sidebar-nav");
+        // let dashboardContent = $(".dashboard-main");
+        // sideBarTrigger.click(() => {
+        //   if (sideBarTrigger.hasClass("closed")) {
+        //     //to open
+        //     sideBar.css({ left: "0px" });
+        //     dashboardContent.css({
+        //       left: "250px",
+        //       transition: "all 0.3s ease-in-out;"
+        //     });
+        //     sideBarTrigger.toggleClass("closed");
+        //     console.log("Sidebar is now open");
+        //   } else {
+        //     //to close
+        //     sideBar.css({ left: "-260px" });
+        //     dashboardContent.css({
+        //       left: "0px",
+        //       transition: "all 0.3s ease-in-out;"
+        //     });
+        //     sideBarTrigger.toggleClass("closed");
+        //     console.log("Sidebar is now closed");
+        //   }
+        // });
+      });
+    }
+  },
+  watch: {
+    $route: "sync"
+  },
+  created() {
+    this.sync();
+  }
 };
 </script>
 

@@ -199,4 +199,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.sidebar .nav > li > a .badge{
+  margin: 10px auto;
+}
+</style>

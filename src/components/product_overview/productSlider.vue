@@ -136,7 +136,7 @@
     </div>
 
     <!-- Heading Area -->
-    <div class="key-features">
+    <div class="key-features row">
       <div class="boxicon">
         <a
           data-toggle="tooltip"
