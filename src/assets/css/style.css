@@ -42244,3 +42244,9 @@ experimental shii
     margin-top: 0px !important;
 }
 }
+
+.horizontalMenu-list input.main-search {
+	position: relative;
+	height: 50px !important;
+	padding-left: 30px !important;
+  }
