@@ -272,7 +272,7 @@
                     </li>
                     <li class="profile-dropdown-list">
                       <router-link
-                        to="/Dashboard"
+                        to="/maindashboard"
                         class="profile-dropdown-link"
                       >
                         <i class="fa fa-dashboard profile-dropdown-icon"></i>
