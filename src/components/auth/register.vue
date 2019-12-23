@@ -6,20 +6,14 @@
         <div class="col-lg-8 col-12 col-sm-12">
           <div class="form-box">
             <div class="form-box-title">
-              <img
-                class=""
-                src="../../assets/images/add-account.svg"
-                style="max-width: 32px;"
-              />
-              <span style="font-size: 18px; margin-left: 10px;"
-                >Create your account, it's free.</span
-              >
+              <img class src="../../assets/images/add-account.svg" style="max-width: 32px;" />
+              <span style="font-size: 18px; margin-left: 10px;">Create your account, it's free.</span>
             </div>
 
             <div class="row">
               <div class="col-md-8 offset-md-2">
                 <form
-                  action=""
+                  action
                   class="form-horizontal"
                   @submit.prevent="register"
                   enctype="multipart/form-data"
@@ -27,11 +21,8 @@
                   <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12">
                       <div class="social-media-button">
-                        <button
-                          class="btn btn-block btn-reg facebook-reg text-bold"
-                        >
+                        <button class="btn btn-block btn-reg facebook-reg text-bold">
                           <i class="fa fa-facebook fa-2x"></i>
-
                           Continue with Facebook
                         </button>
                       </div>
@@ -51,70 +42,66 @@
                       <div
                         style="width: 100%; height: 14px; border-bottom: 1px solid rgba(0,0,0, 0.09); text-align: center"
                       >
-                        <span
-                          style="font-size: 16px; background-color: #fff; padding: 0 10px;"
-                        >
-                          OR
-                        </span>
+                        <span style="font-size: 16px; background-color: #fff; padding: 0 10px;">OR</span>
                       </div>
                     </div>
                   </div>
-                  <div v-if="errors" class="container">
+                  <div v-if="errors" class="">
                     <div class="alert alert-danger alert-dismissible fade show">
                       <strong>Error!</strong>
                       {{ errors.message }}
-                      <button type="button" class="close" data-dismiss="alert">
-                        &times;
-                      </button>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                      >&times;</button>
                     </div>
                   </div>
                   <!-- Customer Name -->
                   <div class="row form-group-tx form-group">
                     <div class="col-md-12 col-lg-6 col-sm-12">
-                      <label for="" class="control-label">
-                        First Name
-                      </label>
+                      <label for class="control-label">First Name</label>
                       <div class="radio">
                         <input
-                          name=""
+                          name
                           placeholder="John"
                           class="form-control input-md"
                           :class="errors.firstname ? 'is-invalid' : ''"
-                          required=""
+                          required
                           v-model="formFields.firstName"
                           type="text"
                         />
-                        <div v-show="errors.firstname" class="invalid-feedback">
-                          {{ errors.firstname }}.
-                        </div>
+                        <div
+                          v-show="errors.firstname"
+                          class="invalid-feedback"
+                        >{{ errors.firstname }}.</div>
                       </div>
                     </div>
 
                     <div class="col-md-12 col-lg-6 col-sm-12">
-                      <label for="" class="control-label">
-                        Last Name
-                      </label>
+                      <label for class="control-label">Last Name</label>
                       <div class="radio">
                         <input
-                          name=""
+                          name
                           placeholder="Doe"
                           :class="errors.lastname ? 'is-invalid' : ''"
                           v-model="formFields.lastName"
                           class="form-control input-md"
-                          required=""
+                          required
                           type="text"
                         />
-                        <div v-show="errors.lastname" class="invalid-feedback">
-                          {{ errors.lastname }}.
-                        </div>
+                        <div
+                          v-show="errors.lastname"
+                          class="invalid-feedback"
+                        >{{ errors.lastname }}.</div>
                       </div>
                     </div>
                   </div>
 
                   <div class="form-group form-group-tx row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
-                      <label class=" control-label">Email Address</label>
-                      <div class="">
+                      <label class="control-label">Email Address</label>
+                      <div class>
                         <input
                           name
                           placeholder="Email"
@@ -123,31 +110,23 @@
                           type="text"
                           v-model.trim="formFields.email"
                         />
-                        <div v-show="errors.email" class="invalid-feedback">
-                          {{ errors.email }}.
-                        </div>
+                        <div v-show="errors.email" class="invalid-feedback">{{ errors.email }}.</div>
                       </div>
                     </div>
                   </div>
                   <!-- Phone Number -->
                   <div class="form-group form-group-tx row">
-                    <label class="control-label">Phone Number</label>
-                    <div class="col-md-12 ">
+                    <div class="col-md-12">
+                      <label class="control-label">Phone Number</label>
                       <VuePhoneNumberInput
                         v-model.trim="formFields.phone"
                         :class="errors.phone ? 'is-invalid' : ''"
                         default-country-code="NG"
                       />
-                      <div v-show="errors.phone" class="invalid-feedback">
-                        {{ errors.phone }}.
-                      </div>
+                      <div v-show="errors.phone" class="invalid-feedback">{{ errors.phone }}.</div>
                       <div class="checkbox">
                         <label>
-                          <input
-                            type="checkbox"
-                            value
-                            style="opacity: 1; margin-top: 5px"
-                          />
+                          <input type="checkbox" value style="opacity: 1; margin-top: 5px" />
                           <small>Hide the phone number on published ads.</small>
                         </label>
                       </div>
@@ -155,8 +134,8 @@
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <label class="control-label">Home Address</label>
                     <div class="col-md-12">
+                      <label class="control-label">Home Address</label>
                       <input
                         name
                         placeholder="Enter Address"
@@ -165,50 +144,35 @@
                         type="text"
                         v-model="formFields.address"
                       />
-                      <div v-show="errors.address" class="invalid-feedback">
-                        {{ errors.address }}.
-                      </div>
+                      <div v-show="errors.address" class="invalid-feedback">{{ errors.address }}.</div>
                     </div>
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <label class=" control-label">Country</label>
                     <div class="col-md-12">
-                      <select
-                        class="form-control"
-                        for="country"
-                        v-model="formFields.rcountry"
-                      >
-                        <option :value="null" disabled selected
-                          >--- Select your country ---</option
-                        >
+                      <label class="control-label">Country</label>
+                      <select class="form-control" for="country" v-model="formFields.rcountry">
+                        <option :value="null" disabled selected>--- Select your country ---</option>
                         <option
                           v-show="items"
                           :value="item.name"
                           v-for="(item, index) in items"
                           :key="index"
                           id="country"
-                          >{{ item.name }}</option
-                        >
+                        >{{ item.name }}</option>
                         <option value="NG" v-show="!items">Nigeria</option>
-                        <option value="UM" v-show="!items"
-                          >United States of America</option
-                        >
+                        <option value="UM" v-show="!items">United States of America</option>
                         <option value="AF" v-show="!items">Afghanistan</option>
                         <option value="AL" v-show="!items">Albania</option>
                         <option value="AD" v-show="!items">Andorra</option>
-                        <option value="AG" v-show="!items"
-                          >Antigua and Barbuda</option
-                        >
+                        <option value="AG" v-show="!items">Antigua and Barbuda</option>
                         <option value="AU" v-show="!items">Australia</option>
                         <option value="AM" v-show="!items">Armenia</option>
                         <option value="AO" v-show="!items">Angola</option>
                         <option value="AR" v-show="!items">Argentina</option>
                         <option value="AT" v-show="!items">Austria</option>
                         <option value="AZ" v-show="!items">Azerbaijan</option>
-                        <option value="BA" v-show="!items"
-                          >Bosnia and Herzegovina</option
-                        >
+                        <option value="BA" v-show="!items">Bosnia and Herzegovina</option>
                         <option value="BB" v-show="!items">Barbados</option>
                         <option value="BD" v-show="!items">Bangladesh</option>
                         <option value="BE" v-show="!items">Belgium</option>
@@ -222,12 +186,8 @@
                         <option value="BY" v-show="!items">Belarus</option>
                         <option value="CD" v-show="!items">Congo</option>
                         <option value="CA" v-show="!items">Canada</option>
-                        <option value="CF" v-show="!items"
-                          >Central African Republic</option
-                        >
-                        <option value="CI" v-show="!items"
-                          >Cote d'Ivoire</option
-                        >
+                        <option value="CF" v-show="!items">Central African Republic</option>
+                        <option value="CI" v-show="!items">Cote d'Ivoire</option>
                         <option value="CL" v-show="!items">Chile</option>
                         <option value="CM" v-show="!items">Cameroon</option>
                         <option value="CN" v-show="!items">China</option>
@@ -238,9 +198,7 @@
                         <option value="DJ" v-show="!items">Djibouti</option>
                         <option value="DK" v-show="!items">Denmark</option>
                         <option value="DM" v-show="!items">Dominica</option>
-                        <option value="DO" v-show="!items"
-                          >Dominican Republic</option
-                        >
+                        <option value="DO" v-show="!items">Dominican Republic</option>
                         <option value="EC" v-show="!items">Ecuador</option>
                         <option value="EE" v-show="!items">Estonia</option>
                         <option value="ER" v-show="!items">Eritrea</option>
@@ -274,9 +232,7 @@
                         <option value="KZ" v-show="!items">Kazakhstan</option>
                         <option value="LA" v-show="!items">Laos</option>
                         <option value="LB" v-show="!items">Lebanons</option>
-                        <option value="LI" v-show="!items"
-                          >Liechtenstein</option
-                        >
+                        <option value="LI" v-show="!items">Liechtenstein</option>
                         <option value="LR" v-show="!items">Liberia</option>
                         <option value="LS" v-show="!items">Lesotho</option>
                         <option value="LT" v-show="!items">Lithuania</option>
@@ -288,16 +244,10 @@
                         <option value="MD" v-show="!items">Moldova</option>
                         <option value="ME" v-show="!items">Montenegro</option>
                         <option value="MG" v-show="!items">Madagascar</option>
-                        <option value="MH" v-show="!items"
-                          >Marshall Islands</option
-                        >
-                        <option value="MK" v-show="!items"
-                          >Macedonia (FYROM)</option
-                        >
+                        <option value="MH" v-show="!items">Marshall Islands</option>
+                        <option value="MK" v-show="!items">Macedonia (FYROM)</option>
                         <option value="ML" v-show="!items">Mali</option>
-                        <option value="MM" v-show="!items"
-                          >Myanmar (formerly Burma)</option
-                        >
+                        <option value="MM" v-show="!items">Myanmar (formerly Burma)</option>
                         <option value="MN" v-show="!items">Mongolia</option>
                         <option value="MR" v-show="!items">Mauritania</option>
                         <option value="MT" v-show="!items">Malta</option>
@@ -314,9 +264,7 @@
                         <option value="OM" v-show="!items">Oman</option>
                         <option value="PA" v-show="!items">Panama</option>
                         <option value="PF" v-show="!items">Paraguay</option>
-                        <option value="PG" v-show="!items"
-                          >Papua New Guinea</option
-                        >
+                        <option value="PG" v-show="!items">Papua New Guinea</option>
                         <option value="PH" v-show="!items">Philippines</option>
                         <option value="PK" v-show="!items">Pakistan</option>
                         <option value="PL" v-show="!items">Poland</option>
@@ -325,9 +273,7 @@
                         <option value="RU" v-show="!items">Russia</option>
                         <option value="RW" v-show="!items">Rwanda</option>
                         <option value="SA" v-show="!items">Saudi Arabia</option>
-                        <option value="SB" v-show="!items"
-                          >Solomon Islands</option
-                        >
+                        <option value="SB" v-show="!items">Solomon Islands</option>
                         <option value="SC" v-show="!items">Seychelles</option>
                         <option value="SD" v-show="!items">Sudan</option>
                         <option value="SE" v-show="!items">Sweden</option>
@@ -340,17 +286,13 @@
                         <option value="TN" v-show="!items">Tunisia</option>
                         <option value="TO" v-show="!items">Tonga</option>
                         <option value="TR" v-show="!items">Turkey</option>
-                        <option value="TT" v-show="!items"
-                          >Trinidad and Tobago</option
-                        >
+                        <option value="TT" v-show="!items">Trinidad and Tobago</option>
                         <option value="TW" v-show="!items">Taiwan</option>
                         <option value="UA" v-show="!items">Ukraine</option>
                         <option value="UG" v-show="!items">Uganda</option>
                         <option value="UY" v-show="!items">Uruguay</option>
                         <option value="UZ" v-show="!items">Uzbekistan</option>
-                        <option value="VA" v-show="!items"
-                          >Vatican City (Holy See)</option
-                        >
+                        <option value="VA" v-show="!items">Vatican City (Holy See)</option>
                         <option value="VE" v-show="!items">Venezuela</option>
                         <option value="VN" v-show="!items">Vietnam</option>
                         <option value="VU" v-show="!items">Vanuatu</option>
@@ -358,14 +300,12 @@
                         <option value="ZM" v-show="!items">Zambia</option>
                         <option value="ZW" v-show="!items">Zimbabwe</option>
                       </select>
-                      <div v-show="errors.rcountry" class="invalid-feedback">
-                        {{ errors.rcountry }}.
-                      </div>
+                      <div v-show="errors.rcountry" class="invalid-feedback">{{ errors.rcountry }}.</div>
                     </div>
                   </div>
                   <div class="form-group form-group-tx row">
-                    <label for class=" control-label">Password</label>
                     <div class="col-md-12">
+                      <label for class="control-label">Password</label>
                       <div class="radio">
                         <input
                           name
@@ -385,21 +325,19 @@
                         <small
                           id="passwordHelpBlock"
                           class="form-text text-muted"
-                          >At least 6 characters</small
-                        >
-                        <div v-show="passwordErr" class="invalid-feedback">
-                          {{ passwordErr }}.
-                        </div>
-                        <div v-show="errors.password" class="invalid-feedback">
-                          {{ errors.password }}.
-                        </div>
+                        >At least 6 characters</small>
+                        <div v-show="passwordErr" class="invalid-feedback">{{ passwordErr }}.</div>
+                        <div
+                          v-show="errors.password"
+                          class="invalid-feedback"
+                        >{{ errors.password }}.</div>
                       </div>
                     </div>
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <label for class="control-label">Confirm Password</label>
                     <div class="col-md-12">
+                      <label for class="control-label">Confirm Password</label>
                       <div class="radio">
                         <input
                           name
@@ -419,14 +357,12 @@
                         <small
                           id="passwordHelpBlock"
                           class="form-text text-muted"
-                          >At least 6 characters</small
-                        >
-                        <div v-show="passwordErr" class="invalid-feedback">
-                          {{ passwordErr }}.
-                        </div>
-                        <div v-show="errors.password" class="invalid-feedback">
-                          {{ errors.password }}.
-                        </div>
+                        >At least 6 characters</small>
+                        <div v-show="passwordErr" class="invalid-feedback">{{ passwordErr }}.</div>
+                        <div
+                          v-show="errors.password"
+                          class="invalid-feedback"
+                        >{{ errors.password }}.</div>
                       </div>
                     </div>
                   </div>
@@ -442,19 +378,15 @@
                                 class="custom-control-input"
                                 id="customControlAutosizing"
                               />
-                              <label
-                                class="custom-control-label"
-                                for="customControlAutosizing"
-                              >
+                              <label class="custom-control-label" for="customControlAutosizing">
                                 <span class="custom-control-description">
                                   I have read and agree to the
                                   <a
                                     href="terms-conditions.html"
                                     style="color: #4CAF50;"
-                                    >Terms &amp; Conditions</a
-                                  >
-                                </span></label
-                              >
+                                  >Terms &amp; Conditions</a>
+                                </span>
+                              </label>
                             </div>
                           </div>
                         </div>
@@ -464,9 +396,7 @@
                             <button
                               type="submit"
                               class="btn btn-block btn-primary btn-register-tx"
-                            >
-                              Register
-                            </button>
+                            >Register</button>
                           </div>
                         </div>
                       </div>
@@ -481,9 +411,11 @@
           <div class="reg-sidebar-inner text-center">
             <div class="row">
               <div class="promo-text-box">
-                <i class=" icon-picture fa fa-4x icon-color-1"></i>
+                <i class="icon-picture fa fa-4x icon-color-1"></i>
 
-                <h3><strong>Post a Free Classified</strong></h3>
+                <h3>
+                  <strong>Post a Free Classified</strong>
+                </h3>
 
                 <p>
                   Post your free online classified ads with us. Lorem ipsum
@@ -491,9 +423,11 @@
                 </p>
               </div>
               <div class="promo-text-box">
-                <i class=" fa fa-pencil-square fa-4x icon-color-2"></i>
+                <i class="fa fa-pencil-square fa-4x icon-color-2"></i>
 
-                <h3><strong>Create and Manage Items</strong></h3>
+                <h3>
+                  <strong>Create and Manage Items</strong>
+                </h3>
 
                 <p>
                   Nam sit amet dui vel orci venenatis ullamcorper eget in lacus.
@@ -501,9 +435,11 @@
                 </p>
               </div>
               <div class="promo-text-box">
-                <i class=" fa fa-heart fa-4x icon-color-3"></i>
+                <i class="fa fa-heart fa-4x icon-color-3"></i>
 
-                <h3><strong>Create your Favorite ads list.</strong></h3>
+                <h3>
+                  <strong>Create your Favorite ads list.</strong>
+                </h3>
 
                 <p>
                   PostNullam quis orci ut ipsum mollis malesuada varius eget

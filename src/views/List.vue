@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <div class="main-content-area clearfix">
-      <section class="section-padding gray page-search">
+      <section class="section-padding gray page-search" style="padding-top: 30px;">
         <div class="container">
           <!-- Row -->
           <div class="row">
