@@ -59,7 +59,7 @@
 													class="alert alert-danger alert-dismissible fade show"
 												>
 													<strong>Error!</strong>
-													{{ errors.message || errors }}
+													{{ errors.message }}
 													<button
 														type="button"
 														class="close"

@@ -242,7 +242,7 @@
                   </a>
                 </li>
 
-                <li class="dropdown">
+                <li class="dropdown" v-show="isLoggedIn">
                   <a
                     href="#"
                     class="dropdown-toggle dropdown-head"
@@ -400,9 +400,13 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 /* eslint-disable no-undef */
 export default {
   name: "topbar",
+  computed: {
+    ...mapGetters("auth", ['isLoggedIn'])
+  },
   methods: {
     sync() {
       $(document).ready(function() {
