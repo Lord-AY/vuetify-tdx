@@ -54,7 +54,21 @@
                       </div>
                     </div>
                   </div>
-
+	                <div v-if="errors" class="container">
+												<div
+													class="alert alert-danger alert-dismissible fade show"
+												>
+													<strong>Error!</strong>
+													{{ errors.message || errors }}
+													<button
+														type="button"
+														class="close"
+														data-dismiss="alert"
+													>
+														&times;
+													</button>
+												</div>
+											</div>
                   <!-- Customer Name -->
                   <div class="row form-group-tx form-group">
                     <div class="col-md-12 col-lg-6 col-sm-12">

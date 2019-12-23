@@ -1,8 +1,8 @@
-import HTTP from '../../http'
+// import HTTP from '../../http'
 import ash from 'lodash'
 import router from '../../router'
-// import axios from 'axios'
-// import router from '../../router'
+import axios from 'axios'
+
 export default {
 	namespaced: true,
 	state: {
@@ -39,7 +39,7 @@ export default {
 			// set inputs to state
 			commit('SET_REGISTER_STATE', payload)
 			try {
-				const response = await HTTP().post('auth/signup', {
+				const response = await axios.post('http://157.245.82.193/auth/signup', {
 					firstname: state.registerData.firstName,
 					lastname: state.registerData.lastName,
 					email: state.registerData.email,
@@ -69,7 +69,7 @@ export default {
 		async loginUser({ commit, state, rootState }, payload) {
 			commit('SET_LOGIN_STATE', payload)
 			try {
-				const response = await HTTP().post('auth/login', {
+				const response = await axios.post('http://157.245.82.193/auth/login', {
 					email: state.loginData.email,
 					password: state.loginData.password
 				})
