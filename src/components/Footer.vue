@@ -11,7 +11,7 @@
                   src="../assets/images/TRADEXPLORA_V4.1_mini.png"
                   class="img-responsive"
                   alt="Site logo"
-                  style="margin-bottom: -0.8rem; min-width: 1rem important;"
+                  style="margin-bottom: -0.8rem; width: 10rem;"
                 />
               </router-link>
               <hr class="deep-purple  mb-4 mt-0 d-inline-block mx-auto" />

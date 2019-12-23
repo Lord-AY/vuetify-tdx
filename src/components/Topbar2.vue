@@ -93,7 +93,7 @@
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
             <router-link to="/">
-              <img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt />
+              <img src="../assets/images/TRADE_XPLORA_V4.1.png" alt />
             </router-link>
           </div>
           <ul class="horizontalMenu-list" style="margin-top: 12px;">

@@ -49,6 +49,14 @@ const routes = [
 		}
 	},
 	{
+		path: "/referal",
+		name: "referal",
+		component: () => import("../views/ref.vue"),
+		meta: {
+			header: 3
+		}
+	},
+	{
 		path: "/productDetails",
 		name: "productDetails",
 		component: () => import("../views/ProductDetails.vue"),
