@@ -2382,8 +2382,6 @@
       </section>
     </div>
 
-
-
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />
     <input type="hidden" id="is_sticky_header" value="0" />
