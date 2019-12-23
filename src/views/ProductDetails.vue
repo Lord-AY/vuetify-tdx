@@ -600,7 +600,7 @@
                   <h5>
                     <a
                       class="btn btn-block btn-warning"
-                      style="color: #fff; padding: 16px;"
+                      style="color: #fff; padding: 16px; border-radius: 0px;"
                       href="../../sign-in-to-your-account/index.html"
                       >Follow Seller
                     </a>
@@ -615,6 +615,7 @@
                 <h5>
                   <a
                     class="btn btn-block btn-primary contact-seller"
+                    style="border-radius: 0px;"
                     href="../../sign-in-to-your-account/index.html"
                   >
                     <i class="fa fa-commenting-o"></i> Chat With Seller</a

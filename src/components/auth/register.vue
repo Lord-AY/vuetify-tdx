@@ -18,7 +18,12 @@
 
             <div class="row">
               <div class="col-md-8 offset-md-2">
-                <form action="" class="form-horizontal" @submit.prevent="register" enctype="multipart/form-data">
+                <form
+                  action=""
+                  class="form-horizontal"
+                  @submit.prevent="register"
+                  enctype="multipart/form-data"
+                >
                   <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12">
                       <div class="social-media-button">
@@ -85,8 +90,8 @@
                         <input
                           name=""
                           placeholder="Doe"
-                           :class="errors.lastname ? 'is-invalid' : ''"
-                            v-model="formFields.lastName"
+                          :class="errors.lastname ? 'is-invalid' : ''"
+                          v-model="formFields.lastName"
                           class="form-control input-md"
                           required=""
                           type="text"
@@ -100,28 +105,31 @@
 
                   <div class="form-group form-group-tx row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
-                    <label class=" control-label">Email Address</label>
-                    <div class="">
-                      <input
-                        name
-                        placeholder="Email"
-                        class="form-control input-md"
-                        :class="errors.email ? 'is-invalid' : ''"
-                        type="text"
-                        v-model.trim="formFields.email"
-                      />
-                      <div v-show="errors.email" class="invalid-feedback">
-                        {{ errors.email }}.
+                      <label class=" control-label">Email Address</label>
+                      <div class="">
+                        <input
+                          name
+                          placeholder="Email"
+                          class="form-control input-md"
+                          :class="errors.email ? 'is-invalid' : ''"
+                          type="text"
+                          v-model.trim="formFields.email"
+                        />
+                        <div v-show="errors.email" class="invalid-feedback">
+                          {{ errors.email }}.
+                        </div>
                       </div>
                     </div>
-                    </div>
-
                   </div>
                   <!-- Phone Number -->
-                 <div class="form-group form-group-tx row">
-                      <label class="control-label">Phone Number</label>
+                  <div class="form-group form-group-tx row">
+                    <label class="control-label">Phone Number</label>
                     <div class="col-md-12 ">
-                    <VuePhoneNumberInput v-model.trim="formFields.phone"  :class="errors.phone ? 'is-invalid' : ''" default-country-code="NG"/>
+                      <VuePhoneNumberInput
+                        v-model.trim="formFields.phone"
+                        :class="errors.phone ? 'is-invalid' : ''"
+                        default-country-code="NG"
+                      />
                       <div v-show="errors.phone" class="invalid-feedback">
                         {{ errors.phone }}.
                       </div>
@@ -155,7 +163,7 @@
                     </div>
                   </div>
 
-                   <div class="form-group form-group-tx row">
+                  <div class="form-group form-group-tx row">
                     <label class=" control-label">Country</label>
                     <div class="col-md-12">
                       <select
@@ -214,9 +222,7 @@
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <label for class="control-label"
-                      >Confirm Password</label
-                    >
+                    <label for class="control-label">Confirm Password</label>
                     <div class="col-md-12">
                       <div class="radio">
                         <input
@@ -280,10 +286,11 @@
                         <div class="row">
                           <div class="col-md-8 offset-md-2 col-sm-12">
                             <button
-                            type="submit"
+                              type="submit"
                               class="btn btn-block btn-primary btn-register-tx"
-                              >Register</button
                             >
+                              Register
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -338,9 +345,9 @@
 </template>
 
 <script>
-import VuePhoneNumberInput from 'vue-phone-number-input'
+import VuePhoneNumberInput from "vue-phone-number-input";
 export default {
- name: "registerForm",
+  name: "registerForm",
   data() {
     return {};
   },
@@ -349,7 +356,7 @@ export default {
     register: Function,
     items: Array,
     passwordErr: String,
-    errors: [Array, Object, String],
+    errors: [Array, Object, String]
   },
   components: {
     VuePhoneNumberInput
