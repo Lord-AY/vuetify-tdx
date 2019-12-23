@@ -8,14 +8,14 @@
             <div class="col-lg-3 col-md-12">
               <router-link to="/Home">
                 <img
-                  src="../assets/images/footer-logo.png"
+                  src="../assets/images/TRADEXPLORA_V4.1_mini.png"
                   class="img-responsive"
                   alt="Site logo"
-                  style="margin-bottom: 1rem"
+                  style="margin-bottom: 0.05rem; width: 7rem;"
                 />
               </router-link>
               <hr
-                class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto"
+                class="deep-purple  mb-4 mt-0 d-inline-block mx-auto"
               />
               <p class="mobile-hidden">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
