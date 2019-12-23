@@ -53,7 +53,9 @@
                                       </a>
                                     </div>
                                     <div class="contact-caption">
-                                      <h4>{{ user.firstname }} {{ user.lastname }}</h4>
+                                      <h4>
+                                        {{ user.firstname }} {{ user.lastname }}
+                                      </h4>
 
                                       <div class="clearfix"></div>
                                       <div class="upload-btn-wrapper">
@@ -97,7 +99,10 @@
                                     <i class="la la-user"></i>
                                     <div class="profile-meta">
                                       <h6>Full Name</h6>
-                                      <span>{{ user.firstname }} {{ user.lastname }}</span>
+                                      <span
+                                        >{{ user.firstname }}
+                                        {{ user.lastname }}</span
+                                      >
                                     </div>
                                   </li>
                                   <li>
@@ -606,7 +611,7 @@ require("../assets/plugins/horizontal-menu/horizontal.css");
 require("../assets/css/components.css");
 
 import dsidebar from "@/components/Dsidebar";
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from "vuex";
 // import dheader from "@/components/Dheader";
 export default {
   name: "editProf",
@@ -614,10 +619,10 @@ export default {
     dsidebar
   },
   computed: {
-    ...mapState('auth', ['user'])
+    ...mapState("auth", ["user"])
   },
   methods: {
-    ...mapActions('user', ['getStates'])
+    ...mapActions("user", ["getStates"])
   }
 };
 </script>

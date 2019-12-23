@@ -60,7 +60,9 @@
       </div>
     </div>
     <div id="tempSidebar" class="sidenav hidden-desktop">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
       <a href="#">Home</a>
       <a href="#">Categories</a>
       <a href="#">My Profile</a>

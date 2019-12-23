@@ -14414,7 +14414,7 @@ hr.accent-2 {
 } */
 .contact-seller {
     padding: 15px; 
-    color: #fff!important;
+    color: #fff !important;
     background-color: #4CAF50!important;
     border: 2px solid #4CAF50!important;
 }
@@ -14423,6 +14423,19 @@ hr.accent-2 {
     border: 2px solid #4CAF50!important;
     color: #4CAF50!important;
 }
+
+.follow-seller {
+    padding: 15px; 
+    color: #fff !important;
+    background-color: #f0ad4e!important;
+    border: 2px solid #f0ad4e!important;
+}
+.follow-seller:hover{
+    background-color: #fff!important;
+    border: 2px solid #f0ad4e!important;
+    color: #f0ad4e!important;
+}
+
 .social-and-product-highlight {
     background-color: #dedede;
     padding: 4px 8px 16px;

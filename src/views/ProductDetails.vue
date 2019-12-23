@@ -599,8 +599,8 @@
                   <!-- Email Button trigger modal -->
                   <h5>
                     <a
-                      class="btn btn-block btn-warning"
-                      style="color: #fff; padding: 16px; border-radius: 0px;"
+                      class="btn btn-block btn-warning follow-seller"
+                      style="color: #fff; padding: 16px; border-radius: 0px; background-color:#f0ad4e;"
                       href="../../sign-in-to-your-account/index.html"
                       >Follow Seller
                     </a>
@@ -822,3 +822,10 @@ export default {
   }
 };
 </script>
+<style>
+.horizontalMenu-list input.main-search {
+  position: relative;
+  height: 50px !important;
+  padding-left: 30px;
+}
+</style>
