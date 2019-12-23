@@ -15,7 +15,7 @@
                 <div class="d-flex value-added">
                   <div class="outline1">
                     <div class="outline2">
-                      <div class="icon-bg-service">
+                      <div class="icon-bg-service" style="background-color:#5E57BF; border-radius:16%;">
                         <span class="icon-service1 text-primary">
                           <i
                             class="fa fa-mobile fa-5x"
@@ -39,7 +39,7 @@
             >
               <a href="#">
                 <div class="d-flex value-added">
-                  <div class="icon-bg-service">
+                  <div class="icon-bg-service" style="background-color:#579CDF; border-radius:16%;">
                     <span class="icon-service1 text-warning">
                       <i
                         class="fa fa-television"
@@ -61,7 +61,7 @@
             >
               <a href="#">
                 <div class="d-flex value-added">
-                  <div class="icon-bg-service">
+                  <div class="icon-bg-service" style="background-color:#4BAD4C; border-radius:16%;">
                     <span class="icon-service1 text-secondary">
                       <i
                         class="fa fa-bolt"
@@ -83,7 +83,7 @@
             >
               <a href="#">
                 <div class="d-flex value-added">
-                  <div class="icon-bg-service">
+                  <div class="icon-bg-service" style="background-color:#CB8A47; border-radius:16%;">
                     <span class="icon-service1 text-primary">
                       <i
                         class="fa fa-plane fa-3x"
@@ -105,7 +105,7 @@
             >
               <a href="#">
                 <div class="d-flex value-added">
-                  <div class="icon-bg-service">
+                  <div class="icon-bg-service" style="background-color:#31B19B; border-radius:16%;">
                     <span class="icon-service1 text-warning">
                       <i
                         class="fa fa-bed"
@@ -127,7 +127,7 @@
             >
               <a href="#">
                 <div class="d-flex value-added">
-                  <div class="icon-bg-service">
+                  <div class="icon-bg-service" style="background-color:#1C1E23; border-radius:16%;">
                     <span class="icon-service1 text-warning">
                       <i
                         class="fa fa-ellipsis-h"
