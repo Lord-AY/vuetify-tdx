@@ -84,7 +84,7 @@
     <!--/Header -->
 
     <!--Start Horizontal-main -->
-    <div class="horizontal-main bg-dark-transparent clearfix">
+    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden">
       <div class="horizontal-mainwrapper container clearfix">
         <!-- <div class="desktoplogo-1" >
           <a href="index.html"><img src="../assets/images/brand/tradexplora-main.svg" alt=""></a>
