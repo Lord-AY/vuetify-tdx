@@ -25,7 +25,6 @@ require("../assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick.css");
 require("../assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick-theme.css");
 require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 
-
 import registerForm from "@/components/auth/register";
 import { mapActions, mapGetters } from "vuex";
 import axios from "axios";

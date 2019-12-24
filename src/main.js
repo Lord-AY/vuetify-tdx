@@ -4,8 +4,11 @@ import router from "./router";
 import store from "./store";
 import { sync } from "vuex-router-sync";
 import "vue-phone-number-input/dist/vue-phone-number-input.css";
+import VuePromiseBtn from "vue-promise-btn";
+import "vue-promise-btn/dist/vue-promise-btn.css";
 
 Vue.config.productionTip = false;
+Vue.use(VuePromiseBtn);
 
 sync(store, router);
 new Vue({

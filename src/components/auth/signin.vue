@@ -10,7 +10,7 @@
             <div class="row login-logo">
               <a href="index.html" style="margin: auto;" class="">
                 <img
-                  src="../../assets/images/brand/TRADEXPLORAV3.1.png"
+                  src="../../assets/images/TRADE_XPLORA_V4.1.png"
                   style="height: 80px;"
                   alt=""
                 />
@@ -121,6 +121,8 @@
 
                       <div class="col-mdm-12 mt-5">
                         <button
+                          v-promise-btn
+                          @click="submit"
                           class="btn btn-block btn-primary btn-register-tx text-uppercase"
                         >
                           Login

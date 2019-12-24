@@ -19,7 +19,9 @@
       </div>
     </div>
     <div id="tempSidebar" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
       <a href="#">Home</a>
       <a href="#">Categories</a>
       <a href="#">My Profile</a>
@@ -32,7 +34,10 @@
         class="slimScrollDiv"
         style="position: relative; overflow: hidden; width: auto; height: 95%;"
       >
-        <div class="sidebar-scroll" style="overflow: hidden; width: auto; height: 95%;">
+        <div
+          class="sidebar-scroll"
+          style="overflow: hidden; width: auto; height: 95%;"
+        >
           <nav>
             <ul class="nav">
               <li class="welcome-text">
