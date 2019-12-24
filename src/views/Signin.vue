@@ -3,14 +3,15 @@
     <Login
       :loginFields="loginData"
       :submit="sendLoginData"
-      :errors="errors"
+      :errors="loginError"
+      :loading="loading"
     ></Login>
   </div>
 </template>
 
 <script>
 import Login from "@/components/auth/signin";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "signin",
   components: {
@@ -22,13 +23,25 @@ export default {
         email: "",
         password: ""
       },
-      loginError: null
+      loginError: ""
     };
   },
   computed: {
-    ...mapGetters("auth", {
-      errors: "getLoginErrors"
-    })
+    getErrors() {
+      return this.$store.getters["auth/loginErrors"];
+    },
+    loading() {
+      return this.$store.getters["auth/loading"];
+    }
+  },
+  watch: {
+    getErrors(value) {
+      // passing back the function to watch for changes
+      if (value !== null && value !== undefined) {
+        this.loginError = value;
+        // console.log(this.loginErrors) this runs when there is a change in state... for testing sha
+      }
+    }
   },
   methods: {
     ...mapActions("auth", ["loginUser"]),

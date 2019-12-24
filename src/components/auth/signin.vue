@@ -16,7 +16,6 @@
                 />
               </a>
             </div>
-
             <div class="row">
               <div class="col-md-8 offset-md-2">
                 <div class="row">
@@ -74,7 +73,7 @@
                           class="alert alert-danger alert-dismissible fade show"
                         >
                           <strong>Error!</strong>
-                          {{ errors.email || errors }}
+                          {{ errors }}
                           <button
                             type="button"
                             class="close"
@@ -94,6 +93,7 @@
                               name=""
                               placeholder="someone@example.com"
                               class="form-control input-md"
+                              :class="errors.email ? 'is-invalid' : ''"
                               required=""
                               type="email"
                               v-model.trim="loginFields.email"
@@ -112,6 +112,7 @@
                               class="form-control input-md"
                               required=""
                               type="password"
+                              :class="errors.password ? 'is-invalid' : ''"
                               v-model="loginFields.password"
                             />
                             <!-- <small id="passwordHelpBlock" class="form-text text-muted">At least 5 characters</small> -->
@@ -121,12 +122,14 @@
 
                       <div class="col-mdm-12 mt-5">
                         <button
-                          v-promise-btn
-                          @click="submit"
                           class="btn btn-block btn-primary btn-register-tx text-uppercase"
+                          :class="loading ? 'disabled-btn' : ''"
+                          :disabled="loading"
+                          :loading="loading"
                         >
                           Login
                         </button>
+                        <!-- <img src="/assets/images/833.svg" alt="" /> -->
                       </div>
                     </form>
                   </div>
@@ -155,12 +158,16 @@ export default {
   props: {
     loginFields: Object,
     submit: Function,
-    errors: [String, Object]
+    errors: [String, Object],
+    loading: Boolean
   }
 };
 </script>
 
 <style>
+.disabled-btn {
+  cursor: wait !important;
+}
 .facebook-reg {
   background-color: #3b5998;
   color: #fff;

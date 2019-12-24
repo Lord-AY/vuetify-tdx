@@ -67,6 +67,7 @@
                     </div>
                   </div>
                   <!-- Customer Name -->
+
                   <div class="row form-group-tx form-group">
                     <div class="col-md-12 col-lg-6 col-sm-12">
                       <label for class="control-label">First Name</label>
@@ -458,6 +459,8 @@
                             <button
                               type="submit"
                               class="btn btn-block btn-primary btn-register-tx"
+                              :class="loading ? 'disabled-btn' : ''"
+                              :disabled="loading"
                             >
                               Register
                             </button>
@@ -532,7 +535,8 @@ export default {
     register: Function,
     items: Array,
     passwordErr: String,
-    errors: [Array, Object, String]
+    errors: [Array, Object, String],
+    loading: Boolean
   },
   components: {
     VuePhoneNumberInput

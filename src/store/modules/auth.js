@@ -21,32 +21,30 @@ export default {
       email: "",
       password: ""
     },
-    user: {
-      id: "",
-      token: "",
-      firstname: "",
-      lastname: "",
-      email: "",
-      status: "",
-      referalId: "",
-      phone: "",
-      rcountry: "",
-      address: "",
-      vCode: null
-    },
+    loading: false,
+    user: null,
     loginErrors: null,
-    registerErrors: []
+    registerErrors: null
   },
 
   getters: {
-    getLoginErrors(state) {
+    loginErrors(state) {
       return state.loginErrors;
     },
-    getRegisterErrors(state) {
+    registerErrors(state) {
       return state.registerErrors;
     },
     isLoggedIn(state) {
-      return !!state.user.token;
+      return !!state.user;
+    },
+    getUser(state) {
+      return state.user;
+    },
+    firstName(state) {
+      return state.user.firstname;
+    },
+    loading(state) {
+      return !!state.loading;
     }
   },
 
@@ -54,6 +52,7 @@ export default {
     registerUser({ commit, state }, payload) {
       // set inputs to state
       commit("SET_REGISTER_STATE", payload);
+      commit("SET_LOADING", true);
       return axios
         .post("http://157.245.82.193/auth/signup", {
           firstname: state.registerData.firstName,
@@ -65,12 +64,28 @@ export default {
           rcountry: state.registerData.rcountry
         })
         .then(({ data }) => {
+          commit("SET_LOADING", false);
+
           // set user state with results
-          commit("setUserData", data);
+          const newUser = {
+            id: data.id,
+            firstname: data.firstname,
+            lastname: data.lastname,
+            email: data.email,
+            token: data.token,
+            referalId: data.referalId,
+            status: data.status,
+            phone: data.phone,
+            address: data.address,
+            rcountry: data.rcountry
+          };
+          commit("SET_USER_DATA", newUser);
           // send user to dashboard
           router.push("/maindashboard");
         })
         .catch(error => {
+          commit("SET_LOADING", false);
+          console.log(error.response);
           // check if error obj is empty
           if (ash.isEmpty(error.response.data)) {
             // if empty then user cant be found
@@ -83,18 +98,35 @@ export default {
     },
     loginUser({ commit, state }, payload) {
       commit("SET_LOGIN_STATE", payload);
+      commit("SET_LOADING", true);
       return axios
         .post("http://157.245.82.193/auth/login", {
           email: state.loginData.email,
           password: state.loginData.password
         })
         .then(({ data }) => {
+          // console.log(data)
+          commit("SET_LOADING", false);
+          commit("SET_LOGIN_ERRORS", null);
           // set user state with results
-          commit("setUserData", data);
+          const loggedUser = {
+            id: data.id,
+            firstname: data.firstname,
+            lastname: data.lastname,
+            email: data.email,
+            token: data.token,
+            referalId: data.referalId,
+            status: data.status,
+            phone: data.phone,
+            address: data.address,
+            rcountry: data.rcountry
+          };
+          commit("SET_USER_DATA", loggedUser);
           // send user to home
           router.push("/");
         })
         .catch(error => {
+          commit("SET_LOADING", false);
           // check if error obj is empty
           if (ash.isEmpty(error.response.data)) {
             // if empty then user cant be found
@@ -145,17 +177,9 @@ export default {
     },
     SET_LOGIN_ERRORS: (state, errors) => (state.loginErrors = errors),
     SET_REGISTER_ERRORS: (state, errors) => (state.registerErrors = errors),
-    setUserData(state, data) {
-      state.user.id = data.id;
-      state.user.firstname = data.firstname;
-      state.user.lastname = data.lastname;
-      state.user.email = data.email;
-      state.user.token = data.token;
-      state.user.referalId = data.referalId;
-      state.user.status = data.status;
-      state.user.phone = data.phone;
-      state.user.address = data.address;
-      state.user.rcountry = data.rcountry;
-    }
+    SET_USER_DATA(state, loggedUser) {
+      state.user = loggedUser;
+    },
+    SET_LOADING: (state, loading) => (state.loading = loading)
   }
 };

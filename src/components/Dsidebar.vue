@@ -48,7 +48,7 @@
                 />
                 <div class="text-box">
                   Welcome back:
-                  <span>testuser</span>
+                  <span>{{ firstName }}</span>
                 </div>
               </li>
               <li>
@@ -160,6 +160,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   /* eslint-disable no-undef */
   methods: {
@@ -202,6 +203,9 @@ export default {
   },
   created() {
     this.sync();
+  },
+  computed: {
+    ...mapGetters("auth", ["firstName"])
   }
 };
 </script>

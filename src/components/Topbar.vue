@@ -222,7 +222,29 @@
 								<router-link to="/login" class="btn btn-tx btn-theme text-dark post-ad-header-tx"> POST AN AD</router-link>
 							</li>
               </ul>-->
-              <ul class="listnone custom">
+
+              <ul class="listnone custom" v-if="!isLoggedIn">
+                <li>
+                  <router-link to="/register" class="text-dark text-white">
+                    <i class="fa fa-user mr-1"></i>
+                    <span>Register</span>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/login" class="text-dark text-white">
+                    <i class="fa fa-sign-in mr-1"></i>
+                    <span>Login</span>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link
+                    to="/login"
+                    class="btn btn-tx btn-theme text-dark post-ad-header-tx"
+                    >POST AN AD</router-link
+                  >
+                </li>
+              </ul>
+              <ul class="listnone custom" v-if="isLoggedIn">
                 <li>
                   <a
                     class="shopping_bag_btn"
@@ -242,7 +264,7 @@
                   </a>
                 </li>
 
-                <li class="dropdown" v-show="isLoggedIn">
+                <li class="dropdown">
                   <a
                     href="#"
                     class="dropdown-toggle dropdown-head"
@@ -287,7 +309,6 @@
                     </li>
                   </ul>
                 </li>
-
                 <li>
                   <router-link
                     to="login"

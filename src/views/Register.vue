@@ -5,7 +5,8 @@
       :register="sendRegisterData"
       :items="items"
       :passwordErr="errors"
-      :errors="registerErrors"
+      :errors="registerError"
+      :loading="loading"
     ></registerForm>
   </div>
 </template>
@@ -26,7 +27,7 @@ require("../assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick-theme.css");
 require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 
 import registerForm from "@/components/auth/register";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import axios from "axios";
 import ash from "lodash";
 
@@ -45,16 +46,28 @@ export default {
         rcountry: ""
       },
       items: [],
-      errors: null
+      errors: null,
+      registerError: ""
     };
   },
   components: {
     registerForm
   },
   computed: {
-    ...mapGetters("auth", {
-      registerErrors: "getRegisterErrors"
-    })
+    getErrors() {
+      return this.$store.getters["auth/registerErrors"];
+    },
+    loading() {
+      return this.$store.getters["auth/loading"];
+    }
+  },
+  watch: {
+    getErrors(value) {
+      if (value !== null && value !== undefined) {
+        this.registerError = value;
+        console.log(this.registerError);
+      }
+    }
   },
   created() {
     this.fetchCountries();
