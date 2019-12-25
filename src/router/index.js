@@ -207,6 +207,13 @@ const routes = [
     meta: {
       header: 2
     }
+  },
+  {
+    path: "*",
+    component: () => import("../views/404.vue"),
+    meta: {
+      header: 2
+    }
   }
 ];
 
