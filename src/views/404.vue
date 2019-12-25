@@ -25,7 +25,7 @@ import topbar from "@/components/Topbar";
 // import topbar2 from "@/components/Topbar2";
 import Footer from "@/components/Footer";
 export default {
-  name: "404",
+  name: "p404",
   components: {
     topbar,
     // topbar2,
