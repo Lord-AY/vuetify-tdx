@@ -40,6 +40,46 @@ i commented the padding-top in
 
 to reduce the size of the top nav at the side bar
 
+@import '../assets/skins/color-skins/color15.css';
+@import '../assets/plugins/horizontal-menu/horizontal.css';
+@import '../assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css';
+@import '../assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css';
+@import '../assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css';
+@import '../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css';
+@import '../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css';
+@import '../assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css';
+/*@import '../assets/carspot-css/wp-content/themes/carspot/style4d2c.css';*/
+@import '../assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css';
+@import '../assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
+@import '../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css';
+@import '../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css';
+
 
 Task to be done,
 

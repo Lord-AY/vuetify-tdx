@@ -21,10 +21,10 @@ export default {
 			email: '',
 			password: ''
 		},
+		loading: false,
 		user: null,
 		loginErrors: null,
 		registerErrors: null
-		loading: false,
 	},
 
 	getters: {
@@ -137,6 +137,41 @@ export default {
 					}
 				})
 		},
+		logoutUser({ commit, state }, payload) {
+			commit('SET_LOGOUT_STATE', payload)
+			commit('SET_LOADING', true)
+			return axios
+				.post('http://157.245.82.193/auth/logout', {
+					token: state.loginData.token
+				})
+				.then(({ data }) => {
+					// console.log(data)
+					commit('SET_LOADING', false)
+					commit('SET_LOGOUT_ERRORS', null)
+					// set user state with results
+					const loggedoutUser = {
+						isloggedOut: data.message
+					}
+					commit('SET_USER_DATA', loggedoutUser)
+					// send user to login page
+					router.push('/login')
+				})
+				.catch(error => {
+					commit('SET_LOADING', false)
+					// check if error obj is empty
+					if (ash.isEmpty(error.response.data)) {
+						// if empty then user cant be found
+						commit(
+							'SET_LOGOUT_ERRORS',
+							'Error Destroying User Session, please try again'
+						)
+					} else {
+						// else account not verified or something else
+						commit('SET_LOGOUT_ERRORS', error.response.data.message)
+					}
+				})
+		},
+
 		getVerificationCode({ state }) {
 			return axios
 				.get(

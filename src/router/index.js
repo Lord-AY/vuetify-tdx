@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import userRegister from "../views/Register.vue";
+import p404 from "../views/404.vue";
+// import gridlist from "../views/Gridlist.vue";
 
 Vue.use(VueRouter);
 
@@ -204,6 +206,13 @@ const routes = [
     path: "/rating",
     name: "rating",
     component: () => import("../views/Rating.vue"),
+    meta: {
+      header: 2
+    }
+  },
+  {
+    path: "*",
+    component: p404,
     meta: {
       header: 2
     }
