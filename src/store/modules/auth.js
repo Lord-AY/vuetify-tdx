@@ -21,10 +21,10 @@ export default {
 			email: '',
 			password: ''
 		},
-		loading: false,
 		user: null,
 		loginErrors: null,
 		registerErrors: null
+		loading: false,
 	},
 
 	getters: {

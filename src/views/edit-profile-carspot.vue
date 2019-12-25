@@ -59,22 +59,7 @@
 
                                       <div class="clearfix"></div>
                                       <div class="upload-btn-wrapper">
-                                        <span
-                                          class="tooltip-disabled"
-                                          data-toggle="tooltip"
-                                          title="Disabled in demo"
-                                        >
-                                          <button class="btn-profile">
-                                            Upload Photo
-                                          </button>
-                                          <input
-                                            type="file"
-                                            id="imgInp"
-                                            name="my_file_upload"
-                                            accept="image/*"
-                                            disabled
-                                          />
-                                        </span>
+                                          <file-upload :url='url' :thumb-url='thumbUrl' :headers="headers" @change="onFileChange"></file-upload>
                                       </div>
                                     </div>
                                   </div>
@@ -242,152 +227,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="row">
-                                <div
-                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                                >
-                                  <div class="form-group">
-                                    <label
-                                      class="control-label control-label-dashboard"
-                                      >City</label
-                                    >
-                                    <select
-                                      class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
-                                      data-placeholder="Select"
-                                    >
-                                      <optgroup label="Categories">
-                                        <option>-- Select City --</option>
-                                        <option value="1">Germany</option>
-                                        <option value="2">USA</option>
-                                        <option value="3">Canada</option>
-                                        <option value="4">Usa</option>
-                                        <option value="5">Afghanistan</option>
-                                        <option value="6">Albania</option>
-                                        <option value="7">China</option>
-                                        <option value="8">Denmark</option>
-                                        <option value="9">Finland</option>
-                                        <option value="10">India</option>
-                                        <option value="11">Kiribati</option>
-                                        <option value="12">Kuwait</option>
-                                        <option value="13">Mexico</option>
-                                        <option value="14">Pakistan</option>
-                                      </optgroup>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div
-                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                                >
-                                  <div class="form-group">
-                                    <label
-                                      class="control-label control-label-dashboard protip"
-                                      >Country</label
-                                    >
-                                    <select
-                                      class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
-                                      data-placeholder="Select"
-                                    >
-                                      <optgroup label="Categories">
-                                        <option>-- Select Country --</option>
-                                        <option value="1">Germany</option>
-                                        <option value="2">USA</option>
-                                        <option value="3">Canada</option>
-                                        <option value="4">Usa</option>
-                                        <option value="5">Afghanistan</option>
-                                        <option value="6">Albania</option>
-                                        <option value="7">China</option>
-                                        <option value="8">Denmark</option>
-                                        <option value="9">Finland</option>
-                                        <option value="10">India</option>
-                                        <option value="11">Kiribati</option>
-                                        <option value="12">Kuwait</option>
-                                        <option value="13">Mexico</option>
-                                        <option value="14">Pakistan</option>
-                                      </optgroup>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div
-                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                                >
-                                  <div class="form-group">
-                                    <label
-                                      class="control-label control-label-dashboard"
-                                      >Facebook</label
-                                    >
-                                    <input
-                                      class="form-control form-control-dashboard"
-                                      type="text"
-                                      name="sb_user_name"
-                                      value="https://www.facebook.com/"
-                                      required
-                                    />
-                                  </div>
-                                </div>
-                                <div
-                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                                >
-                                  <div class="form-group">
-                                    <label
-                                      class="control-label control-label-dashboard protip"
-                                      >Twitter</label
-                                    >
-                                    <input
-                                      class="protip form-control form-control-dashboard"
-                                      type="email"
-                                      name="user_email"
-                                      value="https://www.twitter.com/"
-                                      readonly
-                                      data-pt-title=" You can not edit email address"
-                                      data-pt-position="top"
-                                      data-pt-scheme="dark-transparent"
-                                      data-pt-size="small"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div
-                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                                >
-                                  <div class="form-group">
-                                    <label
-                                      class="control-label control-label-dashboard"
-                                      >Whatsapp</label
-                                    >
-                                    <input
-                                      class="form-control form-control-dashboard"
-                                      type="text"
-                                      name="sb_user_name"
-                                      value="https://www.whatsapp.com/"
-                                      required
-                                    />
-                                  </div>
-                                </div>
-                                <div
-                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
-                                >
-                                  <div class="form-group">
-                                    <label
-                                      class="control-label control-label-dashboard protip"
-                                      >Google</label
-                                    >
-                                    <input
-                                      class="protip form-control form-control-dashboard"
-                                      type="email"
-                                      name="user_email"
-                                      value="https://www.google.com/"
-                                      readonly
-                                      data-pt-title=" You can not edit email address"
-                                      data-pt-position="top"
-                                      data-pt-scheme="dark-transparent"
-                                      data-pt-size="small"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
+
                               <div class="row">
                                 <!-- <div
                                   class="col-md-6 col-lg-6 col-xs-12 col-sm-6 col-lg-push-6 col-md-push-6 col-sm-push-6"
@@ -422,69 +262,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div id="myModal" class="modal fade change-psw" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header rte">
-                  <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">✕</span>
-                  </button>
-                  <h2 class="modal-title">Password Change</h2>
-                </div>
-                <form id="sb-change-password">
-                  <div class="modal-body">
-                    <div class="form-group">
-                      <label>Current Password</label>
-                      <input
-                        placeholder="Current Password"
-                        class="form-control"
-                        type="password"
-                        name="current_pass"
-                        id="current_pass"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label>New Password</label>
-                      <input
-                        placeholder="New Password"
-                        class="form-control"
-                        type="password"
-                        name="new_pass"
-                        id="new_pass"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label>Confirm New Password</label>
-                      <input
-                        placeholder="Confirm Password"
-                        class="form-control"
-                        type="password"
-                        name="con_new_pass"
-                        id="con_new_pass"
-                      />
-                    </div>
-
-                    <div class="form-group">
-                      <span
-                        class="tooltip-disabled pull-left"
-                        data-toggle="tooltip"
-                        title="Disabled in demo"
-                      >
-                        <button
-                          class="btn btn-theme btn-block"
-                          type="button"
-                          disabled
-                        >
-                          Reset My Password
-                        </button>
-                      </span>
-                    </div>
-                  </div>
-                </form>
               </div>
             </div>
           </div>
@@ -611,7 +388,10 @@ require("../assets/plugins/horizontal-menu/horizontal.css");
 require("../assets/css/components.css");
 
 import dsidebar from "@/components/Dsidebar";
+import Vue from 'vue'
+import FileUpload from 'v-file-upload'
 import { mapState, mapActions } from "vuex";
+Vue.use(FileUpload)
 // import dheader from "@/components/Dheader";
 export default {
   name: "editProf",
