@@ -59,9 +59,27 @@
 
                                       <div class="clearfix"></div>
                                       <div class="upload-btn-wrapper">
-                                          <file-upload :url='url' :thumb-url='thumbUrl' :headers="headers" @change="onFileChange"></file-upload>
+                                         <button class="btn btn-success-outline" v-show="current" @click="current = !current">Upload Photo</button>
+
                                       </div>
                                     </div>
+                                     <div class="" v-show="!current">
+                                         <div class="custom-file" >
+                                            <input type="file" class="custom-file-input" id="customFile" @change="selectedFile">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                        <button
+                                        class="btn btn-success btn-sm mt-5"
+                                        :class="loading ? 'disabled-btn' : ''"
+                                        :disabled="loading"
+                                        v-show="!current"
+                                        @click="onUpload(user)"
+
+                                         >
+                                         Upload Image
+                                         </button>
+                                         <button class="btn btn-success btn-sm mt-5 ml-5" v-show="!current" @click="current = !current">Cancel</button>
+                                      </div>
                                   </div>
                                 </div>
                               </div>
@@ -124,8 +142,7 @@
                             <form
                               id="sb_update_profile"
                               class="sb_update_profile"
-                              data-parsley-validate
-                              novalidate
+                              @submit.prevent="updateUser(user)"
                             >
                               <div class="row">
                                 <div
@@ -141,7 +158,11 @@
                                       type="text"
                                       name="first_name"
                                       :value="user.firstname"
-                                      required
+                                      :readonly='loading'
+                                      :data-pt-title="loading ? 'You can not edit First Name' : 'First Name'"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
                                     />
                                   </div>
                                 </div>
@@ -155,11 +176,11 @@
                                     >
                                     <input
                                       class="protip form-control form-control-dashboard"
-                                      type="email"
+                                      type="text"
                                       name="last_name"
                                       :value="user.lastname"
-                                      readonly
-                                      data-pt-title=" You can not edit email address"
+                                      :readonly='loading'
+                                      :data-pt-title="loading ? 'You can not edit Last Name' : 'Last Name'"
                                       data-pt-position="top"
                                       data-pt-scheme="dark-transparent"
                                       data-pt-size="small"
@@ -181,8 +202,8 @@
                                       type="email"
                                       name="user_email"
                                       :value="user.email"
-                                      readonly
-                                      data-pt-title=" You can not edit email address"
+                                      :readonly="loading"
+                                      :data-pt-title="loading ? 'You can not edit email address' : 'email'"
                                       data-pt-position="top"
                                       data-pt-scheme="dark-transparent"
                                       data-pt-size="small"
@@ -203,30 +224,38 @@
                                       type="text"
                                       name="sb_user_contact"
                                       :value="user.phone"
-                                      required
+                                      :readonly='loading'
+                                      :data-pt-title="loading ? 'You can not edit Phone Number' : 'Phone Number'"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
+
                                     />
                                   </div>
                                 </div>
                               </div>
-
-                              <div class="row">
-                                <div
+                               <div
                                   class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
                                 >
                                   <div class="form-group">
                                     <label
                                       class="control-label control-label-dashboard"
-                                      >About Yourself</label
+                                      >Address</label
                                     >
-                                    <textarea
-                                      class="form-control dashboard"
-                                      name="sb_user_about"
-                                      required
-                                      rows="5"
-                                    ></textarea>
+                                    <input
+                                      class="form-control form-control-dashboard"
+                                      data-parsley-type="number"
+                                      type="text"
+                                      name="sb_user_contact"
+                                      :value="user.address"
+                                      :readonly='loading'
+                                      :data-pt-title="loading ? 'You can not edit Address' : 'Shipping address or contact address'"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
+                                    />
                                   </div>
                                 </div>
-                              </div>
 
                               <div class="row">
                                 <!-- <div
@@ -246,7 +275,6 @@
                                         type="submit"
                                         value="Update profile"
                                         style="border-radius: 8px;"
-                                        @click.prevent="getStates"
                                       />
                                     </span>
                                   </div>
@@ -395,14 +423,33 @@ Vue.use(FileUpload)
 // import dheader from "@/components/Dheader";
 export default {
   name: "editProf",
+  data() {
+    return {
+      current: true,
+      imageFile: null
+    }
+  },
   components: {
     dsidebar
   },
   computed: {
-    ...mapState("auth", ["user"])
+    ...mapState("auth", ["user"]),
+     loading() {
+      return this.$store.getters["auth/loading"];
+    }
   },
   methods: {
-    ...mapActions("user", ["getStates"])
+    ...mapActions("user", ["updateUser",'uploadProfileImage']),
+    selectedFile(event) {
+      this.imageFile = event.target.files[0]
+    },
+    onUpload(user) {
+      const payload = {
+        user,
+        image: this.selectedFile
+      }
+      this.uploadProfileImage(payload)
+    }
   }
 };
 </script>

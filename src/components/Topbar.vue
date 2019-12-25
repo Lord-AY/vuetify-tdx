@@ -302,10 +302,10 @@
                       </router-link>
                     </li>
                     <li class="profile-dropdown-list">
-                      <router-link to="login" class="profile-dropdown-link">
+                      <a style="cursor:pointer" @click.prevent="setLogout" class="profile-dropdown-link">
                         <i class="fa fa-sign-out profile-dropdown-icon"></i>
                         Logout
-                      </router-link>
+                      </a>
                     </li>
                   </ul>
                 </li>
@@ -432,7 +432,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 /* eslint-disable no-undef */
 export default {
   name: "topbar",
@@ -440,6 +440,10 @@ export default {
     ...mapGetters("auth", ["isLoggedIn"])
   },
   methods: {
+    ...mapActions('auth', ['logoutUser']),
+    setLogout() {
+      this.logoutUser()
+    },
     sync() {
       $(document).ready(function() {
         $("#tx-menu-toggle").click(function() {
