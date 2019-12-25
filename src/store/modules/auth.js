@@ -133,7 +133,7 @@ export default {
             commit("SET_LOGIN_ERRORS", "Account not found, please try again");
           } else {
             // else account not verified or something else
-            commit("SET_LOGIN_ERRORS", error.response.data);
+            commit("SET_LOGIN_ERRORS", error.response.data.message);
           }
         });
     },
