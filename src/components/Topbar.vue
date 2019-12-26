@@ -9,7 +9,7 @@
             <div class="top-bar-left d-flex">
               <div class="clearfix"></div>
               <div class="clearfix">
-                <ul class="contact">                
+                <ul class="contact">
                   <li class="select-country mr-5">
                     <select
                       class="form-control select2-flag-search"

@@ -10,6 +10,7 @@ import "vue-promise-btn/dist/vue-promise-btn.css";
 Vue.config.productionTip = false;
 Vue.use(VuePromiseBtn);
 
+export const bus = new Vue();
 sync(store, router);
 new Vue({
   router,

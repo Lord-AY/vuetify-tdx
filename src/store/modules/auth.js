@@ -152,7 +152,8 @@ export default {
           commit("RESET_REGISTER_STATE", null);
           commit("RESET_LOGIN_STATE", null);
           // send user to login page
-          router.push("/login");
+          // router.push("/login");
+          window.location.href = "/login";
         })
         .catch(error => {
           commit("SET_LOADING", false);
