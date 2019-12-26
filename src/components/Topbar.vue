@@ -408,7 +408,7 @@
           </ul>
           <div class="call-us-now">
             <div class="contact-in-header">
-              <i class="flaticon-customer-service"></i>
+              <i style="color:black;" class="flaticon-customer-service"></i>
               <p
                 style="color: #999; float: right; line-height: 25px; margin-left: 10px; margin-top: 10px; font-size: 16px;"
               >
@@ -429,6 +429,7 @@
 </template>
 
 <script>
+require("../assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
 import { mapGetters, mapActions } from "vuex";
 /* eslint-disable no-undef */
 export default {

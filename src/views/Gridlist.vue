@@ -2459,9 +2459,9 @@ require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4
 require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
 // require("../assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-// require("../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-// require("../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
@@ -2471,9 +2471,9 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css
 require("../assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-// require("../assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-// require("../assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
@@ -2483,7 +2483,7 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min
 require("../assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-// require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
 require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
 // require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 import hotsellers from "@/components/product_overview/hotsellers";
@@ -2552,19 +2552,19 @@ export default {
 }
 
 /*the file with the enlarging effect*/
-@import "../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css";
+/*@import "../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css";*/
 
 /*the file with the efoother distruption and zoom mius effect*/
-@import "../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css";
+/*@import "../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css";*/
 
 /*the file with the reed color  effect*/
-@import "../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css";
+/*@import "../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css";*/
 
 /*the file with the search bar shaky   effect*/
-@import "../assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css";
+/*@import "../assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css";*/
 
 /*the file with the circle distruption    effect*/
-@import "../assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css";
+/*@import "../assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css";*/
 
-@import "../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css";
+/*@import "../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css";*/
 </style>
