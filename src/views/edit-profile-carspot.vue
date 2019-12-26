@@ -59,27 +59,46 @@
 
                                       <div class="clearfix"></div>
                                       <div class="upload-btn-wrapper">
-                                         <button class="btn btn-success-outline" v-show="current" @click="current = !current">Upload Photo</button>
-
+                                        <button
+                                          class="btn btn-success-outline"
+                                          v-show="current"
+                                          @click="current = !current"
+                                        >
+                                          Upload Photo
+                                        </button>
                                       </div>
                                     </div>
-                                     <div class="" v-show="!current">
-                                         <div class="custom-file" >
-                                            <input type="file" class="custom-file-input" id="customFile" @change="selectedFile">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                        </div>
-                                        <button
+                                    <div class="" v-show="!current">
+                                      <div class="custom-file">
+                                        <input
+                                          type="file"
+                                          class="custom-file-input"
+                                          id="customFile"
+                                          @change="selectedFile"
+                                        />
+                                        <label
+                                          class="custom-file-label"
+                                          for="customFile"
+                                          >Choose file</label
+                                        >
+                                      </div>
+                                      <button
                                         class="btn btn-success btn-sm mt-5"
                                         :class="loading ? 'disabled-btn' : ''"
                                         :disabled="loading"
                                         v-show="!current"
                                         @click="onUpload(user)"
-
-                                         >
-                                         Upload Image
-                                         </button>
-                                         <button class="btn btn-success btn-sm mt-5 ml-5" v-show="!current" @click="current = !current">Cancel</button>
-                                      </div>
+                                      >
+                                        Upload Image
+                                      </button>
+                                      <button
+                                        class="btn btn-success btn-sm mt-5 ml-5"
+                                        v-show="!current"
+                                        @click="current = !current"
+                                      >
+                                        Cancel
+                                      </button>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -158,8 +177,12 @@
                                       type="text"
                                       name="first_name"
                                       :value="user.firstname"
-                                      :readonly='loading'
-                                      :data-pt-title="loading ? 'You can not edit First Name' : 'First Name'"
+                                      :readonly="loading"
+                                      :data-pt-title="
+                                        loading
+                                          ? 'You can not edit First Name'
+                                          : 'First Name'
+                                      "
                                       data-pt-position="top"
                                       data-pt-scheme="dark-transparent"
                                       data-pt-size="small"
@@ -179,8 +202,12 @@
                                       type="text"
                                       name="last_name"
                                       :value="user.lastname"
-                                      :readonly='loading'
-                                      :data-pt-title="loading ? 'You can not edit Last Name' : 'Last Name'"
+                                      :readonly="loading"
+                                      :data-pt-title="
+                                        loading
+                                          ? 'You can not edit Last Name'
+                                          : 'Last Name'
+                                      "
                                       data-pt-position="top"
                                       data-pt-scheme="dark-transparent"
                                       data-pt-size="small"
@@ -203,7 +230,11 @@
                                       name="user_email"
                                       :value="user.email"
                                       :readonly="loading"
-                                      :data-pt-title="loading ? 'You can not edit email address' : 'email'"
+                                      :data-pt-title="
+                                        loading
+                                          ? 'You can not edit email address'
+                                          : 'email'
+                                      "
                                       data-pt-position="top"
                                       data-pt-scheme="dark-transparent"
                                       data-pt-size="small"
@@ -224,38 +255,45 @@
                                       type="text"
                                       name="sb_user_contact"
                                       :value="user.phone"
-                                      :readonly='loading'
-                                      :data-pt-title="loading ? 'You can not edit Phone Number' : 'Phone Number'"
+                                      :readonly="loading"
+                                      :data-pt-title="
+                                        loading
+                                          ? 'You can not edit Phone Number'
+                                          : 'Phone Number'
+                                      "
                                       data-pt-position="top"
                                       data-pt-scheme="dark-transparent"
                                       data-pt-size="small"
-
                                     />
                                   </div>
                                 </div>
                               </div>
-                               <div
-                                  class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
-                                >
-                                  <div class="form-group">
-                                    <label
-                                      class="control-label control-label-dashboard"
-                                      >Address</label
-                                    >
-                                    <input
-                                      class="form-control form-control-dashboard"
-                                      data-parsley-type="number"
-                                      type="text"
-                                      name="sb_user_contact"
-                                      :value="user.address"
-                                      :readonly='loading'
-                                      :data-pt-title="loading ? 'You can not edit Address' : 'Shipping address or contact address'"
-                                      data-pt-position="top"
-                                      data-pt-scheme="dark-transparent"
-                                      data-pt-size="small"
-                                    />
-                                  </div>
+                              <div
+                                class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
+                              >
+                                <div class="form-group">
+                                  <label
+                                    class="control-label control-label-dashboard"
+                                    >Address</label
+                                  >
+                                  <input
+                                    class="form-control form-control-dashboard"
+                                    data-parsley-type="number"
+                                    type="text"
+                                    name="sb_user_contact"
+                                    :value="user.address"
+                                    :readonly="loading"
+                                    :data-pt-title="
+                                      loading
+                                        ? 'You can not edit Address'
+                                        : 'Shipping address or contact address'
+                                    "
+                                    data-pt-position="top"
+                                    data-pt-scheme="dark-transparent"
+                                    data-pt-size="small"
+                                  />
                                 </div>
+                              </div>
 
                               <div class="row">
                                 <!-- <div
@@ -416,10 +454,10 @@ require("../assets/plugins/horizontal-menu/horizontal.css");
 require("../assets/css/components.css");
 
 import dsidebar from "@/components/Dsidebar";
-import Vue from 'vue'
-import FileUpload from 'v-file-upload'
+import Vue from "vue";
+import FileUpload from "v-file-upload";
 import { mapState, mapActions } from "vuex";
-Vue.use(FileUpload)
+Vue.use(FileUpload);
 // import dheader from "@/components/Dheader";
 export default {
   name: "editProf",
@@ -427,28 +465,28 @@ export default {
     return {
       current: true,
       imageFile: null
-    }
+    };
   },
   components: {
     dsidebar
   },
   computed: {
     ...mapState("auth", ["user"]),
-     loading() {
+    loading() {
       return this.$store.getters["auth/loading"];
     }
   },
   methods: {
-    ...mapActions("user", ["updateUser",'uploadProfileImage']),
+    ...mapActions("user", ["updateUser", "uploadProfileImage"]),
     selectedFile(event) {
-      this.imageFile = event.target.files[0]
+      this.imageFile = event.target.files[0];
     },
     onUpload(user) {
       const payload = {
         user,
         image: this.selectedFile
-      }
-      this.uploadProfileImage(payload)
+      };
+      this.uploadProfileImage(payload);
     }
   }
 };
