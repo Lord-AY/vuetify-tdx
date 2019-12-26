@@ -137,10 +137,12 @@ export default {
 					}
 				})
 		},
-		logoutUser({ commit, state, rootState }) {
+		logoutUser({ commit, rootState }) {
 			commit('SET_LOADING', true)
 			return axios
-				.post(`${rootState.baseUrl}/auth/logout/${state.user.token}`)
+				.post(`${rootState.baseUrl}/auth/logout/`, {
+					id: rootState.auth.user.id
+				})
 				.then(() => {
 					// console.log(data)
 					commit('SET_LOADING', false)
@@ -156,16 +158,8 @@ export default {
 				.catch(error => {
 					commit('SET_LOADING', false)
 					// check if error obj is empty
-					if (ash.isEmpty(error.response.data)) {
-						// if empty then user cant be found
-						commit(
-							'SET_LOGOUT_ERRORS',
-							'Error Destroying User Session, please try again'
-						)
-					} else {
-						// else account not verified or something else
-						commit('SET_LOGOUT_ERRORS', error.response.data.message)
-					}
+					// else account not verified or something else
+					commit('SET_LOGOUT_ERRORS', error.response)
 				})
 		}
 
