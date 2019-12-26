@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import userRegister from "../views/Register.vue";
 import p404 from "../views/404.vue";
-import signin from "../views/Signin.vue";
+// import signin from "../views/Signin.vue";
 // import gridlist from "../views/Gridlist.vue";
 
 Vue.use(VueRouter);
@@ -38,7 +38,7 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: signin,
+    component: () => import("../views/Signin.vue"),
     meta: {
       header: 3
     }

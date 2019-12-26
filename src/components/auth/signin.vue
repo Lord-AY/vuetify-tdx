@@ -162,10 +162,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .disabled-btn {
   cursor: wait !important;
-}
+}/*
 .facebook-reg {
   background-color: #3b5998;
   color: #fff;
@@ -177,7 +177,7 @@ export default {
 }
 .form-box {
   padding: 20px;
-}
+}*/
 
 @media (min-width: 768px) {
   .form-box {
