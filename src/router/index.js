@@ -44,6 +44,22 @@ const routes = [
     }
   },
   {
+    path: "/valueadded",
+    name: "valAdd",
+    component: () => import("../views/val-add.vue"),
+    meta: {
+      header: 3
+    }
+  },
+  {
+    path: "/valueind",
+    name: "valind",
+    component: () => import("../views/val-ind.vue"),
+    meta: {
+      header: 3
+    }
+  },
+  {
     path: "/overview",
     name: "productoverview",
     component: () => import("../views/ProductOverview.vue"),
@@ -192,7 +208,7 @@ const routes = [
     name: "gridlist",
     component: () => import("../views/Gridlist.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {

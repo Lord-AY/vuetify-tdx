@@ -9,14 +9,7 @@
             <div class="top-bar-left d-flex">
               <div class="clearfix"></div>
               <div class="clearfix">
-                <ul class="contact">
-                  <li class="mr-5 d-lg-none">
-                    <a href="#" class="callnumber text-dark">
-                      <span>
-                        <i class="fa fa-phone mr-1"></i>: +425 345 8765
-                      </span>
-                    </a>
-                  </li>
+                <ul class="contact">                
                   <li class="select-country mr-5">
                     <select
                       class="form-control select2-flag-search"
@@ -481,7 +474,7 @@ export default {
           }
         });
 
-        "use strict";
+        ("use strict");
 
         $(".select2").select2({
           minimumResultsForSearch: Infinity

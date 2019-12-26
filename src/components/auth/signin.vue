@@ -165,7 +165,7 @@ export default {
 <style scoped>
 .disabled-btn {
   cursor: wait !important;
-}/*
+} /*
 .facebook-reg {
   background-color: #3b5998;
   color: #fff;
