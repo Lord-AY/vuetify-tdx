@@ -23,7 +23,7 @@
                 <i class="fa fa-share-alt"></i>
                 <span class="hidetext">Share</span>
               </div>
-              <div
+              <div 
                 class="modal fade share-ad"
                 tabindex="-1"
                 role="dialog"
@@ -500,9 +500,14 @@
               </div>
               <div class="row" style="margin-top: 36px;">
                 <div class="col-md-5"></div>
-                <div class="col-md-2">
-                  <div class="viewall-similar">
+                <div class="col-md-3">
+<!--                   <div class="viewall-similar">
                     <a href="">Show More</a>
+                  </div> -->
+                  <div class="viewall-similar">
+                    <router-link to="/Gridlist"
+                      >Show More <i class="fa fa-arrow-circle-right"></i
+                    ></router-link>
                   </div>
                 </div>
                 <div class="col-md-5"></div>
@@ -594,7 +599,7 @@
                   <h5>
                     <a
                       class="btn btn-block btn-warning"
-                      style="color: #fff; padding: 16px;"
+                      style="color: #fff; padding: 16px; border-radius:0px;"
                       href="../../sign-in-to-your-account/index.html"
                       >Follow Seller
                     </a>
@@ -610,6 +615,7 @@
                   <a
                     class="btn btn-block btn-primary contact-seller"
                     href="../../sign-in-to-your-account/index.html"
+                    style="border-radius:0px;"
                   >
                     <i class="fa fa-commenting-o"></i> Chat With Seller</a
                   >
@@ -754,9 +760,12 @@ require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4
 require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-require("../assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+// require("../assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
+require("../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
@@ -780,6 +789,7 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.cs
 require("../assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
 require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
+require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 import productSlider from "@/components/product_overview/productSlider";
 import pricingArea from "@/components/product_overview/pricingArea";
 export default {
