@@ -65,109 +65,102 @@ export default {
         })
         .then(({ data }) => {
           commit("SET_LOADING", false);
-
-          // set user state with results
-          const newUser = {
-            id: data.id,
-            firstname: data.firstname,
-            lastname: data.lastname,
-            email: data.email,
-            token: data.token,
-            referalId: data.referalId,
-            status: data.status,
-            phone: data.phone,
-            address: data.address,
-            rcountry: data.rcountry
-          };
-          commit("SET_USER_DATA", newUser);
-          // send user to dashboard
-          router.push("/maindashboard");
-        })
-        .catch(error => {
-          commit("SET_LOADING", false);
-          console.log(error.response);
-          // check if error obj is empty
-          if (ash.isEmpty(error.response.data)) {
-            // if empty then user cant be found
-            commit("SET_REGISTER_ERRORS", "please try again");
-          } else {
-            // else account not verified or something else
-            commit("SET_REGISTER_ERRORS", error.response.data);
-          }
-        });
-    },
-    loginUser({ commit, state, rootState }, payload) {
-      commit("SET_LOGIN_STATE", payload);
-      commit("SET_LOADING", true);
-      return axios
-        .post(`${rootState.baseUrl}/auth/login`, {
-          email: state.loginData.email,
-          password: state.loginData.password
-        })
-        .then(({ data }) => {
-          // console.log(data)
-          commit("SET_LOADING", false);
-          commit("SET_LOGIN_ERRORS", null);
-          // set user state with results
-          const loggedUser = {
-            id: data.id,
-            firstname: data.firstname,
-            lastname: data.lastname,
-            email: data.email,
-            token: data.token,
-            referalId: data.referalId,
-            status: data.status,
-            phone: data.phone,
-            address: data.address,
-            rcountry: data.rcountry
-          };
-          commit("SET_USER_DATA", loggedUser);
-          // send user to home
-          router.push("/");
-        })
-        .catch(error => {
-          commit("SET_LOADING", false);
-          // check if error obj is empty
-          if (ash.isEmpty(error.response.data)) {
-            // if empty then user cant be found
-            commit("SET_LOGIN_ERRORS", "Account not found, please try again");
-          } else {
-            // else account not verified or something else
-            commit("SET_LOGIN_ERRORS", error.response.data.message);
-          }
-        });
-    },
-    logoutUser({ commit, state, rootState }) {
-      commit("SET_LOADING", true);
-      return axios
-        .post(`${rootState.baseUrl}/auth/logout/${state.user.token}`)
-        .then(() => {
-          // console.log(data)
-          commit("SET_LOADING", false);
-          commit("SET_LOGIN_ERRORS", null);
-          commit("SET_REGISTER_ERRORS", null);
-          // set user state with results
-          commit("SET_USER_DATA", null);
-          commit("RESET_REGISTER_STATE", null);
-          commit("RESET_LOGIN_STATE", null);
-          // send user to login page
-          router.push("/login");
-        })
-        .catch(error => {
-          commit("SET_LOADING", false);
-          // check if error obj is empty
-          if (ash.isEmpty(error.response.data)) {
-            // if empty then user cant be found
-            commit(
-              "SET_LOGOUT_ERRORS",
-              "Error Destroying User Session, please try again"
-            );
-          } else {
-            // else account not verified or something else
-            commit("SET_LOGOUT_ERRORS", error.response.data.message);
-          }
-        });
-    }
+					// set user state with results
+					const newUser = {
+						id: data.id,
+						firstname: data.firstname,
+						lastname: data.lastname,
+						email: data.email,
+						token: data.token,
+						referalId: data.referalId,
+						status: data.status,
+						phone: data.phone,
+						address: data.address,
+						rcountry: data.rcountry
+					}
+					commit('SET_USER_DATA', newUser)
+					// send user to dashboard
+					router.push('/maindashboard')
+				})
+				.catch(error => {
+					commit('SET_LOADING', false)
+					console.log(error.response)
+					// check if error obj is empty
+					if (ash.isEmpty(error.response.data)) {
+						// if empty then user cant be found
+						commit('SET_REGISTER_ERRORS', 'please try again')
+					} else {
+						// else account not verified or something else
+						commit('SET_REGISTER_ERRORS', error.response.data)
+					}
+				})
+		},
+		loginUser({ commit, state, rootState }, payload) {
+			commit('SET_LOGIN_STATE', payload)
+			commit('SET_LOADING', true)
+			return axios
+				.post(`${rootState.baseUrl}/auth/login`, {
+					email: state.loginData.email,
+					password: state.loginData.password
+				})
+				.then(({ data }) => {
+					// console.log(data)
+					commit('SET_LOADING', false)
+					commit('SET_LOGIN_ERRORS', null)
+					// set user state with results
+					const loggedUser = {
+						id: data.id,
+						firstname: data.firstname,
+						lastname: data.lastname,
+						email: data.email,
+						token: data.token,
+						referalId: data.referalId,
+						status: data.status,
+						phone: data.phone,
+						address: data.address,
+						rcountry: data.rcountry
+					}
+					commit('SET_USER_DATA', loggedUser)
+					// send user to home
+					router.push('/')
+				})
+				.catch(error => {
+					commit('SET_LOADING', false)
+					// check if error obj is empty
+					if (ash.isEmpty(error.response.data)) {
+						// if empty then user cant be found
+						commit('SET_LOGIN_ERRORS', 'Account not found, please try again')
+					} else {
+						// else account not verified or something else
+						commit('SET_LOGIN_ERRORS', error.response.data.message)
+					}
+				})
+		},
+		logoutUser({ commit, rootState }) {
+			commit('SET_LOADING', true)
+			return axios
+				.post(`${rootState.baseUrl}/auth/logout/`, {
+					id: rootState.auth.user.id
+				})
+				.then(() => {
+					// console.log(data)
+					commit('SET_LOADING', false)
+					commit('SET_LOGIN_ERRORS', null)
+					commit('SET_REGISTER_ERRORS', null)
+					// set user state with results
+					commit('SET_USER_DATA', null)
+					commit('RESET_REGISTER_STATE', null)
+					commit('RESET_LOGIN_STATE', null)
+					// send user to login page
+					router.push('/login')
+				})
+				.catch(error => {
+					commit('SET_LOADING', false)
+					// check if error obj is empty
+					// else account not verified or something else
+					commit('SET_LOGOUT_ERRORS', error.response)
+				})
+		}
 
     // getVerificationCode({ state }) {
     // 	return axios
