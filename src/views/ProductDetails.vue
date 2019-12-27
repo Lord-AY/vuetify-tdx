@@ -81,19 +81,19 @@ export default {
 };
 </script>
 <style scoped>
-  .tab-pane-tx a {
-    background: none!important;
-    color: #9a9a9a!important;
-    font-size: 16px;
+.tab-pane-tx a {
+  background: none !important;
+  color: #9a9a9a !important;
+  font-size: 16px;
 }
 
 .tab-pane-tx.active a {
-    /* background: none!important; */
-    color: #000!important;
+  /* background: none!important; */
+  color: #000 !important;
 }
 .tab-pane-tx.active {
-    border-bottom: 3px solid #4CAF50!important;
-    color: #000!important;
-    font-weight: 700;
+  border-bottom: 3px solid #4caf50 !important;
+  color: #000 !important;
+  font-weight: 700;
 }
 </style>

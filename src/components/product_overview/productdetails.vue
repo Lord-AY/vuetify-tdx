@@ -8,43 +8,43 @@
         <!-- Main Container -->
         <div class="container">
           <!-- Row -->
-              <div class="col-md-8 col-xs-12 col-sm-8">
-                <div class="heading-zone">
-                  <h1>2017 Maserati Ghibli SQ4 Blue</h1>
-                  <div class="short-history">
-                    <nav
-                      aria-label="breadcrumb"
-                      class="d-none d-sm-none d-md-none d-lg-block d-xl-block"
-                    >
-                      <ol class="breadcrumb breadcrumb-tx arrowed mt-2 mb-2">
-                        <li class="breadcrumb-item">
-                          <a href="https://buy.cars45.com/">Home</a>
-                        </li>
+          <div class="col-md-8 col-xs-12 col-sm-8">
+            <div class="heading-zone">
+              <h1>2017 Maserati Ghibli SQ4 Blue</h1>
+              <div class="short-history">
+                <nav
+                  aria-label="breadcrumb"
+                  class="d-none d-sm-none d-md-none d-lg-block d-xl-block"
+                >
+                  <ol class="breadcrumb breadcrumb-tx arrowed mt-2 mb-2">
+                    <li class="breadcrumb-item">
+                      <a href="https://buy.cars45.com/">Home</a>
+                    </li>
 
-                        <li class="breadcrumb-item">
-                          <a href="https://buy.cars45.com/ford">Ford</a>
-                        </li>
+                    <li class="breadcrumb-item">
+                      <a href="https://buy.cars45.com/ford">Ford</a>
+                    </li>
 
-                        <li class="breadcrumb-item">
-                          <a href="https://buy.cars45.com/ford-edge">Edge</a>
-                        </li>
+                    <li class="breadcrumb-item">
+                      <a href="https://buy.cars45.com/ford-edge">Edge</a>
+                    </li>
 
-                        <li class="breadcrumb-item active">
-                          2017 Maserati Ghibli SQ4 Blue
-                        </li>
-                      </ol>
-                    </nav>
-                  </div>
-                </div>
+                    <li class="breadcrumb-item active">
+                      2017 Maserati Ghibli SQ4 Blue
+                    </li>
+                  </ol>
+                </nav>
               </div>
-              <div class="col-md-4 col-sm-4 detail_price col-xs-12">
-                <div class="singleprice-tag">
-                  NGN 64,500<span class="">(Negotiable)</span>
-                </div>
-              </div> 
-             <!-- Middle Content Area -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 detail_price col-xs-12">
+            <div class="singleprice-tag">
+              NGN 64,500<span class="">(Negotiable)</span>
+            </div>
+          </div>
+          <!-- Middle Content Area -->
           <div class="col-md-8 col-xs-12 col-sm-12">
-            <!-- Single Ad --> 
+            <!-- Single Ad -->
             <div class="singlepage-detail">
               <div id="single-slider" class="flexslider">
                 <ul class="slides">
@@ -264,16 +264,16 @@
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
                   <li class="tab-pane-tx active">
-                    <a data-toggle="pill" href="#home">Description</a>
+                    <a data-toggle="pill" v-bind:href="#home">Description</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" href="#menu1">Features</a>
+                    <a data-toggle="pill" v-bind:href="#menu1">Features</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" href="#menu2">Reviews(0)</a>
+                    <a data-toggle="pill" v-bind:href="#menu2">Reviews(0)</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" href="#menu3">Location Map</a>
+                    <a data-toggle="pill" v-bind:href="#menu3">Location Map</a>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-toggle="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
@@ -293,24 +293,28 @@
                         <li>Lady Driven Car in Immaculate Condition.</li>
                         <li>No Work Required in Car.</li>
                         <li>
-                          Excellent Mileage , Local Average = 14 km , Long Average = 16 km
+                          Excellent Mileage , Local Average = 14 km , Long
+                          Average = 16 km
                         </li>
                       </ol>
                       <p>
-                        samsung galaxy note 2 new condition with handsfree and charger
-                        urgent sale. with book pouch original 4g lte. 16 gb condition
-                        10/10 andriod kitkat4.4.2Bank Leased 5 Year plan 2013 Honda Civic
-                        1.8 Vti Oriel Prosmatec Automatic ( New Shape ) Attractive Silver
-                        Color 1 year installments paid Lahore Reg number Well Maintained
-                        Insurance + tracker etc included Options: SunroofChilled AC Power
-                        Windows Power Steering ABS braking system ETC 15000 km carefully
-                        driven No SMS / Email , Serious Buyers Requested To Call .Chilled
-                        AC Power Windows Power Steering ABS braking system ETC 15000 km
-                        carefully driven No SMS / Email , Serious Buyers Requested To Call
-                        .Bank Leased 5 Year plan 2013 Honda Civic 1.8 Vti Oriel Prosmatec
-                        Automatic ( New Shape ) Attractive Silver Color 1 year
-                        installments paid Lahore Reg number Well Maintained Insurance +
-                        tracker etc included Options: Sunroof
+                        samsung galaxy note 2 new condition with handsfree and
+                        charger urgent sale. with book pouch original 4g lte. 16
+                        gb condition 10/10 andriod kitkat4.4.2Bank Leased 5 Year
+                        plan 2013 Honda Civic 1.8 Vti Oriel Prosmatec Automatic
+                        ( New Shape ) Attractive Silver Color 1 year
+                        installments paid Lahore Reg number Well Maintained
+                        Insurance + tracker etc included Options: SunroofChilled
+                        AC Power Windows Power Steering ABS braking system ETC
+                        15000 km carefully driven No SMS / Email , Serious
+                        Buyers Requested To Call .Chilled AC Power Windows Power
+                        Steering ABS braking system ETC 15000 km carefully
+                        driven No SMS / Email , Serious Buyers Requested To Call
+                        .Bank Leased 5 Year plan 2013 Honda Civic 1.8 Vti Oriel
+                        Prosmatec Automatic ( New Shape ) Attractive Silver
+                        Color 1 year installments paid Lahore Reg number Well
+                        Maintained Insurance + tracker etc included Options:
+                        Sunroof
                       </p>
                     </div>
 
@@ -329,9 +333,13 @@
                           </strong></span
                         >
 
-                        <a href="../../search-cars/indexf98c.html?cat_id=62">Audi </a>
+                        <a href="../../search-cars/indexf98c.html?cat_id=62"
+                          >Audi
+                        </a>
 
-                        <a href="../../search-cars/indexec88.html?cat_id=279">A3 </a>
+                        <a href="../../search-cars/indexec88.html?cat_id=279"
+                          >A3
+                        </a>
                       </div>
                       <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
                         <span><strong>Price</strong> :</span> USD64,500
@@ -377,12 +385,16 @@
                       <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
                         <span><strong>Insurance</strong> :</span> Yes
                       </div>
-                      <div class="col-sm-12 col-md-12 col-xs-12 location-exit no-padding">
+                      <div
+                        class="col-sm-12 col-md-12 col-xs-12 location-exit no-padding"
+                      >
                         <span><strong>Location</strong> :</span>
-                        <a href="../../search-cars/indexfa61.html?country_id=312"
+                        <a
+                          href="../../search-cars/indexfa61.html?country_id=312"
                           >California</a
                         >,
-                        <a href="../../search-cars/index617c.html?country_id=230"
+                        <a
+                          href="../../search-cars/index617c.html?country_id=230"
                           >United States</a
                         >
                       </div>
@@ -391,18 +403,28 @@
                     <ul class="car-feature-list ">
                       <li><i class="flaticon-disc-brake-1"></i>ABS</li>
                       <li><i class="flaticon-airbag"></i>Air Bags</li>
-                      <li><i class="flaticon-air-conditioner-1"></i>Air Conditioning</li>
+                      <li>
+                        <i class="flaticon-air-conditioner-1"></i>Air
+                        Conditioning
+                      </li>
                       <li><i class="flaticon-rim"></i>Alloy Rims</li>
                       <li><i class="flaticon-antenna"></i>AM/FM Radio</li>
                       <li><i class="flaticon-music-1"></i>CD Player</li>
                       <li><i class="flaticon-navigation"></i>Cruise Control</li>
                       <li><i class="flaticon-car-4"></i>Immobilizer Key</li>
-                      <li><i class="flaticon-location"></i>Navigation System</li>
+                      <li>
+                        <i class="flaticon-location"></i>Navigation System
+                      </li>
                       <li><i class="flaticon-power-button"></i>Power Locks</li>
                       <li><i class="flaticon-car-door"></i>Power Mirrors</li>
-                      <li><i class="flaticon-car-steering-wheel"></i>Power Steering</li>
+                      <li>
+                        <i class="flaticon-car-steering-wheel"></i>Power
+                        Steering
+                      </li>
                       <li><i class="flaticon-car-door"></i>Power Windows</li>
-                      <li><i class="flaticon-photo-camera-1"></i>Reversing Camera</li>
+                      <li>
+                        <i class="flaticon-photo-camera-1"></i>Reversing Camera
+                      </li>
                     </ul>
                     <div class="tags-share clearfix">
                       <div class="tags pull-left ">
@@ -414,7 +436,10 @@
                             </a>
                           </li>
                           <li>
-                            <a href="../../ad_tag/compact/index.html" title="compact">
+                            <a
+                              href="../../ad_tag/compact/index.html"
+                              title="compact"
+                            >
                               #compact
                             </a>
                           </li>
@@ -1183,7 +1208,11 @@
                 </div>
                 <div class="widget-content ">
                   <div class="ads">
-                    <img src="../../assets/images/gloads.jpg" alt="" srcset="" />
+                    <img
+                      src="../../assets/images/gloads.jpg"
+                      alt=""
+                      srcset=""
+                    />
                   </div>
                 </div>
               </div>
@@ -1248,7 +1277,7 @@ export default {
             }
           }
         });
-         $("#carousel").flexslider({
+        $("#carousel").flexslider({
           animation: "slide",
           controlNav: false,
           animationLoop: false,
@@ -1268,7 +1297,6 @@ export default {
           sync: "#carousel"
         });
       });
-
     }
   },
   watch: {
