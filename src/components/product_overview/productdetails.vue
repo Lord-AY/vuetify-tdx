@@ -264,16 +264,16 @@
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
                   <li class="tab-pane-tx active">
-                    <a data-toggle="pill" v-bind:href="#home">Description</a>
+                    <a data-toggle="pill" href="#home">Description</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" v-bind:href="#menu1">Features</a>
+                    <a data-toggle="pill" href="#menu1">Features</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" v-bind:href="#menu2">Reviews(0)</a>
+                    <a data-toggle="pill" href="#menu2">Reviews(0)</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" v-bind:href="#menu3">Location Map</a>
+                    <a data-toggle="pill" href="#menu3">Location Map</a>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-toggle="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
