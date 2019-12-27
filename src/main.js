@@ -15,12 +15,12 @@ sync(store, router);
 new Vue({
   router,
   store,
-  render: h => h(App),
-  watch: {
-    $route(to) {
-      if (to.currentRoute.meta.reload == true) {
-        window.location.reload();
-      }
-    }
-  }
+  render: h => h(App)
+  // watch: {
+  //   $route(to) {
+  //     if (to.currentRoute.meta.reload == true) {
+  //       window.location.reload();
+  //     }
+  //   }
+  // }
 }).$mount("#app");

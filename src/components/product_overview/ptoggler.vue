@@ -35,12 +35,12 @@
                 </form>
               </div>
               <div class="grid-list">
-                <i 
-                class="switch grid fa fa-th product-arrangement-icon"
-                @click="switchComponent('gridprops')"
-                :disabled="currentComp === 'gridprops'"
+                <i
+                  class="switch grid fa fa-th product-arrangement-icon"
+                  @click="switchComponent('gridprops')"
+                  :disabled="currentComp === 'gridprops'"
                 ></i>
-                <i 
+                <i
                   class="switch list fa fa-list product-arrangement-icon"
                   @click="switchComponent('listprops')"
                   :disabled="currentComp === 'listprops'"
@@ -86,12 +86,12 @@ i.switch {
   margin: 0;
   cursor: pointer;
 }
-i.switch[disabled='disabled'] {
+i.switch[disabled="disabled"] {
   color: lightgray;
   border-color: lightgray;
 }
 
-i.switch:not([disabled='disabled']):hover {
+i.switch:not([disabled="disabled"]):hover {
   background-color: black;
   border-color: gray;
   color: lightgray;
@@ -102,7 +102,6 @@ i.list {
 }
 i.grid {
   border-color: green;
-  color: green; 
-} 
-
+  color: green;
+}
 </style>
