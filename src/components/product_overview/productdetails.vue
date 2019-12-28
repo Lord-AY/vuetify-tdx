@@ -10,7 +10,7 @@
           <!-- Row -->
           <div class="col-md-8 col-xs-12 col-sm-8">
             <div class="heading-zone">
-              <h1>2017 Maserati Ghibli SQ4 Blue</h1>
+              <h1>{{ product.name }}</h1>
               <div class="short-history">
                 <nav
                   aria-label="breadcrumb"
@@ -22,7 +22,7 @@
                     </li>
 
                     <li class="breadcrumb-item">
-                      <a href="https://buy.cars45.com/ford">Ford</a>
+                      <a href="https://buy.cars45.com/ford">{{ product.category }}</a>
                     </li>
 
                     <li class="breadcrumb-item">
@@ -30,7 +30,7 @@
                     </li>
 
                     <li class="breadcrumb-item active">
-                      2017 Maserati Ghibli SQ4 Blue
+                     {{ product.name }}
                     </li>
                   </ol>
                 </nav>
@@ -39,7 +39,7 @@
           </div>
           <div class="col-md-4 col-sm-4 detail_price col-xs-12">
             <div class="singleprice-tag">
-              NGN 64,500<span class="">(Negotiable)</span>
+              NGN {{ product.amount }}<span class="">(Negotiable)</span>
             </div>
           </div>
           <!-- Middle Content Area -->
@@ -283,7 +283,7 @@
                     <h3 class="tab-title">Description</h3>
                     <!-- Paste -->
                     <div class="desc-points">
-                      <ol>
+                      <!-- <ol>
                         <li>Looking to sell the car urgently.</li>
                         <li>Engine is good condition.</li>
                         <li>Complete service history available.</li>
@@ -296,25 +296,9 @@
                           Excellent Mileage , Local Average = 14 km , Long
                           Average = 16 km
                         </li>
-                      </ol>
+                      </ol> -->
                       <p>
-                        samsung galaxy note 2 new condition with handsfree and
-                        charger urgent sale. with book pouch original 4g lte. 16
-                        gb condition 10/10 andriod kitkat4.4.2Bank Leased 5 Year
-                        plan 2013 Honda Civic 1.8 Vti Oriel Prosmatec Automatic
-                        ( New Shape ) Attractive Silver Color 1 year
-                        installments paid Lahore Reg number Well Maintained
-                        Insurance + tracker etc included Options: SunroofChilled
-                        AC Power Windows Power Steering ABS braking system ETC
-                        15000 km carefully driven No SMS / Email , Serious
-                        Buyers Requested To Call .Chilled AC Power Windows Power
-                        Steering ABS braking system ETC 15000 km carefully
-                        driven No SMS / Email , Serious Buyers Requested To Call
-                        .Bank Leased 5 Year plan 2013 Honda Civic 1.8 Vti Oriel
-                        Prosmatec Automatic ( New Shape ) Attractive Silver
-                        Color 1 year installments paid Lahore Reg number Well
-                        Maintained Insurance + tracker etc included Options:
-                        Sunroof
+                       {{ product.description }}
                       </p>
                     </div>
 
@@ -342,7 +326,7 @@
                         </a>
                       </div>
                       <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                        <span><strong>Price</strong> :</span> USD64,500
+                        <span><strong>Price</strong> :</span>  {{ product.currency }}{{ product.amount }}
                         <span class="">(Negotiable)</span>
                       </div>
                       <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
@@ -391,12 +375,8 @@
                         <span><strong>Location</strong> :</span>
                         <a
                           href="../../search-cars/indexfa61.html?country_id=312"
-                          >California</a
+                          >{{ product.region }}</a
                         >,
-                        <a
-                          href="../../search-cars/index617c.html?country_id=230"
-                          >United States</a
-                        >
                       </div>
                       <!-- Short features end -->
                     </div>
@@ -551,11 +531,11 @@
                             <div class="recent-ads-list-content">
                               <h3 class="recent-ads-list-title">
                                 <a href="javascript:void(0);"
-                                  >2017 Maserati Ghibli SQ4 Blue</a
+                                  >{{ product.name }}</a
                                 >
                               </h3>
                               <div class="recent-ads-list-price">
-                                USD64,500<span class="">(Negotiable)</span>
+                                {{ product.currency }} {{ product.amount }}<span class="">(Negotiable)</span>
                               </div>
                               <p>
                                 Looking to sell the car urgently. Engine is good
@@ -1032,7 +1012,7 @@
                         class="hover-color"
                         href="../../dealer/gavien72/index.html"
                       >
-                        DANIEL
+                        {{ product.creator }}
                       </a>
                     </span>
                     <div class="item-date">
@@ -1252,6 +1232,9 @@
 // import pricingArea from "@/components/product_overview/pricingArea";
 export default {
   name: "productDetails",
+  props: {
+    product: Object
+  },
   methods: {
     sync() {
       $(document).ready(function() {
