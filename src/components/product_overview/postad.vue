@@ -932,7 +932,7 @@
             </div>
             <div class="card-body">
               <div class="ads">
-                <!-- <img src="../../assets/images/gloads.jpg" alt="" srcset=""> -->
+                <img src="../../assets/images/gloads.jpg" alt="" srcset="" />
               </div>
             </div>
           </div>
@@ -944,18 +944,66 @@
 </template>
 <script>
 /* eslint-disable no-undef */
+// require("../../assets/plugins/fancyuploder/fancy_fileupload.css");
+// require("../../assets/css/style.css");
+
 export default {
   name: "postad",
+  mounted() {
+    let extScript = document.createElement("script");
+    // extScript.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js')
+    extScript.setAttribute(
+      "src",
+      "../../assets/plugins/fancyuploder/jquery.ui.widget.js"
+    );
+    extScript.setAttribute(
+      "src",
+      "../../assets/plugins/fancyuploder/jquery.fileupload.js"
+    );
+    extScript.setAttribute(
+      "src",
+      "../../assets/plugins/fancyuploder/jquery.iframe-transport.js"
+    );
+    extScript.setAttribute(
+      "src",
+      "../../assets/plugins/fancyuploder/jquery.fancy-fileupload.js"
+    );
+    extScript.setAttribute(
+      "src",
+      "../../assets/plugins/fancyuploder/fancy-uploader.js"
+    );
+    document.head.appendChild(extScript);
+  },
   methods: {
     sync() {
-      (function($) {
-        $("#demo").FancyFileUpload({
-          params: {
-            action: "fileuploader"
-          },
-          maxfilesize: 1000000
-        });
-      })(jQuery);
+      $("#demo").FancyFileUpload({
+        params: {
+          action: "fileuploader"
+        },
+        maxfilesize: 1000000
+      });
+      $(".vertical-scroll").bootstrapNews({
+        newsPerPage: 4,
+        autoplay: true,
+        pauseOnHover: true,
+        navigation: false,
+        direction: "down",
+        newsTickerInterval: 2500,
+        onToDo: function() {
+          //console.log(this);
+        }
+      });
+      $(".vertical-scroll1").bootstrapNews({
+        newsPerPage: 2,
+        autoplay: true,
+        pauseOnHover: true,
+        navigation: false,
+        direction: "down",
+        newsTickerInterval: 2500,
+        onToDo: function() {
+          //console.log(this);
+        }
+      });
     }
   },
   watch: {

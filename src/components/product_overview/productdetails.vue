@@ -22,7 +22,9 @@
                     </li>
 
                     <li class="breadcrumb-item">
-                      <a href="https://buy.cars45.com/ford">{{ product.category }}</a>
+                      <a href="https://buy.cars45.com/ford">{{
+                        product.category
+                      }}</a>
                     </li>
 
                     <li class="breadcrumb-item">
@@ -30,7 +32,7 @@
                     </li>
 
                     <li class="breadcrumb-item active">
-                     {{ product.name }}
+                      {{ product.name }}
                     </li>
                   </ol>
                 </nav>
@@ -298,7 +300,7 @@
                         </li>
                       </ol> -->
                       <p>
-                       {{ product.description }}
+                        {{ product.description }}
                       </p>
                     </div>
 
@@ -326,7 +328,8 @@
                         </a>
                       </div>
                       <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                        <span><strong>Price</strong> :</span>  {{ product.currency }}{{ product.amount }}
+                        <span><strong>Price</strong> :</span>
+                        {{ product.currency }}{{ product.amount }}
                         <span class="">(Negotiable)</span>
                       </div>
                       <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
@@ -530,12 +533,13 @@
                             </div>
                             <div class="recent-ads-list-content">
                               <h3 class="recent-ads-list-title">
-                                <a href="javascript:void(0);"
-                                  >{{ product.name }}</a
-                                >
+                                <a href="javascript:void(0);">{{
+                                  product.name
+                                }}</a>
                               </h3>
                               <div class="recent-ads-list-price">
-                                {{ product.currency }} {{ product.amount }}<span class="">(Negotiable)</span>
+                                {{ product.currency }} {{ product.amount
+                                }}<span class="">(Negotiable)</span>
                               </div>
                               <p>
                                 Looking to sell the car urgently. Engine is good
