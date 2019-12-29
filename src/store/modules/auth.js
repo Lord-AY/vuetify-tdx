@@ -3,6 +3,7 @@ import router from "../../router";
 // import axios from "axios";
 import AuthService from "@/services/AuthService";
 
+
 export default {
   namespaced: true,
   state: {
@@ -38,6 +39,7 @@ export default {
       if (ash.isEmpty(state.user.token)) {
         return false;
       }
+
       return !!state.user;
     },
     getUser(state) {
