@@ -14,5 +14,12 @@ export default {
         "x-access-token": token
       }
     });
+  },
+  similarProducts(product, token) {
+    return Api().get(`product/similar/${product.cid}/${product.id}`,  {
+      headers: {
+        "x-access-token": token
+      }
+    });
   }
 };
