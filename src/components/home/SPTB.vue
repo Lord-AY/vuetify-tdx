@@ -2,7 +2,7 @@
   <!--Section-->
   <section class="sptb">
     <div class="container">
-      <div class="section-title center-block text-center">
+      <div class="section-title center-block text-center mobile-hidden">
         <h2
           style="display: inline-block; margin-left: 92px"
           class="is-left-small"
@@ -17,11 +17,13 @@
         <!-- <p>Explore with some of the top categories on our platform</p> -->
       </div>
 
+      <div class="section-title text-left hidden-desktop" style="padding: 0px;">
+        <h2 class="is-left-small text-bold" style="font-size: 20px;">Categories</h2>
+      </div>
+
       <!-- Testing new slickifying technique cause previous was bringing up heavy bugs -->
 
-      <div
-        class="slick single-item"
-        data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'
+      <div class="slick single-item mobile-hidden" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'
       >
         <div class="item">
           <div class="card card-cat-tx mb-0 box-shadow-0">
@@ -59,7 +61,8 @@
                   />
                 </div>
                 <div class="item-card-text item-card-text-tx">
-                  <h4 class="mb-0">Phones & Tablets</h4>
+                  <!-- <h4 class="mb-0">Phones & Tablets</h4> -->
+                  <h4 class="mb-0">Gadgets</h4>
                   <span
                     class="badge badge-pill badge-primary-tx badge-primary w-15"
                     ><p class="badge-tx">23</p></span
@@ -255,12 +258,118 @@
         </div>
       </div>
 
-      <a
+      <div class="mt-5 hidden-desktop">
+        <!-- Experimental -->
+        <div class="horizontal-scroll">
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/car.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Cars</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/smartphone.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Phones &amp; Tablets</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/mansion.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Real Estate</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/electronics.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Electronics</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/fashion.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Fashion</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/suitcase.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Jobs</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/bear.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Babies &amp; Kids</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/agriculture.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Agriculture &amp; Food</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/animal.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Animals &amp; Pets</span>
+          </div>
+          <div class="itemy">
+            <div class="itemy-icon card">
+              <img
+                src="../../assets/images/categories/handyman.svg"
+                alt="img"
+                class="br-tr-7 br-tl-7"
+              />
+            </div>
+            <span class="itemy-title">Handy Man</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <a
         href="testimonial.html"
         class="btn btn-primary btn-lg text-upppercase mt-5 v-aligin-middle hidden-desktop"
         style="border-radius: 5px; width: 100%;"
         >VIEW ALL CATEGORIES</a
-      >
+      > -->
 
       <!-- OLD SLICK CAROUSEL. <div id="small-categories" class="small-categories">
         <div class="item">
@@ -605,5 +714,50 @@ export default {
   .badge-pill {
     display: hidden !important;
   }
+}
+
+.horizontal-scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll .itemy {
+  vertical-align: top;
+  display: inline-block;
+  /* width: 100px; */
+  /* padding: 0px 10px; */
+  text-align: center;
+}
+.horizontal-scroll .itemy .itemy-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0px 10px;
+  display: block;
+}
+
+.horizontal-scroll .itemy .itemy-icon img {
+  width: 40px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.horizontal-scroll .itemy .itemy-title {
+  margin-top: 10px;
+  display: block;
+  max-width: 90px;
+  white-space: normal;
+  word-wrap: break-word;
 }
 </style>
