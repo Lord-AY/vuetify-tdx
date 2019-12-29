@@ -1,10 +1,11 @@
-// import http from '../../http'
-import axios from "axios";
+
+import ProductService from "@/services/ProductService";
 
 export default {
   namespaced: true,
   state: {
     products: null,
+    categories: null,
     errors: null
   },
   getters: {
@@ -13,17 +14,18 @@ export default {
         return state.products;
       }
       return;
+    },
+    categories(state) {
+      if (state.categories !== null && state.categories !== undefined) {
+        return state.categories;
+      }
+      return;
     }
   },
   actions: {
     fetchAllProducts({ rootState, commit }) {
       commit("auth/SET_LOADING", true, { root: true });
-      return axios
-        .get(`${rootState.baseUrl}/product/product`, {
-          headers: {
-            "x-access-token": rootState.auth.user.token
-          }
-        })
+      return ProductService.products(rootState.auth.user.token)
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_PRODUCTS", data);
@@ -32,11 +34,29 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", error.response.message);
         });
+    },
+    fetchAllCategories({ rootState, commit }) {
+      commit("auth/SET_LOADING", true, { root: true });
+	  commit("SET_ERRORS", null);
+      return ProductService.categories(rootState.auth.user.token)
+        .then(({ data }) => {
+        //   console.log(data);
+		  commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_CATEGORIES", data);
+        })
+        .catch(error => {
+          console.log(error);
+		  commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", error.response.message);
+        });
     }
   },
   mutations: {
     SET_PRODUCTS(state, data) {
       state.products = data;
+    },
+	SET_CATEGORIES(state, data) {
+      state.categories = data;
     },
     SET_ERRORS(state, errors) {
       state.errors = errors;

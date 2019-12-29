@@ -359,14 +359,14 @@
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
-            <a href="index.html">
+            <router-link to="/">
               <img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt />
-            </a>
+            </router-link>
           </div>
           <div class="desktoplogo-1">
-            <a href="index.html">
+            <router-link to="/">
               <img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt />
-            </a>
+            </router-link>
           </div>
           <ul class="horizontalMenu-list" style="margin-top: 12px;">
             <li aria-haspopup="true" style="margin-right: 10px;">

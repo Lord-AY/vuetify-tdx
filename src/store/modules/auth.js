@@ -1,7 +1,8 @@
-// import HTTP from '../../http'
 import ash from "lodash";
 import router from "../../router";
-import axios from "axios";
+// import axios from "axios";
+import AuthService from "@/services/AuthService";
+
 
 export default {
   namespaced: true,
@@ -35,6 +36,10 @@ export default {
       return state.registerErrors;
     },
     isLoggedIn(state) {
+      if (ash.isEmpty(state.user.token)) {
+        return false;
+      }
+
       return !!state.user;
     },
     getUser(state) {
@@ -49,20 +54,19 @@ export default {
   },
 
   actions: {
-    registerUser({ commit, state, rootState }, payload) {
+    registerUser({ commit, state }, payload) {
       // set inputs to state
       commit("SET_REGISTER_STATE", payload);
       commit("SET_LOADING", true);
-      return axios
-        .post(`${rootState.baseUrl}/auth/signup`, {
-          firstname: state.registerData.firstName,
-          lastname: state.registerData.lastName,
-          email: state.registerData.email,
-          address: state.registerData.address,
-          phone: state.registerData.phone,
-          password: state.registerData.password,
-          rcountry: state.registerData.rcountry
-        })
+      return AuthService.register({
+        firstname: state.registerData.firstName,
+        lastname: state.registerData.lastName,
+        email: state.registerData.email,
+        address: state.registerData.address,
+        phone: state.registerData.phone,
+        password: state.registerData.password,
+        rcountry: state.registerData.rcountry
+      })
         .then(({ data }) => {
           commit("SET_LOADING", false);
           // set user state with results
@@ -89,20 +93,21 @@ export default {
           if (ash.isEmpty(error.response.data)) {
             // if empty then user cant be found
             commit("SET_REGISTER_ERRORS", "please try again");
+          } else if (error.response.status == 404) {
+            commit("SET_REGISTER_ERRORS", "Network error, please try again");
           } else {
             // else account not verified or something else
             commit("SET_REGISTER_ERRORS", error.response.data);
           }
         });
     },
-    loginUser({ commit, state, rootState }, payload) {
+    loginUser({ commit, state }, payload) {
       commit("SET_LOGIN_STATE", payload);
       commit("SET_LOADING", true);
-      return axios
-        .post(`${rootState.baseUrl}/auth/login`, {
-          email: state.loginData.email,
-          password: state.loginData.password
-        })
+      return AuthService.login({
+        email: state.loginData.email,
+        password: state.loginData.password
+      })
         .then(({ data }) => {
           // console.log(data)
           commit("SET_LOADING", false);
@@ -130,6 +135,8 @@ export default {
           if (ash.isEmpty(error.response.data)) {
             // if empty then user cant be found
             commit("SET_LOGIN_ERRORS", "Account not found, please try again");
+          } else if (error.response.status == 404) {
+            commit("SET_LOGIN_ERRORS", "Network error, please try again");
           } else {
             // else account not verified or something else
             commit("SET_LOGIN_ERRORS", error.response.data.message);
@@ -138,10 +145,9 @@ export default {
     },
     logoutUser({ commit, rootState }) {
       commit("SET_LOADING", true);
-      return axios
-        .post(`${rootState.baseUrl}/auth/logout/`, {
-          id: rootState.auth.user.id
-        })
+      return AuthService.logout({
+        id: rootState.auth.user.id
+      })
         .then(() => {
           // console.log(data)
           commit("SET_LOADING", false);

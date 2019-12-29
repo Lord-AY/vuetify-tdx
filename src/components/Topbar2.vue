@@ -245,7 +245,9 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+
+import { mapGetters, mapActions } from "vuex";
+
 /* eslint-disable no-undef */
 export default {
   name: "topbar2",
@@ -253,6 +255,10 @@ export default {
     ...mapGetters("auth", ["isLoggedIn"])
   },
   methods: {
+    ...mapActions("auth", ["logoutUser"]),
+    setLogout() {
+      this.logoutUser();
+    },
     sync() {
       $(document).ready(function() {
         $("#tx-menu-toggle").click(function() {

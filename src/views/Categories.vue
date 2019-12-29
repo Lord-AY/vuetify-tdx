@@ -35,163 +35,25 @@
           </p>
         </div>
         <div class="row">
-          <div class="col-xl-3 col-lg-6 col-md-6">
+          <div
+            class="col-xl-3 col-lg-6 col-md-6"
+            v-for="category in categories"
+            :key="category.id"
+          >
             <div class="card">
               <div class="item-card">
                 <div class="item-card-desc">
                   <a href="#"></a>
                   <div class="item-card-img">
                     <img
-                      src="../assets/images/products/h4.png"
+                      :src="`http://157.245.82.193/media/${category.icon}`"
                       alt="img"
                       class="br-tr-7 br-tl-7"
                     />
                   </div>
                   <div class="item-card-text">
-                    <h4 class="mb-0">Farm Houses</h4>
+                    <h4 class="mb-0">{{ category.name }}</h4>
                     <span class="badge badge-pill badge-primary w-15">45</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card">
-              <div class="item-card">
-                <div class="item-card-desc">
-                  <a href="#"></a>
-                  <div class="item-card-img">
-                    <img
-                      src="../assets/images/products/j3.png"
-                      alt="img"
-                      class="br-tr-7 br-tl-7"
-                    />
-                  </div>
-                  <div class="item-card-text">
-                    <h4 class="mb-0">Duplex House</h4>
-                    <span class="badge badge-pill badge-info w-15">23</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card">
-              <div class="item-card">
-                <div class="item-card-desc">
-                  <a href="#"></a>
-                  <div class="item-card-img">
-                    <img
-                      src="../assets/images/products/b2.png"
-                      alt="img"
-                      class="br-tr-7 br-tl-7"
-                    />
-                  </div>
-                  <div class="item-card-text">
-                    <h4 class="mb-0">Modren Flats</h4>
-                    <span class="badge badge-pill badge-warning w-15">48</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card">
-              <div class="item-card">
-                <div class="item-card-desc">
-                  <a href="#"></a>
-                  <div class="item-card-img">
-                    <img
-                      src="../assets/images/products/v2.png"
-                      alt="img"
-                      class="br-tr-7 br-tl-7"
-                    />
-                  </div>
-                  <div class="item-card-text">
-                    <h4 class="mb-0">Laxury Homes</h4>
-                    <span class="badge badge-pill badge-success w-15">15</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card mb-xl-0">
-              <div class="item-card">
-                <div class="item-card-desc">
-                  <a href="#"></a>
-                  <div class="item-card-img">
-                    <img
-                      src="../assets/images/products/f2.png"
-                      alt="img"
-                      class="br-tr-7 br-tl-7"
-                    />
-                  </div>
-                  <div class="item-card-text">
-                    <h4 class="mb-0">Apartments</h4>
-                    <span class="badge badge-pill badge-danger w-15">12</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card mb-xl-0">
-              <div class="item-card ">
-                <div class="item-card-desc">
-                  <a href="#"></a>
-                  <div class="item-card-img">
-                    <img
-                      src="../assets/images/products/e1.png"
-                      alt="img"
-                      class="br-tr-7 br-tl-7"
-                    />
-                  </div>
-                  <div class="item-card-text">
-                    <h4 class="mb-0">Offices</h4>
-                    <span class="badge badge-pill badge-pink w-15">05</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card mb-xl-0">
-              <div class="item-card">
-                <div class="item-card-desc">
-                  <a href="#"></a>
-                  <div class="item-card-img">
-                    <img
-                      src="../assets/images/products/pe1.png"
-                      alt="img"
-                      class="br-tr-7 br-tl-7"
-                    />
-                  </div>
-                  <div class="item-card-text">
-                    <h4 class="mb-0">2BHK Flats</h4>
-                    <span class="badge badge-pill badge-secondary w-15"
-                      >09</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <div class="card mb-0">
-              <div class="item-card">
-                <div class="item-card-desc">
-                  <a href="#"></a>
-                  <div class="item-card-img">
-                    <img
-                      src="../assets/images/products/co1.png"
-                      alt="img"
-                      class="br-tr-7 br-tl-7"
-                    />
-                  </div>
-                  <div class="item-card-text">
-                    <h4 class="mb-0">Budget Houses</h4>
-                    <span class="badge badge-pill badge-primary w-15">65</span>
                   </div>
                 </div>
               </div>
@@ -911,5 +773,23 @@
   </div>
 </template>
 <script>
-export default {};
+import { mapGetters, mapActions } from "vuex";
+
+export default {
+  data() {
+    return {};
+  },
+
+  computed: {
+    ...mapGetters("product", ["categories"])
+  },
+
+  methods: {
+    ...mapActions("product", ["fetchAllCategories"])
+  },
+
+  created() {
+    this.fetchAllCategories();
+  }
+};
 </script>
