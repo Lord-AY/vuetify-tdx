@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import userRegister from "../views/Register.vue";
 import p404 from "../views/404.vue";
+// import productoverview from "../views/ProductOverview.vue";
 // import signin from "../views/Signin.vue";
 // import gridlist from "../views/Gridlist.vue";
 
@@ -76,7 +77,7 @@ const routes = [
     }
   },
   {
-    path: "/productDetails/:id",
+    path: "/productDetails/:id/:cid",
     name: "productDetails",
     component: () => import("../views/ProductDetails.vue"),
     meta: {
