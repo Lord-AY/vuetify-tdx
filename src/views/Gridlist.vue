@@ -1565,7 +1565,7 @@
             </div>
             <ptoggler :current-comp="currentComp"></ptoggler>
           </div>
-          <component :is="currentComp" :products='productListings'></component>
+          <component :is="currentComp" :products="productListings"></component>
           <!--           <gridprops></gridprops>
           <listprops></listprops>
  -->
@@ -1618,7 +1618,7 @@ import hotsellers from "@/components/product_overview/hotsellers";
 import gridprops from "@/components/product_overview/gridprops";
 import listprops from "@/components/product_overview/listprops";
 import ptoggler from "@/components/product_overview/ptoggler";
-import {mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 export default {
   name: "gridlist",
@@ -1633,7 +1633,7 @@ export default {
   //   listprops
   // },
   computed: {
-    ...mapGetters('product', ["productListings"])
+    ...mapGetters("product", ["productListings"])
   },
   components: {
     hotsellers: hotsellers,
@@ -1642,12 +1642,10 @@ export default {
     ptoggler: ptoggler
   },
   methods: {
-    ...mapActions('product',["fetchAllProducts"]),
+    ...mapActions("product", ["fetchAllProducts"]),
     sync() {
       console.log("Jquery mounted");
-    },
-
-
+    }
   },
   watch: {
     $route: "sync"
@@ -1658,7 +1656,7 @@ export default {
     });
     this.sync();
     // this.$forceUpdate();
-    this.fetchAllProducts()
+    this.fetchAllProducts();
   },
   beforeCreate() {
     this.fetchProducts();
