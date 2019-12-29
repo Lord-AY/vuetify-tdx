@@ -35,7 +35,7 @@ export default {
       return state.registerErrors;
     },
     isLoggedIn(state) {
-      if (ash.isEmpty(state.user.token)) {
+      if (ash.isEmpty(state.user.token) || state.user.token == null) {
         return false;
       }
       return !!state.user;
