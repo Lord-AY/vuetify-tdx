@@ -2,7 +2,7 @@
   <div class="home">
     <start></start>
     <categories></categories>
-    <sptb></sptb>
+    <sptb :categories="categories"></sptb>
     <sptb_white></sptb_white>
     <sptb_pattern></sptb_pattern>
     <total_sellers class="mobile-hidden"></total_sellers>
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 import start from "@/components/home/Start";
 import categories from "@/components/home/Categories";
 import sptb from "@/components/home/SPTB";
@@ -39,7 +41,12 @@ export default {
     recent_post,
     BNav
   },
+
+  computed: {
+    ...mapGetters("product", ["categories"])
+  },
   methods: {
+    ...mapActions("product", ["fetchAllCategories"]),
     sync() {
       console.log("Jquery mounted");
     },
@@ -53,6 +60,7 @@ export default {
   created() {
     this.sync();
     this.$forceUpdate();
+    this.fetchAllCategories();
   },
   beforeCreate() {
     console.log("this is before created");
