@@ -2,7 +2,7 @@
   <!--Section-->
   <section class="sptb bg-patterns">
     <div class="container">
-      <div class="section-title center-block text-center">
+      <div class="section-title center-block text-center mobile-hidden">
         <h2 style="display: inline-block; margin-left: 92px">Featured Ads</h2>
         <div class="viewall">
           <router-link to="/Gridlist"
@@ -10,6 +10,24 @@
           ></router-link>
         </div>
       </div>
+
+      <div
+        class="section-title text-left hidden-desktop"
+        style="padding: 0px; margin-bottom: 20px;"
+      >
+        <h2
+          class="is-left-small text-bold"
+          style="font-size: 20px; display: inline-block;"
+        >
+          Featured Ads
+        </h2>
+        <a href="" class="pull-right sptb-show-all">
+          <span>
+            Show all
+          </span>
+        </a>
+      </div>
+
       <div id="myCarousel2" class="owl-carousel owl-carousel-icons2">
         <div class="item">
           <div class="card mb-0">

@@ -42250,3 +42250,14 @@ experimental shii
 	height: 50px !important;
 	padding-left: 30px !important;
   }
+
+
+.text-bold{
+	font-weight: bold !important;
+  }
+
+  .sptb-show-all{
+	display: inline-block;
+	color: #828285 !important;
+	cursor: pointer;
+  }
