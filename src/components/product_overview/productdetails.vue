@@ -1231,6 +1231,7 @@
   </div>
 </template>
 <script>
+
 /* eslint-disable no-undef */
 // import productSlider from "@/components/product_overview/productSlider";
 // import pricingArea from "@/components/product_overview/pricingArea";
@@ -1295,4 +1296,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.tab-pane-tx a {
+    background: none!important;
+    color: #9a9a9a!important;
+    font-size: 16px;
+}
+
+.tab-pane-tx.active a {
+    /* background: none!important; */
+    color: #000!important;
+}
+.tab-pane-tx.active {
+    border-bottom: 3px solid #4CAF50!important;
+    color: #000!important;
+    font-weight: 700;
+}
+</style>
