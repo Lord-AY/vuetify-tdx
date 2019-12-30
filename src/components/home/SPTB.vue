@@ -25,20 +25,23 @@
 
       <div class="slick single-item mobile-hidden" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'
       >
-        <div class="item">
+        <div class="item" v-for="category in categories" :key="category.id">
           <div class="card card-cat-tx mb-0 box-shadow-0">
             <div class="item-card item-card-tx">
               <div class="item-card-desc item-card-desc-tx">
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/car.svg"
+                    :src="
+                      `http://157.245.82.193/media/${category.icon}` ||
+                        '../../assets/images/categories/car.svg'
+                    "
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
                 </div>
                 <div class="item-card-text item-card-text-tx">
-                  <h4 class="mb-0">Cars</h4>
+                  <h4 class="mb-0">{{ category.name }}</h4>
                   <span
                     class="badge badge-pill badge-primary-tx badge-primary w-15"
                     ><p class="badge-tx">45</p></span
@@ -612,6 +615,9 @@
 /* eslint-disable no-undef */
 export default {
   name: "SPTB",
+  props: {
+    categories: [Object, Array]
+  },
   methods: {
     sync() {
       $(document).ready(function() {

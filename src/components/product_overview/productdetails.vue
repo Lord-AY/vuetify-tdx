@@ -697,7 +697,11 @@
                   <div class="tab-content">
                     <div class="tab-pane  in active  fade" id="tab1default">
                       <h3 class="tab-title">Similar Ads</h3>
-                      <div class="ads-list-archive ">
+                      <div
+                        class="ads-list-archive"
+                        v-for="simProduct in similarprods"
+                        :key="simProduct.id"
+                      >
                         <!-- Image Block -->
                         <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                           <!-- Img Block -->
@@ -720,19 +724,17 @@
                           <div class="ad-archive-desc">
                             <!-- Price -->
                             <div class="ad-price">
-                              &#8358; 95,000<span class="">(Fixed)</span>
+                              &#8358; {{ simProduct.amount }} <span class="">(Fixed)</span>
                             </div>
                             <!-- Title -->
                             <h3>
-                              <a href="../ad/audi-a5-for-sale/index.html"
-                                >Audi A5 For Sale</a
-                              >
+                              <a href="../ad/audi-a5-for-sale/index.html">{{ simProduct.name }}</a>
                             </h3>
                             <!-- Category -->
                             <div class="category-title">
                               <span class="padding_cats"
                                 ><a href="../ad_category/audi/index.html"
-                                  >Audi</a
+                                  >{{ simProduct.category }}</a
                                 ></span
                               ><span class="padding_cats"
                                 ><a href="../ad_category/a5/index.html"
@@ -743,9 +745,7 @@
                             <!-- Short Description -->
                             <div class="clearfix visible-xs-block"></div>
                             <p class="hidden-sm">
-                              Not Many of These Around! This One’s in Primo
-                              Shape. The Miles are Super Low. If Your a Ranger
-                              Fan, This is ...
+                              {{ simProduct.desciption }}
                             </p>
                             <!-- Ad Features -->
                             <ul class="add_info">
@@ -753,198 +753,14 @@
                                 <a href="../ad/audi-a5-for-sale/index.html"
                                   ><img
                                     src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-110x60.jpg"
-                                    alt="Audi A5 For Sale"
+                                    :alt="simProduct.name"
                                 /></a>
                               </li>
                               <li class="similar-ads-picture-thumbnails ">
                                 <a href="../ad/audi-a5-for-sale/index.html"
                                   ><img
                                     src="../../assets/carspot-css/wp-content/uploads/2017/07/3-3-110x60.jpg"
-                                    alt="Audi A5 For Sale"
-                                /></a>
-                              </li>
-                            </ul>
-                            <!-- Ad History -->
-                            <div class="clearfix archive-history">
-                              <div class="last-updated">
-                                Posted : July 21, 2017
-                              </div>
-                              <div class="ad-meta">
-                                <a
-                                  href="javascript:void(0);"
-                                  data-adid="960"
-                                  class="btn save-ad"
-                                  ><i class="fa fa-heart-o"></i> Favourite</a
-                                >
-                                <a
-                                  href="../ad/audi-a5-for-sale/index.html"
-                                  class="btn btn-success"
-                                >
-                                  View Details</a
-                                >
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Ad Desc End -->
-                        </div>
-                        <!-- Content Block End -->
-                      </div>
-                      <div class="ads-list-archive ">
-                        <!-- Image Block -->
-                        <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
-                          <!-- Img Block -->
-                          <div class="ad-archive-img">
-                            <a href="../ad/audi-a5-for-sale/index.html">
-                              <img
-                                src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-360x270.jpg"
-                                alt="Audi A5 For Sale"
-                                class="img-responsive"
-                              />
-                            </a>
-                          </div>
-                          <!-- Img Block -->
-                        </div>
-                        <!-- Ads Listing -->
-                        <div class="clearfix visible-xs-block"></div>
-                        <!-- Content Block -->
-                        <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
-                          <!-- Ad Desc -->
-                          <div class="ad-archive-desc">
-                            <!-- Price -->
-                            <div class="ad-price">
-                              &#8358; 95,000<span class="">(Fixed)</span>
-                            </div>
-                            <!-- Title -->
-                            <h3>
-                              <a href="../ad/audi-a5-for-sale/index.html"
-                                >Audi A5 For Sale</a
-                              >
-                            </h3>
-                            <!-- Category -->
-                            <div class="category-title">
-                              <span class="padding_cats"
-                                ><a href="../ad_category/audi/index.html"
-                                  >Audi</a
-                                ></span
-                              ><span class="padding_cats"
-                                ><a href="../ad_category/a5/index.html"
-                                  >A5</a
-                                ></span
-                              >
-                            </div>
-                            <!-- Short Description -->
-                            <div class="clearfix visible-xs-block"></div>
-                            <p class="hidden-sm">
-                              Not Many of These Around! This One’s in Primo
-                              Shape. The Miles are Super Low. If Your a Ranger
-                              Fan, This is ...
-                            </p>
-                            <!-- Ad Features -->
-                            <ul class="add_info">
-                              <li class="similar-ads-picture-thumbnails active">
-                                <a href="../ad/audi-a5-for-sale/index.html"
-                                  ><img
-                                    src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-110x60.jpg"
-                                    alt="Audi A5 For Sale"
-                                /></a>
-                              </li>
-                              <li class="similar-ads-picture-thumbnails">
-                                <a href="../ad/audi-a5-for-sale/index.html"
-                                  ><img
-                                    src="../../assets/carspot-css/wp-content/uploads/2017/07/3-3-110x60.jpg"
-                                    alt="Audi A5 For Sale"
-                                /></a>
-                              </li>
-                            </ul>
-                            <!-- Ad History -->
-                            <div class="clearfix archive-history">
-                              <div class="last-updated">
-                                Posted : July 21, 2017
-                              </div>
-                              <div class="ad-meta">
-                                <a
-                                  href="javascript:void(0);"
-                                  data-adid="960"
-                                  class="btn save-ad"
-                                  ><i class="fa fa-heart-o"></i> Favourite</a
-                                >
-                                <a
-                                  href="../ad/audi-a5-for-sale/index.html"
-                                  class="btn btn-success"
-                                >
-                                  View Details</a
-                                >
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Ad Desc End -->
-                        </div>
-                        <!-- Content Block End -->
-                      </div>
-                      <div class="ads-list-archive ">
-                        <!-- Image Block -->
-                        <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
-                          <!-- Img Block -->
-                          <div class="ad-archive-img">
-                            <a href="../ad/audi-a5-for-sale/index.html">
-                              <img
-                                src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-360x270.jpg"
-                                alt="Audi A5 For Sale"
-                                class="img-responsive"
-                              />
-                            </a>
-                          </div>
-                          <!-- Img Block -->
-                        </div>
-                        <!-- Ads Listing -->
-                        <div class="clearfix visible-xs-block"></div>
-                        <!-- Content Block -->
-                        <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
-                          <!-- Ad Desc -->
-                          <div class="ad-archive-desc">
-                            <!-- Price -->
-                            <div class="ad-price">
-                              &#8358; 95,000<span class="">(Fixed)</span>
-                            </div>
-                            <!-- Title -->
-                            <h3>
-                              <a href="../ad/audi-a5-for-sale/index.html"
-                                >Audi A5 For Sale</a
-                              >
-                            </h3>
-                            <!-- Category -->
-                            <div class="category-title">
-                              <span class="padding_cats"
-                                ><a href="../ad_category/audi/index.html"
-                                  >Audi</a
-                                ></span
-                              ><span class="padding_cats"
-                                ><a href="../ad_category/a5/index.html"
-                                  >A5</a
-                                ></span
-                              >
-                            </div>
-                            <!-- Short Description -->
-                            <div class="clearfix visible-xs-block"></div>
-                            <p class="hidden-sm">
-                              Not Many of These Around! This One’s in Primo
-                              Shape. The Miles are Super Low. If Your a Ranger
-                              Fan, This is ...
-                            </p>
-                            <!-- Ad Features -->
-                            <ul class="add_info">
-                              <li class="similar-ads-picture-thumbnails active">
-                                <a href="../ad/audi-a5-for-sale/index.html"
-                                  ><img
-                                    src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-110x60.jpg"
-                                    alt="Audi A5 For Sale"
-                                /></a>
-                              </li>
-                              <li class="similar-ads-picture-thumbnails">
-                                <a href="../ad/audi-a5-for-sale/index.html"
-                                  ><img
-                                    src="../../assets/carspot-css/wp-content/uploads/2017/07/3-3-110x60.jpg"
-                                    alt="Audi A5 For Sale"
+                                    :alt="simProduct.name"
                                 /></a>
                               </li>
                             </ul>
@@ -1238,7 +1054,8 @@
 export default {
   name: "productDetails",
   props: {
-    product: Object
+    product: Object,
+    similarprods: [Object, Array]
   },
   methods: {
     sync() {

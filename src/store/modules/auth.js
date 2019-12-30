@@ -36,7 +36,7 @@ export default {
       return state.registerErrors;
     },
     isLoggedIn(state) {
-      if (ash.isEmpty(state.user.token)) {
+      if (ash.isEmpty(state.user) || state.user == null) {
         return false;
       }
 
@@ -46,6 +46,9 @@ export default {
       return state.user;
     },
     firstName(state) {
+      if (ash.isEmpty(state.user) || state.user == null) {
+        return false;
+      }
       return state.user.firstname;
     },
     loading(state) {

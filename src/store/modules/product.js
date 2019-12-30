@@ -1,4 +1,3 @@
-
 import ProductService from "@/services/ProductService";
 
 export default {
@@ -6,6 +5,7 @@ export default {
   state: {
     products: null,
     categories: null,
+    similarproducts: null,
     errors: null
   },
   getters: {
@@ -37,16 +37,31 @@ export default {
     },
     fetchAllCategories({ rootState, commit }) {
       commit("auth/SET_LOADING", true, { root: true });
-	  commit("SET_ERRORS", null);
+      commit("SET_ERRORS", null);
       return ProductService.categories(rootState.auth.user.token)
         .then(({ data }) => {
-        //   console.log(data);
-		  commit("auth/SET_LOADING", false, { root: true });
+          //   console.log(data);
+          commit("auth/SET_LOADING", false, { root: true });
           commit("SET_CATEGORIES", data);
         })
         .catch(error => {
-          console.log(error);
-		  commit("auth/SET_LOADING", false, { root: true });
+          // console.log(error);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", error.response.message);
+        });
+    },
+    similarProducts({ commit, rootState }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      return ProductService.similarProducts(payload, rootState.auth.user.token)
+        .then(({ data }) => {
+          // console.log(data);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_SIMILAR_PRODUCTS", data);
+        })
+        .catch(error => {
+          // console.log(error);
+          commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", error.response.message);
         });
     }
@@ -55,11 +70,14 @@ export default {
     SET_PRODUCTS(state, data) {
       state.products = data;
     },
-	SET_CATEGORIES(state, data) {
+    SET_CATEGORIES(state, data) {
       state.categories = data;
     },
     SET_ERRORS(state, errors) {
       state.errors = errors;
+    },
+    SET_SIMILAR_PRODUCTS(state, data) {
+      state.similarproducts = data;
     }
   }
 };
