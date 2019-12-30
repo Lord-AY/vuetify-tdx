@@ -1,5 +1,15 @@
 <template>
+<<<<<<< HEAD
   <postad :categories="categories" :ads="ads" :images="selectedImages" @create-ads="createAds" :items="items" :itemExists="itemsExists"></postad>
+=======
+  <postad
+    :categories="categories"
+    :ads="ads"
+    :images="selectedImages"
+    @create-ads="createAds"
+    :items="items"
+  ></postad>
+>>>>>>> 8d2e3f59351aa87496c7d3168b3adafb45d095bb
 </template>
 <script>
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
@@ -33,10 +43,11 @@ export default {
         name: "",
         photos: [],
         videos: [],
-        region: "",
+        region: "Nigeria",
         currency: "Naira",
         creator: "",
         price: null,
+        paymentype:null,
         negotiable: false,
         subcategory: null,
         featured: false,

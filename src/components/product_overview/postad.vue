@@ -91,6 +91,7 @@
                                         :key="index"
                                         >{{ item.name }}</option
                                       >
+<<<<<<< HEAD
                                       <option value="NG" v-show="!items"
                                         >Nigeria</option
                                       >
@@ -507,6 +508,11 @@
                                       >
                                       <option value="ZW" v-show="!items"
                                         >Zimbabwe</option
+=======
+                                      <option 
+                                        value="NG"
+                                      >Nigeria</option>
+>>>>>>> 8d2e3f59351aa87496c7d3168b3adafb45d095bb
                                       >
                                     </select>
                                   </div>
@@ -1419,6 +1425,7 @@ export default {
     // },
     processForm() {
       // upload photo
+<<<<<<< HEAD
       const images = this.selectedImages;
       for (let image of images) {
         const form = new FormData();
@@ -1437,6 +1444,30 @@ export default {
       // send event to create ads
       // console.log("before create ads");
       setTimeout(this.$emit("create-ads"), 300000);
+=======
+      return new Promise((resolve, reject) => {
+        const images = this.selectedImages;
+        for (let image of images) {
+          const form = new FormData();
+          form.append("file", image.path);
+          form.append("upload_preset", "khieqxha");
+          form.append("api_key", "291355523372857");
+          axios
+            .post("https://api.cloudinary.com/v1_1/coderoute/image/upload", form)
+            .then(response => {
+              this.ads.photos.push(response.data.secure_url);
+            })
+            .catch(error => {
+              this.errors = error.response.data;
+              reject(this.error)
+            });
+        }
+        // send event to create ads
+        // console.log("before create ads");
+        // setTimeout(this.$emit("create-ads"), 360000);
+        resolve(this.$emit("create-ads"));
+      })
+>>>>>>> 8d2e3f59351aa87496c7d3168b3adafb45d095bb
     },
     addPayment(value) {
       this.ads.paymentType = value;
@@ -1543,7 +1574,7 @@ export default {
   width: 40px;
   transition: all 0.15s ease-out 0s;
   background: #cbd1d8;
-  border: none;
+  border: none; 
   color: #fff;
   cursor: pointer;
   display: inline-block;

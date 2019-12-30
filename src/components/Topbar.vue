@@ -10,9 +10,9 @@
               <div class="clearfix"></div>
               <div class="clearfix">
                 <ul class="contact">
-                  <li class="select-country mr-5">
+                  <li class="select-country tdx-country mr-5">
                     <select
-                      class="form-control select2-flag-search"
+                      class="form-control select2-flag-search "
                       data-placeholder="Select Country"
                       style="color: #fff!important;"
                     >
@@ -407,17 +407,12 @@
             <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0"></li>-->
           </ul>
           <div class="call-us-now">
-            <div class="contact-in-header">
+            <div class="contact-us-header">
               <i style="color:black;" class="flaticon-customer-service"></i>
-              <p
-                style="color: #999; float: right; line-height: 25px; margin-left: 10px; margin-top: 10px; font-size: 16px;"
-              >
+              <p>
                 Call Us Now
                 <br />
-                <strong
-                  style="font-size: 20px; color: #4CAF50; font-weight: 600!important;"
-                  >(+234) 811-111-1808</strong
-                >
+                <strong>(+234) 811-111-1808</strong>
               </p>
             </div>
           </div>
