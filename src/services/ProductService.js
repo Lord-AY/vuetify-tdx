@@ -16,7 +16,14 @@ export default {
     });
   },
   similarProducts(product, token) {
-    return Api().get(`product/similar/${product.cid}/${product.id}`,  {
+    return Api().get(`product/similar/${product.cid}/${product.id}`, {
+      headers: {
+        "x-access-token": token
+      }
+    });
+  },
+  createProduct(credentials, token) {
+    return Api().post("product", credentials, {
       headers: {
         "x-access-token": token
       }

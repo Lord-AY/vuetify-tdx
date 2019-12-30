@@ -1,5 +1,10 @@
 <template>
-  <postad></postad>
+  <postad
+    :categories="categories"
+    :ads="ads"
+    :images="selectedImages"
+    @create-ads="createAds"
+  ></postad>
 </template>
 <script>
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
@@ -18,14 +23,56 @@ require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 require("../assets/plugins/fancyuploder/fancy_fileupload.css");
 
 import postad from "@/components/product_overview/postad";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "postads",
+  data() {
+    return {
+      selectedImages: [],
+      ads: {
+        cid: "",
+        uid: "",
+        name: "",
+        photos: [],
+        videos: [],
+        region: "",
+        currency: "",
+        creator: "",
+        price: null,
+        negotiable: false,
+        subcategory: null,
+        featured: false,
+        tradexplorer: true,
+        adType: null,
+        paymentType: null,
+        approved: true,
+        published: true,
+        description: "",
+        keywords: [],
+        canExchange: false
+      }
+    };
+  },
   components: {
     postad
   },
+  computed: {
+    ...mapState("product", ["categories"])
+  },
   methods: {
+    ...mapActions("product", ["createProduct"]),
     sync() {
       console.log("Jquert Mounted");
+    },
+    createAds() {
+      // create payload
+      const payload = {
+        product: this.ads
+      };
+      // add image to payload
+      payload.product.photos = this.selectedImages;
+      // send payload to vuex
+      this.createProduct(payload);
     }
   },
   watch: {

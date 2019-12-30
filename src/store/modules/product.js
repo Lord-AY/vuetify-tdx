@@ -1,5 +1,5 @@
 import ProductService from "@/services/ProductService";
-
+import ash from 'lodash';
 export default {
   namespaced: true,
   state: {
@@ -63,6 +63,28 @@ export default {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", error.response.message);
+        });
+    },
+    createProduct({ commit, rootState }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      // set payload user id
+      payload.product.uid = rootState.auth.user.id;
+      payload.product.creator = ash.concat(
+        rootState.auth.user.firstname,
+        rootState.auth.user.lastname
+      );
+      return ProductService.createProduct(
+        payload.product,
+        rootState.auth.user.token
+      )
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error);
         });
     }
   },
