@@ -67,7 +67,7 @@
                     <a
                       href="testimonial.html"
                       class="btn btn-primary btn-lg"
-                      style="border-radius: 85px;"
+                      
                       >View all Testimonials</a
                     >
                   </div>
