@@ -27,7 +27,7 @@
       <a href="#">My Profile</a>
       <a href="#">My Messages</a>
       <a href="#">Favorites</a>
-      <a href="#">Notificati</a>
+      <a href="#">Notifications</a>
     </div>
     <div id="sidebar-nav" class="sidebar">
       <div

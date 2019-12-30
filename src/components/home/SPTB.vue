@@ -18,12 +18,16 @@
       </div>
 
       <div class="section-title text-left hidden-desktop" style="padding: 0px;">
-        <h2 class="is-left-small text-bold" style="font-size: 20px;">Categories</h2>
+        <h2 class="is-left-small text-bold" style="font-size: 20px;">
+          Categories
+        </h2>
       </div>
 
       <!-- Testing new slickifying technique cause previous was bringing up heavy bugs -->
 
-      <div class="slick single-item mobile-hidden" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'
+      <div
+        class="slick single-item mobile-hidden"
+        data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'
       >
         <div class="item" v-for="category in categories" :key="category.id">
           <div class="card card-cat-tx mb-0 box-shadow-0">

@@ -18,17 +18,17 @@
                 >
                   <ol class="breadcrumb breadcrumb-tx arrowed mt-2 mb-2">
                     <li class="breadcrumb-item">
-                      <a href="https://buy.cars45.com/">Home</a>
+                      <a href="https://tradexplorer.com/">Home > </a>
                     </li>
 
                     <li class="breadcrumb-item">
-                      <a href="https://buy.cars45.com/ford">{{
-                        product.category
-                      }}</a>
+                      <a href="https://tradexplorer.com/"
+                        >{{ product.category }} >
+                      </a>
                     </li>
 
                     <li class="breadcrumb-item">
-                      <a href="https://buy.cars45.com/ford-edge">Edge</a>
+                      <a href="https://tradexplorer.com/ford-edge">Edge > </a>
                     </li>
 
                     <li class="breadcrumb-item active">
@@ -264,18 +264,18 @@
                 </div>
               </div>
               <div class="content-box-grid margin-top-20">
-                <ul class="nav nav-pills" style="margin-bottom: 16px;">
+                <ul class="nav nav-tabs" style="margin-bottom: 16px;">
                   <li class="tab-pane-tx active">
-                    <a data-toggle="pill" href="#home">Description</a>
+                    <a data-toggle="tabs" href="#home">Description</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" href="#menu1">Features</a>
+                    <a data-toggle="tabs" href="#menu1">Features</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" href="#menu2">Reviews(0)</a>
+                    <a data-toggle="tabs" href="#menu2">Reviews(0)</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="pill" href="#menu3">Location Map</a>
+                    <a data-toggle="tabs" href="#menu3">Location Map</a>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-toggle="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
@@ -724,18 +724,21 @@
                           <div class="ad-archive-desc">
                             <!-- Price -->
                             <div class="ad-price">
-                              &#8358; {{ simProduct.amount }} <span class="">(Fixed)</span>
+                              &#8358; {{ simProduct.amount }}
+                              <span class="">(Fixed)</span>
                             </div>
                             <!-- Title -->
                             <h3>
-                              <a href="../ad/audi-a5-for-sale/index.html">{{ simProduct.name }}</a>
+                              <a href="../ad/audi-a5-for-sale/index.html">{{
+                                simProduct.name
+                              }}</a>
                             </h3>
                             <!-- Category -->
                             <div class="category-title">
                               <span class="padding_cats"
-                                ><a href="../ad_category/audi/index.html"
-                                  >{{ simProduct.category }}</a
-                                ></span
+                                ><a href="../ad_category/audi/index.html">{{
+                                  simProduct.category
+                                }}</a></span
                               ><span class="padding_cats"
                                 ><a href="../ad_category/a5/index.html"
                                   >A5</a
@@ -1047,7 +1050,6 @@
   </div>
 </template>
 <script>
-
 /* eslint-disable no-undef */
 // import productSlider from "@/components/product_overview/productSlider";
 // import pricingArea from "@/components/product_overview/pricingArea";
@@ -1115,18 +1117,18 @@ export default {
 
 <style scoped>
 .tab-pane-tx a {
-    background: none!important;
-    color: #9a9a9a!important;
-    font-size: 16px;
+  background: none !important;
+  color: #9a9a9a !important;
+  font-size: 16px;
 }
 
 .tab-pane-tx.active a {
-    /* background: none!important; */
-    color: #000!important;
+  /* background: none!important; */
+  color: #000 !important;
 }
 .tab-pane-tx.active {
-    border-bottom: 3px solid #4CAF50!important;
-    color: #000!important;
-    font-weight: 700;
+  border-bottom: 3px solid #4caf50 !important;
+  color: #000 !important;
+  font-weight: 700;
 }
 </style>
