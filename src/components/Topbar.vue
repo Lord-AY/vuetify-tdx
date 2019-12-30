@@ -412,10 +412,7 @@
               <p>
                 Call Us Now
                 <br />
-                <strong
-                  
-                  >(+234) 811-111-1808</strong
-                >
+                <strong>(+234) 811-111-1808</strong>
               </p>
             </div>
           </div>
