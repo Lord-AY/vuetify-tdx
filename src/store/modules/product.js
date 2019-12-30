@@ -1,5 +1,5 @@
 import ProductService from "@/services/ProductService";
-import ash from 'lodash';
+// import ash from 'lodash';
 export default {
   namespaced: true,
   state: {
@@ -70,10 +70,8 @@ export default {
       commit("SET_ERRORS", null);
       // set payload user id
       payload.product.uid = rootState.auth.user.id;
-      payload.product.creator = ash.concat(
-        rootState.auth.user.firstname,
-        rootState.auth.user.lastname
-      );
+      payload.product.creator =
+        rootState.auth.user.firstname + " " + rootState.auth.user.lastname;
       return ProductService.createProduct(
         payload.product,
         rootState.auth.user.token

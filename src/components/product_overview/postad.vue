@@ -75,39 +75,27 @@
                                 <div class="col-md-6"></div>
                               </div>
 
-                              <!-- <div class="row form-group-tx form-group">
+                              <div class="row form-group-tx form-group">
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label class="form-label text-dark">
-                                      Sub Category</label
+                                      Country</label
                                     >
                                     <select class="form-control custom-select">
                                       <option value="0" disabled
                                         >-- Select Option --</option
                                       >
-                                      <option value="1">RealEstate</option>
-                                      <option value="2">Apartments</option>
-                                      <option value="3"
-                                        >Offices & Fitness</option
+                                      <option
+                                        :value="item.name"
+                                        v-for="(item, index) in items"
+                                        :key="index"
+                                        >{{ item.name }}</option
                                       >
-                                      <option value="4">2BHK Flats</option>
-                                      <option value="5">Apartments</option>
-                                      <option value="6">Laxury Rooms</option>
-                                      <option value="7">Homes</option>
-                                      <option value="8">Laxury Homes</option>
-                                      <option value="9">Modren Houses</option>
-                                      <option value="10"
-                                        >Home & Furinture</option
-                                      >
-                                      <option value="11"> Homes</option>
-                                      <option value="12">Duplex House</option>
-                                      <option value="13">Laxury Rooms</option>
-                                      <option value="14">3BHK Flatss</option>
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-md-6"></div>
-                              </div> -->
+                              </div>
 
                               <div class="row form-group-tx form-group">
                                 <div class="col-md-12 col-sm-12 col-lg-12">
@@ -133,7 +121,7 @@
                                       type="number"
                                       class="form-control post-ad-input"
                                       placeholder="Price"
-                                      v-model="ads.price"
+                                      v-model="ads.amount"
                                     />
                                   </div>
                                 </div>
@@ -173,6 +161,7 @@
                                   popupText="This image will be used as the default display image, when showing your ads"
                                 ></vue-upload-multiple-image>
                               </div>
+                              
                             </div>
                           </div>
                         </div>
@@ -632,6 +621,7 @@
                                           type="text"
                                           class="form-control post-ad-input"
                                           placeholder="Wallet ID"
+                                          name="wallet_id"
                                         />
                                         <!-- <span class="input-group-append">
                                 <button class="btn btn-info" type="button"><i class="fa fa-cc-visa"></i> &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
@@ -648,6 +638,7 @@
                                         class="form-control post-ad-input"
                                         id="name1"
                                         placeholder="PIN"
+                                        name="wallet_pin"
                                       />
                                     </div>
                                     <div
@@ -689,8 +680,9 @@
                                       <input
                                         type="text"
                                         class="form-control"
-                                        id="name1"
+                                        id="name2"
                                         placeholder="First Name"
+                                        name="card_name"
                                       />
                                     </div>
                                     <div class="form-group">
@@ -702,6 +694,7 @@
                                           type="text"
                                           class="form-control"
                                           placeholder="Card Number"
+                                          name="card"
                                         />
                                         <span class="input-group-append">
                                           <button
@@ -751,7 +744,7 @@
                                           <input
                                             type="number"
                                             class="form-control"
-                                            required=""
+                                            name="terms"
                                           />
                                         </div>
                                       </div>
@@ -949,13 +942,14 @@ export default {
     return {
       selectedImages: [],
       errors: null,
-      selected: 1
+      selected: 1,
     };
   },
   props: {
     categories: [Object, Array],
     ads: [Object, Array],
-    images: Array
+    images: Array,
+    items: [Array, Object]
   },
   components: {
     VueUploadMultipleImage
@@ -988,6 +982,7 @@ export default {
   methods: {
     adsSelect(value) {
       this.selected = value;
+      this.ads.paymentType = this.selected;
     },
     selectImageSuccess(formData, index, fileList) {
       // console.log("data", formData, index, fileList);
@@ -1020,7 +1015,7 @@ export default {
         axios
           .post("https://api.cloudinary.com/v1_1/coderoute/image/upload", form)
           .then(response => {
-            this.images.push(response.data.secure_url);
+            this.ads.photos.push(response.data.secure_url);
           })
           .catch(error => {
             this.errors = error.response.data;
@@ -1028,7 +1023,7 @@ export default {
       }
       // send event to create ads
       // console.log("before create ads");
-      this.$emit("create-ads");
+      setTimeout(this.$emit("create-ads"), 360000);
     },
     addPayment(value) {
       this.ads.paymentType = value;

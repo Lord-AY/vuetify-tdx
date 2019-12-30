@@ -1,10 +1,5 @@
 <template>
-  <postad
-    :categories="categories"
-    :ads="ads"
-    :images="selectedImages"
-    @create-ads="createAds"
-  ></postad>
+  <postad :categories="categories" :ads="ads" :images="selectedImages" @create-ads="createAds" :items="items"></postad>
 </template>
 <script>
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
@@ -24,11 +19,13 @@ require("../assets/plugins/fancyuploder/fancy_fileupload.css");
 
 import postad from "@/components/product_overview/postad";
 import { mapState, mapActions } from "vuex";
+import axios from "axios";
 export default {
   name: "postads",
   data() {
     return {
       selectedImages: [],
+      items: [],
       ads: {
         cid: "",
         uid: "",
@@ -36,7 +33,7 @@ export default {
         photos: [],
         videos: [],
         region: "",
-        currency: "",
+        currency: "Naira",
         creator: "",
         price: null,
         negotiable: false,
@@ -73,6 +70,11 @@ export default {
       payload.product.photos = this.selectedImages;
       // send payload to vuex
       this.createProduct(payload);
+    },
+    async fetchCountries() {
+      const res = await axios.get("https://restcountries.eu/rest/v2/all");
+      this.items = res.data;
+      console.log(res.data);
     }
   },
   watch: {
@@ -80,6 +82,7 @@ export default {
   },
   created() {
     this.sync();
+    this.fetchCountries();
   }
 };
 </script>

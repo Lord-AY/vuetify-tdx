@@ -23,7 +23,7 @@ export default {
     });
   },
   createProduct(credentials, token) {
-    return Api().post("product", credentials, {
+    return Api().post("product/product", credentials, {
       headers: {
         "x-access-token": token
       }
