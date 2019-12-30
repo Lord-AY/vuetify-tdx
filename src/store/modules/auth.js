@@ -3,7 +3,6 @@ import router from "../../router";
 // import axios from "axios";
 import AuthService from "@/services/AuthService";
 
-
 export default {
   namespaced: true,
   state: {

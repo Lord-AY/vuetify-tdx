@@ -1,4 +1,3 @@
-
 import ProductService from "@/services/ProductService";
 
 export default {
@@ -37,16 +36,16 @@ export default {
     },
     fetchAllCategories({ rootState, commit }) {
       commit("auth/SET_LOADING", true, { root: true });
-	  commit("SET_ERRORS", null);
+      commit("SET_ERRORS", null);
       return ProductService.categories(rootState.auth.user.token)
         .then(({ data }) => {
-        //   console.log(data);
-		  commit("auth/SET_LOADING", false, { root: true });
+          //   console.log(data);
+          commit("auth/SET_LOADING", false, { root: true });
           commit("SET_CATEGORIES", data);
         })
         .catch(error => {
           console.log(error);
-		  commit("auth/SET_LOADING", false, { root: true });
+          commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", error.response.message);
         });
     }
@@ -55,7 +54,7 @@ export default {
     SET_PRODUCTS(state, data) {
       state.products = data;
     },
-	SET_CATEGORIES(state, data) {
+    SET_CATEGORIES(state, data) {
       state.categories = data;
     },
     SET_ERRORS(state, errors) {

@@ -17,6 +17,23 @@ require("../assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-
 require("../assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
 // require("../assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+//
+require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
+require("../assets/css/style.css");
+require("../assets/css/icons.css");
+require("../assets/plugins/horizontal-menu/horizontal.css");
+require("../assets/plugins/select2/select2.min.css");
+require("../assets/plugins/cookie/cookie.css");
+require("../assets/plugins/owl-carousel/owl.carousel.css");
+require("../assets/plugins/scroll-bar/jquery.mCustomScrollbar.css");
+require("../assets/skins/color-skins/color15.css");
+require("../assets/css/flaticon24d2c.css");
+require("../assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick.css");
+require("../assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick-theme.css");
+require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
+require("../assets/plugins/fancyuploder/fancy_fileupload.css");
+
+//
 require("../assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
 // require("../assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 require("../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
@@ -46,6 +63,7 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2
 require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
 require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
 require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
+require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
 
 import productdetails from "@/components/product_overview/productdetails";
 import { mapState } from "vuex";
@@ -82,6 +100,13 @@ export default {
   },
   mounted() {
     console.log("this route just got mounted");
+    let extScript = document.createElement("script");
+    // extScript.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js')
+    extScript.setAttribute(
+      "src",
+      "../assets/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"
+    );
+    document.head.appendChild(extScript);
     // fetch single product for view
     const product = this.products[this.$route.params.id];
     this.product = product;

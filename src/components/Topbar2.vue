@@ -245,7 +245,6 @@
 </template>
 
 <script>
-
 import { mapGetters, mapActions } from "vuex";
 
 /* eslint-disable no-undef */
