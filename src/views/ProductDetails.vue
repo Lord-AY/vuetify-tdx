@@ -1,6 +1,9 @@
 <template>
   <div class="pdetails">
-    <productdetails :product="product"></productdetails>
+    <productdetails
+      :product="product"
+      :similarprods="similarproducts"
+    ></productdetails>
   </div>
 </template>
 <script>
@@ -66,7 +69,7 @@ require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
 
 import productdetails from "@/components/product_overview/productdetails";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "productDetails",
   data() {
@@ -78,11 +81,23 @@ export default {
     productdetails
   },
   computed: {
-    ...mapState("product", ["products"])
+    ...mapState("product", ["products", "similarproducts"])
   },
   methods: {
+    ...mapActions("product", ["similarProducts"]),
     sync() {
       console.log("Jquery mounted");
+    },
+    getSingleProduct() {
+      const product = this.products[this.$route.params.id];
+      this.product = product;
+    },
+    getSimilarProducts() {
+      const payload = {
+        cid: this.product.cid,
+        id: this.product.id
+      };
+      this.similarProducts(payload);
     }
   },
   watch: {
@@ -91,6 +106,8 @@ export default {
   created() {
     this.sync();
     // this.$forceUpdate();
+    // fetch single product for view
+    this.getSingleProduct();
   },
   beforeCreate() {
     console.log("this is before created");
@@ -111,6 +128,10 @@ export default {
     const product = this.products[this.$route.params.id];
     this.product = product;
     console.log(product);
+
+  // get similar products
+    this.getSimilarProducts();
+
   },
   beforeRouteLeave: function(to, from, next) {
     console.log("this route is about to leave ");

@@ -5,6 +5,7 @@ export default {
   state: {
     products: null,
     categories: null,
+    similarproducts: null,
     errors: null
   },
   getters: {
@@ -44,7 +45,22 @@ export default {
           commit("SET_CATEGORIES", data);
         })
         .catch(error => {
-          console.log(error);
+          // console.log(error);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", error.response.message);
+        });
+    },
+    similarProducts({ commit, rootState }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      return ProductService.similarProducts(payload, rootState.auth.user.token)
+        .then(({ data }) => {
+          // console.log(data);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_SIMILAR_PRODUCTS", data);
+        })
+        .catch(error => {
+          // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", error.response.message);
         });
@@ -59,6 +75,9 @@ export default {
     },
     SET_ERRORS(state, errors) {
       state.errors = errors;
+    },
+    SET_SIMILAR_PRODUCTS(state, data) {
+      state.similarproducts = data;
     }
   }
 };

@@ -1659,7 +1659,6 @@ export default {
     this.fetchAllProducts();
   },
   beforeCreate() {
-    this.fetchProducts();
     console.log("this is before created");
   },
   beforeMount() {
