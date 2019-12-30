@@ -21,5 +21,12 @@ export default {
         "x-access-token": token
       }
     });
+  },
+  createProduct(credentials, token) {
+    return Api().post("product/product", credentials, {
+      headers: {
+        "x-access-token": token
+      }
+    });
   }
 };
