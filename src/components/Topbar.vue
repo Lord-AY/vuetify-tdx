@@ -172,6 +172,7 @@
                       class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                     >
                       <a href="#" class="dropdown-item">English</a>
+                      <a class="dropdown-item" href="#">French</a>
                       <a class="dropdown-item" href="#">Arabic</a>
                       <a class="dropdown-item" href="#">German</a>
                       <a href="#" class="dropdown-item">Greek</a>
@@ -192,6 +193,7 @@
                     <div
                       class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                     >
+                      <a href="#" class="dropdown-item">NGN</a>
                       <a href="#" class="dropdown-item">USD</a>
                       <a class="dropdown-item" href="#">EUR</a>
                       <a class="dropdown-item" href="#">INR</a>
@@ -374,29 +376,31 @@
                 <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
               </button>
             </li>
-            <li aria-haspopup="true" style="padding: 0px;">
-              <div class="row">
-                <div class="col-xl-10 col-lg-12 col-md-12 mb-0">
-                  <input
-                    type="text"
-                    class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
-                    id="text4"
-                    placeholder="Search products, brands and categories"
-                  />
-                  <span>
-                    <i class="fa fa-search location-gps mr-1"></i>
-                  </span>
-                </div>
-                <div class="col-xl-2 col-lg-12 col-md-12">
-                  <button
-                    class="header-search-button btn btn-theme"
-                    style="height: 100%; line-height: 13px; font-size: 14px; color: #fff;"
-                  >
-                    Search
-                  </button>
-                </div>
-              </div>
-            </li>
+            <div class="row-tdx">
+                <!-- <li aria-haspopup="true" style="padding: 0px;">
+                <div class="row"> -->
+                  <div class="col-xl-10 col-lg-12 col-md-12 mb-0">
+                    <input
+                      type="text"
+                      class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
+                      id="text4"
+                      placeholder="Search products, brands and categories"
+                    />
+                    <span>
+                      <i class="fa fa-search location-gps mr-1"></i>
+                    </span>
+                  </div>
+                  <div class="col-xl-2 col-lg-12 col-md-12" style="padding-left: 0px;">
+                    <button
+                      class="header-search-button btn btn-theme"
+                    >
+                      Search
+                    </button>
+                  </div>
+                <!-- </div>
+              </li> -->
+            </div>
+            
             <!-- <li aria-haspopup="true"><a href="about.html"> ABOUT US </a></li>
             <li aria-haspopup="true"><a href="#"> FAQ </a></li>
             <li aria-haspopup="true">

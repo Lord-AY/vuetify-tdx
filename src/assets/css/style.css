@@ -28654,6 +28654,11 @@ a.text-light:focus, a.text-light:hover {
 	font-size: 0.875rem;
 	position: relative;
 }
+a.post-ad-header-tx:hover {
+	color: #fff!important;
+	font-size: 0.875rem;
+	position: relative;
+}
 .btn-tx {
 	padding: 0.671875rem 0.9375rem!important;
 	border-radius: 0px!important;
@@ -42292,4 +42297,21 @@ experimental shii
 	font-size: 20px ;
 	color: #4CAF50 ;
 	font-weight: 600!important;
+}
+
+.row-tdx {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.header-search-button-container {
+	
+}
+
+.header-search-button {
+	height: 100%; 
+	line-height: 13px; 
+	font-size: 14px; 
+	color: #fff;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
