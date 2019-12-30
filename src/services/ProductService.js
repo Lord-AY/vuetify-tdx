@@ -16,7 +16,7 @@ export default {
     });
   },
   similarProducts(product, token) {
-    return Api().get(`product/similar/${product.cid}/${product.id}`,  {
+    return Api().get(`product/similar/${product.cid}/${product.id}`, {
       headers: {
         "x-access-token": token
       }

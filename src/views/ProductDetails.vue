@@ -129,9 +129,8 @@ export default {
     this.product = product;
     console.log(product);
 
-  // get similar products
+    // get similar products
     this.getSimilarProducts();
-
   },
   beforeRouteLeave: function(to, from, next) {
     console.log("this route is about to leave ");

@@ -724,18 +724,21 @@
                           <div class="ad-archive-desc">
                             <!-- Price -->
                             <div class="ad-price">
-                              &#8358; {{ simProduct.amount }} <span class="">(Fixed)</span>
+                              &#8358; {{ simProduct.amount }}
+                              <span class="">(Fixed)</span>
                             </div>
                             <!-- Title -->
                             <h3>
-                              <a href="../ad/audi-a5-for-sale/index.html">{{ simProduct.name }}</a>
+                              <a href="../ad/audi-a5-for-sale/index.html">{{
+                                simProduct.name
+                              }}</a>
                             </h3>
                             <!-- Category -->
                             <div class="category-title">
                               <span class="padding_cats"
-                                ><a href="../ad_category/audi/index.html"
-                                  >{{ simProduct.category }}</a
-                                ></span
+                                ><a href="../ad_category/audi/index.html">{{
+                                  simProduct.category
+                                }}</a></span
                               ><span class="padding_cats"
                                 ><a href="../ad_category/a5/index.html"
                                   >A5</a
