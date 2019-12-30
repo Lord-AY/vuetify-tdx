@@ -1,5 +1,5 @@
 <template>
-  <postad :categories="categories" :ads="ads" :images="selectedImages" @create-ads="createAds" :items="items"></postad>
+  <postad :categories="categories" :ads="ads" :images="selectedImages" @create-ads="createAds" :items="items" :itemExists="itemsExists"></postad>
 </template>
 <script>
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
@@ -26,6 +26,7 @@ export default {
     return {
       selectedImages: [],
       items: [],
+      itemsExists: false,
       ads: {
         cid: "",
         uid: "",
@@ -41,7 +42,7 @@ export default {
         featured: false,
         tradexplorer: true,
         adType: null,
-        paymentType: null,
+        paymentType: 1,
         approved: true,
         published: true,
         description: "",
@@ -75,6 +76,15 @@ export default {
       const res = await axios.get("https://restcountries.eu/rest/v2/all");
       this.items = res.data;
       console.log(res.data);
+    },
+    watchCountries() {
+      const countries = this.items;
+      // checking if its an array and its not empty
+      if (Array.isArray(countries) && countries.length) {
+        this.itemsExists = true;
+      } else {
+        this.itemsExists = false;
+      }
     }
   },
   watch: {
@@ -83,6 +93,7 @@ export default {
   created() {
     this.sync();
     this.fetchCountries();
+    setTimeout(this.watchCountries(), 3500);
   }
 };
 </script>
