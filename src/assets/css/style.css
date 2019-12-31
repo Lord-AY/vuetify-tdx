@@ -42293,3 +42293,7 @@ experimental shii
 	color: #4CAF50 ;
 	font-weight: 600!important;
 }
+
+.no-padding{
+padding: 0px !important;
+}

@@ -63,8 +63,87 @@
               </div>
             </div>
             <hr class="search-divider" />
-            <div class="row">
-              <div class="col-lg-3 col-md-6 col-sm-6  mb-4 mb-lg-0">
+            <div class="row container">
+              <div class="col-sm-3 col-xs-3 no-padding text-center">
+                <!-- <div>Icon</div>
+                <span>Airtime / Data</span> -->
+                <a href="#">
+                  <div class="d-flex d-catmb row">
+                    <div class="col-sm-auto no-padding">
+                      <span class=" icon-service1 text-primary">
+                        <i
+                          class="fa fa-mobile fa-5x"
+                          style="color: #4CAF50 !important; font-size: 42px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="col-sm-auto no-padding vas-text">
+                      <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
+                        Airtime / Data
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-center no-padding">
+                <a href="#">
+                  <div class="d-flex d-catmb row">
+                    <div class="col-sm-auto no-padding">
+                      <span class=" icon-service1 text-primary">
+                        <i
+                          class="fa fa-television fa-5x"
+                          style="color: #4CAF50 !important; font-size: 42px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="col-sm-auto no-padding vas-text">
+                      <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
+                        TV Subscription
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-center no-padding">
+                <a href="#">
+                  <div class="d-flex d-catmb row">
+                    <div class="col-sm-auto no-padding">
+                      <span class=" icon-service1 text-primary">
+                        <i
+                          class="fa fa-bolt fa-5x"
+                          style="color: #4CAF50 !important; font-size: 42px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="col-sm-auto no-padding vas-text">
+                      <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
+                        Buy Electricity
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-center no-padding mobile-hidden">
+                <a href="#">
+                  <div class="d-flex d-catmb row">
+                    <div class="col-sm-auto no-padding">
+                      <span class=" icon-service1 text-primary">
+                        <i
+                          class="fa fa-ellipsis-h fa-5x"
+                          style="color: #4CAF50 !important; font-size: 42px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="col-sm-auto no-padding vas-text">
+                      <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
+                        More Services
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- <div class="col-lg-3 col-md-6 col-sm-6  mb-4 mb-lg-0">
                 <a href="#">
                   <div class="d-flex d-catmb">
                     <div>
@@ -142,7 +221,7 @@
                     </div>
                   </div>
                 </a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -164,4 +243,25 @@ export default {
     background-color: rgba(255, 255, 255, 0.5)!important;
     position: relative!important;
 }*/
+
+@media (max-width: 567px){
+  .col-xs-3{
+    -webkit-box-flex: 0;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .col-sm-auto.no-padding{
+    padding-right: 0.75rem !important;
+    padding-left: 0.75rem !important;
+  }
+}
+.icon-service1 i{
+  font-size: 30px !important;
+}
+
+.vas-text{
+    display: flex;
+    align-items: center;
+    /* font-size:  */
+}
 </style>
