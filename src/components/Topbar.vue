@@ -231,7 +231,7 @@
                 </li>
                 <li>
                   <router-link
-                    to="/login"
+                    to="login"
                     class="btn btn-tx btn-theme text-dark post-ad-header-tx"
                     >POST AN AD</router-link
                   >
@@ -308,7 +308,7 @@
                 </li>
                 <li>
                   <router-link
-                    to="login"
+                    to="postad"
                     class="btn btn-tx btn-theme text-dark post-ad-header-tx"
                     >POST AN AD</router-link
                   >
@@ -421,10 +421,7 @@
               <p>
                 Call Us Now
                 <br />
-                <strong
-                  
-                  >(+234) 811-111-1808</strong
-                >
+                <strong>(+234) 811-111-1808</strong>
               </p>
             </div>
           </div>
