@@ -42330,3 +42330,13 @@ experimental shii
 .no-padding{
 padding: 0px !important;
 }
+
+ul.bottom-links{
+	text-align: center;
+}
+
+ul.bottom-links > li{
+	text-align: center;
+	display: inline-block;
+	margin: 0px 5px;
+}
