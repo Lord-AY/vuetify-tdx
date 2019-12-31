@@ -68,14 +68,32 @@ export default {
     createProduct({ commit, rootState }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
-      // set payload user id
-      payload.product.uid = rootState.auth.user.id;
-      payload.product.creator =
-        rootState.auth.user.firstname + " " + rootState.auth.user.lastname;
-      return ProductService.createProduct(
-        payload.product,
-        rootState.auth.user.token
-      )
+      // set payload details
+      const product = {
+        cid: payload.product.cid,
+        uid: rootState.auth.user.id,
+        name: payload.product.name,
+        photos: payload.product.photos,
+        videos: [],
+        region: payload.product.region || "Nigeria",
+        currency: "Naira",
+        creator:
+          rootState.auth.user.firstname + " " + rootState.auth.user.lastname,
+        price: null,
+        amount: payload.product.amount,
+        negotiable: payload.product.negotiable,
+        subcategory: null,
+        featured: false,
+        tradexplorer: true,
+        adType: payload.product.adType,
+        paymentType: 1,
+        approved: true,
+        published: true,
+        description: payload.product.description,
+        keywords: [],
+        canExchange: false
+      };
+      return ProductService.createProduct(product, rootState.auth.user.token)
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
           console.log(data);

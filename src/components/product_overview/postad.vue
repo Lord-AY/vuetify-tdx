@@ -1357,6 +1357,7 @@ export default {
   data() {
     return {
       selectedImages: [],
+      uploaded: [],
       errors: null,
       selected: 1
     };
@@ -1427,16 +1428,24 @@ export default {
         form.append("api_key", "291355523372857");
         axios
           .post("https://api.cloudinary.com/v1_1/coderoute/image/upload", form)
-          .then(response => {
-            this.ads.photos.push(response.data.secure_url);
+          .then(({ data }) => {
+            this.uploaded.push(data.secure_url);
           })
           .catch(error => {
             this.errors = error.response.data;
           });
       }
-      // send event to create ads
-      // console.log("before create ads");
-      setTimeout(this.$emit("create-ads"), 300000);
+    },
+    sendFormRequest(images) {
+      console.log("Function called");
+      let selected = this.selectedImages;
+      // check if uploaded images are equals to selected images
+      if (selected.length == images.length) {
+        console.log("arrays are equal");
+        this.$emit("create-ads", images);
+      } else {
+        console.log("arrays not yet equal");
+      }
     },
     addPayment(value) {
       this.ads.paymentType = value;
@@ -1473,7 +1482,13 @@ export default {
     }
   },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    uploaded: {
+      handler: function(uploaded) {
+        console.log(uploaded);
+        this.sendFormRequest(uploaded);
+      }
+    }
   },
   created() {
     this.sync();

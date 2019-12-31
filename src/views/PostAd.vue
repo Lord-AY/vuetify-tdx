@@ -44,7 +44,7 @@ export default {
         currency: "Naira",
         creator: "",
         price: null,
-        paymentype: null,
+        amount: null,
         negotiable: false,
         subcategory: null,
         featured: false,
@@ -70,15 +70,19 @@ export default {
     sync() {
       console.log("Jquert Mounted");
     },
-    createAds() {
+    createAds(e) {
       // create payload
+      console.log("event emitted");
       const payload = {
         product: this.ads
       };
       // add image to payload
-      payload.product.photos = this.selectedImages;
+      payload.product.photos = e;
+      console.log("photos updated");
       // send payload to vuex
       this.createProduct(payload);
+      console.log("action called");
+      console.log(payload);
     },
     async fetchCountries() {
       const res = await axios.get("https://restcountries.eu/rest/v2/all");
