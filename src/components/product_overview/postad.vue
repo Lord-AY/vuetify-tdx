@@ -1,3 +1,5 @@
+/* eslint-disable vue/no-parsing-error */ /* eslint-disable vue/no-parsing-error
+*/
 <template>
   <!--Section-->
   <section class="sptb" style="padding-top: 30px;">
@@ -5,25 +7,25 @@
     <div class="container">
       <div class="row ">
         <div class="col-lg-8 col-md-12 col-md-12">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <div class="form-box">
-                <div class="form-box-title">
-                  <span
-                    style="font-size: 18px; margin-left: 10px;"
-                    class="text-uppercase"
-                    >Post an Ad</span
-                  >
-                </div>
+          <form action="" class="form-horizontal" @submit.prevent="processForm">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="form-box">
+                  <div class="form-box-title">
+                    <span
+                      style="font-size: 18px; margin-left: 10px;"
+                      class="text-uppercase"
+                      >Post an Ad</span
+                    >
+                  </div>
 
-                <div class="row">
-                  <div
-                    class="col-md-10 offset-md-1 col-sm-12 col-lg-10 offset-lg-1"
-                  >
-                    <!-- Ad Details -->
-                    <div class="row">
-                      <div class="col-md-12">
-                        <form action="" class="form-horizontal">
+                  <div class="row">
+                    <div
+                      class="col-md-10 offset-md-1 col-sm-12 col-lg-10 offset-lg-1"
+                    >
+                      <!-- Ad Details -->
+                      <div class="row">
+                        <div class="col-md-12">
                           <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                               <!-- AD details -->
@@ -42,6 +44,7 @@
                                       type="text"
                                       class="form-control post-ad-input"
                                       placeholder="Ad title"
+                                      v-model="ads.name"
                                     />
                                   </div>
                                 </div>
@@ -53,28 +56,19 @@
                                     <label class="form-label text-dark"
                                       >Category</label
                                     >
-                                    <select class="form-control custom-select">
+                                    <select
+                                      class="form-control custom-select"
+                                      v-model="ads.cid"
+                                    >
                                       <option value="0" disabled
                                         >-- Select Option --</option
                                       >
-                                      <option value="1">RealEstate</option>
-                                      <option value="2">Apartments</option>
-                                      <option value="3"
-                                        >Offices & Fitness</option
+                                      <option
+                                        :value="category.id"
+                                        v-for="category in categories"
+                                        :key="category.id"
+                                        >{{ category.name }}</option
                                       >
-                                      <option value="4">2BHK Flats</option>
-                                      <option value="5">Apartments</option>
-                                      <option value="6">Laxury Rooms</option>
-                                      <option value="7">Homes</option>
-                                      <option value="8">Laxury Homes</option>
-                                      <option value="9">Modren Houses</option>
-                                      <option value="10"
-                                        >Home & Furinture</option
-                                      >
-                                      <option value="11"> Homes</option>
-                                      <option value="12">Duplex House</option>
-                                      <option value="13">Laxury Rooms</option>
-                                      <option value="14">3BHK Flatss</option>
                                     </select>
                                   </div>
                                 </div>
@@ -85,30 +79,435 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label class="form-label text-dark">
-                                      Sub Category</label
+                                      Country</label
                                     >
                                     <select class="form-control custom-select">
                                       <option value="0" disabled
                                         >-- Select Option --</option
                                       >
-                                      <option value="1">RealEstate</option>
-                                      <option value="2">Apartments</option>
-                                      <option value="3"
-                                        >Offices & Fitness</option
+                                      <option
+                                        :value="item.name"
+                                        v-for="(item, index) in items"
+                                        :key="index"
+                                        >{{ item.name }}</option
                                       >
-                                      <option value="4">2BHK Flats</option>
-                                      <option value="5">Apartments</option>
-                                      <option value="6">Laxury Rooms</option>
-                                      <option value="7">Homes</option>
-                                      <option value="8">Laxury Homes</option>
-                                      <option value="9">Modren Houses</option>
-                                      <option value="10"
-                                        >Home & Furinture</option
+                                      <option value="NG" v-show="!itemExists"
+                                        >Nigeria</option
                                       >
-                                      <option value="11"> Homes</option>
-                                      <option value="12">Duplex House</option>
-                                      <option value="13">Laxury Rooms</option>
-                                      <option value="14">3BHK Flatss</option>
+                                      <option value="UM" v-show="!itemExists"
+                                        >United States of America</option
+                                      >
+                                      <option value="AF" v-show="!itemExists"
+                                        >Afghanistan</option
+                                      >
+                                      <option value="AL" v-show="!itemExists"
+                                        >Albania</option
+                                      >
+                                      <option value="AD" v-show="!itemExists"
+                                        >Andorra</option
+                                      >
+                                      <option value="AG" v-show="!itemExists"
+                                        >Antigua and Barbuda</option
+                                      >
+                                      <option value="AU" v-show="!itemExists"
+                                        >Australia</option
+                                      >
+                                      <option value="AM" v-show="!itemExists"
+                                        >Armenia</option
+                                      >
+                                      <option value="AO" v-show="!itemExists"
+                                        >Angola</option
+                                      >
+                                      <option value="AR" v-show="!itemExists"
+                                        >Argentina</option
+                                      >
+                                      <option value="AT" v-show="!itemExists"
+                                        >Austria</option
+                                      >
+                                      <option value="AZ" v-show="!itemExists"
+                                        >Azerbaijan</option
+                                      >
+                                      <option value="BA" v-show="!itemExists"
+                                        >Bosnia and Herzegovina</option
+                                      >
+                                      <option value="BB" v-show="!itemExists"
+                                        >Barbados</option
+                                      >
+                                      <option value="BD" v-show="!itemExists"
+                                        >Bangladesh</option
+                                      >
+                                      <option value="BE" v-show="!itemExists"
+                                        >Belgium</option
+                                      >
+                                      <option value="BF" v-show="!itemExists"
+                                        >Burkina Faso</option
+                                      >
+                                      <option value="BG" v-show="!itemExists"
+                                        >Bulgaria</option
+                                      >
+                                      <option value="BH" v-show="!itemExists"
+                                        >Bahrain</option
+                                      >
+                                      <option value="BJ" v-show="!itemExists"
+                                        >Benin</option
+                                      >
+                                      <option value="BN" v-show="!itemExists"
+                                        >Brunei</option
+                                      >
+                                      <option value="BO" v-show="!itemExists"
+                                        >Bolivia</option
+                                      >
+                                      <option value="BT" v-show="!itemExists"
+                                        >Bhutan</option
+                                      >
+                                      <option value="BY" v-show="!itemExists"
+                                        >Belarus</option
+                                      >
+                                      <option value="CD" v-show="!itemExists"
+                                        >Congo</option
+                                      >
+                                      <option value="CA" v-show="!itemExists"
+                                        >Canada</option
+                                      >
+                                      <option value="CF" v-show="!itemExists"
+                                        >Central African Republic</option
+                                      >
+                                      <option value="CI" v-show="!itemExists"
+                                        >Cote d'Ivoire</option
+                                      >
+                                      <option value="CL" v-show="!itemExists"
+                                        >Chile</option
+                                      >
+                                      <option value="CM" v-show="!itemExists"
+                                        >Cameroon</option
+                                      >
+                                      <option value="CN" v-show="!itemExists"
+                                        >China</option
+                                      >
+                                      <option value="CO" v-show="!itemExists"
+                                        >Colombia</option
+                                      >
+                                      <option value="CU" v-show="!itemExists"
+                                        >Cuba</option
+                                      >
+                                      <option value="CV" v-show="!itemExists"
+                                        >Cabo Verde</option
+                                      >
+                                      <option value="CY" v-show="!itemExists"
+                                        >Cyprus</option
+                                      >
+                                      <option value="DJ" v-show="!itemExists"
+                                        >Djibouti</option
+                                      >
+                                      <option value="DK" v-show="!itemExists"
+                                        >Denmark</option
+                                      >
+                                      <option value="DM" v-show="!itemExists"
+                                        >Dominica</option
+                                      >
+                                      <option value="DO" v-show="!itemExists"
+                                        >Dominican Republic</option
+                                      >
+                                      <option value="EC" v-show="!itemExists"
+                                        >Ecuador</option
+                                      >
+                                      <option value="EE" v-show="!itemExists"
+                                        >Estonia</option
+                                      >
+                                      <option value="ER" v-show="!itemExists"
+                                        >Eritrea</option
+                                      >
+                                      <option value="ET" v-show="!itemExists"
+                                        >Ethiopia</option
+                                      >
+                                      <option value="FI" v-show="!itemExists"
+                                        >Finland</option
+                                      >
+                                      <option value="FJ" v-show="!itemExists"
+                                        >Fiji</option
+                                      >
+                                      <option value="FR" v-show="!itemExists"
+                                        >France</option
+                                      >
+                                      <option value="GA" v-show="!itemExists"
+                                        >Gabon</option
+                                      >
+                                      <option value="GD" v-show="!itemExists"
+                                        >Grenada</option
+                                      >
+                                      <option value="GE" v-show="!itemExists"
+                                        >Georgia</option
+                                      >
+                                      <option value="GH" v-show="!itemExists"
+                                        >Ghana</option
+                                      >
+                                      <option value="GH" v-show="!itemExists"
+                                        >Ghana</option
+                                      >
+                                      <option value="HN" v-show="!itemExists"
+                                        >Honduras</option
+                                      >
+                                      <option value="HT" v-show="!itemExists"
+                                        >Haiti</option
+                                      >
+                                      <option value="HU" v-show="!itemExists"
+                                        >Hungary</option
+                                      >
+                                      <option value="ID" v-show="!itemExists"
+                                        >Indonesia</option
+                                      >
+                                      <option value="IE" v-show="!itemExists"
+                                        >Ireland</option
+                                      >
+                                      <option value="IL" v-show="!itemExists"
+                                        >Israel</option
+                                      >
+                                      <option value="IN" v-show="!itemExists"
+                                        >India</option
+                                      >
+                                      <option value="IQ" v-show="!itemExists"
+                                        >Iraq</option
+                                      >
+                                      <option value="IR" v-show="!itemExists"
+                                        >Iran</option
+                                      >
+                                      <option value="IS" v-show="!itemExists"
+                                        >Iceland</option
+                                      >
+                                      <option value="IT" v-show="!itemExists"
+                                        >Italy</option
+                                      >
+                                      <option value="JM" v-show="!itemExists"
+                                        >Jamaica</option
+                                      >
+                                      <option value="JO" v-show="!itemExists"
+                                        >Jordan</option
+                                      >
+                                      <option value="JP" v-show="!itemExists"
+                                        >Japan</option
+                                      >
+                                      <option value="KE" v-show="!itemExists"
+                                        >Kenya</option
+                                      >
+                                      <option value="KG" v-show="!itemExists"
+                                        >Kyrgyzstan</option
+                                      >
+                                      <option value="KI" v-show="!itemExists"
+                                        >Kiribati</option
+                                      >
+                                      <option value="KW" v-show="!itemExists"
+                                        >Kuwait</option
+                                      >
+                                      <option value="KZ" v-show="!itemExists"
+                                        >Kazakhstan</option
+                                      >
+                                      <option value="LA" v-show="!itemExists"
+                                        >Laos</option
+                                      >
+                                      <option value="LB" v-show="!itemExists"
+                                        >Lebanons</option
+                                      >
+                                      <option value="LI" v-show="!itemExists"
+                                        >Liechtenstein</option
+                                      >
+                                      <option value="LR" v-show="!itemExists"
+                                        >Liberia</option
+                                      >
+                                      <option value="LS" v-show="!itemExists"
+                                        >Lesotho</option
+                                      >
+                                      <option value="LT" v-show="!itemExists"
+                                        >Lithuania</option
+                                      >
+                                      <option value="LU" v-show="!itemExists"
+                                        >Luxembourg</option
+                                      >
+                                      <option value="LV" v-show="!itemExists"
+                                        >Latvia</option
+                                      >
+                                      <option value="LY" v-show="!itemExists"
+                                        >Libya</option
+                                      >
+                                      <option value="MA" v-show="!itemExists"
+                                        >Morocco</option
+                                      >
+                                      <option value="MC" v-show="!itemExists"
+                                        >Monaco</option
+                                      >
+                                      <option value="MD" v-show="!itemExists"
+                                        >Moldova</option
+                                      >
+                                      <option value="ME" v-show="!itemExists"
+                                        >Montenegro</option
+                                      >
+                                      <option value="MG" v-show="!itemExists"
+                                        >Madagascar</option
+                                      >
+                                      <option value="MH" v-show="!itemExists"
+                                        >Marshall Islands</option
+                                      >
+                                      <option value="MK" v-show="!itemExists"
+                                        >Macedonia (FYROM)</option
+                                      >
+                                      <option value="ML" v-show="!itemExists"
+                                        >Mali</option
+                                      >
+                                      <option value="MM" v-show="!itemExists"
+                                        >Myanmar (formerly Burma)</option
+                                      >
+                                      <option value="MN" v-show="!itemExists"
+                                        >Mongolia</option
+                                      >
+                                      <option value="MR" v-show="!itemExists"
+                                        >Mauritania</option
+                                      >
+                                      <option value="MT" v-show="!itemExists"
+                                        >Malta</option
+                                      >
+                                      <option value="MV" v-show="!itemExists"
+                                        >Maldives</option
+                                      >
+                                      <option value="MW" v-show="!itemExists"
+                                        >Malawi</option
+                                      >
+                                      <option value="MX" v-show="!itemExists"
+                                        >Mexico</option
+                                      >
+                                      <option value="MZ" v-show="!itemExists"
+                                        >Mozambique</option
+                                      >
+                                      <option value="NA" v-show="!itemExists"
+                                        >Namibia</option
+                                      >
+                                      <option value="NG" v-show="!itemExists"
+                                        >Nigeria</option
+                                      >
+                                      <option value="NO" v-show="!itemExists"
+                                        >Norway</option
+                                      >
+                                      <option value="NP" v-show="!itemExists"
+                                        >Nepal</option
+                                      >
+                                      <option value="NR" v-show="!itemExists"
+                                        >Nauru</option
+                                      >
+                                      <option value="NZ" v-show="!itemExists"
+                                        >New Zealand</option
+                                      >
+                                      <option value="OM" v-show="!itemExists"
+                                        >Oman</option
+                                      >
+                                      <option value="PA" v-show="!itemExists"
+                                        >Panama</option
+                                      >
+                                      <option value="PF" v-show="!itemExists"
+                                        >Paraguay</option
+                                      >
+                                      <option value="PG" v-show="!itemExists"
+                                        >Papua New Guinea</option
+                                      >
+                                      <option value="PH" v-show="!itemExists"
+                                        >Philippines</option
+                                      >
+                                      <option value="PK" v-show="!itemExists"
+                                        >Pakistan</option
+                                      >
+                                      <option value="PL" v-show="!itemExists"
+                                        >Poland</option
+                                      >
+                                      <option value="QA" v-show="!itemExists"
+                                        >Qatar</option
+                                      >
+                                      <option value="RO" v-show="!itemExists"
+                                        >Romania</option
+                                      >
+                                      <option value="RU" v-show="!itemExists"
+                                        >Russia</option
+                                      >
+                                      <option value="RW" v-show="!itemExists"
+                                        >Rwanda</option
+                                      >
+                                      <option value="SA" v-show="!itemExists"
+                                        >Saudi Arabia</option
+                                      >
+                                      <option value="SB" v-show="!itemExists"
+                                        >Solomon Islands</option
+                                      >
+                                      <option value="SC" v-show="!itemExists"
+                                        >Seychelles</option
+                                      >
+                                      <option value="SD" v-show="!itemExists"
+                                        >Sudan</option
+                                      >
+                                      <option value="SE" v-show="!itemExists"
+                                        >Sweden</option
+                                      >
+                                      <option value="SG" v-show="!itemExists"
+                                        >Singapore</option
+                                      >
+                                      <option value="TG" v-show="!itemExists"
+                                        >Togo</option
+                                      >
+                                      <option value="TH" v-show="!itemExists"
+                                        >Thailand</option
+                                      >
+                                      <option value="TJ" v-show="!itemExists"
+                                        >Tajikistan</option
+                                      >
+                                      <option value="TL" v-show="!itemExists"
+                                        >Timor-Leste</option
+                                      >
+                                      <option value="TM" v-show="!itemExists"
+                                        >Turkmenistan</option
+                                      >
+                                      <option value="TN" v-show="!itemExists"
+                                        >Tunisia</option
+                                      >
+                                      <option value="TO" v-show="!itemExists"
+                                        >Tonga</option
+                                      >
+                                      <option value="TR" v-show="!itemExists"
+                                        >Turkey</option
+                                      >
+                                      <option value="TT" v-show="!itemExists"
+                                        >Trinidad and Tobago</option
+                                      >
+                                      <option value="TW" v-show="!itemExists"
+                                        >Taiwan</option
+                                      >
+                                      <option value="UA" v-show="!itemExists"
+                                        >Ukraine</option
+                                      >
+                                      <option value="UG" v-show="!itemExists"
+                                        >Uganda</option
+                                      >
+                                      <option value="UY" v-show="!itemExists"
+                                        >Uruguay</option
+                                      >
+                                      <option value="UZ" v-show="!itemExists"
+                                        >Uzbekistan</option
+                                      >
+                                      <option value="VA" v-show="!itemExists"
+                                        >Vatican City (Holy See)</option
+                                      >
+                                      <option value="VE" v-show="!itemExists"
+                                        >Venezuela</option
+                                      >
+                                      <option value="VN" v-show="!itemExists"
+                                        >Vietnam</option
+                                      >
+                                      <option value="VU" v-show="!itemExists"
+                                        >Vanuatu</option
+                                      >
+                                      <option value="YE" v-show="!itemExists"
+                                        >Yemen</option
+                                      >
+                                      <option value="ZM" v-show="!itemExists"
+                                        >Zambia</option
+                                      >
+                                      <option value="ZW" v-show="itemExists"
+                                        >Zimbabwe {{ itemExists }}</option
+                                      >
                                     </select>
                                   </div>
                                 </div>
@@ -126,6 +525,7 @@
                                     rows="4"
                                     placeholder="Write a short description about the item"
                                     style="padding-top: 10px"
+                                    v-model="ads.description"
                                   ></textarea>
                                 </div>
                               </div>
@@ -138,6 +538,7 @@
                                       type="number"
                                       class="form-control post-ad-input"
                                       placeholder="Price"
+                                      v-model="ads.amount"
                                     />
                                   </div>
                                 </div>
@@ -152,11 +553,12 @@
                                       <input
                                         type="checkbox"
                                         class="custom-control-input"
+                                        v-model="ads.negotiable"
                                       />
                                       <span
                                         class="custom-control-label text-dark pl-2"
                                         style="margin-left: -10px;"
-                                        >Negotiable.</span
+                                        >Negotiable</span
                                       >
                                     </label>
                                   </div>
@@ -164,44 +566,30 @@
                               </div>
 
                               <div class="p-2 border mb-4 form-group">
-                                <form>
-                                  <label style="font-weight: 600;">
-                                    Upload Images</label
-                                  >
-                                  <p>
-                                    Ads with photo attracts more customers.
-                                    Formats accepted are .jpg, .png and .gif.
-                                    Maximum size for uploading files is 5 MB.
-                                    Add 1 photo or more for this category.
-                                  </p>
-                                  <input
-                                    id="demo"
-                                    type="file"
-                                    name="files"
-                                    accept=".jpg, .png, image/jpeg, image/png, html, zip, css,js"
-                                    multiple
-                                  />
-                                  <p style="margin-top: 16px;">
-                                    <b>Note:</b> The first photo is used as the
-                                    main photo that the customers see.
-                                  </p>
-                                </form>
+                                <label for="">Upload images</label>
+                                <vue-upload-multiple-image
+                                  @upload-success="selectImageSuccess"
+                                  @before-remove="beforeRemove"
+                                  :data-images="images"
+                                  dragText="Images must not exceed 2mb for each"
+                                  browseText="Browse image"
+                                  primaryText="Default Image"
+                                  markIsPrimaryText="slide images"
+                                  popupText="This image will be used as the default display image, when showing your ads"
+                                ></vue-upload-multiple-image>
                               </div>
                             </div>
                           </div>
-                        </form>
+                        </div>
                       </div>
-                    </div>
 
-                    <!-- Personal Information -->
-                    <div class="row" style="margin-top: 30px;">
+                      <!-- Personal Information -->
+                      <!-- <div class="row" style="margin-top: 30px;">
                       <div class="col-md-12">
                         <form action="" class="form-horizontal">
                           <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                              <!-- AD details -->
-
-                              <div class="ad-information ">
+                          <div class="ad-information ">
                                 <div class="ad-section-title">
                                   Personal Information
                                 </div>
@@ -262,12 +650,12 @@
                           </div>
                         </form>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <!-- Ad Post Package -->
-                    <div class="row" style="margin-top: 30px;">
-                      <div class="col-md-12">
-                        <form action="" class="form-horizontal">
+                      <!-- Ad Post Package -->
+                      <div class="row" style="margin-top: 30px;">
+                        <div class="col-md-12">
+                          <!-- <form action="" class="form-horizontal"> -->
                           <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                               <!-- AD details -->
@@ -304,8 +692,9 @@
                                         <input
                                           type="radio"
                                           class="custom-control-input"
-                                          name="radios1"
-                                          value="option7"
+                                          name="example"
+                                          v-model="ads.adType"
+                                          value="1"
                                           checked=""
                                         />
                                         <span class="custom-control-label">
@@ -332,8 +721,9 @@
                                         <input
                                           type="radio"
                                           class="custom-control-input"
-                                          name="radios1"
-                                          value="option8"
+                                          name="example"
+                                          v-model="ads.adType"
+                                          value="2"
                                         />
                                         <span class="custom-control-label">
                                           <b>Urgent Ad</b>
@@ -355,8 +745,9 @@
                                         <input
                                           type="radio"
                                           class="custom-control-input"
-                                          name="radios1"
-                                          value="option9"
+                                          name="example"
+                                          v-model="ads.adType"
+                                          value="3"
                                         />
                                         <span class="custom-control-label">
                                           <b>Top Ad</b>
@@ -372,7 +763,7 @@
                                 </div>
                               </div>
 
-                              <div class="link-to-senior-ads">
+                              <!-- <div class="link-to-senior-ads">
                                 <span class="explanatory-text"
                                   >Make your ad PREMIUM
                                 </span>
@@ -382,7 +773,7 @@
                                 >
                                   Click here</a
                                 >
-                              </div>
+                              </div> -->
 
                               <div class="row">
                                 <div class="col-lg-4 col-md-6 col-sm-12">
@@ -428,6 +819,7 @@
                                       <button
                                         class="btn btn-block btn-primary"
                                         style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click="setPayment('4')"
                                       >
                                         Select
                                       </button>
@@ -478,7 +870,8 @@
                                     <div class="select-senior-ad">
                                       <button
                                         class="btn btn-block btn-primary"
-                                        style="background-color: #d6ead7; border-color: #d6ead7; color: #4CAF50;"
+                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click="setPayment('5')"
                                       >
                                         Select
                                       </button>
@@ -528,41 +921,42 @@
                                     <div class="select-senior-ad">
                                       <button
                                         class="btn btn-block btn-primary"
-                                        style="background-color: #d6ead7; border-color: #d6ead7; color: #4CAF50;"
+                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click="setPayment('6')"
                                       >
                                         Select
                                       </button>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
 
-                              <div class="row total-pricing">
-                                <div class="total-pricing-sub-div">
-                                  <p><i> Total: &#8358; 0.00</i></p>
+                                <div class="row total-pricing">
+                                  <div class="total-pricing-sub-div">
+                                    <p><i> Total: &#8358; 0.00</i></p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
+                            <!-- </form> -->
                           </div>
-                        </form>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <div class="form-box">
-                <div class="form-box-title">
-                  <span style="font-size: 18px; margin-left: 10px;"
-                    >Payments</span
-                  >
-                </div>
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="form-box">
+                  <div class="form-box-title">
+                    <span style="font-size: 18px; margin-left: 10px;"
+                      >Payments</span
+                    >
+                  </div>
 
-                <div class="row">
-                  <div class="col-md-10 offset-md-1">
-                    <form action="" class="form-horizontal">
+                  <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                      <!-- <form action="" class="form-horizontal"> -->
                       <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                           <div class="tab-content card-body border mb-0 b-0">
@@ -578,6 +972,7 @@
                                         href="#tab5"
                                         class="active"
                                         data-toggle="tab"
+                                        @click="addPayment(1)"
                                       >
                                         <img
                                           src="../../assets/images/wallet.svg"
@@ -590,7 +985,11 @@
                                       >
                                     </li>
                                     <li>
-                                      <a href="#tab6" data-toggle="tab">
+                                      <a
+                                        href="#tab6"
+                                        data-toggle="tab"
+                                        @click="addPayment(2)"
+                                      >
                                         <img
                                           src="../../assets/images/master_card.png"
                                           height="20px"
@@ -602,7 +1001,11 @@
                                       >
                                     </li>
                                     <li>
-                                      <a href="#tab7" data-toggle="tab">
+                                      <a
+                                        href="#tab7"
+                                        data-toggle="tab"
+                                        @click="addPayment(3)"
+                                      >
                                         <i class="fa fa-university"></i> Cash</a
                                       >
                                     </li>
@@ -625,6 +1028,7 @@
                                           type="text"
                                           class="form-control post-ad-input"
                                           placeholder="Wallet ID"
+                                          name="wallet_id"
                                         />
                                         <!-- <span class="input-group-append">
                                 <button class="btn btn-info" type="button"><i class="fa fa-cc-visa"></i> &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
@@ -641,6 +1045,7 @@
                                         class="form-control post-ad-input"
                                         id="name1"
                                         placeholder="PIN"
+                                        name="wallet_pin"
                                       />
                                     </div>
                                     <div
@@ -663,7 +1068,7 @@
                                         </label>
                                       </div>
                                     </div>
-                                    <ul class=" mb-b-4 ">
+                                    <!-- <ul class=" mb-b-4 ">
                                       <li>
                                         <a
                                           href="#"
@@ -672,24 +1077,7 @@
                                           >Pay</a
                                         >
                                       </li>
-                                    </ul>
-                                    <!-- <div class="row">
-                            <div class="col-sm-8">
-                              <div class="form-group mb-sm-0">
-                                <label class="form-label">Expiration</label>
-                                <div class="input-group">
-                                  <input type="number" class="form-control" placeholder="MM" name="expiremonth">
-                                  <input type="number" class="form-control" placeholder="YY" name="expireyear">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-sm-4 ">
-                              <div class="form-group mb-0">
-                                <label class="form-label">CVV <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Please Enter last 3 digits"></i></label>
-                                <input type="number" class="form-control" required="">
-                              </div>
-                            </div>
-                          </div> -->
+                                    </ul> -->
                                   </div>
                                   <div class="tab-pane " id="tab6">
                                     <div class="form-group">
@@ -699,8 +1087,9 @@
                                       <input
                                         type="text"
                                         class="form-control"
-                                        id="name1"
+                                        id="name2"
                                         placeholder="First Name"
+                                        name="card_name"
                                       />
                                     </div>
                                     <div class="form-group">
@@ -712,6 +1101,7 @@
                                           type="text"
                                           class="form-control"
                                           placeholder="Card Number"
+                                          name="card"
                                         />
                                         <span class="input-group-append">
                                           <button
@@ -761,7 +1151,7 @@
                                           <input
                                             type="number"
                                             class="form-control"
-                                            required=""
+                                            name="terms"
                                           />
                                         </div>
                                       </div>
@@ -786,7 +1176,7 @@
                                         </label>
                                       </div>
                                     </div>
-                                    <ul class=" mb-b-4 ">
+                                    <!-- <ul class=" mb-b-4 ">
                                       <li>
                                         <a
                                           href="#"
@@ -795,7 +1185,7 @@
                                           >Pay</a
                                         >
                                       </li>
-                                    </ul>
+                                    </ul> -->
                                   </div>
                                   <div class="tab-pane " id="tab7">
                                     <div class="cash-info">
@@ -819,18 +1209,21 @@
                           </div>
                         </div>
                       </div>
-                    </form>
+                      <!-- </form> -->
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12">
-              <div class="post-ad-submit-button">
-                <button class="btn btn-primary bt-block">Post Your Ad</button>
+              <div
+                class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 mb-5"
+              >
+                <div class="post-ad-submit-button">
+                  <button class="btn btn-primary bt-block">Post Your Ad</button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
         <div class="col-lg-4 col-md-12 mobile-hidden">
           <div class="card">
@@ -947,8 +1340,29 @@
 // require("../../assets/plugins/fancyuploder/fancy_fileupload.css");
 // require("../../assets/css/style.css");
 
+import VueUploadMultipleImage from "vue-upload-multiple-image";
+import axios from "axios";
+
 export default {
   name: "postad",
+  data() {
+    return {
+      selectedImages: [],
+      uploaded: [],
+      errors: null,
+      selected: 1
+    };
+  },
+  props: {
+    categories: [Object, Array],
+    ads: [Object, Array],
+    images: Array,
+    items: [Array, Object],
+    itemExists: Boolean
+  },
+  components: {
+    VueUploadMultipleImage
+  },
   mounted() {
     let extScript = document.createElement("script");
     // extScript.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js')
@@ -975,6 +1389,58 @@ export default {
     document.head.appendChild(extScript);
   },
   methods: {
+    selectImageSuccess(formData, index, fileList) {
+      // console.log("data", formData, index, fileList);
+      // store images to data object
+      this.selectedImages = fileList;
+    },
+    beforeRemove(index, done, fileList) {
+      console.log("index", index, fileList);
+      var r = confirm("remove image");
+      if (r == true) {
+        done();
+      } else {
+        return;
+      }
+    },
+    // editImage(formData, index, fileList) {
+    //   // console.log("edit data", formData, index, fileList);
+    // },
+    // dataChange(data) {
+    //   console.log(data);
+    // },
+    processForm() {
+      // upload photo
+      const images = this.selectedImages;
+      for (let image of images) {
+        const form = new FormData();
+        form.append("file", image.path);
+        form.append("upload_preset", "khieqxha");
+        form.append("api_key", "291355523372857");
+        axios
+          .post("https://api.cloudinary.com/v1_1/coderoute/image/upload", form)
+          .then(({ data }) => {
+            this.uploaded.push(data.secure_url);
+          })
+          .catch(error => {
+            this.errors = error.response.data;
+          });
+      }
+    },
+    sendFormRequest(images) {
+      console.log("Function called");
+      let selected = this.selectedImages;
+      // check if uploaded images are equals to selected images
+      if (selected.length == images.length) {
+        console.log("arrays are equal");
+        this.$emit("create-ads", images);
+      } else {
+        console.log("arrays not yet equal");
+      }
+    },
+    setPayment(value) {
+      this.ads.adType = value;
+    },
     sync() {
       $("#demo").FancyFileUpload({
         params: {
@@ -1007,7 +1473,13 @@ export default {
     }
   },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    uploaded: {
+      handler: function(uploaded) {
+        console.log(uploaded);
+        this.sendFormRequest(uploaded);
+      }
+    }
   },
   created() {
     this.sync();
@@ -1045,5 +1517,77 @@ export default {
   .hidden-desktop {
     display: none !important;
   }
+}
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input:checked {
+  background: #4caf50;
+}
+.option-input:checked::before {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  content: "✔";
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 40px;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #4caf50;
+  content: "";
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.option-input.radio {
+  border-radius: 50%;
+}
+.option-input.radio::after {
+  border-radius: 50%;
 }
 </style>

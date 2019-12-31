@@ -2,7 +2,7 @@ $(document).ready(function() {
   $("body").ihavecookies({
     title: "&#x1F36A; Accept Cookies & Privacy Policy?",
     message:
-      "There are no cookies used on this site, but if there were this message could be customised to provide more details. Click the <strong>accept</strong> button below to see the optional callback in action...",
+      "This website would use cookies and localstorage to enhance the page speed in the future. Click the <strong>accept</strong> button below to allow cookie storage on your browser...",
     delay: 600,
     expires: 1,
     link: "#privacy",
@@ -12,8 +12,7 @@ $(document).ready(function() {
       console.log(myPreferences);
     },
     uncheckBoxes: true,
-    acceptBtnLabel: "Accept Cookies",
-    moreInfoLabel: "More information"
+    acceptBtnLabel: "Accept Cookies"
   });
 
   if ($.fn.ihavecookies.preference("marketing") === true) {

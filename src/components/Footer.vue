@@ -4,7 +4,7 @@
     <footer class="footer-bg">
       <div class="footer-main">
         <div class="container">
-          <div class="row">
+          <div class="row no-show-footer-mobile">
             <div class="col-lg-3 col-md-12">
               <router-link to="/Home">
                 <img
@@ -148,6 +148,31 @@
                 </ul>
               </div>
             </div>
+          </div>
+
+          <div class="hidden-desktop">
+            <ul class="bottom-links">
+              <li>
+                <a href="#">
+                  Help Center
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Terms &amp; Conditions
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Become a Seller
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div class="text-center payment-card-spacing-tx">

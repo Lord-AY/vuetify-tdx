@@ -42236,6 +42236,39 @@ experimental shii
 .hidden-desktop{
 	display: block !important;
 }
+
+.main-search-button-container{
+	margin-left: 4px;
+}
+
+@media (max-width: 991px){
+	.main-search-button-container{
+		margin-left: auto !important;
+		width: 90%;
+		margin-right: auto;
+		margin-top: 10px;
+	}
+	.main-search-button-container > a{
+		width: 100%;
+		background: #4caf50;
+	}
+	.vas-text{
+		margin-top: 10px;
+		display: block;
+		max-width: 90px;
+		white-space: normal;
+		word-wrap: break-word;
+		font-family: "Avenir";
+		font-weight: 100 !important;
+		font-size: 15px !important;
+	}
+	.value-added-tx{
+		line-height: 20px;
+	}
+	.vas-text > h3{
+		font-size: 15px !important;
+	}
+}
   
 @media (min-width: 769px) {
 	.mobile-hidden {
@@ -42332,4 +42365,16 @@ experimental shii
 	font-size: 14px; 
 	color: #fff;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+.no-padding{
+padding: 0px !important;
+}
+
+ul.bottom-links{
+	text-align: center;
+}
+
+ul.bottom-links > li{
+	text-align: center;
+	display: inline-block;
+	margin: 0px 5px;
 }
