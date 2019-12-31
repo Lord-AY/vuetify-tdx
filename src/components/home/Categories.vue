@@ -283,4 +283,12 @@ export default {
   grid-gap: 10px;
   grid-auto-rows: auto;
 }
+@media (min-width: 768px) {
+  .vas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: auto;
+  }
+}
 </style>
