@@ -3,7 +3,10 @@
   <section class="categories">
     <div class="container">
       <div class="transparency">
-        <div class="card  mb-0 box-shadow-0 new-search-box" style="padding-bottom: 10px;">
+        <div
+          class="card  mb-0 box-shadow-0 new-search-box"
+          style="padding-bottom: 10px;"
+        >
           <div class="card-body new-search">
             <div class="row search-row no-padding">
               <div class="col-md-12">
@@ -75,7 +78,10 @@
                         ></i>
                       </span>
                     </div>
-                    <div class="col-sm-auto no-padding vas-text" style="padding: 0px !important;">
+                    <div
+                      class="col-sm-auto no-padding vas-text"
+                      style="padding: 0px !important;"
+                    >
                       <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
                         Airtime or Data
                       </h3>
@@ -94,7 +100,10 @@
                         ></i>
                       </span>
                     </div>
-                    <div class="col-sm-auto no-padding vas-text" style="padding: 0px !important;">
+                    <div
+                      class="col-sm-auto no-padding vas-text"
+                      style="padding: 0px !important;"
+                    >
                       <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
                         TV Subscription
                       </h3>
@@ -113,7 +122,10 @@
                         ></i>
                       </span>
                     </div>
-                    <div class="col-sm-auto no-padding vas-text" style="padding: 0px !important;">
+                    <div
+                      class="col-sm-auto no-padding vas-text"
+                      style="padding: 0px !important;"
+                    >
                       <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
                         Electricity Units
                       </h3>
@@ -132,7 +144,10 @@
                         ></i>
                       </span>
                     </div>
-                    <div class="col-sm-auto no-padding vas-text" style="padding: 0px !important;">
+                    <div
+                      class="col-sm-auto no-padding vas-text"
+                      style="padding: 0px !important;"
+                    >
                       <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
                         More Services
                       </h3>
@@ -242,27 +257,27 @@ export default {
     position: relative!important;
 }*/
 
-@media (max-width: 567px){
-  .col-xs-3{
+@media (max-width: 567px) {
+  .col-xs-3 {
     -webkit-box-flex: 0;
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
   }
-  .col-sm-auto.no-padding{
+  .col-sm-auto.no-padding {
     padding-right: 0.75rem !important;
     padding-left: 0.75rem !important;
   }
 }
-.icon-service1 i{
+.icon-service1 i {
   font-size: 30px !important;
 }
 
-.vas-text{
-    display: flex;
-    align-items: center;
-    /* font-size:  */
+.vas-text {
+  display: flex;
+  align-items: center;
+  /* font-size:  */
 }
-.vas-grid{
+.vas-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;

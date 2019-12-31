@@ -389,9 +389,18 @@
                 class="hidden"
                 checked
               />
-              <label class="bmenu toggle" for="bmenu_toggle" accesskey="1" style="padding: 10px; height: 40px;">
+              <label
+                class="bmenu toggle"
+                for="bmenu_toggle"
+                accesskey="1"
+                style="padding: 10px; height: 40px;"
+              >
                 <span style="font-size: .9125rem; font-weight: 400;">
-                  <i class="fa fa-bars" style="color: #4CAF50; margin-right: 3px;"></i> All Categories
+                  <i
+                    class="fa fa-bars"
+                    style="color: #4CAF50; margin-right: 3px;"
+                  ></i>
+                  All Categories
                 </span>
               </label>
               <div class="hide-at-start-wrapper">

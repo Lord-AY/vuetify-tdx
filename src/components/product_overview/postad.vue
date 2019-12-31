@@ -816,7 +816,7 @@
                                       </ul>
                                     </div>
                                     <div class="select-senior-ad">
-                                       <button
+                                      <button
                                         class="btn btn-block btn-primary"
                                         style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
                                         @click="setPayment('4')"

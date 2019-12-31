@@ -71,12 +71,12 @@ export default {
 };
 </script>
 <style>
-@media (max-width: 991px){
-  .footer-main{
+@media (max-width: 991px) {
+  .footer-main {
     padding-top: 0px !important;
     padding-bottom: 64px !important;
   }
-  .no-show-footer-mobile{
+  .no-show-footer-mobile {
     display: none !important;
   }
 }
