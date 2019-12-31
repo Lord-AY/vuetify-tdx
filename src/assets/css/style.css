@@ -42213,6 +42213,39 @@ experimental shii
 .hidden-desktop{
 	display: block !important;
 }
+
+.main-search-button-container{
+	margin-left: 4px;
+}
+
+@media (max-width: 991px){
+	.main-search-button-container{
+		margin-left: auto !important;
+		width: 90%;
+		margin-right: auto;
+		margin-top: 10px;
+	}
+	.main-search-button-container > a{
+		width: 100%;
+		background: #4caf50;
+	}
+	.vas-text{
+		margin-top: 10px;
+		display: block;
+		max-width: 90px;
+		white-space: normal;
+		word-wrap: break-word;
+		font-family: "Avenir";
+		font-weight: 100 !important;
+		font-size: 15px !important;
+	}
+	.value-added-tx{
+		line-height: 20px;
+	}
+	.vas-text > h3{
+		font-size: 15px !important;
+	}
+}
   
 @media (min-width: 769px) {
 	.mobile-hidden {

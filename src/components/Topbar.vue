@@ -1390,7 +1390,7 @@ export default {
   z-index: 1000;
   top: 94px;
   width: 100%;
-  border-top: 3px solid #4caf50;
+  /* border-top: 3px solid #4caf50; */
 }
 .bmenu {
   background: white;
