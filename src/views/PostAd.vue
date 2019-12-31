@@ -1,15 +1,12 @@
 <template>
-<<<<<<< HEAD
-  <postad :categories="categories" :ads="ads" :images="selectedImages" @create-ads="createAds" :items="items" :itemExists="itemsExists"></postad>
-=======
   <postad
     :categories="categories"
     :ads="ads"
     :images="selectedImages"
     @create-ads="createAds"
     :items="items"
+    :itemExists="itemsExists"
   ></postad>
->>>>>>> 8d2e3f59351aa87496c7d3168b3adafb45d095bb
 </template>
 <script>
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
@@ -47,7 +44,7 @@ export default {
         currency: "Naira",
         creator: "",
         price: null,
-        paymentype:null,
+        paymentype: null,
         negotiable: false,
         subcategory: null,
         featured: false,
@@ -93,18 +90,24 @@ export default {
       // checking if its an array and its not empty
       if (Array.isArray(countries) && countries.length) {
         this.itemsExists = true;
+        console.log(this.items);
       } else {
         this.itemsExists = false;
+        console.log(this.items);
       }
     }
   },
   watch: {
     $route: "sync"
   },
+
+  mounted() {
+    this.fetchCountries();
+  },
   created() {
     this.sync();
-    this.fetchCountries();
-    setTimeout(this.watchCountries(), 3500);
+    this.watchCountries();
+    console.log(!!this.itemsExists);
   }
 };
 </script>
