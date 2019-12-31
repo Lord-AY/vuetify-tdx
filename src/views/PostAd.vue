@@ -5,6 +5,7 @@
     :images="selectedImages"
     @create-ads="createAds"
     :items="items"
+    :itemExists="itemsExists"
   ></postad>
 </template>
 <script>
@@ -32,6 +33,7 @@ export default {
     return {
       selectedImages: [],
       items: [],
+      itemsExists: false,
       ads: {
         cid: "",
         uid: "",
@@ -42,12 +44,13 @@ export default {
         currency: "Naira",
         creator: "",
         price: null,
+        amount: null,
         negotiable: false,
         subcategory: null,
         featured: false,
         tradexplorer: true,
         adType: null,
-        paymentType: null,
+        paymentType: 1,
         approved: true,
         published: true,
         description: "",
@@ -67,28 +70,48 @@ export default {
     sync() {
       console.log("Jquert Mounted");
     },
-    createAds() {
+    createAds(e) {
       // create payload
+      console.log("event emitted");
       const payload = {
         product: this.ads
       };
       // add image to payload
-      payload.product.photos = this.selectedImages;
+      payload.product.photos = e;
+      console.log("photos updated");
       // send payload to vuex
       this.createProduct(payload);
+      console.log("action called");
+      console.log(payload);
     },
     async fetchCountries() {
       const res = await axios.get("https://restcountries.eu/rest/v2/all");
       this.items = res.data;
       console.log(res.data);
+    },
+    watchCountries() {
+      const countries = this.items;
+      // checking if its an array and its not empty
+      if (Array.isArray(countries) && countries.length) {
+        this.itemsExists = true;
+        console.log(this.items);
+      } else {
+        this.itemsExists = false;
+        console.log(this.items);
+      }
     }
   },
   watch: {
     $route: "sync"
   },
+
+  mounted() {
+    this.fetchCountries();
+  },
   created() {
     this.sync();
-    this.fetchCountries();
+    this.watchCountries();
+    console.log(!!this.itemsExists);
   }
 };
 </script>

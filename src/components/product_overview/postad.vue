@@ -91,6 +91,423 @@
                                         :key="index"
                                         >{{ item.name }}</option
                                       >
+                                      <option value="NG" v-show="!itemExists"
+                                        >Nigeria</option
+                                      >
+                                      <option value="UM" v-show="!itemExists"
+                                        >United States of America</option
+                                      >
+                                      <option value="AF" v-show="!itemExists"
+                                        >Afghanistan</option
+                                      >
+                                      <option value="AL" v-show="!itemExists"
+                                        >Albania</option
+                                      >
+                                      <option value="AD" v-show="!itemExists"
+                                        >Andorra</option
+                                      >
+                                      <option value="AG" v-show="!itemExists"
+                                        >Antigua and Barbuda</option
+                                      >
+                                      <option value="AU" v-show="!itemExists"
+                                        >Australia</option
+                                      >
+                                      <option value="AM" v-show="!itemExists"
+                                        >Armenia</option
+                                      >
+                                      <option value="AO" v-show="!itemExists"
+                                        >Angola</option
+                                      >
+                                      <option value="AR" v-show="!itemExists"
+                                        >Argentina</option
+                                      >
+                                      <option value="AT" v-show="!itemExists"
+                                        >Austria</option
+                                      >
+                                      <option value="AZ" v-show="!itemExists"
+                                        >Azerbaijan</option
+                                      >
+                                      <option value="BA" v-show="!itemExists"
+                                        >Bosnia and Herzegovina</option
+                                      >
+                                      <option value="BB" v-show="!itemExists"
+                                        >Barbados</option
+                                      >
+                                      <option value="BD" v-show="!itemExists"
+                                        >Bangladesh</option
+                                      >
+                                      <option value="BE" v-show="!itemExists"
+                                        >Belgium</option
+                                      >
+                                      <option value="BF" v-show="!itemExists"
+                                        >Burkina Faso</option
+                                      >
+                                      <option value="BG" v-show="!itemExists"
+                                        >Bulgaria</option
+                                      >
+                                      <option value="BH" v-show="!itemExists"
+                                        >Bahrain</option
+                                      >
+                                      <option value="BJ" v-show="!itemExists"
+                                        >Benin</option
+                                      >
+                                      <option value="BN" v-show="!itemExists"
+                                        >Brunei</option
+                                      >
+                                      <option value="BO" v-show="!itemExists"
+                                        >Bolivia</option
+                                      >
+                                      <option value="BT" v-show="!itemExists"
+                                        >Bhutan</option
+                                      >
+                                      <option value="BY" v-show="!itemExists"
+                                        >Belarus</option
+                                      >
+                                      <option value="CD" v-show="!itemExists"
+                                        >Congo</option
+                                      >
+                                      <option value="CA" v-show="!itemExists"
+                                        >Canada</option
+                                      >
+                                      <option value="CF" v-show="!itemExists"
+                                        >Central African Republic</option
+                                      >
+                                      <option value="CI" v-show="!itemExists"
+                                        >Cote d'Ivoire</option
+                                      >
+                                      <option value="CL" v-show="!itemExists"
+                                        >Chile</option
+                                      >
+                                      <option value="CM" v-show="!itemExists"
+                                        >Cameroon</option
+                                      >
+                                      <option value="CN" v-show="!itemExists"
+                                        >China</option
+                                      >
+                                      <option value="CO" v-show="!itemExists"
+                                        >Colombia</option
+                                      >
+                                      <option value="CU" v-show="!itemExists"
+                                        >Cuba</option
+                                      >
+                                      <option value="CV" v-show="!itemExists"
+                                        >Cabo Verde</option
+                                      >
+                                      <option value="CY" v-show="!itemExists"
+                                        >Cyprus</option
+                                      >
+                                      <option value="DJ" v-show="!itemExists"
+                                        >Djibouti</option
+                                      >
+                                      <option value="DK" v-show="!itemExists"
+                                        >Denmark</option
+                                      >
+                                      <option value="DM" v-show="!itemExists"
+                                        >Dominica</option
+                                      >
+                                      <option value="DO" v-show="!itemExists"
+                                        >Dominican Republic</option
+                                      >
+                                      <option value="EC" v-show="!itemExists"
+                                        >Ecuador</option
+                                      >
+                                      <option value="EE" v-show="!itemExists"
+                                        >Estonia</option
+                                      >
+                                      <option value="ER" v-show="!itemExists"
+                                        >Eritrea</option
+                                      >
+                                      <option value="ET" v-show="!itemExists"
+                                        >Ethiopia</option
+                                      >
+                                      <option value="FI" v-show="!itemExists"
+                                        >Finland</option
+                                      >
+                                      <option value="FJ" v-show="!itemExists"
+                                        >Fiji</option
+                                      >
+                                      <option value="FR" v-show="!itemExists"
+                                        >France</option
+                                      >
+                                      <option value="GA" v-show="!itemExists"
+                                        >Gabon</option
+                                      >
+                                      <option value="GD" v-show="!itemExists"
+                                        >Grenada</option
+                                      >
+                                      <option value="GE" v-show="!itemExists"
+                                        >Georgia</option
+                                      >
+                                      <option value="GH" v-show="!itemExists"
+                                        >Ghana</option
+                                      >
+                                      <option value="GH" v-show="!itemExists"
+                                        >Ghana</option
+                                      >
+                                      <option value="HN" v-show="!itemExists"
+                                        >Honduras</option
+                                      >
+                                      <option value="HT" v-show="!itemExists"
+                                        >Haiti</option
+                                      >
+                                      <option value="HU" v-show="!itemExists"
+                                        >Hungary</option
+                                      >
+                                      <option value="ID" v-show="!itemExists"
+                                        >Indonesia</option
+                                      >
+                                      <option value="IE" v-show="!itemExists"
+                                        >Ireland</option
+                                      >
+                                      <option value="IL" v-show="!itemExists"
+                                        >Israel</option
+                                      >
+                                      <option value="IN" v-show="!itemExists"
+                                        >India</option
+                                      >
+                                      <option value="IQ" v-show="!itemExists"
+                                        >Iraq</option
+                                      >
+                                      <option value="IR" v-show="!itemExists"
+                                        >Iran</option
+                                      >
+                                      <option value="IS" v-show="!itemExists"
+                                        >Iceland</option
+                                      >
+                                      <option value="IT" v-show="!itemExists"
+                                        >Italy</option
+                                      >
+                                      <option value="JM" v-show="!itemExists"
+                                        >Jamaica</option
+                                      >
+                                      <option value="JO" v-show="!itemExists"
+                                        >Jordan</option
+                                      >
+                                      <option value="JP" v-show="!itemExists"
+                                        >Japan</option
+                                      >
+                                      <option value="KE" v-show="!itemExists"
+                                        >Kenya</option
+                                      >
+                                      <option value="KG" v-show="!itemExists"
+                                        >Kyrgyzstan</option
+                                      >
+                                      <option value="KI" v-show="!itemExists"
+                                        >Kiribati</option
+                                      >
+                                      <option value="KW" v-show="!itemExists"
+                                        >Kuwait</option
+                                      >
+                                      <option value="KZ" v-show="!itemExists"
+                                        >Kazakhstan</option
+                                      >
+                                      <option value="LA" v-show="!itemExists"
+                                        >Laos</option
+                                      >
+                                      <option value="LB" v-show="!itemExists"
+                                        >Lebanons</option
+                                      >
+                                      <option value="LI" v-show="!itemExists"
+                                        >Liechtenstein</option
+                                      >
+                                      <option value="LR" v-show="!itemExists"
+                                        >Liberia</option
+                                      >
+                                      <option value="LS" v-show="!itemExists"
+                                        >Lesotho</option
+                                      >
+                                      <option value="LT" v-show="!itemExists"
+                                        >Lithuania</option
+                                      >
+                                      <option value="LU" v-show="!itemExists"
+                                        >Luxembourg</option
+                                      >
+                                      <option value="LV" v-show="!itemExists"
+                                        >Latvia</option
+                                      >
+                                      <option value="LY" v-show="!itemExists"
+                                        >Libya</option
+                                      >
+                                      <option value="MA" v-show="!itemExists"
+                                        >Morocco</option
+                                      >
+                                      <option value="MC" v-show="!itemExists"
+                                        >Monaco</option
+                                      >
+                                      <option value="MD" v-show="!itemExists"
+                                        >Moldova</option
+                                      >
+                                      <option value="ME" v-show="!itemExists"
+                                        >Montenegro</option
+                                      >
+                                      <option value="MG" v-show="!itemExists"
+                                        >Madagascar</option
+                                      >
+                                      <option value="MH" v-show="!itemExists"
+                                        >Marshall Islands</option
+                                      >
+                                      <option value="MK" v-show="!itemExists"
+                                        >Macedonia (FYROM)</option
+                                      >
+                                      <option value="ML" v-show="!itemExists"
+                                        >Mali</option
+                                      >
+                                      <option value="MM" v-show="!itemExists"
+                                        >Myanmar (formerly Burma)</option
+                                      >
+                                      <option value="MN" v-show="!itemExists"
+                                        >Mongolia</option
+                                      >
+                                      <option value="MR" v-show="!itemExists"
+                                        >Mauritania</option
+                                      >
+                                      <option value="MT" v-show="!itemExists"
+                                        >Malta</option
+                                      >
+                                      <option value="MV" v-show="!itemExists"
+                                        >Maldives</option
+                                      >
+                                      <option value="MW" v-show="!itemExists"
+                                        >Malawi</option
+                                      >
+                                      <option value="MX" v-show="!itemExists"
+                                        >Mexico</option
+                                      >
+                                      <option value="MZ" v-show="!itemExists"
+                                        >Mozambique</option
+                                      >
+                                      <option value="NA" v-show="!itemExists"
+                                        >Namibia</option
+                                      >
+                                      <option value="NG" v-show="!itemExists"
+                                        >Nigeria</option
+                                      >
+                                      <option value="NO" v-show="!itemExists"
+                                        >Norway</option
+                                      >
+                                      <option value="NP" v-show="!itemExists"
+                                        >Nepal</option
+                                      >
+                                      <option value="NR" v-show="!itemExists"
+                                        >Nauru</option
+                                      >
+                                      <option value="NZ" v-show="!itemExists"
+                                        >New Zealand</option
+                                      >
+                                      <option value="OM" v-show="!itemExists"
+                                        >Oman</option
+                                      >
+                                      <option value="PA" v-show="!itemExists"
+                                        >Panama</option
+                                      >
+                                      <option value="PF" v-show="!itemExists"
+                                        >Paraguay</option
+                                      >
+                                      <option value="PG" v-show="!itemExists"
+                                        >Papua New Guinea</option
+                                      >
+                                      <option value="PH" v-show="!itemExists"
+                                        >Philippines</option
+                                      >
+                                      <option value="PK" v-show="!itemExists"
+                                        >Pakistan</option
+                                      >
+                                      <option value="PL" v-show="!itemExists"
+                                        >Poland</option
+                                      >
+                                      <option value="QA" v-show="!itemExists"
+                                        >Qatar</option
+                                      >
+                                      <option value="RO" v-show="!itemExists"
+                                        >Romania</option
+                                      >
+                                      <option value="RU" v-show="!itemExists"
+                                        >Russia</option
+                                      >
+                                      <option value="RW" v-show="!itemExists"
+                                        >Rwanda</option
+                                      >
+                                      <option value="SA" v-show="!itemExists"
+                                        >Saudi Arabia</option
+                                      >
+                                      <option value="SB" v-show="!itemExists"
+                                        >Solomon Islands</option
+                                      >
+                                      <option value="SC" v-show="!itemExists"
+                                        >Seychelles</option
+                                      >
+                                      <option value="SD" v-show="!itemExists"
+                                        >Sudan</option
+                                      >
+                                      <option value="SE" v-show="!itemExists"
+                                        >Sweden</option
+                                      >
+                                      <option value="SG" v-show="!itemExists"
+                                        >Singapore</option
+                                      >
+                                      <option value="TG" v-show="!itemExists"
+                                        >Togo</option
+                                      >
+                                      <option value="TH" v-show="!itemExists"
+                                        >Thailand</option
+                                      >
+                                      <option value="TJ" v-show="!itemExists"
+                                        >Tajikistan</option
+                                      >
+                                      <option value="TL" v-show="!itemExists"
+                                        >Timor-Leste</option
+                                      >
+                                      <option value="TM" v-show="!itemExists"
+                                        >Turkmenistan</option
+                                      >
+                                      <option value="TN" v-show="!itemExists"
+                                        >Tunisia</option
+                                      >
+                                      <option value="TO" v-show="!itemExists"
+                                        >Tonga</option
+                                      >
+                                      <option value="TR" v-show="!itemExists"
+                                        >Turkey</option
+                                      >
+                                      <option value="TT" v-show="!itemExists"
+                                        >Trinidad and Tobago</option
+                                      >
+                                      <option value="TW" v-show="!itemExists"
+                                        >Taiwan</option
+                                      >
+                                      <option value="UA" v-show="!itemExists"
+                                        >Ukraine</option
+                                      >
+                                      <option value="UG" v-show="!itemExists"
+                                        >Uganda</option
+                                      >
+                                      <option value="UY" v-show="!itemExists"
+                                        >Uruguay</option
+                                      >
+                                      <option value="UZ" v-show="!itemExists"
+                                        >Uzbekistan</option
+                                      >
+                                      <option value="VA" v-show="!itemExists"
+                                        >Vatican City (Holy See)</option
+                                      >
+                                      <option value="VE" v-show="!itemExists"
+                                        >Venezuela</option
+                                      >
+                                      <option value="VN" v-show="!itemExists"
+                                        >Vietnam</option
+                                      >
+                                      <option value="VU" v-show="!itemExists"
+                                        >Vanuatu</option
+                                      >
+                                      <option value="YE" v-show="!itemExists"
+                                        >Yemen</option
+                                      >
+                                      <option value="ZM" v-show="!itemExists"
+                                        >Zambia</option
+                                      >
+                                      <option value="ZW" v-show="itemExists"
+                                        >Zimbabwe {{ itemExists }}</option
+                                      >
                                     </select>
                                   </div>
                                 </div>
@@ -817,108 +1234,108 @@
             </div>
           </form>
         </div>
-      </div>
-      <div class="col-lg-4 col-md-12 mobile-hidden">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Benefits Of Premium Ad</h3>
+        <div class="col-lg-4 col-md-12 mobile-hidden">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Benefits Of Premium Ad</h3>
+            </div>
+            <div class="card-body pb-2">
+              <ul class="list-unstyled widget-spec vertical-scroll mb-0">
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium Ads Active
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads are displayed on top
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads will be Show in Google results
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium Ads Active
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads are displayed on top
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads will be Show in Google results
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium Ads Active
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads are displayed on top
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads will be Show in Google results
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium Ads Active
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads are displayed on top
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads will be Show in Google results
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium Ads Active
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads are displayed on top
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads will be Show in Google results
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="card-body pb-2">
-            <ul class="list-unstyled widget-spec vertical-scroll mb-0">
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium Ads Active
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads are displayed on top
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads will be Show in Google results
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium Ads Active
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads are displayed on top
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads will be Show in Google results
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium Ads Active
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads are displayed on top
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads will be Show in Google results
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium Ads Active
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads are displayed on top
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads will be Show in Google results
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium Ads Active
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads are displayed on top
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads will be Show in Google results
-              </li>
-            </ul>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Terms And Conditions</h3>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled widget-spec  mb-0">
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Money Not Refundable
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i>You
+                  can renew your Premium ad after experted.
+                </li>
+                <li>
+                  <i class="fa fa-check text-success" aria-hidden="true"></i
+                  >Premium ads are active for depend on package.
+                </li>
+                <li class="ml-5 mb-0">
+                  <a href="tips.html"> View more..</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Terms And Conditions</h3>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled widget-spec  mb-0">
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i>Money
-                Not Refundable
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i>You
-                can renew your Premium ad after experted.
-              </li>
-              <li>
-                <i class="fa fa-check text-success" aria-hidden="true"></i
-                >Premium ads are active for depend on package.
-              </li>
-              <li class="ml-5 mb-0">
-                <a href="tips.html"> View more..</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="card mb-0">
-          <div class="card-header">
-            <h3 class="card-title">Ads</h3>
-          </div>
-          <div class="card-body">
-            <div class="ads">
-              <img src="../../assets/images/gloads.jpg" alt="" srcset="" />
+          <div class="card mb-0">
+            <div class="card-header">
+              <h3 class="card-title">Ads</h3>
+            </div>
+            <div class="card-body">
+              <div class="ads">
+                <img src="../../assets/images/gloads.jpg" alt="" srcset="" />
+              </div>
             </div>
           </div>
         </div>
@@ -940,6 +1357,7 @@ export default {
   data() {
     return {
       selectedImages: [],
+      uploaded: [],
       errors: null,
       selected: 1
     };
@@ -948,7 +1366,8 @@ export default {
     categories: [Object, Array],
     ads: [Object, Array],
     images: Array,
-    items: [Array, Object]
+    items: [Array, Object],
+    itemExists: Boolean
   },
   components: {
     VueUploadMultipleImage
@@ -979,10 +1398,6 @@ export default {
     document.head.appendChild(extScript);
   },
   methods: {
-    adsSelect(value) {
-      this.selected = value;
-      this.ads.paymentType = this.selected;
-    },
     selectImageSuccess(formData, index, fileList) {
       // console.log("data", formData, index, fileList);
       // store images to data object
@@ -1013,16 +1428,24 @@ export default {
         form.append("api_key", "291355523372857");
         axios
           .post("https://api.cloudinary.com/v1_1/coderoute/image/upload", form)
-          .then(response => {
-            this.ads.photos.push(response.data.secure_url);
+          .then(({ data }) => {
+            this.uploaded.push(data.secure_url);
           })
           .catch(error => {
             this.errors = error.response.data;
           });
       }
-      // send event to create ads
-      // console.log("before create ads");
-      setTimeout(this.$emit("create-ads"), 360000);
+    },
+    sendFormRequest(images) {
+      console.log("Function called");
+      let selected = this.selectedImages;
+      // check if uploaded images are equals to selected images
+      if (selected.length == images.length) {
+        console.log("arrays are equal");
+        this.$emit("create-ads", images);
+      } else {
+        console.log("arrays not yet equal");
+      }
     },
     addPayment(value) {
       this.ads.paymentType = value;
@@ -1059,7 +1482,13 @@ export default {
     }
   },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    uploaded: {
+      handler: function(uploaded) {
+        console.log(uploaded);
+        this.sendFormRequest(uploaded);
+      }
+    }
   },
   created() {
     this.sync();
