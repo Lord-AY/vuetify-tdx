@@ -41532,6 +41532,24 @@ body .modal-open {
 	margin-right: 6px;
 }
 
+.btn-reg {
+    padding: 8px 12px!important;
+    font-size: 16px!important;
+    font-weight: 500;
+}
+
+.facebook-reg {
+    border: 2px solid #3B5998!important;
+	color: #3B5998;
+}
+
+.google-reg {
+    border: 2px solid #EA4335!important;
+    color: #EA4335;
+}
+
+
+
 .viewall i {
 	color: #4CAF50;
 }
