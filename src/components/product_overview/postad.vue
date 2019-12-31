@@ -816,16 +816,13 @@
                                       </ul>
                                     </div>
                                     <div class="select-senior-ad">
-                                      <label>
-                                        <input
-                                          type="radio"
-                                          class="option-input radio"
-                                          name="example"
-                                          v-model="ads.adType"
-                                          value="4"
-                                        />
-                                        Gold
-                                      </label>
+                                       <button
+                                        class="btn btn-block btn-primary"
+                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click="setPayment('4')"
+                                      >
+                                        Select
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
@@ -871,16 +868,13 @@
                                     </div>
 
                                     <div class="select-senior-ad">
-                                      <label>
-                                        <input
-                                          type="radio"
-                                          class="option-input radio"
-                                          name="example"
-                                          v-model="ads.adType"
-                                          value="5"
-                                        />
-                                        Premium
-                                      </label>
+                                      <button
+                                        class="btn btn-block btn-primary"
+                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click="setPayment('5')"
+                                      >
+                                        Select
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
@@ -925,16 +919,13 @@
                                       </ul>
                                     </div>
                                     <div class="select-senior-ad">
-                                      <label>
-                                        <input
-                                          type="radio"
-                                          class="option-input radio"
-                                          name="example"
-                                          v-model="ads.adType"
-                                          value="6"
-                                        />
-                                        Hot Sellers
-                                      </label>
+                                      <button
+                                        class="btn btn-block btn-primary"
+                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click="setPayment('6')"
+                                      >
+                                        Select
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
@@ -1447,8 +1438,8 @@ export default {
         console.log("arrays not yet equal");
       }
     },
-    addPayment(value) {
-      this.ads.paymentType = value;
+    setPayment(value) {
+      this.ads.adType = value;
     },
     sync() {
       $("#demo").FancyFileUpload({
