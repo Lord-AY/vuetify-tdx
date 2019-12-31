@@ -334,9 +334,18 @@
           <span></span>
           <span></span>
         </div>
-        <span class="smllogo">
+        <!-- <div class="log-logo">
           <img src="../assets/images/brand/tradexplora-01.png" alt />
-        </span>
+        </div> -->
+        <div class="smllogo">
+          <img src="../assets/images/brand/tradexplora-01.png" alt />
+        </div>
+
+        <div
+          style="margin: 0px; position: relative; float: right; display: inline-block; top: 16px; height: 100%;"
+        >
+          <span><i class="fa fa-search" style="color: #cac9c9"></i></span>
+        </div>
         <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
       </div>
     </div>
