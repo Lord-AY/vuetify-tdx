@@ -40,7 +40,7 @@ export default {
         name: "",
         photos: [],
         videos: [],
-        region: "Nigeria",
+        region: "",
         currency: "Naira",
         creator: "",
         price: null,
