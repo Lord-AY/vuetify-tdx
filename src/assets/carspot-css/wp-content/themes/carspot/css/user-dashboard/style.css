@@ -3399,14 +3399,18 @@ ul.activity-timeline > li:last-child:after {
     border-right-color: #e9e9e9;
 }
 .my-message .message::before {
-    border-left-color: #2B333E
+	/* border-left-color: #2B333E */
+	border-left-color: #79d07c;
 }
 .friend-message .message {
     background-color: #e9e9e9
 }
 .my-message .message {
-    background-color: #2B333E;
-    color: #fff
+    /* background-color: #2B333E;
+	color: #fff */
+	background-color: #79d07c !important;
+	color: #fff;
+	border-radius: 8px 0px 8px 0px !important;
 }
 .message-details h2 {
     color: #232323;
