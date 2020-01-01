@@ -3,7 +3,7 @@
     <start></start>
     <categories></categories>
     <sptb :categories="categories"></sptb>
-    <sptb_white></sptb_white>
+    <sptbWhite :ads="productListings"></sptbWhite>
     <sptb_pattern></sptb_pattern>
     <total_sellers class="mobile-hidden"></total_sellers>
     <testimonial class="mobile-hidden"></testimonial>
@@ -18,7 +18,7 @@ import { mapActions, mapGetters } from "vuex";
 import start from "@/components/home/Start";
 import categories from "@/components/home/Categories";
 import sptb from "@/components/home/SPTB";
-import sptb_white from "@/components/home/SPTB-White";
+import sptbWhite from "@/components/home/SPTB-White";
 import sptb_pattern from "@/components/home/SPTB-Pattern";
 import total_sellers from "@/components/home/TotalSellers";
 import testimonial from "@/components/home/Testimonial";
@@ -34,7 +34,7 @@ export default {
     start,
     categories,
     sptb,
-    sptb_white,
+    sptbWhite,
     sptb_pattern,
     total_sellers,
     testimonial,
@@ -43,10 +43,10 @@ export default {
   },
 
   computed: {
-    ...mapGetters("product", ["categories"])
+    ...mapGetters("product", ["categories", "productListings"])
   },
   methods: {
-    ...mapActions("product", ["fetchAllCategories"]),
+    ...mapActions("product", ["fetchAllCategories", "fetchAllProducts"]),
     sync() {
       console.log("Jquery mounted");
     },
@@ -61,6 +61,7 @@ export default {
     this.sync();
     this.$forceUpdate();
     this.fetchAllCategories();
+    this.fetchAllProducts();
   },
   beforeCreate() {
     console.log("this is before created");
