@@ -739,7 +739,7 @@ ul.notifications .mail-contnet .mail-desc {
 }
 .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active, .router-link-exact-active.router-link-active {
 	background-color: #252c35;
-	border-left-color: #E52D27 !important;
+	border-left-color: #79d07c !important;
 }
 .sidebar .nav > li > a[data-toggle="collapse"] .icon-submenu {
 	display: inline-block;
