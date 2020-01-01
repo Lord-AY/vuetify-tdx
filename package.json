@@ -13,6 +13,7 @@
     "lodash": "^4.17.15",
     "v-file-upload": "^3.1.7",
     "vue": "^2.6.10",
+    "vue-content-loader": "^0.2.2",
     "vue-phone-number-input": "^1.0.10",
     "vue-promise-btn": "^2.0.2",
     "vue-router": "^3.1.3",
