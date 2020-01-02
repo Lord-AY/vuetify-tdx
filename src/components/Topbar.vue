@@ -343,11 +343,11 @@
           <img src="../assets/images/brand/tradexplora-01.png" alt />
         </div>
 
-        <div
+        <!-- In case search is needed in mobile, this is an icon for it<div
           style="margin: 0px; position: relative; float: right; display: inline-block; top: 16px; height: 100%;"
         >
           <span><i class="fa fa-search" style="color: #cac9c9"></i></span>
-        </div>
+        </div> -->
         <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
       </div>
     </div>
@@ -389,6 +389,8 @@
                 type="checkbox"
                 name="bmenu-open"
                 class="hidden"
+                checked
+                aria-checked="true"
               />
               <label
                 class="bmenu toggle"
@@ -1352,7 +1354,7 @@ export default {
   /* width: 0; */
   width: 250px;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   left: -260px;
   background-color: #fff;
@@ -1433,5 +1435,4 @@ export default {
     width: 1170px;
   }
 }
-
 </style>
