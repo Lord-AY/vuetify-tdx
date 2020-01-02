@@ -17880,7 +17880,7 @@ footer .border-top {
 	padding-bottom: 12rem;
 }
 .categories {
-	margin-top: -35px;
+	margin-top: -60px;
 }
 .categories-1 {
 	margin-top: -120px;
@@ -28654,6 +28654,11 @@ a.text-light:focus, a.text-light:hover {
 	font-size: 0.875rem;
 	position: relative;
 }
+a.post-ad-header-tx:hover {
+	color: #fff!important;
+	font-size: 0.875rem;
+	position: relative;
+}
 .btn-tx {
 	padding: 0.671875rem 0.9375rem!important;
 	border-radius: 0px!important;
@@ -38415,7 +38420,7 @@ footer .border-top {
 	padding-bottom: 12rem;
 }
 .categories {
-	margin-top: -35px;
+	margin-top: -50px;
 }
 .categories-1 {
 	margin-top: -120px;
@@ -41527,6 +41532,24 @@ body .modal-open {
 	margin-right: 6px;
 }
 
+.btn-reg {
+    padding: 8px 12px!important;
+    font-size: 16px!important;
+    font-weight: 500;
+}
+
+.facebook-reg {
+    border: 2px solid #3B5998!important;
+	color: #3B5998;
+}
+
+.google-reg {
+    border: 2px solid #EA4335!important;
+    color: #EA4335;
+}
+
+
+
 .viewall i {
 	color: #4CAF50;
 }
@@ -42235,7 +42258,7 @@ experimental shii
 		max-width: 90px;
 		white-space: normal;
 		word-wrap: break-word;
-		font-family: "Avenir";
+		/* font-family: "Avenir"; */
 		font-weight: 100 !important;
 		font-size: 15px !important;
 	}
@@ -42327,6 +42350,22 @@ experimental shii
 	font-weight: 600!important;
 }
 
+.row-tdx {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.header-search-button-container {
+	
+}
+
+.header-search-button {
+	height: 100%; 
+	line-height: 13px; 
+	font-size: 14px; 
+	color: #fff;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
 .no-padding{
 padding: 0px !important;
 }

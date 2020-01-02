@@ -34,12 +34,29 @@
       </div>
       <!-- /header-text -->
     </div>
+    <div
+      class="banner-1 cover-image sptb-2 sptb-tab bg-background2"
+      data-image-src="../../assets/images/banners/Sellprods.jpg"
+    >
+      <div class="header-text mb-0">
+        <div class="container">
+          <div class="text-center text-white mb-7"></div>
+          <div class="row">
+            <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
+              <div class="search-background bg-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /header-text -->
+    </div>
   </section>
   <!--/Section-->
 </template>
 
 <script>
 /* eslint-disable no-undef */
+require("../../../src/assets/plugins/animate/animate.css");
 export default {
   name: "start",
   methods: {
@@ -57,9 +74,11 @@ export default {
           loop: true,
           nav: false,
           autoplay: true,
-          dots: false,
+          dots: true,
+          animateIn: "fadeIn",
           animateOut: "fadeOut",
-          smartSpeed: 450,
+          autoplayTimeout: 4000,
+          // smartSpeed: 450,
           items: 1
           // itemsDesktop : false,
           // itemsDesktopSmall : false,
@@ -78,4 +97,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.owl-carousel .owl-dots {
+  position: relative;
+  z-index: 10;
+  bottom: 50px;
+}
+
+.home .owl-carousel button.owl-dot {
+  width: 20px !important;
+  height: 20px !important;
+  background: rgba(66, 131, 68, 0.438) !important;
+}
+
+/* .owl-carousel button.owl-dot.active {
+    background: #4CAF50 !important;
+} */
+</style>

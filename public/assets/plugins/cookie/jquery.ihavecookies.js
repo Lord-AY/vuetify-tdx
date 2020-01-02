@@ -64,9 +64,9 @@
         link: "/privacy/",
         delay: 2000,
         expires: 30,
-        moreInfoLabel: "More information",
+        moreInfoLabel: "",
         acceptBtnLabel: "Accept Cookies",
-        advancedBtnLabel: "Customise Cookies",
+        advancedBtnLabel: "Select Specifics",
         onAccept: function() {},
         uncheckBoxes: false
       },
