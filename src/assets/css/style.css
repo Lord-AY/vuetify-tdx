@@ -42387,3 +42387,23 @@ ul.bottom-links > li{
     
     width: 17.333333333333332em!important;
 }
+
+.hide-at-start-wrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 94px;
+  width: 100%;
+  /* border-top: 3px solid #4caf50; */
+}
+.bmenu {
+  background: white;
+  color: black !important;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 400;
+  /* font-family: avenir; */
+}
+
+.horizontal-main {
+  border-bottom: 3px solid #4caf50;
+}
