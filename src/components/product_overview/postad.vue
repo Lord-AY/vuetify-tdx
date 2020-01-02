@@ -3,6 +3,12 @@
 <template>
   <!--Section-->
   <section class="sptb" style="padding-top: 30px;">
+    <Loading
+      :active.sync="isLoading"
+      :can-cancel="isLoading"
+      :on-cancel="onCancel"
+      :is-full-page="fullPage"
+    ></Loading>
     <!-- <div class="container" style="padding-top: 70px;"> -->
     <div class="container">
       <div class="row ">
@@ -819,7 +825,7 @@
                                       <button
                                         class="btn btn-block btn-primary"
                                         style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
-                                        @click="setPayment('4')"
+                                        @click.prevent="setPayment('4')"
                                       >
                                         Select
                                       </button>
@@ -871,7 +877,7 @@
                                       <button
                                         class="btn btn-block btn-primary"
                                         style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
-                                        @click="setPayment('5')"
+                                        @click.prevent="setPayment('5')"
                                       >
                                         Select
                                       </button>
@@ -922,7 +928,7 @@
                                       <button
                                         class="btn btn-block btn-primary"
                                         style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
-                                        @click="setPayment('6')"
+                                        @click.prevent="setPayment('6')"
                                       >
                                         Select
                                       </button>
@@ -1342,7 +1348,10 @@
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import axios from "axios";
-
+// Import component
+import Loading from "vue-loading-overlay";
+// Import stylesheet
+import "vue-loading-overlay/dist/vue-loading.css";
 export default {
   name: "postad",
   data() {
@@ -1350,7 +1359,9 @@ export default {
       selectedImages: [],
       uploaded: [],
       errors: null,
-      selected: 1
+      selected: 1,
+      isLoading: false,
+      fullPage: true
     };
   },
   props: {
@@ -1361,7 +1372,8 @@ export default {
     itemExists: Boolean
   },
   components: {
-    VueUploadMultipleImage
+    VueUploadMultipleImage,
+    Loading
   },
   mounted() {
     let extScript = document.createElement("script");
@@ -1410,6 +1422,7 @@ export default {
     //   console.log(data);
     // },
     processForm() {
+      this.isLoading = true;
       // upload photo
       const images = this.selectedImages;
       for (let image of images) {
@@ -1440,6 +1453,9 @@ export default {
     },
     setPayment(value) {
       this.ads.adType = value;
+    },
+    onCancel() {
+      console.log("User cancelled the loader.");
     },
     sync() {
       $("#demo").FancyFileUpload({
