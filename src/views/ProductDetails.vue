@@ -107,7 +107,6 @@ export default {
     this.sync();
     // this.$forceUpdate();
     // fetch single product for view
-    this.getSingleProduct();
   },
   beforeCreate() {
     console.log("this is before created");

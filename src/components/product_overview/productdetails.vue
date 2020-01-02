@@ -1,3 +1,4 @@
+import false from 'vue-phone-number-input';
 <template>
   <div class="product_details generic-wrapper">
     <div class="main-content-area clearfix">
@@ -187,7 +188,7 @@
               <div class="key-features row">
                 <div class="boxicon">
                   <a
-                    data-toggle="tooltip"
+                    data-Limit="tooltip"
                     data-placement="bottom"
                     title="Engine Type"
                     href="javascript:void(0)"
@@ -198,7 +199,7 @@
                 </div>
                 <div class="boxicon">
                   <a
-                    data-toggle="tooltip"
+                    data-Limit="tooltip"
                     data-placement="bottom"
                     title="Mileage"
                     href="javascript:void(0)"
@@ -209,7 +210,7 @@
                 </div>
                 <div class="boxicon">
                   <a
-                    data-toggle="tooltip"
+                    data-Limit="tooltip"
                     data-placement="bottom"
                     title="Engine Capacity"
                     href="javascript:void(0)"
@@ -220,7 +221,7 @@
                 </div>
                 <div class="boxicon">
                   <a
-                    data-toggle="tooltip"
+                    data-Limit="tooltip"
                     data-placement="bottom"
                     title="Year"
                     href="javascript:void(0)"
@@ -231,7 +232,7 @@
                 </div>
                 <div class="boxicon">
                   <a
-                    data-toggle="tooltip"
+                    data-Limit="tooltip"
                     data-placement="bottom"
                     title="Transmission Type"
                     href="javascript:void(0)"
@@ -242,7 +243,7 @@
                 </div>
                 <div class="boxicon">
                   <a
-                    data-toggle="tooltip"
+                    data-Limit="tooltip"
                     data-placement="bottom"
                     title="Body Type"
                     href="javascript:void(0)"
@@ -253,7 +254,7 @@
                 </div>
                 <div class="boxicon">
                   <a
-                    data-toggle="tooltip"
+                    data-Limit="tooltip"
                     data-placement="bottom"
                     title="Color Family"
                     href="javascript:void(0)"
@@ -266,18 +267,18 @@
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-tabs" style="margin-bottom: 16px;">
                   <li class="tab-pane-tx active">
-                    <a data-toggle="tabs" href="#home">Description</a>
+                    <a data-Limit="tabs" href="#home">Description</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="tabs" href="#menu1">Features</a>
+                    <a data-Limit="tabs" href="#menu1">Features</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="tabs" href="#menu2">Reviews(0)</a>
+                    <a data-Limit="tabs" href="#menu2">Reviews(0)</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-toggle="tabs" href="#menu3">Location Map</a>
+                    <a data-Limit="tabs" href="#menu3">Location Map</a>
                   </li>
-                  <!-- <li class="tab-pane-tx"><a data-toggle="pill" href="#menu3">Menu 3</a></li> -->
+                  <!-- <li class="tab-pane-tx"><a data-Limit="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
 
                 <div class="tab-content">
@@ -494,7 +495,7 @@
             <div class="clearfix"></div>
             <div class="ad-share text-center">
               <div
-                data-toggle="modal"
+                data-Limit="modal"
                 data-target=".share-ad"
                 class="small-box col-md-3 col-sm-3 col-xs-12"
               >
@@ -615,7 +616,7 @@
               </a>
               <div
                 data-target=".report-quote"
-                data-toggle="modal"
+                data-Limit="modal"
                 class="small-box col-md-3 col-sm-3 col-xs-12"
               >
                 <i class="fa fa-warning" style="color: red!important;"></i>
@@ -699,7 +700,7 @@
                       <h3 class="tab-title">Similar Ads</h3>
                       <div
                         class="ads-list-archive"
-                        v-for="simProduct in similarprods"
+                        v-for="simProduct in toggleLimit"
                         :key="simProduct.id"
                       >
                         <!-- Image Block -->
@@ -725,7 +726,8 @@
                             <!-- Price -->
                             <div class="ad-price">
                               &#8358; {{ simProduct.amount }}
-                              <span class="">(Fixed)</span>
+                              <span class="" v-if="simProduct.negotiable">(Negotiable)</span>
+                              <span class="" v-else>(Fixed)</span>
                             </div>
                             <!-- Title -->
                             <h3>
@@ -779,11 +781,11 @@
                                   class="btn save-ad"
                                   ><i class="fa fa-heart-o"></i> Favourite</a
                                 >
-                                <a
-                                  href="../ad/audi-a5-for-sale/index.html"
+                                <router-link
+                                  :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`"
                                   class="btn btn-success"
                                 >
-                                  View Details</a
+                                  View Details</router-link
                                 >
                               </div>
                             </div>
@@ -803,9 +805,12 @@
                     <a href="">Show More</a>
                   </div> -->
                   <div class="viewall-similar">
-                    <router-link to="/Gridlist"
+                    <a @click="limit = null" v-show="limitBtn"
                       >Show More <i class="fa fa-arrow-circle-right"></i
-                    ></router-link>
+                    ></a>
+                    <a @click="limit = 3" v-show="!limitBtn"
+                      >Show Less <i class="fa fa-arrow-circle-right"></i
+                    ></a>
                   </div>
                 </div>
                 <div class="col-md-5"></div>
@@ -880,7 +885,7 @@
                     <a
                       href="#"
                       class=""
-                      data-toggle="modal"
+                      data-Limit="modal"
                       data-target="#make-offer-modal"
                     >
                       <i class="la la-money"></i>
@@ -1055,6 +1060,12 @@
 // import pricingArea from "@/components/product_overview/pricingArea";
 export default {
   name: "productDetails",
+  data() {
+    return {
+      limit: 3,
+      limitBtn: true
+    };
+  },
   props: {
     product: Object,
     similarprods: [Object, Array]
@@ -1106,8 +1117,24 @@ export default {
       });
     }
   },
+  computed: {
+    toggleLimit() {
+      return this.limit
+        ? this.similarprods.slice(0, this.limit)
+        : this.similarprods;
+    }
+  },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    limit: {
+      handler: function(limit) {
+        if (limit == null) {
+          this.limitBtn = false;
+        } else {
+          this.limitBtn = true;
+        }
+      }
+    }
   },
   created() {
     this.sync();

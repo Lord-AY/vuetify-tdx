@@ -34,6 +34,7 @@ import router from '../../router';
         :speed="2"
         primaryColor="#f3f3f3"
         secondaryColor="#ecebeb"
+        v-show="showLoader(ads)"
       >
         <rect x="23.37" y="22.27" rx="0" ry="0" width="196.35" height="89.3" />
         <rect
@@ -143,7 +144,9 @@ import router from '../../router';
         <div class="item" v-for="product in ads" :key="product.id">
           <div class="card mb-0">
             <div class="item-card2-img">
-              <router-link to="/ProductDetails"></router-link>
+              <router-link
+                :to="`/ProductDetails/${product.id}/${product.cid}`"
+              ></router-link>
               <img
                 src="../../assets/images/products/pictures/f1.jpg"
                 alt="img"
