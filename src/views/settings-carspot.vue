@@ -28,8 +28,8 @@
                         <div
                           class="col-md-12 col-lg-12 col-sm-12 col-xs-12 settings-tab"
                         >
-                          <ul class="tabs-menu nav settings-nav">
-                            <li class="active">
+                          <!-- <ul class="tabs-menu nav settings-nav">
+                            <li class="">
                               <a href="#tab1" data-toggle="pill">
                                 <i class="icon icon-speedometer"></i> General
                               </a>
@@ -44,9 +44,27 @@
                                 <i class="fa fa-cog"></i> Advanced
                               </a>
                             </li>
+                          </ul> -->
+                          <ul class="tabs-menu nav">
+                            <li class="">
+                              <a href="#tab1" class="active" data-toggle="tab"
+                                ><i class="icon icon-speedometer"></i>
+                                General</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#tab2" data-toggle="tab" class=""
+                                ><i class="icon icon-bubble"></i> Chat</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#tab3" data-toggle="tab" class=""
+                                ><i class="icon icon-settings"></i> Advanced</a
+                              >
+                            </li>
                           </ul>
                           <div class="tab-content">
-                            <div class="tab-pane fade in active" id="tab1">
+                            <div class="tab-pane active" id="tab1">
                               <form class="form-horizontal">
                                 <div class="form-group">
                                   <div class="row">
@@ -548,7 +566,7 @@
                                 </div>
                               </form>
                             </div>
-                            <div class="tab-pane fade" id="tab2">
+                            <div class="tab-pane" id="tab2">
                               <div class="form-group">
                                 <div class="row">
                                   <div class="col-md-3">
@@ -767,7 +785,7 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="tab-pane fade" id="tab3">
+                            <div class="tab-pane" id="tab3">
                               <form class="form-horizontal">
                                 <div class="form-group">
                                   <div class="row">
