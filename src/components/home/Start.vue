@@ -56,6 +56,7 @@
 
 <script>
 /* eslint-disable no-undef */
+require("../../../src/assets/plugins/animate/animate.css");
 export default {
   name: "start",
   methods: {
@@ -74,8 +75,8 @@ export default {
           nav: false,
           autoplay: true,
           dots: true,
-          animateIn: "fadeInDowm",
-          animateOut: "fadeOutDown",
+          animateIn: "fadeIn",
+          animateOut: "fadeOut",
           autoplayTimeout: 4000,
           // smartSpeed: 450,
           items: 1
