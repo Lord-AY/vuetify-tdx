@@ -2257,6 +2257,10 @@ pre code {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+label {
+	display: inline-block;
+	margin-bottom: .5714285714285714em;
+}
 .radio label,
 .checkbox label {
   min-height: 20px;

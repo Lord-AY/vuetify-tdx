@@ -397,7 +397,7 @@
                 accesskey="1"
                 style="padding: 10px; height: 40px;"
               >
-                <span style="font-size: .9125rem; font-weight: 400;">
+                <span style="font-size: 14.6px; font-weight: 400;">
                   <i
                     class="fa fa-bars"
                     style="color: #4CAF50; margin-right: 3px;"
@@ -787,7 +787,7 @@
             </li>
             <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0"></li>-->
           </ul>
-          <div class="call-us-now">
+          <div class="call-us-now" style="width: 32%!important;">
             <div class="contact-us-header">
               <i style="color:black;" class="flaticon-customer-service"></i>
               <p>
