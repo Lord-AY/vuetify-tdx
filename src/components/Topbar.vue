@@ -753,30 +753,31 @@
               </div>
             </li>
             <div class="row-tdx">
-                <!-- <li aria-haspopup="true" style="padding: 0px;">
+              <!-- <li aria-haspopup="true" style="padding: 0px;">
                 <div class="row"> -->
-                  <div class="col-xl-10 col-lg-12 col-md-12 mb-0">
-                    <input
-                      type="text"
-                      class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
-                      id="text4"
-                      placeholder="Search products, brands and categories"
-                    />
-                    <span>
-                      <i class="fa fa-search location-gps mr-1"></i>
-                    </span>
-                  </div>
-                  <div class="col-xl-2 col-lg-12 col-md-12" style="padding-left: 0px;">
-                    <button
-                      class="header-search-button btn btn-theme"
-                    >
-                      Search
-                    </button>
-                  </div>
-                <!-- </div>
+              <div class="col-xl-10 col-lg-12 col-md-12 mb-0">
+                <input
+                  type="text"
+                  class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
+                  id="text4"
+                  placeholder="Search products, brands and categories"
+                />
+                <span>
+                  <i class="fa fa-search location-gps mr-1"></i>
+                </span>
+              </div>
+              <div
+                class="col-xl-2 col-lg-12 col-md-12"
+                style="padding-left: 0px;"
+              >
+                <button class="header-search-button btn btn-theme">
+                  Search
+                </button>
+              </div>
+              <!-- </div>
               </li> -->
             </div>
-            
+
             <!-- <li aria-haspopup="true"><a href="about.html"> ABOUT US </a></li>
             <li aria-haspopup="true"><a href="#"> FAQ </a></li>
             <li aria-haspopup="true">

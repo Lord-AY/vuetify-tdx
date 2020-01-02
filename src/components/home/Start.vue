@@ -97,19 +97,19 @@ export default {
 </script>
 
 <style>
-  .owl-carousel .owl-dots {
-    position: relative;
-    z-index: 10;
-    bottom: 50px;
-  }
+.owl-carousel .owl-dots {
+  position: relative;
+  z-index: 10;
+  bottom: 50px;
+}
 
-  .home .owl-carousel button.owl-dot {
-    width: 20px  !important;
-    height: 20px !important;
-    background: rgba(66, 131, 68, 0.438)!important;
-  }
+.home .owl-carousel button.owl-dot {
+  width: 20px !important;
+  height: 20px !important;
+  background: rgba(66, 131, 68, 0.438) !important;
+}
 
-  /* .owl-carousel button.owl-dot.active {
+/* .owl-carousel button.owl-dot.active {
     background: #4CAF50 !important;
 } */
 </style>
