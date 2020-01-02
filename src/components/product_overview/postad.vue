@@ -1356,6 +1356,7 @@
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import axios from "axios";
+import ash from "lodash";
 // Import component
 import Loading from "vue-loading-overlay";
 // Import stylesheet
@@ -1442,7 +1443,10 @@ export default {
         axios
           .post("https://api.cloudinary.com/v1_1/coderoute/image/upload", form)
           .then(({ data }) => {
-            this.uploaded.push(data.secure_url);
+            let new_url = ash.replace(data.secure_url, ".", "#");
+            let new_url_sec = ash.replace(new_url, ".", "#");
+            let new_url_secure = ash.replace(new_url_sec, ".", "#");
+            this.uploaded.push(new_url_secure);
           })
           .catch(error => {
             this.errors = error.response.data;
