@@ -307,8 +307,8 @@
                   :to="`productDetails/${product.id}/${product.cid}`"
                 >
                   <img
-                    src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                    :src="product.photos[0]"
+                    :alt="product.name"
                     class="img-responsive"
                   />
                 </router-link>
@@ -318,7 +318,8 @@
                   <div class="price">
                     <span class="price-tag-tx">
                       &#8358; {{ product.amount }}
-                      <span class>(Negotiable)</span>
+                      <span class v-if="product.negotiable">(Negotiable)</span>
+                      <span class v-else>(Fixed)</span>
                     </span>
                   </div>
                 </div>
@@ -381,87 +382,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id=".holder-89">
-          <div class="category-grid-box-1">
-            <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
-            <div class="image">
-              <a
-                href="https://www.youtube.com/watch?v=lr7mPzjTgC0"
-                class="play-video"
-              >
-                <i
-                  class="fa fa-play-circle"
-                  style="font-size: 24px; color: #fff;"
-                ></i>
-              </a>
-              <!-- <a href="https://www.youtube.com/watch?v=lr7mPzjTgC0" class="play-video"><img src="../wp-content/uploads/2017/08/playbutton-u693-r.png" alt="Icon"></a> -->
-              <a href="../ad/land-rover-freelander-2-se/index.html">
-                <img
-                  src="../../assets/carspot-css/wp-content/uploads/2017/06/1-13-268x166.jpg"
-                  alt="Land Rover Freelander 2 Se"
-                  class="img-responsive"
-                />
-              </a>
-              <div class="price-tag">
-                <div class="price">
-                  <span class="price-tag-tx">Price On Call</span>
-                </div>
-              </div>
-            </div>
-            <div class="short-description-1 clearfix">
-              <div class="category-title">
-                <span class="padding_cats">
-                  <a href="../ad_category/land-rover/index.html">Land Rover</a>
-                </span>
-              </div>
-              <h3>
-                <a href="../ad/land-rover-freelander-2-se/index.html"
-                  >Land Rover Freelande...</a
-                >
-              </h3>
-              <p class="location">
-                <i class="fa fa-map-marker"></i>
-                <a href="../ad_country/district-of-columbia/index.html"
-                  >District of Columbia</a
-                >,
-                <a href="../ad_country/united-states/index.html"
-                  >United States</a
-                >
-              </p>
-              <ul class="list-unstyled">
-                <li><i class="flaticon-gas-station-1"></i>Diesel</li>
-                <li><i class="flaticon-dashboard"></i>1,300 Km</li>
-                <li><i class="flaticon-engine-2"></i>1,500 cc</li>
-                <li><i class="flaticon-car-2"></i>Luxury</li>
-                <li><i class="flaticon-cogwheel-outline"></i>Blue</li>
-              </ul>
-            </div>
-            <div class="ad-info-1">
-              <p>
-                <i class="flaticon-calendar"></i> &nbsp;
-                <span>June 20, 2017</span>
-              </p>
-              <div class="icon-reveal mobile-hidden">
-                <a class="btn icon-reveal-btn">
-                  <i class="fa fa-heart-o"></i>
-                </a>
-              </div>
-              <div class="button-reveal mobile-hidden">
-                <a
-                  class="btn btn-block button-reveal-btn"
-                  href="productdetail.html"
-                  >Contact Seller</a
-                >
-              </div>
-              <div class="button-griddy hidden-desktop">
-                <a class="btn btn-block btn-theme" href="productdetail.html"
-                  >Contact Seller</a
-                >
-              </div>
-            </div>
-          </div>
-          <!-- Listing Ad Grid -->
         </div>
       </div>
     </div>
