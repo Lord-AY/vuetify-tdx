@@ -726,7 +726,9 @@ import false from 'vue-phone-number-input';
                             <!-- Price -->
                             <div class="ad-price">
                               &#8358; {{ simProduct.amount }}
-                              <span class="" v-if="simProduct.negotiable">(Negotiable)</span>
+                              <span class="" v-if="simProduct.negotiable"
+                                >(Negotiable)</span
+                              >
                               <span class="" v-else>(Fixed)</span>
                             </div>
                             <!-- Title -->
@@ -782,7 +784,9 @@ import false from 'vue-phone-number-input';
                                   ><i class="fa fa-heart-o"></i> Favourite</a
                                 >
                                 <router-link
-                                  :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`"
+                                  :to="
+                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                  "
                                   class="btn btn-success"
                                 >
                                   View Details</router-link
