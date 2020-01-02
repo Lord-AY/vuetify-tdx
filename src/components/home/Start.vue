@@ -34,6 +34,22 @@
       </div>
       <!-- /header-text -->
     </div>
+    <div
+      class="banner-1 cover-image sptb-2 sptb-tab bg-background2"
+      data-image-src="../../assets/images/banners/Sellprods.jpg"
+    >
+      <div class="header-text mb-0">
+        <div class="container">
+          <div class="text-center text-white mb-7"></div>
+          <div class="row">
+            <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
+              <div class="search-background bg-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /header-text -->
+    </div>
   </section>
   <!--/Section-->
 </template>
@@ -57,7 +73,7 @@ export default {
           loop: true,
           nav: false,
           autoplay: true,
-          dots: false,
+          dots: true,
           animateOut: "fadeOut",
           smartSpeed: 450,
           items: 1
@@ -78,4 +94,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  .owl-carousel .owl-dots {
+    position: relative;
+    z-index: 10;
+    bottom: 50px;
+  }
+
+  .owl-carousel button.owl-dot {
+    width: 20px  !important;
+    height: 20px !important;
+    /* border: 1px solid #fff!important; */
+  }
+
+  /* .owl-carousel button.owl-dot.active {
+    background: #4CAF50 !important;
+} */
+</style>

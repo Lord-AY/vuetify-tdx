@@ -17880,7 +17880,7 @@ footer .border-top {
 	padding-bottom: 12rem;
 }
 .categories {
-	margin-top: -35px;
+	margin-top: -60px;
 }
 .categories-1 {
 	margin-top: -120px;
@@ -38420,7 +38420,7 @@ footer .border-top {
 	padding-bottom: 12rem;
 }
 .categories {
-	margin-top: -35px;
+	margin-top: -50px;
 }
 .categories-1 {
 	margin-top: -120px;
@@ -42258,7 +42258,7 @@ experimental shii
 		max-width: 90px;
 		white-space: normal;
 		word-wrap: break-word;
-		font-family: "Avenir";
+		/* font-family: "Avenir"; */
 		font-weight: 100 !important;
 		font-size: 15px !important;
 	}
@@ -42365,6 +42365,7 @@ experimental shii
 	font-size: 14px; 
 	color: #fff;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
 .no-padding{
 padding: 0px !important;
 }

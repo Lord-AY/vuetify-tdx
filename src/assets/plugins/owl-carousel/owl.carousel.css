@@ -73,12 +73,16 @@
   .owl-carousel .owl-nav button.owl-prev,
   .owl-carousel .owl-nav button.owl-next,
   .owl-carousel button.owl-dot {
-    background: rgb(105, 99, 255, 0.3);
+    background: rgba(66, 131, 68, 0.438)!important;
 	opacity:7;
     color: inherit;
     border: none;
     padding: 0 !important;
     font: inherit; }
+    .owl-carousel button.owl-dot.active {
+      background: #4CAF50!important;
+      border: 1px solid #fff;
+    }
   .owl-carousel.owl-loaded {
     display: block; 
   }

@@ -1410,8 +1410,8 @@ export default {
   color: black !important;
   font-size: 14px;
   text-align: left;
-  font-weight: 100;
-  font-family: avenir;
+  font-weight: 400;
+  /* font-family: avenir; */
 }
 
 .horizontal-main {
