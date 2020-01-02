@@ -1,12 +1,14 @@
 <template>
-  <postad
-    :categories="categories"
-    :ads="ads"
-    :images="selectedImages"
-    @create-ads="createAds"
-    :items="items"
-    :itemExists="itemsExists"
-  ></postad>
+  <div>
+    <postad
+      :categories="categories"
+      :ads="ads"
+      :images="selectedImages"
+      @create-ads="createAds"
+      :items="items"
+      :itemExists="itemsExists"
+    ></postad>
+  </div>
 </template>
 <script>
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
