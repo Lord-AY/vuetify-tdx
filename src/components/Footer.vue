@@ -177,7 +177,7 @@
 
           <div class="text-center payment-card-spacing-tx">
             <div class="mt-0">
-              Copyright © {{format_date()}}
+              Copyright © {{ format_date() }}
               <a
                 href="#"
                 class="fs-14 text-primary-tx"
@@ -197,11 +197,11 @@
 import moment from "moment";
 export default {
   name: "Footer",
-  methods : {
+  methods: {
     format_date() {
-        return moment().format('YYYY');
-    },
-  },
+      return moment().format("YYYY");
+    }
+  }
 };
 </script>
 

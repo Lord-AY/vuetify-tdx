@@ -1425,7 +1425,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -1590,7 +1590,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -1722,7 +1722,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -1863,7 +1863,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -2022,7 +2022,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -2146,7 +2146,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -2285,7 +2285,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -2425,7 +2425,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -2571,7 +2571,7 @@
                             <div class="col-xs-12 hidden-above-xs">
                               <div class="ad-meta row no-padding-sides-xs">
                                 <div class="col-xs-6 no-padding">
-                                 <a
+                                  <a
                                     href="javascript:void(0)"
                                     class="btn2 btn-default full-width no-border"
                                   >
@@ -2629,13 +2629,13 @@ export default {
 </script>
 <style>
 @media (max-width: 767px) and (min-width: 320px) {
-  .hidden-above-xs{
+  .hidden-above-xs {
     display: block;
   }
-  .full-width{
+  .full-width {
     width: 100% !important;
   }
-  .no-border{
+  .no-border {
     border: none !important;
     border-radius: 0px !important;
   }
@@ -2650,7 +2650,8 @@ export default {
     font-size: 14px !important;
   }
   .hidden-sm,
-  .add_info, .ad-meta.hide {
+  .add_info,
+  .ad-meta.hide {
     display: none !important;
   }
   .visible-xs-block.hidden {
