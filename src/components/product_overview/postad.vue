@@ -764,7 +764,9 @@
                               </div>
 
                               <div class="link-to-senior-ads">
-                                <span class="explanatory-text" style="display:inline-block;"
+                                <span
+                                  class="explanatory-text"
+                                  style="display:inline-block;"
                                   >Make your ad PREMIUM
                                 </span>
                                 <div
@@ -773,11 +775,15 @@
                                   style="display:inline-block; color: #000; margin: 12px 8px; border-bottom: 1px solid #000;"
                                   v-on:click="isHidden = !isHidden"
                                 >
-                                  Click here</div
-                                >
+                                  Click here
+                                </div>
                               </div>
 
-                              <div class="row" style="margin-top: 20px;" v-if="isHidden">
+                              <div
+                                class="row"
+                                style="margin-top: 20px;"
+                                v-if="isHidden"
+                              >
                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                   <div class="senior-ads form-group">
                                     <div
@@ -1595,21 +1601,19 @@ export default {
 }
 
 .cusbutton {
-    cursor:pointer;
-    position:relative;
+  cursor: pointer;
+  position: relative;
 }
 .cusbutton .hover {
-    display:none;
-    position: absolute;
-    top: 0;
-    left: 0;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .cusbutton:hover .hover {
-    display:block;
+  display: block;
 }
 .cusbutton:hover .original {
-    display:none;
+  display: none;
 }
-
-
 </style>
