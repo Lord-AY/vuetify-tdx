@@ -17947,6 +17947,9 @@ footer .border-top {
 	}
 }
 @media (max-width:991px) {
+	#back-to-top{
+		bottom: 70px !important;
+	}
 	.select2-container .select2-selection--single {
 		border-radius: 6px!important;
 	}

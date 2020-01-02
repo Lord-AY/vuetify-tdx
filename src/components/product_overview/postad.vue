@@ -3,6 +3,12 @@
 <template>
   <!--Section-->
   <section class="sptb" style="padding-top: 30px;">
+    <Loading
+      :active.sync="isLoading"
+      :can-cancel="isLoading"
+      :on-cancel="onCancel"
+      :is-full-page="fullPage"
+    ></Loading>
     <!-- <div class="container" style="padding-top: 70px;"> -->
     <div class="container">
       <div class="row ">
@@ -826,8 +832,8 @@
                                     <div class="select-senior-ad">
                                       <button
                                         class="btn btn-block btn-primary"
-                                        style="background-color: #f7dbb4; border-color: #d6ead7; color: #D37E04;"
-                                        @click="setPayment('4')"
+                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click.prevent="setPayment('4')"
                                       >
                                         Select
                                       </button>
@@ -878,8 +884,8 @@
                                     <div class="select-senior-ad">
                                       <button
                                         class="btn btn-block btn-primary"
-                                        style="background-color: #d6ead7; border-color: #d6ead7; color: #4CAF50;"
-                                        @click="setPayment('5')"
+                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click.prevent="setPayment('5')"
                                       >
                                         Select
                                       </button>
@@ -929,8 +935,8 @@
                                     <div class="select-senior-ad">
                                       <button
                                         class="btn btn-block btn-primary"
-                                        style="background-color: #d6ead7; border-color: #d6ead7; color: #4CAF50;"
-                                        @click="setPayment('6')"
+                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        @click.prevent="setPayment('6')"
                                       >
                                         Select
                                       </button>
@@ -1350,7 +1356,11 @@
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import axios from "axios";
-
+import ash from "lodash";
+// Import component
+import Loading from "vue-loading-overlay";
+// Import stylesheet
+import "vue-loading-overlay/dist/vue-loading.css";
 export default {
   name: "postad",
   data() {
@@ -1359,6 +1369,8 @@ export default {
       uploaded: [],
       errors: null,
       selected: 1,
+      isLoading: false,
+      fullPage: true,
       isHidden: false
     };
   },
@@ -1370,7 +1382,8 @@ export default {
     itemExists: Boolean
   },
   components: {
-    VueUploadMultipleImage
+    VueUploadMultipleImage,
+    Loading
   },
   mounted() {
     let extScript = document.createElement("script");
@@ -1419,6 +1432,7 @@ export default {
     //   console.log(data);
     // },
     processForm() {
+      this.isLoading = true;
       // upload photo
       const images = this.selectedImages;
       for (let image of images) {
@@ -1429,7 +1443,10 @@ export default {
         axios
           .post("https://api.cloudinary.com/v1_1/coderoute/image/upload", form)
           .then(({ data }) => {
-            this.uploaded.push(data.secure_url);
+            let new_url = ash.replace(data.secure_url, ".", "#");
+            let new_url_sec = ash.replace(new_url, ".", "#");
+            let new_url_secure = ash.replace(new_url_sec, ".", "#");
+            this.uploaded.push(new_url_secure);
           })
           .catch(error => {
             this.errors = error.response.data;
@@ -1449,6 +1466,9 @@ export default {
     },
     setPayment(value) {
       this.ads.adType = value;
+    },
+    onCancel() {
+      console.log("User cancelled the loader.");
     },
     sync() {
       $("#demo").FancyFileUpload({
