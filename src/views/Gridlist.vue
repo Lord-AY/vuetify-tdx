@@ -6,7 +6,7 @@
         style="padding: 8px 0px!important;"
       >
         <div class="container">
-          <div class="row value-added-services-row">
+          <div class="row value-added-services-row mobile-hidden">
             <div
               class="col-md-2 col-sm-4 col-xs-4"
               style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
@@ -163,7 +163,7 @@
             </div>
           </div>
           <!-- <hr /> -->
-          <hotsellers></hotsellers>
+          <hotsellers class="mobile-hidden"></hotsellers>
           <!-- Row -->
           <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12">
