@@ -5,7 +5,6 @@
   <section class="sptb" style="padding-top: 30px;">
     <Loading
       :active.sync="isLoading"
-      :can-cancel="isLoading"
       :on-cancel="onCancel"
       :is-full-page="fullPage"
     ></Loading>
@@ -32,6 +31,36 @@
                       <!-- Ad Details -->
                       <div class="row">
                         <div class="col-md-12">
+                          <div v-if="errors" class="">
+                            <div
+                              class="alert alert-danger alert-dismissible fade show"
+                            >
+                              <strong>Error!</strong>
+                              {{ errors }}
+                              <button
+                                type="button"
+                                class="close"
+                                data-dismiss="alert"
+                              >
+                                &times;
+                              </button>
+                            </div>
+                          </div>
+                          <div v-if="dbErrors && dbErrors.adType" class="">
+                            <div
+                              class="alert alert-danger alert-dismissible fade show"
+                            >
+                              <strong>Error!</strong>
+                              {{ dbErrors.adType }}
+                              <button
+                                type="button"
+                                class="close"
+                                data-dismiss="alert"
+                              >
+                                &times;
+                              </button>
+                            </div>
+                          </div>
                           <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                               <!-- AD details -->
@@ -49,22 +78,26 @@
                                     <input
                                       type="text"
                                       class="form-control post-ad-input"
+                                      :class="dbErrors && dbErrors.name ? 'is-invalid' : ''"
                                       placeholder="Ad title"
                                       v-model="ads.name"
+                                      required
                                     />
                                   </div>
                                 </div>
                               </div>
 
                               <div class="row form-group-tx form-group">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                   <div class="form-group">
                                     <label class="form-label text-dark"
                                       >Category</label
                                     >
                                     <select
                                       class="form-control custom-select"
+                                      :class="dbErrors && dbErrors.cid ? 'is-invalid' : ''"
                                       v-model="ads.cid"
+                                      required
                                     >
                                       <option value="0" disabled
                                         >-- Select Option --</option
@@ -78,16 +111,20 @@
                                     </select>
                                   </div>
                                 </div>
-                                <div class="col-md-6"></div>
+                                <div class="col-md-12"></div>
                               </div>
 
                               <div class="row form-group-tx form-group">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                   <div class="form-group">
                                     <label class="form-label text-dark">
                                       Country</label
                                     >
-                                    <select class="form-control custom-select">
+                                    <select
+                                      class="form-control custom-select"
+                                      :class="dbErrors && dbErrors.region ? 'is-invalid' : ''"
+                                      required
+                                    >
                                       <option value="0" disabled
                                         >-- Select Option --</option
                                       >
@@ -515,6 +552,11 @@
                                         >Zimbabwe {{ itemExists }}</option
                                       >
                                     </select>
+                                    <span
+                                      v-if="dbErrors"
+                                      class="invalid-feedback"
+                                      >{{ dbErrors.region }}</span
+                                    >
                                   </div>
                                 </div>
                                 <div class="col-md-6"></div>
@@ -527,11 +569,13 @@
                                   >
                                   <textarea
                                     class="form-control"
+                                    :class="dbErrors && dbErrors.description ? 'is-invalid' : ''"
                                     name="example-textarea-input"
                                     rows="4"
                                     placeholder="Write a short description about the item"
                                     style="padding-top: 10px"
                                     v-model="ads.description"
+                                    required
                                   ></textarea>
                                 </div>
                               </div>
@@ -543,6 +587,7 @@
                                     <input
                                       type="number"
                                       class="form-control post-ad-input"
+                                      :class="dbErrors && dbErrors.amount ? 'is-invalid' : ''"
                                       placeholder="Price"
                                       v-model="ads.amount"
                                     />
@@ -576,12 +621,14 @@
                                 <vue-upload-multiple-image
                                   @upload-success="selectImageSuccess"
                                   @before-remove="beforeRemove"
+                                  :maxImage=7
                                   :data-images="images"
                                   dragText="Images must not exceed 2mb for each"
                                   browseText="Browse image"
                                   primaryText="Default Image"
                                   markIsPrimaryText="slide images"
                                   popupText="This image will be used as the default display image, when showing your ads"
+                                  required
                                 ></vue-upload-multiple-image>
                               </div>
                             </div>
@@ -1356,7 +1403,7 @@
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import axios from "axios";
-import ash from "lodash";
+// import ash from "lodash";
 // Import component
 import Loading from "vue-loading-overlay";
 // Import stylesheet
@@ -1379,7 +1426,10 @@ export default {
     ads: [Object, Array],
     images: Array,
     items: [Array, Object],
-    itemExists: Boolean
+    itemExists: Boolean,
+    loading: Boolean,
+    dbErrors: [Object, Array, String],
+    success: [Object, Array, String]
   },
   components: {
     VueUploadMultipleImage,
@@ -1432,25 +1482,34 @@ export default {
     //   console.log(data);
     // },
     processForm() {
-      this.isLoading = true;
-      // upload photo
-      const images = this.selectedImages;
-      for (let image of images) {
-        const form = new FormData();
-        form.append("file", image.path);
-        form.append("upload_preset", "khieqxha");
-        form.append("api_key", "291355523372857");
-        axios
-          .post("https://api.cloudinary.com/v1_1/coderoute/image/upload", form)
-          .then(({ data }) => {
-            let new_url = ash.replace(data.secure_url, ".", "#");
-            let new_url_sec = ash.replace(new_url, ".", "#");
-            let new_url_secure = ash.replace(new_url_sec, ".", "#");
-            this.uploaded.push(new_url_secure);
-          })
-          .catch(error => {
-            this.errors = error.response.data;
-          });
+      if (this.selectedImages.length < 1) {
+        this.loading = false;
+        this.errors = "Please select images for your ads.";
+      } else {
+        this.isLoading = true;
+        // upload photo
+        const images = this.selectedImages;
+        for (let image of images) {
+          const form = new FormData();
+          form.append("file", image.path);
+          form.append("upload_preset", "khieqxha");
+          form.append("api_key", "291355523372857");
+          axios
+            .post(
+              "https://api.cloudinary.com/v1_1/coderoute/image/upload",
+              form
+            )
+            .then(({ data }) => {
+              // let new_url = ash.replace(data.secure_url, ".", "#");
+              // let new_url_sec = ash.replace(new_url, ".", "#");
+              // let new_url_secure = ash.replace(new_url_sec, ".", "#");
+              this.uploaded.push(data.secure_url);
+            })
+            .catch(() => {
+              this.isLoading = false;
+              this.errors = "Network Error, Uploading your images, please try again";
+            });
+        }
       }
     },
     sendFormRequest(images) {
@@ -1507,6 +1566,15 @@ export default {
       handler: function(uploaded) {
         console.log(uploaded);
         this.sendFormRequest(uploaded);
+      }
+    },
+    loading: {
+      handler: function(loading) {
+        if (loading) {
+          this.isLoading = true;
+        } else {
+          this.isLoading = false;
+        }
       }
     }
   },

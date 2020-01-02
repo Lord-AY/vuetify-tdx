@@ -21,11 +21,26 @@ export default {
         return state.categories;
       }
       return;
+    },
+    getErrors(state) {
+      if (state.errors !== null && state.errors !== undefined) {
+        return state.errors;
+      }
+      return;
+    },
+    getSuccess(state) {
+      if (state.success !== null || state.success !== undefined) {
+        return state.success;
+      } else {
+        return;
+      }
     }
   },
   actions: {
     fetchAllProducts({ rootState, commit }) {
       commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_SUCCESS_MSG", null);
+      commit("SET_ERRORS", null);
       return ProductService.products(rootState.auth.user.token)
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
@@ -69,6 +84,7 @@ export default {
     createProduct({ commit, rootState }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
       // set payload details
       const product = {
         cid: payload.product.cid,
