@@ -4,7 +4,7 @@
     <categories></categories>
     <sptb :categories="categories"></sptb>
     <sptbWhite :ads="productListings"></sptbWhite>
-    <sptb_pattern></sptb_pattern>
+    <sptb_pattern :ads="productListings"></sptb_pattern>
     <total_sellers class="mobile-hidden"></total_sellers>
     <testimonial class="mobile-hidden"></testimonial>
     <recent_post class="mobile-hidden"></recent_post>

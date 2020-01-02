@@ -17,36 +17,42 @@
             </div>
 
             <div class="row">
-              <div class="col-md-8 offset-md-2">
+              <div class="col-sm-12">
                 <form
                   action
                   class="form-horizontal"
                   @submit.prevent="register"
                   enctype="multipart/form-data"
                 >
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                      <div class="social-media-button">
-                        <button
-                          class="btn btn-block btn-reg facebook-reg text-bold"
-                        >
-                          <i class="fa fa-facebook fa-2x"></i>
-                          Continue with Facebook
-                        </button>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                      <div class="social-media-button">
-                        <button class="btn btn-block btn-reg google-reg">
-                          <i class="fa fa-google-plus fa-2x"></i>
-                          Continue with Google
-                        </button>
+                  <div class="form-group form-group-tx row">
+                    <label for="" class="col-md-4 control-label">
+                      <!-- You are a <sup>*</sup> -->
+                    </label>
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="social-media-button">
+                            <button class="btn btn-block btn-reg facebook-reg">
+                              <i class="fa fa-facebook fa-2x"></i>
+                              Signup
+                            </button>
+                          </div>
+                        </div>
+                        <div class="col-md-6 ">
+                          <div class="social-media-button">
+                            <button class="btn btn-block btn-reg google-reg">
+                              <i class="fa fa-google-plus fa-2x"></i>
+                              Signup
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
 
                   <div class="row mb-5" style="margin-top: 15px;">
-                    <div class="col-md-12">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-6">
                       <div
                         style="width: 100%; height: 14px; border-bottom: 1px solid rgba(0,0,0, 0.09); text-align: center"
                       >
@@ -69,8 +75,11 @@
                   <!-- Customer Name -->
 
                   <div class="row form-group-tx form-group">
-                    <div class="col-md-12 col-lg-6 col-sm-12">
-                      <label for class="control-label">First Name</label>
+                    <!-- <div class="col-md-12 col-lg-6 col-sm-12"> -->
+                    <label for class="col-md-4 control-label"
+                      >First Name
+                    </label>
+                    <div class="col-md-6">
                       <div class="radio">
                         <input
                           name
@@ -86,9 +95,12 @@
                         </div>
                       </div>
                     </div>
-
-                    <div class="col-md-12 col-lg-6 col-sm-12">
-                      <label for class="control-label">Last Name</label>
+                  </div>
+                  <!-- </div> -->
+                  <div class="row form-group-tx form-group">
+                    <!-- <div class="col-md-12 col-lg-6 col-sm-12"> -->
+                    <label for class="col-md-4 control-label">Last Name </label>
+                    <div class="col-md-6">
                       <div class="radio">
                         <input
                           name
@@ -104,12 +116,15 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- </div> -->
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <div class="col-md-12 col-lg-12 col-sm-12">
-                      <label class="control-label">Email Address</label>
-                      <div class>
+                    <!-- <div class="col-md-12 col-lg-12 col-sm-12"> -->
+                    <label class="col-md-4 control-label">Email Address </label>
+                    <div class="col-md-6">
+                      <div class="radio">
                         <input
                           name
                           placeholder="Email"
@@ -123,11 +138,14 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- </div> -->
                   </div>
                   <!-- Phone Number -->
                   <div class="form-group form-group-tx row">
-                    <div class="col-md-12">
-                      <label class="control-label">Phone Number</label>
+                    <!-- <div class="col-md-12"> -->
+                    <label class="col-md-4 control-label">Phone Number</label>
+                    <div class="col-md-6">
                       <VuePhoneNumberInput
                         v-model.trim="formFields.phone"
                         :class="errors.phone ? 'is-invalid' : ''"
@@ -147,11 +165,14 @@
                         </label>
                       </div>
                     </div>
+
+                    <!-- </div> -->
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <div class="col-md-12">
-                      <label class="control-label">Home Address</label>
+                    <!-- <div class="col-md-12"> -->
+                    <label class="col-md-4 control-label">Home Address</label>
+                    <div class="col-md-6">
                       <input
                         name
                         placeholder="Enter Address"
@@ -164,11 +185,14 @@
                         {{ errors.address }}.
                       </div>
                     </div>
+
+                    <!-- </div> -->
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <div class="col-md-12">
-                      <label class="control-label">Country</label>
+                    <!-- <div class="col-md-12"> -->
+                    <label class="col-md-4 control-label">Country</label>
+                    <div class="col-md-6">
                       <select
                         class="form-control"
                         for="country"
@@ -357,10 +381,13 @@
                         {{ errors.rcountry }}.
                       </div>
                     </div>
+
+                    <!-- </div> -->
                   </div>
                   <div class="form-group form-group-tx row">
-                    <div class="col-md-12">
-                      <label for class="control-label">Password</label>
+                    <!-- <div class="col-md-12"> -->
+                    <label for class="col-md-4 control-label">Password</label>
+                    <div class="col-md-6">
                       <div class="radio">
                         <input
                           name
@@ -390,11 +417,16 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- </div> -->
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <div class="col-md-12">
-                      <label for class="control-label">Confirm Password</label>
+                    <!-- <div class="col-md-12"> -->
+                    <label for class="col-md-4 control-label"
+                      >Confirm Password</label
+                    >
+                    <div class="col-md-6">
                       <div class="radio">
                         <input
                           name
@@ -424,10 +456,14 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- </div> -->
                   </div>
 
                   <div class="form-group form-group-tx row">
-                    <div class="col-md-12 col-sm-12">
+                    <label class="col-md-4 control-label"></label>
+                    <!-- <div class="col-md-12 col-sm-12"> -->
+                    <div class="col-md-8">
                       <div class="radio">
                         <div class="termbox mb10">
                           <div class="col-12 col-tx my-1 no-padding">
@@ -455,7 +491,7 @@
                         </div>
                         <div style="clear:both"></div>
                         <div class="row">
-                          <div class="col-md-8 offset-md-2 col-sm-12">
+                          <div class="col-md-9 col-sm-12">
                             <button
                               type="submit"
                               class="btn btn-block btn-primary btn-register-tx"
@@ -468,6 +504,8 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- </div> -->
                   </div>
                 </form>
               </div>
