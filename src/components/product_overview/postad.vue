@@ -763,19 +763,27 @@
                                 </div>
                               </div>
 
-                              <!-- <div class="link-to-senior-ads">
-                                <span class="explanatory-text"
+                              <div class="link-to-senior-ads">
+                                <span
+                                  class="explanatory-text"
+                                  style="display:inline-block;"
                                   >Make your ad PREMIUM
                                 </span>
-                                <a
+                                <div
+                                  class="cusbutton"
                                   href=""
-                                  style="color: #000; margin: 12px 0px; border-bottom: 1px solid #000;"
+                                  style="display:inline-block; color: #000; margin: 12px 8px; border-bottom: 1px solid #000;"
+                                  v-on:click="isHidden = !isHidden"
                                 >
-                                  Click here</a
-                                >
-                              </div> -->
+                                  Click here
+                                </div>
+                              </div>
 
-                              <div class="row">
+                              <div
+                                class="row"
+                                style="margin-top: 20px;"
+                                v-if="isHidden"
+                              >
                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                   <div class="senior-ads form-group">
                                     <div
@@ -818,7 +826,7 @@
                                     <div class="select-senior-ad">
                                       <button
                                         class="btn btn-block btn-primary"
-                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        style="background-color: #f7dbb4; border-color: #d6ead7; color: #D37E04;"
                                         @click="setPayment('4')"
                                       >
                                         Select
@@ -870,7 +878,7 @@
                                     <div class="select-senior-ad">
                                       <button
                                         class="btn btn-block btn-primary"
-                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        style="background-color: #d6ead7; border-color: #d6ead7; color: #4CAF50;"
                                         @click="setPayment('5')"
                                       >
                                         Select
@@ -921,7 +929,7 @@
                                     <div class="select-senior-ad">
                                       <button
                                         class="btn btn-block btn-primary"
-                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                        style="background-color: #d6ead7; border-color: #d6ead7; color: #4CAF50;"
                                         @click="setPayment('6')"
                                       >
                                         Select
@@ -1350,7 +1358,8 @@ export default {
       selectedImages: [],
       uploaded: [],
       errors: null,
-      selected: 1
+      selected: 1,
+      isHidden: false
     };
   },
   props: {
@@ -1589,5 +1598,22 @@ export default {
 }
 .option-input.radio::after {
   border-radius: 50%;
+}
+
+.cusbutton {
+  cursor: pointer;
+  position: relative;
+}
+.cusbutton .hover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cusbutton:hover .hover {
+  display: block;
+}
+.cusbutton:hover .original {
+  display: none;
 }
 </style>

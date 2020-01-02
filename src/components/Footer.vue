@@ -16,8 +16,9 @@
               </router-link>
               <hr class="deep-purple  mb-4 mt-0 d-inline-block mx-auto" />
               <p class="mobile-hidden">
-                At Tradexplora; Nigeria's leading classified ad posting platform,
-                we deliver the best services while providing top notch utility services
+                At Tradexplora; Nigeria's leading classified ad posting
+                platform, we deliver the best services while providing top notch
+                utility services
               </p>
               <ul class="apps-donwloads">
                 <li style="display: inline-block; margin: 0 4px 4px 0;">
@@ -144,7 +145,6 @@
                         src="../assets/images/master_card.png"
                     /></a>
                   </li>
-                  
                 </ul>
               </div>
             </div>
