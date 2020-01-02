@@ -16,9 +16,9 @@
               </router-link>
               <hr class="deep-purple  mb-4 mt-0 d-inline-block mx-auto" />
               <p class="mobile-hidden">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam
+                At Tradexplora; Nigeria's leading classified ad posting
+                platform, we deliver the best services while providing top notch
+                utility services
               </p>
               <ul class="apps-donwloads">
                 <li style="display: inline-block; margin: 0 4px 4px 0;">
@@ -126,6 +126,11 @@
                       ><img src="../assets/images/paystack-02.jpg"
                     /></a>
                   </li>
+                  <li style=" width: 88px!important;">
+                    <a href="javascript:; "
+                      ><img src="../assets/images/varve-logo-2.png"
+                    /></a>
+                  </li>
                   <li>
                     <a href="javascript:;"
                       ><img
@@ -138,11 +143,6 @@
                       ><img
                         class="payment-card-icon-tx"
                         src="../assets/images/master_card.png"
-                    /></a>
-                  </li>
-                  <li style=" width: 88px!important;">
-                    <a href="javascript:; "
-                      ><img src="../assets/images/varve-logo-2.png"
                     /></a>
                   </li>
                 </ul>

@@ -127,6 +127,10 @@
   a.text-primary:hover,   a.text-primary:focus {
 	color: #f34b4b !important;
 }
+a.text-dark:hover.post-ad-header-tx {
+	color: #fff    !important;
+	background-color: rgb(48, 128, 50)!important;
+}
  a.text-dark:hover,   a.text-dark:focus {
 	color: #4CAF50    !important;
 }
