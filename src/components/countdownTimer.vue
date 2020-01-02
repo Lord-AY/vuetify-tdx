@@ -97,13 +97,13 @@ export default {
 
 <style lang="scss">
 .timer {
-  background: #004D40;
-  text-align:center;
+  background: #004d40;
+  text-align: center;
   padding: 20px 0;
   font-size: 20px;
   color: #fff;
   text-align: center;
-//   margin-top: 50px;
+  //   margin-top: 50px;
 
   .day,
   .hour,

@@ -366,7 +366,7 @@
 
     <!--Start Horizontal-main -->
     <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden">
-      <div class="horizontal-mainwrapper container clearfix">
+      <div class="horizontal-mainwrapper container2 clearfix">
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
@@ -1417,4 +1417,21 @@ export default {
 .horizontal-main {
   border-bottom: 3px solid #4caf50;
 }
+
+@media (min-width: 768px) {
+  .container2 {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container2 {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container2 {
+    width: 1170px;
+  }
+}
+
 </style>
