@@ -74,8 +74,10 @@ export default {
           nav: false,
           autoplay: true,
           dots: true,
-          animateOut: "fadeOut",
-          smartSpeed: 450,
+          animateIn: "fadeInDowm",
+          animateOut: "fadeOutDown",
+          autoplayTimeout: 4000,
+          // smartSpeed: 450,
           items: 1
           // itemsDesktop : false,
           // itemsDesktopSmall : false,
@@ -101,10 +103,10 @@ export default {
     bottom: 50px;
   }
 
-  .owl-carousel button.owl-dot {
+  .home .owl-carousel button.owl-dot {
     width: 20px  !important;
     height: 20px !important;
-    /* border: 1px solid #fff!important; */
+    background: rgba(66, 131, 68, 0.438)!important;
   }
 
   /* .owl-carousel button.owl-dot.active {

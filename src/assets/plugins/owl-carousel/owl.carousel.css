@@ -73,7 +73,7 @@
   .owl-carousel .owl-nav button.owl-prev,
   .owl-carousel .owl-nav button.owl-next,
   .owl-carousel button.owl-dot {
-    background: rgba(66, 131, 68, 0.438)!important;
+    background: rgba(66, 131, 68, 0.438);
 	opacity:7;
     color: inherit;
     border: none;
