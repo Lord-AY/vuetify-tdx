@@ -389,7 +389,6 @@
                 type="checkbox"
                 name="bmenu-open"
                 class="hidden"
-                checked
               />
               <label
                 class="bmenu toggle"

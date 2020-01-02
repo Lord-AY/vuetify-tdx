@@ -45,7 +45,7 @@
                         role="tabpanel"
                         aria-labelledby="headingFive"
                       >
-                        <div class="panel-body">
+                        <div class="panel-body no-padding-sides-xs">
                           <div class="search-widget">
                             <input
                               id="autocomplete-dynamic"
@@ -1345,7 +1345,7 @@
                               <div class="ad-archive-desc">
                                 <!-- Price -->
                                 <div class="ad-price">
-                                  &#8358; 64,500
+                                  &#8358; 64,501
                                   <span class>(Negotiable)</span>
                                 </div>
                                 <!-- Title -->
