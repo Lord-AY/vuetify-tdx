@@ -1435,5 +1435,4 @@ export default {
     width: 1170px;
   }
 }
-
 </style>

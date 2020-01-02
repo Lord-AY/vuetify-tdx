@@ -241,8 +241,8 @@ th {
   .navbar {
     display: none;
   }
-  .btn > .caret,
-  .dropup > .btn > .caret {
+  > .caret,
+  .dropup > > .caret {
     border-top-color: #000 !important;
   }
   .label {
@@ -2629,7 +2629,7 @@ select[multiple].input-lg {
 }
 
 /*start*/
-.btn {
+{
 
 }
 
@@ -2679,7 +2679,7 @@ select[multiple].input-lg {
 }
 .btn.disabled,
 .btn[disabled],
-fieldset[disabled] .btn {
+fieldset[disabled] {
   cursor: not-allowed;
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;
@@ -2687,7 +2687,7 @@ fieldset[disabled] .btn {
   opacity: .65;
 }
 a.btn.disabled,
-fieldset[disabled] a.btn {
+fieldset[disabled] a{
   pointer-events: none;
 }
 .btn-default {
@@ -3066,21 +3066,21 @@ fieldset[disabled] .btn-link:focus {
   text-decoration: none;
 }
 .btn-lg,
-.btn-group-lg > .btn {
+.btn-group-lg > {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
 .btn-sm,
-.btn-group-sm > .btn {
+.btn-group-sm > {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
 .btn-xs,
-.btn-group-xs > .btn {
+.btn-group-xs > {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -4170,7 +4170,7 @@ a.label:focus {
 .label:empty {
   display: none;
 }
-.btn .label {
+.label {
   position: relative;
   top: -1px;
 }
@@ -4233,12 +4233,12 @@ a.label:focus {
 .badge:empty {
   display: none;
 }
-.btn .badge {
+.badge {
   position: relative;
   top: -1px;
 }
 .btn-xs .badge,
-.btn-group-xs > .btn .badge {
+.btn-group-xs > .badge {
   top: 0;
   padding: 1px 5px;
 }
@@ -5258,11 +5258,11 @@ button.close {
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
-.modal-footer .btn + .btn {
+.modal-footer  {
   margin-bottom: 0;
   margin-left: 5px;
 }
-.modal-footer .btn-group .btn + .btn {
+.modal-footer .btn-group  {
   margin-left: -1px;
 }
 .modal-footer .btn-block + .btn-block {
@@ -5735,7 +5735,7 @@ button.close {
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
 }
-.carousel-caption .btn {
+.carousel-caption {
   text-shadow: none;
 }
 @media screen and (min-width: 768px) {
