@@ -81,7 +81,7 @@ const routes = [
     name: "productDetails",
     component: () => import("../views/ProductDetails.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {
