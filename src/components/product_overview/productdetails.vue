@@ -17,19 +17,19 @@ import false from 'vue-phone-number-input';
                   aria-label="breadcrumb"
                   class="d-none d-sm-none d-md-none d-lg-block d-xl-block"
                 >
-                  <ol class="breadcrumb breadcrumb-tx arrowed mt-2 mb-2">
+                  <ol class="breadcrumb breadcrumb-tx arrowed ">
                     <li class="breadcrumb-item">
-                      <a href="https://tradexplorer.com/">Home > </a>
+                      <a href="https://tradexplorer.com/">Home</a>
                     </li>
 
                     <li class="breadcrumb-item">
                       <a href="https://tradexplorer.com/"
-                        >{{ product.category }} >
+                        >{{ product.category }}
                       </a>
                     </li>
 
                     <li class="breadcrumb-item">
-                      <a href="https://tradexplorer.com/ford-edge">Edge > </a>
+                      <a href="https://tradexplorer.com/ford-edge">Edge</a>
                     </li>
 
                     <li class="breadcrumb-item active">
@@ -185,7 +185,7 @@ import false from 'vue-phone-number-input';
               </div>
 
               <!-- Heading Area -->
-              <div class="key-features row">
+              <div class="key-features">
                 <div class="boxicon">
                   <a
                     data-Limit="tooltip"
@@ -1147,6 +1147,27 @@ export default {
 </script>
 
 <style scoped>
+
+
+
+.breadcrumb {
+    padding: 8px 15px 8px 0px!important;
+    margin-bottom: 20px!important;
+    list-style: none;
+    background-color: #f5f5f5!important;
+    border-radius: 4px;
+}
+
+.breadcrumb > li + li:before {
+    padding: 0 5px!important;
+    color: #ccc!important;
+    content: "/\00a0"!important;
+}
+
+.boxicon {
+  width: 109px;
+}
+
 .tab-pane-tx a {
   background: none !important;
   color: #9a9a9a !important;
