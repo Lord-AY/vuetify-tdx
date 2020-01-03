@@ -1,19 +1,14 @@
 import Api from "@/services/Api";
 
 export default {
-  products(token) {
-    return Api().get("product/product", {
-      headers: {
-        "x-access-token": token
-      }
-    });
+  products() {
+    return Api().get("product/product");
   },
-  categories(token) {
-    return Api().get("product/categories", {
-      headers: {
-        "x-access-token": token
-      }
-    });
+  product(credentials) {
+    return Api().get(`product/${credentials.id}`);
+  },
+  categories() {
+    return Api().get("product/categories");
   },
   similarProducts(product, token) {
     return Api().get(`product/similar/${product.cid}/${product.id}`, {

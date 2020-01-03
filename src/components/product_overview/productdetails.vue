@@ -51,11 +51,11 @@
             <div class="singlepage-detail">
               <div id="single-slider" class="flexslider">
                 <ul class="slides">
-                  <li>
-                    <a :href="product.photos" data-fancybox="group">
+                  <li v-for="(photo, index) in product.photos" :key="index">
+                    <a :href="photos" data-fancybox="group">
                       <!-- <a href="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
                       <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
-                      <img :alt="product.name" :src="JSON.parse(product.photos)" />
+                      <img :alt="product.name" :src="photo" />
                     </a>
                   </li>
                 </ul>
@@ -719,10 +719,6 @@
                                 ><a href="../ad_category/audi/index.html">{{
                                   simProduct.category
                                 }}</a></span
-                              ><span class="padding_cats"
-                                ><a href="../ad_category/a5/index.html"
-                                  >A5</a
-                                ></span
                               >
                             </div>
                             <!-- Short Description -->
