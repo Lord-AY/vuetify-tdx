@@ -2,7 +2,7 @@
   <!--Topbar-->
   <!--Topbar-->
   <div class="header-main header-main-padding">
-    <div class="top-bar mobile-hidden">
+    <div class="top-bar mobile-hidden" id="topb">
       <div class="container">
         <div class="row">
           <div class="col-xl-8 col-lg-8 col-sm-4 col-6 modified-width">
@@ -1194,12 +1194,14 @@ export default {
     },
     sync() {
       $(document).ready(function() {
-        $(window).scroll(function() {
+        $(window).scroll(function() {          
           var scroll = $(window).scrollTop();
-          if (scroll >= 50) {
-            $(".clearHeader").addClass("top-bar-hide");
+          console.log("we are scrolling " + scroll);
+          if (scroll > 20) {
+            $("#topb").removeClass("mobile-hidden");
+            $("#topb").addClass("top-bar-hide");
           } else {
-            $(".clearHeader").removeClass("top-bar-hide");
+            $("#topb").removeClass("top-bar-hide");
           }
         });
         $("#tx-menu-toggle").click(function() {
@@ -1442,5 +1444,8 @@ export default {
   .container2 {
     width: 1170px;
   }
+}
+.top-bar-hide {
+  display: none !important;
 }
 </style>
