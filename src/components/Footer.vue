@@ -177,7 +177,7 @@
 
           <div class="text-center payment-card-spacing-tx">
             <div class="mt-0">
-              Copyright © 2019
+              Copyright © 2020
               <a
                 href="#"
                 class="fs-14 text-primary-tx"
