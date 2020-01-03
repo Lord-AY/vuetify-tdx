@@ -1194,6 +1194,14 @@ export default {
     },
     sync() {
       $(document).ready(function() {
+        $(window).scroll(function() {
+          var scroll = $(window).scrollTop();
+          if (scroll >= 50) {
+            $(".clearHeader").addClass("top-bar-hide");
+          } else {
+            $(".clearHeader").removeClass("top-bar-hide");
+          }
+        });
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });

@@ -1724,9 +1724,9 @@ export default {
 
 /*@import "../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css";*/
 </style>
-<style >
-@media only screen and (max-width: 991px){
-  .horizontal-header .smllogo{
+<style>
+@media only screen and (max-width: 991px) {
+  .horizontal-header .smllogo {
     position: relative !important;
     top: -20px !important;
   }
