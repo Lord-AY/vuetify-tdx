@@ -16,19 +16,19 @@
                   aria-label="breadcrumb"
                   class="d-none d-sm-none d-md-none d-lg-block d-xl-block"
                 >
-                  <ol class="breadcrumb breadcrumb-tx arrowed mt-2 mb-2">
+                  <ol class="breadcrumb breadcrumb-tx arrowed ">
                     <li class="breadcrumb-item">
-                      <a href="https://tradexplorer.com/">Home > </a>
+                      <a href="https://tradexplorer.com/">Home</a>
                     </li>
 
                     <li class="breadcrumb-item">
                       <a href="https://tradexplorer.com/"
-                        >{{ product.category }} >
+                        >{{ product.category }}
                       </a>
                     </li>
 
                     <li class="breadcrumb-item">
-                      <a href="https://tradexplorer.com/ford-edge">Edge > </a>
+                      <a href="https://tradexplorer.com/ford-edge">Edge</a>
                     </li>
 
                     <li class="breadcrumb-item active">
@@ -71,7 +71,7 @@
               </div>
 
               <!-- Heading Area -->
-              <div class="key-features row">
+              <div class="key-features">
                 <div class="boxicon">
                   <a
                     data-Limit="tooltip"
@@ -151,18 +151,18 @@
                 </div>
               </div>
               <div class="content-box-grid margin-top-20">
-                <ul class="nav nav-tabs" style="margin-bottom: 16px;">
+                <ul class="nav nav-pills" style="margin-bottom: 16px;">
                   <li class="tab-pane-tx active">
-                    <a data-Limit="tabs" href="#home">Description</a>
+                    <a data-Limit="pill" href="#home">Description</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-Limit="tabs" href="#menu1">Features</a>
+                    <a data-toggle="pill" href="#menu1">Features</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-Limit="tabs" href="#menu2">Reviews(0)</a>
+                    <a data-toggle="pill" href="#menu2">Reviews(0)</a>
                   </li>
                   <li class="tab-pane-tx">
-                    <a data-Limit="tabs" href="#menu3">Location Map</a>
+                    <a data-toggle="pill" href="#menu3">Location Map</a>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-Limit="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
@@ -774,7 +774,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row" style="margin-top: 36px;">
+              <div class="row" style="margin-top: 36px!important;">
                 <div class="col-md-5"></div>
                 <div class="col-md-3">
                   <!--                   <div class="viewall-similar">
@@ -782,10 +782,10 @@
                   </div> -->
                   <div class="viewall-similar">
                     <a @click="limit = null" v-show="limitBtn"
-                      >Show More <i class="fa fa-arrow-circle-right"></i
+                      >Show More <i class="fa fa-arrow-circle-right" style="color: #4caf50;"></i
                     ></a>
                     <a @click="limit = 3" v-show="!limitBtn"
-                      >Show Less <i class="fa fa-arrow-circle-right"></i
+                      >Show Less <i class="fa fa-arrow-circle-right" style="color: #4caf50;"></i
                     ></a>
                   </div>
                 </div>
@@ -890,15 +890,31 @@
                 style="padding: 0;box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4)"
               >
                 <!-- Email Button trigger modal -->
-                <h5>
-                  <a
-                    class="btn btn-block btn-primary contact-seller"
-                    href="../../sign-in-to-your-account/index.html"
-                    style="border-radius:0px;"
+              <div v-if="!isHidden">
+                <h5 v-on:click="isHidden = !isHidden">
+                  <div
+                    class="btn btn-block btn-primary contact-seller cusbutton"
+                    style="border-radius:0px; font-size: 20px;"
                   >
-                    <i class="fa fa-commenting-o"></i> Chat With Seller</a
+                    <i class="fa fa-commenting-o"></i> Chat With Seller</div
                   >
                 </h5>
+              </div>
+              <div
+                  class="row"
+                  style="margin-top: 20px;"
+                  v-if="isHidden"
+                >
+                <textarea class="message-box" rows="4" cols="50"></textarea>
+                <h5 class="send-message">
+                  <div
+                    class="btn btn-block btn-primary contact-seller cusbutton"
+                    style="border-radius:0px; font-size: 20px;"
+                  >
+                    <i class="fa fa-commenting-o"></i> Send Message</div
+                  >
+                </h5>
+              </div>
               </div>
               <div class="social-and-product-highlight">
                 <div class="fule-economy">
@@ -1034,15 +1050,19 @@
 /* eslint-disable no-undef */
 // import productSlider from "@/components/product_overview/productSlider";
 // import pricingArea from "@/components/product_overview/pricingArea";
+
+require("../../../src/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 import { ContentLoader } from "vue-content-loader";
 import ash from "lodash";
 
 export default {
+  
   name: "productDetails",
   data() {
     return {
       limit: 3,
-      limitBtn: true
+      limitBtn: true,
+      isHidden: false
     };
   },
   components: {
@@ -1140,6 +1160,27 @@ export default {
 </script>
 
 <style scoped>
+
+
+
+.breadcrumb {
+    padding: 8px 15px 8px 0px!important;
+    margin-bottom: 20px!important;
+    list-style: none;
+    background-color: #f5f5f5!important;
+    border-radius: 4px;
+}
+
+.breadcrumb > li + li:before {
+    padding: 0 5px!important;
+    color: #ccc!important;
+    content: "/\00a0"!important;
+}
+
+.boxicon {
+  width: 109px;
+}
+
 .tab-pane-tx a {
   background: none !important;
   color: #9a9a9a !important;
@@ -1154,5 +1195,61 @@ export default {
   border-bottom: 3px solid #4caf50 !important;
   color: #000 !important;
   font-weight: 700;
+}
+
+.message-box {
+  width: 100%;
+}
+
+.message-box:focus {
+  border: 2px solid #4caf50;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 7px 0px;
+}
+
+.send-message {
+  width: 100%; 
+  margin-top: 20px;
+}
+
+.cusbutton {
+  cursor: pointer;
+  position: relative;
+  font-size: 16px;
+}
+.cusbutton .hover {
+  display: none;
+  position: absolute;
+}
+.cusbutton:hover .hover {
+  display: block;
+}
+.cusbutton:hover .original {
+  display: none;
+}
+
+.list-inline > li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.visible-xs-block {
+    display: none !important;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.btn-warning {
+  background-color: #f0ad4e!important;
+    border-color: #eea236!important;
+}
+
+.btn-warning:hover {
+  background-color: #dd9a3c!important;
+    border-color: #dd9a3c!important;
 }
 </style>

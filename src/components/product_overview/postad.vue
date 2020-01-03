@@ -831,7 +831,7 @@
                                           >
                                         </span>
                                       </label>
-                                    </li>
+                                    </li> 
                                   </ul>
                                 </div>
                               </div>

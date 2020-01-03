@@ -357,7 +357,7 @@
               <div class="ad-info-1">
                 <p>
                   <i class="flaticon-calendar"></i> &nbsp;
-                  <span>January 24, 2019</span>
+                  <span>{{ format_date(product.createdAt) }}</span>
                 </p>
                 <!-- <ul class="pull-right "><li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Save Ad" href="javascript:void(0);" class="save-ad" data-adid="1375"><i class="flaticon-like-1"></i></a></li><li><a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"><i class="flaticon-message"></i></a></li></ul> -->
                 <div class="icon-reveal mobile-hidden">
@@ -392,6 +392,7 @@
 <script>
 import { ContentLoader } from "vue-content-loader";
 import ash from "lodash";
+import moment from "moment";
 
 export default {
   name: "gridprops",
@@ -402,6 +403,11 @@ export default {
     ContentLoader
   },
   methods: {
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
         return true;

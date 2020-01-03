@@ -92,11 +92,10 @@
                           </div>
 
                           <div
-                            class="follow-user"
-                            style="display: inline-block; padding: 0px; width: 100%;"
+                            class="follow"
                           >
-                            <p class="text-center">
-                              <i class="fa fa-user-plus"></i> Following
+                            <p >
+                              <i class="fa fa-user-plus"></i> Follow
                             </p>
                           </div>
                         </div>
@@ -294,6 +293,7 @@ export default {
           autoplay: true,
           autoplayTimeout: 3000,
           autoplayHoverPause: true,
+          freeDrag: false,
           responsiveClass: true,
           responsive: {
             0: {
