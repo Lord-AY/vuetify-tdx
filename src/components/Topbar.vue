@@ -826,7 +826,7 @@ export default {
         $(window).scroll(function() {          
           var scroll = $(window).scrollTop();
           // console.log("we are scrolling " + scroll);
-          if (scroll > 15) {
+          if (scroll > 10) {
             $("#topb").removeClass("mobile-hidden");
             $("#topb").addClass("top-bar-hide");
           } else {
