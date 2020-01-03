@@ -1707,28 +1707,65 @@ export default {
 .ad-meta:first-child a {
   margin-right: 10px;
 }
-/*the file with the enlarging effect*/
-/*@import "../assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css";*/
+html {
+  font-size: 10px;
 
-/*the file with the efoother distruption and zoom mius effect*/
-/*@import "../assets/carspot-css/wp-content/themes/carspot/css/bcustom.css";*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
-/*the file with the reed color  effect*/
-/*@import "../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css";*/
-
-/*the file with the search bar shaky   effect*/
-/*@import "../assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css";*/
-
-/*the file with the circle distruption    effect*/
-/*@import "../assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css";*/
-
-/*@import "../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css";*/
 </style>
-<style>
+<style scoped>
 @media only screen and (max-width: 991px) {
   .horizontal-header .smllogo {
     position: relative !important;
     top: -20px !important;
   }
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.gridlist {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 </style>
