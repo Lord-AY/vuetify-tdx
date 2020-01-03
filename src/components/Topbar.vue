@@ -282,8 +282,6 @@
                         src="../assets/images/wallet.svg"
                         height="18px"
                         style="margin-top: -4px; margin-right: 5px;"
-                        alt
-                        srcset
                       />
                       Balance
                       <span>00.00</span>
@@ -828,7 +826,7 @@ export default {
         $(window).scroll(function() {          
           var scroll = $(window).scrollTop();
           // console.log("we are scrolling " + scroll);
-          if (scroll > 22) {
+          if (scroll > 15) {
             $("#topb").removeClass("mobile-hidden");
             $("#topb").addClass("top-bar-hide");
           } else {
