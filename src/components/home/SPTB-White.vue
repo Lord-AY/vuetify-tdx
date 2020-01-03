@@ -162,7 +162,7 @@ import router from '../../router';
               <div class="item-card2">
                 <div class="item-card2-text">
                   <router-link
-                    :to="`/ProductDetails/${product.id}/${product.cid}`"
+                    :to="`ProductDetails/${product.id}/${product.cid}`"
                     class="text-dark"
                   >
                     <h4 class="product-title-tx">

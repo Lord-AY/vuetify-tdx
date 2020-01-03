@@ -196,7 +196,7 @@ import router from '../../router';
               <div class="d-flex mb-0">
                 <span class="fs-12"
                   ><i class="icon icon-event mr-2 mt-1"></i
-                  >{{ product.createdAt }}
+                  >{{ format_date(product.createdAt) }}
                 </span>
                 <div class="ml-auto">
                   <a
@@ -207,9 +207,6 @@ import router from '../../router';
                     title="Share Property"
                     ><i class="icon icon-share text-muted"></i
                   ></a>
-                </div>
-                <div class="mt-2 footerimg-r ml-auto">
-                  <small class="text-muted">1 day ago</small>
                 </div>
               </div>
             </div>
@@ -224,6 +221,7 @@ import router from '../../router';
 <script>
 /* eslint-disable no-undef */
 import { ContentLoader } from "vue-content-loader";
+import moment from "moment";
 import ash from "lodash";
 export default {
   name: "SPTB-Pattern",
@@ -239,6 +237,11 @@ export default {
         return true;
       } else {
         return false;
+      }
+    },
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
       }
     },
     sync() {

@@ -177,7 +177,7 @@
 
           <div class="text-center payment-card-spacing-tx">
             <div class="mt-0">
-              Copyright © 2020
+              Copyright © {{ format_date() }}
               <a
                 href="#"
                 class="fs-14 text-primary-tx"
@@ -194,8 +194,14 @@
 </template>
 
 <script>
+import moment from "moment";
 export default {
-  name: "Footer"
+  name: "Footer",
+  methods: {
+    format_date() {
+      return moment().format("YYYY");
+    }
+  }
 };
 </script>
 

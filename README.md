@@ -80,6 +80,15 @@ to reduce the size of the top nav at the side bar
 @import '../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css';
 @import '../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css';
 
+for keeps
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('../assets/carspot-css/wp-content/themes/carspot/fonts/glyphicons-halflings-regular.eot');
+  src: url('../assets/carspot-css/wp-content/themes/carspot/fonts/glyphicons-halflings-regulard41d.eot?#iefix') format('embedded-opentype'), url('../assets/carspot-css/wp-content/themes/carspot/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../assets/carspot-css/wp-content/themes/carspot/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../assets/carspot-css/wp-content/themes/carspot/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../assets/carspot-css/wp-content/themes/carspot/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
 
 Task to be done,
 

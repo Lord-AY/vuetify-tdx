@@ -1,12 +1,17 @@
 <template>
-  <postad
-    :categories="categories"
-    :ads="ads"
-    :images="selectedImages"
-    @create-ads="createAds"
-    :items="items"
-    :itemExists="itemsExists"
-  ></postad>
+  <div>
+    <postad
+      :categories="categories"
+      :ads="ads"
+      :images="selectedImages"
+      @create-ads="createAds"
+      :items="items"
+      :itemExists="itemsExists"
+      :loading="loading"
+      :dbErrors="getErrors"
+      :success="getSuccess"
+    ></postad>
+  </div>
 </template>
 <script>
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
@@ -25,7 +30,7 @@ require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 require("../assets/plugins/fancyuploder/fancy_fileupload.css");
 
 import postad from "@/components/product_overview/postad";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 import axios from "axios";
 export default {
   name: "postads",
@@ -38,7 +43,7 @@ export default {
         cid: "",
         uid: "",
         name: "",
-        photos: [],
+        photos: "",
         videos: [],
         region: "",
         currency: "Naira",
@@ -50,7 +55,7 @@ export default {
         featured: false,
         tradexplorer: true,
         adType: null,
-        paymentType: 1,
+        paymentType: 1, 
         approved: true,
         published: true,
         description: "",
@@ -63,7 +68,9 @@ export default {
     postad
   },
   computed: {
-    ...mapState("product", ["categories"])
+    ...mapState("product", ["categories"]),
+    ...mapGetters("product", ["getErrors", "getSuccess"]),
+    ...mapGetters("auth", ["loading"])
   },
   methods: {
     ...mapActions("product", ["createProduct"]),
@@ -77,7 +84,7 @@ export default {
         product: this.ads
       };
       // add image to payload
-      payload.product.photos = e;
+      payload.product.photos = e.toString();
       console.log("photos updated");
       // send payload to vuex
       this.createProduct(payload);

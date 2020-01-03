@@ -6,6 +6,7 @@ export default {
     products: null,
     categories: null,
     similarproducts: null,
+    success: null,
     errors: null
   },
   getters: {
@@ -20,11 +21,26 @@ export default {
         return state.categories;
       }
       return;
+    },
+    getErrors(state) {
+      if (state.errors !== null && state.errors !== undefined) {
+        return state.errors;
+      }
+      return;
+    },
+    getSuccess(state) {
+      if (state.success !== null || state.success !== undefined) {
+        return state.success;
+      } else {
+        return;
+      }
     }
   },
   actions: {
     fetchAllProducts({ rootState, commit }) {
       commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_SUCCESS_MSG", null);
+      commit("SET_ERRORS", null);
       return ProductService.products(rootState.auth.user.token)
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
@@ -68,6 +84,7 @@ export default {
     createProduct({ commit, rootState }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
       // set payload details
       const product = {
         cid: payload.product.cid,
@@ -94,13 +111,25 @@ export default {
         canExchange: false
       };
       return ProductService.createProduct(product, rootState.auth.user.token)
-        .then(({ data }) => {
+        .then(() => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(data);
+          commit("SET_SUCCESS_MSG", "Your Ads have Successfully been created.");
+          // console.log(data);
         })
         .catch(error => {
-          commit("auth/SET_LOADING", false, { root: true });
-          console.log(error);
+          if (error.response.status == 500 || error.response.status == 404) {
+            commit("auth/SET_LOADING", false, { root: true });
+            commit("SET_ERRORS", {
+              message: "Network Error, Please try again."
+            });
+          } else if (error.response.status == 400) {
+            commit("auth/SET_LOADING", false, { root: true });
+            commit("SET_ERRORS", error.response.data);
+            // console.log(error.response.data);
+          } else {
+            commit("auth/SET_LOADING", false, { root: true });
+            commit("SET_ERRORS", error.response.data);
+          }
         });
     }
   },
@@ -116,6 +145,9 @@ export default {
     },
     SET_SIMILAR_PRODUCTS(state, data) {
       state.similarproducts = data;
+    },
+    SET_SUCCESS_MSG(state, message) {
+      state.success = message;
     }
   }
 };
