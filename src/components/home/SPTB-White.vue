@@ -148,8 +148,8 @@ import router from '../../router';
                 :to="`/ProductDetails/${product.id}/${product.cid}`"
               ></router-link>
               <img
-                src="../../assets/images/products/pictures/f1.jpg"
-                alt="img"
+                :src="product.photos[0]"
+                :alt="product.name"
                 class="cover-image"
               />
             </div>

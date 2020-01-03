@@ -51,7 +51,7 @@ export default {
       return state.user.firstname;
     },
     loading(state) {
-      return !!state.loading;
+      return state.loading;
     }
   },
 

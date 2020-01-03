@@ -1,4 +1,5 @@
 import ProductService from "@/services/ProductService";
+import ash from "lodash";
 // import ash from 'lodash';
 export default {
   namespaced: true,
@@ -43,12 +44,20 @@ export default {
       commit("SET_ERRORS", null);
       return ProductService.products(rootState.auth.user.token)
         .then(({ data }) => {
+          let keys = [];
+          for (let key in data) {
+            if (data.hasOwnProperty(key)) keys.push(key);
+          }
+          for (let product in keys) {
+            photosArr = ash.split(data[product].photos, ",");
+            data[product].photos = photosArr;
+          }
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_PRODUCTS", data);
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_ERRORS", error.response.message);
+          commit("SET_ERRORS", error);
         });
     },
     fetchAllCategories({ rootState, commit }) {

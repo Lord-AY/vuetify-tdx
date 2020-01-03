@@ -307,8 +307,8 @@
                   :to="`productDetails/${product.id}/${product.cid}`"
                 >
                   <img
-                    src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                    :src="product.photos[0]"
+                    :alt="product.name"
                     class="img-responsive"
                   />
                 </router-link>
@@ -318,7 +318,8 @@
                   <div class="price">
                     <span class="price-tag-tx">
                       &#8358; {{ product.amount }}
-                      <span class>(Negotiable)</span>
+                      <span class v-if="product.negotiable">(Negotiable)</span>
+                      <span class v-else>(Fixed)</span>
                     </span>
                   </div>
                 </div>
