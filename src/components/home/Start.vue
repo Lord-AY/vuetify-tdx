@@ -113,4 +113,10 @@ export default {
 /* .owl-carousel button.owl-dot.active {
     background: #4CAF50 !important;
 } */
+
+@media (max-width: 991px) {
+  section#banner {
+    top: -50px !important;
+  }
+}
 </style>

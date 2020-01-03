@@ -1,11 +1,12 @@
 <template>
   <!--Topbar-->
   <!--Topbar-->
-  <div class="header-main">
+  <div class="header-main header-main-padding">
+    <div id="topb">
     <div class="top-bar mobile-hidden">
       <div class="container">
         <div class="row">
-          <div class="col-xl-8 col-lg-8 col-sm-4 col-6">
+          <div class="col-xl-8 col-lg-8 col-sm-4 col-6 modified-width">
             <div class="top-bar-left d-flex">
               <div class="clearfix"></div>
               <div class="clearfix">
@@ -321,6 +322,7 @@
         </div>
       </div>
     </div>
+  </div>
     <!--/Topbar-->
 
     <!-- Header -->
@@ -343,11 +345,11 @@
           <img src="../assets/images/brand/tradexplora-01.png" alt />
         </div>
 
-        <div
+        <!-- In case search is needed in mobile, this is an icon for it<div
           style="margin: 0px; position: relative; float: right; display: inline-block; top: 16px; height: 100%;"
         >
           <span><i class="fa fa-search" style="color: #cac9c9"></i></span>
-        </div>
+        </div> -->
         <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
       </div>
     </div>
@@ -365,8 +367,8 @@
     <!--/Header -->
 
     <!--Start Horizontal-main -->
-    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden">
-      <div class="horizontal-mainwrapper container clearfix">
+    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed">
+      <div class="horizontal-mainwrapper container2 clearfix">
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
@@ -389,7 +391,7 @@
                 type="checkbox"
                 name="bmenu-open"
                 class="hidden"
-                checked
+                aria-checked="true"
               />
               <label
                 class="bmenu toggle"
@@ -397,7 +399,7 @@
                 accesskey="1"
                 style="padding: 10px; height: 40px;"
               >
-                <span style="font-size: .9125rem; font-weight: 400;">
+                <span style="font-size: 14.6px; font-weight: 400;">
                   <i
                     class="fa fa-bars"
                     style="color: #4CAF50; margin-right: 3px;"
@@ -787,7 +789,7 @@
             </li>
             <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0"></li>-->
           </ul>
-          <div class="call-us-now">
+          <div class="call-us-now" style="width: 32%!important;">
             <div class="contact-us-header">
               <i style="color:black;" class="flaticon-customer-service"></i>
               <p>
@@ -800,377 +802,6 @@
         </nav>
       </div>
     </div>
-    <!-- MEGA MENU  -->
-    <!-- <input id="bmenu_toggle" type="checkbox" name="bmenu-open" class="hidden" />
-    <label class="bmenu toggle" for="bmenu_toggle" accesskey="1">
-      <header><span class="heavy">&#x2630;</span> Menu</header>
-    </label> -->
-    <!-- <div class="hide-at-start-wrapper">
-      <nav class="bmenu panel animated">
-        <a href="#/home.html"><span class="triangle-origin">Home</span></a>
-        <a href="#/markets.html"
-          ><span class="triangle-origin">Markets</span></a
-        >
-        <a href="#/technology.html"
-          ><span class="triangle-origin">Technology</span></a
-        >
-        <a href="#/politics.html"
-          ><span class="triangle-origin">Politics</span></a
-        >
-        <a href="#/pursuits.html"
-          ><span class="triangle-origin">Pursuits</span></a
-        >
-        <a href="#/opinion.html"
-          ><span class="triangle-origin">Opinion</span></a
-        >
-        <a href="#/businessweek.html"
-          ><span class="triangle-origin">Businessweek</span></a
-        >
-        <hr />
-        <a href="#/video.html"><span class="triangle-origin">Video</span></a>
-        <a href="#/audio.html"><span class="triangle-origin">Audio</span></a>
-        <hr />
-        <a class="no-panel" href="#/newsletters.html">Newsletters</a>
-        <a class="no-panel" href="#/watchlist.html">Watchlist</a>
-        <a class="no-panel" href="#/subscribe.html">Subscribe</a>
-        <a class="no-panel" href="#/signin.html">Sign In</a>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Read</header>
-              <a href="#/wealth.html">Wealth</a>
-              <a href="#/crypto.html">Crypto</a>
-              <a href="#/hyperdrive.html">Hyperdrive</a>
-              <a href="#/prognosis.html">Prognosis</a>
-              <a href="#/climatechanged.html">Climate Changed</a>
-              <a href="#/equality.html">Equality</a>
-              <a href="#/billionaires.html">Billionaires</a>
-              <a href="#/graphics.html">Graphics</a>
-              <a href="#/sponsoredcontent.html">Sponsored Content</a>
-            </section>
-            <section class="titled-group">
-              <header>Watch</header>
-              <a href="#/thedavidrubensteinshow.html"
-                >The David Rubenstein Show</a
-              >
-              <a href="#/brilliantideas.html">Brilliant Ideas</a>
-              <a href="#/inspirego.html">Inspire GO</a>
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>Special Reports</header>
-              <a href="#/wheretoinvest$10,000.html">Where to Invest $10,000</a>
-              <a href="#/50companiestowatchin2018.html"
-                >50 Companies to Watch in 2018</a
-              >
-              <a href="#/what'sinsidealltheiphones.html"
-                >What's Inside All the iPhones</a
-              >
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Read</header>
-              <a href="#/economics.html">Economics</a>
-              <a href="#/deals.html">Deals</a>
-              <a href="#/fixedincome.html">Fixed Income</a>
-              <a href="#/etfs.html">ETFs</a>
-              <a href="#/benchmark.html">Benchmark</a>
-              <a href="#/marketsmagazine.html">Markets Magazine</a>
-            </section>
-            <section class="titled-group">
-              <header>Watch</header>
-              <a href="#/daybreak.html">Daybreak</a>
-              <a href="#/surveillance.html">Surveillance</a>
-              <a href="#/markets.html">Markets</a>
-              <a href="#/what'dyoumiss.html">What'd You Miss</a>
-            </section>
-            <section class="titled-group">
-              <header>Follow</header>
-              <a href="#/twitter.html">Twitter</a>
-              <a href="#/facebook.html">Facebook</a>
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>Data</header>
-              <a href="#/stocks.html">Stocks</a>
-              <a href="#/currencies.html">Currencies</a>
-              <a href="#/commodities.html">Commodities</a>
-              <a href="#/rates-and-bonds.html">Rates &amp; Bonds</a>
-              <a href="#/sectors.html">Sectors</a>
-              <a href="#/economiccalendar.html">Economic Calendar</a>
-            </section>
-            <section class="titled-group">
-              <header>Listen</header>
-              <a href="#/trillions.html">Trillions</a>
-              <a href="#/oddlots.html">Odd Lots</a>
-              <a href="#/surveillance.html">Surveillance</a>
-              <a href="#/benchmark.html">Benchmark</a>
-              <a href="#/p-and-l.html">P&amp;L</a>
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Read</header>
-              <a href="#/Cybersecurity.html">Cybersecurity</a>
-              <a href="#/Startups.html">Startups</a>
-              <a href="#/AI.html">AI</a>
-              <a href="#/Mobile.html">Mobile</a>
-              <a href="#/Big+Data.html">Big Data</a>
-              <a href="#/Cloud+Computing.html">Cloud Computing</a>
-              <a href="#/U.S.html">U.S.</a>
-              <a href="#/Global.html">Global</a>
-            </section>
-            <section class="titled-group">
-              <header>Special Reports</header>
-              <a href="#/The Elon Musk Tracker.html">The Elon Musk Tracker</a>
-              <a href="#/Tesla Model 3 Tracker.html">Tesla Model 3 Tracker</a>
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>Watch</header>
-              <a href="#/Gadgets with Gurman.html">Gadgets with Gurman</a>
-              <a href="#/Digital Defense.html">Digital Defense</a>
-              <a href="#/Bloomberg Technology TV.html"
-                >Bloomberg Technology TV</a
-              >
-              <a href="#/Studio 1.0.html">Studio 1.0</a>
-            </section>
-            <section class="titled-group">
-              <header>Listen</header>
-              <a href="#/Decrypted.html">Decrypted</a>
-            </section>
-            <section class="titled-group">
-              <header>Follow</header>
-              <a href="#/Twitter.html">Twitter</a>
-              <a href="#/Facebook.html">Facebook</a>
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Read</header>
-              <a href="#/2018 Women Candidates.html">2018 Women Candidates</a>
-              <a href="#/Trump Tracker.html">Trump Tracker</a>
-              <a href="#/Brexit Coverage.html">Brexit Coverage</a>
-              <a href="#/World Leaders on the Brink.html"
-                >World Leaders on the Brink</a
-              >
-              <a href="#/2018 Pessimist's Guide.html">2018 Pessimist's Guide</a>
-            </section>
-            <section class="titled-group">
-              <header>Listen</header>
-              <a href="#/Bloomberg Law.html">Bloomberg Law</a>
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>Subscribe</header>
-              <a href="#/Balance of Power.html">Balance of Power</a>
-            </section>
-            <section class="titled-group">
-              <header>Follow</header>
-              <a href="#/Twitter.html">Twitter</a>
-              <a href="#/Facebook.html">Facebook</a>
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Read</header>
-              <a href="#/Travel.html">Travel</a>
-              <a href="#/Autos.html">Autos</a>
-              <a href="#/Homes.html">Homes</a>
-              <a href="#/Living.html">Living</a>
-              <a href="#/Culture.html">Culture</a>
-              <a href="#/Style.html">Style</a>
-            </section>
-            <section class="titled-group">
-              <header>Special Reports</header>
-              <a href="#/London Property Prices.html">London Property Prices</a>
-              <a href="#/New York Property Prices.html"
-                >New York Property Prices</a
-              >
-              <a href="#/How to Invest in Art.html">How to Invest in Art</a>
-              <a href="#/How to Spend Your Bonus.html"
-                >How to Spend Your Bonus</a
-              >
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>Watch</header>
-              <a href="#/Made.html">Made</a>
-            </section>
-            <section class="titled-group">
-              <header>Follow</header>
-              <a href="#/Twitter.html">Twitter</a>
-              <a href="#/Facebook.html">Facebook</a>
-              <a href="#/Intagram.html">Intagram</a>
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Read</header>
-              <a href="#/Editorials.html">Editorials</a>
-            </section>
-            <section class="titled-group">
-              <header>Follow</header>
-              <a href="#/Twitter.html">Twitter</a>
-              <a href="#/Facebook.html">Facebook</a>
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>Listen</header>
-              <a href="#/Masters in Business.html">Masters in Business</a>
-            </section>
-            <section class="titled-group">
-              <header>Subscribe</header>
-              <a href="#/Bloomberg Opinion Today.html"
-                >Bloomberg Opinion Today</a
-              >
-              <a href="#/Money Stuff.html">Money Stuff</a>
-              <a href="#/Ritholtz's Reads.html">Ritholtz's Reads</a>
-              <a href="#/Early Returns.html">Early Returns</a>
-              <a href="#/Sparklines.html">Sparklines</a>
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Special Reports</header>
-              <a href="#/Sooner Than You Think.html">Sooner Than You Think</a>
-              <a href="#/The Year Ahead: 2018.html">The Year Ahead: 2018</a>
-              <a href="#/The Bloomberg 50.html">The Bloomberg 50</a>
-            </section>
-            <section class="titled-group">
-              <header>Watch</header>
-              <a href="#/Hello World.html">Hello World</a>
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>The Magazine</header>
-              <a href="#/Subscribe.html">Subscribe</a>
-            </section>
-            <section class="titled-group">
-              <header>Follow</header>
-              <a href="#/Twitter.html">Twitter</a>
-              <a href="#/Facebook.html">Facebook</a>
-              <a href="#/Instagram.html">Instagram</a>
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Watch Live TV</header>
-              <a href="#/US.html">US</a>
-              <a href="#/Europe.html">Europe</a>
-              <a href="#/Asia.html">Asia</a>
-              <a href="#/Australia.html">Australia</a>
-              <a href="#/Schedule+Shows.html">Schedule+Shows</a>
-            </section>
-            <section class="titled-group">
-              <header>Shows</header>
-              <a href="#/Surveillance.html">Surveillance</a>
-              <a href="#/Daybreak.html">Daybreak</a>
-              <a href="#/Markets.html">Markets</a>
-              <a href="#/What'd You Miss?.html">What'd You Miss?</a>
-              <a href="#/Bloomberg Technology.html">Bloomberg Technology</a>
-              <a href="#/All Shows....html">All Shows...</a>
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>Series</header>
-              <a href="#/QuickTake.html">QuickTake</a>
-              <a href="#/Hello World.html">Hello World</a>
-              <a href="#/The Spark.html">The Spark</a>
-            </section>
-            <section class="titled-group">
-              <header>Follow</header>
-              <a href="#/TicToc.html">TicToc</a>
-              <a href="#/YouTube.html">YouTube</a>
-              <a href="#/Twitter.html">Twitter</a>
-              <a href="#/Facebook.html">Facebook</a>
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Bloomberg Radio</header>
-              <a href="#/Listen Live.html">Listen Live</a>
-              <a href="#/About Bloomberg Radio.html">About Bloomberg Radio</a>
-            </section>
-            <section class="titled-group">
-              <header>Podcasts</header>
-              <a href="#/Decrypted.html">Decrypted</a>
-              <a href="#/Odd Lots.html">Odd Lots</a>
-              <a href="#/Trillions.html">Trillions</a>
-              <a href="#/Benchmark.html">Benchmark</a>
-              <a href="#/Masters in Business.html">Masters in Business</a>
-              <a href="#/Surveillance.html">Surveillance</a>
-              <a href="#/P-and-L.html">P&amp;L</a>
-              <a href="#/Business of Sports.html">Business of Sports</a>
-              <a href="#/Coast to Coast.html">Coast to Coast</a>
-              <a href="#/Bloomberg Law.html">Bloomberg Law</a>
-              <a href="#/All Podcasts….html">All Podcasts…</a>
-            </section>
-          </div>
-        </article>
-        <article class="panel">
-          <div class="column">
-            <section class="titled-group">
-              <header>Read</header>
-              <a href="#/wealth.html">Wealth</a>
-              <a href="#/crypto.html">Crypto</a>
-              <a href="#/hyperdrive.html">Hyperdrive</a>
-              <a href="#/prognosis.html">Prognosis</a>
-              <a href="#/climatechanged.html">Climate Changed</a>
-              <a href="#/equality.html">Equality</a>
-              <a href="#/billionaires.html">Billionaires</a>
-              <a href="#/graphics.html">Graphics</a>
-              <a href="#/sponsoredcontent.html">Sponsored Content</a>
-            </section>
-            <section class="titled-group">
-              <header>Watch</header>
-              <a href="#/thedavidrubensteinshow.html"
-                >The David Rubenstein Show</a
-              >
-              <a href="#/brilliantideas.html">Brilliant Ideas</a>
-              <a href="#/inspirego.html">Inspire GO</a>
-            </section>
-          </div>
-          <div class="column">
-            <section class="titled-group">
-              <header>Special Reports</header>
-              <a href="#/wheretoinvest$10,000.html">Where to Invest $10,000</a>
-              <a href="#/50companiestowatchin2018.html"
-                >50 Companies to Watch in 2018</a
-              >
-              <a href="#/what'sinsidealltheiphones.html"
-                >What's Inside All the iPhones</a
-              >
-            </section>
-          </div>
-        </article>
-      </nav>
-    </div> -->
   </div>
   <!--/Horizontal-main -->
 </template>
@@ -1193,6 +824,17 @@ export default {
     },
     sync() {
       $(document).ready(function() {
+        $("#bmenu_toggle").prop("checked", false);
+        $(window).scroll(function() {          
+          var scroll = $(window).scrollTop();
+          // console.log("we are scrolling " + scroll);
+          if (scroll > 22) {
+            $("#topb").removeClass("mobile-hidden");
+            $("#topb").addClass("top-bar-hide");
+          } else {
+            $("#topb").removeClass("top-bar-hide");
+          }
+        });
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });
@@ -1353,7 +995,7 @@ export default {
   /* width: 0; */
   width: 250px;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   left: -260px;
   background-color: #fff;
@@ -1417,5 +1059,24 @@ export default {
 
 .horizontal-main {
   border-bottom: 3px solid #4caf50;
+}
+
+@media (min-width: 768px) {
+  .container2 {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container2 {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container2 {
+    width: 1170px;
+  }
+}
+.top-bar-hide {
+  display: none !important;
 }
 </style>

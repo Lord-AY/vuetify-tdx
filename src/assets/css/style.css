@@ -110,6 +110,54 @@
 	min-width: 170px !important;
 }
 
+.top-bar-hide {
+  display: none !important;
+}
+
+.header-main {
+  font-size: 16px !important;
+}
+
+.top-bar {
+  height: 50px !important;
+}
+
+.row {
+  width: 100%;
+  margin: 0 !important;
+}
+
+.container {
+  height: 100%;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px !important;
+    width: 1200px !important;
+    padding: 0 5px!important;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+	.header-main-padding {
+	  padding-bottom: 110px;
+	}
+}
+
+
+
+
+.top-bar-fixed {
+  position: fixed !important;
+  z-index: 200;
+}
+
+.modified-width {
+  padding: 0 !important;
+}
+
 /*------- Bootstrap Framework -------*/
 *, ::after, ::before {
 	box-sizing: border-box;
@@ -119,7 +167,8 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	-ms-overflow-style: scrollbar;
-	-webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  
 }
 @-ms-viewport {
 	width: device-width;
@@ -17947,6 +17996,9 @@ footer .border-top {
 	}
 }
 @media (max-width:991px) {
+	#back-to-top{
+		bottom: 70px !important;
+	}
 	.select2-container .select2-selection--single {
 		border-radius: 6px!important;
 	}
@@ -28660,7 +28712,9 @@ a.post-ad-header-tx:hover {
 	position: relative;
 }
 .btn-tx {
-	padding: 0.671875rem 0.9375rem!important;
+  min-width: 15px !important;
+  padding: 10px!important;
+  height: 48px;
 	border-radius: 0px!important;
 	margin-bottom: 0px!important;
 }
@@ -42378,4 +42432,29 @@ ul.bottom-links > li{
 	text-align: center;
 	display: inline-block;
 	margin: 0px 5px;
+}
+
+.call-us-now {
+    
+    width: 17.333333333333332em!important;
+}
+
+.hide-at-start-wrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 94px;
+  width: 100%;
+  /* border-top: 3px solid #4caf50; */
+}
+.bmenu {
+  background: white;
+  color: black !important;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 400;
+  /* font-family: avenir; */
+}
+
+.horizontal-main {
+  border-bottom: 3px solid #4caf50;
 }

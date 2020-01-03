@@ -1304,8 +1304,9 @@
               <div class="row">
                 <div class="clearfix"></div>
                 <div class="list-style-1">
-                  <div class="panel with-nav-tabs panel-default">
-                    <div class="panel-heading">
+                  <!-- This is Highly Unnecessary <div class="panel with-nav-tabs panel-default"> -->
+                  <div>
+                    <!-- Not needed <div class="panel-heading">
                       <ul class="nav nav-tabs">
                         <li class="active">
                           <a href="#tab1default" data-toggle="tab"
@@ -1313,13 +1314,16 @@
                           >
                         </li>
                       </ul>
-                    </div>
-                    <div class="panel-body">
+                    </div> -->
+                    <!-- <div class="panel-body"> -->
+                    <div>
                       <div class="tab-content">
                         <div class="tab-pane fade in active" id="tab1default">
                           <div class="ads-list-archive featured_ads">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a
@@ -1338,14 +1342,16 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
                                 <div class="ad-price">
-                                  &#8358; 64,500
+                                  &#8358; 64,501
                                   <span class>(Negotiable)</span>
                                 </div>
                                 <!-- Title -->
@@ -1357,7 +1363,7 @@
                                   </a>
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a href="../ad_category/audi/index.html"
                                       >Audi</a
@@ -1370,7 +1376,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   If you have any questions, please feel free to
                                   contact us at 813-246-3673! And be sure to
@@ -1394,7 +1402,7 @@
                                   <div class="last-updated">
                                     Posted : January 24, 2019
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="1375"
@@ -1414,11 +1422,33 @@
                               </div>
                               <!-- Ad Desc End -->
                             </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                             <!-- Content Block End -->
                           </div>
                           <div class="ads-list-archive featured_ads">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a
@@ -1437,9 +1467,11 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
@@ -1456,7 +1488,7 @@
                                   </a>
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a href="../ad_category/audi/index.html"
                                       >Audi</a
@@ -1469,7 +1501,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   If you have any questions, please feel free to
                                   contact us at 813-246-3673! And be sure to
@@ -1533,7 +1567,7 @@
                                   <div class="last-updated">
                                     Posted : January 24, 2019
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="1366"
@@ -1553,11 +1587,33 @@
                               </div>
                               <!-- Ad Desc End -->
                             </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                             <!-- Content Block End -->
                           </div>
                           <div class="ads-list-archive featured_ads">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a
@@ -1576,9 +1632,11 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
@@ -1595,7 +1653,7 @@
                                   </a>
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a href="../ad_category/austin/index.html"
                                       >Austin</a
@@ -1608,7 +1666,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   1 Owner, Factory Warranty, Fully Loaded
                                 </p>
@@ -1640,7 +1700,7 @@
                                   <div class="last-updated">
                                     Posted : January 24, 2019
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="1362"
@@ -1659,11 +1719,33 @@
                               </div>
                               <!-- Ad Desc End -->
                             </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                             <!-- Content Block End -->
                           </div>
                           <div class="ads-list-archive featured_ads">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a href="../ad/2017-ford-mustang-2/index.html">
@@ -1680,9 +1762,11 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
@@ -1697,7 +1781,7 @@
                                   >
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a href="../ad_category/ford/index.html"
                                       >Ford</a
@@ -1710,7 +1794,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   **** Only 5,200 Miles *** &#8211; Ford
                                   Executive Vehicle &#8211; Convertible &#8211;
@@ -1754,7 +1840,7 @@
                                   <div class="last-updated">
                                     Posted : January 24, 2019
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="1554"
@@ -1774,11 +1860,33 @@
                               </div>
                               <!-- Ad Desc End -->
                             </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                             <!-- Content Block End -->
                           </div>
                           <div class="ads-list-archive featured_ads">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a
@@ -1797,9 +1905,11 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
@@ -1815,7 +1925,7 @@
                                   >
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a href="../ad_category/corvette/index.html"
                                       >Corvette</a
@@ -1823,7 +1933,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   **** Only 5,200 Miles *** &#8211; Ford
                                   Executive Vehicle &#8211; Convertible &#8211;
@@ -1887,7 +1999,7 @@
                                   <div class="last-updated">
                                     Posted : January 24, 2019
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="1552"
@@ -1907,11 +2019,33 @@
                               </div>
                               <!-- Ad Desc End -->
                             </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                             <!-- Content Block End -->
                           </div>
                           <div class="ads-list-archive">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a href="../ad/audi-a5-for-sale/index.html">
@@ -1925,9 +2059,11 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
@@ -1942,7 +2078,7 @@
                                   >
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a href="../ad_category/audi/index.html"
                                       >Audi</a
@@ -1955,7 +2091,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   Not Many of These Around! This One’s in Primo
                                   Shape. The Miles are Super Low. If Your a
@@ -1985,7 +2123,7 @@
                                   <div class="last-updated">
                                     Posted : July 21, 2017
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="960"
@@ -2005,11 +2143,33 @@
                               </div>
                               <!-- Ad Desc End -->
                             </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                             <!-- Content Block End -->
                           </div>
                           <div class="ads-list-archive">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a
@@ -2032,9 +2192,11 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
@@ -2046,7 +2208,7 @@
                                   >
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a href="../ad_category/renault/index.html"
                                       >Renault</a
@@ -2054,7 +2216,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   If you’re looking for a great pre-owned
                                   convertible, look no further. This exceptional
@@ -2098,7 +2262,7 @@
                                   <div class="last-updated">
                                     Posted : July 13, 2017
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="877"
@@ -2118,11 +2282,33 @@
                               </div>
                               <!-- Ad Desc End -->
                             </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                             <!-- Content Block End -->
                           </div>
                           <div class="ads-list-archive">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a
@@ -2145,9 +2331,11 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
@@ -2159,7 +2347,7 @@
                                   >
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a
                                       href="../ad_category/rolls-royce/index.html"
@@ -2168,7 +2356,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   Alfa romeo GT 1.9 jtd, 6 speed manual, full
                                   leather interior. Car is in great condition,
@@ -2212,7 +2402,7 @@
                                   <div class="last-updated">
                                     Posted : July 13, 2017
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="873"
@@ -2232,11 +2422,33 @@
                               </div>
                               <!-- Ad Desc End -->
                             </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                             <!-- Content Block End -->
                           </div>
                           <div class="ads-list-archive featured_ads">
                             <!-- Image Block -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                            <div
+                              class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding"
+                            >
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <a
@@ -2264,9 +2476,11 @@
                               <!-- Img Block -->
                             </div>
                             <!-- Ads Listing -->
-                            <div class="clearfix visible-xs-block"></div>
+                            <div class="clearfix visible-xs-block hidden"></div>
                             <!-- Content Block -->
-                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                            <div
+                              class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding"
+                            >
                               <!-- Ad Desc -->
                               <div class="ad-archive-desc">
                                 <!-- Price -->
@@ -2279,7 +2493,7 @@
                                   >
                                 </h3>
                                 <!-- Category -->
-                                <div class="category-title">
+                                <div class="category-title hidden-sm">
                                   <span class="padding_cats">
                                     <a
                                       href="../ad_category/land-rover/index.html"
@@ -2288,7 +2502,9 @@
                                   </span>
                                 </div>
                                 <!-- Short Description -->
-                                <div class="clearfix visible-xs-block"></div>
+                                <div
+                                  class="clearfix visible-xs-block hidden"
+                                ></div>
                                 <p class="hidden-sm">
                                   Full service history, bluetooth connectivity,
                                   auto lights/ wipers, air conditioning, 17 inch
@@ -2332,7 +2548,7 @@
                                   <div class="last-updated">
                                     Posted : June 20, 2017
                                   </div>
-                                  <div class="ad-meta">
+                                  <div class="ad-meta hide">
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="89"
@@ -2351,6 +2567,26 @@
                                 </div>
                               </div>
                               <!-- Ad Desc End -->
+                            </div>
+                            <div class="col-xs-12 hidden-above-xs">
+                              <div class="ad-meta row no-padding-sides-xs">
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="btn2 btn-default full-width no-border"
+                                  >
+                                    <i class="fa fa-heart-o"></i> Favourite
+                                  </a>
+                                </div>
+                                <div class="col-xs-6 no-padding">
+                                  <a
+                                    href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                                    class="btn2 btn-success full-width no-border"
+                                  >
+                                    <i class="fa fa-phone"></i> View Details
+                                  </a>
+                                </div>
+                              </div>
                             </div>
                             <!-- Content Block End -->
                           </div>
@@ -2391,3 +2627,50 @@ export default {
   name: "listprops"
 };
 </script>
+<style>
+@media (max-width: 767px) and (min-width: 320px) {
+  .hidden-above-xs {
+    display: block;
+  }
+  .full-width {
+    width: 100% !important;
+  }
+  .no-border {
+    border: none !important;
+    border-radius: 0px !important;
+  }
+  .ad-archive-desc h3 {
+    font-size: 16px !important;
+    font-weight: bold;
+  }
+  .ads-list-archive .ad-archive-desc .ad-price {
+    font-size: 16px !important;
+  }
+  .ads-list-archive .ad-archive-desc .ad-price span {
+    font-size: 14px !important;
+  }
+  .hidden-sm,
+  .add_info,
+  .ad-meta.hide {
+    display: none !important;
+  }
+  .visible-xs-block.hidden {
+    display: none !important;
+  }
+  .ads-list-archive .ad-archive-desc .ad-price {
+    float: none;
+    font-size: 16px;
+  }
+  .ad-archive-desc {
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+  }
+  .no-padding-sides-xs {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
+/* .hidden-above-xs{
+  display: none !important;
+} */
+</style>

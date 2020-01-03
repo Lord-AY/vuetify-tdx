@@ -43,7 +43,7 @@ export default {
         cid: "",
         uid: "",
         name: "",
-        photos: [],
+        photos: "",
         videos: [],
         region: "",
         currency: "Naira",
@@ -55,7 +55,7 @@ export default {
         featured: false,
         tradexplorer: true,
         adType: null,
-        paymentType: 1,
+        paymentType: 1, 
         approved: true,
         published: true,
         description: "",
@@ -84,7 +84,7 @@ export default {
         product: this.ads
       };
       // add image to payload
-      payload.product.photos = e;
+      payload.product.photos = e.toString();
       console.log("photos updated");
       // send payload to vuex
       this.createProduct(payload);

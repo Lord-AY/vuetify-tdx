@@ -1,9 +1,9 @@
 <template>
   <div class="header-main">
-    <div class="top-bar mobile-hidden">
+    <div class="top-bar mobile-hidden" id="topb">
       <div class="container">
         <div class="row">
-          <div class="col-xl-8 col-lg-8 col-sm-4 col-6">
+          <div class="col-xl-8 col-lg-8 col-sm-4 col-6 modified-width">
             <div class="top-bar-left d-flex">
               <div class="clearfix"></div>
               <div class="clearfix"></div>
@@ -161,7 +161,7 @@
     <!--/Header -->
 
     <!--Start Horizontal-main -->
-    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden">
+    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed">
       <div class="horizontal-mainwrapper container clearfix">
         <!-- <div class="desktoplogo-1" >
           <a href="index.html"><img src="../assets/images/brand/tradexplora-main.svg" alt=""></a>
@@ -187,9 +187,376 @@
               </router-link>
             </li> -->
             <li aria-haspopup="true" style="margin-right: 10px;">
-              <button class="btn">
+              <!-- <button class="btn">
                 <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
-              </button>
+              </button> -->
+              <input
+                id="bmenu_toggle"
+                type="checkbox"
+                name="bmenu-open"
+                class="hidden"
+                aria-checked="true"
+              />
+              <label
+                class="bmenu toggle"
+                for="bmenu_toggle"
+                accesskey="1"
+                style="padding: 10px; height: 40px;"
+              >
+                <span style="font-size: 14.6px; font-weight: 400;">
+                  <i
+                    class="fa fa-bars"
+                    style="color: #4CAF50; margin-right: 3px;"
+                  ></i>
+                  All Categories
+                </span>
+              </label>
+              <div class="hide-at-start-wrapper">
+                <nav class="bmenu panel animated">
+                  <a href="#/home.html"
+                    ><span class="triangle-origin">Vehicles</span></a
+                  >
+                  <a href="#/markets.html"
+                    ><span class="triangle-origin">Real Estate</span></a
+                  >
+                  <a href="#/technology.html"
+                    ><span class="triangle-origin"
+                      >Phones &amp; Tablets</span
+                    ></a
+                  >
+                  <a href="#/politics.html"
+                    ><span class="triangle-origin">Electronics</span></a
+                  >
+                  <a href="#/pursuits.html"
+                    ><span class="triangle-origin">Fashion</span></a
+                  >
+                  <a href="#/opinion.html"
+                    ><span class="triangle-origin">Jobs</span></a
+                  >
+                  <a href="#/businessweek.html"
+                    ><span class="triangle-origin">Babies &amp; Kids</span></a
+                  >
+                  <hr />
+                  <a href=""
+                    ><span class="triangle-origin"
+                      >Agriculture &amp; Food</span
+                    ></a
+                  >
+                  <a href="#"><span class="triangle-origin">Handy Man</span></a>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">Ayam Tired</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">It's our work o!!</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">Who knew this could be stressful</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A worthless sub cat...</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Fresh Food</header>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Livestock &amp; Poultry</header>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Meals &amp; Drinks</header>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Feeds, Supplements &amp; Seeds</header>
+                        <a href="#">Cat 1</a>
+                        <a href="#">Cat 2</a>
+                        <a href="#">Cat 3</a>
+                        <a href="#">Gosh!!! I'm tired</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Hard Work</header>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Soft Work</header>
+                        <a href="#">It's our work o!!</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                  <article class="panel">
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Title</header>
+                        <a href="#">It's our work o!!</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Title</header>
+                        <a href="#">It's our work o!!</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <section class="titled-group">
+                        <header>Title</header>
+                        <a href="#">It's our work o!!</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                    </div>
+                  </article>
+                </nav>
+              </div>
             </li>
             <li aria-haspopup="true" style="padding: 0px;">
               <div class="row">
@@ -260,6 +627,17 @@ export default {
     },
     sync() {
       $(document).ready(function() {
+        $("#bmenu_toggle").prop("checked", false);
+        $(window).scroll(function() {          
+          var scroll = $(window).scrollTop();
+          console.log("we are scrolling " + scroll);
+          if (scroll > 25) {
+            $("#topb").removeClass("mobile-hidden");
+            $("#topb").addClass("top-bar-hide");
+          } else {
+            $("#topb").removeClass("top-bar-hide");
+          }
+        });
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });
@@ -311,7 +689,7 @@ export default {
   /* width: 0; */
   width: 250px;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   left: -260px;
   background-color: #fff;
@@ -354,5 +732,8 @@ export default {
   .sidenav a {
     font-size: 18px;
   }
+}
+.top-bar-hide {
+  display: none !important;
 }
 </style>

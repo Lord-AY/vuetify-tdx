@@ -14,6 +14,16 @@
     <div v-if="$route.meta.header === 4"><Footer></Footer></div>
     <!-- <div v-else-if="$route.meta.header === 3">I'm visible on home page two</div> -->
     <!-- <Footer></Footer> -->
+    <!-- Mobile Bottom Bar -->
+    <!-- <BNav
+      v-if="
+        $route.meta.header === 1 ||
+          route.meta.header === 3 ||
+          route.meta.header === 4
+      "
+      class="hidden-lg-up"
+    ></BNav> -->
+    <!-- /Mobile Bottom Bar -->
     <!-- Back to top -->
     <a href="#top" id="back-to-top"><i class="fa fa-rocket"></i></a>
   </div>
@@ -26,10 +36,12 @@
 import topbar from "@/components/Topbar";
 import topbar2 from "@/components/Topbar2";
 import Footer from "@/components/Footer";
+// import BNav from "@/components/BNav";
 export default {
   components: {
     topbar,
     topbar2,
+    // BNav,
     Footer
   },
   methods: {
