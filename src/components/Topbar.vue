@@ -2,7 +2,8 @@
   <!--Topbar-->
   <!--Topbar-->
   <div class="header-main header-main-padding">
-    <div class="top-bar mobile-hidden" id="topb">
+    <div id="topb">
+    <div class="top-bar mobile-hidden">
       <div class="container">
         <div class="row">
           <div class="col-xl-8 col-lg-8 col-sm-4 col-6 modified-width">
@@ -321,6 +322,7 @@
         </div>
       </div>
     </div>
+  </div>
     <!--/Topbar-->
 
     <!-- Header -->

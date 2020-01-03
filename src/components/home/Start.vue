@@ -116,7 +116,7 @@ export default {
 
 @media (max-width: 991px) {
   section#banner {
-    top: -50px;
+    top: -50px !important;
   }
 }
 </style>

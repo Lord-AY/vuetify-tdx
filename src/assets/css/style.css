@@ -140,11 +140,14 @@
   
 }
 
-
-
-.header-main-padding {
-  padding-bottom: 110px;
+@media (min-width: 1200px) {
+	.header-main-padding {
+	  padding-bottom: 110px;
+	}
 }
+
+
+
 
 .top-bar-fixed {
   position: fixed !important;
