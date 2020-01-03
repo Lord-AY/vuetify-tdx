@@ -683,13 +683,13 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                           <!-- Img Block -->
                           <div class="ad-archive-img">
-                            <a href="../ad/audi-a5-for-sale/index.html">
+                            <router-link :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`">
                               <img
-                                src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-360x270.jpg"
+                                :src="simProduct.photos[0]"
                                 alt="Audi A5 For Sale"
                                 class="img-responsive"
                               />
-                            </a>
+                            </router-link>
                           </div>
                           <!-- Img Block -->
                         </div>
@@ -709,16 +709,16 @@
                             </div>
                             <!-- Title -->
                             <h3>
-                              <a href="../ad/audi-a5-for-sale/index.html">{{
+                              <router-link :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`">{{
                                 simProduct.name
-                              }}</a>
+                              }}</router-link>
                             </h3>
                             <!-- Category -->
                             <div class="category-title">
                               <span class="padding_cats"
-                                ><a href="../ad_category/audi/index.html">{{
+                                ><router-link :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`">{{
                                   simProduct.category
-                                }}</a></span
+                                }}</router-link></span
                               >
                             </div>
                             <!-- Short Description -->
@@ -728,19 +728,12 @@
                             </p>
                             <!-- Ad Features -->
                             <ul class="add_info">
-                              <li class="similar-ads-picture-thumbnails active">
-                                <a href="../ad/audi-a5-for-sale/index.html"
+                              <li class="similar-ads-picture-thumbnails" :class="index == 0 ? 'active' : ''" v-for="(photo, index) in simProduct.photos" :key="index">
+                                <router-link :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`"
                                   ><img
-                                    src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-110x60.jpg"
+                                    :src="photo"
                                     :alt="simProduct.name"
-                                /></a>
-                              </li>
-                              <li class="similar-ads-picture-thumbnails ">
-                                <a href="../ad/audi-a5-for-sale/index.html"
-                                  ><img
-                                    src="../../assets/carspot-css/wp-content/uploads/2017/07/3-3-110x60.jpg"
-                                    :alt="simProduct.name"
-                                /></a>
+                                /></router-link>
                               </li>
                             </ul>
                             <!-- Ad History -->
