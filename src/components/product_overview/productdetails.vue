@@ -51,11 +51,11 @@
             <div class="singlepage-detail">
               <div id="single-slider" class="flexslider">
                 <ul class="slides">
-                  <li v-for="(photo, index) in product.photos" :key="index">
-                    <a :href="photo" data-fancybox="group">
+                  <li>
+                    <a :href="product.photos" data-fancybox="group">
                       <!-- <a href="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
                       <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
-                      <img :alt="product.name" :src="photo" />
+                      <img :alt="product.name" :src="JSON.parse(product.photos)" />
                     </a>
                   </li>
                 </ul>
@@ -1057,6 +1057,12 @@ export default {
     similarprods: [Object, Array]
   },
   methods: {
+    filterImages() {
+      let newImage = this.product.photos;
+      ash.trim
+      this.product.photos = newImage;
+      console.log(anotherO);
+    },
      showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
         return true;
@@ -1131,6 +1137,8 @@ export default {
   },
   created() {
     this.sync();
+    // console.log(JSON.parse(this.product.photos));
+    this.filterImages();
   }
 };
 </script>
