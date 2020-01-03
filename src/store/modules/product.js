@@ -141,6 +141,7 @@ export default {
         .then(() => {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SUCCESS_MSG", "Your Ads have Successfully been created.");
+          router.push("/gridlist");
           // console.log(data);
         })
         .catch(error => {

@@ -4,9 +4,7 @@ import router from "./router";
 import store from "./store";
 import { sync } from "vuex-router-sync";
 import "vue-phone-number-input/dist/vue-phone-number-input.css";
-
 Vue.config.productionTip = false;
-
 export const bus = new Vue();
 sync(store, router);
 new Vue({

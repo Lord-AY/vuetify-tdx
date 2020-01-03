@@ -82,7 +82,7 @@ export default {
   // }
 };
 </script>
-<style>
+<style lang="scss">
 @media (max-width: 991px) {
   .footer-main {
     padding-top: 0px !important;
