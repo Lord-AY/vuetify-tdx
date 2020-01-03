@@ -1,6 +1,6 @@
 <template>
   <div class="header-main">
-    <div class="top-bar mobile-hidden">
+    <div class="top-bar mobile-hidden" id="topb">
       <div class="container">
         <div class="row">
           <div class="col-xl-8 col-lg-8 col-sm-4 col-6 modified-width">
@@ -195,7 +195,6 @@
                 type="checkbox"
                 name="bmenu-open"
                 class="hidden"
-                checked
                 aria-checked="true"
               />
               <label
@@ -628,6 +627,17 @@ export default {
     },
     sync() {
       $(document).ready(function() {
+        $("#bmenu_toggle").prop("checked", false);
+        $(window).scroll(function() {          
+          var scroll = $(window).scrollTop();
+          console.log("we are scrolling " + scroll);
+          if (scroll > 25) {
+            $("#topb").removeClass("mobile-hidden");
+            $("#topb").addClass("top-bar-hide");
+          } else {
+            $("#topb").removeClass("top-bar-hide");
+          }
+        });
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });
@@ -722,5 +732,8 @@ export default {
   .sidenav a {
     font-size: 18px;
   }
+}
+.top-bar-hide {
+  display: none !important;
 }
 </style>
