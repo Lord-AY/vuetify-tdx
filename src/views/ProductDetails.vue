@@ -1,7 +1,7 @@
 <template>
   <div class="pdetails">
     <productdetails
-      :product="product"
+      :product="singleProduct"
       :similarprods="similarproducts"
     ></productdetails>
   </div>
@@ -69,7 +69,7 @@ require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
 
 import productdetails from "@/components/product_overview/productdetails";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   name: "productDetails",
   data() {
@@ -81,21 +81,25 @@ export default {
     productdetails
   },
   computed: {
-    ...mapState("product", ["products", "similarproducts"])
+    ...mapState("product", ["products", "similarproducts"]),
+    ...mapGetters("product", ["singleProduct"])
   },
   methods: {
-    ...mapActions("product", ["similarProducts"]),
+    ...mapActions("product", ["similarProducts", "selectedProduct"]),
     sync() {
       console.log("Jquery mounted");
     },
     getSingleProduct() {
-      const product = this.products[this.$route.params.id];
-      this.product = product;
+      const payload = {
+        id: this.$route.params.id
+      };
+      console.log(payload);
+      this.selectedProduct(payload);
     },
     getSimilarProducts() {
       const payload = {
-        cid: this.product.cid,
-        id: this.product.id
+        cid: this.singleProduct.cid,
+        id: this.singleProduct.id
       };
       this.similarProducts(payload);
     }
@@ -124,10 +128,7 @@ export default {
     );
     document.head.appendChild(extScript);
     // fetch single product for view
-    const product = this.products[this.$route.params.id];
-    this.product = product;
-    console.log(product);
-
+    this.getSingleProduct();
     // get similar products
     this.getSimilarProducts();
   },
