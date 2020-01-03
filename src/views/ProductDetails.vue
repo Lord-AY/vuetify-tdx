@@ -105,7 +105,10 @@ export default {
     }
   },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    $route(to, from) {
+      this.getSingleProduct();
+    }
   },
   created() {
     this.sync();
