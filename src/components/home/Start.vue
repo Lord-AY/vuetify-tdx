@@ -114,8 +114,8 @@ export default {
     background: #4CAF50 !important;
 } */
 
-@media (max-width: 991px){
-  section#banner{
+@media (max-width: 991px) {
+  section#banner {
     top: -50px;
   }
 }

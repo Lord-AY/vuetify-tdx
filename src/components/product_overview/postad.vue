@@ -78,7 +78,11 @@
                                     <input
                                       type="text"
                                       class="form-control post-ad-input"
-                                      :class="dbErrors && dbErrors.name ? 'is-invalid' : ''"
+                                      :class="
+                                        dbErrors && dbErrors.name
+                                          ? 'is-invalid'
+                                          : ''
+                                      "
                                       placeholder="Ad title"
                                       v-model="ads.name"
                                       required
@@ -95,7 +99,11 @@
                                     >
                                     <select
                                       class="form-control custom-select"
-                                      :class="dbErrors && dbErrors.cid ? 'is-invalid' : ''"
+                                      :class="
+                                        dbErrors && dbErrors.cid
+                                          ? 'is-invalid'
+                                          : ''
+                                      "
                                       v-model="ads.cid"
                                       required
                                     >
@@ -122,7 +130,11 @@
                                     >
                                     <select
                                       class="form-control custom-select"
-                                      :class="dbErrors && dbErrors.region ? 'is-invalid' : ''"
+                                      :class="
+                                        dbErrors && dbErrors.region
+                                          ? 'is-invalid'
+                                          : ''
+                                      "
                                       required
                                     >
                                       <option value="0" disabled
@@ -569,7 +581,11 @@
                                   >
                                   <textarea
                                     class="form-control"
-                                    :class="dbErrors && dbErrors.description ? 'is-invalid' : ''"
+                                    :class="
+                                      dbErrors && dbErrors.description
+                                        ? 'is-invalid'
+                                        : ''
+                                    "
                                     name="example-textarea-input"
                                     rows="4"
                                     placeholder="Write a short description about the item"
@@ -587,7 +603,11 @@
                                     <input
                                       type="number"
                                       class="form-control post-ad-input"
-                                      :class="dbErrors && dbErrors.amount ? 'is-invalid' : ''"
+                                      :class="
+                                        dbErrors && dbErrors.amount
+                                          ? 'is-invalid'
+                                          : ''
+                                      "
                                       placeholder="Price"
                                       v-model="ads.amount"
                                     />
@@ -621,7 +641,7 @@
                                 <vue-upload-multiple-image
                                   @upload-success="selectImageSuccess"
                                   @before-remove="beforeRemove"
-                                  :maxImage=7
+                                  :maxImage="7"
                                   :data-images="images"
                                   dragText="Images must not exceed 2mb for each"
                                   browseText="Browse image"
@@ -1507,7 +1527,8 @@ export default {
             })
             .catch(() => {
               this.isLoading = false;
-              this.errors = "Network Error, Uploading your images, please try again";
+              this.errors =
+                "Network Error, Uploading your images, please try again";
             });
         }
       }

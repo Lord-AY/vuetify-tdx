@@ -1,11 +1,11 @@
 <template>
   <!--Topbar-->
   <!--Topbar-->
-  <div class="header-main">
-    <div class="top-bar mobile-hidden">
+  <div class="header-main header-main-padding">
+    <div class="top-bar mobile-hidden" id="topb">
       <div class="container">
         <div class="row">
-          <div class="col-xl-8 col-lg-8 col-sm-4 col-6">
+          <div class="col-xl-8 col-lg-8 col-sm-4 col-6 modified-width">
             <div class="top-bar-left d-flex">
               <div class="clearfix"></div>
               <div class="clearfix">
@@ -365,7 +365,7 @@
     <!--/Header -->
 
     <!--Start Horizontal-main -->
-    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden">
+    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed">
       <div class="horizontal-mainwrapper container2 clearfix">
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
@@ -1194,6 +1194,16 @@ export default {
     },
     sync() {
       $(document).ready(function() {
+        $(window).scroll(function() {          
+          var scroll = $(window).scrollTop();
+          console.log("we are scrolling " + scroll);
+          if (scroll > 20) {
+            $("#topb").removeClass("mobile-hidden");
+            $("#topb").addClass("top-bar-hide");
+          } else {
+            $("#topb").removeClass("top-bar-hide");
+          }
+        });
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });
@@ -1434,5 +1444,8 @@ export default {
   .container2 {
     width: 1170px;
   }
+}
+.top-bar-hide {
+  display: none !important;
 }
 </style>
