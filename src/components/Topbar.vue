@@ -2,7 +2,8 @@
   <!--Topbar-->
   <!--Topbar-->
   <div class="header-main header-main-padding">
-    <div class="top-bar mobile-hidden" id="topb">
+    <div id="topb">
+    <div class="top-bar mobile-hidden">
       <div class="container">
         <div class="row">
           <div class="col-xl-8 col-lg-8 col-sm-4 col-6 modified-width">
@@ -281,8 +282,6 @@
                         src="../assets/images/wallet.svg"
                         height="18px"
                         style="margin-top: -4px; margin-right: 5px;"
-                        alt
-                        srcset
                       />
                       Balance
                       <span>00.00</span>
@@ -321,6 +320,7 @@
         </div>
       </div>
     </div>
+  </div>
     <!--/Topbar-->
 
     <!-- Header -->
@@ -826,7 +826,7 @@ export default {
         $(window).scroll(function() {          
           var scroll = $(window).scrollTop();
           // console.log("we are scrolling " + scroll);
-          if (scroll > 22) {
+          if (scroll > 15) {
             $("#topb").removeClass("mobile-hidden");
             $("#topb").addClass("top-bar-hide");
           } else {

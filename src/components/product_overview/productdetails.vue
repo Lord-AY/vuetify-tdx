@@ -918,15 +918,31 @@ import false from 'vue-phone-number-input';
                 style="padding: 0;box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4)"
               >
                 <!-- Email Button trigger modal -->
-                <h5>
-                  <a
-                    class="btn btn-block btn-primary contact-seller"
-                    href="../../sign-in-to-your-account/index.html"
+              <div v-if="!isHidden">
+                <h5 v-on:click="isHidden = !isHidden">
+                  <div
+                    class="btn btn-block btn-primary contact-seller cusbutton"
                     style="border-radius:0px;"
                   >
-                    <i class="fa fa-commenting-o"></i> Chat With Seller</a
+                    <i class="fa fa-commenting-o"></i> Chat With Seller</div
                   >
                 </h5>
+              </div>
+              <div
+                  class="row"
+                  style="margin-top: 20px;"
+                  v-if="isHidden"
+                >
+                <textarea rows="4" cols="50"></textarea>
+                <h5>
+                  <div
+                    class="btn btn-block btn-primary contact-seller cusbutton"
+                    style="border-radius:0px;"
+                  >
+                    <i class="fa fa-commenting-o"></i> Send Message</div
+                  >
+                </h5>
+              </div>
               </div>
               <div class="social-and-product-highlight">
                 <div class="fule-economy">
@@ -1067,7 +1083,8 @@ export default {
   data() {
     return {
       limit: 3,
-      limitBtn: true
+      limitBtn: true,
+      isHidden: false
     };
   },
   props: {
@@ -1182,5 +1199,21 @@ export default {
   border-bottom: 3px solid #4caf50 !important;
   color: #000 !important;
   font-weight: 700;
+}
+
+.cusbutton {
+  cursor: pointer;
+  position: relative;
+  font-size: 16px;
+}
+.cusbutton .hover {
+  display: none;
+  position: absolute;
+}
+.cusbutton:hover .hover {
+  display: block;
+}
+.cusbutton:hover .original {
+  display: none;
 }
 </style>
