@@ -103,10 +103,10 @@
                 </li>
                 <li>
                   <router-link
-                    to="postad"
+                    to="/postad"
                     class="btn btn-tx btn-theme text-dark post-ad-header-tx"
-                    >POST AN AD</router-link
-                  >
+                    >POST AN AD
+                  </router-link>
                 </li>
               </ul>
             </div>

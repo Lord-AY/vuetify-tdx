@@ -1645,7 +1645,7 @@ export default {
     ...mapActions("product", ["fetchAllProducts"]),
     sync() {
       console.log("Jquery mounted");
-    }
+    },
   },
   watch: {
     $route: "sync"

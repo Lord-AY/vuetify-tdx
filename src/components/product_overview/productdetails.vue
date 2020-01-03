@@ -1,4 +1,3 @@
-import false from 'vue-phone-number-input';
 <template>
   <div class="product_details generic-wrapper">
     <div class="main-content-area clearfix">
@@ -42,7 +41,8 @@ import false from 'vue-phone-number-input';
           </div>
           <div class="col-md-4 col-sm-4 detail_price col-xs-12">
             <div class="singleprice-tag">
-              NGN {{ product.amount }}<span class="">(Negotiable)</span>
+              NGN {{ product.amount }}
+              <span class="">(Negotiable)</span>
             </div>
           </div>
           <!-- Middle Content Area -->
@@ -51,72 +51,11 @@ import false from 'vue-phone-number-input';
             <div class="singlepage-detail">
               <div id="single-slider" class="flexslider">
                 <ul class="slides">
-                  <li>
-                    <a
-                      href="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      data-fancybox="group"
-                    >
+                  <li v-for="(photo, index) in product.photos" :key="index">
+                    <a :href="photos" data-fancybox="group">
                       <!-- <a href="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
                       <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
-                      <img
-                        alt="2017 Maserati Ghibli SQ4 Blue"
-                        src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      data-fancybox="group"
-                    >
-                      <img
-                        alt="2017 Maserati Ghibli SQ4 Blue"
-                        src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      data-fancybox="group"
-                    >
-                      <img
-                        alt="2017 Maserati Ghibli SQ4 Blue"
-                        src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      data-fancybox="group"
-                    >
-                      <img
-                        alt="2017 Maserati Ghibli SQ4 Blue"
-                        src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      data-fancybox="group"
-                    >
-                      <img
-                        alt="2017 Maserati Ghibli SQ4 Blue"
-                        src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      data-fancybox="group"
-                    >
-                      <img
-                        alt="2017 Maserati Ghibli SQ4 Blue"
-                        src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006.jpg"
-                      />
+                      <img :alt="product.name" :src="photo" />
                     </a>
                   </li>
                 </ul>
@@ -125,61 +64,8 @@ import false from 'vue-phone-number-input';
               <div id="carousel" class="flexslider">
                 <ul class="slides">
                   <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
-                  <li>
-                    <img
-                      alt="2017 Maserati Ghibli SQ4 Blue"
-                      draggable="false"
-                      src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      alt="2017 Maserati Ghibli SQ4 Blue"
-                      draggable="false"
-                      src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      alt="2017 Maserati Ghibli SQ4 Blue"
-                      draggable="false"
-                      src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      alt="2017 Maserati Ghibli SQ4 Blue"
-                      draggable="false"
-                      src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      alt="2017 Maserati Ghibli SQ4 Blue"
-                      draggable="false"
-                      src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      alt="2017 Maserati Ghibli SQ4 Blue"
-                      draggable="false"
-                      src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      alt="2017 Maserati Ghibli SQ4 Blue"
-                      draggable="false"
-                      src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      alt="2017 Maserati Ghibli SQ4 Blue"
-                      draggable="false"
-                      src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-268x166.jpg"
-                    />
+                  <li v-for="(photo, index) in product.photos" :key="index">
+                    <img :alt="product.name" draggable="false" :src="photo" />
                   </li>
                 </ul>
               </div>
@@ -698,8 +584,98 @@ import false from 'vue-phone-number-input';
                   <div class="tab-content">
                     <div class="tab-pane  in active  fade" id="tab1default">
                       <h3 class="tab-title">Similar Ads</h3>
+                      <content-loader
+                        :height="160"
+                        :width="800"
+                        :speed="2"
+                        primaryColor="#ece8e8"
+                        secondaryColor="#ecebeb"
+                        v-show="showLoader(similarprods)"
+                      >
+                        <rect
+                          x="98.23"
+                          y="269.67"
+                          rx="0"
+                          ry="0"
+                          width="0"
+                          height="0"
+                        />
+                        <rect
+                          x="22.23"
+                          y="21.67"
+                          rx="0"
+                          ry="0"
+                          width="184.61"
+                          height="127"
+                        />
+                        <rect
+                          x="221.23"
+                          y="38.67"
+                          rx="0"
+                          ry="0"
+                          width="189"
+                          height="10"
+                        />
+                        <rect
+                          x="408.23"
+                          y="43.67"
+                          rx="0"
+                          ry="0"
+                          width="0"
+                          height="4"
+                        />
+                        <rect
+                          x="237.23"
+                          y="59.67"
+                          rx="0"
+                          ry="0"
+                          width="161"
+                          height="10"
+                        />
+                        <rect
+                          x="237.23"
+                          y="84.67"
+                          rx="0"
+                          ry="0"
+                          width="80"
+                          height="62"
+                        />
+                        <rect
+                          x="337.23"
+                          y="83.67"
+                          rx="0"
+                          ry="0"
+                          width="80"
+                          height="62"
+                        />
+                        <rect
+                          x="527.23"
+                          y="34.67"
+                          rx="0"
+                          ry="0"
+                          width="126"
+                          height="13"
+                        />
+                        <rect
+                          x="484.23"
+                          y="121.67"
+                          rx="0"
+                          ry="0"
+                          width="94.6"
+                          height="19.14"
+                        />
+                        <rect
+                          x="588.23"
+                          y="122.67"
+                          rx="0"
+                          ry="0"
+                          width="101.2"
+                          height="19.14"
+                        />
+                      </content-loader>
                       <div
                         class="ads-list-archive"
+                        v-show="!showLoader(similarprods)"
                         v-for="simProduct in toggleLimit"
                         :key="simProduct.id"
                       >
@@ -743,10 +719,6 @@ import false from 'vue-phone-number-input';
                                 ><a href="../ad_category/audi/index.html">{{
                                   simProduct.category
                                 }}</a></span
-                              ><span class="padding_cats"
-                                ><a href="../ad_category/a5/index.html"
-                                  >A5</a
-                                ></span
                               >
                             </div>
                             <!-- Short Description -->
@@ -1078,7 +1050,11 @@ import false from 'vue-phone-number-input';
 /* eslint-disable no-undef */
 // import productSlider from "@/components/product_overview/productSlider";
 // import pricingArea from "@/components/product_overview/pricingArea";
+
 require("../../../src/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+import { ContentLoader } from "vue-content-loader";
+import ash from "lodash";
+
 export default {
   
   name: "productDetails",
@@ -1089,11 +1065,27 @@ export default {
       isHidden: false
     };
   },
+  components: {
+    ContentLoader
+  },
   props: {
     product: Object,
     similarprods: [Object, Array]
   },
   methods: {
+    filterImages() {
+      let newImage = this.product.photos;
+      ash.trim
+      this.product.photos = newImage;
+      console.log(anotherO);
+    },
+     showLoader(data) {
+      if (ash.isEmpty(data) || data == undefined || data == null) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     sync() {
       $(document).ready(function() {
         $(".owl-carousel").owlCarousel({
@@ -1161,6 +1153,8 @@ export default {
   },
   created() {
     this.sync();
+    // console.log(JSON.parse(this.product.photos));
+    this.filterImages();
   }
 };
 </script>

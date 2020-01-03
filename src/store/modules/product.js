@@ -1,9 +1,12 @@
 import ProductService from "@/services/ProductService";
+import ash from "lodash";
+import router from "../../router";
 // import ash from 'lodash';
 export default {
   namespaced: true,
   state: {
     products: null,
+    product: null,
     categories: null,
     similarproducts: null,
     success: null,
@@ -34,27 +37,36 @@ export default {
       } else {
         return;
       }
+    },
+    singleProduct(state) {
+      return state.product;
     }
   },
   actions: {
-    fetchAllProducts({ rootState, commit }) {
+    fetchAllProducts({ commit }) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
-      return ProductService.products(rootState.auth.user.token)
+      return ProductService.products()
         .then(({ data }) => {
+          for (let product in data) {
+            console.log(product);
+            const photosArr = ash.split(data[product].photos, ",", 7);
+            data[product].photos = photosArr;
+          }
+
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_PRODUCTS", data);
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_ERRORS", error.response.message);
+          commit("SET_ERRORS", error);
         });
     },
-    fetchAllCategories({ rootState, commit }) {
+    fetchAllCategories({ commit }) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
-      return ProductService.categories(rootState.auth.user.token)
+      return ProductService.categories()
         .then(({ data }) => {
           //   console.log(data);
           commit("auth/SET_LOADING", false, { root: true });
@@ -64,6 +76,21 @@ export default {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", error.response.message);
+        });
+    },
+    selectedProduct({ commit }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      return ProductService.product(payload)
+        .then(({ data }) => {
+          const photosArr = ash.split(data.photos, ",", 7);
+          data.photos = photosArr;
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_SINGLE_PRODUCT", data);
+        })
+        .catch(error => {
+          commit("SET_ERRORS", error.response.data);
+          router.push("/gridlist");
         });
     },
     similarProducts({ commit, rootState }, payload) {
@@ -114,6 +141,7 @@ export default {
         .then(() => {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SUCCESS_MSG", "Your Ads have Successfully been created.");
+          router.push("/gridlist");
           // console.log(data);
         })
         .catch(error => {
@@ -148,6 +176,9 @@ export default {
     },
     SET_SUCCESS_MSG(state, message) {
       state.success = message;
+    },
+    SET_SINGLE_PRODUCT(state, data) {
+      state.product = data;
     }
   }
 };
