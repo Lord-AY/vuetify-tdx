@@ -1,0 +1,1843 @@
+<template>
+  <div>
+
+    <div class="list">
+    <Loading
+      :active.sync="isLoading"
+      :is-full-page="fullPage"
+    ></Loading>
+      <div class="main-content-area clearfix">
+        <section
+          class="section-padding gray page-search"
+          style="padding-top: 30px;"
+        >
+          <div class="container">
+            <!-- Row -->
+            <div class="row">
+              <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="sidebar">
+                  <div
+                    class="panel-group"
+                    id="accordion"
+                    role="tablist"
+                    aria-multiselectable="true"
+                  >
+                    <div class="panel panel-default" id="red-title">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#collapseFive"
+                            aria-expanded="true"
+                            aria-controls="collapseFive"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Search By Keyword
+                          </a>
+                        </h4>
+                      </div>
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-title"
+                      >
+                        <!-- Content -->
+                        <div
+                          id="collapseFive"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="headingFive"
+                        >
+                          <div class="panel-body no-padding-sides-xs">
+                            <div class="search-widget">
+                              <input
+                                id="autocomplete-dynamic"
+                                autocomplete="off"
+                                class="form-control"
+                                placeholder="search"
+                                type="text"
+                                name="ad_title"
+                                value
+                              />
+                              <button type="submit">
+                                <i class="fa fa-search"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-category">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="headingOne">
+                        <!-- Title -->
+                        <h4 class="panel-title">
+                          <a
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Select Make
+                          </a>
+                        </h4>
+                        <!-- Title End -->
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        id="make_search"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-category"
+                      >
+                        <div
+                          id="collapseOne"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="headingOne"
+                        >
+                          <div class="panel-body">
+                            <label class="control-label">Select Make</label>
+                            <select
+                              class="search-select form-control"
+                              id="make_id"
+                            >
+                              <option value>Select Any Category</option>
+                              <option value="50">Alfa Romeo</option>
+                              <option value="60">Aston Martin</option>
+                              <option value="62">Audi</option>
+                              <option value="65">Austin</option>
+                              <option value="66">Austin Healey</option>
+                              <option value="297">Aveo</option>
+                              <option value="68">Bentley</option>
+                              <option value="71">BMW</option>
+                              <option value="302">Bolt</option>
+                              <option value="307">Brothers</option>
+                              <option value="314">Camaro</option>
+                              <option value="325">Charger</option>
+                              <option value="84">Corvette</option>
+                              <option value="339">Dart</option>
+                              <option value="103">Ferrari</option>
+                              <option value="106">Ford</option>
+                              <option value="119">Honda</option>
+                              <option value="123">Hummer</option>
+                              <option value="132">Jaguar</option>
+                              <option value="134">Joy</option>
+                              <option value="135">Lamborghini</option>
+                              <option value="137">Land Rover</option>
+                              <option value="156">McLaren</option>
+                              <option value="157">Mercedes</option>
+                              <option value="161">Mitsubishi</option>
+                              <option value="167">Nissan</option>
+                              <option value="169">Nitro</option>
+                              <option value="172">Optra</option>
+                              <option value="177">Porsche</option>
+                              <option value="194">Renault</option>
+                              <option value="198">Rolls-Royce</option>
+                              <option value="210">Sonic</option>
+                              <option value="211">Spark</option>
+                              <option value="218">Stealth</option>
+                              <option value="222">Suzuki</option>
+                              <option value="239">Viper</option>
+                              <option value="242">Volt</option>
+                            </select>
+                            <div id="select_modal" class="margin-top-10"></div>
+
+                            <div id="select_modals" class="margin-top-10"></div>
+
+                            <div
+                              id="select_forth_div"
+                              class="margin-top-10"
+                            ></div>
+
+                            <input
+                              type="submit"
+                              class="btn btn-theme btn-sm margin-top-10 margin-bottom-10"
+                              id="search_make"
+                              value="Search"
+                            />
+                          </div>
+                        </div>
+                        <input type="hidden" name="cat_id" id="cat_id" value />
+
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+                    <div class="panel panel-default" id="red-country">
+                      <!-- Heading -->
+                      <div
+                        class="panel-heading"
+                        role="tab"
+                        id="location_heading"
+                      >
+                        <!-- Title -->
+                        <h4 class="panel-title">
+                          <a
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#ad-location"
+                            aria-expanded="true"
+                            aria-controls="ad-location"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Ads By Location
+                          </a>
+                        </h4>
+                        <!-- Title End -->
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        id="search_countries"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-country"
+                      >
+                        <div
+                          id="ad-location"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="location_heading"
+                        >
+                          <div class="panel-body countries">
+                            <ul>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  data-country-id="230"
+                                >
+                                  United States
+                                  <span>(12)</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="country_id"
+                          id="country_id"
+                          value
+                        />
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                      <div
+                        class="search-modal modal fade states_model"
+                        id="states_model"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button
+                                type="button"
+                                class="close"
+                                data-dismiss="modal"
+                              >
+                                <span aria-hidden="true">&#10005;</span>
+                                <span class="sr-only">Close</span>
+                              </button>
+                              <h3 class="modal-title text-center">
+                                <i class="icon-gears"></i>
+                                Select Your Location
+                              </h3>
+                            </div>
+                            <div class="modal-body">
+                              <!-- content goes here -->
+                              <div class="search-block">
+                                <div class="row">
+                                  <div
+                                    class="col-md-12 col-xs-12 col-sm-12 popular-search"
+                                    id="countries_response"
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="submit"
+                                id="country-btn"
+                                class="btn btn-lg btn-block"
+                              >
+                                Submit
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default" id="red-price">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="headingfour">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#collapsefour"
+                            aria-expanded="false"
+                            aria-controls="collapsefour"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Price
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-price"
+                        class="carspot-price-form"
+                      >
+                        <div
+                          id="collapsefour"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="headingfour"
+                        >
+                          <div class="panel-body">
+                            <span class="price-slider-value">
+                              Price (&#8358;)
+                              <span id="price-min"></span> -
+                              <span id="price-max"></span>
+                            </span>
+                            <div id="price-slider"></div>
+
+                            <div class="input-group margin-top-10">
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="min_price"
+                                id="min_selected"
+                                value="500"
+                              />
+                              <span class="input-group-addon">-</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="max_price"
+                                id="max_selected"
+                                value="100000"
+                              />
+                            </div>
+
+                            <input type="hidden" id="min_price" value="500" />
+                            <input
+                              type="hidden"
+                              id="max_price"
+                              value="100000"
+                            />
+                            <input
+                              type="submit"
+                              class="btn btn-theme btn-sm margin-top-10"
+                              value="Search"
+                            />
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+                    <div class="panel panel-default" id="red-milage">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="ad-mileage">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#mileage"
+                            aria-expanded="true"
+                            aria-controls="ad-mileage"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Ad Mileage (Km)
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        id="get_mileage"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-milage"
+                      >
+                        <div
+                          id="mileage"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="ad-mileage"
+                        >
+                          <div class="panel-body">
+                            <div class="input-group margin-top-10">
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="mileage_from"
+                                data-parsley-type="digits"
+                                data-parsley-required="true"
+                                data-parsley-error-message="Value should be numeric"
+                                placeholder="From"
+                                id="mileage_from"
+                                value
+                              />
+                              <span class="input-group-addon">-</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                data-parsley-required="true"
+                                data-parsley-type="digits"
+                                data-parsley-error-message="Value should be numeric"
+                                placeholder="To"
+                                name="mileage_to"
+                                id="mileage_to"
+                                value
+                              />
+                            </div>
+
+                            <input
+                              type="submit"
+                              class="btn btn-theme btn-sm margin-top-10"
+                              value="Search"
+                            />
+                          </div>
+                        </div>
+
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-years">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="headingYear">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#Yearcollapse"
+                            aria-expanded="true"
+                            aria-controls="Yearcollapse"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Year
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-years"
+                      >
+                        <div
+                          id="Yearcollapse"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="headingYear"
+                        >
+                          <div class="panel-body">
+                            <div class="input-group margin-top-10">
+                              <span class="input-group-addon">From</span>
+                              <select
+                                id="year_from"
+                                name="year_from"
+                                class="form-control"
+                              >
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                              </select>
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon">To</span>
+                              <select
+                                id="year_to"
+                                name="year_to"
+                                class="form-control"
+                              >
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                              </select>
+                            </div>
+                            <input
+                              type="submit"
+                              id="ad_year"
+                              class="btn btn-theme btn-sm margin-top-10"
+                              value="Search"
+                            />
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-transmission">
+                      <!-- Heading -->
+                      <div
+                        class="panel-heading"
+                        role="tab"
+                        id="body_transmission"
+                      >
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#transmission"
+                            aria-expanded="true"
+                            aria-controls="body_transmission"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Transmission
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-transmission"
+                      >
+                        <div
+                          id="transmission"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="body_transmission"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="transmission-type-67"
+                                    value="Automatic"
+                                    name="transmission[]"
+                                  />
+                                  <label for="transmission-type-67"
+                                    >Automatic</label
+                                  >
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="transmission-type-151"
+                                    value="Manual"
+                                    name="transmission[]"
+                                  />
+                                  <label for="transmission-type-151"
+                                    >Manual</label
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-engine-type">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="ad_body_type">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#body_type"
+                            aria-expanded="true"
+                            aria-controls="ad_body_type"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Engine Type
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-engine-type"
+                      >
+                        <div
+                          id="body_type"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="ad_body_type"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-type-81"
+                                    value="CNG"
+                                    name="engine_type[]"
+                                  />
+                                  <label for="engine-type-81">CNG</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-type-96"
+                                    value="Diesel"
+                                    name="engine_type[]"
+                                  />
+                                  <label for="engine-type-96">Diesel</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-type-126"
+                                    value="Hybrid"
+                                    name="engine_type[]"
+                                  />
+                                  <label for="engine-type-126">Hybrid</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-type-176"
+                                    value="Petrol"
+                                    name="engine_type[]"
+                                  />
+                                  <label for="engine-type-176">Petrol</label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-engine-capacity">
+                      <!-- Heading -->
+                      <div
+                        class="panel-heading"
+                        role="tab"
+                        id="engince-capacity"
+                      >
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#engine_capacity"
+                            aria-expanded="true"
+                            aria-controls="engince-capacity"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Engine Capacity (CC)
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-engine-capacity"
+                      >
+                        <div
+                          id="engine_capacity"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="engince-capacity"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-capacity-29"
+                                    value="1000"
+                                    name="engine_capacity[]"
+                                  />
+                                  <label for="engine-capacity-29"
+                                    >1000 cc</label
+                                  >
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-capacity-30"
+                                    value="1200"
+                                    name="engine_capacity[]"
+                                  />
+                                  <label for="engine-capacity-30"
+                                    >1200 cc</label
+                                  >
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-capacity-31"
+                                    value="1500"
+                                    name="engine_capacity[]"
+                                  />
+                                  <label for="engine-capacity-31"
+                                    >1500 cc</label
+                                  >
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-capacity-32"
+                                    value="2000"
+                                    name="engine_capacity[]"
+                                  />
+                                  <label for="engine-capacity-32"
+                                    >2000 cc</label
+                                  >
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-capacity-42"
+                                    value="2500"
+                                    name="engine_capacity[]"
+                                  />
+                                  <label for="engine-capacity-42"
+                                    >2500 cc</label
+                                  >
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-capacity-43"
+                                    value="3000"
+                                    name="engine_capacity[]"
+                                  />
+                                  <label for="engine-capacity-43"
+                                    >3000 cc</label
+                                  >
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-capacity-44"
+                                    value="3500"
+                                    name="engine_capacity[]"
+                                  />
+                                  <label for="engine-capacity-44"
+                                    >3500 cc</label
+                                  >
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="engine-capacity-45"
+                                    value="800"
+                                    name="engine_capacity[]"
+                                  />
+                                  <label for="engine-capacity-45">800 cc</label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-body-type">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="bodytype">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#ad_bodytype"
+                            aria-expanded="true"
+                            aria-controls="body_type"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Body Type
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-body-type"
+                      >
+                        <div
+                          id="ad_bodytype"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="bodytype"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-82"
+                                    value="Convertible"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-82">Convertible</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-85"
+                                    value="Coupe"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-85">Coupe</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-87"
+                                    value="Crossover"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-87">Crossover</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-100"
+                                    value="Electric"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-100">Electric</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-118"
+                                    value="Hatchback"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-118">Hatchback</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-127"
+                                    value="Hybrid"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-127">Hybrid</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-140"
+                                    value="Luxury"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-140">Luxury</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-203"
+                                    value="Sedan"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-203">Sedan</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-220"
+                                    value="SUV"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-220">SUV</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-226"
+                                    value="Truck"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-226">Truck</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-234"
+                                    value="Van/Minivan"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-234">Van/Minivan</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="body-type-243"
+                                    value="Wagon"
+                                    name="body_type[]"
+                                  />
+                                  <label for="body-type-243">Wagon</label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-color-family">
+                      <!-- Heading -->
+                      <div
+                        class="panel-heading"
+                        role="tab"
+                        id="ad-color-family"
+                      >
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#ad-color"
+                            aria-expanded="true"
+                            aria-controls="ad-color-family"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Color Family
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-color-family"
+                      >
+                        <div
+                          id="ad-color"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="ad-color-family"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-69"
+                                    value="Black"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-69">Black</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-70"
+                                    value="Blue"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-70">Blue</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-75"
+                                    value="Bronze"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-75">Bronze</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-113"
+                                    value="Gold"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-113">Gold</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-114"
+                                    value="Green"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-114">Green</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-115"
+                                    value="Grey"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-115">Grey</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-192"
+                                    value="Red"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-192">Red</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-206"
+                                    value="Silver"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-206">Silver</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-245"
+                                    value="White"
+                                    name="color_family[]"
+                                  />
+                                  <label for="ad_color-245">White</label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-ad-type">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="headingSeven">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#collapseSeven"
+                            aria-expanded="true"
+                            aria-controls="collapseSeven"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Car Type
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-ad-type"
+                      >
+                        <div
+                          id="collapseSeven"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="headingSeven"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    tabindex="7"
+                                    type="checkbox"
+                                    id="minimal-radio-76"
+                                    name="ad_type[]"
+                                    value="Buy"
+                                  />
+                                  <label for="minimal-radio-76">Buy</label>
+                                </li>
+                                <li>
+                                  <input
+                                    tabindex="7"
+                                    type="checkbox"
+                                    id="minimal-radio-204"
+                                    name="ad_type[]"
+                                    value="Sell"
+                                  />
+                                  <label for="minimal-radio-204">Sell</label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-isurance">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="ad-insurance">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#insurance"
+                            aria-expanded="true"
+                            aria-controls="ad-insurance"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Car Insurance
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-isurance"
+                      >
+                        <div
+                          id="insurance"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="ad-insurance"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-170"
+                                    value="No"
+                                    name="insurance[]"
+                                  />
+                                  <label for="ad_color-170">No</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad_color-247"
+                                    value="Yes"
+                                    name="insurance[]"
+                                  />
+                                  <label for="ad_color-247">Yes</label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-assembly">
+                      <!-- Heading -->
+                      <div
+                        class="panel-heading"
+                        role="tab"
+                        id="ad-assembly-type"
+                      >
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#ad-assembly"
+                            aria-expanded="true"
+                            aria-controls="ad-assembly-type"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Car Assembly
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-assembly"
+                      >
+                        <div
+                          id="ad-assembly"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="ad-assembly-type"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad-assembly-131"
+                                    value="Imported"
+                                    name="assembly[]"
+                                  />
+                                  <label for="ad-assembly-131">Imported</label>
+                                </li>
+                                <li>
+                                  <input
+                                    type="checkbox"
+                                    id="ad-assembly-139"
+                                    value="Local"
+                                    name="assembly[]"
+                                  />
+                                  <label for="ad-assembly-139">Local</label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                      </form>
+                    </div>
+
+                    <div class="panel panel-default" id="red-condition">
+                      <!-- Heading -->
+                      <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                          <a
+                            class="collapsed"
+                            role="button"
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#collapseThree"
+                            aria-expanded="false"
+                            aria-controls="collapseThree"
+                          >
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Condition
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- Content -->
+                      <form
+                        method="get"
+                        action="https://carspot.scriptsbundle.com/search-cars/#red-condition"
+                      >
+                        <input
+                          type="hidden"
+                          name="carspot_layout_type"
+                          value="1"
+                        />
+                        <div
+                          id="collapseThree"
+                          class="panel-collapse collapse"
+                          role="tabpanel"
+                          aria-labelledby="headingThree"
+                        >
+                          <div class="panel-body">
+                            <div class="skin-minimal">
+                              <ul class="list">
+                                <li>
+                                  <input
+                                    tabindex="7"
+                                    type="checkbox"
+                                    id="minimal-radio-166"
+                                    name="condition[]"
+                                    value="New"
+                                  />
+                                  <label for="minimal-radio-166">New</label>
+                                </li>
+                                <li>
+                                  <input
+                                    tabindex="7"
+                                    type="checkbox"
+                                    id="minimal-radio-231"
+                                    name="condition[]"
+                                    value="Used"
+                                  />
+                                  <label for="minimal-radio-231">Used</label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9 col-lg-9 col-xs-12">
+                <!-- Row -->
+                <div class="row">
+                  <div class="clearfix"></div>
+                  <div class="list-style-1">
+                    <div class="panel with-nav-tabs panel-default">
+                      <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                          <li class="active">
+                            <a href="#tab1default" data-toggle="tab"
+                              >Latest Ads</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="panel-body">
+                        <div class="tab-content">
+                          <div
+                            class="tab-pane fade in active"
+                            id="tab1default"
+                            v-for="product in paginatedList"
+                            :key="product.id"
+                          >
+                            <div class="ads-list-archive featured_ads">
+                              <!-- Image Block -->
+                              <div
+                                class="col-lg-4 col-md-4 col-sm-4 no-padding"
+                              >
+                                <!-- Img Block -->
+                                <div class="ad-archive-img">
+                                  <router-link
+                                    :to="
+                                      `/ProductDetails/${product.id}/${product.cid}`
+                                    "
+                                  >
+                                    <img
+                                      :src="product.photos[0]"
+                                      :alt="product.name"
+                                      class="img-responsive"
+                                    />
+                                  </router-link>
+                                  <div
+                                    class="arrow-ribbon bg-primary bg-tag-tx"
+                                  >
+                                    Premium
+                                  </div>
+                                </div>
+                                <!-- Img Block -->
+                              </div>
+                              <!-- Ads Listing -->
+                              <div class="clearfix visible-xs-block"></div>
+                              <!-- Content Block -->
+                              <div
+                                class="col-lg-8 col-md-8 col-sm-8 no-padding"
+                              >
+                                <!-- Ad Desc -->
+                                <div class="ad-archive-desc">
+                                  <!-- Price -->
+                                  <div class="ad-price">
+                                    &#8358; {{ product.amount }}
+                                    <span class v-if="product.negotiable"
+                                      >(Negotiable)</span
+                                    >
+                                    <span class v-else>(Fixed)</span>
+                                  </div>
+                                  <!-- Title -->
+                                  <h3>
+                                    <router-link
+                                      :to="
+                                        `/ProductDetails/${product.id}/${product.cid}`
+                                      "
+                                    >
+                                      {{ product.name }}
+                                    </router-link>
+                                  </h3>
+                                  <!-- Category -->
+                                  <div class="category-title">
+                                    <span class="padding_cats">
+                                      <router-link
+                                        :to="
+                                          `/ProductDetails/${product.id}/${product.cid}`
+                                        "
+                                        >{{ product.category }}</router-link
+                                      >
+                                    </span>
+                                  </div>
+                                  <!-- Short Description -->
+                                  <div class="clearfix visible-xs-block"></div>
+                                  <p class="hidden-sm">
+                                    {{ product.description }}
+                                  </p>
+                                  <!-- Ad Features -->
+                                  <ul class="add_info">
+                                    <li>
+                                      <router-link
+                                        :to="
+                                          `/ProductDetails/${product.id}/${product.cid}`
+                                        "
+                                      >
+                                        <img
+                                          :src="product.photos[1]"
+                                          :alt="product.name"
+                                        />
+                                      </router-link>
+                                    </li>
+                                  </ul>
+                                  <!-- Ad History -->
+                                  <div class="clearfix archive-history">
+                                    <div class="last-updated">
+                                      Posted : January 24, 2019
+                                    </div>
+                                    <div class="ad-meta">
+                                      <a
+                                        href="javascript:void(0);"
+                                        data-adid="1375"
+                                        class="btn save-ad"
+                                      >
+                                        <i class="fa fa-heart-o"></i>
+                                        Favourite
+                                      </a>
+                                      <router-link
+                                        :to="
+                                          `/ProductDetails/${product.id}/${product.cid}`
+                                        "
+                                        class="btn2 btn-success"
+                                      >
+                                        <i class="fa fa-phone"></i> View Details
+                                      </router-link>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Ad Desc End -->
+                              </div>
+                              <!-- Content Block End -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="clearfix"></div>
+                  <!-- <div class="text-center margin-top-30 margin-bottom-20">
+                  <ul class="pagination pagination-lg">
+                    <li class="active">
+                      <a href="index23c2.html?carspot_layout_type=1">1</a>
+                    </li>
+                    <li>
+                      <a href="page/2/index23c2.html?carspot_layout_type=1"
+                        >2</a
+                      >
+                    </li>
+                    <li>
+                      <a href="page/2/index23c2.html?carspot_layout_type=1"
+                        >Next Page &raquo;</a
+                      >
+                    </li>
+                  </ul>
+                </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!--Sticky header logic-->
+      <input type="hidden" id="header_style" value="transparent" />
+      <input type="hidden" id="is_sticky_header" value="0" />
+      <input
+        type="hidden"
+        id="sticky_sb_logo_url"
+        value="https://carspot.scriptsbundle.com/wp-content/uploads/2017/06/logo-2.png"
+      />
+      <input
+        type="hidden"
+        id="static_sb_logo_url"
+        value="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/logo-1.png"
+      />
+      <input type="hidden" id="msg_notification_on" value="1" />
+      <input type="hidden" id="msg_notification_time" value="1000000000" />
+      <input type="hidden" id="is_unread_msgs" value="0" />
+      <a href="#0" class="cd-top">Top</a>
+      <!-- Email verification and reset password -->
+    </div>
+    <!-- PAGINATION CONTROLS -->
+    <div class="pagination-wrapper">
+      <div class="pagination">
+        <button
+          class="prev page-numbers"
+          type="button"
+          @click="onClickPreviousPage"
+          :disabled="isInFirstPage"
+          >prev</button
+        >
+        <button
+          class="page-numbers"
+          type="button"
+          @click="onClickFirstPage"
+          :disabled="isInFirstPage"
+          >First</button
+        >
+        
+        <!-- Range of pages -->
+        <button
+          class="page-numbers"
+          type="button"
+          v-for="page in pages"
+          :key="page.range"
+          :disabled="page.isDisabled"
+          @click="onClickPage(page.range)"
+          >{{ page.range }}</button
+        >
+        <!-- End page range-->
+        <!-- <span aria-current="page" class="page-numbers current">1</span> -->
+
+        <button
+          class="page-numbers"
+          type="button"
+          @click="onClickNextPage"
+          :disabled="isInLastPage"
+          >Next</button
+        >
+        <button
+          class="next page-numbers"
+          type="button"
+          @click="onClickLastPage"
+          :disabled="isInLastPage"
+          >Last</button
+        >
+      </div>
+    </div>
+      <!-- END PAGINATION CONTROLS -->
+  </div>
+</template>
+
+<script>
+// Import component
+import Loading from "vue-loading-overlay";
+// Import stylesheet
+import "vue-loading-overlay/dist/vue-loading.css";
+export default {
+  data() {
+    return {
+      isLoading: false,
+      fullPage: true,
+    }
+  },
+  props: {
+    data: {
+      type: [Array, Object],
+      required: true
+    },
+    maxVisibleButton: {
+      type: Number,
+      required: false,
+      default: 3
+    },
+    totalPages: {
+      type: Number,
+      required: true
+    },
+    total: {
+      type: Number,
+      required: true
+    },
+    perPage: {
+      type: Number,
+      required: true
+    },
+    currentPage: {
+      type: Number,
+      required: true
+    }
+  },
+  components: {
+    Loading
+  },
+  computed: {
+    paginatedList() {
+      let start = (this.currentPage - 1) * this.perPage,
+        end = start + this.perPage;
+      return this.data.slice(start, end);
+    },
+    startPage() {
+      //getting first page
+      if (this.currentPage === 1) {
+        return 1;
+      }
+      // when on the last page
+      if (this.currentPage === this.totalPages) {
+        return (
+          this.totalPages - this.maxVisibleButton + (this.maxVisibleButton - 1)
+        );
+      }
+      // when at the middle
+      return this.currentPage - 1;
+    },
+    pages() {
+      const range = [];
+
+      for (
+        let i = this.startPage;
+        i <=
+        Math.min(this.startPage + this.maxVisibleButtons - 1, this.totalPages);
+        i += 1
+      ) {
+        range.push({
+          name: i,
+          isDisabled: i === this.currentPage
+        });
+      }
+
+      return range;
+    },
+    isInFirstPage() {
+      return this.currentPage === 1;
+    },
+    isInLastPage() {
+      return this.currentPage === this.totalPages;
+    }
+  },
+  methods: {
+    onClickFirstPage() {
+      this.isLoading = true;
+      this.$emit("pagechanged", 1);
+      this.loading = false;
+    },
+    onClickPreviousPage() {
+      this.isLoading = true;
+      this.$emit("pagechanged", this.currentPage - 1);
+    },
+    onClickPage(page) {
+      this.isLoading = true;
+      this.$emit("pagechanged", page);
+    },
+    onClickNextPage() {
+      this.isLoading = true;
+      this.$emit("pagechanged", this.currentPage + 1);
+    },
+    onClickLastPage() {
+      this.$emit("pagechanged", this.totalPages);
+    },
+    isPageActive(page) {
+      return this.currentPage === page;
+    },
+    onPageChange(page) {
+      this.currentPage = page;
+    },
+    sync() {
+      $('html,body').animate({ scrollTop: 0 }, 'slow');
+    }
+  },
+  watch: {
+    isLoading: {
+      handler: function(loading) {
+         this.sync()
+         this.isLoading = false
+      }
+    }
+  }
+};
+</script>
+<style scoped lang="scss">
+//----------  responsive breakpoints
+//------------------------------------------------------------------------------
+@mixin breakpoint($value) {
+  @if $value == "phone" {
+    @media only screen and (min-width: 120px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if $value == "tablet" {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $value == "touch" {
+    @media only screen and (min-width: 120px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $value == "desktop" {
+    @media only screen and (min-width: 1025px) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: $value) {
+      @content;
+    }
+  }
+}
+
+// Colors
+$white: #fff;
+$black: #000;
+$grey: #595959;
+$grey-dark: #2b2b2b;
+$grey-light: #eee;
+$green: #86c023;
+$blue: #017ac7;
+
+// Transition
+$duration: 400ms;
+$easing: ease;
+
+//----------  reset
+//------------------------------------------------------------------------------
+htm,
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+button {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+//----------  pagination
+//------------------------------------------------------------------------------
+.pagination-wrapper {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.pagination {
+  display: inline-block;
+  height: 70px;
+  margin-top: 70px;
+  padding: 0 25px;
+  border-radius: 35px;
+  background-color: $grey-light;
+
+  @include breakpoint(1199px) {
+    height: 50px;
+    margin-top: 50px;
+    padding: 0 10px;
+    border-radius: 25px;
+  }
+}
+
+.page-numbers {
+  display: block;
+  padding: 0 25px;
+  float: left;
+  transition: $duration $easing;
+  color: $grey;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  line-height: 70px;
+
+  &:hover,
+  &.current {
+    background-color: $green;
+    color: $white;
+  }
+
+  &.prev:hover,
+  &.next:hover {
+    background-color: transparent;
+    color: $green;
+  }
+
+  @include breakpoint(1199px) {
+    padding: 0 15px;
+    font-size: 16px;
+    line-height: 50px;
+  }
+
+  @include breakpoint(touch) {
+    padding: 0 14px;
+    display: none;
+
+    &:nth-of-type(2) {
+      position: relative;
+      padding-right: 50px;
+
+      &::after {
+        content: "...";
+        position: absolute;
+        font-size: 25px;
+        top: 0;
+        left: 45px;
+      }
+    }
+
+    &:nth-child(-n + 3),
+    &:nth-last-child(-n + 3) {
+      display: block;
+    }
+
+    &:nth-last-child(-n + 4) {
+      padding-right: 14px;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+</style>
