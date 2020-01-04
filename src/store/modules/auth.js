@@ -38,7 +38,6 @@ export default {
       if (ash.isEmpty(state.user) || state.user == null) {
         return false;
       }
-
       return !!state.user;
     },
     getUser(state) {

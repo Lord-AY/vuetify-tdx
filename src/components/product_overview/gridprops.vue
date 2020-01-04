@@ -391,6 +391,7 @@
 
 <script>
 import { ContentLoader } from "vue-content-loader";
+// import pagination from "@/components/pagination";
 import ash from "lodash";
 import moment from "moment";
 
