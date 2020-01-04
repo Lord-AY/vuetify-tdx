@@ -406,7 +406,7 @@
     </div>
 
     <!-- PAGINATION CONTROLS -->
-    <div class="pagination-wrapper" v-if="data.length > 5 ">
+    <div class="pagination-wrapper" v-if="data.length > 5">
       <div class="pagination">
         <button
           class="prev page-numbers"
@@ -428,11 +428,12 @@
         <!-- Range of pages -->
         <button
           class="page-numbers"
+          :class="{ current: isPageActive(page.number) }"
           type="button"
-          v-for="page in pages"
-          :key="page.range"
+          v-for="(page, index) in pages"
+          :key="index"
           :disabled="page.isDisabled"
-          @click="onClickPage(page.range)"
+          @click="onClickPage(page.number)"
         >
           {{ page.range }}
         </button>
