@@ -65,7 +65,7 @@ export default {
     getErrors(value) {
       if (value !== null && value !== undefined) {
         this.registerError = value;
-        // console.log(this.registerError);
+        console.log(this.registerError);
       }
     }
   },

@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     sync() {
-      // console.log("Jquery mounted");
+      console.log("Jquery mounted");
     }
   },
   watch: {

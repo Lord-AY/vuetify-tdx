@@ -41,7 +41,7 @@ const routes = [
     name: "login",
     component: () => import("../views/Signin.vue"),
     meta: {
-      header: 1
+      header: 3
     }
   },
   {
@@ -239,8 +239,8 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: './',
+  base: process.env.BASE_URL,
   routes
 });
-// base: process.env.BASE_URL,
+
 export default router;

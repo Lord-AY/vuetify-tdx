@@ -79,7 +79,7 @@ export default {
   name: "referal",
   methods: {
     sync() {
-      // console.log("Jquery mounted");
+      console.log("Jquery mounted");
     },
     onWindowLoad() {
       window.location.reload();
@@ -92,10 +92,10 @@ export default {
     this.sync();
   },
   beforeCreate() {
-    // console.log("this is before created");
+    console.log("this is before created");
   },
   beforeMount() {
-    // console.log("this is before mounted");
+    console.log("this is before mounted");
   }
 };
 </script>

@@ -103,7 +103,7 @@ export default {
   font-size: 20px;
   color: #fff;
   text-align: center;
-  margin-top: -10px;
+    margin-top: -10px;
 
   .day,
   .hour,

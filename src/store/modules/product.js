@@ -98,6 +98,11 @@ export default {
       commit("SET_ERRORS", null);
       return ProductService.similarProducts(payload, rootState.auth.user.token)
         .then(({ data }) => {
+          for (let product in data) {
+            console.log(product);
+            const photosArr = ash.split(data[product].photos, ",", 7);
+            data[product].photos = photosArr;
+          }
           // console.log(data);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SIMILAR_PRODUCTS", data);

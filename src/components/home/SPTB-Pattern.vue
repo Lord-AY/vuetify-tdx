@@ -144,16 +144,13 @@ import router from '../../router';
         <div class="item" v-for="product in ads" :key="product.id">
           <div class="card mb-0">
             <div v-if="product.featured === 1">
+              
               <div class="arrow-ribbon hot-package">
-                <img
-                  src="../../assets/images/hot-icon.png"
-                  alt=""
-                  width="32px"
-                />
+                <img src="../../assets/images/hot-icon.png" alt="" width="32px">
               </div>
             </div>
             <div v-else-if="product.featured === 2">
-              <div class="arrow-ribbon bg-primary bg-tag-tx">Premium</div>
+               <div class="arrow-ribbon bg-primary bg-tag-tx">Premium</div>
             </div>
             <div v-else>
               <div class="arrow-ribbon bg-tag-gold-tx">Gold</div>

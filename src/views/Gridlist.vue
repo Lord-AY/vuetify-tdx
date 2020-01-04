@@ -1644,8 +1644,8 @@ export default {
   methods: {
     ...mapActions("product", ["fetchAllProducts"]),
     sync() {
-      // console.log("Jquery mounted");
-    }
+      console.log("Jquery mounted");
+    },
   },
   watch: {
     $route: "sync"
@@ -1659,16 +1659,16 @@ export default {
     this.fetchAllProducts();
   },
   beforeCreate() {
-    // console.log("this is before created");
+    console.log("this is before created");
   },
   beforeMount() {
-    // console.log("this is before mounted");
+    console.log("this is before mounted");
   },
   mounted() {
-    // console.log("this route just got mounted");
+    console.log("this route just got mounted");
   },
   beforeRouteLeave: function(to, from, next) {
-    // console.log("this route is about to leave ");
+    console.log("this route is about to leave ");
     next();
   }
 };
@@ -1712,6 +1712,7 @@ html {
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 </style>
 <style scoped>
 @media only screen and (max-width: 991px) {
@@ -1743,14 +1744,14 @@ img {
 
 * {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 *:before,
 *:after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .gridlist {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
