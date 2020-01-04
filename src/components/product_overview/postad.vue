@@ -1516,7 +1516,7 @@ export default {
           form.append("api_key", "291355523372857");
           axios
             .post(
-              "https://api.cloudinary.com/v1_1/coderoute/image/upload",
+              "https://api.cloudinary.com/v1_1/coderoute/image/upload/",
               form
             )
             .then(({ data }) => {
