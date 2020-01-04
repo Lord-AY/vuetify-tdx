@@ -5,7 +5,7 @@ import router from "../../router";
 export default {
   namespaced: true,
   state: {
-    products: null,
+    products: [],
     product: null,
     categories: null,
     similarproducts: null,
@@ -16,6 +16,13 @@ export default {
     productListings(state) {
       if (state.products !== null && state.products !== undefined) {
         return state.products;
+      }
+      return;
+    },
+    paginatedProducts(state) {
+      if (state.products !== null && state.products !== undefined) {
+        let latest = state.products.reverse();
+        return latest;
       }
       return;
     },
@@ -39,7 +46,10 @@ export default {
       }
     },
     singleProduct(state) {
-      return state.product;
+      if (state.product !== null || state.product !== undefined) {
+        return state.product;
+      }
+      return null;
     }
   },
   actions: {
@@ -50,7 +60,7 @@ export default {
       return ProductService.products()
         .then(({ data }) => {
           for (let product in data) {
-            console.log(product);
+            // console.log(product);
             const photosArr = ash.split(data[product].photos, ",", 7);
             data[product].photos = photosArr;
           }
@@ -88,8 +98,8 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SINGLE_PRODUCT", data);
         })
-        .catch(error => {
-          commit("SET_ERRORS", error.response.data);
+        .catch(() => {
+          commit("SET_ERRORS", "Network Error");
           router.push("/gridlist");
         });
     },
@@ -99,7 +109,7 @@ export default {
       return ProductService.similarProducts(payload, rootState.auth.user.token)
         .then(({ data }) => {
           for (let product in data) {
-            console.log(product);
+            // console.log(product);
             const photosArr = ash.split(data[product].photos, ",", 7);
             data[product].photos = photosArr;
           }

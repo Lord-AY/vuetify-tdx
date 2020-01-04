@@ -1565,10 +1565,18 @@
             </div>
             <ptoggler :current-comp="currentComp"></ptoggler>
           </div>
-          <component :is="currentComp" :products="productListings"></component>
-          <!--           <gridprops></gridprops>
+          <!-- <component :is="currentComp" :products="productListings"></component> -->
+            <paginatedGrid
+              :is="currentComp"
+              :data="paginatedProducts"
+              :total-pages="paginatedProducts.length"
+              :total="paginatedProducts.length"
+              :per-page="10"
+              :current-page="currentPage"
+              @pagechanged="onPageChange"
+            />
+          <!-- <gridprops></gridprops> -->
           <listprops></listprops>
- -->
         </div>
       </section>
     </div>
@@ -1615,7 +1623,7 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css"
 require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
 // require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 import hotsellers from "@/components/product_overview/hotsellers";
-import gridprops from "@/components/product_overview/gridprops";
+import paginatedGrid from "@/components/product_overview/paginatedgrid";
 import listprops from "@/components/product_overview/listprops";
 import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
@@ -1624,7 +1632,8 @@ export default {
   name: "gridlist",
   data() {
     return {
-      currentComp: "gridprops"
+      currentComp: "paginatedGrid",
+      currentPage: 1
     };
   },
   // components: {
@@ -1633,11 +1642,11 @@ export default {
   //   listprops
   // },
   computed: {
-    ...mapGetters("product", ["productListings"])
+    ...mapGetters("product", ["paginatedProducts"])
   },
   components: {
     hotsellers: hotsellers,
-    gridprops: gridprops,
+    paginatedGrid,
     listprops: listprops,
     ptoggler: ptoggler
   },
@@ -1645,6 +1654,9 @@ export default {
     ...mapActions("product", ["fetchAllProducts"]),
     sync() {
       // console.log("Jquery mounted");
+    },
+    onPageChange(page) {
+      this.currentPage = page;
     }
   },
   watch: {
@@ -1657,6 +1669,7 @@ export default {
     this.sync();
     // this.$forceUpdate();
     this.fetchAllProducts();
+    vm.$forceUpdate();
   },
   beforeCreate() {
     // console.log("this is before created");
@@ -1666,6 +1679,8 @@ export default {
   },
   mounted() {
     // console.log("this route just got mounted");
+    this.$forceUpdate();
+    this.sync();
   },
   beforeRouteLeave: function(to, from, next) {
     // console.log("this route is about to leave ");

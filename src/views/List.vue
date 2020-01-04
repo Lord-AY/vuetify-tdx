@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="list">
     <div class="main-content-area clearfix">
       <section
@@ -1478,6 +1479,16 @@
     <a href="#0" class="cd-top">Top</a>
     <!-- Email verification and reset password -->
   </div>
+=======
+  <paginatedList
+    :data="paginatedProducts"
+    :total-pages="Math.ceil(paginatedProducts.length / 3)"
+    :total="paginatedProducts.length"
+    :per-page="10"
+    :current-page="currentPage"
+    @pagechanged="onPageChange"
+  />
+>>>>>>> 174a2eaea56931033972258377a92872e7783b8c
 </template>
 <script>
 require("../assets/skins/color-skins/color15.css");
@@ -1522,17 +1533,29 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css"
 require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
 
 import { mapActions, mapGetters } from "vuex";
-
+import paginatedList from "@/components/listPaginated";
 export default {
   name: "list",
+  components: {
+    paginatedList
+  },
+  data() {
+    return {
+      currentPage: 1
+    };
+  },
   computed: {
-    ...mapGetters("product", ["productListings"])
+    ...mapGetters("product", ["paginatedProducts"])
   },
   methods: {
-    ...mapActions("product", ["fetchAllProducts"])
+    ...mapActions("product", ["fetchAllProducts"]),
+    onPageChange(page) {
+      this.currentPage = page;
+    }
   },
   created() {
     this.fetchAllProducts();
+    vm.$forceUpdate();
   }
 };
 </script>
