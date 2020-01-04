@@ -239,7 +239,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: '/vuetify-tdx/dist/',
+  base: './',
   routes
 });
 // base: process.env.BASE_URL,
