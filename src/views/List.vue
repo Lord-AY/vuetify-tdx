@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="list">
     <div class="main-content-area clearfix">
       <section
@@ -1479,7 +1478,6 @@
     <a href="#0" class="cd-top">Top</a>
     <!-- Email verification and reset password -->
   </div>
-=======
   <paginatedList
     :data="paginatedProducts"
     :total-pages="Math.ceil(paginatedProducts.length / 3)"
@@ -1488,7 +1486,6 @@
     :current-page="currentPage"
     @pagechanged="onPageChange"
   />
->>>>>>> 174a2eaea56931033972258377a92872e7783b8c
 </template>
 <script>
 require("../assets/skins/color-skins/color15.css");
