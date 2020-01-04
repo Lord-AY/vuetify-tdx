@@ -1786,7 +1786,7 @@ body  .woocommerce table.shop_table tr th {
     background: none repeat scroll 0 0 #ffc107;
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.25) inset;
     -webkit-box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.25) inset;
-    -moz-box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.25) inset
+    -moz-box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.25) inset;
     -webkit-border-radius: 1em;
     -moz-border-radius: 1em;
     border-radius: 1em;

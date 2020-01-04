@@ -60,7 +60,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 3
+      header: 1
     }
   },
   {

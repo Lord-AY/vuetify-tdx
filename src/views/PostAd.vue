@@ -14,20 +14,20 @@
   </div>
 </template>
 <script>
-require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
-require("../assets/css/style.css");
-require("../assets/css/icons.css");
-require("../assets/plugins/horizontal-menu/horizontal.css");
-require("../assets/plugins/select2/select2.min.css");
-require("../assets/plugins/cookie/cookie.css");
-require("../assets/plugins/owl-carousel/owl.carousel.css");
-require("../assets/plugins/scroll-bar/jquery.mCustomScrollbar.css");
-require("../assets/skins/color-skins/color15.css");
-require("../assets/css/flaticon24d2c.css");
-require("../assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick.css");
-require("../assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick-theme.css");
-require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
-require("../assets/plugins/fancyuploder/fancy_fileupload.css");
+require("../../public/assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
+require("../../public/assets/css/style.css");
+require("../../public/assets/css/icons.css");
+require("../../public/assets/plugins/horizontal-menu/horizontal.css");
+require("../../public/assets/plugins/select2/select2.min.css");
+require("../../public/assets/plugins/cookie/cookie.css");
+require("../../public/assets/plugins/owl-carousel/owl.carousel.css");
+require("../../public/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css");
+require("../../public/assets/skins/color-skins/color15.css");
+require("../../public/assets/css/flaticon24d2c.css");
+require("../../public/assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick.css");
+require("../../public/assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick-theme.css");
+require("../../public/assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
+require("../../public/assets/plugins/fancyuploder/fancy_fileupload.css");
 
 import postad from "@/components/product_overview/postad";
 import { mapState, mapActions, mapGetters } from "vuex";

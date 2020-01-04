@@ -66,7 +66,7 @@
         expires: 30,
         moreInfoLabel: "",
         acceptBtnLabel: "Accept Cookies",
-        advancedBtnLabel: "Select Specifics",
+        advancedBtnLabel: "Customise Cookies",
         onAccept: function() {},
         uncheckBoxes: false
       },
