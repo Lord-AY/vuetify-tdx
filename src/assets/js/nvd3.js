@@ -207,25 +207,25 @@ nv.addGraph(function() {
   return chart;
 });
 
-function sinAndCos() {
-  var sin = [],
-    cos = [];
+// function sinAndCos() {
+//   var sin = [],
+//     cos = [];
 
-  for (var i = 0; i < 100; i++) {
-    sin.push({ x: i, y: Math.sin(i / 10) });
-    cos.push({ x: i, y: 0.5 * Math.cos(i / 10) });
-  }
+//   for (var i = 0; i < 100; i++) {
+//     sin.push({ x: i, y: Math.sin(i / 10) });
+//     cos.push({ x: i, y: 0.5 * Math.cos(i / 10) });
+//   }
 
-  return [
-    {
-      values: sin,
-      key: "Sine Wave",
-      color: "#ed5151"
-    },
-    {
-      values: cos,
-      key: "Cosine Wave",
-      color: "#27c781"
-    }
-  ];
-}
+//   return [
+//     {
+//       values: sin,
+//       key: "Sine Wave",
+//       color: "#ed5151"
+//     },
+//     {
+//       values: cos,
+//       key: "Cosine Wave",
+//       color: "#27c781"
+//     }
+//   ];
+// }

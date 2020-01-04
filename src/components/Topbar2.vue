@@ -161,7 +161,9 @@
     <!--/Header -->
 
     <!--Start Horizontal-main -->
-    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed">
+    <div
+      class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed"
+    >
       <div class="horizontal-mainwrapper container clearfix">
         <!-- <div class="desktoplogo-1" >
           <a href="index.html"><img src="../assets/images/brand/tradexplora-main.svg" alt=""></a>
@@ -628,7 +630,7 @@ export default {
     sync() {
       $(document).ready(function() {
         $("#bmenu_toggle").prop("checked", false);
-        $(window).scroll(function() {          
+        $(window).scroll(function() {
           var scroll = $(window).scrollTop();
           // console.log("we are scrolling " + scroll);
           if (scroll > 25) {

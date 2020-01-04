@@ -1645,7 +1645,7 @@ export default {
     ...mapActions("product", ["fetchAllProducts"]),
     sync() {
       // console.log("Jquery mounted");
-    },
+    }
   },
   watch: {
     $route: "sync"
@@ -1712,7 +1712,6 @@ html {
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 </style>
 <style scoped>
 @media only screen and (max-width: 991px) {
@@ -1744,14 +1743,14 @@ img {
 
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 *:before,
 *:after {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .gridlist {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1768,5 +1767,4 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
-
 </style>

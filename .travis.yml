@@ -27,6 +27,4 @@ jobs:
     - stage: build
       script:
         # Build all
-        - npm run build:docs
-        - npm run build:system
-        - npm run build:app
+        - npm run build
