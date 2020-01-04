@@ -1163,7 +1163,7 @@ body .select2-container--default .select2-selection--single {
 .primary-header .mega-menu .menu-list-items .custom-menu .menu-search-bar li a.btn {
     padding: 15px
 }
-.primary-header .mega-menu .menu-list-items .custom-menu .menu-search-bar li a.btn-theme {
+.primary-header .mega-menu .menu-list-items .custom-menu .menu-search-bar li  {
     background: rgba(255, 255, 255, 0.2);
     border: medium none
 }
@@ -5240,11 +5240,11 @@ h2.no-span:after {
 .social-area-share>a:hover {
     color: #fff
 }
-.btn-theme.btn-outline {
+/*.btn-theme.btn-outline {
     background: transparent none repeat scroll 0 0;
     border-color: #2854a1;
     color: #2854a1
-}
+}*/
 .error-page .error-container {
     font-family: "Poppins",sans-serif;
 }

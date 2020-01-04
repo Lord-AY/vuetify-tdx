@@ -1077,7 +1077,7 @@ export default {
       let newImage = this.product.photos;
       ash.trim
       this.product.photos = newImage;
-      console.log(anotherO);
+      // console.log(anotherO);
     },
      showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {

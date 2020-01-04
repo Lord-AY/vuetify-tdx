@@ -41,7 +41,7 @@ const routes = [
     name: "login",
     component: () => import("../views/Signin.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {
