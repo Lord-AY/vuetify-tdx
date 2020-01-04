@@ -14,7 +14,7 @@
               title="online"
             ></span>
             <img
-              src="../assets/images/faces/male/25.jpg"
+              src="@/assets/images/faces/male/25.jpg"
               class="brround"
               alt="user"
             />

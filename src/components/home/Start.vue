@@ -56,7 +56,7 @@
 
 <script>
 /* eslint-disable no-undef */
-require("../../../src/assets/plugins/animate/animate.css");
+require("../../../public/assets/plugins/animate/animate.css");
 export default {
   name: "start",
   methods: {

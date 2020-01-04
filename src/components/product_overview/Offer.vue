@@ -57,61 +57,61 @@
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                       <img
-                        src="../../assets/images/products/pictures/h1.jpg"
+                        src="@/assets/images/products/pictures/h1.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h2.jpg"
+                        src="@/assets/images/products/pictures/h2.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h3.jpg"
+                        src="@/assets/images/products/pictures/h3.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h4.jpg"
+                        src="@/assets/images/products/pictures/h4.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h5.jpg"
+                        src="@/assets/images/products/pictures/h5.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h1.jpg"
+                        src="@/assets/images/products/pictures/h1.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h2.jpg"
+                        src="@/assets/images/products/pictures/h2.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h3.jpg"
+                        src="@/assets/images/products/pictures/h3.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h5.jpg"
+                        src="@/assets/images/products/pictures/h5.jpg"
                         alt="img"
                       />
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="../../assets/images/products/pictures/h4.jpg"
+                        src="@/assets/images/products/pictures/h4.jpg"
                         alt="img"
                       />
                     </div>
@@ -147,7 +147,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h3.png"
+                            src="@/assets/images/products/h3.png"
                             alt="img"
                           />
                         </div>
@@ -157,7 +157,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h2.png"
+                            src="@/assets/images/products/h2.png"
                             alt="img"
                           />
                         </div>
@@ -167,7 +167,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h6.png"
+                            src="@/assets/images/products/h6.png"
                             alt="img"
                           />
                         </div>
@@ -177,7 +177,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h5.png"
+                            src="@/assets/images/products/h5.png"
                             alt="img"
                           />
                         </div>
@@ -187,7 +187,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h4.png"
+                            src="@/assets/images/products/h4.png"
                             alt="img"
                           />
                         </div>
@@ -199,7 +199,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h1.png"
+                            src="@/assets/images/products/h1.png"
                             alt="img"
                           />
                         </div>
@@ -209,7 +209,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h2.png"
+                            src="@/assets/images/products/h2.png"
                             alt="img"
                           />
                         </div>
@@ -219,7 +219,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h6.png"
+                            src="@/assets/images/products/h6.png"
                             alt="img"
                           />
                         </div>
@@ -229,7 +229,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h5.png"
+                            src="@/assets/images/products/h5.png"
                             alt="img"
                           />
                         </div>
@@ -239,7 +239,7 @@
                           class="thumb"
                         >
                           <img
-                            src="../../assets/images/products/h4.png"
+                            src="@/assets/images/products/h4.png"
                             alt="img"
                           />
                         </div>
@@ -376,7 +376,7 @@
                 <div class="item-card7-imgs">
                   <a href="col-left.html"></a>
                   <img
-                    src="../../assets/images/products/pictures/ed1.jpg"
+                    src="@/assets/images/products/pictures/ed1.jpg"
                     alt="img"
                     class="cover-image"
                   />
@@ -431,7 +431,7 @@
                 <div class="item-card7-imgs">
                   <a href="col-left.html"></a>
                   <img
-                    src="../../assets/images/products/pictures/v1.jpg"
+                    src="@/assets/images/products/pictures/v1.jpg"
                     alt="img"
                     class="cover-image"
                   />
@@ -487,7 +487,7 @@
                 <div class="item-card7-imgs">
                   <a href="col-left.html"></a>
                   <img
-                    src="../../assets/images/products/pictures/j1.jpg"
+                    src="@/assets/images/products/pictures/j1.jpg"
                     alt="img"
                     class="cover-image"
                   />
@@ -542,7 +542,7 @@
                 <div class="item-card7-imgs">
                   <a href="col-left.html"></a>
                   <img
-                    src="../../assets/images/products/pictures/f4.jpg"
+                    src="@/assets/images/products/pictures/f4.jpg"
                     alt="img"
                     class="cover-image"
                   />
@@ -598,7 +598,7 @@
                 <div class="item-card7-imgs">
                   <a href="col-left.html"></a>
                   <img
-                    src="../../assets/images/products/pictures/pel.jpg"
+                    src="@/assets/images/products/pictures/pel.jpg"
                     alt="img"
                     class="cover-image"
                   />
@@ -653,7 +653,7 @@
                 <div class="item-card7-imgs">
                   <a href="col-left.html"></a>
                   <img
-                    src="../../assets/images/products/pictures/h5.jpg"
+                    src="@/assets/images/products/pictures/h5.jpg"
                     alt="img"
                     class="cover-image"
                   />
@@ -709,7 +709,7 @@
                 <div class="item-card7-imgs">
                   <a href="col-left.html"></a>
                   <img
-                    src="../../assets/images/products/pictures/ed2.jpg"
+                    src="@/assets/images/products/pictures/ed2.jpg"
                     alt="img"
                     class="cover-image"
                   />
@@ -764,7 +764,7 @@
                 <div class="item-card7-imgs">
                   <a href="col-left.html"></a>
                   <img
-                    src="../../assets/images/products/pictures/j3.jpg"
+                    src="@/assets/images/products/pictures/j3.jpg"
                     alt="img"
                     class="cover-image"
                   />
@@ -885,7 +885,7 @@
                     ><img
                       class="media-object brround"
                       alt="64x64"
-                      src="../../assets/images/faces/male/1.jpg"
+                      src="@/assets/images/faces/male/1.jpg"
                     />
                   </a>
                 </div>
@@ -939,7 +939,7 @@
                         <img
                           class="media-object brround"
                           alt="64x64"
-                          src="../../assets/images/faces/female/2.jpg"
+                          src="@/assets/images/faces/female/2.jpg"
                         />
                       </a>
                     </div>
@@ -984,7 +984,7 @@
                     <img
                       class="media-object brround"
                       alt="64x64"
-                      src="../../assets/images/faces/male/3.jpg"
+                      src="@/assets/images/faces/male/3.jpg"
                     />
                   </a>
                 </div>
@@ -1081,7 +1081,7 @@
             <div class="card-body  item-user">
               <div class="profile-pic mb-0">
                 <img
-                  src="../../assets/images/faces/male/25.jpg"
+                  src="@/assets/images/faces/male/25.jpg"
                   class="brround avatar-xxl"
                   alt="user"
                 />
@@ -1201,7 +1201,7 @@
                     <div class="media m-0 mt-0 p-5">
                       <img
                         class="mr-4"
-                        src="../../assets/images/products/toys.png"
+                        src="@/assets/images/products/toys.png"
                         alt="img"
                       />
                       <div class="media-body">
@@ -1223,7 +1223,7 @@
                     <div class="media p-5 mt-0">
                       <img
                         class="mr-4"
-                        src="../../assets/images/products/1.png"
+                        src="@/assets/images/products/1.png"
                         alt="img"
                       />
                       <div class="media-body">
@@ -1245,7 +1245,7 @@
                     <div class="media p-5 mt-0">
                       <img
                         class=" mr-4"
-                        src="../../assets/images/products/4.png"
+                        src="@/assets/images/products/4.png"
                         alt="img"
                       />
                       <div class="media-body">
@@ -1267,7 +1267,7 @@
                     <div class="media p-5 mt-0">
                       <img
                         class=" mr-4"
-                        src="../../assets/images/products/6.png"
+                        src="@/assets/images/products/6.png"
                         alt="img"
                       />
                       <div class="media-body">
@@ -1289,7 +1289,7 @@
                     <div class="media  mb-0 p-5 mt-0">
                       <img
                         class=" mr-4"
-                        src="../../assets/images/products/8.png"
+                        src="@/assets/images/products/8.png"
                         alt="img"
                       />
                       <div class="media-body">
@@ -1395,7 +1395,7 @@
                     <tr>
                       <td>
                         <img
-                          src="../../assets/images/products/1.png"
+                          src="@/assets/images/products/1.png"
                           alt="img"
                           class="w-8 border"
                         />
@@ -1413,7 +1413,7 @@
                     <tr>
                       <td>
                         <img
-                          src="../../assets/images/products/2.png"
+                          src="@/assets/images/products/2.png"
                           alt="img"
                           class="w-8 border"
                         />
@@ -1431,7 +1431,7 @@
                     <tr>
                       <td>
                         <img
-                          src="../../assets/images/products/3.png"
+                          src="@/assets/images/products/3.png"
                           alt="img"
                           class="w-8 border"
                         />
@@ -1449,7 +1449,7 @@
                     <tr>
                       <td>
                         <img
-                          src="../../assets/images/products/4.png"
+                          src="@/assets/images/products/4.png"
                           alt="img"
                           class="w-8 border"
                         />
@@ -1467,7 +1467,7 @@
                     <tr>
                       <td>
                         <img
-                          src="../../assets/images/products/5.png"
+                          src="@/assets/images/products/5.png"
                           alt="img"
                           class="w-8 border"
                         />
@@ -1485,7 +1485,7 @@
                     <tr>
                       <td>
                         <img
-                          src="../../assets/images/products/6.png"
+                          src="@/assets/images/products/6.png"
                           alt="img"
                           class="w-8 border"
                         />
@@ -1503,7 +1503,7 @@
                     <tr>
                       <td>
                         <img
-                          src="../../assets/images/products/7.png"
+                          src="@/assets/images/products/7.png"
                           alt="img"
                           class="w-8 border"
                         />

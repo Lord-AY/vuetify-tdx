@@ -74,7 +74,7 @@
                   <img
                     :src="
                       `http://157.245.82.193/media/${category.icon}` ||
-                        '../../assets/images/categories/car.svg'
+                        '@/assets/images/categories/car.svg'
                     "
                     alt="img"
                     class="br-tr-7 br-tl-7"
@@ -99,7 +99,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/car.svg"
+                src="@/assets/images/categories/car.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -109,7 +109,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/smartphone.svg"
+                src="@/assets/images/categories/smartphone.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -119,7 +119,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/mansion.svg"
+                src="@/assets/images/categories/mansion.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -129,7 +129,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/electronics.svg"
+                src="@/assets/images/categories/electronics.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -139,7 +139,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/fashion.svg"
+                src="@/assets/images/categories/fashion.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -149,7 +149,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/suitcase.svg"
+                src="@/assets/images/categories/suitcase.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -159,7 +159,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/bear.svg"
+                src="@/assets/images/categories/bear.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -169,7 +169,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/agriculture.svg"
+                src="@/assets/images/categories/agriculture.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -179,7 +179,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/animal.svg"
+                src="@/assets/images/categories/animal.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -189,7 +189,7 @@
           <div class="itemy">
             <div class="itemy-icon card">
               <img
-                src="../../assets/images/categories/handyman.svg"
+                src="@/assets/images/categories/handyman.svg"
                 alt="img"
                 class="br-tr-7 br-tl-7"
               />
@@ -214,7 +214,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/car.svg"
+                    src="@/assets/images/categories/car.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -237,7 +237,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/smartphone.svg"
+                    src="@/assets/images/categories/smartphone.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -260,7 +260,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/mansion.svg"
+                    src="@/assets/images/categories/mansion.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -283,7 +283,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/electronics.svg"
+                    src="@/assets/images/categories/electronics.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -306,7 +306,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/fashion.svg"
+                    src="@/assets/images/categories/fashion.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -329,7 +329,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/suitcase.svg"
+                    src="@/assets/images/categories/suitcase.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -352,7 +352,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/bear.svg"
+                    src="@/assets/images/categories/bear.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -375,7 +375,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/agriculture.svg"
+                    src="@/assets/images/categories/agriculture.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -398,7 +398,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/animal.svg"
+                    src="@/assets/images/categories/animal.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />
@@ -421,7 +421,7 @@
                 <router-link to="/Gridlist"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
-                    src="../../assets/images/categories/handyman.svg"
+                    src="@/assets/images/categories/handyman.svg"
                     alt="img"
                     class="br-tr-7 br-tl-7"
                   />

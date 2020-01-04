@@ -18,7 +18,7 @@
             <div class="item7-card-img">
               <a href="blog-details.html"></a>
               <img
-                src="../../assets/images/products/pictures/ed1.jpg"
+                src="@/assets/images/products/pictures/ed1.jpg"
                 alt="img"
                 class="cover-image"
               />
@@ -48,7 +48,7 @@
               </p>
               <div class="d-flex align-items-center pt-2 mt-auto">
                 <img
-                  src="../../assets/images/faces/male/5.jpg"
+                  src="@/assets/images/faces/male/5.jpg"
                   class="avatar brround avatar-md mr-3"
                   alt="avatar-img"
                 />
@@ -77,7 +77,7 @@
             <div class="item7-card-img">
               <a href="blog-details.html"></a>
               <img
-                src="../../assets/images/products/pictures/j2.jpg"
+                src="@/assets/images/products/pictures/j2.jpg"
                 alt="img"
                 class="cover-image"
               />
@@ -107,7 +107,7 @@
               </p>
               <div class="d-flex align-items-center pt-2 mt-auto">
                 <img
-                  src="../../assets/images/faces/male/7.jpg"
+                  src="@/assets/images/faces/male/7.jpg"
                   class="avatar brround avatar-md mr-3"
                   alt="avatar-img"
                 />
@@ -136,7 +136,7 @@
             <div class="item7-card-img">
               <a href="blog-details.html"></a>
               <img
-                src="../../assets/images/products/pictures/ed2.jpg"
+                src="@/assets/images/products/pictures/ed2.jpg"
                 alt="img"
                 class="cover-image"
               />
@@ -166,7 +166,7 @@
               </p>
               <div class="d-flex align-items-center pt-2 mt-auto">
                 <img
-                  src="../../assets/images/faces/female/15.jpg"
+                  src="@/assets/images/faces/female/15.jpg"
                   class="avatar brround avatar-md mr-3"
                   alt="avatar-img"
                 />
@@ -195,7 +195,7 @@
             <div class="item7-card-img">
               <a href="blog-details.html"></a>
               <img
-                src="../../assets/images/products/pictures/h1.jpg"
+                src="@/assets/images/products/pictures/h1.jpg"
                 alt="img"
                 class="cover-image"
               />
@@ -225,7 +225,7 @@
               </p>
               <div class="d-flex align-items-center pt-2 mt-auto">
                 <img
-                  src="../../assets/images/faces/male/15.jpg"
+                  src="@/assets/images/faces/male/15.jpg"
                   class="avatar brround avatar-md mr-3"
                   alt="avatar-img"
                 />
@@ -254,7 +254,7 @@
             <div class="item7-card-img">
               <a href="blog-details.html"></a>
               <img
-                src="../../assets/images/products/pictures/j3.jpg"
+                src="@/assets/images/products/pictures/j3.jpg"
                 alt="img"
                 class="cover-image"
               />
@@ -286,7 +286,7 @@
               </p>
               <div class="d-flex align-items-center pt-2 mt-auto">
                 <img
-                  src="../../assets/images/faces/female/5.jpg"
+                  src="@/assets/images/faces/female/5.jpg"
                   class="avatar brround avatar-md mr-3"
                   alt="avatar-img"
                 />
@@ -317,7 +317,7 @@
             <div class="item7-card-img">
               <a href="blog-details.html"></a>
               <img
-                src="../../assets/images/products/pictures/ed4.jpg"
+                src="@/assets/images/products/pictures/ed4.jpg"
                 alt="img"
                 class="cover-image"
               />
@@ -347,7 +347,7 @@
               </p>
               <div class="d-flex align-items-center pt-2 mt-auto">
                 <img
-                  src="../../assets/images/faces/male/6.jpg"
+                  src="@/assets/images/faces/male/6.jpg"
                   class="avatar brround avatar-md mr-3"
                   alt="avatar-img"
                 />

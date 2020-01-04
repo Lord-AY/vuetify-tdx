@@ -3,7 +3,7 @@
     <section>
       <div
         class="bannerimg cover-image bg-background3"
-        data-image-src="../assets/images/banners/banner2.jpg"
+        data-image-src="@/assets/images/banners/banner2.jpg"
       >
         <div class="header-text mb-0">
           <div class="container">
@@ -81,7 +81,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/apartment.png"
+                              src="@/assets/images/categories/apartment.png"
                               class="h-5"
                               alt=""
                             />
@@ -168,7 +168,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/office.png"
+                              src="@/assets/images/categories/office.png"
                               class="h-5"
                               alt=""
                             />
@@ -255,7 +255,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/duplex.png"
+                              src="@/assets/images/categories/duplex.png"
                               class="h-5"
                               alt=""
                             />
@@ -342,7 +342,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/bk.png"
+                              src="@/assets/images/categories/bk.png"
                               class="h-5"
                               alt=""
                             />
@@ -413,7 +413,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/flats.png"
+                              src="@/assets/images/categories/flats.png"
                               class="h-5"
                               alt=""
                             />
@@ -484,7 +484,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/office.png"
+                              src="@/assets/images/categories/office.png"
                               class="h-5"
                               alt=""
                             />
@@ -555,7 +555,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/resturant.png"
+                              src="@/assets/images/categories/resturant.png"
                               class="h-5"
                               alt=""
                             />
@@ -626,7 +626,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/duplex.png"
+                              src="@/assets/images/categories/duplex.png"
                               class="h-5"
                               alt=""
                             />
@@ -697,7 +697,7 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="../assets/images/categories/bk.png"
+                              src="@/assets/images/categories/bk.png"
                               class="h-5"
                               alt=""
                             />

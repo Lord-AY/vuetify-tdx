@@ -64,14 +64,14 @@
                     <img
                       class="img-circle resize"
                       alt="Avatar"
-                      src="../assets/images/boss.jpg"
+                      src="@/assets/images/boss.jpg"
                     />
                     <span class="caret" style="color: #fff!important"></span>
                   </a>
                   <ul class="dropdown-menu">
                     <li class="wallet-balance">
                       <img
-                        src="../assets/images/wallet.svg"
+                        src="@/assets/images/wallet.svg"
                         height="18px"
                         style="margin-top: -4px; margin-right: 5px;"
                         alt
@@ -123,7 +123,7 @@
           <span></span>
         </a>
         <span class="smllogo">
-          <img src="../assets/images/brand/tx-logo.png" alt />
+          <img src="@/assets/images/brand/tx-logo.png" alt />
         </span>
         <!- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> ->
       </div>
@@ -142,7 +142,7 @@
           <span></span>
         </div>
         <span class="smllogo">
-          <img src="../assets/images/brand/tradexplora-01.png" alt />
+          <img src="@/assets/images/brand/tradexplora-01.png" alt />
         </span>
         <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
       </div>
@@ -166,13 +166,13 @@
     >
       <div class="horizontal-mainwrapper container clearfix">
         <!-- <div class="desktoplogo-1" >
-          <a href="index.html"><img src="../assets/images/brand/tradexplora-main.svg" alt=""></a>
+          <a href="index.html"><img src="@/assets/images/brand/tradexplora-main.svg" alt=""></a>
         </div>-->
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
             <router-link to="/">
-              <img src="../assets/images/TRADE_XPLORA_V4.1.png" alt />
+              <img src="@/assets/images/TRADE_XPLORA_V4.1.png" alt />
             </router-link>
           </div>
           <ul class="horizontalMenu-list" style="margin-top: 12px;">

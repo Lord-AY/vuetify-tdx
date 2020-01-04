@@ -184,7 +184,7 @@ import router from '../../router';
               <div class="footerimg d-flex mt-0 mb-0">
                 <div class="d-flex footerimg-l mb-0">
                   <img
-                    src="../../assets/images/faces/male/18.jpg"
+                    src="@/assets/images/faces/male/18.jpg"
                     alt="image"
                     class="avatar brround  mr-2"
                   />

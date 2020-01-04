@@ -146,7 +146,7 @@ import router from '../../router';
             <div v-if="product.featured === 1">
               <div class="arrow-ribbon hot-package">
                 <img
-                  src="../../assets/images/hot-icon.png"
+                  src="@/assets/images/hot-icon.png"
                   alt=""
                   width="32px"
                 />

@@ -272,14 +272,14 @@
                       <img
                         class="img-circle resize"
                         alt="Avatar"
-                        src="../assets/images/boss.jpg"
+                        src="@/assets/images/boss.jpg"
                       />
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
                     <ul class="dropdown-menu">
                       <li class="wallet-balance">
                         <img
-                          src="../assets/images/wallet.svg"
+                          src="@/assets/images/wallet.svg"
                           height="18px"
                           style="margin-top: -4px; margin-right: 5px;"
                         />
@@ -337,10 +337,10 @@
           <span></span>
         </div>
         <!-- <div class="log-logo">
-          <img src="../assets/images/brand/tradexplora-01.png" alt />
+          <img src="@/assets/images/brand/tradexplora-01.png" alt />
         </div> -->
         <div class="smllogo">
-          <img src="../assets/images/brand/tradexplora-01.png" alt />
+          <img src="@/assets/images/brand/tradexplora-01.png" alt />
         </div>
 
         <!-- In case search is needed in mobile, this is an icon for it<div
@@ -373,12 +373,12 @@
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
             <router-link to="/">
-              <img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt />
+              <img src="@/assets/images/brand/TRADEXPLORAV3.1.png" alt />
             </router-link>
           </div>
           <div class="desktoplogo-1">
             <router-link to="/">
-              <img src="../assets/images/brand/TRADEXPLORAV3.1.png" alt />
+              <img src="@/assets/images/brand/TRADEXPLORAV3.1.png" alt />
             </router-link>
           </div>
           <ul class="horizontalMenu-list" style="margin-top: 12px;">
@@ -807,8 +807,8 @@
 </template>
 
 <script>
-require("../assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../assets/css/tdx-mega.css"); /* TDX custom Mega menu with no JS */
+require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
+require("../../public/assets/css/tdx-mega.css"); /* TDX custom Mega menu with no JS */
 
 import { mapGetters, mapActions } from "vuex";
 /* eslint-disable no-undef */
@@ -924,7 +924,7 @@ export default {
             return state.text;
           }
           var $state = $(
-            '<span><img src="../assets/images/flags/' +
+            '<span><img src="@/assets/images/flags/' +
               state.element.value.toLowerCase() +
               '.svg" class="img-flag" /> ' +
               state.text +

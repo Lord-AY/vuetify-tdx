@@ -317,7 +317,7 @@
                 <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
                 <div class="image">
                   <div class="hot-ribbon">
-                    <img src="../../assets/images/hot-deals.svg" />
+                    <img src="@/assets/images/hot-deals.svg" />
                   </div>
                   <router-link
                     :to="`productDetails/${product.id}/${product.cid}`"
