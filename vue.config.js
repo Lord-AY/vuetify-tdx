@@ -1,4 +1,5 @@
 module.exports = {
+  baseUrl: '/vuetify-tdx/dist/',
   devServer: {
     proxy: {
       "/api/v1": {
