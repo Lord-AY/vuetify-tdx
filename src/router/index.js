@@ -1,5 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "@/store";
+import AuthMiddleware from "./middleware/AuthMiddleware";
+import GuestMiddleware from "./middleware/GuestMiddleware";
+import VueRouteMiddleware from "vue-route-middleware";
+// import middlewarePipeline from "./middlewarePipeline";
 import Home from "../views/Home.vue";
 import userRegister from "../views/Register.vue";
 import p404 from "../views/404.vue";
@@ -32,6 +37,13 @@ const routes = [
     name: "register",
     // component: () => import("../views/Register.vue"),
     component: userRegister,
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "home" });
+      }
+      next();
+    },
     meta: {
       header: 1
     }
@@ -40,6 +52,13 @@ const routes = [
     path: "/login",
     name: "login",
     component: () => import("../views/Signin.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "home" });
+      }
+      next();
+    },
     meta: {
       header: 3
     }
@@ -120,14 +139,28 @@ const routes = [
     path: "/maindashboard",
     name: "dashboard",
     component: () => import("../views/dashboard-carspot.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "dashboard" });
+      }
+      next({ name: "login" });
+    },
     meta: {
       header: 2
     }
   },
   {
     path: "/editProfile",
-    name: "Edit Profile",
+    name: "EditProfile",
     component: () => import("../views/edit-profile-carspot.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "EditProfile" });
+      }
+      next({ name: "login" });
+    },
     meta: {
       header: 2
     }
@@ -136,6 +169,13 @@ const routes = [
     path: "/messaging",
     name: "messaging",
     component: () => import("../views/messaging.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "messaging" });
+      }
+      next({ name: "login" });
+    },
     meta: {
       header: 2
     }
@@ -144,6 +184,13 @@ const routes = [
     path: "/publishedInventory",
     name: "publishedinventory",
     component: () => import("../views/published-inventory.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "publishedinventory" });
+      }
+      next({ name: "login" });
+    },
     meta: {
       header: 2
     }
@@ -152,6 +199,13 @@ const routes = [
     path: "/ordersInventory",
     name: "ordersInventory",
     component: () => import("../views/ordersInventory.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "ordersInventory" });
+      }
+      next({ name: "login" });
+    },
     meta: {
       header: 2
     }
@@ -236,7 +290,6 @@ const routes = [
     }
   }
 ];
-
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,

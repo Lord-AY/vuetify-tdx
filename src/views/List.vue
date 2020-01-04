@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="list">
     <div class="main-content-area clearfix">
       <section
@@ -1316,14 +1317,21 @@
                     </div>
                     <div class="panel-body">
                       <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1default" v-for="product in productListings" :key="product.id">
+                        <div
+                          class="tab-pane fade in active"
+                          id="tab1default"
+                          v-for="product in productListings"
+                          :key="product.id"
+                        >
                           <div class="ads-list-archive featured_ads">
                             <!-- Image Block -->
                             <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <router-link
-                                  :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                  :to="
+                                    `/ProductDetails/${product.id}/${product.cid}`
+                                  "
                                 >
                                   <img
                                     :src="product.photos[0]"
@@ -1332,7 +1340,7 @@
                                   />
                                 </router-link>
                                 <div class="arrow-ribbon bg-primary bg-tag-tx">
-                                 Premium
+                                  Premium
                                 </div>
                               </div>
                               <!-- Img Block -->
@@ -1346,21 +1354,28 @@
                                 <!-- Price -->
                                 <div class="ad-price">
                                   &#8358; {{ product.amount }}
-                                  <span class v-if="product.negotiable">(Negotiable)</span>
+                                  <span class v-if="product.negotiable"
+                                    >(Negotiable)</span
+                                  >
                                   <span class v-else>(Fixed)</span>
                                 </div>
                                 <!-- Title -->
                                 <h3>
                                   <router-link
-                                   :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                    :to="
+                                      `/ProductDetails/${product.id}/${product.cid}`
+                                    "
                                   >
-                                   {{ product.name }}
+                                    {{ product.name }}
                                   </router-link>
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
                                   <span class="padding_cats">
-                                    <router-link :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                    <router-link
+                                      :to="
+                                        `/ProductDetails/${product.id}/${product.cid}`
+                                      "
                                       >{{ product.category }}</router-link
                                     >
                                   </span>
@@ -1374,7 +1389,9 @@
                                 <ul class="add_info">
                                   <li>
                                     <router-link
-                                     :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                      :to="
+                                        `/ProductDetails/${product.id}/${product.cid}`
+                                      "
                                     >
                                       <img
                                         :src="product.photos[1]"
@@ -1398,7 +1415,9 @@
                                       Favourite
                                     </a>
                                     <router-link
-                                      :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                      :to="
+                                        `/ProductDetails/${product.id}/${product.cid}`
+                                      "
                                       class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
@@ -1460,6 +1479,15 @@
     <a href="#0" class="cd-top">Top</a>
     <!-- Email verification and reset password -->
   </div>
+  <paginatedList
+    :data="paginatedProducts"
+    :total-pages="Math.ceil(paginatedProducts.length / 3)"
+    :total="paginatedProducts.length"
+    :per-page="10"
+    :current-page="currentPage"
+    @pagechanged="onPageChange"
+  />
+</div>
 </template>
 <script>
 require("../assets/skins/color-skins/color15.css");
@@ -1504,18 +1532,30 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css"
 require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
 
 import { mapActions, mapGetters } from "vuex";
-
+import paginatedList from "@/components/listPaginated";
 export default {
   name: "list",
+  components: {
+    paginatedList
+  },
+  data() {
+    return {
+      currentPage: 1
+    };
+  },
   computed: {
-    ...mapGetters("product", ["productListings"])
+    ...mapGetters("product", ["paginatedProducts"])
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts"]),
-    },
+    onPageChange(page) {
+      this.currentPage = page;
+    }
+  },
   created() {
     this.fetchAllProducts();
-  },
+    vm.$forceUpdate();
+  }
 };
 </script>
 

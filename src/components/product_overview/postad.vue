@@ -831,7 +831,7 @@
                                           >
                                         </span>
                                       </label>
-                                    </li> 
+                                    </li>
                                   </ul>
                                 </div>
                               </div>
@@ -1487,7 +1487,7 @@ export default {
       this.selectedImages = fileList;
     },
     beforeRemove(index, done, fileList) {
-      console.log("index", index, fileList);
+      // console.log("index", index, fileList);
       var r = confirm("remove image");
       if (r == true) {
         done();
@@ -1534,21 +1534,21 @@ export default {
       }
     },
     sendFormRequest(images) {
-      console.log("Function called");
+      // console.log("Function called");
       let selected = this.selectedImages;
       // check if uploaded images are equals to selected images
       if (selected.length == images.length) {
-        console.log("arrays are equal");
+        // console.log("arrays are equal");
         this.$emit("create-ads", images);
       } else {
-        console.log("arrays not yet equal");
+        // console.log("arrays not yet equal");
       }
     },
     setPayment(value) {
       this.ads.adType = value;
     },
     onCancel() {
-      console.log("User cancelled the loader.");
+      // console.log("User cancelled the loader.");
     },
     sync() {
       $("#demo").FancyFileUpload({
@@ -1585,7 +1585,7 @@ export default {
     $route: "sync",
     uploaded: {
       handler: function(uploaded) {
-        console.log(uploaded);
+        // console.log(uploaded);
         this.sendFormRequest(uploaded);
       }
     },

@@ -1565,10 +1565,19 @@
             </div>
             <ptoggler :current-comp="currentComp"></ptoggler>
           </div>
-          <component :is="currentComp" :products="productListings"></component>
-          <!--           <gridprops></gridprops>
+          <!-- <component :is="currentComp" :products="productListings"></component> -->
+            <paginatedGrid
+              :is="currentComp"
+              :data="paginatedProducts"
+              :total-pages="paginatedProducts.length"
+              :total="paginatedProducts.length"
+              :per-page="10"
+              :current-page="currentPage"
+              @pagechanged="onPageChange"
+            />
+            <!-- <component :is="currentComp" :products="productListings"></component> -->
+          <!-- <gridprops></gridprops> -->
           <listprops></listprops>
- -->
         </div>
       </section>
     </div>
@@ -1615,8 +1624,8 @@ require("../assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css"
 require("../assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
 // require("../assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 import hotsellers from "@/components/product_overview/hotsellers";
-import gridprops from "@/components/product_overview/gridprops";
-import listprops from "@/components/product_overview/listprops";
+import paginatedGrid from "@/components/product_overview/paginatedgrid";
+import listprops from "@/components/listPaginated";
 import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
@@ -1624,7 +1633,8 @@ export default {
   name: "gridlist",
   data() {
     return {
-      currentComp: "gridprops"
+      currentComp: "paginatedGrid",
+      currentPage: 1
     };
   },
   // components: {
@@ -1633,19 +1643,28 @@ export default {
   //   listprops
   // },
   computed: {
-    ...mapGetters("product", ["productListings"])
+    ...mapGetters("product", ["paginatedProducts"])
   },
+  // components: {
+  //   hotsellers: hotsellers,
+  //   paginatedGrid,
+  //   listprops: listprops,
+  //   ptoggler: ptoggler
+  // },
   components: {
     hotsellers: hotsellers,
-    gridprops: gridprops,
+    paginatedGrid: paginatedGrid,
     listprops: listprops,
     ptoggler: ptoggler
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts"]),
     sync() {
-      console.log("Jquery mounted");
+      // console.log("Jquery mounted");
     },
+    onPageChange(page) {
+      this.currentPage = page;
+    }
   },
   watch: {
     $route: "sync"
@@ -1657,18 +1676,21 @@ export default {
     this.sync();
     // this.$forceUpdate();
     this.fetchAllProducts();
+    vm.$forceUpdate();
   },
   beforeCreate() {
-    console.log("this is before created");
+    // console.log("this is before created");
   },
   beforeMount() {
-    console.log("this is before mounted");
+    // console.log("this is before mounted");
   },
   mounted() {
-    console.log("this route just got mounted");
+    // console.log("this route just got mounted");
+    this.$forceUpdate();
+    this.sync();
   },
   beforeRouteLeave: function(to, from, next) {
-    console.log("this route is about to leave ");
+    // console.log("this route is about to leave ");
     next();
   }
 };
@@ -1712,7 +1734,6 @@ html {
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 </style>
 <style scoped>
 @media only screen and (max-width: 991px) {
@@ -1744,14 +1765,14 @@ img {
 
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 *:before,
 *:after {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .gridlist {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
