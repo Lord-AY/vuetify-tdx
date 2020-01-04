@@ -239,8 +239,8 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: '/vuetify-tdx/dist/',
   routes
 });
-
+// base: process.env.BASE_URL,
 export default router;
