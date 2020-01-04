@@ -683,7 +683,11 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                           <!-- Img Block -->
                           <div class="ad-archive-img">
-                            <router-link :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`">
+                            <router-link
+                              :to="
+                                `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                              "
+                            >
                               <img
                                 :src="simProduct.photos[0]"
                                 alt="Audi A5 For Sale"
@@ -709,16 +713,22 @@
                             </div>
                             <!-- Title -->
                             <h3>
-                              <router-link :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`">{{
-                                simProduct.name
-                              }}</router-link>
+                              <router-link
+                                :to="
+                                  `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                "
+                                >{{ simProduct.name }}</router-link
+                              >
                             </h3>
                             <!-- Category -->
                             <div class="category-title">
                               <span class="padding_cats"
-                                ><router-link :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`">{{
-                                  simProduct.category
-                                }}</router-link></span
+                                ><router-link
+                                  :to="
+                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                  "
+                                  >{{ simProduct.category }}</router-link
+                                ></span
                               >
                             </div>
                             <!-- Short Description -->
@@ -728,11 +738,17 @@
                             </p>
                             <!-- Ad Features -->
                             <ul class="add_info">
-                              <li class="similar-ads-picture-thumbnails" :class="index == 0 ? 'active' : ''" v-for="(photo, index) in simProduct.photos" :key="index">
-                                <router-link :to="`/ProductDetails/${simProduct.id}/${simProduct.cid}`"
-                                  ><img
-                                    :src="photo"
-                                    :alt="simProduct.name"
+                              <li
+                                class="similar-ads-picture-thumbnails"
+                                :class="index == 0 ? 'active' : ''"
+                                v-for="(photo, index) in simProduct.photos"
+                                :key="index"
+                              >
+                                <router-link
+                                  :to="
+                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                  "
+                                  ><img :src="photo" :alt="simProduct.name"
                                 /></router-link>
                               </li>
                             </ul>
@@ -775,10 +791,18 @@
                   </div> -->
                   <div class="viewall-similar">
                     <a @click="limit = null" v-show="limitBtn"
-                      >Show More <i class="fa fa-arrow-circle-right" style="color: #4caf50;"></i
+                      >Show More
+                      <i
+                        class="fa fa-arrow-circle-right"
+                        style="color: #4caf50;"
+                      ></i
                     ></a>
                     <a @click="limit = 3" v-show="!limitBtn"
-                      >Show Less <i class="fa fa-arrow-circle-right" style="color: #4caf50;"></i
+                      >Show Less
+                      <i
+                        class="fa fa-arrow-circle-right"
+                        style="color: #4caf50;"
+                      ></i
                     ></a>
                   </div>
                 </div>
@@ -883,31 +907,27 @@
                 style="padding: 0;box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4)"
               >
                 <!-- Email Button trigger modal -->
-              <div v-if="!isHidden">
-                <h5 v-on:click="isHidden = !isHidden">
-                  <div
-                    class="btn btn-block btn-primary contact-seller cusbutton"
-                    style="border-radius:0px; font-size: 20px;"
-                  >
-                    <i class="fa fa-commenting-o"></i> Chat With Seller</div
-                  >
-                </h5>
-              </div>
-              <div
-                  class="row"
-                  style="margin-top: 20px;"
-                  v-if="isHidden"
-                >
-                <textarea class="message-box" rows="4" cols="50"></textarea>
-                <h5 class="send-message">
-                  <div
-                    class="btn btn-block btn-primary contact-seller cusbutton"
-                    style="border-radius:0px; font-size: 20px;"
-                  >
-                    <i class="fa fa-commenting-o"></i> Send Message</div
-                  >
-                </h5>
-              </div>
+                <div v-if="!isHidden">
+                  <h5 v-on:click="isHidden = !isHidden">
+                    <div
+                      class="btn btn-block btn-primary contact-seller cusbutton"
+                      style="border-radius:0px; font-size: 20px;"
+                    >
+                      <i class="fa fa-commenting-o"></i> Chat With Seller
+                    </div>
+                  </h5>
+                </div>
+                <div class="row" style="margin-top: 20px;" v-if="isHidden">
+                  <textarea class="message-box" rows="4" cols="50"></textarea>
+                  <h5 class="send-message">
+                    <div
+                      class="btn btn-block btn-primary contact-seller cusbutton"
+                      style="border-radius:0px; font-size: 20px;"
+                    >
+                      <i class="fa fa-commenting-o"></i> Send Message
+                    </div>
+                  </h5>
+                </div>
               </div>
               <div class="social-and-product-highlight">
                 <div class="fule-economy">
@@ -1049,7 +1069,6 @@ import { ContentLoader } from "vue-content-loader";
 import ash from "lodash";
 
 export default {
-  
   name: "productDetails",
   data() {
     return {
@@ -1068,11 +1087,11 @@ export default {
   methods: {
     filterImages() {
       let newImage = this.product.photos;
-      ash.trim
+      ash.trim;
       this.product.photos = newImage;
-      console.log(anotherO);
+      // console.log(anotherO);
     },
-     showLoader(data) {
+    showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
         return true;
       } else {
@@ -1153,21 +1172,18 @@ export default {
 </script>
 
 <style scoped>
-
-
-
 .breadcrumb {
-    padding: 8px 15px 8px 0px!important;
-    margin-bottom: 20px!important;
-    list-style: none;
-    background-color: #f5f5f5!important;
-    border-radius: 4px;
+  padding: 8px 15px 8px 0px !important;
+  margin-bottom: 20px !important;
+  list-style: none;
+  background-color: #f5f5f5 !important;
+  border-radius: 4px;
 }
 
 .breadcrumb > li + li:before {
-    padding: 0 5px!important;
-    color: #ccc!important;
-    content: "/\00a0"!important;
+  padding: 0 5px !important;
+  color: #ccc !important;
+  content: "/\00a0" !important;
 }
 
 .boxicon {
@@ -1200,7 +1216,7 @@ export default {
 }
 
 .send-message {
-  width: 100%; 
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -1221,28 +1237,28 @@ export default {
 }
 
 .list-inline > li {
-    display: inline-block;
-    padding-right: 5px;
-    padding-left: 5px;
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .visible-xs-block {
-    display: none !important;
+  display: none !important;
 }
 
 .btn-success {
-    color: #fff;
-    background-color: #4caf50;
-    border-color: #4caf50;
+  color: #fff;
+  background-color: #4caf50;
+  border-color: #4caf50;
 }
 
 .btn-warning {
-  background-color: #f0ad4e!important;
-    border-color: #eea236!important;
+  background-color: #f0ad4e !important;
+  border-color: #eea236 !important;
 }
 
 .btn-warning:hover {
-  background-color: #dd9a3c!important;
-    border-color: #dd9a3c!important;
+  background-color: #dd9a3c !important;
+  border-color: #dd9a3c !important;
 }
 </style>

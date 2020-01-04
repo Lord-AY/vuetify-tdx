@@ -1316,14 +1316,21 @@
                     </div>
                     <div class="panel-body">
                       <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1default" v-for="product in productListings" :key="product.id">
+                        <div
+                          class="tab-pane fade in active"
+                          id="tab1default"
+                          v-for="product in productListings"
+                          :key="product.id"
+                        >
                           <div class="ads-list-archive featured_ads">
                             <!-- Image Block -->
                             <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                               <!-- Img Block -->
                               <div class="ad-archive-img">
                                 <router-link
-                                  :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                  :to="
+                                    `/ProductDetails/${product.id}/${product.cid}`
+                                  "
                                 >
                                   <img
                                     :src="product.photos[0]"
@@ -1332,7 +1339,7 @@
                                   />
                                 </router-link>
                                 <div class="arrow-ribbon bg-primary bg-tag-tx">
-                                 Premium
+                                  Premium
                                 </div>
                               </div>
                               <!-- Img Block -->
@@ -1346,21 +1353,28 @@
                                 <!-- Price -->
                                 <div class="ad-price">
                                   &#8358; {{ product.amount }}
-                                  <span class v-if="product.negotiable">(Negotiable)</span>
+                                  <span class v-if="product.negotiable"
+                                    >(Negotiable)</span
+                                  >
                                   <span class v-else>(Fixed)</span>
                                 </div>
                                 <!-- Title -->
                                 <h3>
                                   <router-link
-                                   :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                    :to="
+                                      `/ProductDetails/${product.id}/${product.cid}`
+                                    "
                                   >
-                                   {{ product.name }}
+                                    {{ product.name }}
                                   </router-link>
                                 </h3>
                                 <!-- Category -->
                                 <div class="category-title">
                                   <span class="padding_cats">
-                                    <router-link :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                    <router-link
+                                      :to="
+                                        `/ProductDetails/${product.id}/${product.cid}`
+                                      "
                                       >{{ product.category }}</router-link
                                     >
                                   </span>
@@ -1374,7 +1388,9 @@
                                 <ul class="add_info">
                                   <li>
                                     <router-link
-                                     :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                      :to="
+                                        `/ProductDetails/${product.id}/${product.cid}`
+                                      "
                                     >
                                       <img
                                         :src="product.photos[1]"
@@ -1398,7 +1414,9 @@
                                       Favourite
                                     </a>
                                     <router-link
-                                      :to="`/ProductDetails/${product.id}/${product.cid}`"
+                                      :to="
+                                        `/ProductDetails/${product.id}/${product.cid}`
+                                      "
                                       class="btn2 btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
@@ -1511,11 +1529,11 @@ export default {
     ...mapGetters("product", ["productListings"])
   },
   methods: {
-    ...mapActions("product", ["fetchAllProducts"]),
-    },
+    ...mapActions("product", ["fetchAllProducts"])
+  },
   created() {
     this.fetchAllProducts();
-  },
+  }
 };
 </script>
 
