@@ -1641,7 +1641,6 @@ export default {
     },
     pages() {
       const range = [];
-
       for (
         let i = this.startPage;
         i <= this.endPage; i+=1
@@ -1651,7 +1650,6 @@ export default {
           isDisabled: i === this.currentPage
         });
       }
-
       return range;
     },
     isInFirstPage() {
@@ -1728,7 +1726,6 @@ export default {
     }
   }
 }
-
 // Colors
 $white: #fff;
 $black: #000;
@@ -1737,18 +1734,15 @@ $grey-dark: #2b2b2b;
 $grey-light: #eee;
 $green: #86c023;
 $blue: #017ac7;
-
 // Transition
 $duration: 400ms;
 $easing: ease;
-
 //----------  reset
 //------------------------------------------------------------------------------
 htm,
 body {
   font-family: sans-serif;
 }
-
 a {
   text-decoration: none;
 }
@@ -1757,14 +1751,12 @@ button {
   border: none;
   cursor: pointer;
 }
-
 //----------  pagination
 //------------------------------------------------------------------------------
 .pagination-wrapper {
   text-align: center;
   margin: 40px 0;
 }
-
 .pagination {
   display: inline-block;
   height: 70px;
@@ -1772,7 +1764,6 @@ button {
   padding: 0 25px;
   border-radius: 35px;
   background-color: $grey-light;
-
   @include breakpoint(1199px) {
     height: 50px;
     margin-top: 50px;
@@ -1780,7 +1771,6 @@ button {
     border-radius: 25px;
   }
 }
-
 .page-numbers {
   display: block;
   padding: 0 25px;
@@ -1790,33 +1780,27 @@ button {
   font-size: 20px;
   letter-spacing: 0.1em;
   line-height: 70px;
-
   &:hover,
   &.current {
     background-color: $green;
     color: $white;
   }
-
   &.prev:hover,
   &.next:hover {
     background-color: transparent;
     color: $green;
   }
-
   @include breakpoint(1199px) {
     padding: 0 15px;
     font-size: 16px;
     line-height: 50px;
   }
-
   @include breakpoint(touch) {
     padding: 0 14px;
     display: none;
-
     &:nth-of-type(2) {
       position: relative;
       padding-right: 50px;
-
       &::after {
         content: "...";
         position: absolute;
@@ -1825,15 +1809,12 @@ button {
         left: 45px;
       }
     }
-
     &:nth-child(-n + 3),
     &:nth-last-child(-n + 3) {
       display: block;
     }
-
     &:nth-last-child(-n + 4) {
       padding-right: 14px;
-
       &::after {
         content: none;
       }

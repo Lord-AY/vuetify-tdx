@@ -37,8 +37,8 @@
               <div class="grid-list">
                 <i
                   class="switch grid fa fa-th product-arrangement-icon"
-                  @click="switchComponent('gridprops')"
-                  :disabled="currentComp === 'gridprops'"
+                  @click="switchComponent('paginatedGrid')"
+                  :disabled="currentComp === 'paginatedGrid'"
                 ></i>
                 <i
                   class="switch list fa fa-list product-arrangement-icon"

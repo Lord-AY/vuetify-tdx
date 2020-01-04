@@ -87,13 +87,13 @@ export default {
   methods: {
     ...mapActions("product", ["similarProducts", "selectedProduct"]),
     sync() {
-      console.log("Jquery mounted");
+      // console.log("Jquery mounted");
     },
     getSingleProduct() {
       const payload = {
         id: this.$route.params.id
       };
-      console.log(payload);
+      // console.log(payload);
       this.selectedProduct(payload);
     },
     getSimilarProducts() {
@@ -117,13 +117,13 @@ export default {
     // fetch single product for view
   },
   beforeCreate() {
-    console.log("this is before created");
+    // console.log("this is before created");
   },
   beforeMount() {
-    console.log("this is before mounted");
+    // console.log("this is before mounted");
   },
   mounted() {
-    console.log("this route just got mounted");
+    // console.log("this route just got mounted");
     let extScript = document.createElement("script");
     // extScript.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js')
     extScript.setAttribute(
@@ -137,7 +137,7 @@ export default {
     this.getSimilarProducts();
   },
   beforeRouteLeave: function(to, from, next) {
-    console.log("this route is about to leave ");
+    // console.log("this route is about to leave ");
     next();
   }
 };

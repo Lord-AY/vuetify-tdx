@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     sync() {
-      console.log("Jquery mounted");
+      // console.log("Jquery mounted");
     }
   },
   watch: {
@@ -44,16 +44,16 @@ export default {
     // this.$forceUpdate();
   },
   beforeCreate() {
-    console.log("this is before created");
+    // console.log("this is before created");
   },
   beforeMount() {
-    console.log("this is before mounted");
+    // console.log("this is before mounted");
   },
   mounted() {
-    console.log("this route just got mounted");
+    // console.log("this route just got mounted");
   },
   beforeRouteLeave: function(to, from, next) {
-    console.log("this route is about to leave ");
+    // console.log("this route is about to leave ");
     next();
   }
 };

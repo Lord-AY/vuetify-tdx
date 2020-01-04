@@ -161,7 +161,9 @@
     <!--/Header -->
 
     <!--Start Horizontal-main -->
-    <div class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed">
+    <div
+      class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed"
+    >
       <div class="horizontal-mainwrapper container clearfix">
         <!-- <div class="desktoplogo-1" >
           <a href="index.html"><img src="../assets/images/brand/tradexplora-main.svg" alt=""></a>
@@ -628,9 +630,9 @@ export default {
     sync() {
       $(document).ready(function() {
         $("#bmenu_toggle").prop("checked", false);
-        $(window).scroll(function() {          
+        $(window).scroll(function() {
           var scroll = $(window).scrollTop();
-          console.log("we are scrolling " + scroll);
+          // console.log("we are scrolling " + scroll);
           if (scroll > 25) {
             $("#topb").removeClass("mobile-hidden");
             $("#topb").addClass("top-bar-hide");
@@ -656,7 +658,7 @@ export default {
               transition: "all 0.3s ease-in-out;"
             });
             sideBarTrigger.toggleClass("closed");
-            console.log("Sidebar is now open");
+            // console.log("Sidebar is now open");
           } else {
             //to close
             sideBar.css({ left: "-260px" });
@@ -665,7 +667,7 @@ export default {
               transition: "all 0.3s ease-in-out;"
             });
             sideBarTrigger.toggleClass("closed");
-            console.log("Sidebar is now closed");
+            // console.log("Sidebar is now closed");
           }
         });
       });

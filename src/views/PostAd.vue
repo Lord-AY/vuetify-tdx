@@ -75,36 +75,36 @@ export default {
   methods: {
     ...mapActions("product", ["createProduct"]),
     sync() {
-      console.log("Jquert Mounted");
+      // console.log("Jquert Mounted");
     },
     createAds(e) {
       // create payload
-      console.log("event emitted");
+      // console.log("event emitted");
       const payload = {
         product: this.ads
       };
       // add image to payload
       payload.product.photos = e.toString();
-      console.log("photos updated");
+      // console.log("photos updated");
       // send payload to vuex
       this.createProduct(payload);
-      console.log("action called");
-      console.log(payload);
+      // console.log("action called");
+      // console.log(payload);
     },
     async fetchCountries() {
       const res = await axios.get("https://restcountries.eu/rest/v2/all");
       this.items = res.data;
-      console.log(res.data);
+      // console.log(res.data);
     },
     watchCountries() {
       const countries = this.items;
       // checking if its an array and its not empty
       if (Array.isArray(countries) && countries.length) {
         this.itemsExists = true;
-        console.log(this.items);
+        // console.log(this.items);
       } else {
         this.itemsExists = false;
-        console.log(this.items);
+        // console.log(this.items);
       }
     }
   },
@@ -118,7 +118,7 @@ export default {
   created() {
     this.sync();
     this.watchCountries();
-    console.log(!!this.itemsExists);
+    // console.log(!!this.itemsExists);
   }
 };
 </script>

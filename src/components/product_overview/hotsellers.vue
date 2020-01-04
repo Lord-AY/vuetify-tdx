@@ -91,12 +91,8 @@
                             </p>
                           </div>
 
-                          <div
-                            class="follow"
-                          >
-                            <p >
-                              <i class="fa fa-user-plus"></i> Follow
-                            </p>
+                          <div class="follow">
+                            <p><i class="fa fa-user-plus"></i> Follow</p>
                           </div>
                         </div>
                       </div>
