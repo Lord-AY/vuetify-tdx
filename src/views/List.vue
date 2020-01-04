@@ -1,7 +1,7 @@
 <template>
   <paginatedList
     :data="paginatedProducts"
-    :total-pages="Math.ceil(paginatedProducts.length / 3)"
+    :total-pages="Math.ceil(paginatedProducts.length / 10)"
     :total="paginatedProducts.length"
     :per-page="10"
     :current-page="currentPage"

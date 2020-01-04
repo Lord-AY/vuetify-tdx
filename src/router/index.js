@@ -141,10 +141,10 @@ const routes = [
     component: () => import("../views/dashboard-carspot.vue"),
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "dashboard" });
+      if (!auth) {
+        next({ name: "login" });
       }
-      next({ name: "login" });
+      next();
     },
     meta: {
       header: 2
@@ -156,10 +156,10 @@ const routes = [
     component: () => import("../views/edit-profile-carspot.vue"),
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "EditProfile" });
+      if (!auth) {
+        next({ name: "login" });
       }
-      next({ name: "login" });
+      next();
     },
     meta: {
       header: 2
@@ -171,10 +171,10 @@ const routes = [
     component: () => import("../views/messaging.vue"),
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "messaging" });
+      if (!auth) {
+        next({ name: "login" });
       }
-      next({ name: "login" });
+      next();
     },
     meta: {
       header: 2
@@ -186,10 +186,10 @@ const routes = [
     component: () => import("../views/published-inventory.vue"),
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "publishedinventory" });
+      if (!auth) {
+        next({ name: "login" });
       }
-      next({ name: "login" });
+      next();
     },
     meta: {
       header: 2
@@ -201,10 +201,10 @@ const routes = [
     component: () => import("../views/ordersInventory.vue"),
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "ordersInventory" });
+      if (!auth) {
+        next({ name: "login" });
       }
-      next({ name: "login" });
+      next();
     },
     meta: {
       header: 2

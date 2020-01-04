@@ -1525,7 +1525,7 @@
       <!-- Email verification and reset password -->
     </div>
     <!-- PAGINATION CONTROLS -->
-    <div class="pagination-wrapper">
+    <div class="pagination-wrapper" v-if="data.length > 5 || currentPage > 1">
       <div class="pagination">
         <button
           class="prev page-numbers"
@@ -1546,11 +1546,10 @@
         <button
           class="page-numbers"
           type="button"
-          v-for="page in pages"
-          :key="page.range"
-          :disabled="page.isDisabled"
-          @click="onClickPage(page.range)"
-          >{{ page.range }}</button
+          v-for="(page, index) in pages"
+          :key="index"
+          @click="onClickPage(page.number)"
+          >{{ page.number }}</button
         >
         <!-- End page range-->
         <!-- <span aria-current="page" class="page-numbers current">1</span> -->
@@ -1637,17 +1636,18 @@ export default {
       // when at the middle
       return this.currentPage - 1;
     },
+    endPage() {
+      return Math.min(this.startPage + this.maxVisibleButtons - 1, this.totalPages);
+    },
     pages() {
       const range = [];
 
       for (
         let i = this.startPage;
-        i <=
-        Math.min(this.startPage + this.maxVisibleButtons - 1, this.totalPages);
-        i += 1
+        i <= this.endPage; i+=1
       ) {
         range.push({
-          name: i,
+          number: 1,
           isDisabled: i === this.currentPage
         });
       }
