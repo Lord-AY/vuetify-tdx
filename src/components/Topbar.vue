@@ -826,10 +826,17 @@ export default {
     sync() {
       $(document).ready(function() {
         $("#bmenu_toggle").prop("checked", false);
+        var scrollcheck = $(window).scrollTop();
+        if (scrollcheck > 0) {
+          $("#topb").removeClass("mobile-hidden");
+          $("#topb").addClass("top-bar-hide");
+        } else {
+          $("#topb").removeClass("top-bar-hide");
+        }
         $(window).scroll(function() {
           var scroll = $(window).scrollTop();
           // console.log("we are scrolling " + scroll);
-          if (scroll > 10) {
+          if (scroll > 0) {
             $("#topb").removeClass("mobile-hidden");
             $("#topb").addClass("top-bar-hide");
           } else {
