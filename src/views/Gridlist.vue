@@ -1731,7 +1731,7 @@ export default {
   margin-right: 10px;
 }
 html {
-  font-size: 10px;
+  font-size: 16px;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

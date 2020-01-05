@@ -4,7 +4,7 @@
   <section class="owl-carousel" id="banner">
     <div
       class="banner-1 cover-image sptb-2 sptb-tab bg-background2"
-      data-image-src="../assets/images/banners/buyairtime.jpg"
+      data-image-src="./assets/images/banners/buyairtime.jpg"
     >
       <div class="header-text mb-0">
         <div class="container">
@@ -20,7 +20,7 @@
     </div>
     <div
       class="banner-1 cover-image sptb-2 sptb-tab bg-background2"
-      data-image-src="../assets/images/banners/getthebest.jpg"
+      data-image-src="./assets/images/banners/getthebest.jpg"
     >
       <div class="header-text mb-0">
         <div class="container">
@@ -36,7 +36,7 @@
     </div>
     <div
       class="banner-1 cover-image sptb-2 sptb-tab bg-background2"
-      data-image-src="../../assets/images/banners/Sellprods.jpg"
+      data-image-src="./assets/images/banners/Sellprods.jpg"
     >
       <div class="header-text mb-0">
         <div class="container">
