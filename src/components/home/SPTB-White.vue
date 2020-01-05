@@ -5,7 +5,7 @@ import router from '../../router';
     <div class="container">
       <div class="section-title center-block text-center mobile-hidden">
         <h2 style="display: inline-block; margin-left: 92px">Latest Ads</h2>
-        <div class="viewall">
+        <div class="viewall2">
           <router-link to="/Gridlist"
             >Show All <i class="fa fa-arrow-circle-right"></i
           ></router-link>
@@ -184,7 +184,7 @@ import router from '../../router';
               <div class="footerimg d-flex mt-0 mb-0">
                 <div class="d-flex footerimg-l mb-0">
                   <img
-                    src="../../assets/images/faces/male/18.jpg"
+                    src="@/assets/images/faces/male/18.jpg"
                     alt="image"
                     class="avatar brround  mr-2"
                   />

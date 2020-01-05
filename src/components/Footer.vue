@@ -8,7 +8,7 @@
             <div class="col-lg-3 col-md-12">
               <router-link to="/Home">
                 <img
-                  src="../assets/images/TRADEXPLORA_V4.1_mini.png"
+                  src="@/assets/images/TRADEXPLORA_V4.1_mini.png"
                   class="img-responsive"
                   alt="Site logo"
                   style="margin-bottom: -0.8rem; width: 10rem;"
@@ -23,12 +23,12 @@
               <ul class="apps-donwloads">
                 <li style="display: inline-block; margin: 0 4px 4px 0;">
                   <a href="#"
-                    ><img src="../assets/images/appstore.png" alt="Android App"
+                    ><img src="@/assets/images/appstore.png" alt="Android App"
                   /></a>
                 </li>
                 <li style="display: inline-block; margin: 0 4px 4px 0;">
                   <a href="#"
-                    ><img src="../assets/images/googleplay.png" alt="IOS App"
+                    ><img src="@/assets/images/googleplay.png" alt="IOS App"
                   /></a>
                 </li>
               </ul>
@@ -118,31 +118,31 @@
                 <ul class="footer-payments" style="margin-top: 27px;">
                   <li class="pl-0" style=" width: 105px;">
                     <a href="javascript:;"
-                      ><img src="../assets/images/Interswitch Logo.svg"
+                      ><img src="@/assets/images/InterswitchLogo.svg"
                     /></a>
                   </li>
                   <li style=" width: 120px;">
                     <a href="javascript:;"
-                      ><img src="../assets/images/paystack-02.jpg"
+                      ><img src="@/assets/images/paystack-02.jpg"
                     /></a>
                   </li>
                   <li style=" width: 88px!important;">
                     <a href="javascript:; "
-                      ><img src="../assets/images/varve-logo-2.png"
+                      ><img src="@/assets/images/varve-logo-2.png"
                     /></a>
                   </li>
                   <li>
                     <a href="javascript:;"
                       ><img
                         class="payment-card-icon-tx"
-                        src="../assets/images/visa_card.png"
+                        src="@/assets/images/visa_card.png"
                     /></a>
                   </li>
                   <li>
                     <a href="javascript:;"
                       ><img
                         class="payment-card-icon-tx"
-                        src="../assets/images/master_card.png"
+                        src="@/assets/images/master_card.png"
                     /></a>
                   </li>
                 </ul>

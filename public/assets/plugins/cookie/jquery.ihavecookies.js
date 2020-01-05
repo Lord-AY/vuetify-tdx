@@ -66,7 +66,7 @@
         expires: 30,
         moreInfoLabel: "",
         acceptBtnLabel: "Accept Cookies",
-        advancedBtnLabel: "Select Specifics",
+        // advancedBtnLabel: '',
         onAccept: function() {},
         uncheckBoxes: false
       },
@@ -116,9 +116,8 @@
         cookieTypes +
         '</ul></div><p><button id="gdpr-cookie-accept" type="button">' +
         settings.acceptBtnLabel +
-        '</button><button id="gdpr-cookie-advanced" type="button">' +
-        settings.advancedBtnLabel +
-        "</button></p></div>";
+        '</button>' +
+        "<p></div>";
       setTimeout(function() {
         $($element).append(cookieMessage);
         $("#gdpr-cookie-message")

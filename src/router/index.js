@@ -60,7 +60,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 3
+      header: 1
     }
   },
   {
@@ -290,8 +290,8 @@ const routes = [
     }
   }
 ];
+// mode: "history",
 const router = new VueRouter({
-  mode: "history",
   base: process.env.BASE_URL,
   routes
 });

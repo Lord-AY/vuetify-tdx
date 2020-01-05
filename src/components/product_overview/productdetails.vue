@@ -53,8 +53,8 @@
                 <ul class="slides">
                   <li v-for="(photo, index) in product.photos" :key="index">
                     <a :href="photos" data-fancybox="group">
-                      <!-- <a href="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
-                      <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
+                      <!-- <a href="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
+                      <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="@/assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
                       <img :alt="product.name" :src="photo" />
                     </a>
                   </li>
@@ -63,7 +63,7 @@
               <!-- Listing Slider Thumb -->
               <div id="carousel" class="flexslider">
                 <ul class="slides">
-                  <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
+                  <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
                   <li v-for="(photo, index) in product.photos" :key="index">
                     <img :alt="product.name" draggable="false" :src="photo" />
                   </li>
@@ -413,7 +413,7 @@
                                 class="recent-ads-list-image-inner"
                               >
                                 <img
-                                  src="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-360x270.jpg"
+                                  src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-360x270.jpg"
                                   alt="2017 Maserati Ghibli SQ4 Blue"
                                 />
                               </a>
@@ -495,7 +495,7 @@
                 data-adid="1375"
               >
                 <img
-                  src="../../assets/images/compare.svg"
+                  src="@/assets/images/compare.svg"
                   style="height: 20px; color: #777; padding-right: 5px;"
                 />
                 <span class="hidetext"> Compare </span>
@@ -817,10 +817,10 @@
                 <div class="user-info-card">
                   <div class="user-photo col-md-4 col-sm-3  col-xs-4">
                     <a href="../../dealer/gavien72/index.html" class="link">
-                      <!-- <img class="img-circle" src="../../assets/carspot-css/wp-content/themes/carspot/images/"  alt="Profile Pic"> -->
+                      <!-- <img class="img-circle" src="@/assets/carspot-css/wp-content/themes/carspot/images/"  alt="Profile Pic"> -->
                       <img
                         class="img-circle"
-                        src="../../assets/images/profile-product-details.jpg"
+                        src="@/assets/images/profile-product-details.jpg"
                         alt="Profile Pic"
                       />
                     </a>
@@ -953,7 +953,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="../../assets/images/socials/facebook.svg"
+                        src="@/assets/images/socials/facebook.svg"
                     /></a>
                   </li>
                   <li>
@@ -961,7 +961,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="../../assets/images/socials/twitter.svg"
+                        src="@/assets/images/socials/twitter.svg"
                     /></a>
                   </li>
                   <li>
@@ -969,7 +969,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%; "
-                        src="../../assets/images/socials/whatsapp.svg"
+                        src="@/assets/images/socials/whatsapp.svg"
                     /></a>
                   </li>
                   <li>
@@ -977,7 +977,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="../../assets/images/socials/linkedin.svg"
+                        src="@/assets/images/socials/linkedin.svg"
                     /></a>
                   </li>
                   <li>
@@ -985,7 +985,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="../../assets/images/socials/google plus.svg"
+                        src="@/assets/images/socials/google plus.svg"
                     /></a>
                   </li>
                 </ul>
@@ -1022,7 +1022,7 @@
                 <div class="widget-content ">
                   <div class="ads">
                     <img
-                      src="../../assets/images/gloads.jpg"
+                      src="@/assets/images/gloads.jpg"
                       alt=""
                       srcset=""
                     />
@@ -1051,7 +1051,7 @@
     <input
       type="hidden"
       id="static_sb_logo_url"
-      value="../../assets/carspot-css/wp-content/uploads/sites/28/2018/04/logo-2.png"
+      value="@/assets/carspot-css/wp-content/uploads/sites/28/2018/04/logo-2.png"
     />
     <input type="hidden" id="msg_notification_on" value="" />
     <input type="hidden" id="msg_notification_time" value="100000" />
@@ -1064,7 +1064,7 @@
 // import productSlider from "@/components/product_overview/productSlider";
 // import pricingArea from "@/components/product_overview/pricingArea";
 
-require("../../../src/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 import { ContentLoader } from "vue-content-loader";
 import ash from "lodash";
 

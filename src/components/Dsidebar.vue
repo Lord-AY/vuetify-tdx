@@ -13,7 +13,7 @@
           <span></span>
         </div>
         <span class="smllogo">
-          <img src="../assets/images/brand/tradexplora-01.png" alt />
+          <img src="@/assets/images/brand/tradexplora-01.png" alt />
         </span>
         <!-- <i href="tel:245-6325-3256" class="callusbtn"><i class="fa fa-phone" aria-hidden="true"></i></a> -->
       </div>

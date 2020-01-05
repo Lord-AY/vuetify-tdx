@@ -41,7 +41,7 @@
                           <div class="card-aside-img">
                             <a href="#"></a>
                             <img
-                              src="../assets/images/products/f1.png"
+                              src="../../public/assets/images/products/f1.png"
                               alt="img"
                             />
                           </div>
@@ -102,7 +102,7 @@
                           <div class="card-aside-img">
                             <a href="#"></a>
                             <img
-                              src="../assets/images/products/j1.png"
+                              src="../../public/assets/images/products/j1.png"
                               alt="img"
                             />
                           </div>
@@ -161,7 +161,7 @@
                           <div class="card-aside-img">
                             <a href="#"></a>
                             <img
-                              src="../assets/images/products/h2.png"
+                              src="../../public/assets/images/products/h2.png"
                               alt="img"
                             />
                           </div>
@@ -222,7 +222,7 @@
                           <div class="card-aside-img">
                             <a href="#"></a>
                             <img
-                              src="../assets/images/products/v1.png"
+                              src="../../public/assets/images/products/v1.png"
                               alt="img"
                             />
                           </div>
@@ -283,7 +283,7 @@
                           <div class="card-aside-img">
                             <a href="#"></a>
                             <img
-                              src="../assets/images/products/f1.png"
+                              src="../../public/assets/images/products/f1.png"
                               alt="img"
                             />
                           </div>
@@ -344,7 +344,7 @@
                           <div class="card-aside-img">
                             <a href="#"></a>
                             <img
-                              src="../assets/images/products/j1.png"
+                              src="../../public/assets/images/products/j1.png"
                               alt="img"
                             />
                           </div>
@@ -403,7 +403,7 @@
                           <div class="card-aside-img">
                             <a href="#"></a>
                             <img
-                              src="../assets/images/products/h2.png"
+                              src="../../public/assets/images/products/h2.png"
                               alt="img"
                             />
                           </div>
@@ -464,7 +464,7 @@
                           <div class="card-aside-img">
                             <a href="#"></a>
                             <img
-                              src="../assets/images/products/v1.png"
+                              src="../../public/assets/images/products/v1.png"
                               alt="img"
                             />
                           </div>

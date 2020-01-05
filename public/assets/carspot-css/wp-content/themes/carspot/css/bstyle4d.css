@@ -1,15 +1,4 @@
 /*
-Theme Name: carspot
-Description: Carspot classified, responsive, multi-purpose, corporate, business theme. It comes with 11 home variations with all necessary pages. Carspot theme filled with extra functionality of modern web technologies. The clean design with latest version of Bootstrap framework makes its fit for anywhere.
-Author: Scripts Bundle
-Theme URI: http://carspot.scriptsbundle.com/demos/
-Author URI: http://scriptsbundle.com/
-License: Themeforest Split Licence
-License URI: https://themeforest.net/user/scriptsbundle/
-Text Domain: carspot
-Tags: featured-images, sticky-post, translation-ready
-*/
-/*
 ====================================
 [ CSS TABLE CONTENT ]
 ------------------------------------
@@ -85,6 +74,20 @@ body {
     height: 100%;
     width: 100%;
 }
+
+.row {
+  width: 100%;
+  margin: 0 !important;
+}
+
+.select-country {
+  margin-right: 3rem !important;
+}
+
+.contact {
+  padding-left: 20px !important;
+}
+
 body {
     /* font-family: 'Source Sans Pro', sans-serif; */
     font-family: 'Poppins', sans-serif !important;
@@ -373,20 +376,21 @@ p {
     z-index:999;
     padding:10px;
 }
-.btn {
+.btn2 {
     font-size: 14px;
     letter-spacing: 1px;
     padding: 10px 15px;
-    border-radius: 8px;
+    border-radius: 5px;
     -webkit-transition: all .25s ease-in-out;
     -moz-transition: all .25s ease-in-out;
     -ms-transition: all .25s ease-in-out;
     -o-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
     font-weight: 600;
-    font-family: 'Source Sans Pro', sans-serif;
-    text-transform: uppercase
+    font-family: 'Poppins', sans-serif;
+
 }
+
 .form-control {
     background-color: #fff;
     background-image: none;
@@ -1201,7 +1205,7 @@ img.resize {
 }
 .contact-in-header i {
     color: #232323;
-    float: right;
+    float: left;
     font-size: 45px;
     line-height: 51px;
     margin-right: 0
@@ -14138,12 +14142,13 @@ ul.review-stars li.star {
     background-color: #4CAF50!important;
     border-color: #4CAF50!important;
 }
-.btn-tx {
-    padding: 1.325rem 1.7375rem!important;
+/* .btn-tx {
+    max-width: 106px;
+    padding: 10px!important;
     border-radius: 0px!important;
     margin-bottom: 0px!important;
     font-family: 'Poppins', sans-serif !important;
-}
+} */
 .post-ad-header-tx {
 	color: #fff!important;
     /* font-size: 0.875rem; */
@@ -14165,20 +14170,21 @@ ul.review-stars li.star {
     padding: 0;
     float: right;
     display: block;
-    width: 17.333333333333332rem!important;
+    width: 42.125rem!important;
 }
 .contact-in-header {
     border: none;
     padding-left: 10px;
 }
-.footer-main {
+/*.footer-main {
     padding-top: 32px;
     padding-bottom: 32px;
     border-top: 1px solid rgba(167, 180, 201, .1);
     border-bottom: 1px solid rgba(167, 180, 201, .1);
     box-shadow: 0px 0px 17px 0px rgba(0,0,0, 0.02);
-}
-.footer-main a {
+}*/
+/*start*/
+/*.footer-main a {
     line-height: 2;
     transition: opacity .2s;
     color: #777!important;
@@ -14197,7 +14203,7 @@ ul.review-stars li.star {
 }
 .footer-main p {
     color: #777!important;
-}
+}*//*
 .row-tx {
     display: flex!important;
     flex-wrap: wrap!important;
@@ -14210,7 +14216,7 @@ ul.review-stars li.star {
 }
 hr.accent-2 {
     margin: 0px 0px 16px;
-}
+}*//*
 .d-inline-block {
     display: inline-block!important;
 }
@@ -14222,7 +14228,7 @@ hr.accent-2 {
 }
 .contact-us-tx {
     margin-bottom: 10px;
-}
+}*/
 .btn-sm-tx {
     min-width: 26px;
     margin: 0px 4px;
@@ -14250,6 +14256,7 @@ hr.accent-2 {
     font-size: 15.3846px!important;
     line-height: 36.15385px;
 }
+/*
 .btn-floating.btn-sm i {
     font-size: .96154rem;
     line-height: 36.15385px;
@@ -14268,7 +14275,7 @@ hr.accent-2 {
     width: inherit;
     text-align: center;
     color: #fff;
-}
+}*//*
 .bg-info {
     background-color: #1f94d9!important;
 }
@@ -14281,7 +14288,7 @@ hr.accent-2 {
     flex-wrap: wrap;
     align-items: stretch;
     width: 100%;
-}
+}*//*
 .w-100 {
     width: 100% !important;
 }
@@ -14295,7 +14302,7 @@ hr.accent-2 {
     flex: 1 1 auto;
     width: 1%;
     margin-bottom: 0;
-}
+}*//*
 .form-control {
     color: #99c1b2!important;
     opacity: 1!important;
@@ -14312,7 +14319,9 @@ hr.accent-2 {
     border-radius: 8px!important;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
 }
-
+*/
+/*stop*/
+/*
 .form-control:focus {
     border: 2px solid #4CAF50!important;
 }
@@ -14380,7 +14389,7 @@ hr.accent-2 {
     display: inline-block;
     padding: 0 11px;
     font-size: 20px;
-}
+}*/
 .pl-0 {
     padding-left: 0!important;
 }
@@ -14411,7 +14420,7 @@ hr.accent-2 {
 } */
 .contact-seller {
     padding: 15px; 
-    color: #fff!important;
+    color: #fff !important;
     background-color: #4CAF50!important;
     border: 2px solid #4CAF50!important;
 }
@@ -14420,6 +14429,7 @@ hr.accent-2 {
     border: 2px solid #4CAF50!important;
     color: #4CAF50!important;
 }
+
 .follow-seller {
     padding: 15px; 
     color: #fff !important;
@@ -15011,6 +15021,7 @@ hr.accent-2 {
 }
 .select-country .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: -3px!important;
+    right: 8px;
 }
 
 .select2-selection__clear {
