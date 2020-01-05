@@ -234,7 +234,7 @@
                   </li>
                   <li>
                     <router-link
-                      to="login"
+                      to="/login"
                       class="btn btn-tx btn-theme text-dark post-ad-header-tx"
                       >POST AN AD</router-link
                     >

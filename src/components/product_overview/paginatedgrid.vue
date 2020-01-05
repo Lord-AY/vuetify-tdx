@@ -435,7 +435,7 @@
           :disabled="page.isDisabled"
           @click="onClickPage(page.number)"
         >
-          {{ page.range }}
+          {{ page.number }}
         </button>
         <!-- End page range-->
         <!-- <span aria-current="page" class="page-numbers current">1</span> -->
@@ -537,7 +537,7 @@ export default {
         i += 1
       ) {
         range.push({
-          name: i,
+          number: i,
           isDisabled: i === this.currentPage
         });
       }

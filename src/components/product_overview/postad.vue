@@ -1516,7 +1516,7 @@ export default {
           form.append("api_key", "291355523372857");
           axios
             .post(
-              "https://api.cloudinary.com/v1_1/coderoute/image/upload",
+              "https://api.cloudinary.com/v1_1/coderoute/image/upload/",
               form
             )
             .then(({ data }) => {
@@ -1544,6 +1544,13 @@ export default {
         // console.log("arrays not yet equal");
       }
     },
+      show () {
+      this.$notify({
+        group: 'notify',
+        title: 'Important message',
+        text: 'Hello user! This is a notification!'
+      });
+      },
     setPayment(value) {
       this.ads.adType = value;
     },
@@ -1592,6 +1599,7 @@ export default {
     loading: {
       handler: function(loading) {
         if (loading) {
+          this.show();
           this.isLoading = true;
         } else {
           this.isLoading = false;
