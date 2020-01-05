@@ -3,7 +3,7 @@
     <div class="short-features">
       <div class="grid-style-2">
         <div class="heading-panel">
-          <div class="col-xs-12 col-md-12 col-sm-12">
+          <div class="col-xs-12 col-md-12 col-sm-12 grid-flex-custom">
             <h3
               class="main-title text-left"
               style="border-bottom: 2px solid #4CAF50;"

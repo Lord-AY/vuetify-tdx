@@ -1754,8 +1754,9 @@ export default {
 
 <style>
 .category-grid-box-tx .image img {
-  width: 10rem !important;
-  height: 10rem !important;
+  width: 6rem !important;
+  height: 6rem !important;
+  margin-top: 20px;
 }
 
 .short-features {
