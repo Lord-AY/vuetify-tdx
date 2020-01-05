@@ -1,9 +1,12 @@
 <template>
-  <div class="pdetails">
-    <productdetails
-      :product="singleProduct"
-      :similarprods="similarproducts"
-    ></productdetails>
+  <div>
+    <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
+    <div class="pdetails">
+      <productdetails
+        :product="singleProduct"
+        :similarprods="similarproducts"
+      ></productdetails>
+    </div>
   </div>
 </template>
 <script>
@@ -70,19 +73,23 @@ require("../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
 
 import productdetails from "@/components/product_overview/productdetails";
 import { mapState, mapActions, mapGetters } from "vuex";
+import Loading from "vue-loading-overlay";
 export default {
   name: "productDetails",
   data() {
     return {
-      product: {}
+      product: {},
+      isLoading: false
     };
   },
   components: {
-    productdetails
+    productdetails,
+    Loading
   },
   computed: {
     ...mapState("product", ["products", "similarproducts"]),
-    ...mapGetters("product", ["singleProduct"])
+    ...mapGetters("product", ["singleProduct"]),
+    ...mapGetters("auth", ["loading"])
   },
   methods: {
     ...mapActions("product", ["similarProducts", "selectedProduct"]),
@@ -90,6 +97,7 @@ export default {
       // console.log("Jquery mounted");
     },
     getSingleProduct() {
+      this.isLoading = true;
       const payload = {
         id: this.$route.params.id
       };
@@ -97,6 +105,7 @@ export default {
       this.selectedProduct(payload);
     },
     getSimilarProducts() {
+      this.isLoading = true;
       const payload = {
         cid: this.singleProduct.cid,
         id: this.singleProduct.id
@@ -108,6 +117,14 @@ export default {
     $route: "sync",
     $route(to, from) {
       this.getSingleProduct();
+    },
+    loading: {
+      handler: function(loading) {
+        if (loading) {
+          this.isLoading = true;
+        }
+        this.isLoading = false;
+      }
     }
   },
   created() {

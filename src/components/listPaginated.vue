@@ -1548,8 +1548,8 @@
           type="button"
           v-for="(page, index) in pages"
           :key="index"
-          @click="onClickPage(page.number)"
-          >{{ page.number }}</button
+          @click="onClickPage(page.range.number)"
+          >{{ page.range.number }}</button
         >
         <!-- End page range-->
         <!-- <span aria-current="page" class="page-numbers current">1</span> -->
@@ -1646,7 +1646,7 @@ export default {
         i <= this.endPage; i+=1
       ) {
         range.push({
-          number: 1,
+          number: i,
           isDisabled: i === this.currentPage
         });
       }

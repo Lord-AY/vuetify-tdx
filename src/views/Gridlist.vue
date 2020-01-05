@@ -1566,16 +1566,16 @@
             <ptoggler :current-comp="currentComp"></ptoggler>
           </div>
           <!-- <component :is="currentComp" :products="productListings"></component> -->
-            <paginatedGrid
-              :is="currentComp"
-              :data="paginatedProducts"
-              :total-pages="paginatedProducts.length"
-              :total="paginatedProducts.length"
-              :per-page="10"
-              :current-page="currentPage"
-              @pagechanged="onPageChange"
-            />
-            <!-- <component :is="currentComp" :products="productListings"></component> -->
+          <paginatedGrid
+            :is="currentComp"
+            :data="paginatedProducts"
+            :total-pages="Math.ceil(paginatedProducts.length / 9)"
+            :total="paginatedProducts.length"
+            :per-page="10"
+            :current-page="currentPage"
+            @pagechanged="onPageChange"
+          />
+          <!-- <component :is="currentComp" :products="productListings"></component> -->
           <!-- <gridprops></gridprops> -->
           <listprops></listprops>
         </div>
@@ -1643,7 +1643,7 @@ export default {
   //   listprops
   // },
   computed: {
-    ...mapGetters("product", ["paginatedProducts"])
+    ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors"])
   },
   // components: {
   //   hotsellers: hotsellers,
@@ -1664,19 +1664,56 @@ export default {
     },
     onPageChange(page) {
       this.currentPage = page;
+    },
+    showError() {
+      this.$notify({
+        group: "errors",
+        type: "error",
+        title: "Error Fetching Products",
+        width: "100%",
+        text: this.getErrors,
+        classes: "error",
+        duration: 10000,
+        speed: 1000,
+        position: "top right"
+      });
+    },
+    showSuccess() {
+      this.$notify({
+        group: "notify",
+        type: "success",
+        title: "Success",
+        text: this.getSuccess,
+        position: "top right",
+        duration: 10000,
+        speed: 1000
+      });
     }
   },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    getErrors: {
+      handler: function(errors) {
+        if(errors === null || errors === undefined) {
+          return;
+        }
+        this.showError();
+      }
+    },
+    getSuccess: {
+      handler: () => {
+        this.showSuccess();
+      }
+    }
   },
   created() {
     bus.$on("switchComp", comp => {
       this.currentComp = comp;
     });
     this.sync();
-    // this.$forceUpdate();
+    this.$forceUpdate();
     this.fetchAllProducts();
-    vm.$forceUpdate();
+    // vm.$forceUpdate();
   },
   beforeCreate() {
     // console.log("this is before created");

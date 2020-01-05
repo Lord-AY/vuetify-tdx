@@ -12,6 +12,7 @@
     <div v-if="$route.meta.header === 1"><Footer></Footer></div>
     <div v-if="$route.meta.header === 3"><Footer></Footer></div>
     <div v-if="$route.meta.header === 4"><Footer></Footer></div>
+    <notifications group="errors" :speed="500" />
     <!-- <div v-else-if="$route.meta.header === 3">I'm visible on home page two</div> -->
     <!-- <Footer></Footer> -->
     <!-- Mobile Bottom Bar -->

@@ -68,9 +68,12 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_PRODUCTS", data);
         })
-        .catch(error => {
+        .catch(() => {
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_ERRORS", error);
+          commit(
+            "SET_ERRORS",
+            "Network Error, Please make sure you are connected..."
+          );
         });
     },
     fetchAllCategories({ commit }) {
@@ -85,7 +88,7 @@ export default {
         .catch(error => {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_ERRORS", error.response.message);
+          commit("SET_ERRORS", "Network Error");
         });
     },
     selectedProduct({ commit }, payload) {
@@ -99,7 +102,10 @@ export default {
           commit("SET_SINGLE_PRODUCT", data);
         })
         .catch(() => {
-          commit("SET_ERRORS", "Network Error");
+          commit(
+            "SET_ERRORS",
+            "Network Error, Please make sure you are connected..."
+          );
           router.push("/gridlist");
         });
     },
@@ -120,7 +126,10 @@ export default {
         .catch(error => {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_ERRORS", error.response.message);
+          commit(
+            "SET_ERRORS",
+            "Network Error: Error getting similar products."
+          );
         });
     },
     createProduct({ commit, rootState }, payload) {
