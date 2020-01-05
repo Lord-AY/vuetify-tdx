@@ -190,6 +190,9 @@
 
 <script>
 /* eslint-disable no-undef */
+import { ContentLoader } from "vue-content-loader";
+import moment from "moment";
+import ash from "lodash";
 export default {
   name: "RecentPost",
   props: {
