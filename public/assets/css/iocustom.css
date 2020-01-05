@@ -3,6 +3,10 @@
   margin: 0 !important;
 }
 
+body {
+  background-color: rgba(235, 235, 235, 0.5) !important;
+}
+
 .submit-form .row {
     margin-top: 25px;
     margin-bottom: 25px
@@ -134,6 +138,10 @@
   border-radius: 0;
 } 
 
+.category-grid-box-tx-custom {
+  height: 100%;
+  background-color: #fff;
+}
 
 .listingTopFilterBar {
     background: #fff none repeat scroll 0 0;
