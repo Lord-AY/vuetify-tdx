@@ -53,8 +53,8 @@
                 <ul class="slides">
                   <li v-for="(photo, index) in product.photos" :key="index">
                     <a :href="photos" data-fancybox="group">
-                      <!-- <a href="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
-                      <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="../../assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
+                      <!-- <a href="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
+                      <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="@/assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
                       <img :alt="product.name" :src="photo" />
                     </a>
                   </li>
@@ -63,7 +63,7 @@
               <!-- Listing Slider Thumb -->
               <div id="carousel" class="flexslider">
                 <ul class="slides">
-                  <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
+                  <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
                   <li v-for="(photo, index) in product.photos" :key="index">
                     <img :alt="product.name" draggable="false" :src="photo" />
                   </li>
@@ -413,7 +413,7 @@
                                 class="recent-ads-list-image-inner"
                               >
                                 <img
-                                  src="../../assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-360x270.jpg"
+                                  src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-360x270.jpg"
                                   alt="2017 Maserati Ghibli SQ4 Blue"
                                 />
                               </a>
@@ -495,7 +495,7 @@
                 data-adid="1375"
               >
                 <img
-                  src="../../assets/images/compare.svg"
+                  src="@/assets/images/compare.svg"
                   style="height: 20px; color: #777; padding-right: 5px;"
                 />
                 <span class="hidetext"> Compare </span>
@@ -683,13 +683,17 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                           <!-- Img Block -->
                           <div class="ad-archive-img">
-                            <a href="../ad/audi-a5-for-sale/index.html">
+                            <router-link
+                              :to="
+                                `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                              "
+                            >
                               <img
-                                src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-360x270.jpg"
+                                :src="simProduct.photos[0]"
                                 alt="Audi A5 For Sale"
                                 class="img-responsive"
                               />
-                            </a>
+                            </router-link>
                           </div>
                           <!-- Img Block -->
                         </div>
@@ -709,16 +713,22 @@
                             </div>
                             <!-- Title -->
                             <h3>
-                              <a href="../ad/audi-a5-for-sale/index.html">{{
-                                simProduct.name
-                              }}</a>
+                              <router-link
+                                :to="
+                                  `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                "
+                                >{{ simProduct.name }}</router-link
+                              >
                             </h3>
                             <!-- Category -->
                             <div class="category-title">
                               <span class="padding_cats"
-                                ><a href="../ad_category/audi/index.html">{{
-                                  simProduct.category
-                                }}</a></span
+                                ><router-link
+                                  :to="
+                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                  "
+                                  >{{ simProduct.category }}</router-link
+                                ></span
                               >
                             </div>
                             <!-- Short Description -->
@@ -728,19 +738,18 @@
                             </p>
                             <!-- Ad Features -->
                             <ul class="add_info">
-                              <li class="similar-ads-picture-thumbnails active">
-                                <a href="../ad/audi-a5-for-sale/index.html"
-                                  ><img
-                                    src="../../assets/carspot-css/wp-content/uploads/2017/07/1-3-110x60.jpg"
-                                    :alt="simProduct.name"
-                                /></a>
-                              </li>
-                              <li class="similar-ads-picture-thumbnails ">
-                                <a href="../ad/audi-a5-for-sale/index.html"
-                                  ><img
-                                    src="../../assets/carspot-css/wp-content/uploads/2017/07/3-3-110x60.jpg"
-                                    :alt="simProduct.name"
-                                /></a>
+                              <li
+                                class="similar-ads-picture-thumbnails"
+                                :class="index == 0 ? 'active' : ''"
+                                v-for="(photo, index) in simProduct.photos"
+                                :key="index"
+                              >
+                                <router-link
+                                  :to="
+                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                  "
+                                  ><img :src="photo" :alt="simProduct.name"
+                                /></router-link>
                               </li>
                             </ul>
                             <!-- Ad History -->
@@ -782,10 +791,18 @@
                   </div> -->
                   <div class="viewall-similar">
                     <a @click="limit = null" v-show="limitBtn"
-                      >Show More <i class="fa fa-arrow-circle-right" style="color: #4caf50;"></i
+                      >Show More
+                      <i
+                        class="fa fa-arrow-circle-right"
+                        style="color: #4caf50;"
+                      ></i
                     ></a>
                     <a @click="limit = 3" v-show="!limitBtn"
-                      >Show Less <i class="fa fa-arrow-circle-right" style="color: #4caf50;"></i
+                      >Show Less
+                      <i
+                        class="fa fa-arrow-circle-right"
+                        style="color: #4caf50;"
+                      ></i
                     ></a>
                   </div>
                 </div>
@@ -800,10 +817,10 @@
                 <div class="user-info-card">
                   <div class="user-photo col-md-4 col-sm-3  col-xs-4">
                     <a href="../../dealer/gavien72/index.html" class="link">
-                      <!-- <img class="img-circle" src="../../assets/carspot-css/wp-content/themes/carspot/images/"  alt="Profile Pic"> -->
+                      <!-- <img class="img-circle" src="@/assets/carspot-css/wp-content/themes/carspot/images/"  alt="Profile Pic"> -->
                       <img
                         class="img-circle"
-                        src="../../assets/images/profile-product-details.jpg"
+                        src="@/assets/images/profile-product-details.jpg"
                         alt="Profile Pic"
                       />
                     </a>
@@ -890,31 +907,27 @@
                 style="padding: 0;box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4)"
               >
                 <!-- Email Button trigger modal -->
-              <div v-if="!isHidden">
-                <h5 v-on:click="isHidden = !isHidden">
-                  <div
-                    class="btn btn-block btn-primary contact-seller cusbutton"
-                    style="border-radius:0px; font-size: 20px;"
-                  >
-                    <i class="fa fa-commenting-o"></i> Chat With Seller</div
-                  >
-                </h5>
-              </div>
-              <div
-                  class="row"
-                  style="margin-top: 20px;"
-                  v-if="isHidden"
-                >
-                <textarea class="message-box" rows="4" cols="50"></textarea>
-                <h5 class="send-message">
-                  <div
-                    class="btn btn-block btn-primary contact-seller cusbutton"
-                    style="border-radius:0px; font-size: 20px;"
-                  >
-                    <i class="fa fa-commenting-o"></i> Send Message</div
-                  >
-                </h5>
-              </div>
+                <div v-if="!isHidden">
+                  <h5 v-on:click="isHidden = !isHidden">
+                    <div
+                      class="btn btn-block btn-primary contact-seller cusbutton"
+                      style="border-radius:0px; font-size: 20px;"
+                    >
+                      <i class="fa fa-commenting-o"></i> Chat With Seller
+                    </div>
+                  </h5>
+                </div>
+                <div class="row" style="margin-top: 20px;" v-if="isHidden">
+                  <textarea class="message-box" rows="4" cols="50"></textarea>
+                  <h5 class="send-message">
+                    <div
+                      class="btn btn-block btn-primary contact-seller cusbutton"
+                      style="border-radius:0px; font-size: 20px;"
+                    >
+                      <i class="fa fa-commenting-o"></i> Send Message
+                    </div>
+                  </h5>
+                </div>
               </div>
               <div class="social-and-product-highlight">
                 <div class="fule-economy">
@@ -940,7 +953,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="../../assets/images/socials/facebook.svg"
+                        src="@/assets/images/socials/facebook.svg"
                     /></a>
                   </li>
                   <li>
@@ -948,7 +961,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="../../assets/images/socials/twitter.svg"
+                        src="@/assets/images/socials/twitter.svg"
                     /></a>
                   </li>
                   <li>
@@ -956,7 +969,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%; "
-                        src="../../assets/images/socials/whatsapp.svg"
+                        src="@/assets/images/socials/whatsapp.svg"
                     /></a>
                   </li>
                   <li>
@@ -964,7 +977,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="../../assets/images/socials/linkedin.svg"
+                        src="@/assets/images/socials/linkedin.svg"
                     /></a>
                   </li>
                   <li>
@@ -972,7 +985,7 @@
                       ><img
                         class="payment-card-icon-footer-tx"
                         style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="../../assets/images/socials/google plus.svg"
+                        src="@/assets/images/socials/google plus.svg"
                     /></a>
                   </li>
                 </ul>
@@ -1009,7 +1022,7 @@
                 <div class="widget-content ">
                   <div class="ads">
                     <img
-                      src="../../assets/images/gloads.jpg"
+                      src="@/assets/images/gloads.jpg"
                       alt=""
                       srcset=""
                     />
@@ -1038,7 +1051,7 @@
     <input
       type="hidden"
       id="static_sb_logo_url"
-      value="../../assets/carspot-css/wp-content/uploads/sites/28/2018/04/logo-2.png"
+      value="@/assets/carspot-css/wp-content/uploads/sites/28/2018/04/logo-2.png"
     />
     <input type="hidden" id="msg_notification_on" value="" />
     <input type="hidden" id="msg_notification_time" value="100000" />
@@ -1051,12 +1064,11 @@
 // import productSlider from "@/components/product_overview/productSlider";
 // import pricingArea from "@/components/product_overview/pricingArea";
 
-require("../../../src/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 import { ContentLoader } from "vue-content-loader";
 import ash from "lodash";
 
 export default {
-  
   name: "productDetails",
   data() {
     return {
@@ -1075,11 +1087,11 @@ export default {
   methods: {
     filterImages() {
       let newImage = this.product.photos;
-      ash.trim
+      ash.trim;
       this.product.photos = newImage;
-      console.log(anotherO);
+      // console.log(anotherO);
     },
-     showLoader(data) {
+    showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
         return true;
       } else {
@@ -1160,21 +1172,18 @@ export default {
 </script>
 
 <style scoped>
-
-
-
 .breadcrumb {
-    padding: 8px 15px 8px 0px!important;
-    margin-bottom: 20px!important;
-    list-style: none;
-    background-color: #f5f5f5!important;
-    border-radius: 4px;
+  padding: 8px 15px 8px 0px !important;
+  margin-bottom: 20px !important;
+  list-style: none;
+  background-color: #f5f5f5 !important;
+  border-radius: 4px;
 }
 
 .breadcrumb > li + li:before {
-    padding: 0 5px!important;
-    color: #ccc!important;
-    content: "/\00a0"!important;
+  padding: 0 5px !important;
+  color: #ccc !important;
+  content: "/\00a0" !important;
 }
 
 .boxicon {
@@ -1207,7 +1216,7 @@ export default {
 }
 
 .send-message {
-  width: 100%; 
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -1228,28 +1237,28 @@ export default {
 }
 
 .list-inline > li {
-    display: inline-block;
-    padding-right: 5px;
-    padding-left: 5px;
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .visible-xs-block {
-    display: none !important;
+  display: none !important;
 }
 
 .btn-success {
-    color: #fff;
-    background-color: #4caf50;
-    border-color: #4caf50;
+  color: #fff;
+  background-color: #4caf50;
+  border-color: #4caf50;
 }
 
 .btn-warning {
-  background-color: #f0ad4e!important;
-    border-color: #eea236!important;
+  background-color: #f0ad4e !important;
+  border-color: #eea236 !important;
 }
 
 .btn-warning:hover {
-  background-color: #dd9a3c!important;
-    border-color: #dd9a3c!important;
+  background-color: #dd9a3c !important;
+  border-color: #dd9a3c !important;
 }
 </style>

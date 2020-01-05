@@ -26,13 +26,13 @@
             <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
               <div class="category-grid-box-1 category-grid-box-tx">
                 <div class="hot-ribbon">
-                  <img src="../../assets/images/hoticonv2.png" />
+                  <img src="@/assets/images/hoticonv2.png" />
                 </div>
                 <div class="image-price">
                   <div class="image">
                     <router-link to="/register">
                       <img
-                        src="../../assets/images/add-seller.svg"
+                        src="@/assets/images/add-seller.svg"
                         alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
                         class="img-responsive"
                       />
@@ -63,7 +63,7 @@
                     >
                       <div class="category-grid-box-1 category-grid-box-tx">
                         <div class="hot-ribbon">
-                          <img src="../../assets/images/hoticonv2.png" />
+                          <img src="@/assets/images/hoticonv2.png" />
                         </div>
                         <div class="image-price">
                           <div class="image">
@@ -71,7 +71,7 @@
                               href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
                             >
                               <img
-                                src="../../assets/images/profile-5.jpg"
+                                src="@/assets/images/profile-5.jpg"
                                 alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
                                 class="img-responsive"
                               />
@@ -91,12 +91,8 @@
                             </p>
                           </div>
 
-                          <div
-                            class="follow"
-                          >
-                            <p >
-                              <i class="fa fa-user-plus"></i> Follow
-                            </p>
+                          <div class="follow">
+                            <p><i class="fa fa-user-plus"></i> Follow</p>
                           </div>
                         </div>
                       </div>
@@ -109,7 +105,7 @@
                     >
                       <div class="category-grid-box-1 category-grid-box-tx">
                         <div class="hot-ribbon">
-                          <img src="../../assets/images/hoticonv2.png" />
+                          <img src="@/assets/images/hoticonv2.png" />
                         </div>
                         <div class="image-price">
                           <div class="image">
@@ -117,7 +113,7 @@
                               href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
                             >
                               <img
-                                src="../../assets/images/profile-4.jpg"
+                                src="@/assets/images/profile-4.jpg"
                                 alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
                                 class="img-responsive"
                               />
@@ -151,7 +147,7 @@
                     >
                       <div class="category-grid-box-1 category-grid-box-tx">
                         <div class="hot-ribbon">
-                          <img src="../../assets/images/hoticonv2.png" />
+                          <img src="@/assets/images/hoticonv2.png" />
                         </div>
                         <div class="image-price">
                           <div class="image">
@@ -159,7 +155,7 @@
                               href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
                             >
                               <img
-                                src="../../assets/images/profile-3.jpg"
+                                src="@/assets/images/profile-3.jpg"
                                 alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
                                 class="img-responsive"
                               />
@@ -193,7 +189,7 @@
                     >
                       <div class="category-grid-box-1 category-grid-box-tx">
                         <div class="hot-ribbon">
-                          <img src="../../assets/images/hoticonv2.png" />
+                          <img src="@/assets/images/hoticonv2.png" />
                         </div>
                         <div class="image-price">
                           <div class="image">
@@ -201,7 +197,7 @@
                               href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
                             >
                               <img
-                                src="../../assets/images/profile-2.jpg"
+                                src="@/assets/images/profile-2.jpg"
                                 alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
                                 class="img-responsive"
                               />
@@ -235,7 +231,7 @@
                     >
                       <div class="category-grid-box-1 category-grid-box-tx">
                         <div class="hot-ribbon">
-                          <img src="../../assets/images/hoticonv2.png" />
+                          <img src="@/assets/images/hoticonv2.png" />
                         </div>
                         <div class="image-price">
                           <div class="image">
@@ -243,7 +239,7 @@
                               href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
                             >
                               <img
-                                src="../../assets/images/profile-1.jpg"
+                                src="@/assets/images/profile-1.jpg"
                                 alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
                                 class="img-responsive"
                               />

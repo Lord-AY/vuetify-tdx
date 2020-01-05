@@ -85,7 +85,6 @@ $(function (e) {
 			});
 			
 
-	<!-- ////////////////////////////////////////// -->
 	
     var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),

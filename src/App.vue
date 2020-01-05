@@ -2,7 +2,7 @@
   <div id="app">
     <!--Loader-->
     <div id="global-loader">
-      <img src="./assets/images/loader.svg" class="loader-img" alt="" />
+      <img src="@/assets/images/loader.svg" class="loader-img" alt="" />
     </div>
     <div v-if="$route.meta.header === 1"><topbar></topbar></div>
     <div v-else-if="$route.meta.header === 3"><topbar2></topbar2></div>
@@ -12,6 +12,7 @@
     <div v-if="$route.meta.header === 1"><Footer></Footer></div>
     <div v-if="$route.meta.header === 3"><Footer></Footer></div>
     <div v-if="$route.meta.header === 4"><Footer></Footer></div>
+    <notifications group="errors" :speed="500" />
     <!-- <div v-else-if="$route.meta.header === 3">I'm visible on home page two</div> -->
     <!-- <Footer></Footer> -->
     <!-- Mobile Bottom Bar -->
@@ -31,7 +32,7 @@
 
 <style></style>
 <script>
-// require("./assets/plugins/select2/select2.min.css");
+// require("@/assets/plugins/select2/select2.min.css");
 /* eslint-disable no-undef*/
 import topbar from "@/components/Topbar";
 import topbar2 from "@/components/Topbar2";

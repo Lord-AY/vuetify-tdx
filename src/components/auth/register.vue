@@ -8,7 +8,7 @@
             <div class="form-box-title">
               <img
                 class
-                src="../../assets/images/add-account.svg"
+                src="@/assets/images/add-account.svg"
                 style="max-width: 32px;"
               />
               <span style="font-size: 18px; margin-left: 10px;"

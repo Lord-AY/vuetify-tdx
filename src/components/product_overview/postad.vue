@@ -736,7 +736,7 @@
                               <div class="ad-information ">
                                 <div class="ad-section-title">
                                   <img
-                                    src="../../assets/images/ad-post.svg"
+                                    src="@/assets/images/ad-post.svg"
                                     style="width: 32px;"
                                   />
                                   Ad Post Package
@@ -831,7 +831,7 @@
                                           >
                                         </span>
                                       </label>
-                                    </li> 
+                                    </li>
                                   </ul>
                                 </div>
                               </div>
@@ -913,7 +913,7 @@
                                       class="senior-ads-header premium"
                                       style="background-color: #27c781;"
                                     >
-                                      <!-- <img src="../../assets/images/ad-premium.svg " width="24px"> -->
+                                      <!-- <img src="@/assets/images/ad-premium.svg " width="24px"> -->
                                       <div class="post-package-title">
                                         <span>Premium</span>
                                       </div>
@@ -965,7 +965,7 @@
                                       class="senior-ads-header hot"
                                       style="background-color: #4CAF50;"
                                     >
-                                      <!-- <img src="../../assets/images/ad-premium.svg " width="24px"> -->
+                                      <!-- <img src="@/assets/images/ad-premium.svg " width="24px"> -->
                                       <div class="post-package-title hot">
                                         <span>Hot Sellers</span>
                                       </div>
@@ -1056,7 +1056,7 @@
                                         @click="addPayment(1)"
                                       >
                                         <img
-                                          src="../../assets/images/wallet.svg"
+                                          src="@/assets/images/wallet.svg"
                                           height="20px"
                                           style="margin-top: -4px;"
                                           alt=""
@@ -1072,7 +1072,7 @@
                                         @click="addPayment(2)"
                                       >
                                         <img
-                                          src="../../assets/images/master_card.png"
+                                          src="@/assets/images/master_card.png"
                                           height="20px"
                                           style="margin-top: -4px;"
                                           alt=""
@@ -1406,7 +1406,7 @@
             </div>
             <div class="card-body">
               <div class="ads">
-                <img src="../../assets/images/gloads.jpg" alt="" srcset="" />
+                <img src="@/assets/images/gloads.jpg" alt="" srcset="" />
               </div>
             </div>
           </div>
@@ -1418,8 +1418,8 @@
 </template>
 <script>
 /* eslint-disable no-undef */
-// require("../../assets/plugins/fancyuploder/fancy_fileupload.css");
-// require("../../assets/css/style.css");
+// require("@/assets/plugins/fancyuploder/fancy_fileupload.css");
+// require("@/assets/css/style.css");
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import axios from "axios";
@@ -1460,23 +1460,23 @@ export default {
     // extScript.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js')
     extScript.setAttribute(
       "src",
-      "../../assets/plugins/fancyuploder/jquery.ui.widget.js"
+      "@/assets/plugins/fancyuploder/jquery.ui.widget.js"
     );
     extScript.setAttribute(
       "src",
-      "../../assets/plugins/fancyuploder/jquery.fileupload.js"
+      "@/assets/plugins/fancyuploder/jquery.fileupload.js"
     );
     extScript.setAttribute(
       "src",
-      "../../assets/plugins/fancyuploder/jquery.iframe-transport.js"
+      "@/assets/plugins/fancyuploder/jquery.iframe-transport.js"
     );
     extScript.setAttribute(
       "src",
-      "../../assets/plugins/fancyuploder/jquery.fancy-fileupload.js"
+      "@/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"
     );
     extScript.setAttribute(
       "src",
-      "../../assets/plugins/fancyuploder/fancy-uploader.js"
+      "@/assets/plugins/fancyuploder/fancy-uploader.js"
     );
     document.head.appendChild(extScript);
   },
@@ -1487,7 +1487,7 @@ export default {
       this.selectedImages = fileList;
     },
     beforeRemove(index, done, fileList) {
-      console.log("index", index, fileList);
+      // console.log("index", index, fileList);
       var r = confirm("remove image");
       if (r == true) {
         done();
@@ -1516,7 +1516,7 @@ export default {
           form.append("api_key", "291355523372857");
           axios
             .post(
-              "https://api.cloudinary.com/v1_1/coderoute/image/upload",
+              "https://api.cloudinary.com/v1_1/coderoute/image/upload/",
               form
             )
             .then(({ data }) => {
@@ -1534,21 +1534,28 @@ export default {
       }
     },
     sendFormRequest(images) {
-      console.log("Function called");
+      // console.log("Function called");
       let selected = this.selectedImages;
       // check if uploaded images are equals to selected images
       if (selected.length == images.length) {
-        console.log("arrays are equal");
+        // console.log("arrays are equal");
         this.$emit("create-ads", images);
       } else {
-        console.log("arrays not yet equal");
+        // console.log("arrays not yet equal");
       }
     },
+      show () {
+      this.$notify({
+        group: 'notify',
+        title: 'Important message',
+        text: 'Hello user! This is a notification!'
+      });
+      },
     setPayment(value) {
       this.ads.adType = value;
     },
     onCancel() {
-      console.log("User cancelled the loader.");
+      // console.log("User cancelled the loader.");
     },
     sync() {
       $("#demo").FancyFileUpload({
@@ -1585,13 +1592,14 @@ export default {
     $route: "sync",
     uploaded: {
       handler: function(uploaded) {
-        console.log(uploaded);
+        // console.log(uploaded);
         this.sendFormRequest(uploaded);
       }
     },
     loading: {
       handler: function(loading) {
         if (loading) {
+          this.show();
           this.isLoading = true;
         } else {
           this.isLoading = false;

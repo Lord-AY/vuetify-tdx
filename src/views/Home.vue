@@ -71,7 +71,7 @@ export default {
   methods: {
     ...mapActions("product", ["fetchAllCategories", "fetchAllProducts"]),
     sync() {
-      console.log("Jquery mounted");
+      // console.log("Jquery mounted");
     },
     onWindowLoad() {
       window.location.reload();
@@ -83,14 +83,15 @@ export default {
   created() {
     this.sync();
     this.$forceUpdate();
+    vm.$forceUpdate();
     this.fetchAllCategories();
     this.fetchAllProducts();
   },
   beforeCreate() {
-    console.log("this is before created");
+    // console.log("this is before created");
   },
   beforeMount() {
-    console.log("this is before mounted");
+    // console.log("this is before mounted");
   },
   mounted() {
     if (localStorage.getItem("reloader") === 1) {

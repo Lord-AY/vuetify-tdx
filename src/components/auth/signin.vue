@@ -10,7 +10,7 @@
             <div class="row login-logo">
               <a href="index.html" style="margin: auto;" class="">
                 <img
-                  src="../../assets/images/TRADE_XPLORA_V4.1.png"
+                  src="@/assets/images/TRADE_XPLORA_V4.1.png"
                   style="height: 80px;"
                   alt=""
                 />
