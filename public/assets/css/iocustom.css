@@ -184,6 +184,7 @@ ul.filterAdType li a:hover {
 }
 
 .owl-item {
+  width: 182px !important;
   background-color: #fff;
   /* box-shadow: 0 10px 20px rgba(121, 121, 121, 0.46); */
   margin-right: 10px;
