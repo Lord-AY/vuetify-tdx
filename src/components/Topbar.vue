@@ -13,7 +13,7 @@
                   <ul class="contact">
                     <li class="select-country tdx-country mr-5">
                       <select
-                        class="form-control select2-flag-search "
+                        class="form-control select2-flag-search"
                         data-placeholder="Select Country"
                         style="color: #fff!important;"
                       >
@@ -808,7 +808,8 @@
 
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/css/tdx-mega.css"); /* TDX custom Mega menu with no JS */
+require("../../public/assets/css/tdx-mega.css"); 
+/* TDX custom Mega menu with no JS */
 
 import { mapGetters, mapActions } from "vuex";
 /* eslint-disable no-undef */

@@ -83,25 +83,25 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
 /*-------- Color css -------*/
-@import url(color.css);
+@import url(./color.css);
 
 /*-------- Components css -------*/
-@import url(components.css);
+@import url(./components.css);
 
 /*-------- Loaders css -------*/
-@import url(loaders.css);
+@import url(./loaders.css);
 
 /*-------- Flags css -------*/
-@import url(flags.css);
+@import url(./flags.css);
 
 /*-------- Components-cols css-------*/
-@import url(components-cols.css);
+@import url(./components-cols.css);
 
 /*-------- Bootstrap Framework -------*/
-@import url(buttons.css);
+@import url(./buttons.css);
 
 /*-------- Feather Framework -------*/
-@import url(feather.css);
+@import url(./feather.css);
 
 
 

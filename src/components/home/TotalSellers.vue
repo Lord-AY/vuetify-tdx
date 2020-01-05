@@ -3,7 +3,7 @@
   <section>
     <div
       class="about-1 cover-image sptb bg-background-color"
-      data-image-src="../../assets/images/banners/metrics.jpg"
+      data-image-src="./assets/images/banners/metrics.jpg"
     >
       <div class="content-text mb-0 text-white info">
         <div class="container">
