@@ -63,6 +63,7 @@ export default {
             // console.log(product);
             const photosArr = ash.split(data[product].photos, ",", 7);
             data[product].photos = photosArr;
+            // console.log(data);
           }
 
           commit("auth/SET_LOADING", false, { root: true });

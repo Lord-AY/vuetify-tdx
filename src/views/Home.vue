@@ -83,7 +83,6 @@ export default {
   created() {
     this.sync();
     this.$forceUpdate();
-    vm.$forceUpdate();
     this.fetchAllCategories();
     this.fetchAllProducts();
   },
