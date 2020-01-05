@@ -129,8 +129,8 @@ export default {
   },
   created() {
     this.sync();
-    // this.$forceUpdate();
-    vm.$forceUpdate();
+    this.$forceUpdate();
+    // vm.$forceUpdate();
     // fetch single product for view
   },
   beforeCreate() {

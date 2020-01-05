@@ -789,7 +789,7 @@
                   <!--                   <div class="viewall-similar">
                     <a href="">Show More</a>
                   </div> -->
-                  <div class="viewall-similar">
+                  <div class="viewall-similar" v-if="similarprods.length > 3">
                     <a @click="limit = null" v-show="limitBtn"
                       >Show More
                       <i

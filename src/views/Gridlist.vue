@@ -1,6 +1,11 @@
 <template>
   <div class="gridlist">
+  <Loading
+      :active.sync="isLoading"
+      :is-full-page="fullPage"
+    ></Loading>
     <div class="main-content-area clearfix">
+
       <section
         class="section-padding gray page-search"
         style="padding: 8px 0px!important;"
@@ -1629,12 +1634,15 @@ import listprops from "@/components/listPaginated";
 import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
+import Loading from "vue-loading-overlay";
+
 export default {
   name: "gridlist",
   data() {
     return {
       currentComp: "paginatedGrid",
-      currentPage: 1
+      currentPage: 1,
+      isLoading: false
     };
   },
   // components: {
@@ -1643,7 +1651,8 @@ export default {
   //   listprops
   // },
   computed: {
-    ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors"])
+    ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors"]),
+    ...mapGetters('auth', ["loading"])
   },
   // components: {
   //   hotsellers: hotsellers,
@@ -1655,7 +1664,8 @@ export default {
     hotsellers: hotsellers,
     paginatedGrid: paginatedGrid,
     listprops: listprops,
-    ptoggler: ptoggler
+    ptoggler: ptoggler,
+    Loading
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts"]),
@@ -1692,6 +1702,14 @@ export default {
   },
   watch: {
     $route: "sync",
+    loading: {
+      handler: function (loading) {
+        if(loading) {
+          this.isLoading = true;
+        }
+        this.isLoading = false;
+      }
+    },
     getErrors: {
       handler: function(errors) {
         if(errors === null || errors === undefined) {

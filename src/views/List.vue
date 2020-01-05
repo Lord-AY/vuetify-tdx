@@ -1554,7 +1554,8 @@ export default {
   },
   created() {
     this.fetchAllProducts();
-    vm.$forceUpdate();
+    // vm.$forceUpdate();
+    this.$forceUpdate();
   }
 };
 </script>
