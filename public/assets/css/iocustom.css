@@ -68,9 +68,72 @@
     overflow: hidden;
     position: relative;
 }
+
+.new-hot-sellers {
+    background-color: #785edd;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    /* margin-top: -10px; */
+    position: absolute;
+    bottom: 0.28rem;
+    left: 4rem;
+    color: #fff;
+    padding: 1px 4px 2px;
+    line-height: 14px;
+    border: 2px solid #fff;
+    border-radius: 6px 0
+}
+
+.hot-sellers-name-tx {
+  margin-top: 15px;
+}
+
+.hot-sellers-name-tx p {
+  line-height: 1.6em;
+  font-size: 16px;
+  font-weight: 400;
+  color: #232323;
+}
+
+.grid-flex-custom {
+  display: flex;
+  align-items: baseline;
+  margin: 20px 0;
+}
+
+.follow {
+  margin: 10px 8px;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.category-grid-box-1 {
+  text-align: center;
+}
+
+.value-added-services-row {
+  margin-top: 30px !important;
+}
+
 .category-grid-box-1 .image img {
     width: 100%;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    object-fit: cover;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
+
+.posts-masonry .category-grid-box-1 .image img {
+  border-radius: 0;
+} 
+
 
 .listingTopFilterBar {
     background: #fff none repeat scroll 0 0;
@@ -111,6 +174,13 @@ ul.filterAdType li a:hover {
     display: inline-block;
     width: 231px
 }
+
+.owl-item {
+  background-color: #fff;
+  /* box-shadow: 0 10px 20px rgba(121, 121, 121, 0.46); */
+  margin-right: 10px;
+}
+
 .header-listing .custom-select-box .select2-selection--single {
     height: auto;
     border: medium none;
