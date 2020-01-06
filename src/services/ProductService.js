@@ -23,5 +23,8 @@ export default {
         "x-access-token": token
       }
     });
+  },
+  comments() {
+    return Api().get("product/comments/allcomment");
   }
 };

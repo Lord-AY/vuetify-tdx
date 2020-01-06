@@ -1,11 +1,13 @@
 <template>
-  <div class="home">
-    <!--  Timer Component  -->
-    <div id="timer" class="timer">
-      <timer
-        starttime="Jan 2, 2020 09:37:25"
-        endtime="Nov 8, 2020 16:37:25"
-        trans='{  
+  <div>
+    <HomeLoader v-if="isLoading"></HomeLoader>
+    <div class="home" v-if="!isLoading">
+      <!--  Timer Component  -->
+      <div id="timer" class="timer">
+        <timer
+          starttime="Jan 2, 2020 09:37:25"
+          endtime="Nov 8, 2020 16:37:25"
+          trans='{  
             "day":"Days",
             "hours":"Hours",
             "minutes":"Minutes",
@@ -18,18 +20,19 @@
                 "running":"Running",
                 "upcoming":"Future"
               }}'
-      ></timer>
+        ></timer>
+      </div>
+      <!--  End! Timer Component  -->
+      <start></start>
+      <categories></categories>
+      <sptb :categories="categories"></sptb>
+      <sptbWhite :ads="productListings"></sptbWhite>
+      <sptb_pattern :ads="productListings"></sptb_pattern>
+      <total_sellers class="mobile-hidden"></total_sellers>
+      <testimonial class="mobile-hidden"></testimonial>
+      <recent_post :comments="comments" class="mobile-hidden"></recent_post>
+      <BNav class="hidden-lg-up"></BNav>
     </div>
-    <!--  End! Timer Component  -->
-    <start></start>
-    <categories></categories>
-    <sptb :categories="categories"></sptb>
-    <sptbWhite :ads="productListings"></sptbWhite>
-    <sptb_pattern :ads="productListings"></sptb_pattern>
-    <total_sellers class="mobile-hidden"></total_sellers>
-    <testimonial class="mobile-hidden"></testimonial>
-    <recent_post :comments="productListings" class="mobile-hidden"></recent_post>
-    <BNav class="hidden-lg-up"></BNav>
   </div>
 </template>
 
@@ -45,13 +48,18 @@ import sptb_pattern from "@/components/home/SPTB-Pattern";
 import total_sellers from "@/components/home/TotalSellers";
 import testimonial from "@/components/home/Testimonial";
 import recent_post from "@/components/home/RecentPost";
-
+import HomeLoader from "@/components/loaders/Homeloader";
 //experimental...
 
 import BNav from "@/components/BNav";
 
 export default {
   name: "home",
+  data() {
+    return {
+      isLoading: true
+    };
+  },
   components: {
     timer,
     start,
@@ -62,29 +70,93 @@ export default {
     total_sellers,
     testimonial,
     recent_post,
-    BNav
+    BNav,
+    HomeLoader
   },
 
   computed: {
-    ...mapGetters("product", ["categories", "productListings"])
+    ...mapGetters("product", [
+      "categories",
+      "productListings",
+      "getErrors",
+      "getSuccess",
+      "comments"
+    ]),
+    ...mapGetters("auth", ["loading"])
   },
   methods: {
-    ...mapActions("product", ["fetchAllCategories", "fetchAllProducts"]),
+    ...mapActions("product", [
+      "fetchAllCategories",
+      "fetchAllProducts",
+      "fetchAllComments"
+    ]),
     sync() {
       // console.log("Jquery mounted");
     },
     onWindowLoad() {
       window.location.reload();
+    },
+    showError() {
+      this.$notify({
+        group: "errors",
+        type: "error",
+        title: "Error Fetching Products",
+        width: "100%",
+        text: this.getErrors,
+        classes: "error",
+        duration: 10000,
+        speed: 1000,
+        position: "top right"
+      });
+    },
+    showSuccess() {
+      this.$notify({
+        group: "notify",
+        type: "success",
+        title: "Success",
+        text: this.getSuccess,
+        position: "top right",
+        duration: 10000,
+        speed: 1000
+      });
     }
   },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    loading: {
+      handler: function(loading) {
+        if (loading) {
+          this.isLoading = true;
+          console.log(this.isLoading);
+        }
+        this.isLoading = false;
+        console.log(this.isLoading);
+      }
+    },
+    getErrors: {
+      handler: function(errors) {
+        if (errors === null || errors === undefined) {
+          return;
+        }
+        this.showError();
+      }
+    },
+    getSuccess: {
+      handler: success => {
+        if (success === null || success === undefined) {
+          return;
+        }
+        this.showSuccess();
+      }
+    }
   },
   created() {
     this.sync();
     this.$forceUpdate();
     this.fetchAllCategories();
     this.fetchAllProducts();
+    this.fetchAllComments();
+    console.log(this.comments);
   },
   beforeCreate() {
     // console.log("this is before created");
