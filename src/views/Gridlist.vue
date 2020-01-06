@@ -1,11 +1,26 @@
 <template>
   <div class="gridlist">
-  <Loading
-      :active.sync="isLoading"
-      :is-full-page="fullPage"
-    ></Loading>
+    <div id="timer" class="timer">
+      <timer
+        starttime="Jan 2, 2020 09:37:25"
+        endtime="Nov 8, 2020 16:37:25"
+        trans='{  
+        "day":"Days",
+        "hours":"Hours",
+        "minutes":"Minutes",
+        "seconds":"Seconds",
+        "expired":"Promo has been expired.",
+        "running":"🎅 Till the end of promo.",
+        "upcoming":"Till start of promo.",
+        "status": {
+            "expired":"Expired",
+            "running":"Running",
+            "upcoming":"Future"
+          }}'
+      ></timer>
+    </div>
+    <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="main-content-area clearfix">
-
       <section
         class="section-padding gray page-search"
         style="padding: 8px 0px!important;"
@@ -1593,6 +1608,7 @@ import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 import Loading from "vue-loading-overlay";
+import timer from "@/components/countdownTimer";
 
 export default {
   name: "gridlist",
@@ -1605,19 +1621,19 @@ export default {
   },
   computed: {
     ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors"]),
-    ...mapGetters('auth', ["loading"])
+    ...mapGetters("auth", ["loading"])
   },
   components: {
     hotsellers: hotsellers,
     paginatedGrid: paginatedGrid,
     listprops: listprops,
     ptoggler: ptoggler,
-    Loading
+    Loading,
+    timer
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts"]),
-    sync() {
-    },
+    sync() {},
     onPageChange(page) {
       this.currentPage = page;
     },
@@ -1649,8 +1665,8 @@ export default {
   watch: {
     $route: "sync",
     loading: {
-      handler: function (loading) {
-        if(loading) {
+      handler: function(loading) {
+        if (loading) {
           this.isLoading = true;
         }
         this.isLoading = false;
@@ -1658,7 +1674,7 @@ export default {
     },
     getErrors: {
       handler: function(errors) {
-        if(errors === null || errors === undefined) {
+        if (errors === null || errors === undefined) {
           return;
         }
         this.showError();

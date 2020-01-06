@@ -141,7 +141,7 @@ export default {
   },
   created() {
     this.sync();
-    console.log(this.comments.products);
+    // console.log(this.comments.products);
   }
 };
 </script>

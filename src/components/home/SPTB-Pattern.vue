@@ -187,5 +187,4 @@ export default {
 .item-card7-imgs img {
   object-fit: cover;
 }
-
 </style>

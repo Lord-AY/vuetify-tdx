@@ -1021,11 +1021,7 @@
                 </div>
                 <div class="widget-content ">
                   <div class="ads">
-                    <img
-                      src="@/assets/images/gloads.jpg"
-                      alt=""
-                      srcset=""
-                    />
+                    <img src="@/assets/images/gloads.jpg" alt="" srcset="" />
                   </div>
                 </div>
               </div>
