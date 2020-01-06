@@ -1085,4 +1085,13 @@ export default {
 .top-bar-hide {
   display: none !important;
 }
+.header-search-button {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)!important;
+  transition: all ease-in 300ms;
+}
+
+.header-search-button:hover {
+	color: #fff!important;
+	box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.5)!important;
+}
 </style>

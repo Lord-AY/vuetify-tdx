@@ -42418,8 +42418,14 @@ experimental shii
 	line-height: 13px; 
 	font-size: 14px; 
 	color: #fff;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	/* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); */
 }
+
+.header-search-button:hover {
+	/* color: #fff!important; */
+	/* box-shadow: 0 8px 12px -6px rgba(0, 0, 0, 0.5)!important; */
+}
+
 .no-padding{
 padding: 0px !important;
 }
