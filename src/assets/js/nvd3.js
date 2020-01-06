@@ -206,5 +206,3 @@ nv.addGraph(function() {
   }
   return chart;
 });
-
-

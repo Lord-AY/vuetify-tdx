@@ -1544,13 +1544,13 @@ export default {
         // console.log("arrays not yet equal");
       }
     },
-      show () {
+    show() {
       this.$notify({
-        group: 'notify',
-        title: 'Important message',
-        text: 'Hello user! This is a notification!'
+        group: "notify",
+        title: "Important message",
+        text: "Hello user! This is a notification!"
       });
-      },
+    },
     setPayment(value) {
       this.ads.adType = value;
     },

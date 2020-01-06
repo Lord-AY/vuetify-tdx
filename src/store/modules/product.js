@@ -6,9 +6,10 @@ export default {
   namespaced: true,
   state: {
     products: [],
+    comments: null,
     product: null,
     categories: null,
-    similarproducts: null,
+    similarProducts: [],
     success: null,
     errors: null
   },
@@ -32,6 +33,15 @@ export default {
       }
       return;
     },
+    getSimilarProds(state) {
+      if (
+        state.similarProducts !== null &&
+        state.similarProducts !== undefined
+      ) {
+        return state.similarProducts;
+      }
+      return;
+    },
     getErrors(state) {
       if (state.errors !== null && state.errors !== undefined) {
         return state.errors;
@@ -46,10 +56,31 @@ export default {
       }
     },
     singleProduct(state) {
-      if (state.product !== null || state.product !== undefined) {
+      if (state.product !== null && state.product !== undefined) {
         return state.product;
       }
       return null;
+    },
+    comments(state) {
+      let comments = state.comments;
+      let products = state.products;
+      if (comments !== null && comments !== undefined) {
+        if (products !== null && products !== undefined) {
+          for (let comment in comments) {
+            for (let product in products) {
+              if (products[product].id == comments[comment].pid) {
+                comments[comment].products = products[product];
+                // console.log(comments[comment]);
+              }
+            }
+          }
+          return comments;
+        } else {
+          return comments;
+        }
+      } else {
+        return;
+      }
     }
   },
   actions: {
@@ -110,10 +141,10 @@ export default {
           router.push("/gridlist");
         });
     },
-    similarProducts({ commit, rootState }, payload) {
+    fetchSimilarProducts({ commit, rootState }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
-      return ProductService.similarProducts(payload, rootState.auth.user.token)
+      return ProductService.similar(payload)
         .then(({ data }) => {
           for (let product in data) {
             // console.log(product);
@@ -131,6 +162,21 @@ export default {
             "SET_ERRORS",
             "Network Error: Error getting similar products."
           );
+        });
+    },
+    fetchAllComments({ commit }) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
+      return ProductService.comments()
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_COMMENTS", data);
+          // console.log(data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error.response);
         });
     },
     createProduct({ commit, rootState }, payload) {
@@ -197,13 +243,16 @@ export default {
       state.errors = errors;
     },
     SET_SIMILAR_PRODUCTS(state, data) {
-      state.similarproducts = data;
+      state.similarProducts = data;
     },
     SET_SUCCESS_MSG(state, message) {
       state.success = message;
     },
     SET_SINGLE_PRODUCT(state, data) {
       state.product = data;
+    },
+    SET_COMMENTS(state, data) {
+      state.comments = data;
     }
   }
 };

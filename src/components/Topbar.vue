@@ -312,7 +312,6 @@
                       to="/postad"
                       class="btn btn-tx btn-theme text-dark post-ad-header-tx"
                       >POST AN AD
-                      
                     </router-link>
                   </li>
                 </ul>
@@ -387,7 +386,7 @@
               <!-- <button class="btn">
                 <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
               </button> -->
-              
+
               <input
                 id="bmenu_toggle"
                 type="checkbox"
@@ -781,17 +780,14 @@
               <!-- </div>
               </li> -->
             </div>
-
-            
           </ul>
           <div class="call-us-now" style="width: 32%!important;">
             <div class="contact-us-header">
               <i style="color:black;" class="flaticon-customer-service"></i>
-              
+
               <p>
-                
                 Call Us Now
-                
+
                 <br />
                 <strong>(+234) 811-111-1808</strong>
               </p>
@@ -806,7 +802,7 @@
 
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/css/tdx-mega.css"); 
+require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
 
 import { mapGetters, mapActions } from "vuex";
@@ -1087,14 +1083,14 @@ export default {
   
 }
 .header-search-button {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)!important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
   text-transform: uppercase;
-  font-weight: 500!important;
+  font-weight: 500 !important;
   transition: all ease-in 300ms;
 }
 
 .header-search-button:hover {
-	color: #fff!important;
-	box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9)!important;
+  color: #fff !important;
+  box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9) !important;
 }
 </style>

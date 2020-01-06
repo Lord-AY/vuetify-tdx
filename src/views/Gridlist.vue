@@ -1,11 +1,26 @@
 <template>
   <div class="gridlist">
-  <Loading
-      :active.sync="isLoading"
-      :is-full-page="fullPage"
-    ></Loading>
+    <div id="timer" class="timer">
+      <timer
+        starttime="Jan 2, 2020 09:37:25"
+        endtime="Nov 8, 2020 16:37:25"
+        trans='{  
+        "day":"Days",
+        "hours":"Hours",
+        "minutes":"Minutes",
+        "seconds":"Seconds",
+        "expired":"Promo has been expired.",
+        "running":"🎅 Till the end of promo.",
+        "upcoming":"Till start of promo.",
+        "status": {
+            "expired":"Expired",
+            "running":"Running",
+            "upcoming":"Future"
+          }}'
+      ></timer>
+    </div>
+    <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="main-content-area clearfix">
-
       <section
         class="section-padding gray page-search"
         style="padding: 8px 0px!important;"
@@ -1563,14 +1578,12 @@
                         </div>
                       </div>
                     </div>
-                    <!-- </form> -->
                   </div>
                 </div>
               </div>
             </div>
             <ptoggler :current-comp="currentComp"></ptoggler>
           </div>
-          <!-- <component :is="currentComp" :products="productListings"></component> -->
           <paginatedGrid
             :is="currentComp"
             :data="paginatedProducts"
@@ -1582,53 +1595,20 @@
           />
           <!-- <component :is="currentComp" :products="productListings"></component> -->
           <!-- <gridprops></gridprops> -->
-          <listprops></listprops>
+          <listprops  
+            :data="paginatedProducts"
+            :total-pages="Math.ceil(paginatedProducts.length / 9)"
+            :total="paginatedProducts.length"
+            :per-page="10"
+            :current-page="currentPage"
+            @pagechanged="onPageChange"></listprops>
         </div>
       </section>
     </div>
   </div>
 </template>
 <script>
-// require("../../public/assets/skins/color-skins/color15.css");
-// require("../../public/assets/plugins/horizontal-menu/horizontal.css");
-// require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
-// require("../../public/assets/css/iocustom.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 import hotsellers from "@/components/product_overview/hotsellers";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
 import listprops from "@/components/listPaginated";
@@ -1636,6 +1616,7 @@ import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 import Loading from "vue-loading-overlay";
+import timer from "@/components/countdownTimer";
 
 export default {
   name: "gridlist",
@@ -1643,36 +1624,25 @@ export default {
     return {
       currentComp: "paginatedGrid",
       currentPage: 1,
-      isLoading: false
+      isLoading: false,
+      fullPage: true
     };
   },
-  // components: {
-  //   hotsellers,
-  //   gridprops,
-  //   listprops
-  // },
   computed: {
     ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors"]),
-    ...mapGetters('auth', ["loading"])
+    ...mapGetters("auth", ["loading"])
   },
-  // components: {
-  //   hotsellers: hotsellers,
-  //   paginatedGrid,
-  //   listprops: listprops,
-  //   ptoggler: ptoggler
-  // },
   components: {
     hotsellers: hotsellers,
     paginatedGrid: paginatedGrid,
     listprops: listprops,
     ptoggler: ptoggler,
-    Loading
+    Loading,
+    timer
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts"]),
-    sync() {
-      // console.log("Jquery mounted");
-    },
+    sync() {},
     onPageChange(page) {
       this.currentPage = page;
     },
@@ -1704,8 +1674,8 @@ export default {
   watch: {
     $route: "sync",
     loading: {
-      handler: function (loading) {
-        if(loading) {
+      handler: function(loading) {
+        if (loading) {
           this.isLoading = true;
         }
         this.isLoading = false;
@@ -1713,7 +1683,7 @@ export default {
     },
     getErrors: {
       handler: function(errors) {
-        if(errors === null || errors === undefined) {
+        if (errors === null || errors === undefined) {
           return;
         }
         this.showError();
@@ -1762,7 +1732,6 @@ export default {
 .short-features {
   max-width: 100%;
 }
-
 @media (max-width: 992px) {
   .short-features {
     max-width: 100%;
@@ -1785,11 +1754,6 @@ export default {
 }
 .ad-meta:first-child a {
   margin-right: 10px;
-}
-html {
-  font-size: 16px;
-
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 </style>
 <style scoped>

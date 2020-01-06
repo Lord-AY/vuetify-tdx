@@ -10,12 +10,8 @@ export default {
   categories() {
     return Api().get("product/categories");
   },
-  similarProducts(product, token) {
-    return Api().get(`product/similar/${product.cid}/${product.id}`, {
-      headers: {
-        "x-access-token": token
-      }
-    });
+  similar(product) {
+    return Api().get(`product/similar/${product.cid}/${product.id}`);
   },
   createProduct(credentials, token) {
     return Api().post("product/product", credentials, {
@@ -23,5 +19,8 @@ export default {
         "x-access-token": token
       }
     });
+  },
+  comments() {
+    return Api().get("product/comments/allcomment");
   }
 };

@@ -12,7 +12,9 @@
               <div class="col-md-12">
                 <div class="form row">
                   <!-- <div class="col-xl-1 col-lg-2"></div> -->
-                  <div class="form-group main-search-spacing col-xl-5 col-lg-5 col-md-12 mb-0  ">
+                  <div
+                    class="form-group main-search-spacing col-xl-5 col-lg-5 col-md-12 mb-0  "
+                  >
                     <input
                       type="text"
                       class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
@@ -23,7 +25,9 @@
                       ><i class="fa fa-bullhorn location-gps mr-1"></i
                     ></span>
                   </div>
-                  <div class="form-group main-search-spacing col-xl-3 col-lg-3 col-md-12 mb-0  ">
+                  <div
+                    class="form-group main-search-spacing col-xl-3 col-lg-3 col-md-12 mb-0  "
+                  >
                     <input
                       type="text"
                       class="form-control input-lg br-tr-md-0 br-br-md-0 main-location"
@@ -149,7 +153,10 @@
                       class="col-sm-auto no-padding vas-text"
                       style="padding: 0px !important;"
                     >
-                      <h3 class=" mb-0 font-weight-bold value-added-tx" style="">
+                      <h3
+                        class=" mb-0 font-weight-bold value-added-tx"
+                        style=""
+                      >
                         More Services
                       </h3>
                     </div>
@@ -177,19 +184,19 @@ export default {
     background-color: rgba(255, 255, 255, 0.5)!important;
     position: relative!important;
 }*/
-.main-search-spacing{
-  padding-left: 2px!important;
-  padding-right: 2px!important;
+.main-search-spacing {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
 }
 
 .main-search-button {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)!important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
   transition: all ease-in 300ms;
 }
 
 .main-search-button:hover {
-  color: #fff!important;
-	box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9)!important;
+  color: #fff !important;
+  box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9) !important;
 }
 
 @media (max-width: 567px) {

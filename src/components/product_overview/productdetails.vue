@@ -740,9 +740,9 @@
                             <ul class="add_info">
                               <li
                                 class="similar-ads-picture-thumbnails"
-                                :class="index == 0 ? 'active' : ''"
                                 v-for="(photo, index) in simProduct.photos"
                                 :key="index"
+                                :class="index == 0 ? 'active' : ''"
                               >
                                 <router-link
                                   :to="
@@ -1021,11 +1021,7 @@
                 </div>
                 <div class="widget-content ">
                   <div class="ads">
-                    <img
-                      src="@/assets/images/gloads.jpg"
-                      alt=""
-                      srcset=""
-                    />
+                    <img src="@/assets/images/gloads.jpg" alt="" srcset="" />
                   </div>
                 </div>
               </div>
