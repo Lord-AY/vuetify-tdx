@@ -41475,6 +41475,7 @@ body .modal-open {
 }
 .value-added-tx {
 	font-size: 1rem!important;
+	margin-top: -4px!important;
 }
 .card-cat-tx:hover {
 	/* background: #4CAF50 !important; */
@@ -42086,6 +42087,7 @@ body .modal-open {
 
 .main-search {
 	border-radius: 6px!important;
+	border: 2px solid transparent!important;
 	/*border: none!important;*/
 	padding-left: 40px;
 }
@@ -42093,6 +42095,7 @@ body .modal-open {
 .main-location {
 	/*border: none!important;*/
 	border-radius: 6px!important;
+	border: 2px solid transparent!important;
 	padding-left: 40px;
 }
 

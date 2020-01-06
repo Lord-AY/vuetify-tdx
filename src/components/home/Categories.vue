@@ -12,7 +12,7 @@
               <div class="col-md-12">
                 <div class="form row">
                   <!-- <div class="col-xl-1 col-lg-2"></div> -->
-                  <div class="form-group  col-xl-4 col-lg-4 col-md-12 mb-0  ">
+                  <div class="form-group main-search-spacing col-xl-5 col-lg-5 col-md-12 mb-0  ">
                     <input
                       type="text"
                       class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
@@ -23,7 +23,7 @@
                       ><i class="fa fa-bullhorn location-gps mr-1"></i
                     ></span>
                   </div>
-                  <div class="form-group col-xl-3 col-lg-3 col-md-12 mb-0  ">
+                  <div class="form-group main-search-spacing col-xl-3 col-lg-3 col-md-12 mb-0  ">
                     <input
                       type="text"
                       class="form-control input-lg br-tr-md-0 br-br-md-0 main-location"
@@ -35,7 +35,7 @@
                     ></span>
                   </div>
                   <div
-                    class="form-group col-xl-4 col-lg-4 col-md-12 select2-lg  mb-0 "
+                    class="form-group main-search-spacing col-xl-3 col-lg-3 col-md-12 select2-lg  mb-0 "
                   >
                     <select
                       class="form-control select2-show-search  border-bottom-0 select-home-page main-category"
@@ -59,13 +59,14 @@
                     <a
                       href="#"
                       class="btn btn-lg tx-btn-color br-tl-md-0 br-bl-md-0 main-search-button"
+                      style="padding-left: 20px; padding-right: 20px;"
                       ><i class="fa fa-search"></i
                     ></a>
                   </div>
                 </div>
               </div>
             </div>
-            <hr class="search-divider mb-3 mt-3" />
+            <hr class="search-divider mb-3 mt-5" />
             <div class="vas-grid">
               <div class="no-padding text-center">
                 <a href="#">
@@ -82,7 +83,7 @@
                       class="col-sm-auto no-padding vas-text"
                       style="padding: 0px !important;"
                     >
-                      <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
+                      <h3 class=" mb-0 font-weight-bold value-added-tx">
                         Airtime or Data
                       </h3>
                     </div>
@@ -104,7 +105,7 @@
                       class="col-sm-auto no-padding vas-text"
                       style="padding: 0px !important;"
                     >
-                      <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
+                      <h3 class=" mb-0  font-weight-bold value-added-tx">
                         TV Subscription
                       </h3>
                     </div>
@@ -126,7 +127,7 @@
                       class="col-sm-auto no-padding vas-text"
                       style="padding: 0px !important;"
                     >
-                      <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
+                      <h3 class=" mb-0 font-weight-bold value-added-tx">
                         Electricity Units
                       </h3>
                     </div>
@@ -148,93 +149,13 @@
                       class="col-sm-auto no-padding vas-text"
                       style="padding: 0px !important;"
                     >
-                      <h3 class=" mb-0 mt-1 font-weight-bold value-added-tx">
+                      <h3 class=" mb-0 font-weight-bold value-added-tx" style="">
                         More Services
                       </h3>
                     </div>
                   </div>
                 </a>
               </div>
-
-              <!-- <div class="col-lg-3 col-md-6 col-sm-6  mb-4 mb-lg-0">
-                <a href="#">
-                  <div class="d-flex d-catmb">
-                    <div>
-                      <span class=" icon-service1 text-primary">
-                        <i
-                          class="fa fa-mobile fa-5x"
-                          style="color: #4CAF50 !important; font-size: 42px;"
-                        ></i>
-                      </span>
-                    </div>
-                    <div class=" mt-1">
-                      <h3
-                        class=" mb-0 mt-3 font-weight-bold value-added-tx"
-                        style="font-weight: 600; font-size: 42px;"
-                      >
-                        Buy Airtime / Data
-                      </h3>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-6  mb-4 mb-lg-0">
-                <a href="#">
-                  <div class="d-flex d-catmb">
-                    <div>
-                      <span class=" icon-service1 text-warning">
-                        <i
-                          class="fa fa-television"
-                          style="color: #4CAF50 !important; font-size: 32px;"
-                        ></i>
-                      </span>
-                    </div>
-                    <div class=" mt-1">
-                      <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
-                        Subscribe TV
-                      </h3>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-6  mb-4 mb-sm-0">
-                <a href="#">
-                  <div class="d-flex d-catmb">
-                    <div>
-                      <span class=" icon-service1 text-secondary">
-                        <i
-                          class="fa fa-bolt"
-                          style="color: #4CAF50 !important; font-size: 32px;"
-                        ></i>
-                      </span>
-                    </div>
-                    <div class=" mt-1">
-                      <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
-                        Buy Electricity
-                      </h3>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-6  mb-4 mb-sm-0">
-                <a href="#">
-                  <div class="d-flex d-catmb">
-                    <div>
-                      <span class=" icon-service1 text-warning">
-                        <i
-                          class="fa fa-ellipsis-h"
-                          style="color: #4CAF50 !important; font-size: 32px;"
-                        ></i>
-                      </span>
-                    </div>
-                    <div class=" mt-1">
-                      <h3 class=" mb-0 mt-3 font-weight-bold value-added-tx">
-                        More Services
-                      </h3>
-                    </div>
-                  </div>
-                </a>
-              </div> -->
             </div>
           </div>
         </div>
@@ -256,6 +177,20 @@ export default {
     background-color: rgba(255, 255, 255, 0.5)!important;
     position: relative!important;
 }*/
+.main-search-spacing{
+  padding-left: 2px!important;
+  padding-right: 2px!important;
+}
+
+.main-search-button {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)!important;
+  transition: all ease-in 300ms;
+}
+
+.main-search-button:hover {
+  color: #fff!important;
+	box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9)!important;
+}
 
 @media (max-width: 567px) {
   .col-xs-3 {
