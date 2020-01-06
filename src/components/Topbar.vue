@@ -272,7 +272,11 @@
                       <img
                         class="img-circle resize"
                         alt="Avatar"
-                        src="@/assets/images/boss.jpg"
+                        :src="
+                          avatarCheck
+                            ? getUser.pictureURL
+                            : '@/assets/images/boss.jpg'
+                        "
                       />
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
@@ -808,7 +812,7 @@
 
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/css/tdx-mega.css"); 
+require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
 
 import { mapGetters, mapActions } from "vuex";
@@ -816,12 +820,19 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "topbar",
   computed: {
-    ...mapGetters("auth", ["isLoggedIn"])
+    ...mapGetters("auth", ["isLoggedIn", "getUser"])
   },
   methods: {
     ...mapActions("auth", ["logoutUser"]),
     setLogout() {
       this.logoutUser();
+    },
+    avatarCheck() {
+      let avatar = this.getUser.pictureUrl;
+      if (avatar !== null && avatar !== undefined && avatar !== "") {
+        return true;
+      }
+      return false;
     },
     sync() {
       $(document).ready(function() {

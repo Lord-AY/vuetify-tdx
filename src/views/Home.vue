@@ -82,7 +82,7 @@ export default {
       "getSuccess",
       "comments"
     ]),
-    ...mapGetters("auth", ["loading"])
+    ...mapGetters("auth", ["loading", "errors"])
   },
   methods: {
     ...mapActions("product", [
@@ -96,13 +96,13 @@ export default {
     onWindowLoad() {
       window.location.reload();
     },
-    showError() {
+    showError(error, title) {
       this.$notify({
         group: "errors",
         type: "error",
-        title: "Error Fetching Products",
+        title,
         width: "100%",
-        text: this.getErrors,
+        text: error,
         classes: "error",
         duration: 10000,
         speed: 1000,
@@ -138,7 +138,17 @@ export default {
         if (errors === null || errors === undefined) {
           return;
         }
-        this.showError();
+        let title = "Getting Ads";
+        this.showError(errors, title);
+      }
+    },
+    errors: {
+      handler: function(errors) {
+        if (errors === null || errors === undefined) {
+          return;
+        }
+        let title = "Logging Out Error";
+        this.showError(errors, title);
       }
     },
     getSuccess: {
@@ -156,7 +166,7 @@ export default {
     this.fetchAllCategories();
     this.fetchAllProducts();
     this.fetchAllComments();
-    console.log(this.comments);
+    // console.log(this.comments);
   },
   beforeCreate() {
     // console.log("this is before created");

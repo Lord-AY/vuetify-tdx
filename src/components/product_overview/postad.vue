@@ -851,7 +851,7 @@
                                   Click here
                                 </div>
                               </div>
-
+                          <transition name="isHidden">
                               <div
                                 class="row"
                                 style="margin-top: 20px;"
@@ -1017,6 +1017,7 @@
                                   </div>
                                 </div>
                               </div>
+                              </transition>
                             </div>
                             <!-- </form> -->
                           </div>
@@ -1544,13 +1545,13 @@ export default {
         // console.log("arrays not yet equal");
       }
     },
-      show () {
+    show() {
       this.$notify({
-        group: 'notify',
-        title: 'Important message',
-        text: 'Hello user! This is a notification!'
+        group: "notify",
+        title: "Important message",
+        text: "Hello user! This is a notification!"
       });
-      },
+    },
     setPayment(value) {
       this.ads.adType = value;
     },
@@ -1732,5 +1733,22 @@ export default {
 }
 .cusbutton:hover .original {
   display: none;
+}
+.isHidden-enter-active {
+  animation: bounce-in .5s;
+}
+.isHidden-leave-active {
+  animation: bounce-in .5s reverse
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
