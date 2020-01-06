@@ -740,9 +740,9 @@
                             <ul class="add_info">
                               <li
                                 class="similar-ads-picture-thumbnails"
-                                :class="index == 0 ? 'active' : ''"
                                 v-for="(photo, index) in simProduct.photos"
                                 :key="index"
+                                :class="index == 0 ? 'active' : ''"
                               >
                                 <router-link
                                   :to="
