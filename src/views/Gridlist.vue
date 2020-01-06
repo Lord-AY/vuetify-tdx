@@ -1604,7 +1604,7 @@
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 // require("../../public/assets/css/iocustom.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
@@ -1753,7 +1753,7 @@ export default {
 </script>
 
 <style>
-.category-grid-box-tx .image img {
+/*.category-grid-box-tx .image img {
   width: 6rem !important;
   height: 6rem !important;
   margin-top: 20px;
@@ -1761,7 +1761,7 @@ export default {
 
 .short-features {
   max-width: 100%;
-}
+}*/
 
 @media (max-width: 992px) {
   .short-features {
@@ -1791,6 +1791,8 @@ html {
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+
 </style>
 <style scoped>
 @media only screen and (max-width: 991px) {
