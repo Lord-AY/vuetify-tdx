@@ -34,6 +34,7 @@
 </template>
 
 <script>
+require("../../public/assets/css/iocustom.css");
 import { mapActions, mapGetters } from "vuex";
 
 import timer from "@/components/countdownTimer";
