@@ -3,7 +3,7 @@
     <div class="short-features">
       <div class="grid-style-2">
         <div class="heading-panel">
-          <div class="col-xs-12 col-md-12 col-sm-12">
+          <div class="col-xs-12 col-md-12 col-sm-12 grid-flex-custom">
             <h3
               class="main-title text-left"
               style="border-bottom: 2px solid #4CAF50;"
@@ -23,7 +23,7 @@
         <div class="container">
           <div class="row">
             <!-- <div class="col-xs-6 col-sm-4 col-md-2 col-join-tx"> -->
-            <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
+            <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 category-grid-box-tx-custom">
               <div class="category-grid-box-1 category-grid-box-tx">
                 <div class="hot-ribbon">
                   <img src="@/assets/images/hoticonv2.png" />
