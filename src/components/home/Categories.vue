@@ -65,7 +65,7 @@
                 </div>
               </div>
             </div>
-            <hr class="search-divider mb-3" />
+            <hr class="search-divider mb-3 mt-3" />
             <div class="vas-grid">
               <div class="no-padding text-center">
                 <a href="#">

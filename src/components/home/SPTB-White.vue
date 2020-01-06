@@ -275,4 +275,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.item-card2-img {
+  max-height: 208px;
+  min-height: 208px;
+}
+
+.item-card2-img img {
+  object-fit: cover;
+}
+
+</style>

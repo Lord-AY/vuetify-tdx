@@ -1,7 +1,7 @@
 import router from '../../router';
 <template>
   <!--Section-->
-  <section class="sptb bg-white">
+  <section class="sptb bg-patterns">
     <div class="container">
       <div class="section-title center-block text-center mobile-hidden">
         <h2 style="display: inline-block; margin-left: 92px">Featured Ads</h2>
@@ -289,4 +289,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.item-card7-imgs {
+  max-height: 208px;
+  min-height: 208px;
+}
+
+.item-card7-imgs img {
+  object-fit: cover;
+}
+
+</style>

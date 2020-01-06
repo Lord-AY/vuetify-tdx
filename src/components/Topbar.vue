@@ -312,6 +312,7 @@
                       to="/postad"
                       class="btn btn-tx btn-theme text-dark post-ad-header-tx"
                       >POST AN AD
+                      
                     </router-link>
                   </li>
                 </ul>
@@ -373,7 +374,7 @@
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
             <router-link to="/">
-              <img src="@/assets/images/brand/TRADEXPLORAV3.1.png" alt />
+              <img src="@/assets/images/brand/TRADEXPLORA-V4.1-mini.png" alt />
             </router-link>
           </div>
           <div class="desktoplogo-1">
@@ -386,6 +387,7 @@
               <!-- <button class="btn">
                 <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
               </button> -->
+              
               <input
                 id="bmenu_toggle"
                 type="checkbox"
@@ -780,20 +782,16 @@
               </li> -->
             </div>
 
-            <!-- <li aria-haspopup="true"><a href="about.html"> ABOUT US </a></li>
-            <li aria-haspopup="true"><a href="#"> FAQ </a></li>
-            <li aria-haspopup="true">
-              <a href="contact.html">
-                CONTACT US <span class="hmarrow"></span
-              ></a>
-            </li>
-            <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0"></li>-->
+            
           </ul>
           <div class="call-us-now" style="width: 32%!important;">
             <div class="contact-us-header">
               <i style="color:black;" class="flaticon-customer-service"></i>
+              
               <p>
+                
                 Call Us Now
+                
                 <br />
                 <strong>(+234) 811-111-1808</strong>
               </p>
@@ -932,7 +930,7 @@ export default {
             return state.text;
           }
           var $state = $(
-            '<span><img src="@/assets/images/flags/' +
+            '<span><img src="../assets/images/flags/' +
               state.element.value.toLowerCase() +
               '.svg" class="img-flag" /> ' +
               state.text +
@@ -1086,5 +1084,14 @@ export default {
 }
 .top-bar-hide {
   display: none !important;
+}
+.header-search-button {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)!important;
+  transition: all ease-in 300ms;
+}
+
+.header-search-button:hover {
+	color: #fff!important;
+	box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.5)!important;
 }
 </style>
