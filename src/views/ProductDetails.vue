@@ -1,5 +1,24 @@
 <template>
   <div>
+    <div id="timer" class="timer">
+      <timer
+        starttime="Jan 2, 2020 09:37:25"
+        endtime="Nov 8, 2020 16:37:25"
+        trans='{  
+            "day":"Days",
+            "hours":"Hours",
+            "minutes":"Minutes",
+            "seconds":"Seconds",
+            "expired":"Promo has been expired.",
+            "running":"🎅 Till the end of promo.",
+            "upcoming":"Till start of promo.",
+            "status": {
+                "expired":"Expired",
+                "running":"Running",
+                "upcoming":"Future"
+              }}'
+      ></timer>
+    </div>
     <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="pdetails">
       <productdetails
@@ -22,8 +41,7 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leafle
 require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
-//
+
 require("../../public/assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
 require("../../public/assets/css/style.css");
 require("../../public/assets/css/icons.css");
@@ -74,6 +92,7 @@ require("../../public/assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css"
 import productdetails from "@/components/product_overview/productdetails";
 import { mapState, mapActions, mapGetters } from "vuex";
 import Loading from "vue-loading-overlay";
+import timer from "@/components/countdownTimer";
 export default {
   name: "productDetails",
   data() {
@@ -85,7 +104,8 @@ export default {
   },
   components: {
     productdetails,
-    Loading
+    Loading,
+    timer
   },
   computed: {
     ...mapState("product", ["products"]),
