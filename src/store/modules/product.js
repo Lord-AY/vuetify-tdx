@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state: {
     products: [],
+    comments: null,
     product: null,
     categories: null,
     similarproducts: null,
@@ -46,10 +47,31 @@ export default {
       }
     },
     singleProduct(state) {
-      if (state.product !== null || state.product !== undefined) {
+      if (state.product !== null && state.product !== undefined) {
         return state.product;
       }
       return null;
+    },
+    comments(state) {
+      let comments = state.comments;
+      let products = state.products;
+      if (comments !== null && comments !== undefined) {
+        if (products !== null && products !== undefined) {
+          for (let comment in comments) {
+            for (let product in products) {
+              if (products[product].id == comments[comment].pid) {
+                comments[comment].products = products[product];
+                // console.log(comments[comment]);
+                return comments;
+              }
+            }
+          }
+        } else {
+          return comments;
+        }
+      } else {
+        return;
+      }
     }
   },
   actions: {
@@ -133,6 +155,21 @@ export default {
           );
         });
     },
+    fetchAllComments({ commit }) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
+      return ProductService.comments()
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_COMMENTS", data);
+          // console.log(data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error.response);
+        });
+    },
     createProduct({ commit, rootState }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
@@ -204,6 +241,9 @@ export default {
     },
     SET_SINGLE_PRODUCT(state, data) {
       state.product = data;
+    },
+    SET_COMMENTS(state, data) {
+      state.comments = data;
     }
   }
 };

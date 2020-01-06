@@ -25,40 +25,7 @@
 
       <!-- Testing new slickifying technique cause previous was bringing up heavy bugs -->
       <div class="center-text col-md-12 ">
-        <content-loader
-          :height="160"
-          :width="856"
-          :speed="2"
-          primaryColor="#f3f3f3"
-          secondaryColor="#ecebeb"
-          v-show="showLoader(categories)"
-        >
-          <rect x="98.23" y="269.67" rx="0" ry="0" width="0" height="0" />
-          <rect
-            x="342.88"
-            y="22.67"
-            rx="0"
-            ry="0"
-            width="175.38"
-            height="112.42"
-          />
-          <rect
-            x="587.23"
-            y="22.67"
-            rx="0"
-            ry="0"
-            width="175.38"
-            height="112.42"
-          />
-          <rect
-            x="84.23"
-            y="22.67"
-            rx="0"
-            ry="0"
-            width="175.38"
-            height="112.42"
-          />
-        </content-loader>
+        <CategoryLoader v-show="showLoader(categories)"></CategoryLoader>
       </div>
       <div
         class="slick single-item mobile-hidden"
@@ -339,7 +306,7 @@
 
 <script>
 /* eslint-disable no-undef */
-import { ContentLoader } from "vue-content-loader";
+import CategoryLoader from "@/components/loaders/Categoryloader";
 import ash from "lodash";
 export default {
   name: "SPTB",
@@ -347,7 +314,7 @@ export default {
     categories: [Object, Array]
   },
   components: {
-    ContentLoader
+    CategoryLoader
   },
   methods: {
     showLoader(data) {

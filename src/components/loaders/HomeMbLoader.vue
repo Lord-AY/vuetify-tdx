@@ -15,15 +15,15 @@ export default {
     :width="360"
     :speed="2"
     primaryColor="#bbb7b7"
-    secondaryColor="#ecebeb"
+    secondaryColor="#d2d3d2"
   >
-    <rect x="21" y="18.4" rx="3" ry="3" width="47.6" height="6.14" />
-    <rect x="21" y="30.42" rx="3" ry="3" width="47.6" height="6.14" />
-    <rect x="21" y="42.43" rx="3" ry="3" width="47.6" height="6.14" />
-    <circle cx="160.39" cy="36.14" r="20.84" />
-    <rect x="200.55" y="27.3" rx="0" ry="0" width="128" height="6" />
-    <rect x="206.55" y="39.3" rx="0" ry="0" width="50" height="4" />
-    <rect x="-1.45" y="60.3" rx="0" ry="0" width="402" height="261" />
+    <rect x="17.93" y="9.98" rx="3" ry="3" width="32.84" height="4.24" />
+    <rect x="17.93" y="18.3" rx="3" ry="3" width="32.84" height="4.24" />
+    <rect x="17.93" y="26.62" rx="3" ry="3" width="32.84" height="4.24" />
+    <circle cx="152.43" cy="21.18" r="16.88" />
+    <rect x="183.85" y="14" rx="0" ry="0" width="103.68" height="4.86" />
+    <rect x="188.7" y="23.7" rx="0" ry="0" width="40.5" height="3.24" />
+    <rect x="-1.45" y="42.67" rx="0" ry="0" width="402" height="279.27" />
     <rect x="30.55" y="328.3" rx="0" ry="0" width="288.36" height="40.05" />
     <rect x="31.63" y="371.24" rx="0" ry="0" width="288.36" height="40.05" />
     <rect x="31.63" y="414.18" rx="0" ry="0" width="288.36" height="40.05" />
@@ -37,8 +37,8 @@ export default {
     <rect x="148.58" y="590.42" rx="0" ry="0" width="68.04" height="3.56" />
     <rect x="256.86" y="580.58" rx="0" ry="0" width="100.44" height="5.34" />
     <rect x="272.02" y="590.42" rx="0" ry="0" width="68.04" height="3.56" />
-    <rect x="43.64" y="601.8" rx="0" ry="0" width="299.04" height="75" />
-    <rect x="44.76" y="684.8" rx="0" ry="0" width="200.48" height="12" />
-    <rect x="49.22" y="701.8" rx="0" ry="0" width="112" height="8" />
+    <rect x="16.64" y="607.8" rx="0" ry="0" width="331.93" height="75" />
+    <rect x="16.76" y="690.67" rx="0" ry="0" width="274.66" height="10.32" />
+    <rect x="17.22" y="706.8" rx="0" ry="0" width="112" height="8" />
   </content-loader>
 </template>
