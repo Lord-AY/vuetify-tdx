@@ -373,7 +373,7 @@
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
             <router-link to="/">
-              <img src="@/assets/images/brand/TRADEXPLORAV3.1.png" alt />
+              <img src="@/assets/images/brand/TRADEXPLORA-V4.1-mini.png" alt />
             </router-link>
           </div>
           <div class="desktoplogo-1">
@@ -386,6 +386,7 @@
               <!-- <button class="btn">
                 <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
               </button> -->
+
               <input
                 id="bmenu_toggle"
                 type="checkbox"
@@ -779,21 +780,14 @@
               <!-- </div>
               </li> -->
             </div>
-
-            <!-- <li aria-haspopup="true"><a href="about.html"> ABOUT US </a></li>
-            <li aria-haspopup="true"><a href="#"> FAQ </a></li>
-            <li aria-haspopup="true">
-              <a href="contact.html">
-                CONTACT US <span class="hmarrow"></span
-              ></a>
-            </li>
-            <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0"></li>-->
           </ul>
           <div class="call-us-now" style="width: 32%!important;">
             <div class="contact-us-header">
               <i style="color:black;" class="flaticon-customer-service"></i>
+
               <p>
                 Call Us Now
+
                 <br />
                 <strong>(+234) 811-111-1808</strong>
               </p>
@@ -808,7 +802,7 @@
 
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/css/tdx-mega.css"); 
+require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
 
 import { mapGetters, mapActions } from "vuex";
@@ -932,7 +926,7 @@ export default {
             return state.text;
           }
           var $state = $(
-            '<span><img src="@/assets/images/flags/' +
+            '<span><img src="../assets/images/flags/' +
               state.element.value.toLowerCase() +
               '.svg" class="img-flag" /> ' +
               state.text +
@@ -1086,5 +1080,16 @@ export default {
 }
 .top-bar-hide {
   display: none !important;
+}
+.header-search-button {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  transition: all ease-in 300ms;
+}
+
+.header-search-button:hover {
+  color: #fff !important;
+  box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9) !important;
 }
 </style>

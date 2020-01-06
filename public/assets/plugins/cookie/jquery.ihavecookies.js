@@ -116,7 +116,7 @@
         cookieTypes +
         '</ul></div><p><button id="gdpr-cookie-accept" type="button">' +
         settings.acceptBtnLabel +
-        '</button>' +
+        "</button>" +
         "<p></div>";
       setTimeout(function() {
         $($element).append(cookieMessage);

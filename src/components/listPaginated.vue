@@ -1,11 +1,7 @@
 <template>
   <div>
-
     <div class="list">
-    <Loading
-      :active.sync="isLoading"
-      :is-full-page="fullPage"
-    ></Loading>
+      <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
       <div class="main-content-area clearfix">
         <section
           class="section-padding gray page-search"
@@ -1532,16 +1528,18 @@
           type="button"
           @click="onClickPreviousPage"
           :disabled="isInFirstPage"
-          >prev</button
         >
+          prev
+        </button>
         <button
           class="page-numbers"
           type="button"
           @click="onClickFirstPage"
           :disabled="isInFirstPage"
-          >First</button
         >
-        
+          First
+        </button>
+
         <!-- Range of pages -->
         <button
           class="page-numbers"
@@ -1549,8 +1547,9 @@
           v-for="(page, index) in pages"
           :key="index"
           @click="onClickPage(page.range.number)"
-          >{{ page.range.number }}</button
         >
+          {{ page.range.number }}
+        </button>
         <!-- End page range-->
         <!-- <span aria-current="page" class="page-numbers current">1</span> -->
 
@@ -1559,18 +1558,20 @@
           type="button"
           @click="onClickNextPage"
           :disabled="isInLastPage"
-          >Next</button
         >
+          Next
+        </button>
         <button
           class="next page-numbers"
           type="button"
           @click="onClickLastPage"
           :disabled="isInLastPage"
-          >Last</button
         >
+          Last
+        </button>
       </div>
     </div>
-      <!-- END PAGINATION CONTROLS -->
+    <!-- END PAGINATION CONTROLS -->
   </div>
 </template>
 
@@ -1583,8 +1584,8 @@ export default {
   data() {
     return {
       isLoading: false,
-      fullPage: true,
-    }
+      fullPage: true
+    };
   },
   props: {
     data: {
@@ -1637,14 +1638,14 @@ export default {
       return this.currentPage - 1;
     },
     endPage() {
-      return Math.min(this.startPage + this.maxVisibleButtons - 1, this.totalPages);
+      return Math.min(
+        this.startPage + this.maxVisibleButtons - 1,
+        this.totalPages
+      );
     },
     pages() {
       const range = [];
-      for (
-        let i = this.startPage;
-        i <= this.endPage; i+=1
-      ) {
+      for (let i = this.startPage; i <= this.endPage; i += 1) {
         range.push({
           number: i,
           isDisabled: i === this.currentPage
@@ -1687,14 +1688,14 @@ export default {
       this.currentPage = page;
     },
     sync() {
-      $('html,body').animate({ scrollTop: 0 }, 'slow');
+      $("html,body").animate({ scrollTop: 0 }, "slow");
     }
   },
   watch: {
     isLoading: {
       handler: function(loading) {
-         this.sync()
-         this.isLoading = false
+        this.sync();
+        this.isLoading = false;
       }
     }
   }
