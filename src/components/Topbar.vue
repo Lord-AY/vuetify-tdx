@@ -1087,11 +1087,13 @@ export default {
 }
 .header-search-button {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)!important;
+  text-transform: uppercase;
+  font-weight: 500!important;
   transition: all ease-in 300ms;
 }
 
 .header-search-button:hover {
 	color: #fff!important;
-	box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.5)!important;
+	box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9)!important;
 }
 </style>
