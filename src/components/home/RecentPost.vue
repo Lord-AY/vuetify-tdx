@@ -25,7 +25,7 @@
                 "
               ></router-link>
               <img
-                src="@/assets/images/products/pictures/ed4.jpg"
+                :src="comment.products.photos[0]"
                 alt="img"
                 class="cover-image"
               />
@@ -37,7 +37,7 @@
               <div class="item7-card-desc d-flex mb-2">
                 <a href="#" class="text-muted"
                   ><i class="fa fa-calendar-o text-muted mr-2"></i
-                  >May-19-2019</a
+                  >{{ format_date(comment.createdAt) }}</a
                 >
                 <div class="ml-auto">
                   <a href="#" class="text-muted"
@@ -47,11 +47,12 @@
                 </div>
               </div>
               <a href="blog-details.html" class="text-dark"
-                ><h4 class="font-weight-semibold">3 Bedroom Apartment</h4></a
+                ><h4 class="font-weight-semibold">
+                  {{ comment.products.name }}
+                </h4></a
               >
               <p>
-                A 3 bedroom penthouse seated on a 600 sqm land located inside
-                Good Heart estate (new site lugbe) is up for sale.
+                {{ comment.comment }}
               </p>
               <div class="d-flex align-items-center pt-2 mt-auto">
                 <img

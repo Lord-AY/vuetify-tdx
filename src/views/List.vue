@@ -1584,12 +1584,51 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("product", ["paginatedProducts"])
+     ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors"]),
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts"]),
     onPageChange(page) {
       this.currentPage = page;
+    },
+    showError() {
+      this.$notify({
+        group: "errors",
+        type: "error",
+        title: "Error Fetching Products",
+        width: "100%",
+        text: this.getErrors,
+        classes: "error",
+        duration: 10000,
+        speed: 1000,
+        position: "top right"
+      });
+    },
+    showSuccess() {
+      this.$notify({
+        group: "notify",
+        type: "success",
+        title: "Success",
+        text: this.getSuccess,
+        position: "top right",
+        duration: 10000,
+        speed: 1000
+      });
+    }
+  },
+  watch: {
+    getErrors: {
+      handler: function(errors) {
+        if(errors === null || errors === undefined) {
+          return;
+        }
+        this.showError();
+      }
+    },
+    getSuccess: {
+      handler: () => {
+        this.showSuccess();
+      }
     }
   },
   created() {

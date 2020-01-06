@@ -1593,7 +1593,15 @@
             :current-page="currentPage"
             @pagechanged="onPageChange"
           />
-          <listprops></listprops>
+          <!-- <component :is="currentComp" :products="productListings"></component> -->
+          <!-- <gridprops></gridprops> -->
+          <listprops  
+            :data="paginatedProducts"
+            :total-pages="Math.ceil(paginatedProducts.length / 9)"
+            :total="paginatedProducts.length"
+            :per-page="10"
+            :current-page="currentPage"
+            @pagechanged="onPageChange"></listprops>
         </div>
       </section>
     </div>
@@ -1616,7 +1624,8 @@ export default {
     return {
       currentComp: "paginatedGrid",
       currentPage: 1,
-      isLoading: false
+      isLoading: false,
+      fullPage: true
     };
   },
   computed: {

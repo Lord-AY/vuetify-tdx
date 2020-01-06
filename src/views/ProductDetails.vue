@@ -23,7 +23,7 @@
     <div class="pdetails">
       <productdetails
         :product="singleProduct"
-        :similarprods="similarproducts"
+        :similarprods="getSimilarProds"
       ></productdetails>
     </div>
   </div>
@@ -98,7 +98,8 @@ export default {
   data() {
     return {
       product: {},
-      isLoading: false
+      isLoading: true,
+      fullPage: true
     };
   },
   components: {
@@ -107,14 +108,15 @@ export default {
     timer
   },
   computed: {
-    ...mapState("product", ["products", "similarproducts"]),
-    ...mapGetters("product", ["singleProduct"]),
+    ...mapState("product", ["products"]),
+    ...mapGetters("product", ["singleProduct", "getSimilarProds"]),
     ...mapGetters("auth", ["loading"])
   },
   methods: {
-    ...mapActions("product", ["similarProducts", "selectedProduct"]),
+    ...mapActions("product", ["fetchSimilarProducts", "selectedProduct"]),
     sync() {
       // console.log("Jquery mounted");
+      $("html,body").animate({ scrollTop: 0 }, "slow");
     },
     getSingleProduct() {
       this.isLoading = true;
@@ -130,14 +132,11 @@ export default {
         cid: this.singleProduct.cid,
         id: this.singleProduct.id
       };
-      this.similarProducts(payload);
+      this.fetchSimilarProducts(payload);
     }
   },
   watch: {
     $route: "sync",
-    $route(to, from) {
-      this.getSingleProduct();
-    },
     loading: {
       handler: function(loading) {
         if (loading) {
@@ -152,6 +151,7 @@ export default {
     this.$forceUpdate();
     // vm.$forceUpdate();
     // fetch single product for view
+    this.getSingleProduct();
   },
   beforeCreate() {
     // console.log("this is before created");

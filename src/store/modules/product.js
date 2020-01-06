@@ -9,7 +9,7 @@ export default {
     comments: null,
     product: null,
     categories: null,
-    similarproducts: null,
+    similarProducts: [],
     success: null,
     errors: null
   },
@@ -30,6 +30,15 @@ export default {
     categories(state) {
       if (state.categories !== null && state.categories !== undefined) {
         return state.categories;
+      }
+      return;
+    },
+    getSimilarProds(state) {
+      if (
+        state.similarProducts !== null &&
+        state.similarProducts !== undefined
+      ) {
+        return state.similarProducts;
       }
       return;
     },
@@ -62,10 +71,10 @@ export default {
               if (products[product].id == comments[comment].pid) {
                 comments[comment].products = products[product];
                 // console.log(comments[comment]);
-                return comments;
               }
             }
           }
+          return comments;
         } else {
           return comments;
         }
@@ -132,10 +141,10 @@ export default {
           router.push("/gridlist");
         });
     },
-    similarProducts({ commit, rootState }, payload) {
+    fetchSimilarProducts({ commit, rootState }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
-      return ProductService.similarProducts(payload, rootState.auth.user.token)
+      return ProductService.similar(payload)
         .then(({ data }) => {
           for (let product in data) {
             // console.log(product);
@@ -234,7 +243,7 @@ export default {
       state.errors = errors;
     },
     SET_SIMILAR_PRODUCTS(state, data) {
-      state.similarproducts = data;
+      state.similarProducts = data;
     },
     SET_SUCCESS_MSG(state, message) {
       state.success = message;
