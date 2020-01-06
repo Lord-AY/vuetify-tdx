@@ -79,7 +79,7 @@ export default {
   data() {
     return {
       product: {},
-      isLoading: false,
+      isLoading: true,
       fullPage: true
     };
   },
@@ -96,6 +96,7 @@ export default {
     ...mapActions("product", ["fetchSimilarProducts", "selectedProduct"]),
     sync() {
       // console.log("Jquery mounted");
+      $("html,body").animate({ scrollTop: 0 }, "slow");
     },
     getSingleProduct() {
       this.isLoading = true;
@@ -116,9 +117,6 @@ export default {
   },
   watch: {
     $route: "sync",
-    $route(to, from) {
-      this.getSingleProduct();
-    },
     loading: {
       handler: function(loading) {
         if (loading) {

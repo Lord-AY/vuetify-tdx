@@ -1582,7 +1582,7 @@
           />
           <!-- <component :is="currentComp" :products="productListings"></component> -->
           <!-- <gridprops></gridprops> -->
-          <listprops  :is="currentComp"
+          <listprops  
             :data="paginatedProducts"
             :total-pages="Math.ceil(paginatedProducts.length / 9)"
             :total="paginatedProducts.length"
@@ -1649,7 +1649,8 @@ export default {
     return {
       currentComp: "paginatedGrid",
       currentPage: 1,
-      isLoading: false
+      isLoading: false,
+      fullPage: true
     };
   },
   // components: {
