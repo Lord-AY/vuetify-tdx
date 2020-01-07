@@ -28,8 +28,12 @@ export default {
   },
 
   getters: {
-    loginErrors(state) {
-      return state.loginErrors;
+    errors(state) {
+      if (state.errors !== null && state.errors !== undefined)
+        return state.errors;
+    },
+    logoutError(state) {
+      return state.logoutError;
     },
     registerErrors(state) {
       return state.registerErrors;
@@ -124,7 +128,9 @@ export default {
             status: data.status,
             phone: data.phone,
             address: data.address,
-            rcountry: data.rcountry
+            rcountry: data.rcountry,
+            pictureUrl: data.pictureUrl,
+            activation: data.activation
           };
           commit("SET_USER_DATA", loggedUser);
           // send user to home
@@ -166,7 +172,10 @@ export default {
           commit("SET_LOADING", false);
           // check if error obj is empty
           // else account not verified or something else
-          commit("SET_LOGOUT_ERRORS", error.response);
+          commit(
+            "SET_LOGOUT_ERRORS",
+            "Error logging out your account, please try again."
+          );
         });
     }
 
