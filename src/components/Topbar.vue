@@ -368,6 +368,27 @@
     <div
       class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed"
     >
+    <!--  Timer Component  -->
+    <div id="timer" class="timer">
+      <timer
+        starttime="Jan 2, 2020 09:37:25"
+        endtime="Nov 8, 2020 16:37:25"
+        trans='{  
+            "day":"Days",
+            "hours":"Hours",
+            "minutes":"Minutes",
+            "seconds":"Seconds",
+            "expired":"Promo has been expired.",
+            "running":"🎅 Till the end of promo.",
+            "upcoming":"Till start of promo.",
+            "status": {
+                "expired":"Expired",
+                "running":"Running",
+                "upcoming":"Future"
+              }}'
+      ></timer>
+    </div>
+    <!--  End! Timer Component  -->
       <div class="horizontal-mainwrapper container2 clearfix">
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
@@ -796,6 +817,7 @@
         </nav>
       </div>
     </div>
+    
   </div>
   <!--/Horizontal-main -->
 </template>
@@ -804,11 +826,14 @@
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
 require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
-
+import timer from "@/components/countdownTimer";
 import { mapGetters, mapActions } from "vuex";
 /* eslint-disable no-undef */
 export default {
   name: "topbar",
+  components: {
+    timer
+  },
   computed: {
     ...mapGetters("auth", ["isLoggedIn"])
   },
@@ -1080,13 +1105,13 @@ export default {
 }
 .top-bar-hide {
   display: none !important;
-  
 }
 .header-search-button {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
   text-transform: uppercase;
   font-weight: 500 !important;
   transition: all ease-in 300ms;
+  border-radius: 6px !important;
 }
 
 .header-search-button:hover {
