@@ -1595,13 +1595,13 @@
           />
           <!-- <component :is="currentComp" :products="productListings"></component> -->
           <!-- <gridprops></gridprops> -->
-          <listprops  
+          <!-- <listprops  
             :data="paginatedProducts"
             :total-pages="Math.ceil(paginatedProducts.length / 9)"
             :total="paginatedProducts.length"
             :per-page="10"
             :current-page="currentPage"
-            @pagechanged="onPageChange"></listprops>
+            @pagechanged="onPageChange"></listprops> -->
         </div>
       </section>
     </div>
@@ -1609,6 +1609,8 @@
 </template>
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+require("../../public/assets/css/iocustom.css");
 import hotsellers from "@/components/product_overview/hotsellers";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
 import listprops from "@/components/listPaginated";

@@ -37,7 +37,11 @@
 </template>
 
 <script>
-require("../../public/assets/css/iocustom.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+// require("../../public/assets/css/iocustom.css");
+
+
+
 import { mapActions, mapGetters } from "vuex";
 
 import timer from "@/components/countdownTimer";
