@@ -320,6 +320,27 @@
           </div>
         </div>
       </div>
+      <!--  Timer Component  -->
+      <div id="timer" class="timer">
+        <timer
+          starttime="Jan 2, 2020 09:37:25"
+          endtime="Nov 8, 2020 16:37:25"
+          trans='{  
+            "day":"Days",
+            "hours":"Hours",
+            "minutes":"Minutes",
+            "seconds":"Seconds",
+            "expired":"Promo has been expired.",
+            "running":"🎅 Till the end of promo.",
+            "upcoming":"Till start of promo.",
+            "status": {
+                "expired":"Expired",
+                "running":"Running",
+                "upcoming":"Future"
+              }}'
+        ></timer>
+      </div>
+      <!--  End! Timer Component  -->
     </div>
     <!--/Topbar-->
 
@@ -368,27 +389,6 @@
     <div
       class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed"
     >
-    <!--  Timer Component  -->
-    <div id="timer" class="timer">
-      <timer
-        starttime="Jan 2, 2020 09:37:25"
-        endtime="Nov 8, 2020 16:37:25"
-        trans='{  
-            "day":"Days",
-            "hours":"Hours",
-            "minutes":"Minutes",
-            "seconds":"Seconds",
-            "expired":"Promo has been expired.",
-            "running":"🎅 Till the end of promo.",
-            "upcoming":"Till start of promo.",
-            "status": {
-                "expired":"Expired",
-                "running":"Running",
-                "upcoming":"Future"
-              }}'
-      ></timer>
-    </div>
-    <!--  End! Timer Component  -->
       <div class="horizontal-mainwrapper container2 clearfix">
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
@@ -817,7 +817,6 @@
         </nav>
       </div>
     </div>
-    
   </div>
   <!--/Horizontal-main -->
 </template>
