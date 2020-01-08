@@ -1619,7 +1619,10 @@ import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 import Loading from "vue-loading-overlay";
 import timer from "@/components/countdownTimer";
-
+// section for page reload
+// import Vue from 'vue';
+// Vue.$forceUpdate();
+// using forceUpdate for page refresh
 export default {
   name: "gridlist",
   data() {
@@ -1698,11 +1701,11 @@ export default {
     }
   },
   created() {
+    // this.$forceUpdate();
     bus.$on("switchComp", comp => {
       this.currentComp = comp;
     });
     this.sync();
-    this.$forceUpdate();
     this.fetchAllProducts();
     // vm.$forceUpdate();
   },
@@ -1714,7 +1717,7 @@ export default {
   },
   mounted() {
     // console.log("this route just got mounted");
-    this.$forceUpdate();
+    // this.$forceUpdate();
     this.sync();
   },
   beforeRouteLeave: function(to, from, next) {

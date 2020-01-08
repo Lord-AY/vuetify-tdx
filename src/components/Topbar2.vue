@@ -64,7 +64,7 @@
                     <img
                       class="img-circle resize"
                       alt="Avatar"
-                      :src="avatarCheck ? getUser.pictureURL : '@/assets/images/boss.jpg'"
+                      :src="avatarCheck ? `http://157.245.82.193/media/${getUser.pictureUrl}` : `http://157.245.82.193/media/avatar` "
                     />
                     <span class="caret" style="color: #fff!important"></span>
                   </a>
@@ -628,11 +628,13 @@ export default {
       this.logoutUser();
     },
     avatarCheck() {
+      let answer = false;
       let avatar = this.getUser.pictureUrl;
-      if(avatar !== null && avatar !== undefined && avatar !== '') {
+      console.log(avatar);
+      if(avatar !== null || avatar !== undefined || avatar !== '') {
         return true;
       }
-      return false;
+        return false;
     },
     sync() {
       $(document).ready(function() {

@@ -38,6 +38,18 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           console.log(error);
         });
+    },
+    FetchUser({ commit }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      return UserService.user(payload.userId)
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error);
+        });
     }
   },
   mutations: {}
