@@ -1600,11 +1600,8 @@ import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 import Loading from "vue-loading-overlay";
-import timer from "@/components/countdownTimer";
-// section for page reload
-// import Vue from 'vue';
-// Vue.$forceUpdate();
-// using forceUpdate for page refresh
+
+export default {
   name: "gridlist",
   data() {
     return {
