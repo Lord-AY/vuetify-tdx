@@ -56,6 +56,8 @@ import Homeloader from "@/components/loaders/Homeloader";
 import HomeMobileLoader from "@/components/loaders/HomeMbLoader";
 import GridListLoader from "@/components/loaders/GridlistLoader";
 // import BNav from "@/components/BNav";
+// import Vue from "vue";
+// Vue.forceUpdate();
 export default {
   components: {
     topbar,
@@ -98,6 +100,7 @@ export default {
   },
   created() {
     this.sync();
+    // this.$forceUpdate();
   }
   // mounted(){
   //   localStorage.setItem("reloader", "0");
@@ -112,35 +115,6 @@ export default {
   }
   .no-show-footer-mobile {
     display: none !important;
-  }
-}
-.page-animation {
-  &-enter-active {
-    animation: coming 1s;
-    animation-delay: 0.5s;
-    opacity: 0;
-  }
-  &-leave-active {
-    animation: leaving 1s;
-  }
-}
-@keyframes coming {
-  from {
-    tramsform: translateX(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes leaving {
-  from {
-    tramsform: translateX(0);
-  }
-  to {
-    transform: translateX(-50px);
-    opacity: 0;
   }
 }
 </style>

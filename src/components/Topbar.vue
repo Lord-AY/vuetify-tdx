@@ -272,11 +272,7 @@
                       <img
                         class="img-circle resize"
                         alt="Avatar"
-                        :src="
-                          avatarCheck
-                            ? getUser.pictureURL
-                            : '@/assets/images/boss.jpg'
-                        "
+                        :src="avatarCheck ? `http://157.245.82.193/media/${getUser.pictureUrl}` : `http://157.245.82.193/media/avatar.png`"
                       />
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
@@ -821,12 +817,13 @@ export default {
     setLogout() {
       this.logoutUser();
     },
-    avatarCheck() {
+      avatarCheck () {
       let avatar = this.getUser.pictureUrl;
-      if (avatar !== null && avatar !== undefined && avatar !== "") {
+      if(avatar !== null || avatar !== undefined || avatar !== '') {
+        // return `http://157.245.82.193/media/${getUser.pictureURL}`;
         return true;
       }
-      return false;
+        return false;
     },
     sync() {
       $(document).ready(function() {

@@ -1,6 +1,7 @@
 import ProductService from "@/services/ProductService";
 import ash from "lodash";
 import router from "../../router";
+import UserService from "../../services/UserService";
 // import ash from 'lodash';
 export default {
   namespaced: true,
@@ -173,6 +174,25 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_COMMENTS", data);
           // console.log(data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error.response);
+        });
+    },
+    fetchSeller({ commit }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      return UserService.user(payload.sellerId)
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          let seller = data;
+          let product = state.product;
+          if (product !== null && product !== undefined) {
+            if (product.uid == seller.id) {
+              product.seller = seller;
+            }
+          }
+          // console.log(data)
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });

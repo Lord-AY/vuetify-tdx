@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HomeLoader v-if="isLoading"></HomeLoader>
     <div class="home" v-if="!isLoading">
       <!--  Timer Component  -->
       <div id="timer" class="timer">
@@ -26,7 +25,7 @@
       <start></start>
       <categories></categories>
       <sptb :categories="categories"></sptb>
-      <sptbWhite :ads="productListings"></sptbWhite>
+      <sptbWhite :ads="productListings" :key="productRender"></sptbWhite>
       <sptb_pattern :ads="productListings"></sptb_pattern>
       <total_sellers class="mobile-hidden"></total_sellers>
       <testimonial class="mobile-hidden"></testimonial>
@@ -49,16 +48,16 @@ import sptb_pattern from "@/components/home/SPTB-Pattern";
 import total_sellers from "@/components/home/TotalSellers";
 import testimonial from "@/components/home/Testimonial";
 import recent_post from "@/components/home/RecentPost";
-import HomeLoader from "@/components/loaders/Homeloader";
 //experimental...
-
 import BNav from "@/components/BNav";
 
 export default {
   name: "home",
   data() {
     return {
-      isLoading: true
+      isLoading: true,
+      renderKey: 0,
+      productRender: 0
     };
   },
   components: {
@@ -71,8 +70,7 @@ export default {
     total_sellers,
     testimonial,
     recent_post,
-    BNav,
-    HomeLoader
+    BNav
   },
 
   computed: {
@@ -91,6 +89,11 @@ export default {
       "fetchAllProducts",
       "fetchAllComments"
     ]),
+    forceRerender() {
+      this.renderKey += 1;
+      this.productRender += 1;
+      console.log();
+    },
     sync() {
       // console.log("Jquery mounted");
     },

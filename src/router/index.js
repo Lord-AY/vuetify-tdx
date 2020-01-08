@@ -1,9 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/store";
-import AuthMiddleware from "./middleware/AuthMiddleware";
-import GuestMiddleware from "./middleware/GuestMiddleware";
-import VueRouteMiddleware from "vue-route-middleware";
 // import middlewarePipeline from "./middlewarePipeline";
 import Home from "../views/Home.vue";
 import userRegister from "../views/Register.vue";
@@ -292,6 +289,7 @@ const routes = [
 ];
 // mode: "history",
 const router = new VueRouter({
+  mode: "history",
   base: process.env.BASE_URL,
   routes
 });
