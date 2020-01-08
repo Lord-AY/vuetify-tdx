@@ -142,7 +142,7 @@
 
 @media (min-width: 1200px) {
 	.header-main-padding {
-	  padding-bottom: 110px;
+	  padding-bottom: 104px;
 	}
 }
 
@@ -2058,7 +2058,7 @@ select.form-control:focus::-ms-value {
 	height: calc(2.6875rem + 2px);
 }
 .form-group {
-	margin-bottom: 1rem;
+	margin-bottom: 1rem!important;
 }
 .form-text {
 	display: block;
@@ -41646,6 +41646,7 @@ body .modal-open {
 
 	.form-group-tx {
 		display: flex;
+		/* margin-bottom: 1rem!important; */
 	}
 	.promo-text-box {
 		padding: 15px 20px;

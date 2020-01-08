@@ -74,7 +74,7 @@
                   </div>
                   <!-- Customer Name -->
 
-                  <div class="row form-group-tx form-group">
+                  <div class="form-group form-group-tx  row" style="margin-bottom: 1rem!important;">
                     <!-- <div class="col-md-12 col-lg-6 col-sm-12"> -->
                     <label for class="col-md-4 control-label"
                       >First Name
@@ -97,7 +97,7 @@
                     </div>
                   </div>
                   <!-- </div> -->
-                  <div class="row form-group-tx form-group">
+                  <div class="form-group form-group-tx row" style="margin-bottom: 1rem!important;">
                     <!-- <div class="col-md-12 col-lg-6 col-sm-12"> -->
                     <label for class="col-md-4 control-label">Last Name </label>
                     <div class="col-md-6">
@@ -120,7 +120,7 @@
                     <!-- </div> -->
                   </div>
 
-                  <div class="form-group form-group-tx row">
+                  <div class="form-group form-group-tx row" style="margin-bottom: 1rem!important;">
                     <!-- <div class="col-md-12 col-lg-12 col-sm-12"> -->
                     <label class="col-md-4 control-label">Email Address </label>
                     <div class="col-md-6">
@@ -142,7 +142,7 @@
                     <!-- </div> -->
                   </div>
                   <!-- Phone Number -->
-                  <div class="form-group form-group-tx row">
+                  <div class="form-group form-group-tx row" style="margin-bottom: 1rem!important;">
                     <!-- <div class="col-md-12"> -->
                     <label class="col-md-4 control-label">Phone Number</label>
                     <div class="col-md-6">
@@ -169,7 +169,7 @@
                     <!-- </div> -->
                   </div>
 
-                  <div class="form-group form-group-tx row">
+                  <div class="form-group form-group-tx row" style="margin-bottom: 1rem!important;">
                     <!-- <div class="col-md-12"> -->
                     <label class="col-md-4 control-label">Home Address</label>
                     <div class="col-md-6">
@@ -189,7 +189,7 @@
                     <!-- </div> -->
                   </div>
 
-                  <div class="form-group form-group-tx row">
+                  <div class="form-group form-group-tx row" style="margin-bottom: 1rem!important;">
                     <!-- <div class="col-md-12"> -->
                     <label class="col-md-4 control-label">Country</label>
                     <div class="col-md-6">
@@ -384,7 +384,7 @@
 
                     <!-- </div> -->
                   </div>
-                  <div class="form-group form-group-tx row">
+                  <div class="form-group form-group-tx row" style="margin-bottom: 1rem!important;">
                     <!-- <div class="col-md-12"> -->
                     <label for class="col-md-4 control-label">Password</label>
                     <div class="col-md-6">
@@ -421,7 +421,7 @@
                     <!-- </div> -->
                   </div>
 
-                  <div class="form-group form-group-tx row">
+                  <div class="form-group form-group-tx row" style="margin-bottom: 1rem!important;">
                     <!-- <div class="col-md-12"> -->
                     <label for class="col-md-4 control-label"
                       >Confirm Password</label
@@ -460,7 +460,7 @@
                     <!-- </div> -->
                   </div>
 
-                  <div class="form-group form-group-tx row">
+                  <div class="form-group form-group-tx row" style="margin-bottom: 1rem!important;">
                     <label class="col-md-4 control-label"></label>
                     <!-- <div class="col-md-12 col-sm-12"> -->
                     <div class="col-md-8">
@@ -583,6 +583,14 @@ export default {
 </script>
 
 <style>
+.row,.form-group, .form-group-tx {
+  margin-bottom: 1rem!important;
+}
+
+.form-control {
+  padding: 0px 12px!important;
+}
+
 .facebook-reg {
   background-color: #3b5998;
   color: #fff;
