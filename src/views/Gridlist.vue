@@ -1,24 +1,5 @@
 <template>
   <div class="gridlist">
-    <div id="timer" class="timer">
-      <timer
-        starttime="Jan 2, 2020 09:37:25"
-        endtime="Nov 8, 2020 16:37:25"
-        trans='{  
-        "day":"Days",
-        "hours":"Hours",
-        "minutes":"Minutes",
-        "seconds":"Seconds",
-        "expired":"Promo has been expired.",
-        "running":"🎅 Till the end of promo.",
-        "upcoming":"Till start of promo.",
-        "status": {
-            "expired":"Expired",
-            "running":"Running",
-            "upcoming":"Future"
-          }}'
-      ></timer>
-    </div>
     <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="main-content-area clearfix">
       <section
@@ -1595,13 +1576,13 @@
           />
           <!-- <component :is="currentComp" :products="productListings"></component> -->
           <!-- <gridprops></gridprops> -->
-          <listprops  
+          <!-- <listprops  
             :data="paginatedProducts"
             :total-pages="Math.ceil(paginatedProducts.length / 9)"
             :total="paginatedProducts.length"
             :per-page="10"
             :current-page="currentPage"
-            @pagechanged="onPageChange"></listprops>
+            @pagechanged="onPageChange"></listprops> -->
         </div>
       </section>
     </div>
@@ -1609,6 +1590,9 @@
 </template>
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../../public/assets/css/iocustom.css");
 import hotsellers from "@/components/product_overview/hotsellers";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
 import listprops from "@/components/listPaginated";
@@ -1616,7 +1600,6 @@ import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 import Loading from "vue-loading-overlay";
-import timer from "@/components/countdownTimer";
 
 export default {
   name: "gridlist",
@@ -1637,8 +1620,7 @@ export default {
     paginatedGrid: paginatedGrid,
     listprops: listprops,
     ptoggler: ptoggler,
-    Loading,
-    timer
+    Loading
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts"]),
@@ -1696,11 +1678,11 @@ export default {
     }
   },
   created() {
+    // this.$forceUpdate();
     bus.$on("switchComp", comp => {
       this.currentComp = comp;
     });
     this.sync();
-    this.$forceUpdate();
     this.fetchAllProducts();
     // vm.$forceUpdate();
   },
@@ -1712,7 +1694,7 @@ export default {
   },
   mounted() {
     // console.log("this route just got mounted");
-    this.$forceUpdate();
+    // this.$forceUpdate();
     this.sync();
   },
   beforeRouteLeave: function(to, from, next) {

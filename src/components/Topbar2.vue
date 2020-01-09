@@ -64,7 +64,7 @@
                     <img
                       class="img-circle resize"
                       alt="Avatar"
-                      src="@/assets/images/boss.jpg"
+                      :src="avatarCheck ? `http://157.245.82.193/media/${getUser.pictureUrl}` : `http://157.245.82.193/media/avatar` "
                     />
                     <span class="caret" style="color: #fff!important"></span>
                   </a>
@@ -620,12 +620,21 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "topbar2",
   computed: {
-    ...mapGetters("auth", ["isLoggedIn"])
+    ...mapGetters("auth", ["isLoggedIn", "getUser"])
   },
   methods: {
     ...mapActions("auth", ["logoutUser"]),
     setLogout() {
       this.logoutUser();
+    },
+    avatarCheck() {
+      let answer = false;
+      let avatar = this.getUser.pictureUrl;
+      console.log(avatar);
+      if(avatar !== null || avatar !== undefined || avatar !== '') {
+        return true;
+      }
+        return false;
     },
     sync() {
       $(document).ready(function() {

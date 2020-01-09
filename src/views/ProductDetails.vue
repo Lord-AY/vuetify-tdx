@@ -1,24 +1,5 @@
 <template>
   <div>
-    <div id="timer" class="timer">
-      <timer
-        starttime="Jan 2, 2020 09:37:25"
-        endtime="Nov 8, 2020 16:37:25"
-        trans='{  
-            "day":"Days",
-            "hours":"Hours",
-            "minutes":"Minutes",
-            "seconds":"Seconds",
-            "expired":"Promo has been expired.",
-            "running":"🎅 Till the end of promo.",
-            "upcoming":"Till start of promo.",
-            "status": {
-                "expired":"Expired",
-                "running":"Running",
-                "upcoming":"Future"
-              }}'
-      ></timer>
-    </div>
     <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="pdetails">
       <productdetails
@@ -59,9 +40,9 @@ require("../../public/assets/plugins/fancyuploder/fancy_fileupload.css");
 
 //
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css"); 
 
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
@@ -92,7 +73,6 @@ require("../../public/assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css"
 import productdetails from "@/components/product_overview/productdetails";
 import { mapState, mapActions, mapGetters } from "vuex";
 import Loading from "vue-loading-overlay";
-import timer from "@/components/countdownTimer";
 export default {
   name: "productDetails",
   data() {
@@ -104,8 +84,7 @@ export default {
   },
   components: {
     productdetails,
-    Loading,
-    timer
+    Loading
   },
   computed: {
     ...mapState("product", ["products"]),
