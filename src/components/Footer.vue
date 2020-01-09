@@ -15,7 +15,7 @@
                 />
               </router-link>
               <hr class="deep-purple  mb-4 mt-0 d-inline-block mx-auto" />
-              <p class="mobile-hidden">
+              <p class="about-company mobile-hidden">
                 At Tradexplora; Nigeria's leading classified ad posting
                 platform, we deliver the best services while providing top notch
                 utility services
@@ -205,4 +205,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  .about-company {
+    margin-bottom: 1.5rem!important;
+  }
+</style>
