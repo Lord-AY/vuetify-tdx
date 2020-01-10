@@ -42,7 +42,7 @@
                           style="padding-left: 0px!important;"
                         >
                           <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 facebook-mobile">
                               <div class="social-media-button">
                                 <button
                                   class="btn btn-block btn-reg facebook-reg"
@@ -343,5 +343,28 @@ export default {
   .form-box {
     padding: 40px 20px;
   }
+}
+
+@media (max-width: 400px) {
+  .main-content-reg-tx {
+    height: auto!important;
+  }
+
+  .facebook-mobile {
+    padding-right: 0px!important;
+  }
+  
+  .main-content-reg-tx {
+    background: rgb(255, 255, 255);
+  }
+
+  .form-box {
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+  }
+
+  .form-box-title {
+    font-size: 0.5rem!important;
+}
 }
 </style>

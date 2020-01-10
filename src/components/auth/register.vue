@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-2"></div>
+        <div class="col-lg-2 bootstrap-padding"></div>
         <div class="col-lg-8 ">
           <div class="form-box">
             <div class="form-box-title">
@@ -38,7 +38,7 @@
                     </label>
                     <div class="col-md-8" style="padding-left: 0px!important;">
                       <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 facebook-mobile">
                           <div class="social-media-button">
                             <button class="btn btn-block btn-reg facebook-reg">
                               <i class="fa fa-facebook fa-2x"></i>
@@ -549,7 +549,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-2"></div>
+        <div class="col-lg-2 bootstrap-padding"></div>
         <!-- <div class="col-lg-4 reg-sidebar">
           <div class="reg-sidebar-inner text-center">
             <div class="row">
@@ -717,5 +717,26 @@ export default {
   .form-box {
     padding: 40px 20px;
   }
+
+  
+}
+
+@media (max-width: 400px) {
+  .facebook-mobile {
+    padding-right: 0px!important;
+  }
+  
+  .main-content-reg-tx {
+    background: rgb(255, 255, 255);
+  }
+
+  .form-box {
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+  }
+
+  .form-box-title {
+    font-size: 0.5rem!important;
+}
 }
 </style>
