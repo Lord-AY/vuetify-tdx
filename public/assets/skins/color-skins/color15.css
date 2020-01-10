@@ -1045,7 +1045,7 @@ a.text-dark:hover.post-ad-header-tx {
 }
  .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: #e9ecf3;
-	color:#ed5151;
+	color:#4CAF50!important;
 }
  .sticky-wrapper.relative.banners .horizontalMenu>.horizontalMenu-list>li>a.active {
     background-color: #ed5151;

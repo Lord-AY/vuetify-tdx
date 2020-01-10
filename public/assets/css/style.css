@@ -142,7 +142,7 @@
 
 @media (min-width: 1200px) {
 	.header-main-padding {
-	  padding-bottom: 110px;
+	  padding-bottom: 104px;
 	}
 }
 
@@ -22368,7 +22368,7 @@ table.dataTable.display tbody tr:hover, table.dataTable.hover tbody tr:hover {
 	border-radius: 3px;
 }
 .select2-lg .select2-container .select2-selection--single {
-	height: 3.262rem!important;
+	height: 2.875rem!important;
 }
 .select2-lg .select2-container--default .select2-selection--single .select2-selection__rendered {
 	line-height: 45px!important;
@@ -40847,7 +40847,7 @@ a.typewrite {
 	position: absolute;
 	right: 12px;
 	text-align: right;
-	top: 14.5px;
+	top: 17.5px!important;
 	background: none;
 	width: 15px;
 	color: #a7b4c9;
@@ -41639,7 +41639,7 @@ body .modal-open {
 /* @media (min-width: 768px) { */
 	.control-label  {
 		text-align: right;
-		margin-bottom: 0;
+		margin-bottom: 6px;
 		font-weight: 600;
 	}
 
@@ -42087,13 +42087,13 @@ body .modal-open {
 .main-search {
 	border-radius: 6px!important;
 	/*border: none!important;*/
-	padding-left: 40px;
+	padding-left: 40px!important;
 }
 
 .main-location {
 	/*border: none!important;*/
 	border-radius: 6px!important;
-	padding-left: 40px;
+	padding-left: 40px!important;
 }
 
 .main-category {
@@ -42105,6 +42105,7 @@ body .modal-open {
 
 .main-search-button {
 	border-radius: 6px!important;
+	padding: 8px 20px!important;
 }
 
 .main-search-button-container {

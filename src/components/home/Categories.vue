@@ -63,7 +63,6 @@
                     <a
                       href="#"
                       class="btn btn-lg tx-btn-color br-tl-md-0 br-bl-md-0 main-search-button"
-                      style="padding-left: 20px; padding-right: 20px;"
                       ><i class="fa fa-search"></i
                     ></a>
                   </div>
