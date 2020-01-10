@@ -43,7 +43,7 @@ export default {
         phone: "",
         password: "",
         confirmPassword: "",
-        rcountry: ""
+        rcountry: "null"
       },
       items: [],
       errors: null,

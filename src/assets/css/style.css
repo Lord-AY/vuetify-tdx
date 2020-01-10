@@ -41640,7 +41640,7 @@ body .modal-open {
 /* @media (min-width: 768px) { */
 	.control-label  {
 		text-align: right;
-		margin-bottom: 0;
+		margin-bottom: 6px;
 		font-weight: 600;
 	}
 

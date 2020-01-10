@@ -42,7 +42,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 1
+      header: 0
     }
   },
   {
@@ -57,7 +57,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 1
+      header: 0
     }
   },
   {
