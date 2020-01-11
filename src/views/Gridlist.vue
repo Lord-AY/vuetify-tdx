@@ -1632,7 +1632,7 @@ export default {
       this.$notify({
         group: "errors",
         type: "error",
-        title: "Error Fetching Products",
+        title: "Error Fetching Ads",
         width: "100%",
         text: this.getErrors,
         classes: "error",

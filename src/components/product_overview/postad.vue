@@ -851,172 +851,172 @@
                                   Click here
                                 </div>
                               </div>
-                          <transition name="isHidden">
-                              <div
-                                class="row"
-                                style="margin-top: 20px;"
-                                v-if="isHidden"
-                              >
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                  <div class="senior-ads form-group">
-                                    <div
-                                      class="senior-ads-header gold"
-                                      style="background-color:  #f0ad4e;"
-                                    >
-                                      <div class="post-package-title gold">
-                                        <span>Gold</span>
-                                      </div>
-                                      <span>&#8358;</span>
-                                      <h4
-                                        style="text-align: center; font-size: 48px!important; font-weight: 500; color: #fff;"
+                              <transition name="isHidden">
+                                <div
+                                  class="row"
+                                  style="margin-top: 20px;"
+                                  v-if="isHidden"
+                                >
+                                  <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="senior-ads form-group">
+                                      <div
+                                        class="senior-ads-header gold"
+                                        style="background-color:  #f0ad4e;"
                                       >
-                                        3000
-                                      </h4>
-                                      <div class="package-value">
-                                        <span> <i></i> </span>
+                                        <div class="post-package-title gold">
+                                          <span>Gold</span>
+                                        </div>
+                                        <span>&#8358;</span>
+                                        <h4
+                                          style="text-align: center; font-size: 48px!important; font-weight: 500; color: #fff;"
+                                        >
+                                          3000
+                                        </h4>
+                                        <div class="package-value">
+                                          <span> <i></i> </span>
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div class="senior-ads-body">
-                                      <ul class="package-details-list">
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                      </ul>
-                                    </div>
-                                    <div class="select-senior-ad">
-                                      <button
-                                        class="btn btn-block btn-primary"
-                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
-                                        @click.prevent="setPayment('4')"
-                                      >
-                                        Select
-                                      </button>
+                                      <div class="senior-ads-body">
+                                        <ul class="package-details-list">
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                        </ul>
+                                      </div>
+                                      <div class="select-senior-ad">
+                                        <button
+                                          class="btn btn-block btn-primary"
+                                          style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                          @click.prevent="setPayment('4')"
+                                        >
+                                          Select
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                  <div class="senior-ads">
-                                    <div
-                                      class="senior-ads-header premium"
-                                      style="background-color: #27c781;"
-                                    >
-                                      <!-- <img src="@/assets/images/ad-premium.svg " width="24px"> -->
-                                      <div class="post-package-title">
-                                        <span>Premium</span>
-                                      </div>
-                                      <span>&#8358;</span>
-                                      <h4
-                                        style="text-align: center; font-size: 48px!important; font-weight: 500; color: #fff;"
+                                  <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="senior-ads">
+                                      <div
+                                        class="senior-ads-header premium"
+                                        style="background-color: #27c781;"
                                       >
-                                        5000
-                                      </h4>
-                                      <div class="package-value">
-                                        <span> <i>Most Popular</i> </span>
+                                        <!-- <img src="@/assets/images/ad-premium.svg " width="24px"> -->
+                                        <div class="post-package-title">
+                                          <span>Premium</span>
+                                        </div>
+                                        <span>&#8358;</span>
+                                        <h4
+                                          style="text-align: center; font-size: 48px!important; font-weight: 500; color: #fff;"
+                                        >
+                                          5000
+                                        </h4>
+                                        <div class="package-value">
+                                          <span> <i>Most Popular</i> </span>
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div class="senior-ads-body">
-                                      <ul class="package-details-list">
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                      </ul>
-                                    </div>
+                                      <div class="senior-ads-body">
+                                        <ul class="package-details-list">
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                        </ul>
+                                      </div>
 
-                                    <div class="select-senior-ad">
-                                      <button
-                                        class="btn btn-block btn-primary"
-                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
-                                        @click.prevent="setPayment('5')"
-                                      >
-                                        Select
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                  <div class="senior-ads">
-                                    <div
-                                      class="senior-ads-header hot"
-                                      style="background-color: #4CAF50;"
-                                    >
-                                      <!-- <img src="@/assets/images/ad-premium.svg " width="24px"> -->
-                                      <div class="post-package-title hot">
-                                        <span>Hot Sellers</span>
-                                      </div>
-                                      <span>&#8358;</span>
-                                      <h4
-                                        style="text-align: center; font-size: 48px!important; font-weight: 500; color: #fff;"
-                                      >
-                                        9000
-                                      </h4>
-                                      <div class="package-value">
-                                        <span> <i>Best Value</i> </span>
+                                      <div class="select-senior-ad">
+                                        <button
+                                          class="btn btn-block btn-primary"
+                                          style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                          @click.prevent="setPayment('5')"
+                                        >
+                                          Select
+                                        </button>
                                       </div>
                                     </div>
-                                    <div class="senior-ads-body">
-                                      <ul class="package-details-list">
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                        <li>
-                                          <i class="fa fa-check-circle-o"></i>
-                                          30 days ad boost
-                                        </li>
-                                      </ul>
-                                    </div>
-                                    <div class="select-senior-ad">
-                                      <button
-                                        class="btn btn-block btn-primary"
-                                        style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
-                                        @click.prevent="setPayment('6')"
+                                  </div>
+                                  <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="senior-ads">
+                                      <div
+                                        class="senior-ads-header hot"
+                                        style="background-color: #4CAF50;"
                                       >
-                                        Select
-                                      </button>
+                                        <!-- <img src="@/assets/images/ad-premium.svg " width="24px"> -->
+                                        <div class="post-package-title hot">
+                                          <span>Hot Sellers</span>
+                                        </div>
+                                        <span>&#8358;</span>
+                                        <h4
+                                          style="text-align: center; font-size: 48px!important; font-weight: 500; color: #fff;"
+                                        >
+                                          9000
+                                        </h4>
+                                        <div class="package-value">
+                                          <span> <i>Best Value</i> </span>
+                                        </div>
+                                      </div>
+                                      <div class="senior-ads-body">
+                                        <ul class="package-details-list">
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                          <li>
+                                            <i class="fa fa-check-circle-o"></i>
+                                            30 days ad boost
+                                          </li>
+                                        </ul>
+                                      </div>
+                                      <div class="select-senior-ad">
+                                        <button
+                                          class="btn btn-block btn-primary"
+                                          style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                          @click.prevent="setPayment('6')"
+                                        >
+                                          Select
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
 
-                                <div class="row total-pricing">
-                                  <div class="total-pricing-sub-div">
-                                    <p><i> Total: &#8358; 0.00</i></p>
+                                  <div class="row total-pricing">
+                                    <div class="total-pricing-sub-div">
+                                      <p><i> Total: &#8358; 0.00</i></p>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
                               </transition>
                             </div>
                             <!-- </form> -->
@@ -1481,6 +1481,9 @@ export default {
     );
     document.head.appendChild(extScript);
   },
+  computed: {
+    ...mapGetters("product", ["getErrors"])
+  },
   methods: {
     selectImageSuccess(formData, index, fileList) {
       // console.log("data", formData, index, fileList);
@@ -1558,6 +1561,19 @@ export default {
     onCancel() {
       // console.log("User cancelled the loader.");
     },
+    showError() {
+      this.$notify({
+        group: "errors",
+        type: "error",
+        title: "Error Creating Ads",
+        width: "100%",
+        text: this.getErrors,
+        classes: "error",
+        duration: 10000,
+        speed: 1000,
+        position: "top right"
+      });
+    },
     sync() {
       $("#demo").FancyFileUpload({
         params: {
@@ -1595,6 +1611,14 @@ export default {
       handler: function(uploaded) {
         // console.log(uploaded);
         this.sendFormRequest(uploaded);
+      }
+    },
+    getErrors: {
+      handler: function(errors) {
+        if (errors === null || errors === undefined) {
+          return;
+        }
+        this.showError();
       }
     },
     loading: {
@@ -1735,10 +1759,10 @@ export default {
   display: none;
 }
 .isHidden-enter-active {
-  animation: bounce-in .5s;
+  animation: bounce-in 0.5s;
 }
 .isHidden-leave-active {
-  animation: bounce-in .5s reverse
+  animation: bounce-in 0.5s reverse;
 }
 @keyframes bounce-in {
   0% {

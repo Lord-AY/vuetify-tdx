@@ -3,7 +3,7 @@
     <Login
       :loginFields="loginData"
       :submit="sendLoginData"
-      :errors="loginError"
+      :errors="dbErrors"
       :loading="loading"
     ></Login>
   </div>
@@ -23,23 +23,24 @@ export default {
         email: "",
         password: ""
       },
-      loginError: ""
+      dbErrors: ""
     };
   },
   computed: {
     getErrors() {
-      return this.$store.getters["auth/loginErrors"];
+      return this.$store.getters["auth/getLoginError"];
     },
     loading() {
       return this.$store.getters["auth/loading"];
     }
   },
   watch: {
-    getErrors(value) {
+    getErrors: {
       // passing back the function to watch for changes
-      if (value !== null && value !== undefined) {
-        this.loginError = value;
-        // console.log(this.loginErrors) this runs when there is a change in state... for testing sha
+      handler: function(error) {
+        if (error !== null && error !== undefined) {
+          this.dbErrors = error;
+        }
       }
     }
   },

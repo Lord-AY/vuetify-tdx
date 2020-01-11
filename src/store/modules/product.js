@@ -10,6 +10,7 @@ export default {
     comments: null,
     product: null,
     categories: null,
+    seller: null,
     similarProducts: [],
     success: null,
     errors: null
@@ -82,6 +83,17 @@ export default {
       } else {
         return;
       }
+    },
+    productWithSeller(state) {
+      let seller = state.seller;
+      let product = state.product;
+      if (product !== null && product !== undefined) {
+        if (seller !== null && seller !== undefined) {
+          product.seller = seller;
+          return product;
+        }
+      }
+      return;
     }
   },
   actions: {
@@ -121,7 +133,7 @@ export default {
         .catch(error => {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_ERRORS", "Network Error");
+          commit("SET_ERRORS", "Network Error, error fetching ads categories");
         });
     },
     selectedProduct({ commit }, payload) {
@@ -156,13 +168,10 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SIMILAR_PRODUCTS", data);
         })
-        .catch(error => {
+        .catch(() => {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
-          commit(
-            "SET_ERRORS",
-            "Network Error: Error getting similar products."
-          );
+          commit("SET_ERRORS", "Network Error, Error getting similar ads.");
         });
     },
     fetchAllComments({ commit }) {
@@ -177,7 +186,7 @@ export default {
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response);
+          console.log(error.response.data);
         });
     },
     fetchSeller({ commit }, payload) {
@@ -186,17 +195,12 @@ export default {
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
           let seller = data;
-          let product = state.product;
-          if (product !== null && product !== undefined) {
-            if (product.uid == seller.id) {
-              product.seller = seller;
-            }
-          }
+          commit("SET_SELLER", seller);
           // console.log(data)
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response);
+          console.log(error.response.data);
         });
     },
     createProduct({ commit, rootState }, payload) {
@@ -238,9 +242,7 @@ export default {
         .catch(error => {
           if (error.response.status == 500 || error.response.status == 404) {
             commit("auth/SET_LOADING", false, { root: true });
-            commit("SET_ERRORS", {
-              message: "Network Error, Please try again."
-            });
+            commit("SET_ERRORS", "Network Error, Error creating ads.");
           } else if (error.response.status == 400) {
             commit("auth/SET_LOADING", false, { root: true });
             commit("SET_ERRORS", error.response.data);
@@ -273,6 +275,9 @@ export default {
     },
     SET_COMMENTS(state, data) {
       state.comments = data;
+    },
+    SET_SELLER(state, data) {
+      state.seller = data;
     }
   }
 };

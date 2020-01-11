@@ -838,7 +838,7 @@
                         class="hover-color"
                         href="../../dealer/gavien72/index.html"
                       >
-                        {{ product.creator }}
+                        {{ product.seller.firstname }} {{ product.seller.lastname }}
                       </a>
                     </span>
                     <div class="item-date">
@@ -849,7 +849,7 @@
                         class="ad-pub"
                         style="font-size: 14px; margin-top: 4px;"
                       >
-                        <b>Registered:</b> 10 Oct 2019
+                        <b>Registered: {{ format_date(product.seller.createdAt) }}</b> 
                       </p>
                     </div>
                   </div>
@@ -1068,7 +1068,7 @@
 require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 import { ContentLoader } from "vue-content-loader";
 import ash from "lodash";
-
+import moment from "moment";
 export default {
   name: "productDetails",
   data() {
@@ -1091,6 +1091,11 @@ export default {
       ash.trim;
       this.product.photos = newImage;
       // console.log(anotherO);
+    },
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
+      }
     },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
