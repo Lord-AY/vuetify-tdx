@@ -818,10 +818,15 @@
                   <div class="user-photo col-md-4 col-sm-3  col-xs-4">
                     <a href="../../dealer/gavien72/index.html" class="link">
                       <!-- <img class="img-circle" src="@/assets/carspot-css/wp-content/themes/carspot/images/"  alt="Profile Pic"> -->
-                      <img
+<!--                       <img
                         class="img-circle"
                         src="@/assets/images/profile-product-details.jpg"
                         alt="Profile Pic"
+                      />
+ -->                      <img
+                        class="img-circle"
+                        alt="Profile Pic"
+                        :src="avatarCheck ? `http://157.245.82.193/media/${getUser.pictureUrl}` : `http://157.245.82.193/media/avatar.png`"
                       />
                     </a>
                     <!-- <div class="seller-online"></div> -->

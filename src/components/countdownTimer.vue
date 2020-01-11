@@ -1,6 +1,7 @@
 <template>
   <div>
     <div v-show="statusType !== 'expired'">
+      <div class="message">{{ message }}</div>
       <div class="day">
         <span class="number">{{ days }}</span>
         <div class="format">{{ wordString.day }}</div>
@@ -18,7 +19,7 @@
         <div class="format">{{ wordString.seconds }}</div>
       </div>
     </div>
-    <div class="message">{{ message }}</div>
+    <!-- <div class="message">{{ message }}</div> -->
     <!-- <div class="status-tag" :class="statusType">{{ statusText }}</div> -->
   </div>
 </template>
@@ -99,17 +100,17 @@ export default {
 .timer {
   background: #004d40;
   text-align: center;
-  padding: 20px 0;
-  font-size: 20px;
+  padding: 10px 0;
+  font-size: 14px;
   color: #fff;
   text-align: center;
-  margin-top: -10px;
+  margin-top: -1px;
 
   .day,
   .hour,
   .min,
   .sec {
-    font-size: 30px;
+    font-size: 20px;
     display: inline-block;
     font-weight: 500;
     text-align: center;
@@ -134,7 +135,7 @@ export default {
   .message {
     font-size: 14px;
     font-weight: 400;
-    margin-top: 5px;
+    margin-bottom: 5px;
   }
   .status-tag {
     width: 270px;

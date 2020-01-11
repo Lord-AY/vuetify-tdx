@@ -1,27 +1,7 @@
 <template>
   <div>
     <div class="home" v-if="!isLoading">
-      <!--  Timer Component  -->
-      <div id="timer" class="timer">
-        <timer
-          starttime="Jan 2, 2020 09:37:25"
-          endtime="Nov 8, 2020 16:37:25"
-          trans='{  
-            "day":"Days",
-            "hours":"Hours",
-            "minutes":"Minutes",
-            "seconds":"Seconds",
-            "expired":"Promo has been expired.",
-            "running":"🎅 Till the end of promo.",
-            "upcoming":"Till start of promo.",
-            "status": {
-                "expired":"Expired",
-                "running":"Running",
-                "upcoming":"Future"
-              }}'
-        ></timer>
-      </div>
-      <!--  End! Timer Component  -->
+      
       <start></start>
       <categories></categories>
       <sptb :categories="categories"></sptb>
@@ -36,10 +16,14 @@
 </template>
 
 <script>
-require("../../public/assets/css/iocustom.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+// require("../../public/assets/css/iocustom.css");
+
+
+
 import { mapActions, mapGetters } from "vuex";
 
-import timer from "@/components/countdownTimer";
+// import timer from "@/components/countdownTimer";
 import start from "@/components/home/Start";
 import categories from "@/components/home/Categories";
 import sptb from "@/components/home/SPTB";
@@ -61,7 +45,7 @@ export default {
     };
   },
   components: {
-    timer,
+    // timer,
     start,
     categories,
     sptb,
