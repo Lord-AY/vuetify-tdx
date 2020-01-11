@@ -3,7 +3,7 @@
     <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="pdetails">
       <productdetails
-        :product="singleProduct"
+        :product="productWithSeller"
         :similarprods="getSimilarProds"
       ></productdetails>
     </div>
@@ -42,7 +42,7 @@ require("../../public/assets/plugins/fancyuploder/fancy_fileupload.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css"); 
+require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
@@ -88,11 +88,19 @@ export default {
   },
   computed: {
     ...mapState("product", ["products"]),
-    ...mapGetters("product", ["singleProduct", "getSimilarProds"]),
+    ...mapGetters("product", [
+      "singleProduct",
+      "productWithSeller",
+      "getSimilarProds"
+    ]),
     ...mapGetters("auth", ["loading"])
   },
   methods: {
-    ...mapActions("product", ["fetchSimilarProducts", "selectedProduct"]),
+    ...mapActions("product", [
+      "fetchSimilarProducts",
+      "selectedProduct",
+      "fetchSeller"
+    ]),
     sync() {
       // console.log("Jquery mounted");
       $("html,body").animate({ scrollTop: 0 }, "slow");
@@ -104,6 +112,14 @@ export default {
       };
       // console.log(payload);
       this.selectedProduct(payload);
+    },
+    getProductSeller() {
+      this.isLoading = true;
+      const payload = {
+        sellerId: this.singleProduct.uid
+      };
+      // console.log(payload);
+      this.fetchSeller(payload);
     },
     getSimilarProducts() {
       this.isLoading = true;
@@ -151,6 +167,7 @@ export default {
     this.getSingleProduct();
     // get similar products
     this.getSimilarProducts();
+    this.getProductSeller();
   },
   beforeRouteLeave: function(to, from, next) {
     // console.log("this route is about to leave ");

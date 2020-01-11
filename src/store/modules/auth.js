@@ -32,6 +32,11 @@ export default {
       if (state.errors !== null && state.errors !== undefined)
         return state.errors;
     },
+    getLoginError(state) {
+      if (state.loginErrors !== null && state.loginErrors !== undefined) {
+        return state.loginErrors;
+      }
+    },
     logoutError(state) {
       return state.logoutError;
     },

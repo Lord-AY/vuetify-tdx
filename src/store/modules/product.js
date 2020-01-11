@@ -10,6 +10,7 @@ export default {
     comments: null,
     product: null,
     categories: null,
+    seller: null,
     similarProducts: [],
     success: null,
     errors: null
@@ -82,6 +83,17 @@ export default {
       } else {
         return;
       }
+    },
+    productWithSeller(state) {
+      let seller = state.seller;
+      let product = state.product;
+      if (product !== null && product !== undefined) {
+        if (seller !== null && seller !== undefined) {
+          product.seller = seller;
+          return product;
+        }
+      }
+      return;
     }
   },
   actions: {
@@ -183,12 +195,7 @@ export default {
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
           let seller = data;
-          let product = state.product;
-          if (product !== null && product !== undefined) {
-            if (product.uid == seller.id) {
-              product.seller = seller;
-            }
-          }
+          commit("SET_SELLER", seller);
           // console.log(data)
         })
         .catch(error => {
@@ -268,6 +275,9 @@ export default {
     },
     SET_COMMENTS(state, data) {
       state.comments = data;
+    },
+    SET_SELLER(state, data) {
+      state.seller = data;
     }
   }
 };
