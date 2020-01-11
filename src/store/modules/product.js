@@ -121,7 +121,7 @@ export default {
         .catch(error => {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_ERRORS", "Network Error");
+          commit("SET_ERRORS", "Network Error, error fetching ads categories");
         });
     },
     selectedProduct({ commit }, payload) {
@@ -156,13 +156,10 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SIMILAR_PRODUCTS", data);
         })
-        .catch(error => {
+        .catch(() => {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
-          commit(
-            "SET_ERRORS",
-            "Network Error: Error getting similar products."
-          );
+          commit("SET_ERRORS", "Network Error, Error getting similar ads.");
         });
     },
     fetchAllComments({ commit }) {
@@ -177,7 +174,7 @@ export default {
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response);
+          console.log(error.response.data);
         });
     },
     fetchSeller({ commit }, payload) {
@@ -196,7 +193,7 @@ export default {
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response);
+          console.log(error.response.data);
         });
     },
     createProduct({ commit, rootState }, payload) {
@@ -238,9 +235,7 @@ export default {
         .catch(error => {
           if (error.response.status == 500 || error.response.status == 404) {
             commit("auth/SET_LOADING", false, { root: true });
-            commit("SET_ERRORS", {
-              message: "Network Error, Please try again."
-            });
+            commit("SET_ERRORS", "Network Error, Error creating ads.");
           } else if (error.response.status == 400) {
             commit("auth/SET_LOADING", false, { root: true });
             commit("SET_ERRORS", error.response.data);
