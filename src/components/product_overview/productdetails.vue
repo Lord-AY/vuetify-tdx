@@ -826,7 +826,7 @@
  -->                      <img
                         class="img-circle"
                         alt="Profile Pic"
-                        :src="avatarCheck ? `http://157.245.82.193/media/${getUser.pictureUrl}` : `http://157.245.82.193/media/avatar.png`"
+                        :src="avatarCheck ? `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}` : `https://www.tradexplora.com.ng/media/avatar.png`"
                       />
                     </a>
                     <!-- <div class="seller-online"></div> -->
@@ -843,7 +843,7 @@
                     </span>
                     <div class="item-date">
                       <span class="ad-pub">
-                        <b>Last Logged in:</b> 4 months Ago</span
+                        <b>Last Logged in:</b> {{ daysago(format_date(product.seller.updatedAt)) }}</span
                       >
                       <p
                         class="ad-pub"
@@ -1095,6 +1095,11 @@ export default {
     format_date(value) {
       if (value) {
         return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    daysago(dateago){
+      if (dateago){
+        return  moment.duration(moment().diff(dateago)).humanize() + " ago";
       }
     },
     showLoader(data) {
