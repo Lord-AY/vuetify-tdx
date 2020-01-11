@@ -5,7 +5,9 @@
       <productdetails
         :product="productWithSeller"
         :similarprods="getSimilarProds"
-      ></productdetails>
+        :getUser="getUser"
+      >
+      </productdetails>
     </div>
   </div>
 </template>
@@ -93,7 +95,7 @@ export default {
       "productWithSeller",
       "getSimilarProds"
     ]),
-    ...mapGetters("auth", ["loading"])
+    ...mapGetters("auth", ["loading", "getUser"])
   },
   methods: {
     ...mapActions("product", [
@@ -147,6 +149,9 @@ export default {
     // vm.$forceUpdate();
     // fetch single product for view
     this.getSingleProduct();
+    // get similar products
+    this.getSimilarProducts();
+    this.getProductSeller();
   },
   beforeCreate() {
     // console.log("this is before created");
@@ -164,10 +169,10 @@ export default {
     );
     document.head.appendChild(extScript);
     // fetch single product for view
-    this.getSingleProduct();
-    // get similar products
-    this.getSimilarProducts();
-    this.getProductSeller();
+    // this.getSingleProduct();
+    // // get similar products
+    // this.getSimilarProducts();
+    // this.getProductSeller();
   },
   beforeRouteLeave: function(to, from, next) {
     // console.log("this route is about to leave ");
