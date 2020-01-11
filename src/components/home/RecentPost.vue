@@ -61,8 +61,8 @@
                   alt="avatar-img"
                 />
                 <div>
-                  <a href="profile.html" class="text-default">Loyd Nolf</a>
-                  <small class="d-block text-muted">15 days ago</small>
+                  <a href="profile.html" class="text-default">{{ comment.products.creator }}</a>
+                  <small class="d-block text-muted">{{ daysago(format_date(comment.createdAt)) }}</small>
                 </div>
                 <div class="ml-auto text-muted">
                   <a
@@ -110,6 +110,11 @@ export default {
     format_date(value) {
       if (value) {
         return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    daysago(dateago){
+      if (dateago){
+        return  moment.duration(moment().diff(dateago)).humanize() + " ago";
       }
     },
     sync() {

@@ -109,6 +109,15 @@ const routes = [
     }
   },
   {
+    path: "/listbillers",
+    name: "listbillers",
+    component: () => import("../views/listbillers.vue"),
+    meta: {
+      header: 3
+    }
+  },
+
+  {
     path: "/comparison",
     name: "comparison",
     component: () => import("../views/Comparison.vue"),
