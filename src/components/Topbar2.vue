@@ -630,7 +630,7 @@ export default {
     avatarCheck() {
       let answer = false;
       let avatar = this.getUser.pictureUrl;
-      console.log(avatar);
+      // console.log(avatar);
       if(avatar !== null || avatar !== undefined || avatar !== '') {
         return true;
       }
