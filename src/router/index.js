@@ -117,6 +117,15 @@ const routes = [
     }
   },
   {
+    path: "/listbillers",
+    name: "listbillers",
+    component: () => import("../views/listbillers.vue"),
+    meta: {
+      header: 1
+    }
+  },
+
+  {
     path: "/comparison",
     name: "comparison",
     component: () => import("../views/Comparison.vue"),
@@ -268,7 +277,7 @@ const routes = [
     name: "gridlist",
     component: () => import("../views/Gridlist.vue"),
     meta: {
-      header: 1
+      header: 1,
     }
   },
   {
@@ -297,7 +306,7 @@ const routes = [
 ];
 // mode: "history",
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes
 });

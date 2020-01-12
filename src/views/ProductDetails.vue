@@ -40,7 +40,6 @@ require("../../public/assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick-theme.c
 require("../../public/assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
 require("../../public/assets/plugins/fancyuploder/fancy_fileupload.css");
 
-//
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
@@ -162,7 +161,7 @@ export default {
   mounted() {
     // console.log("this route just got mounted");
     let extScript = document.createElement("script");
-    // extScript.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js')
+    extScript.setAttribute('src', '../../public/assets/js/vendors/jquery-3.2.1.min.js')
     extScript.setAttribute(
       "src",
       "../../public/assets/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"

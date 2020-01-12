@@ -104,4 +104,12 @@ Task to be done,
 - postad should be shifted up
 - stickyheader should be fixed
 - sticky header should not change size
+
+https://198.211.99.251/private/?r=%2F
+
+
+
+next endpoint 
+
+http://157.245.82.193/qtell/getbillers
 - hot-sellers carousel on the gridlist shoudl be fixed.

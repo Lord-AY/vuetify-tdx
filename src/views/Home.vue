@@ -76,7 +76,7 @@ export default {
     forceRerender() {
       this.renderKey += 1;
       this.productRender += 1;
-      console.log();
+      // console.log();
     },
     sync() {
       // console.log("Jquery mounted");
@@ -115,10 +115,10 @@ export default {
       handler: function(loading) {
         if (loading) {
           this.isLoading = true;
-          console.log(this.isLoading);
+          // console.log(this.isLoading);
         }
         this.isLoading = false;
-        console.log(this.isLoading);
+        // console.log(this.isLoading);
       }
     },
     getErrors: {
