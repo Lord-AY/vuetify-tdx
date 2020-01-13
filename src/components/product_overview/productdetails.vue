@@ -1075,7 +1075,7 @@ export default {
     return {
       limit: 3,
       limitBtn: true,
-      isHidden: false
+      isHidden: false,
     };
   },
   components: {
@@ -1083,7 +1083,8 @@ export default {
   },
   props: {
     product: Object,
-    similarprods: [Object, Array]
+    similarprods: [Object, Array],
+    getUser: [Object, Array]
   },
   methods: {
     filterImages() {
@@ -1092,6 +1093,14 @@ export default {
       this.product.photos = newImage;
       // console.log(anotherO);
     },
+  avatarCheck () {
+      let avatar = this.getUser.pictureUrl;
+      if(avatar !== null || avatar !== undefined || avatar !== '') {
+        // return `http://157.245.82.193/media/${getUser.pictureURL}`;
+        return true;
+      }
+      return false;
+  },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("YYYY-MM-DD");

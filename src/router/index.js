@@ -113,6 +113,14 @@ const routes = [
     component: () => import("../views/ProductDetails.vue"),
     meta: {
       header: 1
+    },
+    beforeEnter: (to, from, next) => {
+      if (to === from) {
+        window.location.reload();
+        return next();
+      } else {
+        next();
+      }
     }
   },
   {
