@@ -34,16 +34,12 @@ export default {
       const categories = state.categories;
       const subcategories = state.subcategories;
       if (categories !== null && categories !== undefined) {
-        if(subcategories !== null && subcategories !== undefined) {
-          if(ash.isEmpty(subcategories)){
-            console.log("returned before the loop");
-            return categories
-          }
+        if(subcategories !== null && subcategories !== undefined && subcategories.length > 0) {
           for(let category in categories) {
             for( let subcat in subcategories) {
             categories[category].subcategory = subcategories[subcat];
             }
-          }
+        }
           console.log("returned after the loop");
           return categories;
         }
