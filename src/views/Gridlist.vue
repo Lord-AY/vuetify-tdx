@@ -1697,19 +1697,28 @@ export default {
   mounted() {
     // console.log("this route just got mounted");
     // this.$forceUpdate();
+    if (localStorage.getItem('reloaded')) {
+        // The page was just reloaded. Clear the value from local storage
+        // so that it will reload the next time this page is visited.
+        localStorage.removeItem('reloaded');
+    } else {
+        // Set a flag so that we know not to reload the page twice.
+        localStorage.setItem('reloaded', '1');
+        location.reload();
+    }
     this.sync();
   },
-  beforeRouteLeave: function(to, from, next) {
-      if (this.prevRoute.path === to.path) {
-        this.$router.go(to.path);
-      }
-      next()
-  },
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      vm.prevRoute = from
-    })
-  },
+  // beforeRouteLeave: function(to, from, next) {
+  //     if (this.prevRoute.path === to.path) {
+  //       this.$router.go(to.path);
+  //     }
+  //     next()
+  // },
+  // beforeRouteEnter(to, from, next) {
+  //   next(vm => {
+  //     vm.prevRoute = from
+  //   })
+  // },
 };
 </script>
 
@@ -1752,7 +1761,8 @@ html{
 /*.ad-meta:first-child a {
   margin-right: 10px;
 }
-*/</style>
+*/
+</style>
 <style scoped>
 /*@media only screen and (max-width: 991px) {
   .horizontal-header .smllogo {

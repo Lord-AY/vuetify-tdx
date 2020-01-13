@@ -163,12 +163,14 @@ export default {
     // console.log("this is before mounted");
   },
   mounted() {
-    if (localStorage.getItem("reloader") === 1) {
-      // localStorage.removeItem("reloader")
-      location.reload();
-    } else if (localStorage.getItem("reloader") === 0) {
-      // localStorage.setItem("reloader", "0")
-      // location.reload();
+    if (localStorage.getItem('reloaded')) {
+        // The page was just reloaded. Clear the value from local storage
+        // so that it will reload the next time this page is visited.
+        localStorage.removeItem('reloaded');
+    } else {
+        // Set a flag so that we know not to reload the page twice.
+        localStorage.setItem('reloaded', '1');
+        location.reload();
     }
   }
 };
