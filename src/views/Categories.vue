@@ -55,25 +55,24 @@
                           </h3></a
                         >
                       </div>
-                      <div v-if="category.subcategories">
-                      <div class="card-body border"
-                        v-for="(subcategories, index) in category.subcategories"
-                        :key="index">
-                        <ul class="list-unstyled widget-spec  p-1 mb-0">
-                          <li class="" v-for="subcategory in subcategories" :Key="subcategory.id">
-                            <a href="#" class="text-dark"
-                              ><i
-                                class="typcn typcn-chevron-right text-primary"
-                              ></i>
-                              {{ subcategory.name }}</a
-                            >
-                          </li>
-                          <li class="mb-0">
-                            <a href="#" class="text-primary"> View more..</a>
-                          </li>
-                        </ul>
+                      <div v-if="category.subcategory">
+                        <div class="card-body border">
+                          <ul class="list-unstyled widget-spec  p-1 mb-0">
+                            <!-- {{ category.subcategory }} -->
+                            <li class="" v-for="subcategory in category.subcategory" :Key="subcategory.id">
+                              <a href="#" class="text-dark"
+                                ><i
+                                  class="typcn typcn-chevron-right text-primary"
+                                ></i>
+                                {{ subcategory.name }}</a
+                              >
+                            </li>
+                            <li class="mb-0">
+                              <a href="#" class="text-primary"> View more..</a>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
-                    </div>
                       <div v-else>There are no subcategories...</div>
                     </div>
                   </div>
