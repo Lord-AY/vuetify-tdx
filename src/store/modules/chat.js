@@ -63,7 +63,6 @@ export default {
 			// const temp = userMessages.concat(fetchedMessagesFrom, fetchedMessagesTo);
 			// console.log(userMessages);
 			commit("SET_MESSAGES_TO", fetchedMessagesTo);
-			
 			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
 			console.log(fetchedMessagesFrom);
 			console.log(fetchedMessagesTo);
