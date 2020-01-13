@@ -95,7 +95,8 @@ export default {
   },
 
   computed: {
-    ...mapGetters("product", ["categories"])
+    ...mapGetters("product", ["categories"]),
+    // ...mapState("product", ["categories"])
   },
 
   methods: {

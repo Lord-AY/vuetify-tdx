@@ -724,6 +724,7 @@ export default {
     getSentWithRecievedOfferUsers() {
       let fromMessagePayload = this.getMessages.from;
       let toMessagePayload = this.getMessages.to;
+      // console.log(toMessagePayload);
       this.getSentOfferUsers(fromMessagePayload);
       this.getRecievedOfferUsers(toMessagePayload);
     }
