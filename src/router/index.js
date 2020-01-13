@@ -139,7 +139,22 @@ const routes = [
       header: 1
     }
   },
-
+  {
+    path: "/billercategory/:category",
+    name: "listbillers",
+    component: () => import("../views/billersCategory.vue"),
+    meta: {
+      header: 1
+    }
+  },
+  {
+    path: "/paymentitem/:payid",
+    name: "listbillers",
+    component: () => import("../views/billerspaymentitem.vue"),
+    meta: {
+      header: 1
+    }
+  },
   {
     path: "/comparison",
     name: "comparison",
