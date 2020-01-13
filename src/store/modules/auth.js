@@ -98,7 +98,7 @@ export default {
         })
         .catch(error => {
           commit("SET_LOADING", false);
-          console.log(error.response);
+          // console.log(error.response);
           // check if error obj is empty
           if (ash.isEmpty(error.response.data)) {
             // if empty then user cant be found
