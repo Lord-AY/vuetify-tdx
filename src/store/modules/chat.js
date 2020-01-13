@@ -8,10 +8,10 @@ export default {
 	},
 	getters: {
 		getMessages(state) {
-			let fullMessages = [];
-			fullMessages.push(state.messagesTo);
-			fullMessages.push(state.messagesFrom);
-			return fullMessages;
+			if (state.messages !== null && state.messages !== undefined) {
+				return state.messages;
+			}
+			return;
 		}
 	},
 	actions: {
@@ -62,18 +62,24 @@ export default {
 			});
 			// const temp = userMessages.concat(fetchedMessagesFrom, fetchedMessagesTo);
 			// console.log(userMessages);
-			commit("SET_MESSAGES_TO", fetchedMessagesTo);
-			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
-			console.log(fetchedMessagesFrom);
-			console.log(fetchedMessagesTo);
+			// commit("SET_MESSAGES_TO", fetchedMessagesTo);
+			// commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
+			// console.log(fetchedMessagesFrom);
+			// console.log(fetchedMessagesTo);
 
-			console.log(rootState.chat.messages);
+			// console.log(rootState.chat.messages);
 		},
 		getSentOfferUsers({ commit }, payload) {
 			for (let user in payload) {
 				// get users messages are being sent to
-				User;
-				console.log(payload[user].to);
+				UserService.user(payload[user].from)
+					.then(({ data }) => {
+						console.log(data);
+					})
+					.catch(error => {
+						console.log(error);
+					});
+				// console.log(payload[user].to);
 			}
 		},
 		getRecievedOfferUsers({ commit }, payload) {

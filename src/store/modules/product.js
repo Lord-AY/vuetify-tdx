@@ -36,8 +36,13 @@ export default {
       if (categories !== null && categories !== undefined) {
         if(subcategories !== null && subcategories !== undefined && subcategories.length > 0) {
           for(let category in categories) {
-            for( let subcat in subcategories) {
-            categories[category].subcategory = subcategories[subcat];
+            for ( let subcat in subcategories) {
+              if(categories[category].id == subcategories[subcat].parent) {
+                let subcategoryArr = [];
+                subcategoryArr.push(subcategories[subcat]);
+                //  categories[category].subcategory = subcategories[subcat]
+                // console.log(categories);
+              }
             }
         }
           console.log("returned after the loop");

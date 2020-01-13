@@ -55,17 +55,15 @@
                           </h3></a
                         >
                       </div>
-                      <div v-if="category.subcategories">
-                      <div class="card-body border"
-                        v-for="(subcategories, index) in category.subcategories"
-                        :key="index">
+                      <div v-if="category.subcategory">
+                      <div class="card-body border">
                         <ul class="list-unstyled widget-spec  p-1 mb-0">
-                          <li class="" v-for="subcategory in subcategories" :Key="subcategory.id">
+                          <li class="" v-for="subcat in category.subcategory" :Key="subcat.id">
                             <a href="#" class="text-dark"
                               ><i
                                 class="typcn typcn-chevron-right text-primary"
                               ></i>
-                              {{ subcategory.name }}</a
+                              {{ subcat.name }} </a
                             >
                           </li>
                           <li class="mb-0">
@@ -96,7 +94,8 @@ export default {
   },
 
   computed: {
-    ...mapGetters("product", ["categories"])
+    ...mapGetters("product", ["categories"]),
+    // ...mapState("product", ["categories"])
   },
 
   methods: {
