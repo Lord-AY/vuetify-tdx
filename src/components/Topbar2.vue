@@ -627,13 +627,14 @@ export default {
     setLogout() {
       this.logoutUser();
     },
-    avatarCheck() {
-      let answer = false;
-      let avatar = this.getUser.pictureUrl;
-      // console.log(avatar);
-      if(avatar !== null || avatar !== undefined || avatar !== '') {
-        return true;
-      }
+   avatarCheck () {
+        if(this.isLoggedIn) {
+           let avatar = this.getUser.pictureUrl;
+            if(avatar !== null || avatar !== undefined || avatar !== '') {
+              // return `https://www.tradexplora.com.ng/media/${getUser.pictureURL}`;
+              return true;
+            }
+        }
         return false;
     },
     sync() {
