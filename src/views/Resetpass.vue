@@ -1,27 +1,26 @@
 <template>
-  <div class="login">
-    <Login
+  <div class="resetpass">
+    <resetpass
       :loginFields="loginData"
       :submit="sendLoginData"
       :errors="dbErrors"
       :loading="loading"
-    ></Login>
+    ></resetpass>
   </div>
 </template>
 
 <script>
-import Login from "@/components/auth/signin";
+import resetpass from "@/components/auth/forgotpass";
 import { mapActions } from "vuex";
 export default {
-  name: "signin",
+  name: "resetpass",
   components: {
-    Login
+    resetpass
   },
   data() {
     return {
       loginData: {
-        email: "",
-        password: ""
+        email: ""
       },
       dbErrors: ""
     };

@@ -39,9 +39,10 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/footerSpecial
 require("../../public/assets/plugins/fancyuploder/fancy_fileupload.css");
 
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+require("../../public/assets/css/imported/style4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
@@ -78,7 +79,8 @@ export default {
     return {
       product: {},
       isLoading: true,
-      fullPage: true
+      fullPage: true,
+      prevRoute: null
     };
   },
   components: {
@@ -169,9 +171,16 @@ export default {
     this.getProductSeller();
   },
   beforeRouteLeave: function(to, from, next) {
-    // console.log("this route is about to leave ");
-    next();
-  }
+      if (this.prevRoute.path === to.path) {
+        this.$router.go(to.path);
+      }
+      next()
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.prevRoute = from
+    })
+  },
 };
 </script>
 <style scoped>

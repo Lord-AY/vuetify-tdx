@@ -61,6 +61,21 @@ const routes = [
     }
   },
   {
+    path: "/reset",
+    name: "reset",
+    component: () => import("../views/Resetpass.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "home" });
+      }
+      next();
+    },
+    meta: {
+      header: 0
+    }
+  },
+  {
     path: "/valueadded",
     name: "valAdd",
     component: () => import("../views/val-add.vue"),
