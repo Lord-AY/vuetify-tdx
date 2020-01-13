@@ -731,7 +731,7 @@ export default {
   created() {
     this.fetchAllMessages();
     this.getSentWithRecievedOfferUsers();
-    console.log(this.getMessages);
+    // console.log(this.getMessages);
   }
 };
 </script>

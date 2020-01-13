@@ -128,7 +128,7 @@ const routes = [
     name: "categories",
     component: () => import("../views/Categories.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {

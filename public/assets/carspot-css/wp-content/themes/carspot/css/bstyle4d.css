@@ -7827,7 +7827,7 @@ body .over-hidden {
 .services-grid p:last-child {
     margin-bottom: 0
 }
-
+/*
 footer.footer-bg.dark {
     background:#363c48 none repeat scroll 0 0;
     border-top:medium none;
@@ -7838,8 +7838,8 @@ footer.footer-bg.dark  .footer-top .widget h5 , footer.footer-bg.dark .footer-to
 }
 
 footer.footer-bg {
-    /* padding-bottom: 60px;
-    position: relative; */
+     padding-bottom: 60px;
+    position: relative; 
     border-top: 1px dashed #ddd;
     background: rgba(0, 0, 0, 0) url("../images/footer-banner.png") repeat-x scroll center bottom
 }
@@ -7976,7 +7976,7 @@ footer.footer-bg {
     height: 48px;
     padding: 0 15px;
     width: 100%
-}
+}*/
 .widget-newsletter .fieldset P {
     line-height: 27.8px;
     margin-bottom: 20px
@@ -8009,6 +8009,7 @@ footer.footer-bg {
 .copyright p {
     margin: 20px 0 0 0
 }
+/*
 .footer-area p {
     line-height: 1.8em;
     margin-bottom: 20px;
@@ -8105,7 +8106,7 @@ footer.footer-bg {
 .footer-content .column h2:hover {
     color: #f58936;
     cursor: pointer
-}
+}*/
 .social-links-two {
     position: relative
 }
@@ -8457,6 +8458,7 @@ footer.footer-bg {
 .parallex .heading-panel p.heading-text {
     color: #fff
 }
+/*
 .sidebar #accordion .input-group-addon {
     border-radius: 0;
     width: 55px
@@ -8478,7 +8480,7 @@ footer.footer-bg {
 }
 .sidebar #accordion .panel .panel-body {
     border-bottom: 1px solid #eee
-}
+}*/
 
 
 
@@ -11000,7 +11002,7 @@ body.rtl  .ecommerce-shop .mega-menu .menu-links {
 .sell-box.sell-box-2.black_text h3, .sell-box.sell-box-2.black_text .sell-box-grid a.headings, .sell-box.sell-box-2.black_text .sell-box-grid p {
     color:#242424;	
 }
-
+/*
 .footer-transparent {
     padding-top: 80px;
     padding-bottom: 30px;
@@ -11116,7 +11118,7 @@ body.rtl  .ecommerce-shop .mega-menu .menu-links {
     color: #E52D27;
     text-decoration: underline;
     font-weight: 600;
-}
+}*/
 /*MENU TRANSPARENT WITH SEARCH BAR*/
 
 .mega-menu.with-search {
@@ -13250,11 +13252,11 @@ ul.review-stars li.star {
 .header-main .top-bar-right .custom li:last-child {
 	margin-right: 0!important;
 }
-.btn-theme {
+/*.btn-theme {
     background-color: #4CAF50!important;
     border-color: #4CAF50!important;
 }
-/* .btn-tx {
+*//* .btn-tx {
     max-width: 106px;
     padding: 10px!important;
     border-radius: 0px!important;

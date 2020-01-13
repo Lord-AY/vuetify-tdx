@@ -64,6 +64,7 @@ export default {
 			// console.log(userMessages);
 			// commit("SET_MESSAGES_TO", fetchedMessagesTo);
 			// commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
+			console.log(rootState.chat.messages);
 		},
 		getSentOfferUsers({ commit }, payload) {
 			for (let user in payload) {

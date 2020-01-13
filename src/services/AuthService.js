@@ -9,5 +9,8 @@ export default {
   },
   logout(credentials) {
     return Api().post("auth/logout", credentials);
+  },
+  reset(credentials) {
+    return Api().post("auth/reset", credentials);
   }
 };

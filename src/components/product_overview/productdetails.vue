@@ -1065,7 +1065,7 @@
 // import productSlider from "@/components/product_overview/productSlider";
 // import pricingArea from "@/components/product_overview/pricingArea";
 
-require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+// require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 import { ContentLoader } from "vue-content-loader";
 import ash from "lodash";
 import moment from "moment";
