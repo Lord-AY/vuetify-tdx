@@ -10,6 +10,7 @@ export default {
     comments: null,
     product: null,
     categories: null,
+    subcategories: null,
     seller: null,
     similarProducts: [],
     success: null,
@@ -30,8 +31,23 @@ export default {
       return;
     },
     categories(state) {
-      if (state.categories !== null && state.categories !== undefined) {
-        return state.categories;
+      const categories = state.categories;
+      const subcategories = state.subcategories;
+      if (categories !== null && categories !== undefined) {
+        if(subcategories !== null && subcategories !== undefined) {
+          if(ash.isEmpty(subcategories)){
+            console.log("returned before the loop");
+            return categories
+          }
+          for(let category in categories) {
+            for( let subcat in subcategories) {
+            categories[category].subcategory = subcategories[subcat];
+            }
+          }
+          console.log("returned after the loop");
+          return categories;
+        }
+        return categories;
       }
       return;
     },
@@ -135,6 +151,20 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", "Network Error, error fetching ads categories");
         });
+    },
+    fetchSubCategories({commit}, payload) {
+        commit("auth/SET_LOADING", true, { root: true });
+         commit("SET_ERRORS", null);
+         ProductService.subcategory(payload)
+         .then(({data}) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          let subcategories = data;
+          // console.log(subcategories);
+          commit("SET_SUBCATEGORIES", subcategories);
+         }).catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", "Cant connect to server...");
+         });
     },
     selectedProduct({ commit }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
@@ -278,6 +308,9 @@ export default {
     },
     SET_SELLER(state, data) {
       state.seller = data;
+    },
+    SET_SUBCATEGORIES(state, subcategories) {
+      state.subcategories = subcategories;
     }
   }
 };
