@@ -46,7 +46,7 @@
                   <a href="#"></a>
                   <div class="item-card-img">
                     <img
-                      :src="`http://157.245.82.193/media/${category.icon}`"
+                      :src="`https://tradexplora.com.ng/media/${category.icon}`"
                       alt="img"
                       class="br-tr-7 br-tl-7"
                     />

@@ -128,7 +128,7 @@ const routes = [
     name: "categories",
     component: () => import("../views/Categories.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {
@@ -281,7 +281,7 @@ const routes = [
   },
   {
     path: "/mainsettings",
-    name: "settings",
+    name: "mainsettings",
     component: () => import("../views/settings-carspot.vue"),
     meta: {
       header: 2
