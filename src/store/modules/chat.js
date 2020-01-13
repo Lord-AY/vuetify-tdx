@@ -2,17 +2,45 @@ import ash from "lodash";
 export default {
 	namespaced: true,
 	state: {
-		messages: null,
+		messagesTo: {
+			to: [
+				{
+					to: 2,
+					message: "Send you an invite",
+					from: 1
+				},
+				{
+					to: 2,
+					message: "Added the link now",
+					from: 1
+				}
+			]
+		},
+		messagesFrom: {
+			from: [
+				{
+					to: 1,
+					message: "Did you see my mail",
+					from: 2
+				},
+				{
+					to: 1,
+					message: "I sent you a link to join",
+					from: 2
+				}
+			]
+		},
 		sentUsers: null,
 		recievedUsers: null
 	},
 	getters: {
 		getMessages(state) {
-			if (state.messages !== null && state.messages !== undefined) {
-				return state.messages;
-			}
-			return;
-		},
+			// if (state.messages !== null && state.messages !== undefined) {
+			// 	return state.messages;
+			// }
+			let fullMessages = {...state.messagesTo, ...state.messagesFrom };
+			return fullMessages;
+		}
 	},
 	actions: {
 		sendMessage({ commit, rootState }, payload) {
@@ -50,23 +78,25 @@ export default {
 						fetchedMessagesFrom.push(doc.data());
 					});
 				});
+			console.log(fetchedMessagesTo);
 			userMessages.to = fetchedMessagesTo;
 			userMessages.from = fetchedMessagesFrom;
+			// const temp = userMessages.concat(fetchedMessagesFrom, fetchedMessagesTo);
 			console.log(userMessages);
 			commit("SET_MESSAGES", userMessages);
 		},
-		// getSentOfferUsers({ commit }, payload) {
-		// 		console.log(payload);
-		// 	for (let user in payload) {
-		// 		// get users messages are being sent to
-		// 	}
-		// },
-		// getRecievedOfferUsers({ commit }, payload) {
-		// 	for (let user in payload) {
-		// 		// get users sending to messages
-		// 		console.log(payload[user].from);
-		// 	}
-		// }
+		getSentOfferUsers({ commit }, payload) {
+			console.log(payload);
+			for (let user in payload) {
+				// get users messages are being sent to
+			}
+		},
+		getRecievedOfferUsers({ commit }, payload) {
+			for (let user in payload) {
+				// get users sending to messages
+				console.log(payload[user].from);
+			}
+		}
 	},
 	mutations: {
 		SET_MESSAGES(state, data) {
