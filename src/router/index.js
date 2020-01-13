@@ -111,7 +111,7 @@ const routes = [
   {
     path: "/listbillers",
     name: "listbillers",
-    component: () => import("../views/Listbillers.vue"),
+    component: () => import("../views/listbillers.vue"),
     meta: {
       header: 1
     }

@@ -13,11 +13,11 @@
                 <div class="form row">
                   <!-- <div class="col-xl-1 col-lg-2"></div> -->
                   <div
-                    class="form-group main-search-spacing col-xl-5 col-lg-5 col-md-12 mb-0  "
+                    class="main-search-spacing form-group col-xl-5 col-lg-5 col-md-12 mb-0  "
                   >
                     <input
                       type="text"
-                      class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
+                      class="main-search form-control input-lg br-tr-md-0 br-br-md-0 "
                       id="text4"
                       placeholder="What are you looking for?"
                     />
@@ -26,11 +26,11 @@
                     ></span>
                   </div>
                   <div
-                    class="form-group main-search-spacing col-xl-3 col-lg-3 col-md-12 mb-0  "
+                    class="main-search-spacing form-group col-xl-3 col-lg-3 col-md-12 mb-0  "
                   >
                     <input
                       type="text"
-                      class="form-control input-lg br-tr-md-0 br-br-md-0 main-location"
+                      class="main-location form-control input-lg br-tr-md-0 br-br-md-0"
                       id="text4"
                       placeholder="Location"
                     />
@@ -39,10 +39,10 @@
                     ></span>
                   </div>
                   <div
-                    class="form-group main-search-spacing col-xl-3 col-lg-3 col-md-12 select2-lg  mb-0 "
+                    class="main-search-spacing form-group col-xl-3 col-lg-3 col-md-12 select2-lg  mb-0 "
                   >
                     <select
-                      class="form-control select2-show-search  border-bottom-0 select-home-page main-category"
+                      class="main-category form-control select2-show-search  border-bottom-0 select-home-page "
                       data-placeholder="Property Type"
                     >
                       <optgroup label="Categories">
@@ -59,10 +59,10 @@
                     <span><i class="fa fa-bars location-gps mr-1"></i></span>
                   </div>
 
-                  <div class="mb-0 main-search-button-container">
+                  <div class="main-search-button-container mb-0">
                     <a
                       href="#"
-                      class="btn btn-lg tx-btn-color br-tl-md-0 br-bl-md-0 main-search-button"
+                      class="main-search-button btn btn-lg tx-btn-color br-tl-md-0 br-bl-md-0 "
                       ><i class="fa fa-search"></i
                     ></a>
                   </div>
