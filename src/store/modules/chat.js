@@ -52,7 +52,7 @@ export default {
 						// commit("SET_MESSAGES_FROM", doc.data());
 					});
 				});
-			console.log(fetchedMessagesTo);
+			// console.log(fetchedMessagesTo);
 			userMessages.to = fetchedMessagesTo;
 			userMessages.from = fetchedMessagesFrom;
 			// console.log(userMessages);
