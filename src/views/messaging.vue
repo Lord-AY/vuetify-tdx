@@ -729,7 +729,7 @@ export default {
     }
   },
   created() {
-    // this.fetchAllMessages();
+    this.fetchAllMessages();
     this.getSentWithRecievedOfferUsers();
     console.log(this.getMessages);
   }
