@@ -33,18 +33,17 @@ export default {
     categories(state) {
       const categories = state.categories;
       const subcategories = state.subcategories;
+      const substore = []
       if (categories !== null && categories !== undefined) {
         if(subcategories !== null && subcategories !== undefined && subcategories.length > 0) {
           for(let category in categories) {
-            for ( let subcat in subcategories) {
-              if(categories[category].id == subcategories[subcat].parent) {
-                let subcategoryArr = [];
-                subcategoryArr.push(subcategories[subcat]);
-                //  categories[category].subcategory = subcategories[subcat]
-                // console.log(categories);
+            for( let subcat in subcategories) {
+              if(categories[category].id == subcategories[subcat].parent){
+                substore.push(subcategories[subcat]);
+                categories[category].subcategory = substore;
               }
             }
-        }
+          }
           console.log("returned after the loop");
           return categories;
         }
