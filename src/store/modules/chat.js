@@ -2,8 +2,7 @@ import ash from "lodash";
 export default {
 	namespaced: true,
 	state: {
-		messagesTo: [],
-		messagesFrom: [],
+		messages: {},
 		sentUsers: null,
 		recievedUsers: null
 	},
@@ -28,6 +27,7 @@ export default {
 		fetchUserMessages({ commit, rootState }) {
 			let fetchedMessagesTo = [];
 			let fetchedMessagesFrom = [];
+			let userMessages = {};
 			chatDb
 				.collection("chat")
 				.where("to", "==", rootState.auth.user.id)
@@ -36,6 +36,7 @@ export default {
 					querySnapshot.forEach(doc => {
 						// statements
 						// console.log(doc.data())
+						// commit("SET_MESSAGES_TO", doc.data());
 						fetchedMessagesTo.push(doc.data());
 					});
 				});
@@ -48,21 +49,27 @@ export default {
 						// statements
 						// console.log(doc.data())
 						fetchedMessagesFrom.push(doc.data());
+						// commit("SET_MESSAGES_FROM", doc.data());
 					});
 				});
-			// console.log(fetchedMessagesTo);
-			// userMessages.to = fetchedMessagesTo;
-			// userMessages.from = fetchedMessagesFrom;
+			console.log(fetchedMessagesTo);
+			userMessages.to = fetchedMessagesTo;
+			userMessages.from = fetchedMessagesFrom;
+			// console.log(userMessages);
+			commit("SET_MESSAGES", {
+				to: fetchedMessagesTo,
+				from: fetchedMessagesFrom
+			});
 			// const temp = userMessages.concat(fetchedMessagesFrom, fetchedMessagesTo);
 			// console.log(userMessages);
-			commit("SET_MESSAGES_TO", fetchedMessagesTo);
-			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
+			// commit("SET_MESSAGES_TO", fetchedMessagesTo);
+			// commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
 		},
 		getSentOfferUsers({ commit }, payload) {
 			for (let user in payload) {
 				// get users messages are being sent to
-			User
-			console.log(payload[user].to);
+				User;
+				console.log(payload[user].to);
 			}
 		},
 		getRecievedOfferUsers({ commit }, payload) {
@@ -73,11 +80,9 @@ export default {
 		}
 	},
 	mutations: {
-		SET_MESSAGES_TO(state, data) {
-			state.messagesTo = data;
-		},
-		SET_MESSAGES_FROM(state, data) {
-			state.messagesFrom = data;
+		SET_MESSAGES(state, { to, from }) {
+			state.messages.to = to;
+			state.messages.from = from;
 		}
 	}
 };

@@ -711,7 +711,7 @@
                             <a href="#" class="text-dark"
                               ><i
                                 class="typcn typcn-chevron-right text-primary"
-                              ></i
+                              ></i>
                               >New/Resal</a
                             >
                           </li>
