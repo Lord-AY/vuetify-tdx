@@ -823,7 +823,7 @@
                         src="@/assets/images/profile-product-details.jpg"
                         alt="Profile Pic"
                       />
- -->                      <img
+ -->                  <img
                         class="img-circle"
                         alt="Profile Pic"
                         :src="avatarCheck ? `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}` : `https://www.tradexplora.com.ng/media/avatar.png`"
