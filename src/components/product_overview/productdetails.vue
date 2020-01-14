@@ -817,16 +817,17 @@
                 <div class="user-info-card">
                   <div class="user-photo col-md-4 col-sm-3  col-xs-4">
                     <a href="../../dealer/gavien72/index.html" class="link">
-                      <!-- <img class="img-circle" src="@/assets/carspot-css/wp-content/themes/carspot/images/"  alt="Profile Pic"> -->
-<!--                       <img
+                      <img
+                        v-if="getUser === null"
                         class="img-circle"
-                        src="@/assets/images/profile-product-details.jpg"
                         alt="Profile Pic"
+                        src="https://www.tradexplora.com.ng/media/avatar.png"
                       />
- -->                  <img
+                       <img
+                        v-else
                         class="img-circle"
                         alt="Profile Pic"
-                        :src="avatarCheck ? `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}` : `https://www.tradexplora.com.ng/media/avatar.png`"
+                        :src="`https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`"
                       />
                     </a>
                     <!-- <div class="seller-online"></div> -->
@@ -1087,12 +1088,6 @@ export default {
     getUser: [Object, Array]
   },
   methods: {
-    filterImages() {
-      let newImage = this.product.photos;
-      ash.trim;
-      this.product.photos = newImage;
-      // console.log(anotherO);
-    },
   avatarCheck () {
       let avatar = this.getUser.pictureUrl;
       if(avatar !== null || avatar !== undefined || avatar !== '') {
@@ -1185,8 +1180,6 @@ export default {
   },
   created() {
     this.sync();
-    // console.log(JSON.parse(this.product.photos));
-    this.filterImages();
   }
 };
 </script>
