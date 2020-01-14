@@ -3,7 +3,8 @@ export default {
 	namespaced: true,
 	state: {
 		messagesTo: {},
-		messagesFrom: {}
+		messagesFrom: {},
+		allMessage: null
 	},
 	getters: {
 		getMessagesTo(state) {
@@ -15,6 +16,12 @@ export default {
 		getMessagesFrom(state) {
 			if (state.messagesFrom !== null && state.messagesFrom !== undefined) {
 				return state.messagesFrom;
+			}
+			return;
+		},
+		getAllMessage(state) {
+			if (state.allMessage !== null && state.allMessage !== undefined) {
+				return state.allMessage;
 			}
 			return;
 		}
@@ -64,7 +71,7 @@ export default {
 			// console.log(parsedObj)
 
 			for(let i in parsedObj){
-				console.log(parsedObj[i])
+				// console.log(parsedObj[i])
 			}
 			// let keys = Object.keys(payload);
 			// parsedyourElement.forEach(key => {
@@ -77,11 +84,18 @@ export default {
 			console.log("start received message")
 
 			for(let i in parsedObj){
-				console.log(parsedObj[i])
+				// console.log(parsedObj[i])
 			}
+		},
+		getAll({ commit }, fromMessagePayload, toMessagePayload){
+			const allMessage = {...fromMessagePayload, ...toMessagePayload}
+			commit("SET_MESSAGES_ALL", allMessage);
 		}
 	},
 	mutations: {
+		SET_MESSAGES_ALL(state, allmessage ) {
+			state.allMessage = allmessage;
+		},
 		SET_MESSAGES_TO(state, to ) {
 			state.messagesTo = to;
 		},
