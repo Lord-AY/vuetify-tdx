@@ -842,11 +842,13 @@ export default {
       this.logoutUser();
     },
       avatarCheck () {
-      let avatar = this.getUser.pictureUrl;
-      if(avatar !== null || avatar !== undefined || avatar !== '') {
-        // return `https://www.tradexplora.com.ng/media/${getUser.pictureURL}`;
-        return true;
-      }
+        if(this.isLoggedIn) {
+           let avatar = this.getUser.pictureUrl;
+            if(avatar !== null || avatar !== undefined || avatar !== '') {
+              // return `https://www.tradexplora.com.ng/media/${getUser.pictureURL}`;
+              return true;
+            }
+        }
         return false;
     },
     sync() {
