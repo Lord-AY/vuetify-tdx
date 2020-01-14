@@ -734,7 +734,7 @@ export default {
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
       this.getAll(fromMessagePayload, toMessagePayload);
-      console.log(allMessages);
+      // console.log(allMessages);
     }
   },
   created() {

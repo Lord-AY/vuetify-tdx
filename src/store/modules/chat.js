@@ -4,7 +4,7 @@ export default {
 	state: {
 		messagesTo: {},
 		messagesFrom: {},
-		allMessage: null
+		allMessage: {}
 	},
 	getters: {
 		getMessagesTo(state) {
@@ -88,7 +88,10 @@ export default {
 			}
 		},
 		getAll({ commit }, fromMessagePayload, toMessagePayload){
-			const allMessage = {...fromMessagePayload, ...toMessagePayload}
+			var fromMessagePayload = JSON.parse(JSON.stringify(fromMessagePayload));
+			var toMessagePayload = JSON.parse(JSON.stringify(toMessagePayload));
+			const allMessage = Object.assign(fromMessagePayload,toMessagePayload);
+			console.log(allMessage);
 			commit("SET_MESSAGES_ALL", allMessage);
 		}
 	},

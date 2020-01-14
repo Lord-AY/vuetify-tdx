@@ -449,7 +449,7 @@
                         <div v-if="category.subcategory">
                         <a href="/categories" v-for="subcategory in category.subcategory" :key="subcategory.id">{{ subcategory.name }}</a>
                         </div>
-                        <a href="/categories" v-eles="">No subcategories present.</a>
+                        <a href="/categories" v-else="">No subcategories present.</a>
                       </section>
                      <!--  <section class="titled-group">
                         <header>Category Title</header>

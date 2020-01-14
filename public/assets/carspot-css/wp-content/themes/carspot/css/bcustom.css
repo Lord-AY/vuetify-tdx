@@ -798,7 +798,7 @@
 .glyphicon-menu-up:before {
   content: "\e260";
 }
-.img-responsive,
+/*.img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
 .carousel-inner > .item > img,
@@ -807,6 +807,7 @@
   max-width: 100%;
   height: auto;
 }
+*/
 .img-rounded {
   border-radius: 6px;
 }

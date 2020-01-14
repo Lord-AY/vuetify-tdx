@@ -1694,20 +1694,20 @@ export default {
   beforeMount() {
     // console.log("this is before mounted");
   },
-  mounted() {
-    // console.log("this route just got mounted");
-    // this.$forceUpdate();
-    if (localStorage.getItem('reloaded')) {
-        // The page was just reloaded. Clear the value from local storage
-        // so that it will reload the next time this page is visited.
-        localStorage.removeItem('reloaded');
-    } else {
-        // Set a flag so that we know not to reload the page twice.
-        localStorage.setItem('reloaded', '1');
-        location.reload();
-    }
-    this.sync();
-  },
+  // mounted() {
+  //   // console.log("this route just got mounted");
+  //   // this.$forceUpdate();
+  //   if (localStorage.getItem('reloaded')) {
+  //       // The page was just reloaded. Clear the value from local storage
+  //       // so that it will reload the next time this page is visited.
+  //       localStorage.removeItem('reloaded');
+  //   } else {
+  //       // Set a flag so that we know not to reload the page twice.
+  //       localStorage.setItem('reloaded', '1');
+  //       location.reload();
+  //   }
+  //   this.sync();
+  // },
   // beforeRouteLeave: function(to, from, next) {
   //     if (this.prevRoute.path === to.path) {
   //       this.$router.go(to.path);
@@ -1743,7 +1743,7 @@ export default {
   border-radius: 0px;
 }
 .custom-select {
-  height: 0rem;
+  height: 0px;
   /*margin: 4px 0px;*/
   border-right: 4px;
   font-size: 12px;
