@@ -162,7 +162,7 @@
                               <div class="list-wrap ps-container ps-active-y">
                                 <ul class="message-history">
                                   <!-- LIST ITEM -->
-                                  <li class="message-grid">
+                                  <li class="message-grid" v-for="(message, index) in getMessages" :key="index">
                                     <a href="#">
                                       <div class="image img-square">
                                         <img
@@ -172,7 +172,7 @@
                                       </div>
                                       <div class="user-name">
                                         <div class="author">
-                                          <span>John Doe</span>
+                                          <span>{{ message.from }}</span>
                                           <div class="user-status"></div>
                                         </div>
                                         <p>Honda Civic 2017 Sports Edition</p>
@@ -186,119 +186,6 @@
                                   </li>
                                   <!-- END / LIST ITEM -->
                                   <!-- LIST ITEM -->
-                                  <li class="message-grid">
-                                    <a href="#">
-                                      <div class="image img-square">
-                                        <img
-                                          src="../../public/assets/images/profile-product-details.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div class="user-name">
-                                        <div class="author">
-                                          <span>Alex Curt</span>
-                                          <div class="user-status"></div>
-                                        </div>
-                                        <p>Ford Focus 1.6 TDCi Edge 5dr</p>
-                                        <div class="time">
-                                          <span>2 days ago</span>
-                                        </div>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <!-- END / LIST ITEM -->
-                                  <!-- LIST ITEM -->
-                                  <li class="message-grid">
-                                    <a href="#">
-                                      <div class="image img-square">
-                                        <img
-                                          src="../../public/assets/images/profile-product-details.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div class="user-name">
-                                        <div class="author">
-                                          <span>Sonu Monu</span>
-                                          <div class="user-status"></div>
-                                        </div>
-                                        <p>2015 Lamborghini Huracan</p>
-                                        <div class="time">
-                                          <span
-                                            ><i class="icon-envelope"></i
-                                          ></span>
-                                        </div>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <!-- END / LIST ITEM -->
-                                  <!-- LIST ITEM -->
-                                  <li class="active">
-                                    <a href="#">
-                                      <div class="image img-square">
-                                        <img
-                                          src="../../public/assets/images/profile-product-details.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div class="user-name">
-                                        <div class="author">
-                                          <span>Arslan Tariq</span>
-                                          <div class="user-status"></div>
-                                        </div>
-                                        <p>BMW I8 1.5 Auto 4X4 2dr</p>
-                                        <div class="time">
-                                          <span
-                                            ><i class="icon-envelope"></i
-                                          ></span>
-                                        </div>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <!-- END / LIST ITEM -->
-                                  <!-- LIST ITEM -->
-                                  <li class="message-grid">
-                                    <a href="#">
-                                      <div class="image img-square">
-                                        <img
-                                          src="../../public/assets/images/profile-product-details.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div class="user-name">
-                                        <div class="author">
-                                          <span>Alexa Grey</span>
-                                          <div class="user-status"></div>
-                                        </div>
-                                        <p>Ferrari 458 Italia Convertibleo</p>
-                                        <div class="time">
-                                          <span>1 days ago</span>
-                                        </div>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <!-- END / LIST ITEM -->
-                                  <!-- LIST ITEM -->
-                                  <li>
-                                    <a href="#">
-                                      <div class="image img-square">
-                                        <img
-                                          src="../../public/assets/images/profile-product-details.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div class="user-name">
-                                        <div class="author">
-                                          <span>Humayun</span>
-                                          <div class="user-status"></div>
-                                        </div>
-                                        <p>Lcd for sale</p>
-                                        <div class="time">
-                                          <span>5 days ago</span>
-                                        </div>
-                                      </div>
-                                    </a>
-                                  </li>
-                                  <!-- END / LIST ITEM -->
                                 </ul>
                                 <!-- <div class="ps-scrollbar-x-rail" style="width: 346px; display: none; left: 0px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div>
                                                  <div class="ps-scrollbar-y-rail" style="top: 0px; height: 590px; display: inherit; right: 0px;">
@@ -595,16 +482,18 @@
                                 </div>
                               </div>
                               <div class="chat-form ">
-                                <form role="form" class="form-inline">
+                                <form role="form" class="form-inline" >
                                   <div class="form-group">
                                     <input
                                       style="width: 100%"
+                                      @keyup.enter="sendNewMessage"
                                       placeholder="Type a message here..."
+                                      v-model="message"
                                       class="form-control"
                                       type="text"
                                     />
                                   </div>
-                                  <button class="btn btn-theme" type="submit">
+                                  <button class="btn btn-theme" type="submit"  @click.prevent="sendNewMessage" >
                                     <i class="fa fa-paper-plane-o"></i>
                                   </button>
                                 </form>
@@ -805,10 +694,44 @@ require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 
 import dsidebar from "@/components/Dsidebar";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "messaging",
+  data() {
+    return {
+      messages: null,
+      message: null,
+    }
+  },
   components: {
     dsidebar
+  },
+  computed: {
+    ...mapGetters("chat", ["getMessages"]),
+  },
+  methods: {
+    ...mapActions("chat", ["sendMessage", "fetchUserMessages", "getRecievedOfferUsers", "getSentOfferUsers"]),
+    sendNewMessage() {
+      const payload = {
+        message: this.message,
+      };
+      this.sendMessage(payload);
+      this.fetchAllMessages();
+    },
+    fetchAllMessages() {
+      this.fetchUserMessages();
+    },
+    getSentWithRecievedOfferUsers() {
+      let fromMessagePayload = this.getMessages.from;
+      let toMessagePayload = this.getMessages.to;
+      this.getSentOfferUsers(fromMessagePayload);
+      this.getRecievedOfferUsers(toMessagePayload);
+    }
+  },
+  created() {
+    this.fetchAllMessages();
+    this.getSentWithRecievedOfferUsers();
+    // console.log(this.getMessages);
   }
 };
 </script>

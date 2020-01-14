@@ -13415,7 +13415,7 @@ body.rtl  .ecommerce-shop .mega-menu .menu-links {
 .ad-listing.on-profile .content-area .ad-details {
     margin-top:10px;	
 }
-/*.ad-listing.on-profile .price:before {
+.ad-listing.on-profile .price:before {
   content: '';
   position: absolute;
   z-index: 2;
@@ -13437,7 +13437,7 @@ body.rtl  .ecommerce-shop .mega-menu .menu-links {
   -webkit-transform: skewY(35deg) skewX(0);
           transform: skewY(35deg) skewX(0);
 }
-*/
+
 .transparen-listing-sidebar {
     position:relative;
     overflow: visible;

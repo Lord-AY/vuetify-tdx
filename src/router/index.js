@@ -61,6 +61,21 @@ const routes = [
     }
   },
   {
+    path: "/reset",
+    name: "reset",
+    component: () => import("../views/Resetpass.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "home" });
+      }
+      next();
+    },
+    meta: {
+      header: 0
+    }
+  },
+  {
     path: "/valueadded",
     name: "valAdd",
     component: () => import("../views/val-add.vue"),
@@ -98,6 +113,14 @@ const routes = [
     component: () => import("../views/ProductDetails.vue"),
     meta: {
       header: 1
+    },
+    beforeEnter: (to, from, next) => {
+      if (to === from) {
+        window.location.reload();
+        return next();
+      } else {
+        next();
+      }
     }
   },
   {
@@ -269,7 +292,7 @@ const routes = [
     name: "gridlist",
     component: () => import("../views/Gridlist.vue"),
     meta: {
-      header: 1
+      header: 1,
     }
   },
   {
@@ -298,7 +321,7 @@ const routes = [
 ];
 // mode: "history",
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes
 });

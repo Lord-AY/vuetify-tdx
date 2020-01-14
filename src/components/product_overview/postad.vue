@@ -1427,6 +1427,7 @@ import axios from "axios";
 // import ash from "lodash";
 // Import component
 import Loading from "vue-loading-overlay";
+import {mapGetters} from "vuex";
 // Import stylesheet
 import "vue-loading-overlay/dist/vue-loading.css";
 export default {

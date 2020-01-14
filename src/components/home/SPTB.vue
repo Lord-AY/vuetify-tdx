@@ -41,7 +41,7 @@
                 <div class="item-card-img item-card-img-tx">
                   <img
                     :src="
-                      `http://157.245.82.193/media/${category.icon}` ||
+                      `https://www.tradexplora.com.ng/media/${category.icon}` ||
                         './assets/images/categories/car.svg'
                     "
                     alt="img"

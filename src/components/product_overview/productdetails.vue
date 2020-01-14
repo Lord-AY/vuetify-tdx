@@ -826,7 +826,7 @@
  -->                      <img
                         class="img-circle"
                         alt="Profile Pic"
-                        :src="avatarCheck ? `http://157.245.82.193/media/${getUser.pictureUrl}` : `http://157.245.82.193/media/avatar.png`"
+                        :src="avatarCheck ? `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}` : `https://www.tradexplora.com.ng/media/avatar.png`"
                       />
                     </a>
                     <!-- <div class="seller-online"></div> -->
@@ -843,7 +843,7 @@
                     </span>
                     <div class="item-date">
                       <span class="ad-pub">
-                        <b>Last Logged in:</b> 4 months Ago</span
+                        <b>Last Logged in:</b> {{ daysago(format_date(product.seller.updatedAt)) }}</span
                       >
                       <p
                         class="ad-pub"
@@ -1065,7 +1065,7 @@
 // import productSlider from "@/components/product_overview/productSlider";
 // import pricingArea from "@/components/product_overview/pricingArea";
 
-require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+// require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 import { ContentLoader } from "vue-content-loader";
 import ash from "lodash";
 import moment from "moment";
@@ -1075,7 +1075,7 @@ export default {
     return {
       limit: 3,
       limitBtn: true,
-      isHidden: false
+      isHidden: false,
     };
   },
   components: {
@@ -1083,7 +1083,8 @@ export default {
   },
   props: {
     product: Object,
-    similarprods: [Object, Array]
+    similarprods: [Object, Array],
+    getUser: [Object, Array]
   },
   methods: {
     filterImages() {
@@ -1092,9 +1093,22 @@ export default {
       this.product.photos = newImage;
       // console.log(anotherO);
     },
+  avatarCheck () {
+      let avatar = this.getUser.pictureUrl;
+      if(avatar !== null || avatar !== undefined || avatar !== '') {
+        // return `http://157.245.82.193/media/${getUser.pictureURL}`;
+        return true;
+      }
+      return false;
+  },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    daysago(dateago){
+      if (dateago){
+        return  moment.duration(moment().diff(dateago)).humanize() + " ago";
       }
     },
     showLoader(data) {

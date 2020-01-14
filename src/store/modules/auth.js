@@ -140,6 +140,35 @@ export default {
           commit("SET_USER_DATA", loggedUser);
           // send user to home
           router.push("/");
+        }) 
+        .catch(error => {
+          commit("SET_LOADING", false);
+          // check if error obj is empty
+          if (ash.isEmpty(error.response.data)) {
+            // if empty then user cant be found
+            commit("SET_LOGIN_ERRORS", "Account not found, please try again");
+          } else if (error.response.status == 404) {
+            commit("SET_LOGIN_ERRORS", "Network error, please try again");
+          } else {
+            // else account not verified or something else
+            commit("SET_LOGIN_ERRORS", error.response.data.message);
+          }
+        });
+    },
+    resetUser({ commit, state }, payload) {
+      commit("SET_LOGIN_STATE", payload);
+      commit("SET_LOADING", true);
+      return AuthService.reset({
+        email: payload.email
+      })
+        .then(({ data }) => {
+          // console.log(data)
+          commit("SET_LOADING", false);
+          // commit("SET_LOGIN_ERRORS", null);
+          // set user state with results
+          commit("SET_LOGIN_ERRORS", "Check your mail for The reset link");
+          // send user to home
+          // router.push("/login");
         })
         .catch(error => {
           commit("SET_LOADING", false);
@@ -171,7 +200,7 @@ export default {
           commit("RESET_LOGIN_STATE", null);
           // send user to login page
           // router.push("/login");
-          window.location.href = "/login";
+          window.location.href = "/#/login";
         })
         .catch(error => {
           commit("SET_LOADING", false);
@@ -212,6 +241,7 @@ export default {
       state.loginData.email = user.email;
       state.loginData.password = user.password;
     },
+    SET_RESET_SUCCESS:(state, success) => (state.loginErrors = success),
     SET_LOGIN_ERRORS: (state, errors) => (state.loginErrors = errors),
     SET_REGISTER_ERRORS: (state, errors) => (state.registerErrors = errors),
     SET_USER_DATA(state, loggedUser) {

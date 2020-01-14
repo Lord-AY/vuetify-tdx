@@ -1592,6 +1592,9 @@
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 require("../../public/assets/plugins/select2/select2.min.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../../public/assets/css/imported/style4d2c.css");
 // require("../../public/assets/css/iocustom.css");
 import hotsellers from "@/components/product_overview/hotsellers";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
@@ -1608,7 +1611,8 @@ export default {
       currentComp: "paginatedGrid",
       currentPage: 1,
       isLoading: false,
-      fullPage: true
+      fullPage: true,
+      prevRoute: null
     };
   },
   computed: {
@@ -1695,18 +1699,33 @@ export default {
   mounted() {
     // console.log("this route just got mounted");
     // this.$forceUpdate();
+    if (localStorage.getItem('reloaded')) {
+        // The page was just reloaded. Clear the value from local storage
+        // so that it will reload the next time this page is visited.
+        localStorage.removeItem('reloaded');
+    } else {
+        // Set a flag so that we know not to reload the page twice.
+        localStorage.setItem('reloaded', '1');
+        location.reload();
+    }
     this.sync();
   },
-  beforeRouteLeave: function(to, from, next) {
-    // console.log("this route is about to leave ");
-    next();
-  }
+  // beforeRouteLeave: function(to, from, next) {
+  //     if (this.prevRoute.path === to.path) {
+  //       this.$router.go(to.path);
+  //     }
+  //     next()
+  // },
+  // beforeRouteEnter(to, from, next) {
+  //   next(vm => {
+  //     vm.prevRoute = from
+  //   })
+  // },
 };
 </script>
 
-<style>
 
-/* Cpoy all  */
+<style >
 .ml-4, .mx-4 {
     margin-left: 0.625rem !important;
 }
@@ -1724,8 +1743,8 @@ export default {
 }
 
 .category-grid-box-tx .image img {
-  width: 6rem !important;
-  height: 6rem !important;
+  width: 8rem !important;
+  height: 8rem !important;
   margin-top: 20px;
 }
 
@@ -1743,8 +1762,9 @@ export default {
   border-radius: 0px;
 }
 .custom-select {
-  height: 4rem;
-  margin: 4px 0px;
+  height: 0rem;
+  /*margin: 4px 0px;*/
+  border-right: 4px;
   font-size: 12px;
 }
 .horizontalMenu-list input.main-search {
@@ -1752,11 +1772,10 @@ export default {
   height: 50px !important;
   padding-left: 30px;
 }
-.ad-meta:first-child a {
-  margin-right: 10px;
+
+html{
+  font-size: 10px;
 }
-</style>
-<style scoped>
 @media only screen and (max-width: 991px) {
   .horizontal-header .smllogo {
     position: relative !important;
