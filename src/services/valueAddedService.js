@@ -1,7 +1,7 @@
 import Api from "@/services/Api";
 
 export default {
-  service() {
+  billers() {
     return Api().get("qtell/getbillers");
   },
 };

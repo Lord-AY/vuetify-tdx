@@ -1,23 +1,22 @@
-import valaddService from "@/services/valadService";
 import ash from "lodash";
 import router from "../../router";
-import UserService from "../../services/UserService";
+import valueAddedService from "@/services/valueAddedService";
+import UserService from "@/services/UserService";
 // import ash from 'lodash';
 export default {
   namespaced: true,
   state: {
-    valadd: [],
+    valueadded: [],
     success: null,
     errors: null
   },
   getters: {
     serviceListings(state) {
-      if (state.valadd !== null && state.valadd !== undefined) {
-        return state.valadd;
+      if (state.valueadded !== null && state.valueadded !== undefined) {
+        return state.valueadded;
       }
       return;
     },
-   
     getErrors(state) {
       if (state.errors !== null && state.errors !== undefined) {
         return state.errors;
@@ -37,7 +36,7 @@ export default {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
-      return valaddService.service()
+      return valueAddedService.billers()
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SERVICE", data);
@@ -53,7 +52,7 @@ export default {
   },
   mutations: {
     SET_SERVICE(state, data) {
-      state.valadd = data;
+      state.valueadded = data;
     }
   }
 };

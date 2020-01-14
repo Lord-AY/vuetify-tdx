@@ -57,13 +57,16 @@
 </template>
 <script>
 
-
+  import {mapActions} from 'vuex';
 export default {
   data() {
     return {};
   },
-
+methods: {
+  ...mapActions("valueAdded", ["fetchAllService"]),
+},
   created() {
+    this.fetchAllService()
   }
 };
 </script>
