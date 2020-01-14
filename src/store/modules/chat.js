@@ -62,33 +62,26 @@ export default {
 			});
 			// const temp = userMessages.concat(fetchedMessagesFrom, fetchedMessagesTo);
 			// console.log(userMessages);
-			// commit("SET_MESSAGES_TO", fetchedMessagesTo);
-			// commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
+
+			commit("SET_MESSAGES_TO", fetchedMessagesTo);
+			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
+
 			// console.log(fetchedMessagesFrom);
 			// console.log(fetchedMessagesTo);
 
 			// console.log(rootState.chat.messages);
 		},
 		getSentOfferUsers({ commit }, payload) {
-			const npload = payload;
-			// console.log(npload);
-			for(let user in npload) {
-				console.log(npload);
-			}
-			// payload.forEach(user => {
-				// get users messages are being sent to
-				// console.log(payload[user]);
-				// UserService.user(payload[user].from)
-				// 	.then(({ data }) => {
-				// 		console.log(data);
-				// 	})
-				// 	.catch(error => {
-				// 		console.log(error);
-				// 	});
-			// });
-			// console.log(payload[user].to);
+			console.log(payload)
+			// for (let user in payload) {
+			// 	// get users messages are being sent to
+			// 	User;
+			// 	console.log(payload[user].to);
+			// }
+
 		},
 		getRecievedOfferUsers({ commit }, payload) {
+			console.log(payload)
 			for (let user in payload) {
 				// get users messages are being sent from
 				console.log(payload[user].from);
