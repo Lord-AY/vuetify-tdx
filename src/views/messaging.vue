@@ -162,7 +162,7 @@
                               <div class="list-wrap ps-container ps-active-y">
                                 <ul class="message-history">
                                   <!-- LIST ITEM -->
-                                  <li class="message-grid" v-for="(message, index) in getMessages" :key="index">
+                                  <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
                                     <a href="#">
                                       <div class="image img-square">
                                         <img
@@ -707,10 +707,11 @@ export default {
     dsidebar
   },
   computed: {
-    ...mapGetters("chat", ["getMessages"]),
+    ...mapGetters("chat", ["getMessagesTo"]),
+    ...mapGetters("chat", ["getMessagesFrom"]),
   },
   methods: {
-    ...mapActions("chat", ["sendMessage", "fetchUserMessages", "getRecievedOfferUsers", "getSentOfferUsers"]),
+    ...mapActions("chat", ["sendMessage", "fetchUserMessagesto", "fetchUserMessagesfrom", "getRecievedOfferUsers", "getSentOfferUsers"]),
     sendNewMessage() {
       const payload = {
         message: this.message,
@@ -719,14 +720,15 @@ export default {
       this.fetchAllMessages();
     },
     fetchAllMessages() {
-      this.fetchUserMessages();
+      this.fetchUserMessagesto();
+      this.fetchUserMessagesfrom();
     },
     getSentWithRecievedOfferUsers() {
-      let fromMessagePayload = this.getMessages.from;
-      let toMessagePayload = this.getMessages.to;
-      // console.log(toMessagePayload);
-      this.getSentOfferUsers(fromMessagePayload);
-      this.getRecievedOfferUsers(toMessagePayload);
+      const fromMessagePayload = this.getMessagesFrom;
+      const toMessagePayload = this.getMessagesTo;
+      // console.log(fromMessagePayload);
+      this.getSentOfferUsers(toMessagePayload);
+      this.getRecievedOfferUsers(fromMessagePayload);
     }
   },
   created() {
