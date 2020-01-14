@@ -14,7 +14,7 @@ export default {
 		},
 		getMessagesFrom(state) {
 			if (state.messagesFrom !== null && state.messagesFrom !== undefined) {
-				return state.userMessages;
+				return state.messagesFrom;
 			}
 			return;
 		}
@@ -60,6 +60,7 @@ export default {
 		},
 		getSentOfferUsers({ commit }, payload) {
 			var parsedObj = JSON.parse(JSON.stringify(payload))
+			console.log("start sent message")
 			// console.log(parsedObj)
 
 			for(let i in parsedObj){
@@ -73,7 +74,7 @@ export default {
 		},
 		getRecievedOfferUsers({ commit }, payload) {
 			var parsedObj = JSON.parse(JSON.stringify(payload))
-			// console.log(parsedObj)
+			console.log("start received message")
 
 			for(let i in parsedObj){
 				console.log(parsedObj[i])
