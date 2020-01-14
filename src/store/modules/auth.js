@@ -50,7 +50,10 @@ export default {
       return !!state.user;
     },
     getUser(state) {
+      if(state.user !== null && state.user !== undefined) {
       return state.user;
+      }
+      return null;
     },
     firstName(state) {
       if (ash.isEmpty(state.user) || state.user == null) {

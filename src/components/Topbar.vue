@@ -240,7 +240,7 @@
                     >
                   </li>
                 </ul>
-                <ul class="listnone custom" v-if="isLoggedIn">
+                <ul class="listnone custom" v-else>
                   <li>
                     <a
                       class="shopping_bag_btn"
@@ -270,9 +270,16 @@
                       aria-expanded="false"
                     >
                       <img
+                        v-if="getUser === null"
                         class="img-circle resize"
                         alt="Avatar"
-                        :src="avatarCheck ? `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}` : `https://www.tradexplora.com.ng/media/avatar.png`"
+                        src="https://www.tradexplora.com.ng/media/avatar.png"
+                      />
+                      <img
+                        v-else
+                        class="img-circle resize"
+                        alt="Avatar"
+                        src="https://www.tradexplora.com.ng/media/avatar.png"
                       />
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
@@ -840,16 +847,6 @@ export default {
     ...mapActions("auth", ["logoutUser"]),
     setLogout() {
       this.logoutUser();
-    },
-      avatarCheck () {
-        if(this.isLoggedIn) {
-           let avatar = this.getUser.pictureUrl;
-            if(avatar !== null || avatar !== undefined || avatar !== '') {
-              // return `https://www.tradexplora.com.ng/media/${getUser.pictureURL}`;
-              return true;
-            }
-        }
-        return false;
     },
     sync() {
       $(document).ready(function() {
