@@ -47,7 +47,7 @@ export default {
 
 				await Promise.all(fetchedMessagesTo);
 				// console.log(fetchedMessagesTo)
-				commit("SET_MESSAGES_TO", 
+				commit("SET_MESSAGES_TO",
 					fetchedMessagesTo
 				);
 		},
@@ -61,7 +61,7 @@ export default {
 
 				await Promise.all(fetchedMessagesFrom);
 				// console.log(fetchedMessagesTo)
-				commit("SET_MESSAGES_FROM", 
+				commit("SET_MESSAGES_FROM",
 					fetchedMessagesFrom
 				);
 		},

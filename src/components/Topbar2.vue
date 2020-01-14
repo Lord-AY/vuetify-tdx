@@ -64,7 +64,8 @@
                     <img
                       class="img-circle resize"
                       alt="Avatar"
-                      :src="avatarCheck ? `http://157.245.82.193/media/${getUser.pictureUrl}` : `http://157.245.82.193/media/avatar` "
+                       :src="this.getUser !== null ? `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`
+                         : 'https://www.tradexplora.com.ng/media/avatar.png' "
                     />
                     <span class="caret" style="color: #fff!important"></span>
                   </a>
