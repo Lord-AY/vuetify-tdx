@@ -709,9 +709,10 @@ export default {
   computed: {
     ...mapGetters("chat", ["getMessagesTo"]),
     ...mapGetters("chat", ["getMessagesFrom"]),
+    ...mapGetters("chat", ["getAllMessage"]),
   },
   methods: {
-    ...mapActions("chat", ["sendMessage", "fetchUserMessagesto", "fetchUserMessagesfrom", "getRecievedOfferUsers", "getSentOfferUsers"]),
+    ...mapActions("chat", ["sendMessage", "fetchUserMessagesto", "fetchUserMessagesfrom", "getRecievedOfferUsers", "getSentOfferUsers", "getAll"]),
     sendNewMessage() {
       const payload = {
         message: this.message,
@@ -726,14 +727,20 @@ export default {
     getSentWithRecievedOfferUsers() {
       const fromMessagePayload = this.getMessagesFrom;
       const toMessagePayload = this.getMessagesTo;
+      const allMessages = this.getAllMessage;
       // console.log(fromMessagePayload);
+      // const allMessages  = {...fromMessagePayload, ...toMessagePayload};
+      // console.log(allMessages);
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
+      this.getAll(fromMessagePayload, toMessagePayload);
+      console.log(allMessages);
     }
   },
   created() {
     this.fetchAllMessages();
     this.getSentWithRecievedOfferUsers();
+
     // console.log(this.getMessages);
   }
 };
