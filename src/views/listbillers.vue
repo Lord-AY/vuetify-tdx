@@ -36,23 +36,9 @@
               </div>
               <div class="col-md-9 col-lg-9 col-xs-12">
                 <!-- Row -->
-                <div class="row">
                   <div class="clearfix"></div>
-                  <div class="">
-                    <div class="">
-                      <div class="">
-                        <ul class="">
-                          <li class="active">
-                            <a href="#tab1default" data-toggle="tab"
-                              >Latest Ads</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="container">
                       <div class="panel-body">
                         <transition name="fade">
-                        <div class="tab-content">
                           <div
                             class="tab-pane fade in active"
                             v-show="selected"
@@ -61,10 +47,10 @@
                             <div class="row">
                                <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
                               <div class="col-md-6 col-lg-3 mb-5" v-show="!isLoading" v-for="(biller, index) in filteredBillers" :key="index" >
-                                <div class="card card-cat-tx mb-0 box-shadow-0">
+                                <div class="card card-cat-tx mb-0 box-shadow-2">
                                   <div class="item-card item-card-tx">
                                     <div class="item-card-desc item-card-desc-tx">
-                                      <router-link to="/Gridlist"></router-link>
+                                      <router-link :to="`paymentitem/${biller.billerid}`"></router-link>
                                       <div class="item-card-img item-card-img-tx">
                                         <img
                                           src="assets/images/categories/car.svg"
@@ -81,12 +67,7 @@
                             </div>
                           </div>
                         </div>
-                        </div>
                         </transition>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
                   </div>
 
                   <div class="clearfix"></div>

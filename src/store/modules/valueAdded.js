@@ -22,9 +22,11 @@ export default {
       let sortedCategories = [];
       let allBillers = state.valueadded;
       if (allBillers !== null && allBillers !== undefined) {
-        for(let biller in allBillers) {
-          categories.push(allBillers[biller].categoryname)
+        for (let biller in allBillers) {
+          // add all biller categories into an array for sorting
+          categories.push(allBillers[biller].categoryname);
         }
+        // sort array of categories, remove duplicate categories
         sortedCategories = ash.sortedUniq(categories);
         return sortedCategories;
       }
@@ -42,14 +44,15 @@ export default {
       } else {
         return;
       }
-    },
+    }
   },
   actions: {
     fetchAllBillers({ commit }) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
-      return valueAddedService.billers()
+      return valueAddedService
+        .billers()
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_BILLERS", data.billers);
@@ -62,6 +65,18 @@ export default {
           );
         });
     },
+    paymentItem({ commit }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_SUCCESS_MSG", null);
+      commit("SET_ERRORS", null);
+      return valueAddedService.payment(payload)
+        .then(({data}) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(data);
+        }).catch(error => {
+          console.log(error);
+        })
+    }
   },
   mutations: {
     SET_BILLERS(state, data) {

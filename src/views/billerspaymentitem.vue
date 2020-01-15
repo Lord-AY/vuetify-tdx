@@ -20,7 +20,7 @@
                                   </div>
                               </div>
                           </div>
-                      </div>                      
+                      </div>
                   </div>
               </div>
           </div>
@@ -30,13 +30,22 @@
 </template>
 <script>
 
-
+import {mapActions, mapGetters} from "vuex";
 export default {
   data() {
     return {};
   },
-
+  methods: {
+  ...mapActions("valueAdded", ["paymentItem"]),
+  sendPaymentItem() {
+    const payload = {
+      payId: this.$route.params.payid
+    }
+    this.paymentItem(payload);
+  }
+},
   created() {
+    this.sendPaymentItem();
   }
 };
 </script>
