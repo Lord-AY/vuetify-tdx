@@ -1589,10 +1589,10 @@
   </div>
 </template>
 <script>
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-require("../../public/assets/css/imported/style4d2c.css");
+// require("../../public/assets/css/imported/style4d2c.css");
 // require("../../public/assets/css/iocustom.css");
 import hotsellers from "@/components/product_overview/hotsellers";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
@@ -1743,8 +1743,8 @@ export default {
   border-radius: 0px;
 }
 .custom-select {
-  height: 0px;
-  /*margin: 4px 0px;*/
+  height: 4.6rem;
+  margin-right: 4px 0px;
   border-right: 4px;
   font-size: 12px;
 }
@@ -1758,13 +1758,13 @@ html{
   font-size: 10px;
 }
 
-/*.ad-meta:first-child a {
+.ad-meta:first-child a {
   margin-right: 10px;
 }
-*/
+
 </style>
 <style scoped>
-/*@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 991px) {
   .horizontal-header .smllogo {
     position: relative !important;
     top: -20px !important;
@@ -1811,4 +1811,5 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
-*/</style>
+
+</style>

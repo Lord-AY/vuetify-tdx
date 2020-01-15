@@ -182,7 +182,7 @@ const routes = [
   },
   {
     path: "/maindashboard",
-    name: "dashboard",
+    name: "maindashboard",
     component: () => import("../views/dashboard-carspot.vue"),
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];

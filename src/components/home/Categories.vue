@@ -18,7 +18,6 @@
                     <input
                       type="text"
                       class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
-                      id="text4"
                       placeholder="What are you looking for?"
                     />
                     <span
@@ -31,7 +30,6 @@
                     <input
                       type="text"
                       class="form-control input-lg br-tr-md-0 br-br-md-0 main-location"
-                      id="text4"
                       placeholder="Location"
                     />
                     <span
