@@ -20,7 +20,7 @@
                                   </div>
                               </div>
                           </div>
-                      </div>                      
+                      </div>
                   </div>
               </div>
           </div>
@@ -30,13 +30,27 @@
 </template>
 <script>
 
+import { mapActions, mapGetters } from 'vuex';
+import Loading from "vue-loading-overlay";
 
 export default {
   data() {
     return {};
   },
-
+computed: {
+  // ...mapGetters("valueadded", []),
+},
+methods: {
+  ...mapActions("valueAdded", ["getbillercategory"]),
+  sendBillerCategory() {
+    const payload = {
+      categoryId: this.$route.params.category
+    }
+    this.getbillercategory(payload);
+  }
+},
   created() {
+    this.sendBillerCategory();
   }
 };
 </script>

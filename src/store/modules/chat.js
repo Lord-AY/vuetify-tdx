@@ -38,9 +38,7 @@ export default {
 		},
 		async fetchUserMessagesto({ commit, rootState }) {
 				let fetchedMessagesTo = [];
-
 				let users = await chatDb.collection("chat").where("to", "==", rootState.auth.user.id).orderBy("createdAt").get();
-
 				users.forEach((userDoc) => {
 				    fetchedMessagesTo.push(userDoc.data());
 				});

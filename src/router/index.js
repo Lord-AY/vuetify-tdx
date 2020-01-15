@@ -142,7 +142,7 @@ const routes = [
   },
   {
     path: "/billercategory/:category",
-    name: "listbillers",
+    name: "billercategory",
     component: () => import("../views/billersCategory.vue"),
     meta: {
       header: 1
@@ -150,7 +150,7 @@ const routes = [
   },
   {
     path: "/paymentitem/:payid",
-    name: "listbillers",
+    name: "paymentitem",
     component: () => import("../views/billerspaymentitem.vue"),
     meta: {
       header: 1
