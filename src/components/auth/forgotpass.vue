@@ -156,7 +156,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .disabled-btn {
   cursor: wait !important;
 } 

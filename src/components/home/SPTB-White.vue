@@ -1,7 +1,7 @@
 import router from '../../router';
 <template>
   <!--Section-->
-  <section class="sptb">
+  <section class="sptb bg-white">
     <div class="container">
       <div class="section-title center-block text-center mobile-hidden">
         <h2 style="display: inline-block; margin-left: 92px">Latest Ads</h2>
@@ -31,7 +31,7 @@ import router from '../../router';
       <ProductLoader v-show="showLoader(ads)"></ProductLoader>
       <div
         id="defaultCarousel"
-        class="owl-carousel owl-carousel-icons2 Card-owlcarousel owl-carousel-icons"
+        class="owl-carousel owl-carousel-icons2"
         v-show="!showLoader(ads)"
       >
         <div class="item" v-for="product in ads" :key="product.id">
@@ -130,33 +130,33 @@ export default {
     sync() {
       $(document).ready(() => {
         // ______________Owl-carousel-icons2
-        $(".owl-carousel-icons2").owlCarousel({
-          loop: true,
-          rewind: false,
-          margin: 25,
-          animateIn: "fadeInDowm",
-          animateOut: "fadeOutDown",
-          autoplayTimeout: 5000, // set value to change speed
-          autoplayHoverPause: true,
-          dots: false,
-          nav: true,
-          autoplay: true,
-          responsiveClass: true,
-          responsive: {
-            0: {
-              items: 1,
-              nav: true
-            },
-            600: {
-              items: 2,
-              nav: true
-            },
-            1300: {
-              items: 4,
-              nav: true
-            }
-          }
-        });
+        // $(".owl-carousel-icons2").owlCarousel({
+        //   loop: true,
+        //   rewind: false,
+        //   margin: 25,
+        //   animateIn: "fadeInDowm",
+        //   animateOut: "fadeOutDown",
+        //   autoplayTimeout: 5000, // set value to change speed
+        //   autoplayHoverPause: true,
+        //   dots: false,
+        //   nav: true,
+        //   autoplay: true,
+        //   responsiveClass: true,
+        //   responsive: {
+        //     0: {
+        //       items: 1,
+        //       nav: true
+        //     },
+        //     600: {
+        //       items: 2,
+        //       nav: true
+        //     },
+        //     1300: {
+        //       items: 4,
+        //       nav: true
+        //     }
+        //   }
+        // });
       });
     }
   },

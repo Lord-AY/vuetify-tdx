@@ -6,7 +6,8 @@ import Home from "../views/Home.vue";
 import userRegister from "../views/Register.vue";
 import p404 from "../views/404.vue";
 import ProductDetails from "../views/ProductDetails.vue";
-// import signin from "../views/Signin.vue";
+import signin from "../views/Signin.vue";
+import reset from "../views/Resetpass.vue";
 import gridlist from "../views/Gridlist.vue";
 
 Vue.use(VueRouter);
@@ -48,7 +49,7 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: () => import("../views/Signin.vue"),
+    component: signin,
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
       if (auth) {
@@ -63,7 +64,7 @@ const routes = [
   {
     path: "/reset",
     name: "reset",
-    component: () => import("../views/Resetpass.vue"),
+    component: reset,
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
       if (auth) {

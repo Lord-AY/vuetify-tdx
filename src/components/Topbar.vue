@@ -422,29 +422,19 @@
               accesskey="1"
               style="padding: 10px; height: 40px;"
               >
-              <span style="font-size: 14.6px; font-weight: 400;">
-                <i
-                class="fa fa-bars"
-                style="color: #4CAF50; margin-right: 3px;"
-                ></i>
-                All Categories
-              </span>
-            </label>
-            <div class="hide-at-start-wrapper">
-              <nav class="bmenu panel animated">
-                <router-link
-                to="/categories"
-                v-for="category in categories"
-                :key="category.id"
-                ><span class="triangle-origin">{{
-                  category.name
-                }}</span></router-link
-                >
-                <hr />
-                <article
-                  class="panel"
-                  v-for="category in categories"
-                  :key="category.id"
+                <span style="font-size: 14.6px; font-weight: 400;">
+                  <i
+                    class="fa fa-bars"
+                    style="color: #4CAF50; margin-right: 3px;"
+                  ></i>
+                  All Categories
+                </span>
+              </label>
+              <div class="hide-at-start-wrapper">
+                <nav class="bmenu panel animated">
+                  <router-link to="/categories" v-for="(category, index) in categories" :key="++index + categories.length"
+                    ><span class="triangle-origin">{{ category.name }}</span></router-link
+
                   >
                   <div class="column">
                     <section class="titled-group">
