@@ -5,9 +5,9 @@ import store from "@/store";
 import Home from "../views/Home.vue";
 import userRegister from "../views/Register.vue";
 import p404 from "../views/404.vue";
-// import productoverview from "../views/ProductOverview.vue";
+import ProductDetails from "../views/ProductDetails.vue";
 // import signin from "../views/Signin.vue";
-// import gridlist from "../views/Gridlist.vue";
+import gridlist from "../views/Gridlist.vue";
 
 Vue.use(VueRouter);
 
@@ -110,7 +110,7 @@ const routes = [
   {
     path: "/productDetails/:id/:cid",
     name: "productDetails",
-    component: () => import("../views/ProductDetails.vue"),
+    component: ProductDetails,
     meta: {
       header: 1
     },
@@ -171,14 +171,14 @@ const routes = [
       header: 3
     }
   },
-  // {
-  //   path: "/dashboard",
-  //   name: "dashboard",
-  //   component: () => import("../views/Dashboard.vue"),
-  //   meta: {
-  //     header: 3
-  //   }
-  // },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: () => import("../views/Dashboard.vue"),
+    meta: {
+      header: 3
+    }
+  },
   {
     path: "/maindashboard",
     name: "dashboard",
@@ -305,7 +305,7 @@ const routes = [
   {
     path: "/gridlist",
     name: "gridlist",
-    component: () => import("../views/Gridlist.vue"),
+    component: gridlist,
     meta: {
       header: 1,
     }
