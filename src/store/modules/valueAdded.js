@@ -11,9 +11,22 @@ export default {
     errors: null
   },
   getters: {
-    serviceListings(state) {
+    billerListings(state) {
       if (state.valueadded !== null && state.valueadded !== undefined) {
         return state.valueadded;
+      }
+      return;
+    },
+    getBillerCategories(state) {
+      let categories = [];
+      let sortedCategories = [];
+      let allBillers = state.valueadded;
+      if (allBillers !== null && allBillers !== undefined) {
+        for(let biller in allBillers) {
+          categories.push(allBillers[biller].categoryname)
+        }
+        sortedCategories = ash.sortedUniq(categories);
+        return sortedCategories;
       }
       return;
     },
@@ -32,14 +45,14 @@ export default {
     },
   },
   actions: {
-    fetchAllService({ commit }) {
+    fetchAllBillers({ commit }) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
       return valueAddedService.billers()
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_SERVICE", data);
+          commit("SET_BILLERS", data.billers);
         })
         .catch(() => {
           commit("auth/SET_LOADING", false, { root: true });
@@ -51,7 +64,7 @@ export default {
     },
   },
   mutations: {
-    SET_SERVICE(state, data) {
+    SET_BILLERS(state, data) {
       state.valueadded = data;
     }
   }

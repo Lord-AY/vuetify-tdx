@@ -442,14 +442,14 @@
                     ><span class="triangle-origin">{{ category.name }}</span></router-link
                   >
                   <hr />
-                  <article class="panel" v-for="category in categories" :key="category.id">
+                  <article class="panel"  v-for="category in categories" :key="category.id">
                     <div class="column">
                       <section class="titled-group">
                         <header>{{ category.name }}</header>
                         <div v-if="category.subcategory">
                         <a href="/categories" v-for="subcategory in category.subcategory" :key="subcategory.id">{{ subcategory.name }}</a>
                         </div>
-                        <a href="/categories" v-eles="">No subcategories present.</a>
+                        <a href="/categories" v-else>No subcategories present.</a>
                       </section>
                      <!--  <section class="titled-group">
                         <header>Category Title</header>
