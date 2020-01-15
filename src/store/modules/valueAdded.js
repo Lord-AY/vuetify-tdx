@@ -7,6 +7,7 @@ export default {
   namespaced: true,
   state: {
     valueadded: [],
+    payment: null,
     success: null,
     errors: null
   },
@@ -44,6 +45,11 @@ export default {
       } else {
         return;
       }
+    },
+    paymentItems(state) {
+      if (state.payment !== null || state.payment !== undefined) {
+        return state.payment;
+      }
     }
   },
   actions: {
@@ -71,16 +77,26 @@ export default {
       commit("SET_ERRORS", null);
       return valueAddedService.payment(payload)
         .then(({data}) => {
-          commit("auth/SET_LOADING", false, { root: true });
-          console.log(data);
+          commit("auth/SET_LOADING", false, {root: true});
+          commit("SET_PAYMENT_ITEMS", data);
         }).catch(error => {
-          console.log(error);
+           commit("auth/SET_LOADING", false, {root: true});
+           commit("SET_ERRORS", "Network Error, Cant connect to server...");
         })
     }
   },
   mutations: {
     SET_BILLERS(state, data) {
       state.valueadded = data;
+    },
+    SET_PAYMENT_ITEMS(state, data) {
+      state.payment = data;
+    },
+    SET_ERRORS(state, errors) {
+      state.errors = errors;
+    },
+    SET_SUCCESS(state, errors) {
+      state.errors = errors;
     }
   }
 };

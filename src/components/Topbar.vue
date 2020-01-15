@@ -482,7 +482,6 @@
             <a href="#">A Sub Category</a>
           </section>
         </div> -->
-      </article>
       <!--  <article class="panel">
         <div class="column">
           <section class="titled-group">
