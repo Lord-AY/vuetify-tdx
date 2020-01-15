@@ -83,6 +83,22 @@ export default {
            commit("auth/SET_LOADING", false, {root: true});
            commit("SET_ERRORS", "Network Error, Cant connect to server...");
         })
+    },
+    validatePaymentOption({commit, rootState}, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_SUCCESS_MSG", null);
+      commit("SET_ERRORS", null);
+      if (rootState.auth.user == null) {
+        router.push('login');
+      }
+      payload.custId = "00000000" + rootState.auth.user.id
+      // console.log(payload);
+      return valueAddedService.paymentOption(payload)
+        .then(({data}) => {
+          console.log(data);
+        }).catch(error => {
+          console.log(error)
+        })
     }
   },
   mutations: {

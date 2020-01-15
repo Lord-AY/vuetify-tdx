@@ -823,11 +823,13 @@
                         alt="Profile Pic"
                         src="https://www.tradexplora.com.ng/media/avatar.png"
                       />
-                       <img
+                      <img
                         v-else
                         class="img-circle"
                         alt="Profile Pic"
-                        :src="`https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`"
+                        :src="
+                          `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`
+                        "
                       />
                     </a>
                     <!-- <div class="seller-online"></div> -->
@@ -839,18 +841,25 @@
                         class="hover-color"
                         href="../../dealer/gavien72/index.html"
                       >
-                        {{ product.seller.firstname }} {{ product.seller.lastname }}
+                        {{ product.seller.firstname }}
+                        {{ product.seller.lastname }}
                       </a>
                     </span>
                     <div class="item-date">
                       <span class="ad-pub">
-                        <b>Last Logged in:</b> {{ daysago(format_date(product.seller.updatedAt)) }}</span
+                        <b>Last Logged in:</b>
+                        {{
+                          daysago(format_date(product.seller.updatedAt))
+                        }}</span
                       >
                       <p
                         class="ad-pub"
                         style="font-size: 14px; margin-top: 4px;"
                       >
-                        <b>Registered: {{ format_date(product.seller.createdAt) }}</b> 
+                        <b
+                          >Registered:
+                          {{ format_date(product.seller.createdAt) }}</b
+                        >
                       </p>
                     </div>
                   </div>
@@ -924,11 +933,17 @@
                   </h5>
                 </div>
                 <div class="row" style="margin-top: 20px;" v-if="isHidden">
-                  <textarea class="message-box" rows="4" cols="50"></textarea>
+                  <textarea
+                    class="message-box"
+                    rows="4"
+                    cols="50"
+                    v-model="message"
+                  ></textarea>
                   <h5 class="send-message">
                     <div
                       class="btn btn-block btn-primary contact-seller cusbutton"
                       style="border-radius:0px; font-size: 20px;"
+                      @click="sendSellerMessage()"
                     >
                       <i class="fa fa-commenting-o"></i> Send Message
                     </div>
@@ -1068,6 +1083,7 @@
 
 // require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 import { ContentLoader } from "vue-content-loader";
+import { mapActions, mapGetters } from "vuex";
 import ash from "lodash";
 import moment from "moment";
 export default {
@@ -1077,6 +1093,7 @@ export default {
       limit: 3,
       limitBtn: true,
       isHidden: false,
+      message: null
     };
   },
   components: {
@@ -1088,22 +1105,23 @@ export default {
     getUser: [Object, Array]
   },
   methods: {
-  avatarCheck () {
+    ...mapActions("chat", ["sendMessage"]),
+    avatarCheck() {
       let avatar = this.getUser.pictureUrl;
-      if(avatar !== null || avatar !== undefined || avatar !== '') {
+      if (avatar !== null || avatar !== undefined || avatar !== "") {
         // return `http://157.245.82.193/media/${getUser.pictureURL}`;
         return true;
       }
       return false;
-  },
+    },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("YYYY-MM-DD");
       }
     },
-    daysago(dateago){
-      if (dateago){
-        return  moment.duration(moment().diff(dateago)).humanize() + " ago";
+    daysago(dateago) {
+      if (dateago) {
+        return moment.duration(moment().diff(dateago)).humanize() + " ago";
       }
     },
     showLoader(data) {
@@ -1112,6 +1130,16 @@ export default {
       } else {
         return false;
       }
+    },
+    sendSellerMessage() {
+      const payload = {
+        message: this.message,
+        to: this.product.seller.id,
+        from: this.getUser.id,
+        createdAt: new Date()
+      };
+      this.sendMessage(payload);
+      console.log(payload);
     },
     sync() {
       $(document).ready(function() {
@@ -1157,6 +1185,30 @@ export default {
           sync: "#carousel"
         });
       });
+    },
+    showError(error, title) {
+      this.$notify({
+        group: "errors",
+        type: "error",
+        title,
+        width: "100%",
+        text: error,
+        classes: "error",
+        duration: 10000,
+        speed: 1000,
+        position: "top right"
+      });
+    },
+    showSuccess() {
+      this.$notify({
+        group: "notify",
+        type: "success",
+        title: "Success",
+        text: this.getSuccess,
+        position: "top right",
+        duration: 10000,
+        speed: 500
+      });
     }
   },
   computed: {
@@ -1164,7 +1216,8 @@ export default {
       return this.limit
         ? this.similarprods.slice(0, this.limit)
         : this.similarprods;
-    }
+    },
+    ...mapGetters("chat", ["getErrors", "getSuccess"])
   },
   watch: {
     $route: "sync",
@@ -1175,6 +1228,22 @@ export default {
         } else {
           this.limitBtn = true;
         }
+      }
+    },
+    getErrors: {
+      handler: function(errors) {
+        if (errors === null || errors === undefined) {
+          return;
+        }
+        this.showError(errors);
+      }
+    },
+    getSuccess: {
+      handler: function(success) {
+        if (success === null || success === undefined) {
+          return;
+        }
+        this.showSuccess(success);
       }
     }
   },

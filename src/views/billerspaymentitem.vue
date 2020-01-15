@@ -19,7 +19,8 @@
                             <div class="col-md-12">
                               <div
                                 class="col-md-4 mb-5"
-                                v-for="(payment, index) in paymentItems.paymentitems"
+                                v-for="(payment,
+                                index) in paymentItems.paymentitems"
                                 :key="index"
                               >
                                 <div class="card card-cat-tx mb-0 box-shadow-2">
@@ -27,18 +28,6 @@
                                     <div
                                       class="item-card-desc item-card-desc-tx"
                                     >
-                                      <a
-                                        v-show=" payment.amount == '0' "
-                                        @click="showForm = !showForm"
-                                        style="cursor: pointer;"
-                                      ></a>
-                                      <a
-                                        v-show="payment.amount !== '0' "
-                                        @click.prevent="
-                                          sendValidatePayment(payment)
-                                        "
-                                        style="cursor: pointer;"
-                                      ></a>
                                       <div
                                         class="item-card-img item-card-img-tx"
                                       >
@@ -61,11 +50,21 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="card">
-                                  <input type="text" placeholder="Add Preferred Amount" v-model='amount'>
-                                  <button class="btn btn-success-outline" type="submit" @click.prevent="addAmount">Make Payment</button>
-                                  <button class="btn btn-success-outline" type="button" @click="showForm = !showForm">Cancel</button>
-                                </div>
+                                <transition name="showForm">
+                                  <div
+                                    class="card"
+                                  >
+                                    <!-- Button trigger modal -->
+                                    <button
+                                      type="button"
+                                      class="btn btn-success-outline"
+                                    >
+                                      Buy Now
+                                    </button>
+                                    <!-- Modal -->
+                                    <!-- Modal -->
+                                  </div>
+                                </transition>
                               </div>
                             </div>
                           </div>
@@ -88,11 +87,11 @@ export default {
   data() {
     return {
       amount: null,
-      sendForm: false
+      showForm: false
     };
   },
   methods: {
-    ...mapActions("valueAdded", ["paymentItem"]),
+    ...mapActions("valueAdded", ["paymentItem", "validatePaymentOption"]),
     sendPaymentItem() {
       const payload = {
         payId: this.$route.params.payid
@@ -100,10 +99,16 @@ export default {
       this.paymentItem(payload);
     },
     sendValidatePayment(payment) {
-      console.log(payment);
+      const payload = {
+        paymentCode: payment.paymentCode
+      };
+      this.validatePaymentOption(payload);
     },
-    addAmount() {
-      console.log(this.amount);
+    addAmount(payment) {
+      const payload = {
+        paymentCode: payment.paymentCode
+      };
+      this.validatePaymentOption(payload);
     }
   },
   computed: {
@@ -114,4 +119,22 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+.showForm-enter-active {
+  animation: bounce-in 0.5s;
+}
+.showForm-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
