@@ -438,7 +438,7 @@
               </label>
               <div class="hide-at-start-wrapper">
                 <nav class="bmenu panel animated">
-                  <router-link to="/categories" v-for="category in categories" :key="category.id"
+                  <router-link to="/categories" v-for="(category, index) in categories" :key="++index + categories.length"
                     ><span class="triangle-origin">{{ category.name }}</span></router-link
                   >
                   <hr />
