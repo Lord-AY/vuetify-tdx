@@ -14130,6 +14130,8 @@ hr.accent-2 {
 .follow {
     margin: 10px 8px;
     background-color: #4CAF50;
+    /* padding-top: 4px; */
+    /* padding-bottom: 4px; */
     color: #fff;
     border-radius: 4px;
     font-size: 14px;
