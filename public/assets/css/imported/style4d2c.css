@@ -383,9 +383,9 @@ p {
     -ms-transition: all .25s ease-in-out;
     -o-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
-    font-weight: 600;
-    font-family: 'Source Sans Pro', sans-serif;
-    text-transform: uppercase
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif !important;
+    text-transform: none
 }
 .form-control {
     background-color: #fff;
@@ -11792,7 +11792,7 @@ body.rtl  .ecommerce-shop .mega-menu .menu-links {
     position: relative;
 }
 .opacity-color:after {
-    background: rgba(0, 0, 0, 0.8));
+    background: rgba(0, 0, 0, 0.8);
     background: -webkit-linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(44, 62, 80, 0.9));
     background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(44, 62, 80, 0.9));
     content: "";
@@ -13790,6 +13790,10 @@ ul.review-stars li.star {
     margin-bottom: 0px!important;
     font-family: 'Poppins', sans-serif !important;
 }*/
+.btn-tx {
+    height: 50px!important;
+    font-weight: 400!important;
+}
 /*.post-ad-header-tx {
 	color: #fff!important;
      font-size: 0.875rem; 
@@ -14711,7 +14715,18 @@ hr.accent-2 {
     width: 30px;
     margin-top: -1px;
 }
-*/
+*/.top-bar-fixed {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+}
+.testimonial {
+    border-radius: 3px!important;
+    font-size: 17px!important;
+}
 .img-circle {
     border-radius: 50%;
     border: 2px solid #fff;
@@ -14750,6 +14765,37 @@ hr.accent-2 {
     color: #a6a3ba!important;
 }
 
+.main-category {
+    height: 46px!important;
+    padding-top: 4px!important;
+    padding-bottom: 4px!important;
+}
+
+.main-search-button {
+    padding: 11px 20px!important;
+}
+.sptb-2 {
+    padding-top: 16rem!important;
+    padding-bottom: 16rem!important;
+}
+
+.select2-lg .select2-container .select2-selection--single {
+    height: 46px!important;
+}
+
+.owl-nav button {
+	display: block;
+	font-size: 1.3rem!important;
+	line-height: 2em;
+	border-radius: 50%;
+	width: 4.8rem;
+	height: 4.8rem;
+	text-align: center;
+	background: rgba(255, 255, 255, .5)!important;
+	border: 1px solid #e8ebf3!important;
+	z-index: 99;
+	box-shadow: 0 4px 15px rgba(67, 67, 67, .15);
+}
 /*.input-group {
     position: relative;
     display: -ms-flexbox;

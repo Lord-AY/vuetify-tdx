@@ -8,10 +8,10 @@
             <div class="col-lg-3 col-md-12">
               <router-link to="/Home">
                 <img
-                  src="@/assets/images/TRADEXPLORA_V4.1_mini.png"
+                  src="../../public/assets/images/brand/TRADE_XPLORA_V4.1.png"
                   class="img-responsive"
                   alt="Site logo"
-                  style="margin-bottom: -0.8rem; width: 9rem;"
+                  style="margin-bottom: -2rem; width: 13rem;"
                 />
               </router-link>
               <hr class="deep-purple  mb-4 mt-0 d-inline-block mx-auto" />
@@ -206,7 +206,11 @@ export default {
 </script>
 
 <style>
+  p {
+    font-size: 14px!important;
+  }
   .about-company {
-    margin-bottom: 1.5rem!important;
+    margin-bottom: 2.5rem!important;
+    margin-top: -16px;
   }
 </style>
