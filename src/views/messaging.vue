@@ -150,20 +150,26 @@
                                 <h4>Inbox</h4>
                                 <ul class="tabs-menu nav">
                                   <span>
-                                    <a href="#receivedoffers" class="active" data-toggle="tab">
+                                    <a href="#tab1" class="active" data-toggle="tab">
+                                      <small>All Offers</small>
+                                    </a>
+                                  </span>
+                                  <div style="width:10px"></div>
+                                  <span>
+                                    <a href="#tab2" class="" data-toggle="tab">
                                       <small>Recevied Offers</small>
                                     </a>
                                   </span>
                                   <div style="width:10px"></div>
                                   <span>
-                                    <a href="#sentoffers" data-toggle="tab">
+                                    <a href="#tab3" class="" data-toggle="tab">
                                       <small>Sent Offers </small>
                                     </a>
                                   </span>
                                 </ul>
                               </div>
                               <div class="tab-content">
-                                <div class="tab-pane active" id="receivedoffers">
+                                <div class="tab-pane active" id="tab1">
                                   <div class="list-wrap ps-container ps-active-y">
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
@@ -194,7 +200,7 @@
                                     </ul>
                                   </div>
                                 </div>
-                                <div class="tab-pane" id="sentoffers">
+                                <div class="tab-pane" id="tab2">
                                   <div class="list-wrap ps-container ps-active-y">
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
@@ -212,6 +218,37 @@
                                               <div class="user-status"></div>
                                             </div>
                                             <p>imm Civic 2017 Sports Edition</p>
+                                            <div class="time">
+                                              <span
+                                                ><i class="icon-envelope"></i
+                                              ></span>
+                                            </div>
+                                          </div>
+                                        </a>
+                                      </li>
+                                      <!-- END / LIST ITEM -->
+                                      <!-- LIST ITEM -->
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                  <div class="list-wrap ps-container ps-active-y">
+                                    <ul class="message-history">
+                                      <!-- LIST ITEM -->
+                                      <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
+                                        <a href="#">
+                                          <div class="image img-square">
+                                            <img
+                                              src="../../public/assets/images/profile-product-details.jpg"
+                                              alt=""
+                                            />
+                                          </div>
+                                          <div class="user-name">
+                                            <div class="author">
+                                              <span>{{ message.from }}</span>
+                                              <div class="user-status"></div>
+                                            </div>
+                                            <p>io Civic 2017 Sports Edition</p>
                                             <div class="time">
                                               <span
                                                 ><i class="icon-envelope"></i
