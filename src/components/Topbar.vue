@@ -208,15 +208,15 @@
             <div class="col-xl-4 col-lg-4 col-sm-8 col-6">
               <div class="top-bar-right">
                 <!-- <ul class="custom">
-							<li>
-								<router-link to="/register" class="text-dark text-white"><i class="fa fa-user mr-1"></i> <span>Register</span></router-link>
-							</li>
-							<li>
-								<router-link to="/login" class="text-dark text-white"><i class="fa fa-sign-in mr-1"></i> <span>Login</span></router-link>
-							</li>
-							<li>
-								<router-link to="/login" class="btn btn-tx btn-theme text-dark post-ad-header-tx"> POST AN AD</router-link>
-							</li>
+              <li>
+                <router-link to="/register" class="text-dark text-white"><i class="fa fa-user mr-1"></i> <span>Register</span></router-link>
+              </li>
+              <li>
+                <router-link to="/login" class="text-dark text-white"><i class="fa fa-sign-in mr-1"></i> <span>Login</span></router-link>
+              </li>
+              <li>
+                <router-link to="/login" class="btn btn-tx btn-theme text-dark post-ad-header-tx"> POST AN AD</router-link>
+              </li>
               </ul>-->
 
                 <ul class="listnone custom" v-if="!isLoggedIn">
@@ -240,7 +240,7 @@
                     >
                   </li>
                 </ul>
-                <ul class="listnone custom" v-if="isLoggedIn">
+                <ul class="listnone custom" v-else>
                   <li>
                     <a
                       class="shopping_bag_btn"
@@ -270,9 +270,16 @@
                       aria-expanded="false"
                     >
                       <img
+                        v-if="getUser === null"
                         class="img-circle resize"
                         alt="Avatar"
-                        :src="avatarCheck ? `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}` : `https://www.tradexplora.com.ng/media/avatar.png`"
+                        src="https://www.tradexplora.com.ng/media/avatar.png"
+                      />
+                      <img
+                        v-else
+                        class="img-circle resize"
+                        alt="Avatar"
+                        src="https://www.tradexplora.com.ng/media/avatar.png"
                       />
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
@@ -431,322 +438,52 @@
               </label>
               <div class="hide-at-start-wrapper">
                 <nav class="bmenu panel animated">
-                  <a href="#/home.html"
-                    ><span class="triangle-origin">Vehicles</span></a
-                  >
-                  <a href="#/markets.html"
-                    ><span class="triangle-origin">Real Estate</span></a
-                  >
-                  <a href="#/technology.html"
-                    ><span class="triangle-origin"
-                      >Phones &amp; Tablets</span
-                    ></a
-                  >
-                  <a href="#/politics.html"
-                    ><span class="triangle-origin">Electronics</span></a
-                  >
-                  <a href="#/pursuits.html"
-                    ><span class="triangle-origin">Fashion</span></a
-                  >
-                  <a href="#/opinion.html"
-                    ><span class="triangle-origin">Jobs</span></a
-                  >
-                  <a href="#/businessweek.html"
-                    ><span class="triangle-origin">Babies &amp; Kids</span></a
+                  <router-link to="/categories" v-for="(category, index) in categories" :key="++index + categories.length"
+                    ><span class="triangle-origin">{{ category.name }}</span></router-link
                   >
                   <hr />
-                  <a href=""
-                    ><span class="triangle-origin"
-                      >Agriculture &amp; Food</span
-                    ></a
-                  >
-                  <a href="#"><span class="triangle-origin">Handy Man</span></a>
-                  <article class="panel">
+                  <article class="panel" v-for="category in categories" :key="category.id">
                     <div class="column">
                       <section class="titled-group">
+                        <header>{{ category.name }}</header>
+                        <div v-if="category.subcategory">
+                        <a href="/categories" v-for="subcategory in category.subcategory" :key="subcategory.id">{{ subcategory.name }}</a>
+                        </div>
+                        <a href="/categories" v-else="">No subcategories present.</a>
+                      </section>
+                     <!--  <section class="titled-group">
                         <header>Category Title</header>
-                        <a href="#">Ayam Tired</a>
+                        <a href="#">A sub category...</a>
                         <a href="#">A Sub Category</a>
                         <a href="#">A Sub Category</a>
                         <a href="#">A Sub Category</a>
                       </section>
                       <section class="titled-group">
                         <header>Category Title</header>
-                        <a href="#">It's our work o!!</a>
+                        <a href="#">A sub category...</a>
                         <a href="#">A Sub Category</a>
                         <a href="#">A Sub Category</a>
                         <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
+                      </section> -->
                     </div>
-                    <div class="column">
+   <!--                  <div class="column">
                       <section class="titled-group">
                         <header>Category Title</header>
-                        <a href="#">Who knew this could be stressful</a>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
+                        <a href="#">A Sub Category</a>
+                      </section>
+                      <section class="titled-group">
+                        <header>Category Title</header>
+                        <a href="#">A sub category...</a>
+                        <a href="#">A Sub Category</a>
                         <a href="#">A Sub Category</a>
                         <a href="#">A Sub Category</a>
                         <a href="#">A Sub Category</a>
                       </section>
-                    </div>
+                    </div> -->
                   </article>
-                  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A worthless sub cat...</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Fresh Food</header>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Livestock &amp; Poultry</header>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Meals &amp; Drinks</header>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Feeds, Supplements &amp; Seeds</header>
-                        <a href="#">Cat 1</a>
-                        <a href="#">Cat 2</a>
-                        <a href="#">Cat 3</a>
-                        <a href="#">Gosh!!! I'm tired</a>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Hard Work</header>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Soft Work</header>
-                        <a href="#">It's our work o!!</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article>
-                  <article class="panel">
+                 <!--  <article class="panel">
                     <div class="column">
                       <section class="titled-group">
                         <header>Title</header>
@@ -772,7 +509,7 @@
                         <a href="#">A Sub Category</a>
                       </section>
                     </div>
-                  </article>
+                  </article> -->
                 </nav>
               </div>
             </li>
@@ -834,20 +571,23 @@ export default {
     timer
   },
   computed: {
-    ...mapGetters("auth", ["isLoggedIn", "getUser"])
+    ...mapGetters("auth", ["isLoggedIn", "getUser"]),
+    ...mapGetters("product", ["categories"]),
   },
   methods: {
+    ...mapActions("product", ["fetchAllCategories", "fetchSubCategories"]),
     ...mapActions("auth", ["logoutUser"]),
     setLogout() {
       this.logoutUser();
     },
-      avatarCheck () {
-      let avatar = this.getUser.pictureUrl;
-      if(avatar !== null || avatar !== undefined || avatar !== '') {
-        // return `https://www.tradexplora.com.ng/media/${getUser.pictureURL}`;
-        return true;
+    sendFetchSubCategories() {
+      let categories = this.categories
+      for(let category in categories) {
+         const payload =  {
+            cid: categories[category].id
+          }
+        this.fetchSubCategories(payload);
       }
-        return false;
     },
     sync() {
       $(document).ready(function() {
@@ -872,7 +612,6 @@ export default {
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });
-
         let sideBarTrigger = $(".openbtn");
         // let sideBar = $("#sidebar-nav");
         let sideBar = $("#tempSidebar");
@@ -899,13 +638,10 @@ export default {
             // console.log("Sidebar is now closed");
           }
         });
-
         ("use strict");
-
         $(".select2").select2({
           minimumResultsForSearch: Infinity
         });
-
         // Select2 Styles
         $("#select-Categories1").select2({
           minimumResultsForSearch: ""
@@ -937,13 +673,11 @@ export default {
         $("#select-Categories10").select2({
           minimumResultsForSearch: ""
         });
-
         // Select2 by showing the search
         $(".select2-show-search").select2({
           minimumResultsForSearch: "",
           placeholder: "Search"
         });
-
         $("#job").select2({
           minimumResultsForSearch: "",
           placeholder: "Search jobs here "
@@ -952,7 +686,6 @@ export default {
           minimumResultsForSearch: "",
           placeholder: "Search profiles here "
         });
-
         function formatState(state) {
           if (!state.id) {
             return state.text;
@@ -966,7 +699,6 @@ export default {
           );
           return $state;
         }
-
         $(".select2-flag-search").select2({
           templateResult: formatState,
           templateSelection: formatState,
@@ -974,7 +706,6 @@ export default {
             return m;
           }
         });
-
         $("select2").select2({
           width: "100%"
         });
@@ -1016,13 +747,14 @@ export default {
   },
   created() {
     this.sync();
+    this.fetchAllCategories();
+    this.sendFetchSubCategories();
   }
 };
 </script>
 
 <style>
 /* Sidebar Test Styles => Don't remove */
-
 .sidenav {
   box-shadow: 3px 5px 30px rgba(0, 0, 0, 0.1);
   height: 100%;
@@ -1038,7 +770,6 @@ export default {
   transition: 0.5s;
   padding-top: 60px;
 }
-
 .sidenav a {
   padding: 10px 8px 10px 16px;
   text-decoration: none;
@@ -1047,16 +778,13 @@ export default {
   display: block;
   transition: 0.3s;
 }
-
 .sidenav a:not(:first-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-
 .sidenav a:not(:first-child):hover {
   color: #fff;
   background: #4caf50;
 }
-
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -1064,7 +792,6 @@ export default {
   font-size: 36px;
   margin-left: 50px;
 }
-
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 10px;
@@ -1073,7 +800,6 @@ export default {
     font-size: 18px;
   }
 }
-
 /* Mega Menu Internals */
 .hide-at-start-wrapper {
   position: absolute;
@@ -1090,11 +816,9 @@ export default {
   font-weight: 400;
   /* font-family: avenir; */
 }
-
 .horizontal-main {
   border-bottom: 3px solid #4caf50;
 }
-
 @media (min-width: 768px) {
   .container2 {
     width: 750px;
@@ -1120,7 +844,6 @@ export default {
   transition: all ease-in 300ms;
   border-radius: 6px !important;
 }
-
 .header-search-button:hover {
   color: #fff !important;
   box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9) !important;

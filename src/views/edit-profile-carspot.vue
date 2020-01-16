@@ -84,8 +84,6 @@
                                       </div>
                                       <button
                                         class="btn btn-success btn-sm mt-5"
-                                        :class="loading ? 'disabled-btn' : ''"
-                                        :disabled="loading"
                                         v-show="!current"
                                         @click="onUpload(user)"
                                       >
@@ -456,7 +454,7 @@ require("../../public/assets/css/components.css");
 import dsidebar from "@/components/Dsidebar";
 import Vue from "vue";
 import FileUpload from "v-file-upload";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 Vue.use(FileUpload);
 // import dheader from "@/components/Dheader";
 export default {
@@ -472,6 +470,7 @@ export default {
   },
   computed: {
     ...mapState("auth", ["user"]),
+    ...mapGetters("user", ["getUpdateErrors", "getUpdateSuccess"]),
     loading() {
       return this.$store.getters["auth/loading"];
     }
@@ -487,6 +486,69 @@ export default {
         image: this.selectedFile
       };
       this.uploadProfileImage(payload);
+    },
+    showLoadingAlert() {
+      this.$notify({
+        group: "notify",
+        type: "success",
+        title: "LOADING...",
+        text: "Sending your updates...",
+        position: "top right",
+        duration: 10000,
+        speed: 1000
+      });
+    },
+    showErrorMsg(errorMsg) {
+      this.$notify({
+        group: "errors",
+        type: "error",
+        title: "Error Message",
+        width: "100%",
+        text: errorMsg,
+        classes: "error",
+        duration: 10000,
+        speed: 1000,
+        position: "top right"
+      });
+    },
+    showSuccess(successMsg) {
+      this.$notify({
+        group: "notify",
+        type: "success",
+        title: "Success",
+        text: successMsg,
+        position: "top right",
+        duration: 10000,
+        speed: 1000
+      });
+    }
+  },
+  watch: {
+    $route: "sync",
+      loading: {
+      handler: function(loading) {
+        if (loading) {
+          this.showLoadingAlert()
+          // console.log(this.isLoading);
+        }
+        // console.log(this.isLoading);
+      }
+    },
+   getUpdateErrors: {
+      handler: function(errors) {
+        if(errors) {
+        this.showErrorMsg(errors);
+        console.log("errors just changed");
+      }
+      }
+    },
+    getUpdateSuccess: {
+      handler: function(success) {
+        if(success) {
+        this.showSuccess(success);
+        console.log("success just changed");
+      }
+      }
     }
   }
 };

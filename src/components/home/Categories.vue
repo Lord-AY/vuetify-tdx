@@ -31,7 +31,7 @@
                     <input
                       type="text"
                       class="main-location form-control input-lg br-tr-md-0 br-br-md-0"
-                      id="text4"
+                      id="text3"
                       placeholder="Location"
                     />
                     <span

@@ -71,6 +71,7 @@ export default {
   },
   created() {
     this.fetchCountries();
+    console.log(this.loading);
   },
   methods: {
     ...mapActions("auth", ["registerUser"]),

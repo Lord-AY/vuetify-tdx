@@ -5,9 +5,10 @@ import store from "@/store";
 import Home from "../views/Home.vue";
 import userRegister from "../views/Register.vue";
 import p404 from "../views/404.vue";
-// import productoverview from "../views/ProductOverview.vue";
-// import signin from "../views/Signin.vue";
-// import gridlist from "../views/Gridlist.vue";
+import ProductDetails from "../views/ProductDetails.vue";
+import signin from "../views/Signin.vue";
+import reset from "../views/Resetpass.vue";
+import gridlist from "../views/Gridlist.vue";
 
 Vue.use(VueRouter);
 
@@ -42,13 +43,13 @@ const routes = [
       next();
     },
     meta: {
-      header: 0
+      header: 1
     }
   },
   {
     path: "/login",
     name: "login",
-    component: () => import("../views/Signin.vue"),
+    component: signin,
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
       if (auth) {
@@ -57,13 +58,13 @@ const routes = [
       next();
     },
     meta: {
-      header: 0
+      header: 1
     }
   },
   {
     path: "/reset",
     name: "reset",
-    component: () => import("../views/Resetpass.vue"),
+    component: reset,
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
       if (auth) {
@@ -110,7 +111,7 @@ const routes = [
   {
     path: "/productDetails/:id/:cid",
     name: "productDetails",
-    component: () => import("../views/ProductDetails.vue"),
+    component: ProductDetails,
     meta: {
       header: 1
     },
@@ -128,7 +129,7 @@ const routes = [
     name: "categories",
     component: () => import("../views/Categories.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {
@@ -139,7 +140,22 @@ const routes = [
       header: 1
     }
   },
-
+  {
+    path: "/billercategory/:category",
+    name: "billercategory",
+    component: () => import("../views/billersCategory.vue"),
+    meta: {
+      header: 1
+    }
+  },
+  {
+    path: "/paymentitem/:payid",
+    name: "paymentitem",
+    component: () => import("../views/billerspaymentitem.vue"),
+    meta: {
+      header: 1
+    }
+  },
   {
     path: "/comparison",
     name: "comparison",
@@ -156,17 +172,17 @@ const routes = [
       header: 3
     }
   },
-  // {
-  //   path: "/dashboard",
-  //   name: "dashboard",
-  //   component: () => import("../views/Dashboard.vue"),
-  //   meta: {
-  //     header: 3
-  //   }
-  // },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: () => import("../views/Dashboard.vue"),
+    meta: {
+      header: 3
+    }
+  },
   {
     path: "/maindashboard",
-    name: "dashboard",
+    name: "maindashboard",
     component: () => import("../views/dashboard-carspot.vue"),
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
@@ -281,7 +297,7 @@ const routes = [
   },
   {
     path: "/mainsettings",
-    name: "settings",
+    name: "mainsettings",
     component: () => import("../views/settings-carspot.vue"),
     meta: {
       header: 2
@@ -290,7 +306,7 @@ const routes = [
   {
     path: "/gridlist",
     name: "gridlist",
-    component: () => import("../views/Gridlist.vue"),
+    component: gridlist,
     meta: {
       header: 1,
     }

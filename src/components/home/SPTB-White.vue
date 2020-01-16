@@ -30,16 +30,16 @@ import router from '../../router';
       </div>
       <ProductLoader v-show="showLoader(ads)"></ProductLoader>
       <div
-        id="myCarousel1"
+        id="defaultCarousel"
         class="owl-carousel owl-carousel-icons2"
         v-show="!showLoader(ads)"
       >
         <div class="item" v-for="product in ads" :key="product.id">
           <div class="card mb-0">
             <div class="item-card2-img">
-              <router-link
+            <!--   <router-link
                 :to="`/ProductDetails/${product.id}/${product.cid}`"
-              ></router-link>
+              ></router-link> -->
               <img
                 :src="product.photos[0]"
                 :alt="product.name"
@@ -107,6 +107,7 @@ import router from '../../router';
 </template>
 
 <script>
+// require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 /* eslint-disable no-undef */
 import ProductLoader from "@/components/loaders/Productloader";
 import ash from "lodash";
@@ -129,33 +130,33 @@ export default {
     sync() {
       $(document).ready(() => {
         // ______________Owl-carousel-icons2
-        $(".owl-carousel-icons2").owlCarousel({
-          loop: true,
-          rewind: false,
-          margin: 25,
-          animateIn: "fadeInDowm",
-          animateOut: "fadeOutDown",
-          autoplayTimeout: 5000, // set value to change speed
-          autoplayHoverPause: true,
-          dots: false,
-          nav: true,
-          autoplay: true,
-          responsiveClass: true,
-          responsive: {
-            0: {
-              items: 1,
-              nav: true
-            },
-            600: {
-              items: 2,
-              nav: true
-            },
-            1300: {
-              items: 4,
-              nav: true
-            }
-          }
-        });
+        // $(".owl-carousel-icons2").owlCarousel({
+        //   loop: true,
+        //   rewind: false,
+        //   margin: 25,
+        //   animateIn: "fadeInDowm",
+        //   animateOut: "fadeOutDown",
+        //   autoplayTimeout: 5000, // set value to change speed
+        //   autoplayHoverPause: true,
+        //   dots: false,
+        //   nav: true,
+        //   autoplay: true,
+        //   responsiveClass: true,
+        //   responsive: {
+        //     0: {
+        //       items: 1,
+        //       nav: true
+        //     },
+        //     600: {
+        //       items: 2,
+        //       nav: true
+        //     },
+        //     1300: {
+        //       items: 4,
+        //       nav: true
+        //     }
+        //   }
+        // });
       });
     }
   },

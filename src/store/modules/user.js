@@ -2,12 +2,31 @@ import UserService from "@/services/UserService";
 
 export default {
   namespaced: true,
-  state: {},
-  getters: {},
+  state: {
+    errors: null,
+    success: null
+  },
+  getters: {
+    getUpdateSuccess(state) {
+      if(state.success !== null && state.success !== undefined) {
+        return state.success;
+      }
+      return;
+    },
+    getUpdateErrors(state) {
+      if(state.errors !== null && state.errors !== undefined) {
+        return state.errors;
+      }
+      return;
+    }
+  },
   actions: {
     updateUser({ rootState, commit }, user) {
       // set loading
       commit("auth/SET_LOADING", true, { root: true });
+      // clear previous errors
+      commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
       return UserService.update(rootState.auth.user.id, {
         firstname: user.firstname,
         lastname: user.lastname,
@@ -18,17 +37,24 @@ export default {
       })
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(data);
+          // console.log(data);
+          commit("SET_SUCCESS_MSG", "Successfully updated your profile");
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error);
+          if(error.status == 500) {
+            commit("SET_ERRORS", "Server Error, Please Try Again...")
+          }else if(error.status == 404 ) {
+             commit("SET_ERRORS", "Network Error, Please make sure you are connected..")
+          } else {
+            commit("SET_ERRORS", "please try again...");
+          }
         });
     },
     uploadProfileImage({ commit }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       return UserService.update(payload.user.id, {
-        pictureURL: payload.image
+        pictureUrl: payload.image
       })
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
@@ -36,7 +62,7 @@ export default {
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error);
+          console.log(error.response);
         });
     },
     FetchUser({ commit }, payload) {
@@ -52,5 +78,12 @@ export default {
         });
     }
   },
-  mutations: {}
+  mutations: {
+    SET_ERRORS(state, error) {
+      state.errors = error;
+    },
+    SET_SUCCESS_MSG(state, success) {
+      state.success = success;
+    }
+  }
 };

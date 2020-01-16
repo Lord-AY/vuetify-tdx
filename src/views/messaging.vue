@@ -162,7 +162,7 @@
                               <div class="list-wrap ps-container ps-active-y">
                                 <ul class="message-history">
                                   <!-- LIST ITEM -->
-                                  <li class="message-grid" v-for="(message, index) in getMessages" :key="index">
+                                  <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
                                     <a href="#">
                                       <div class="image img-square">
                                         <img
@@ -707,10 +707,12 @@ export default {
     dsidebar
   },
   computed: {
-    ...mapGetters("chat", ["getMessages"]),
+    ...mapGetters("chat", ["getMessagesTo"]),
+    ...mapGetters("chat", ["getMessagesFrom"]),
+    ...mapGetters("chat", ["getAllMessage"]),
   },
   methods: {
-    ...mapActions("chat", ["sendMessage", "fetchUserMessages", "getRecievedOfferUsers", "getSentOfferUsers"]),
+    ...mapActions("chat", ["sendMessage", "fetchUserMessagesto", "fetchUserMessagesfrom", "getRecievedOfferUsers", "getSentOfferUsers", "getAll"]),
     sendNewMessage() {
       const payload = {
         message: this.message,
@@ -719,18 +721,26 @@ export default {
       this.fetchAllMessages();
     },
     fetchAllMessages() {
-      this.fetchUserMessages();
+      this.fetchUserMessagesto();
+      this.fetchUserMessagesfrom();
     },
     getSentWithRecievedOfferUsers() {
-      let fromMessagePayload = this.getMessages.from;
-      let toMessagePayload = this.getMessages.to;
-      this.getSentOfferUsers(fromMessagePayload);
-      this.getRecievedOfferUsers(toMessagePayload);
+      const fromMessagePayload = this.getMessagesFrom;
+      const toMessagePayload = this.getMessagesTo;
+      const allMessages = this.getAllMessage;
+      // console.log(fromMessagePayload);
+      // const allMessages  = {...fromMessagePayload, ...toMessagePayload};
+      // console.log(allMessages);
+      this.getSentOfferUsers(toMessagePayload);
+      this.getRecievedOfferUsers(fromMessagePayload);
+      this.getAll(fromMessagePayload, toMessagePayload);
+      // console.log(allMessages);
     }
   },
   created() {
     this.fetchAllMessages();
     this.getSentWithRecievedOfferUsers();
+
     // console.log(this.getMessages);
   }
 };

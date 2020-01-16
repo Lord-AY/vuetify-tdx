@@ -138,8 +138,8 @@
                               class="form-text text-muted"
                               >At least 6 characters</small
                             > -->
-                            <div v-show="passwordErr" class="invalid-feedback">
-                              {{ passwordErr }}.
+                            <div v-show="errors.password" class="invalid-feedback">
+                              {{ errors.password }}
                             </div>
                             <div v-show="errors.password" class="invalid-feedback">
                               {{ errors.password }}.
@@ -254,7 +254,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .disabled-btn {
   cursor: wait !important;
 } 

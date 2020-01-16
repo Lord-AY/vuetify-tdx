@@ -1589,9 +1589,11 @@
   </div>
 </template>
 <script>
+
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 require("../../public/assets/plugins/select2/select2.min.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 // require("../../public/assets/css/imported/style4d2c.css");
@@ -1696,20 +1698,20 @@ export default {
   beforeMount() {
     // console.log("this is before mounted");
   },
-  mounted() {
-    // console.log("this route just got mounted");
-    // this.$forceUpdate();
-    if (localStorage.getItem('reloaded')) {
-        // The page was just reloaded. Clear the value from local storage
-        // so that it will reload the next time this page is visited.
-        localStorage.removeItem('reloaded');
-    } else {
-        // Set a flag so that we know not to reload the page twice.
-        localStorage.setItem('reloaded', '1');
-        location.reload();
-    }
-    this.sync();
-  },
+  // mounted() {
+  //   // console.log("this route just got mounted");
+  //   // this.$forceUpdate();
+  //   if (localStorage.getItem('reloaded')) {
+  //       // The page was just reloaded. Clear the value from local storage
+  //       // so that it will reload the next time this page is visited.
+  //       localStorage.removeItem('reloaded');
+  //   } else {
+  //       // Set a flag so that we know not to reload the page twice.
+  //       localStorage.setItem('reloaded', '1');
+  //       location.reload();
+  //   }
+  //   this.sync();
+  // },
   // beforeRouteLeave: function(to, from, next) {
   //     if (this.prevRoute.path === to.path) {
   //       this.$router.go(to.path);
@@ -1762,8 +1764,8 @@ export default {
   border-radius: 0px;
 }
 .custom-select {
-  height: 0rem;
-  /*margin: 4px 0px;*/
+  height: 4.6rem;
+  margin-right: 4px 0px;
   border-right: 4px;
   font-size: 12px;
 }
@@ -1776,6 +1778,14 @@ export default {
 html{
   font-size: 10px;
 }
+
+
+.ad-meta:first-child a {
+  margin-right: 10px;
+}
+
+</style>
+<style scoped>
 @media only screen and (max-width: 991px) {
   .horizontal-header .smllogo {
     position: relative !important;
@@ -1823,6 +1833,7 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+
 .red-title:hover {
   background-color: rgb(43, 124, 46)!important;
 }
@@ -1830,5 +1841,6 @@ textarea {
 .select2 .select2-container .select2-container--default {
   width: 160px!important;
 }
+
 
 </style>

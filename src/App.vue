@@ -13,6 +13,7 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
         v-show="$route.name == 'gridlist'"
       ></GridListLoader>
     </div>
+    <!-- <topbar></topbar> -->
     <div v-if="$route.meta.header === 1"><topbar></topbar></div>
     <div v-else-if="$route.meta.header === 3"><topbar2></topbar2></div>
     <div v-else-if="$route.meta.header === 4"><topbar2></topbar2></div>
@@ -22,6 +23,7 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
         <router-view />
       </div>
     </transition>
+    <!-- <Footer></Footer> -->
     <div v-if="$route.meta.header === 1"><Footer></Footer></div>
     <div v-if="$route.meta.header === 3"><Footer></Footer></div>
     <div v-if="$route.meta.header === 4"><Footer></Footer></div>
@@ -50,7 +52,7 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
 /* eslint-disable no-undef*/
 
 import topbar from "@/components/Topbar";
-import topbar2 from "@/components/Topbar2";
+// import topbar2 from "@/components/Topbar2";
 import Footer from "@/components/Footer";
 import Homeloader from "@/components/loaders/Homeloader";
 import HomeMobileLoader from "@/components/loaders/HomeMbLoader";
@@ -61,7 +63,7 @@ import GridListLoader from "@/components/loaders/GridlistLoader";
 export default {
   components: {
     topbar,
-    topbar2,
+    // topbar2,
     // BNav,
     Footer,
     Homeloader,

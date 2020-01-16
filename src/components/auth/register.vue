@@ -620,7 +620,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form-box-title {
   text-align: center!important;
 }
