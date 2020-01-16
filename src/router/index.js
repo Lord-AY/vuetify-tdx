@@ -8,7 +8,7 @@ import p404 from "../views/404.vue";
 import ProductDetails from "../views/ProductDetails.vue";
 import signin from "../views/Signin.vue";
 import reset from "../views/Resetpass.vue";
-import gridlist from "../views/Gridlist.vue";
+// import gridlist from "../views/Gridlist.vue";
 
 Vue.use(VueRouter);
 
@@ -306,7 +306,7 @@ const routes = [
   {
     path: "/gridlist",
     name: "gridlist",
-    component: gridlist,
+    component: () => import("../views/Gridlist.vue"),
     meta: {
       header: 1,
     }

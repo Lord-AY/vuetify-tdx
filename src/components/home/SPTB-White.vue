@@ -93,9 +93,9 @@ import router from '../../router';
                     ></i>
                   </h5>
                 </div>
-                <div class="mt-2 footerimg-r ml-auto">
-                  <small class="text-muted">1 day ago</small>
-                </div>
+<!--                 <div class="mt-2 footerimg-r ml-auto">
+                  <small class="text-muted">{{ daysago(format_date(product.createdAt)) }}</small>
+                </div> -->
               </div>
             </div>
           </div>
@@ -110,6 +110,7 @@ import router from '../../router';
 // require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 /* eslint-disable no-undef */
 import ProductLoader from "@/components/loaders/Productloader";
+import moment from "moment";
 import ash from "lodash";
 export default {
   name: "SPTB-White",
@@ -127,36 +128,46 @@ export default {
         return false;
       }
     },
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    daysago(dateago){
+      if (dateago){
+        return  moment.duration(moment().diff(dateago)).humanize() + " ago";
+      }
+    },
     sync() {
       $(document).ready(() => {
         // ______________Owl-carousel-icons2
-        // $(".owl-carousel-icons2").owlCarousel({
-        //   loop: true,
-        //   rewind: false,
-        //   margin: 25,
-        //   animateIn: "fadeInDowm",
-        //   animateOut: "fadeOutDown",
-        //   autoplayTimeout: 5000, // set value to change speed
-        //   autoplayHoverPause: true,
-        //   dots: false,
-        //   nav: true,
-        //   autoplay: true,
-        //   responsiveClass: true,
-        //   responsive: {
-        //     0: {
-        //       items: 1,
-        //       nav: true
-        //     },
-        //     600: {
-        //       items: 2,
-        //       nav: true
-        //     },
-        //     1300: {
-        //       items: 4,
-        //       nav: true
-        //     }
-        //   }
-        // });
+        $(".owl-carousel-icons2").owlCarousel({
+          loop: true,
+          rewind: false,
+          margin: 25,
+          animateIn: "fadeInDowm",
+          animateOut: "fadeOutDown",
+          autoplayTimeout: 5000, // set value to change speed
+          autoplayHoverPause: true,
+          dots: false,
+          nav: true,
+          autoplay: true,
+          responsiveClass: true,
+          responsive: {
+            0: {
+              items: 1,
+              nav: true
+            },
+            600: {
+              items: 2,
+              nav: true
+            },
+            1300: {
+              items: 4,
+              nav: true
+            }
+          }
+        });
       });
     }
   },

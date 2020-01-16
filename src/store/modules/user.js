@@ -54,7 +54,7 @@ export default {
     uploadProfileImage({ commit }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       return UserService.update(payload.user.id, {
-        pictureURL: payload.image
+        pictureUrl: payload.image
       })
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
@@ -62,7 +62,7 @@ export default {
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error);
+          console.log(error.response);
         });
     },
     FetchUser({ commit }, payload) {

@@ -1,5 +1,6 @@
 <template>
   <div>
+     <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="list">
       <div class="main-content-area clearfix">
         <section
@@ -165,7 +166,7 @@ export default {
     return {
       selected: false,
       filteredBillers: [],
-      isLoading: false,
+      isLoading: true,
       fullPage: true
     };
   },
@@ -190,6 +191,14 @@ methods: {
   }
 },
 watch: {
+  billerListings: {
+    handler: function(billerListings) {
+      if(billerListings !== null && billerListings !== undefined) {
+        this.isLoading = true;
+      }
+      this.isLoading = false;
+    }
+  },
   filteredBillers: {
     handler: function(filteredArray) {
       this.selected = true;
@@ -201,6 +210,7 @@ watch: {
   }
 },
   created() {
+    this.isLoading = true;
     this.fetchAllBillers();
     // console.log(this.getBillerCategories);
   }

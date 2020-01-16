@@ -84,8 +84,6 @@
                                       </div>
                                       <button
                                         class="btn btn-success btn-sm mt-5"
-                                        :class="loading ? 'disabled-btn' : ''"
-                                        :disabled="loading"
                                         v-show="!current"
                                         @click="onUpload(user)"
                                       >

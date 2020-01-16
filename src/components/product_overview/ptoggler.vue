@@ -24,7 +24,7 @@
               <h6>Sort by:</h6>
               <div class="custom-select-box">
                 <form method="get">
-                  <select name="sort" id="order_by" class="custom-select">
+                  <select name="sort" id="order_by" class="select2 custom-select">
                     <option value="id-desc">Newest To Oldest</option>
                     <option value="id-asc">Oldest To New</option>
                     <option value="title-asc">Alphabetically [a-z]</option>
@@ -50,8 +50,6 @@
           </div>
         </div>
       </div>
-      <div class="clearfix"></div>
-      <div class="clearfix"></div>
       <!-- Ads Archive -->
       <!-- Ads Archive End -->
       <div class="clearfix"></div>
@@ -61,6 +59,7 @@
 </template>
 
 <script>
+require("../../../public/assets/plugins/select2/select2.min.css");
 import { bus } from "../../main.js";
 export default {
   name: "ptoggler",
@@ -80,6 +79,13 @@ export default {
 </script>
 
 <style scoped>
+.col-md-12.col-xs-12.col-md-search-tx.col-sm-12.col-lg-12 {
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+}
+small {
+  font-size: 85%;
+}
 i.switch {
   background: none;
   border: 0px solid black;
@@ -104,4 +110,8 @@ i.grid {
   border-color: green;
   color: green;
 }
+.select2 .select2-container .select2-container--default {
+  width: 160px!important;
+}
+
 </style>

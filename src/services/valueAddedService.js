@@ -7,4 +7,7 @@ export default {
    payment(payload) {
     return Api().get(`qtell/getbillerpaymentitem/${payload.payId}`);
   },
+  paymentOption(payload) {
+    return Api().post("qtell/customers/validations", payload);
+  }
 };
