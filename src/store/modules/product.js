@@ -174,6 +174,7 @@ export default {
           const photosArr = ash.split(data.photos, ",", 7);
           data.photos = photosArr;
           commit("auth/SET_LOADING", true, { root: true });
+          commit("SET_SINGLE_PRODUCT", data);
         })
         .catch(() => {
           commit(
