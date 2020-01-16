@@ -402,6 +402,7 @@
           <div class="desktoplogo">
             <router-link to="/">
               <img src="@/assets/images/brand/TRADEXPLORA-V4.1-mini.png" alt />
+              
             </router-link>
           </div>
           <div class="desktoplogo-1">

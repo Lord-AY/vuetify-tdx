@@ -64,7 +64,8 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awes
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
+require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
+require("../../public/assets/carspot-css/wp-content/themes/carspot/js/slide4d2c.js?ver=5.2.4");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
