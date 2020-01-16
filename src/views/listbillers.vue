@@ -1,6 +1,6 @@
 <template>
   <div>
-     <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
+    <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
     <div class="list">
       <div class="main-content-area clearfix">
         <section
@@ -18,7 +18,12 @@
                     role="tablist"
                     aria-multiselectable="true"
                   >
-                    <div class="panel panel-default" id="red-title" v-for="(category, index) in getBillerCategories" :key="index">
+                    <div
+                      class="panel panel-default"
+                      id="red-title"
+                      v-for="(category, index) in getBillerCategories"
+                      :key="index"
+                    >
                       <!-- Heading -->
                       <div class="panel-heading" role="tab" id="headingFive">
                         <h4 class="panel-title">
@@ -37,42 +42,71 @@
               </div>
               <div class="col-md-9 col-lg-9 col-xs-12">
                 <!-- Row -->
-                  <div class="clearfix"></div>
-                      <div class="panel-body">
-                        <transition name="fade">
-                          <div
-                            class="tab-pane fade in active"
-                            v-show="selected"
-                            id="tab1default"
-                          >
-                            <div class="row">
-                               <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
-                              <div class="col-md-6 col-lg-3 mb-5" v-show="!isLoading" v-for="(biller, index) in filteredBillers" :key="index" >
-                                <div class="card card-cat-tx mb-0 box-shadow-2">
-                                  <div class="item-card item-card-tx">
-                                    <div class="item-card-desc item-card-desc-tx">
-                                      <router-link :to="`paymentitem/${biller.billerid}`"></router-link>
-                                      <div class="item-card-img item-card-img-tx">
-                                        <img
-                                          src="assets/images/categories/car.svg"
-                                          alt="img"
-                                          class="br-tr-7 br-tl-7"
-                                        />
-                                      </div>
-                                      <div class="item-card-text item-card-text-tx">
-                                        <h4 class="mb-0">{{ biller.billername }}</h4>
-                                      </div>
-                                    </div>
+                <div class="clearfix"></div>
+                <div class="panel-body">
+                  <transition name="fade">
+                    <div
+                      class="tab-pane fade in active"
+                      v-show="selected"
+                      id="tab1default"
+                    >
+                      <div class="row">
+                        <Loading
+                          :active.sync="isLoading"
+                          :is-full-page="fullPage"
+                        ></Loading>
+                        <div
+                          class="col-md-6 col-lg-3 mb-5"
+                          v-show="!isLoading"
+                          v-for="(biller, index) in filteredBillers"
+                          :key="index"
+                        >
+                          <div class="card card-cat-tx mb-0 box-shadow-2">
+                            <div class="item-card item-card-tx">
+                              <div class="item-card-desc item-card-desc-tx">
+                                <router-link
+                                  v-if="biller.mediumImageId"
+                                  :to="
+                                    `paymentitem/${biller.billerid}/company/${biller.mediumImageId}`
+                                  "
+                                ></router-link>
+                                 <router-link
+                                  v-else
+                                  :to="
+                                    `paymentitem/${biller.billerid}/default/${defaultImg}`
+                                  "
+                                ></router-link>
+                                <div class="item-card-img item-card-img-tx">
+                                  <img
+                                    v-if="biller.mediumImageId"
+                                    :src="
+                                      `https://quickteller.sandbox.interswitchng.com/Content/Images/Downloaded/${biller.mediumImageId}` +
+                                        '.png'
+                                    "
+                                    alt="img"
+                                    class="br-tr-7 br-tl-7"
+                                  />
+                                  <img
+                                    v-else
+                                    :src="'img/'+defaultImg+'.png'"
+                                    alt="img"
+                                    class="br-tr-7 br-tl-7"
+                                  />
+                                </div>
+                                <div class="item-card-text item-card-text-tx">
+                                  <h4 class="mb-0">{{ biller.billername }}</h4>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        </transition>
-                  </div>
+                      </div>
+                    </div>
+                  </transition>
+                </div>
 
-                  <div class="clearfix"></div>
-                  <!-- <div class="text-center margin-top-30 margin-bottom-20">
+                <div class="clearfix"></div>
+                <!-- <div class="text-center margin-top-30 margin-bottom-20">
                   <ul class="pagination pagination-lg">
                     <li class="active">
                       <a href="index23c2.html?carspot_layout_type=1">1</a>
@@ -89,9 +123,9 @@
                     </li>
                   </ul>
                 </div> -->
-                </div>
               </div>
             </div>
+          </div>
         </section>
       </div>
 
@@ -158,7 +192,7 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsiv
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
 require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
 
-import {mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 import Loading from "vue-loading-overlay";
 import ash from "lodash";
 export default {
@@ -167,48 +201,49 @@ export default {
       selected: false,
       filteredBillers: [],
       isLoading: true,
-      fullPage: true
+      fullPage: true,
+      defaultImg: "TRADEXPLORA-V4.1-mini.b55c0fd7"
     };
   },
   components: {
     Loading
   },
   computed: {
-    ...mapGetters("valueAdded", ["billerListings", "getBillerCategories"]),
+    ...mapGetters("valueAdded", ["billerListings", "getBillerCategories"])
   },
-methods: {
-  ...mapActions("valueAdded", ["fetchAllBillers"]),
-  showCategoryBillers(category) {
-    // console.log(category);
-    let billerListings = this.billerListings;
-    this.filteredBillers = [];
-    for(let biller in billerListings) {
-      if(billerListings[biller].categoryname == category) {
-        this.filteredBillers.push(billerListings[biller]);
+  methods: {
+    ...mapActions("valueAdded", ["fetchAllBillers"]),
+    showCategoryBillers(category) {
+      // console.log(category);
+      let billerListings = this.billerListings;
+      this.filteredBillers = [];
+      for (let biller in billerListings) {
+        if (billerListings[biller].categoryname == category) {
+          this.filteredBillers.push(billerListings[biller]);
+        }
       }
-    }
-    console.log(this.filteredBillers);
-  }
-},
-watch: {
-  billerListings: {
-    handler: function(billerListings) {
-      if(billerListings !== null && billerListings !== undefined) {
-        this.isLoading = true;
-      }
-      this.isLoading = false;
+      console.log(this.filteredBillers);
     }
   },
-  filteredBillers: {
-    handler: function(filteredArray) {
-      this.selected = true;
-      if(ash.isEmpty(filteredArray)) {
-        this.isLoading = true
+  watch: {
+    billerListings: {
+      handler: function(billerListings) {
+        if (billerListings !== null && billerListings !== undefined) {
+          this.isLoading = true;
+        }
+        this.isLoading = false;
       }
-      this.isLoading = false;
+    },
+    filteredBillers: {
+      handler: function(filteredArray) {
+        this.selected = true;
+        if (ash.isEmpty(filteredArray)) {
+          this.isLoading = true;
+        }
+        this.isLoading = false;
+      }
     }
-  }
-},
+  },
   created() {
     this.isLoading = true;
     this.fetchAllBillers();
@@ -217,8 +252,9 @@ watch: {
 };
 </script>
 <style lang="scss">
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .2s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
