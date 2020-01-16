@@ -321,6 +321,9 @@ export default {
 </script>
 
 <style>
+.new-hot-sellers {
+  left: 7.5rem!important;
+}
 @media (max-width: 767px) {
   .hotseller-sub {
     display: inline-block;

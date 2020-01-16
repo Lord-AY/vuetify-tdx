@@ -14351,6 +14351,21 @@ hr.accent-2 {
     right: 6px; 
 }
 
+.main-search-tx {
+    background-color: #fff!important;
+    background-image: none;
+    border: 1px solid #eee!important;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #555;
+    font-size: 14px;
+    height: auto;
+    padding: 15px;
+    -webkit-transition: all .2s cubic-bezier(0, 0, 0.58, 1) 0s;
+    transition: all .2s cubic-bezier(0, 0, 0.58, 1) 0s;
+}
+
 .product-arrangement-icon {
    padding: 0px 5px;
 }

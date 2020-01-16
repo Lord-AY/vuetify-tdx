@@ -519,9 +519,10 @@
               <div class="col-xl-10 col-lg-12 col-md-12 mb-0">
                 <input
                   type="text"
-                  class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
+                  class="form-control input-lg br-tr-md-0 br-br-md-0 main-search main-search-tx"
                   id="text4"
                   placeholder="Search products, brands and categories"
+                  style="background-color: #fff!important; font-size: 15px!important; "
                 />
                 <span>
                   <i class="fa fa-search location-gps mr-1"></i>
@@ -531,7 +532,7 @@
                 class="col-xl-2 col-lg-12 col-md-12"
                 style="padding-left: 0px;"
               >
-                <button class="header-search-button btn btn-theme">
+                <button class="header-search-button btn btn-theme" style="text-transform: none!important;">
                   Search
                 </button>
               </div>
