@@ -221,7 +221,7 @@ export default {
           this.filteredBillers.push(billerListings[biller]);
         }
       }
-      console.log(this.filteredBillers);
+      // console.log(this.filteredBillers);
     }
   },
   watch: {

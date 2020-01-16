@@ -187,10 +187,6 @@
                                   <!-- END / LIST ITEM -->
                                   <!-- LIST ITEM -->
                                 </ul>
-                                <!-- <div class="ps-scrollbar-x-rail" style="width: 346px; display: none; left: 0px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div>
-                                                 <div class="ps-scrollbar-y-rail" style="top: 0px; height: 590px; display: inherit; right: 0px;">
-                                                    <div class="ps-scrollbar-y" style="top: 0px; height: 150px;"></div>
-                                                </div> -->
                               </div>
                             </div>
                           </div>
@@ -709,7 +705,6 @@ export default {
   computed: {
     ...mapGetters("chat", ["getMessagesTo"]),
     ...mapGetters("chat", ["getMessagesFrom"]),
-    ...mapGetters("chat", ["getAllMessage"]),
   },
   methods: {
     ...mapActions("chat", ["sendMessage", "fetchUserMessagesto", "fetchUserMessagesfrom", "getRecievedOfferUsers", "getSentOfferUsers", "getAll"]),
@@ -727,13 +722,19 @@ export default {
     getSentWithRecievedOfferUsers() {
       const fromMessagePayload = this.getMessagesFrom;
       const toMessagePayload = this.getMessagesTo;
-      const allMessages = this.getAllMessage;
-      // console.log(fromMessagePayload);
-      // const allMessages  = {...fromMessagePayload, ...toMessagePayload};
-      // console.log(allMessages);
+
+      var fm =JSON.parse(
+        JSON.stringify(fromMessagePayload));
+      // console.log(toMessagePayload)
+
+      var tm = JSON.parse(
+        JSON.stringify(toMessagePayload));
+
+      const allMessages  = Object.assign({}, fm, tm);
+      // console.log(allMessages2);
+      this.messages = allMessages;
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
-      this.getAll(fromMessagePayload, toMessagePayload);
       // console.log(allMessages);
     }
   },

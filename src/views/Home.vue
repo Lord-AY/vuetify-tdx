@@ -63,7 +63,8 @@ export default {
       "productListings",
       "getErrors",
       "getSuccess",
-      "comments"
+      "comments",
+      "paginatedProducts"
     ]),
     ...mapGetters("auth", ["loading", "errors"])
   },
@@ -154,7 +155,7 @@ export default {
     this.fetchAllCategories();
     this.fetchAllProducts();
     this.fetchAllComments();
-    // console.log(this.comments);
+    // console.log(this.paginatedProducts);
   },
   beforeCreate() {
     // console.log("this is before created");

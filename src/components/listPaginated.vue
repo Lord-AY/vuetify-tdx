@@ -42,9 +42,8 @@
                                 <!-- Img Block -->
                                 <div class="ad-archive-img">
                                   <router-link
-                                    :to="
-                                      `/ProductDetails/${product.id}/${product.cid}`
-                                    "
+                                    :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+                                    
                                   >
                                     <img
                                       :src="product.photos[0]"
@@ -80,9 +79,7 @@
                                   <!-- Title -->
                                   <h3>
                                     <router-link
-                                      :to="
-                                        `/ProductDetails/${product.id}/${product.cid}`
-                                      "
+                                      :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                                     >
                                       {{ product.name }}
                                     </router-link>
@@ -91,9 +88,7 @@
                                   <div class="category-title">
                                     <span class="padding_cats">
                                       <router-link
-                                        :to="
-                                          `/ProductDetails/${product.id}/${product.cid}`
-                                        "
+                                       :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                                         >{{ product.category }}</router-link
                                       >
                                     </span>
@@ -107,9 +102,7 @@
                                   <ul class="add_info">
                                     <li>
                                       <router-link
-                                        :to="
-                                          `/ProductDetails/${product.id}/${product.cid}`
-                                        "
+                                          :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                                       >
                                         <img
                                           :src="product.photos[1]"
@@ -133,9 +126,7 @@
                                         Favourite
                                       </a>
                                       <router-link
-                                        :to="
-                                          `/ProductDetails/${product.id}/${product.cid}`
-                                        "
+                                        :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                                         class="btn2 btn-list-tx btn-success"
                                       >
                                         <i class="fa fa-eye"></i> View Details
