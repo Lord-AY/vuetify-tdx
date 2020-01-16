@@ -66,6 +66,7 @@ export default {
 					);
 				})
 				.catch(error => {
+					commit("auth/SET_LOADING", false, { root: true });
 					// console.log(error.response.data);
 					commit("SET_ERRORS", "Network Error, please try again...");
 				});

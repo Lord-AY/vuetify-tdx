@@ -51,17 +51,23 @@
                                   </div>
                                 </div>
                                 <transition name="showForm">
-                                  <div
-                                    class="card"
-                                  >
+                                  <div class="card">
                                     <!-- Button trigger modal -->
                                     <button
                                       type="button"
                                       class="btn btn-success-outline"
+                                      @click="selectPayment(payment)"
                                     >
                                       Buy Now
                                     </button>
                                     <!-- Modal -->
+                                    <PaymentModal
+                                      :payment="selectedPayment"
+                                      v-if="showModal"
+                                      @close="showModal = false"
+                                      @ValidPayment="sendValidatePayment"
+                                      :user="getUser"
+                                    ></PaymentModal>
                                     <!-- Modal -->
                                   </div>
                                 </transition>
@@ -83,12 +89,17 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
+import PaymentModal from "@/components/paymentModal";
 export default {
   data() {
     return {
       amount: null,
-      showForm: false
+      showModal: false,
+      selectedPayment: null
     };
+  },
+  components: {
+    PaymentModal
   },
   methods: {
     ...mapActions("valueAdded", ["paymentItem", "validatePaymentOption"]),
@@ -98,10 +109,11 @@ export default {
       };
       this.paymentItem(payload);
     },
-    sendValidatePayment(payment) {
-      const payload = {
-        paymentCode: payment.paymentCode
-      };
+    selectPayment(payment) {
+      this.selectedPayment = payment;
+      this.showModal = true;
+    },
+    sendValidatePayment(payload) {
       this.validatePaymentOption(payload);
     },
     addAmount(payment) {
@@ -112,7 +124,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters("valueAdded", ["paymentItems"])
+    ...mapGetters("valueAdded", ["paymentItems"]),
+    ...mapGetters("auth", ["getUser"]),
   },
   created() {
     this.sendPaymentItem();
