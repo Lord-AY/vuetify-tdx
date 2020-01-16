@@ -44,6 +44,7 @@
                     <select
                       class="main-category form-control select2-show-search  border-bottom-0 select-home-page "
                       data-placeholder="Property Type"
+                      style="padding-left: 40px!important;"
                     >
                       <optgroup label="Categories">
                         <option>Category</option>
@@ -69,7 +70,7 @@
                 </div>
               </div>
             </div>
-            <hr class="search-divider mb-3 mt-5" />
+            <hr class="mb-3 mt-5" />
             <div class="vas-grid">
               <div class="no-padding text-center">
                 <a href="#">
@@ -178,6 +179,24 @@ export default {
 </script>
 
 <style>
+.select2-container .select2-selection--single .select2-selection__rendered {
+  padding-left: 40px!important;
+}
+.select2-container--open, span.select2-container--default {
+  width: 100%!important;
+}
+
+.select2.select2-container.select2-container--default.select2-container--below.select2-container--open {
+  width: 100%!important;
+}
+
+.select2-hidden-accessible {
+     padding-left: 40px!important
+}
+
+.select2-hidden-accessible {
+     padding: 0px!important
+}
 /* .transparency {
   padding: 15px!important;
     background-color: rgba(255, 255, 255, 0.5)!important;
