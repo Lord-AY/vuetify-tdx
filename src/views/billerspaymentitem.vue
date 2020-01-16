@@ -136,7 +136,7 @@ export default {
       this.validatePaymentOption(payload);
     },
     transform(image) {
-      console.log(image);
+      // console.log(image);
       return image +'.png';
     }
   },
