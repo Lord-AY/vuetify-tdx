@@ -680,12 +680,22 @@ export default {
   color: #232323!important;
 }
 
-.facebook-reg {
+.facebook-reg{
+  border-color: #3b5998;
+  color: #3b5998;
+}
+
+.facebook-reg:hover {
   background-color: #3b5998;
   color: #fff;
 }
 
 .google-reg {
+  border-color: #ea4335;
+  color: #ea4335;
+}
+
+.google-reg:hover {
   background-color: #ea4335;
   color: #fff;
 }
