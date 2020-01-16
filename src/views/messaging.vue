@@ -148,45 +148,83 @@
                             <div class="message-inbox">
                               <div class="message-header">
                                 <h4>Inbox</h4>
-                                <span
-                                  ><a href="#"
-                                    ><small>Recevied Offers</small></a
-                                  ></span
-                                >
-                                <span
-                                  ><a href="#" class="active"
-                                    ><small>Sent Offers </small></a
-                                  ></span
-                                >
-                              </div>
-                              <div class="list-wrap ps-container ps-active-y">
-                                <ul class="message-history">
-                                  <!-- LIST ITEM -->
-                                  <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
-                                    <a href="#">
-                                      <div class="image img-square">
-                                        <img
-                                          src="../../public/assets/images/profile-product-details.jpg"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div class="user-name">
-                                        <div class="author">
-                                          <span>{{ message.from }}</span>
-                                          <div class="user-status"></div>
-                                        </div>
-                                        <p>Honda Civic 2017 Sports Edition</p>
-                                        <div class="time">
-                                          <span
-                                            ><i class="icon-envelope"></i
-                                          ></span>
-                                        </div>
-                                      </div>
+                                <ul class="tabs-menu nav">
+                                  <span>
+                                    <a href="#receivedoffers" class="active" data-toggle="tab">
+                                      <small>Recevied Offers</small>
                                     </a>
-                                  </li>
-                                  <!-- END / LIST ITEM -->
-                                  <!-- LIST ITEM -->
+                                  </span>
+                                  <div style="width:10px"></div>
+                                  <span>
+                                    <a href="#sentoffers" data-toggle="tab">
+                                      <small>Sent Offers </small>
+                                    </a>
+                                  </span>
                                 </ul>
+                              </div>
+                              <div class="tab-content">
+                                <div class="tab-pane active" id="receivedoffers">
+                                  <div class="list-wrap ps-container ps-active-y">
+                                    <ul class="message-history">
+                                      <!-- LIST ITEM -->
+                                      <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
+                                        <a href="#">
+                                          <div class="image img-square">
+                                            <img
+                                              src="../../public/assets/images/profile-product-details.jpg"
+                                              alt=""
+                                            />
+                                          </div>
+                                          <div class="user-name">
+                                            <div class="author">
+                                              <span>{{ message.from }}</span>
+                                              <div class="user-status"></div>
+                                            </div>
+                                            <p>Honda Civic 2017 Sports Edition</p>
+                                            <div class="time">
+                                              <span
+                                                ><i class="icon-envelope"></i
+                                              ></span>
+                                            </div>
+                                          </div>
+                                        </a>
+                                      </li>
+                                      <!-- END / LIST ITEM -->
+                                      <!-- LIST ITEM -->
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="tab-pane" id="sentoffers">
+                                  <div class="list-wrap ps-container ps-active-y">
+                                    <ul class="message-history">
+                                      <!-- LIST ITEM -->
+                                      <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
+                                        <a href="#">
+                                          <div class="image img-square">
+                                            <img
+                                              src="../../public/assets/images/profile-product-details.jpg"
+                                              alt=""
+                                            />
+                                          </div>
+                                          <div class="user-name">
+                                            <div class="author">
+                                              <span>{{ message.from }}</span>
+                                              <div class="user-status"></div>
+                                            </div>
+                                            <p>imm Civic 2017 Sports Edition</p>
+                                            <div class="time">
+                                              <span
+                                                ><i class="icon-envelope"></i
+                                              ></span>
+                                            </div>
+                                          </div>
+                                        </a>
+                                      </li>
+                                      <!-- END / LIST ITEM -->
+                                      <!-- LIST ITEM -->
+                                    </ul>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -609,7 +647,7 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
