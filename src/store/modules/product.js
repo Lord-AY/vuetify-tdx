@@ -166,15 +166,14 @@ export default {
           commit("SET_ERRORS", "Cant connect to server...");
          });
     },
-    selectedProduct({ commit }, payload) {
+    selectedProduct({ commit, dispatch }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
       return ProductService.product(payload)
         .then(({ data }) => {
           const photosArr = ash.split(data.photos, ",", 7);
           data.photos = photosArr;
-          commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_SINGLE_PRODUCT", data);
+          commit("auth/SET_LOADING", true, { root: true });
         })
         .catch(() => {
           commit(
@@ -184,10 +183,15 @@ export default {
           router.push("/gridlist");
         });
     },
-    fetchSimilarProducts({ commit, rootState }, payload) {
+    fetchSimilarProducts({ commit, rootState, state }) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
-      return ProductService.similar(payload)
+      const refinedPayload = {
+        cid: state.product.cid,
+        id: state.product.id
+      }
+      console.log(refinedPayload);
+      return ProductService.similar(refinedPayload)
         .then(({ data }) => {
           for (let product in data) {
             // console.log(product);

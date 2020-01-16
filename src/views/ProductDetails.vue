@@ -100,9 +100,9 @@ export default {
   },
   methods: {
     ...mapActions("product", [
-      "fetchSimilarProducts",
       "selectedProduct",
-      "fetchSeller"
+      "fetchSeller",
+      "getSimilarProducts"
     ]),
     sync() {
       // console.log("Jquery mounted");
@@ -124,14 +124,14 @@ export default {
       // console.log(payload);
       this.fetchSeller(payload);
     },
-    getSimilarProducts() {
-      this.isLoading = true;
-      const payload = {
-        cid: this.singleProduct.cid,
-        id: this.singleProduct.id
-      };
-      this.fetchSimilarProducts(payload);
-    }
+    // getSimilarProducts() {
+    //   this.isLoading = true;
+    //   const payload = {
+    //     cid: this.singleProduct.cid,
+    //     id: this.singleProduct.id
+    //   };
+    //   this.fetchSimilarProducts(payload);
+    // }
   },
   watch: {
     $route: "sync",
@@ -150,9 +150,8 @@ export default {
     // vm.$forceUpdate();
     // fetch single product for view
     this.getSingleProduct();
-    // get similar products
-    this.getSimilarProducts();
     this.getProductSeller();
+    this.getSimilarProducts();
   },
   beforeCreate() {
     // console.log("this is before created");
