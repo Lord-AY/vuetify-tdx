@@ -191,7 +191,6 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-m
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
 require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-
 import { mapActions, mapGetters } from "vuex";
 import Loading from "vue-loading-overlay";
 import ash from "lodash";
