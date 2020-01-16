@@ -49,7 +49,7 @@ import router from '../../router';
             </div>
             <div class="item-card7-imgs">
               <router-link
-                :to="`/ProductDetails/${product.id}/${product.cid}`"
+                :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
               ></router-link>
               <img
                 :src="product.photos[0]"
@@ -66,7 +66,7 @@ import router from '../../router';
               <div class="item-card7-desc">
                 <div class="item-card7-text">
                   <router-link
-                    :to="`/ProductDetails/${product.id}/${product.cid}`"
+                    :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                     class="text-dark"
                   >
                     <h4 class="product-title-tx">

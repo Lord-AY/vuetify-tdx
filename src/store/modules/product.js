@@ -174,6 +174,7 @@ export default {
           const photosArr = ash.split(data.photos, ",", 7);
           data.photos = photosArr;
           commit("auth/SET_LOADING", true, { root: true });
+          commit("SET_SINGLE_PRODUCT", data)
         })
         .catch(() => {
           commit(
@@ -183,14 +184,14 @@ export default {
           router.push("/gridlist");
         });
     },
-    fetchSimilarProducts({ commit, rootState, state }) {
+    fetchSimilarProducts({ commit, rootState, state }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
       const refinedPayload = {
-        cid: state.product.cid,
-        id: state.product.id
+        cid: payload.cid,
+        id: payload.id
       }
-      console.log(refinedPayload);
+      // console.log(refinedPayload);
       return ProductService.similar(refinedPayload)
         .then(({ data }) => {
           for (let product in data) {

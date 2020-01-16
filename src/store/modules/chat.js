@@ -4,7 +4,6 @@ export default {
 	state: {
 		messagesTo: {},
 		messagesFrom: {},
-		allMessage: {},
 		errors: null,
 		success: null
 	},
@@ -21,12 +20,6 @@ export default {
 				state.messagesFrom !== undefined
 			) {
 				return state.messagesFrom;
-			}
-			return;
-		},
-		getAllMessage(state) {
-			if (state.allMessage !== null && state.allMessage !== undefined) {
-				return state.allMessage;
 			}
 			return;
 		},
@@ -104,7 +97,7 @@ export default {
 		},
 		getSentOfferUsers({ commit }, payload) {
 			var parsedObj = JSON.parse(JSON.stringify(payload));
-			console.log("start sent message");
+			// console.log("start sent message");
 			// console.log(parsedObj)
 
 			for (let i in parsedObj) {
@@ -118,29 +111,14 @@ export default {
 		},
 		getRecievedOfferUsers({ commit }, payload) {
 			var parsedObj = JSON.parse(JSON.stringify(payload));
-			console.log("start received message");
+			// console.log("start received message");
 
 			for (let i in parsedObj) {
 				// console.log(parsedObj[i])
 			}
 		},
-		getAll({ commit }, fromMessagePayload, toMessagePayload) {
-			var fromMessagePayload = JSON.parse(
-				JSON.stringify(fromMessagePayload)
-			);
-			var toMessagePayload = JSON.parse(JSON.stringify(toMessagePayload));
-			const allMessage = Object.assign(
-				fromMessagePayload,
-				toMessagePayload
-			);
-			console.log(allMessage);
-			commit("SET_MESSAGES_ALL", allMessage);
-		}
 	},
 	mutations: {
-		SET_MESSAGES_ALL(state, allmessage) {
-			state.allMessage = allmessage;
-		},
 		SET_MESSAGES_TO(state, to) {
 			state.messagesTo = to;
 		},

@@ -320,7 +320,7 @@
                     <img src="@/assets/images/hot-deals.svg" />
                   </div>
                   <router-link
-                    :to="`productDetails/${product.id}/${product.cid}`"
+                    :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                   >
                     <img
                       :src="product.photos[0]"
@@ -344,14 +344,14 @@
                   <div class="category-title">
                     <span class="padding_cats">
                       <router-link
-                        :to="`productDetails/${product.id}/${product.cid}`"
+                        :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                         >{{ product.category }}
                       </router-link>
                     </span>
                   </div>
                   <h3>
                     <router-link
-                      :to="`productDetails/${product.id}/${product.cid}`"
+                      :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                     >
                       {{ product.name }}
                     </router-link>
@@ -376,14 +376,14 @@
                   <div class="button-reveal mobile-hidden">
                     <router-link
                       class="btn btn-block button-reveal-btn"
-                      :to="`productDetails/${product.id}/${product.cid}`"
+                      :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                       >Contact Seller</router-link
                     >
                   </div>
                   <div class="button-griddy hidden-desktop">
                     <router-link
                       class="btn btn-block btn-theme"
-                      :to="`productDetails/${product.id}/${product.cid}`"
+                      :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                       >Contact Seller</router-link
                     >
                   </div>

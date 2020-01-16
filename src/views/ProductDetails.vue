@@ -78,7 +78,7 @@ import Loading from "vue-loading-overlay";
 export default {
   name: "productDetails",
   data() {
-    return {
+    return { 
       product: {},
       isLoading: true,
       fullPage: true,
@@ -102,7 +102,7 @@ export default {
     ...mapActions("product", [
       "selectedProduct",
       "fetchSeller",
-      "getSimilarProducts"
+      "fetchSimilarProducts"
     ]),
     sync() {
       // console.log("Jquery mounted");
@@ -113,25 +113,25 @@ export default {
       const payload = {
         id: this.$route.params.id
       };
-      // console.log(payload);
+      console.log(payload);
       this.selectedProduct(payload);
     },
     getProductSeller() {
       this.isLoading = true;
       const payload = {
-        sellerId: this.singleProduct.uid
+        sellerId: this.$route.params.uid,
       };
       // console.log(payload);
       this.fetchSeller(payload);
     },
-    // getSimilarProducts() {
-    //   this.isLoading = true;
-    //   const payload = {
-    //     cid: this.singleProduct.cid,
-    //     id: this.singleProduct.id
-    //   };
-    //   this.fetchSimilarProducts(payload);
-    // }
+    getSimilarProducts() {
+      this.isLoading = true;
+      const payload = {
+        cid: this.$route.params.cid,
+        id: this.$route.params.id
+      };
+      this.fetchSimilarProducts(payload);
+    }
   },
   watch: {
     $route: "sync",
@@ -152,6 +152,9 @@ export default {
     this.getSingleProduct();
     this.getProductSeller();
     this.getSimilarProducts();
+    console.log(this.singleProduct);
+    console.log(this.productWithSeller);
+    console.log(this.getSimilarProds);
   },
   beforeCreate() {
     // console.log("this is before created");
