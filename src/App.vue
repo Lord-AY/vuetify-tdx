@@ -107,10 +107,10 @@ export default {
     $route: "sync"
   },
   computed: {
-     currentRouteName() {
-        // return this.$route.name;
-        // return console.log(this.$route.name);
-    }
+    //  currentRouteName() {
+    //     // return this.$route.name;
+    //     // return console.log(this.$route.name);
+    // }
   },
   created() {
     this.sync();
