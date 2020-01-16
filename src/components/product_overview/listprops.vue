@@ -3,7 +3,6 @@
     <div class="main-content-area clearfix">
       <section
         class="section-padding gray page-search"
-        style="padding-top: 30px;"
       >
         <div class="container">
           <!-- Row -->
@@ -115,14 +114,14 @@
                                     <a
                                       href="javascript:void(0);"
                                       data-adid="1375"
-                                      class="btn save-ad"
+                                      class="btn btn-tx save-ad"
                                     >
                                       <i class="fa fa-heart-o"></i>
                                       Favourite
                                     </a>
                                     <a
                                       href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                                      class="btn2 btn-success"
+                                      class="btn2 btn-tx btn-success"
                                     >
                                       <i class="fa fa-phone"></i> View Details
                                     </a>
@@ -1364,6 +1363,10 @@ export default {
     display: none !important;
   }
   .visible-xs-block.hidden {
+    display: none !important;
+  }
+
+  .visible-xs-block {
     display: none !important;
   }
   .ads-list-archive .ad-archive-desc .ad-price {

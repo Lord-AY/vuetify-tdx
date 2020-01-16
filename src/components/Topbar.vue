@@ -1,7 +1,7 @@
 <template>
   <!--Topbar-->
   <!--Topbar-->
-  <div class="header-main header-main-padding">
+  <div class="header-main">
     <div id="topb">
       <div class="top-bar mobile-hidden">
         <div class="container">
@@ -328,7 +328,7 @@
         </div>
       </div>
       <!--  Timer Component  -->
-      <div id="timer" class="timer">
+      <!-- <div id="timer" class="timer">
         <timer
           starttime="Jan 2, 2020 09:37:25"
           endtime="Nov 8, 2020 16:37:25"
@@ -346,7 +346,7 @@
                 "upcoming":"Future"
               }}'
         ></timer>
-      </div>
+      </div> -->
       <!--  End! Timer Component  -->
     </div>
     <!--/Topbar-->
@@ -368,7 +368,7 @@
           <img src="@/assets/images/brand/tradexplora-01.png" alt />
         </div> -->
         <div class="smllogo">
-          <img src="@/assets/images/brand/tradexplora-01.png" alt />
+          <img src="@/assets/images/brand/TRADEXPLORA-V4.1-mini.png" alt />
         </div>
 
         <!-- In case search is needed in mobile, this is an icon for it<div
@@ -394,7 +394,7 @@
 
     <!--Start Horizontal-main -->
     <div
-      class="horizontal-main bg-dark-transparent clearfix mobile-hidden top-bar-fixed"
+      class="horizontal-main bg-dark-transparent my-nav clearfix mobile-hidden"
     >
       <div class="horizontal-mainwrapper container2 clearfix">
         <!--Nav-->
@@ -519,9 +519,10 @@
               <div class="col-xl-10 col-lg-12 col-md-12 mb-0">
                 <input
                   type="text"
-                  class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
+                  class="form-control input-lg br-tr-md-0 br-br-md-0 main-search main-search-tx"
                   id="text4"
                   placeholder="Search products, brands and categories"
+                  style="background-color: #fff!important; font-size: 15px!important; "
                 />
                 <span>
                   <i class="fa fa-search location-gps mr-1"></i>
@@ -531,7 +532,7 @@
                 class="col-xl-2 col-lg-12 col-md-12"
                 style="padding-left: 0px;"
               >
-                <button class="header-search-button btn btn-theme">
+                <button class="header-search-button btn btn-theme" style="text-transform: none!important;">
                   Search
                 </button>
               </div>
@@ -568,7 +569,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "topbar",
   components: {
-    timer
+    // timer
   },
   computed: {
     ...mapGetters("auth", ["isLoggedIn", "getUser"]),
@@ -592,23 +593,33 @@ export default {
     sync() {
       $(document).ready(function() {
         $("#bmenu_toggle").prop("checked", false);
-        var scrollcheck = $(window).scrollTop();
-        if (scrollcheck > 0) {
-          $("#topb").removeClass("mobile-hidden");
-          $("#topb").addClass("top-bar-hide");
-        } else {
-          $("#topb").removeClass("top-bar-hide");
-        }
-        $(window).scroll(function() {
-          var scroll = $(window).scrollTop();
-          // console.log("we are scrolling " + scroll);
-          if (scroll > 0) {
-            $("#topb").removeClass("mobile-hidden");
-            $("#topb").addClass("top-bar-hide");
-          } else {
-            $("#topb").removeClass("top-bar-hide");
+        var stickyNavTop = $('.my-nav').offset().top;
+        var stickyNav = function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop >= stickyNavTop) {
+              $("#topb").removeClass("mobile-hidden");
+              $(".my-nav").addClass("top-bar-fixed");
+            } else {
+              $(".my-nav").removeClass("top-bar-fixed");
           }
+        }
+
+        stickyNav();
+        $(window).scroll(function() {
+          stickyNav();
         });
+        
+        
+        // $(window).scroll(function() {
+        //   var scroll = $(window).scrollTop();
+        //   // console.log("we are scrolling " + scroll);
+        //   if (scroll > 0) {
+        //     $("#topb").removeClass("mobile-hidden");
+        //     $("#topb").addClass("top-bar-hide");
+        //   } else {
+        //     $("#topb").removeClass("top-bar-hide");
+        //   }
+        // });
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });
@@ -816,6 +827,9 @@ export default {
   font-weight: 400;
   /* font-family: avenir; */
 }
+.my-nav {
+  position: sticky;
+}
 .horizontal-main {
   border-bottom: 3px solid #4caf50;
 }
@@ -834,9 +848,9 @@ export default {
     width: 1170px;
   }
 }
-.top-bar-hide {
+/* .top-bar-hide {
   display: none !important;
-}
+} */
 .header-search-button {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
   text-transform: uppercase;

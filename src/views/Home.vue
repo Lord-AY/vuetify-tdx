@@ -177,6 +177,7 @@ export default {
 </script>
 
 <style>
+
 @media (min-width: 992px) {
   .hidden-lg-up {
     display: none !important;

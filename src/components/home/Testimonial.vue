@@ -58,7 +58,7 @@
                         </div>
                       </div>
                     </div>
-                    <a href="testimonial.html" class="btn btn-primary btn-lg"
+                    <a href="#" class="testimonial btn btn-primary btn-lg"
                       >View all Testimonials</a
                     >
                   </div>
@@ -115,8 +115,8 @@
                           </div>
                         </div>
                         <a
-                          href="testimonial.html"
-                          class="btn btn-primary btn-lg"
+                          href="#"
+                          class="testimonial btn btn-primary btn-lg"
                           >View all Testimonials</a
                         >
                       </div>
@@ -175,8 +175,8 @@
                           </div>
                         </div>
                         <a
-                          href="testimonial.html"
-                          class="btn btn-primary btn-lg"
+                          href="#"
+                          class="testimonial btn btn-primary btn-lg"
                           >View all Testimonials</a
                         >
                       </div>

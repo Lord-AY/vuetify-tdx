@@ -103,8 +103,8 @@ i.switch:not([disabled="disabled"]):hover {
   color: lightgray;
 }
 i.list {
-  border-color: red;
-  color: red;
+  border-color: green;
+  color: green;
 }
 i.grid {
   border-color: green;
