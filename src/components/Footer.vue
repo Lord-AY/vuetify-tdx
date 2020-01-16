@@ -11,7 +11,7 @@
                   src="../../public/assets/images/brand/TRADE_XPLORA_V4.1.png"
                   class="img-responsive"
                   alt="Site logo"
-                  style="margin-bottom: -2rem; width: 13rem;"
+                  style="margin-bottom: -1rem; width: 9.5rem;"
                 />
               </router-link>
               <hr class="deep-purple  mb-4 mt-0 d-inline-block mx-auto" />
@@ -210,7 +210,7 @@ export default {
     font-size: 14px!important;
   }
   .about-company {
-    margin-bottom: 2.5rem!important;
-    margin-top: -16px;
+    margin-bottom: 1.5rem!important;
+    margin-top: -6px;
   }
 </style>
