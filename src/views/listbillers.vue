@@ -95,7 +95,6 @@
                                 </div>
                                 <div class="item-card-text item-card-text-tx">
                                   <h4 class="mb-0">{{ biller.billername }}</h4>
-
                                 </div>
                               </div>
                             </div>
@@ -192,7 +191,6 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-m
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
 require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-
 import { mapActions, mapGetters } from "vuex";
 import Loading from "vue-loading-overlay";
 import ash from "lodash";
@@ -223,18 +221,7 @@ export default {
           this.filteredBillers.push(billerListings[biller]);
         }
       }
-
-    }
-    // console.log(this.filteredBillers);
-  }
-},
-watch: {
-  billerListings: {
-    handler: function(billerListings) {
-      if(billerListings !== null && billerListings !== undefined) {
-        this.isLoading = true;
-      }
-      this.isLoading = false;
+      console.log(this.filteredBillers);
     }
   },
   watch: {
