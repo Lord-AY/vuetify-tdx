@@ -660,7 +660,12 @@ export default {
 }
 
 .form-group-tx input, select {
-  height: 48px!important;
+  height: 41px!important;
+  border-radius: 6px!important;
+}
+
+.btn-register-tx {
+  border-radius: 6px!important;
 }
 
 .form-group-tx input::placeholder {
@@ -683,6 +688,7 @@ export default {
 .facebook-reg{
   border-color: #3b5998;
   color: #3b5998;
+  border-radius: 6px;
 }
 
 .facebook-reg:hover {
@@ -693,6 +699,7 @@ export default {
 .google-reg {
   border-color: #ea4335;
   color: #ea4335;
+  border-radius: 6px;
 }
 
 .google-reg:hover {
@@ -701,6 +708,7 @@ export default {
 }
 .form-box {
   padding: 20px;
+  border-radius: 6px;
 }
 
 .form-box-footer {
