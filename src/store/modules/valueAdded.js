@@ -8,6 +8,7 @@ export default {
   state: {
     valueadded: [],
     payment: null,
+    transaction: null,
     success: null,
     errors: null
   },
@@ -84,7 +85,7 @@ export default {
            commit("SET_ERRORS", "Network Error, Cant connect to server...");
         })
     },
-    validatePaymentOption({commit, rootState}, payload) {
+    validatePaymentOption({commit, rootState, dispatch}, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
@@ -95,9 +96,41 @@ export default {
       // console.log(payload);
       return valueAddedService.paymentOption(payload)
         .then(({data}) => {
-          console.log(data);
+          commit("auth/SET_LOADING", true, { root: true });
+          commit("SET_SUCCESS_MSG", "Payment request validated successfully...");
+          commit("SET_TRANSACTION_DETAILS", payload);
+          dispatch('paymentAdvices', {payload: data});
         }).catch(error => {
-          console.log(error)
+          commit("auth/SET_LOADING", false, { root: true });
+          if(error.status == 500 ) {
+          commit("SET_ERROR", "Server Error, please try again...")
+          } else if(error.status == 404) {
+          commit("SET_ERROR", "Network Error, please try again");
+          }
+          commit("SET_ERROR", "Please fill in a correct phone number")
+          console.log(error.response);
+        })
+    },
+    paymentAdvices({commit, state, rootState}, {payload}) {
+      commit("auth/SET_LOADING", true, { root: true });
+      let customers = payload.Customers;
+      const parseObj = Object.assign({}, customers[0]);
+      // console.log(parseObj.amount);
+      const refinedPayload = {
+        custId: parseObj.customerId,
+        amount: parseObj.amount,
+        phone: state.transaction.phone,
+        userid: rootState.auth.user.id,
+        email: rootState.auth.user.email,
+        paymentCode: parseObj.paymentCode
+      }
+      valueAddedService.advice(refinedPayload)
+        .then(({data}) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(data)
+        }).catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error.response);
         })
     }
   },
@@ -111,8 +144,11 @@ export default {
     SET_ERRORS(state, errors) {
       state.errors = errors;
     },
-    SET_SUCCESS(state, errors) {
-      state.errors = errors;
+    SET_SUCCESS_MSG(state, success) {
+      state.success = success;
+    },
+    SET_TRANSACTION_DETAILS(state, data) {
+      state.transaction = data;
     }
   }
 };
