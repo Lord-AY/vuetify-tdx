@@ -1139,7 +1139,7 @@ export default {
         createdAt: new Date()
       };
       this.sendMessage(payload);
-      console.log(payload);
+      // console.log(payload);
     },
     sync() {
       $(document).ready(function() {

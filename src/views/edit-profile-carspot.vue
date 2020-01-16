@@ -538,7 +538,7 @@ export default {
       handler: function(errors) {
         if(errors) {
         this.showErrorMsg(errors);
-        console.log("errors just changed");
+        // console.log("errors just changed");
       }
       }
     },
@@ -546,7 +546,7 @@ export default {
       handler: function(success) {
         if(success) {
         this.showSuccess(success);
-        console.log("success just changed");
+        // console.log("success just changed");
       }
       }
     }

@@ -95,6 +95,7 @@
                                 </div>
                                 <div class="item-card-text item-card-text-tx">
                                   <h4 class="mb-0">{{ biller.billername }}</h4>
+
                                 </div>
                               </div>
                             </div>
@@ -222,7 +223,18 @@ export default {
           this.filteredBillers.push(billerListings[biller]);
         }
       }
-      console.log(this.filteredBillers);
+
+    }
+    // console.log(this.filteredBillers);
+  }
+},
+watch: {
+  billerListings: {
+    handler: function(billerListings) {
+      if(billerListings !== null && billerListings !== undefined) {
+        this.isLoading = true;
+      }
+      this.isLoading = false;
     }
   },
   watch: {
