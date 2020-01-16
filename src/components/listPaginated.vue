@@ -10,7 +10,6 @@
           <div class="container">
             <!-- Row -->
             <div class="row">
-             
               <div class="col-md-12 col-lg-12 col-xs-12">
                 <!-- Row -->
                 <div class="row">
@@ -43,7 +42,6 @@
                                 <div class="ad-archive-img">
                                   <router-link
                                     :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
-                                    
                                   >
                                     <img
                                       :src="product.photos[0]"
