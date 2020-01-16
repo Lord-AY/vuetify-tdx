@@ -1,5 +1,6 @@
 <template>
   <div id="billerpaymentitem">
+  <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="section-padding  gray page-search">
       <div class="container">
         <!-- Row -->
@@ -32,7 +33,14 @@
                                         class="item-card-img item-card-img-tx"
                                       >
                                         <img
-                                          src="assets/images/categories/car.svg"
+                                          v-if="$route.params.type == 'company'"
+                                          :src="'https://quickteller.sandbox.interswitchng.com/Content/Images/Downloaded/'+transform($route.params.imageId)"
+                                          alt="img"
+                                          class="br-tr-7 br-tl-7"
+                                        />
+                                        <img
+                                            v-else
+                                          :src="'img/'+transform($route.params.imageId)"
                                           alt="img"
                                           class="br-tr-7 br-tl-7"
                                         />
@@ -67,6 +75,7 @@
                                       @close="showModal = false"
                                       @ValidPayment="sendValidatePayment"
                                       :user="getUser"
+                                      :loading="isLoading"
                                     ></PaymentModal>
                                     <!-- Modal -->
                                   </div>
@@ -90,16 +99,20 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import PaymentModal from "@/components/paymentModal";
+import Loading from "vue-loading-overlay";
 export default {
   data() {
     return {
       amount: null,
       showModal: false,
-      selectedPayment: null
+      selectedPayment: null,
+      isLoading: true,
+      fullPage: true
     };
   },
   components: {
-    PaymentModal
+    PaymentModal,
+    Loading
   },
   methods: {
     ...mapActions("valueAdded", ["paymentItem", "validatePaymentOption"]),
@@ -121,11 +134,25 @@ export default {
         paymentCode: payment.paymentCode
       };
       this.validatePaymentOption(payload);
+    },
+    transform(image) {
+      console.log(image);
+      return image +'.png';
     }
   },
   computed: {
     ...mapGetters("valueAdded", ["paymentItems"]),
-    ...mapGetters("auth", ["getUser"]),
+    ...mapGetters("auth", ["getUser", "loading"])
+  },
+  watch: {
+    loading: {
+      handler: function(loading) {
+        if (loading) {
+          this.isLoading = true;
+        }
+        this.isLoading = false;
+      }
+    }
   },
   created() {
     this.sendPaymentItem();

@@ -1,6 +1,7 @@
 <template>
     <transition name="modal">
         <div class="modal-mask">
+            <!-- <Loading :active.sync="loading" :is-full-page="fullPage"></Loading> -->
             <div class="modal-wrapper">
                 <div class="modal-container">
                     <div class="modal-header">
@@ -15,7 +16,7 @@
                                 <input
                                     type="text"
                                     class="form-control"
-                                    placeholder="Phone Number"
+                                    placeholder="Enter Details"
                                     v-model="phone"
                                 />
                             </div>
@@ -26,7 +27,7 @@
                                 <input
                                     type="text"
                                     class="form-control"
-                                    placeholder="Enter Amount"
+                                    placeholder="Enter Details"
                                     v-model="amount"
                                 />
                             </div>
@@ -36,7 +37,7 @@
                                     v-if="payment.amount == '0'"
                                     @click.prevent="sendPaymentRequest"
                                 >
-                                    Buy Airtime ({{ amount }})
+                                    Buy Now ({{ amount }})
                                 </button>
                                 <button
                                     class="btn btn-success"
@@ -45,7 +46,7 @@
                                     @click.prevent="sendPaymentRequest"
                                     :disabled="btnDisabled"
                                 >
-                                    Buy Airtime ({{ payment.amount }})
+                                    Buy Now ({{ payment.amount }})
                                 </button>
                             </div>
                         </form>
@@ -68,18 +69,25 @@
 </template>
 
 <script>
+// import Loading from "vue-loading-overlay";
+
 export default {
     name: "paymentModal",
     data() {
         return {
             phone: null,
             amount: null,
-            btnDisabled: true
+            btnDisabled: true,
+            fullPage: true
         };
     },
+    // components: {
+    //     Loading
+    // },
     props: {
         payment: [Object, Array],
-        user: [Object, Array]
+        user: [Object, Array],
+        loading: Boolean
     },
     methods: {
         sendPaymentRequest() {
@@ -88,7 +96,7 @@ export default {
                     phone: this.phone,
                     amount: this.amount,
                     paymentCode: this.payment.paymentCode,
-                    customerId: "000000000" + this.user.id,
+                    customerId: "000000000" + this.user.id
                 };
                 this.$emit("ValidPayment", payload);
             }
@@ -96,15 +104,15 @@ export default {
                 phone: this.phone,
                 paymentCode: this.payment.paymentCode,
                 customerId: "000000000" + this.user.id,
-                amount: this.payment.amount,
+                amount: this.payment.amount
             };
             this.$emit("ValidPayment", payload);
         },
         checkStringLength(string) {
-            if(string.length < 10) {
+            if (string.length < 10) {
                 this.btnDisabled = true;
-            } else if(string.length > 10) {
-            this.btnDisabled = false;
+            } else if (string.length > 10) {
+                this.btnDisabled = false;
             } else {
                 this.btnDisabled = true;
             }
