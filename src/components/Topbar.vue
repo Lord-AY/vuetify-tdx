@@ -702,7 +702,7 @@ export default {
             return state.text;
           }
           var $state = $(
-            '<span><img src="../assets/images/flags/' +
+            '<span><img src="@/assets/images/flags/' +
               state.element.value.toLowerCase() +
               '.svg" class="img-flag" /> ' +
               state.text +
