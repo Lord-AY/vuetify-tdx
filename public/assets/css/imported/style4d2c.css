@@ -12891,6 +12891,18 @@ body.rtl  .ecommerce-shop .mega-menu .menu-links {
 .sidebar .widget .widget-content .finance-calculator input {
     background-color:#f9f9f9;	
 }
+.fule-economy {
+    background: url(../images/product-highlight.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: relative;
+    height: 142px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 15px;
+}
 .fule-economy h4 {
     color:#FFF;
     text-align:center;
@@ -14067,6 +14079,16 @@ hr.accent-2 {
     color: #fff!important;
     background-color: #4CAF50!important;
     border: 2px solid #4CAF50!important;
+}
+.send-message-button {
+    padding: 15px; 
+    color: #fff!important;
+    background-color: #4CAF50!important;
+    border: 2px solid #4CAF50!important;
+}
+.send-message-button:hover{
+    background-color: rgb(62, 139, 65)!important;
+    border: 2px solid rgb(62, 139, 65)!important;
 }
 .contact-seller:hover{
     background-color: #fff!important;
