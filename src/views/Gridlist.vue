@@ -7,10 +7,10 @@
         style="padding: 8px 0px!important;"
       >
         <div class="container">
-          <div class="row value-added-services-row mobile-hidden">
+          <div class="value-added-services-row row mobile-hidden">
             <div
               class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+              style="padding-left: 0px; "
             >
               <a href="#">
                 <div class="d-flex value-added">
@@ -39,7 +39,7 @@
             </div>
             <div
               class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+              style="padding-left: 0px; "
             >
               <a href="#">
                 <div class="d-flex value-added">
@@ -64,7 +64,7 @@
             </div>
             <div
               class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+              style="padding-left: 0px; "
             >
               <a href="#">
                 <div class="d-flex value-added">
@@ -89,7 +89,7 @@
             </div>
             <div
               class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+              style="padding-left: 0px; "
             >
               <a href="#">
                 <div class="d-flex value-added">
@@ -114,7 +114,7 @@
             </div>
             <div
               class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; margin-top: 10px; margin-bottom: 10px;"
+              style="padding-left: 0px; "
             >
               <a href="#">
                 <div class="d-flex value-added">
@@ -139,7 +139,7 @@
             </div>
             <div
               class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; padding-right: 0px; margin-top: 10px; margin-bottom: 10px;"
+              style="padding-left: 0px; padding-right: 0px; "
             >
               <a href="#">
                 <div class="d-flex value-added">
@@ -1589,7 +1589,11 @@
   </div>
 </template>
 <script>
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
+
+require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
+require("../../public/assets/plugins/select2/select2.min.css");
+require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 // require("../../public/assets/css/imported/style4d2c.css");
@@ -1722,7 +1726,24 @@ export default {
 };
 </script>
 
-<style>
+
+<style >
+.ml-4, .mx-4 {
+    margin-left: 0.625rem !important;
+}
+
+.mt-3 {
+  margin-top: 0.46875rem!important;
+}
+
+.value-added-tx {
+  font-size: 0.9375rem!important;
+  font-weight: normal!important;
+}
+.value-added-tx:hover {
+    color: #4CAF50!important;
+}
+
 .category-grid-box-tx .image img {
   width: 8rem !important;
   height: 8rem !important;
@@ -1758,6 +1779,7 @@ html{
   font-size: 10px;
 }
 
+
 .ad-meta:first-child a {
   margin-right: 10px;
 }
@@ -1771,7 +1793,7 @@ html{
   }
 }
 a {
-  color: #337ab7;
+  color: #fff;
   text-decoration: none;
 }
 a:hover,
@@ -1811,5 +1833,14 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+
+.red-title:hover {
+  background-color: rgb(43, 124, 46)!important;
+}
+
+.select2 .select2-container .select2-container--default {
+  width: 160px!important;
+}
+
 
 </style>

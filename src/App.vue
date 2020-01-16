@@ -13,20 +13,20 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
         v-show="$route.name == 'gridlist'"
       ></GridListLoader>
     </div>
-    <topbar></topbar>
-<!--     <div v-if="$route.meta.header === 1"><topbar></topbar></div>
+    <!-- <topbar></topbar> -->
+    <div v-if="$route.meta.header === 1"><topbar></topbar></div>
     <div v-else-if="$route.meta.header === 3"><topbar2></topbar2></div>
-    <div v-else-if="$route.meta.header === 4"><topbar2></topbar2></div> -->
+    <div v-else-if="$route.meta.header === 4"><topbar2></topbar2></div>
     <!-- <topbar></topbar> -->
     <transition name="page-animation">
       <div class="tdx-main-view">
         <router-view />
       </div>
     </transition>
-    <Footer></Footer>
-<!--     <div v-if="$route.meta.header === 1"><Footer></Footer></div>
+    <!-- <Footer></Footer> -->
+    <div v-if="$route.meta.header === 1"><Footer></Footer></div>
     <div v-if="$route.meta.header === 3"><Footer></Footer></div>
-    <div v-if="$route.meta.header === 4"><Footer></Footer></div> -->
+    <div v-if="$route.meta.header === 4"><Footer></Footer></div>
     <notifications group="errors" :speed="500" />
     <notifications group="notify" :speed="500" />
     <!-- <div v-else-if="$route.meta.header === 3">I'm visible on home page two</div> -->

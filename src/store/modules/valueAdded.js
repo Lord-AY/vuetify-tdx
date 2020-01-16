@@ -7,6 +7,7 @@ export default {
   namespaced: true,
   state: {
     valueadded: [],
+    payment: null,
     success: null,
     errors: null
   },
@@ -44,6 +45,11 @@ export default {
       } else {
         return;
       }
+    },
+    paymentItems(state) {
+      if (state.payment !== null || state.payment !== undefined) {
+        return state.payment;
+      }
     }
   },
   actions: {
@@ -71,16 +77,42 @@ export default {
       commit("SET_ERRORS", null);
       return valueAddedService.payment(payload)
         .then(({data}) => {
-          commit("auth/SET_LOADING", false, { root: true });
+          commit("auth/SET_LOADING", false, {root: true});
+          commit("SET_PAYMENT_ITEMS", data);
+        }).catch(error => {
+           commit("auth/SET_LOADING", false, {root: true});
+           commit("SET_ERRORS", "Network Error, Cant connect to server...");
+        })
+    },
+    validatePaymentOption({commit, rootState}, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_SUCCESS_MSG", null);
+      commit("SET_ERRORS", null);
+      if (rootState.auth.user == null) {
+        router.push('login');
+      }
+      payload.custId = "00000000" + rootState.auth.user.id
+      // console.log(payload);
+      return valueAddedService.paymentOption(payload)
+        .then(({data}) => {
           console.log(data);
         }).catch(error => {
-          console.log(error);
+          console.log(error)
         })
     }
   },
   mutations: {
     SET_BILLERS(state, data) {
       state.valueadded = data;
+    },
+    SET_PAYMENT_ITEMS(state, data) {
+      state.payment = data;
+    },
+    SET_ERRORS(state, errors) {
+      state.errors = errors;
+    },
+    SET_SUCCESS(state, errors) {
+      state.errors = errors;
     }
   }
 };
