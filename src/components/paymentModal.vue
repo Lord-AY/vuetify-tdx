@@ -88,14 +88,14 @@ export default {
                     phone: this.phone,
                     amount: this.amount,
                     paymentCode: this.payment.paymentCode,
-                    customerId: "00000000" + this.user.id,
+                    customerId: "000000000" + this.user.id,
                 };
                 this.$emit("ValidPayment", payload);
             }
             const payload = {
                 phone: this.phone,
                 paymentCode: this.payment.paymentCode,
-                customerId: "00000000" + this.user.id,
+                customerId: "000000000" + this.user.id,
                 amount: this.payment.amount,
             };
             this.$emit("ValidPayment", payload);
@@ -103,7 +103,7 @@ export default {
         checkStringLength(string) {
             if(string.length < 10) {
                 this.btnDisabled = true;
-            } else if(string.length === 11) {
+            } else if(string.length > 10) {
             this.btnDisabled = false;
             } else {
                 this.btnDisabled = true;
