@@ -50,8 +50,6 @@
           </div>
         </div>
       </div>
-      <div class="clearfix"></div>
-      <div class="clearfix"></div>
       <!-- Ads Archive -->
       <!-- Ads Archive End -->
       <div class="clearfix"></div>

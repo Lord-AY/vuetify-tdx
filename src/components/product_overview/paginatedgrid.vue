@@ -328,8 +328,6 @@
                       class="img-responsive"
                     />
                   </router-link>
-                  <!-- <a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"><img src="../wp-content/uploads/2017/12/IMG_5006-268x166.jpg" alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles" class="img-responsive"></a>  -->
-                  <!-- <div class="play-video"><i class="fa fa-camera price-tag-tx camera-icon"></i></div> -->
                   <div class="price-tag">
                     <div class="price">
                       <span class="price-tag-tx">
@@ -364,20 +362,12 @@
                       product.region
                     }}</a>
                   </p>
-                  <!-- <ul class="list-unstyled">
-                  <li><i class="flaticon-gas-station-1"></i>Petrol</li>
-                  <li><i class="flaticon-dashboard"></i>1,694 Km</li>
-                  <li><i class="flaticon-engine-2"></i>3,000 cc</li>
-                  <li><i class="flaticon-car-2"></i>Sedan</li>
-                  <li><i class="flaticon-cogwheel-outline"></i>Blue</li>
-                </ul> -->
                 </div>
                 <div class="ad-info-1">
                   <p>
                     <i class="flaticon-calendar"></i> &nbsp;
                     <span>{{ format_date(product.createdAt) }}</span>
                   </p>
-                  <!-- <ul class="pull-right "><li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Save Ad" href="javascript:void(0);" class="save-ad" data-adid="1375"><i class="flaticon-like-1"></i></a></li><li><a href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"><i class="flaticon-message"></i></a></li></ul> -->
                   <div class="icon-reveal mobile-hidden">
                     <a class="btn icon-reveal-btn">
                       <i class="fa fa-heart-o"></i>
@@ -604,7 +594,7 @@ export default {
   }
 };
 </script>
-<!-- <style scoped lang="scss">
+<style scoped lang="scss">
 //----------  responsive breakpoints
 //------------------------------------------------------------------------------
 @mixin breakpoint($value) {
@@ -743,4 +733,3 @@ button {
   }
 }
 </style>
- -->
