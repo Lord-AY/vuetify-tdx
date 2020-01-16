@@ -48,7 +48,7 @@
                   </div>
 
                   <div class="follow">
-                    <p>Join</p>
+                    <p class="btn">Join</p>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@
                           </div>
 
                           <div class="follow">
-                            <p><i class="fa fa-user-plus"></i> Follow</p>
+                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
                           </div>
                         </div>
                       </div>
@@ -136,7 +136,7 @@
                           </div>
 
                           <div class="follow">
-                            <p>Follow</p>
+                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
                           </div>
                         </div>
                       </div>
@@ -178,7 +178,7 @@
                           </div>
 
                           <div class="follow">
-                            <p>Follow</p>
+                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
                           </div>
                         </div>
                       </div>
@@ -220,7 +220,7 @@
                           </div>
 
                           <div class="follow">
-                            <p>Follow</p>
+                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
                           </div>
                         </div>
                       </div>
@@ -262,7 +262,7 @@
                           </div>
 
                           <div class="follow">
-                            <p>Follow</p>
+                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
                           </div>
                         </div>
                       </div>
@@ -293,6 +293,7 @@ export default {
           autoplayHoverPause: true,
           freeDrag: false,
           responsiveClass: true,
+          // mouseDrag: false,
           responsive: {
             0: {
               items: 1,
@@ -321,6 +322,25 @@ export default {
 </script>
 
 <style>
+p.btn {
+  text-transform: none!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  margin-bottom: 0px!important;
+  padding: 1px 15px!important;
+}
+/* div.follow:hover {
+  box-shadow: 0px 4px 14px 6px rgba(0, 0, 0, 0.5);
+} */
+.owl-carousel {
+  cursor: default!important;
+}
+.short-description-1.hot-sellers-name-tx.clearfix {
+  cursor: default!important;
+}
+.new-hot-sellers {
+  left: 7.5rem!important;
+}
 @media (max-width: 767px) {
   .hotseller-sub {
     display: inline-block;

@@ -660,7 +660,12 @@ export default {
 }
 
 .form-group-tx input, select {
-  height: 48px!important;
+  height: 41px!important;
+  border-radius: 6px!important;
+}
+
+.btn-register-tx {
+  border-radius: 6px!important;
 }
 
 .form-group-tx input::placeholder {
@@ -680,17 +685,30 @@ export default {
   color: #232323!important;
 }
 
-.facebook-reg {
+.facebook-reg{
+  border-color: #3b5998;
+  color: #3b5998;
+  border-radius: 6px;
+}
+
+.facebook-reg:hover {
   background-color: #3b5998;
   color: #fff;
 }
 
 .google-reg {
+  border-color: #ea4335;
+  color: #ea4335;
+  border-radius: 6px;
+}
+
+.google-reg:hover {
   background-color: #ea4335;
   color: #fff;
 }
 .form-box {
   padding: 20px;
+  border-radius: 6px;
 }
 
 .form-box-footer {

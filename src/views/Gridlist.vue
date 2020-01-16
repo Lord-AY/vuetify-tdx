@@ -1736,8 +1736,22 @@ export default {
   margin-top: 0.46875rem!important;
 }
 
+/* i.list {
+  border-color: green!important;
+  color: green!important;
+}
+
+i.switch[disabled="disabled"] {
+    color: lightgray;
+    border-color: lightgray;
+} */
+
+.visible-xs-block {
+    display: none !important;
+  }
+
 .value-added-tx {
-  font-size: 0.9375rem!important;
+  font-size: 1.5rem!important;
   font-weight: normal!important;
 }
 .value-added-tx:hover {
