@@ -46,11 +46,16 @@
                   >
                 </div>
               </div>
-              <a href="blog-details.html" class="text-dark"
-                ><h4 class="font-weight-semibold">
-                  {{ comment.products.name }}
-                </h4></a
+              <router-link
+                class="text-dark"
+                :to="
+                  `/ProductDetails/${comment.products.id}/${comment.products.cid}`
+                "
               >
+                <h4 class="font-weight-semibold">
+                  {{ comment.products.name }}
+                </h4>
+              </router-link>
               <p>
                 {{ comment.comment }}
               </p>

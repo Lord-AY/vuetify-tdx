@@ -54,7 +54,7 @@
                                       <router-link :to="`paymentitem/${biller.billerid}`"></router-link>
                                       <div class="item-card-img item-card-img-tx">
                                         <img
-                                          src="assets/images/categories/car.svg"
+                                          src="https://quickteller.sandbox.interswitchng.com/Content/Images/Downloaded/79c91955-2fbe-4a21-9f0b-599e9feb85cf.png"
                                           alt="img"
                                           class="br-tr-7 br-tl-7"
                                         />
