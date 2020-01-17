@@ -107,8 +107,8 @@ export default {
           } else if(error.status == 404) {
           commit("SET_ERROR", "Network Error, please try again");
           }
-          commit("SET_ERROR", "Please fill in a correct phone number")
-          console.log(error.response);
+          commit("SET_ERROR", "Please fill in the correct details")
+          // console.log(error.response);
         })
     },
     paymentAdvices({commit, state, rootState}, {payload}) {
