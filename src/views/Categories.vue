@@ -1,6 +1,6 @@
 <template>
   <div id="categories">
-    <section>
+    <!-- <section>
       <div
         class="bannerimg cover-image bg-background3"
         data-image-src="@/assets/images/banners/banner2.jpg"
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--/Breadcrumb-->
 
     <!--Section-->
@@ -54,13 +54,14 @@
                               alt="img"
                               class="h-5"
                             />
-                            {{ category.name }}
+                            <span class="category">{{ category.name }}</span>
+                            
                           </h3></a
                         >
                       </div>
                       <div v-if="category.subcategory">
                         <div class="card-body border">
-                          <ul class="list-unstyled widget-spec  p-1 mb-0">
+                          <ul class="list-unstyled widget-spec sub-category p-1 mb-0">
                             <!-- {{ category.subcategory }} -->
                             <li class="" v-for="subcategory in category.subcategory" :Key="subcategory.id">
                               <a href="#" class="text-dark"
@@ -154,5 +155,11 @@ export default {
 <style>
   .selector {
     cursor: pointer
+  }
+  .sub-category a{
+    font-size: 16px;
+  }
+  .card-title span.category {
+    padding-left: 10px;
   }
 </style>
