@@ -152,21 +152,21 @@
               </div>
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
-                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab1 }">
+                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab1 }" @click='toggle("Description")'>
                     <!-- <a data-toggle="pill" href="#home">Description</a> -->
-                    <a href="#" class="nav-link"   @click='toggle("Description")'>Description</a>
+                    <div class="nav-link">Description</div>
                   </li>
-                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab2 }">
+                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab2 }" @click='toggle("Features")'>
                     <!-- <a data-toggle="pill" href="#menu1">Features</a> -->
-                    <a href="#" class="nav-link"  @click='toggle("Features")'>Features</a>
+                    <div href="#" class="nav-link">Features</div>
                   </li>
-                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab3 }">
+                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab3 }" @click='toggle("Reviews")'>
                     <!-- <a data-toggle="pill" href="#menu2">Reviews(0)</a> -->
-                    <a href="#" class="nav-link" @click='toggle("Reviews")'>Reviews(0)</a>
+                    <div href="#" class="nav-link">Reviews(0)</div>
                   </li>
-                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab4 }">
+                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab4 }" @click='toggle("LocationMap")'>
                     <!-- <a data-toggle="pill" href="#menu3">Location Map</a> -->
-                    <a href="#" class="nav-link"  @click='toggle("LocationMap")'>LocationMap</a>
+                    <div href="#" class="nav-link">LocationMap</div>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-Limit="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
@@ -201,132 +201,17 @@
                       <!-- Desc tab end -->
                     </div>
 
-                    <div class="fade" v-if="tab2">
+                    <div class="tab-pane fade in active" v-if="tab2">
                       <h3 class="tab-title">Features</h3>
-                      <div class="">
-                        <div
-                          class="col-sm-12 col-md-12 col-xs-12 no-padding"
-                        >
-                          <span>
-                            <strong>
-                              Category:
-                            </strong></span
-                          >
-
-                          <a href="../../search-cars/indexf98c.html?cat_id=62"
-                            >Audi
-                          </a>
-
-                          <a href="../../search-cars/indexec88.html?cat_id=279"
-                            >A3
-                          </a>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Price</strong> :</span>
-                          {{ product.currency }}{{ product.amount }}
-                          <span class="">(Negotiable)</span>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Date</strong> :</span> January 24, 2019
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Mileage</strong> :</span> 1694
-                        </div>
-
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Condition</strong> :</span> Used
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Type</strong> :</span> Sell
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Warranty</strong> :</span> Yes
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Year</strong> :</span> 2017
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Body Type</strong> :</span> Sedan
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Transmission</strong> :</span> Automatic
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Engine Size</strong> :</span> 3000
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Engine Type</strong> :</span> Petrol
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Assembly</strong> :</span> Local
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Color</strong> :</span> Blue
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                          <span><strong>Insurance</strong> :</span> Yes
-                        </div>
-                        <div
-                          class="col-sm-12 col-md-12 col-xs-12 location-exit no-padding"
-                        >
-                          <span><strong>Location</strong> :</span>
-                          <a
-                            href="../../search-cars/indexfa61.html?country_id=312"
-                            >{{ product.region }}</a
-                          >,
-                        </div>
-                        <!-- Short features end -->
-                      </div>
-                      <ul class="car-feature-list ">
-                        <li><i class="flaticon-disc-brake-1"></i>ABS</li>
-                        <li><i class="flaticon-airbag"></i>Air Bags</li>
-                        <li>
-                          <i class="flaticon-air-conditioner-1"></i>Air
-                          Conditioning
-                        </li>
-                        <li><i class="flaticon-rim"></i>Alloy Rims</li>
-                        <li><i class="flaticon-antenna"></i>AM/FM Radio</li>
-                        <li><i class="flaticon-music-1"></i>CD Player</li>
-                        <li><i class="flaticon-navigation"></i>Cruise Control</li>
-                        <li><i class="flaticon-car-4"></i>Immobilizer Key</li>
-                        <li>
-                          <i class="flaticon-location"></i>Navigation System
-                        </li>
-                        <li><i class="flaticon-power-button"></i>Power Locks</li>
-                        <li><i class="flaticon-car-door"></i>Power Mirrors</li>
-                        <li>
-                          <i class="flaticon-car-steering-wheel"></i>Power
-                          Steering
-                        </li>
-                        <li><i class="flaticon-car-door"></i>Power Windows</li>
-                        <li>
-                          <i class="flaticon-photo-camera-1"></i>Reversing Camera
-                        </li>
-                      </ul>
-                      <div class="tags-share clearfix">
-                        <div class="tags pull-left ">
-                          <i class="fa fa-tags"></i>
-                          <ul>
-                            <li>
-                              <a href="../../ad_tag/benz/index.html" title="benz">
-                                #benz
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                href="../../ad_tag/compact/index.html"
-                                title="compact"
-                              >
-                                #compact
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="desc-points">
+                        <span><strong>Price</strong> :</span>
+                        {{ product.currency }}{{ product.amount }}
+                        <span class="">(Negotiable)</span>
                       </div>
                       <!--Features tab end  -->
                     </div>
                     <div
-                      class="tab-pane fade"
+                      class="tab-pane fade in active"
                       style="margin-top: 26px!important"
                       v-if="tab3"
                     >
@@ -367,7 +252,7 @@
                       </div>
                       <!-- Reviews tab end -->
                     </div>
-                    <div class="tab-pane fade" v-if="tab4">
+                    <div class="tab-pane fade in active" v-if="tab4">
                       <h3 class="tab-title">Location Map</h3>
                       <!-- <div id="menu2" class="tab-pane fade"> -->
                       <!-- <h3 class="tab-title">Reviews</h3> -->

@@ -150,21 +150,21 @@
                                 <h4>Inbox</h4>
                                 <ul class="tabs-menu nav">
                                   <span>
-                                    <a href="#" v-bind:class="{ 'active': tab1 }"  @click='toggle("all")'>
+                                    <div v-bind:class="{ 'active': tab1 }" class="selector"  @click='toggle("all")'>
                                       <small>All Offers</small>
-                                    </a>
+                                    </div>
                                   </span>
                                   <div style="width:10px"></div>
                                   <span>
-                                    <a href="#" v-bind:class="{ 'active': tab2 }" @click='toggle("received")'>
+                                    <div v-bind:class="{ 'active': tab2 }" class="selector" @click='toggle("received")'>
                                       <small>Recevied Offers</small>
-                                    </a>
+                                    </div>
                                   </span>
                                   <div style="width:10px"></div>
                                   <span>
-                                    <a href="#" v-bind:class="{ 'active': tab3 }" @click='toggle("sent")'>
+                                    <div v-bind:class="{ 'active': tab3 }" class="selector" @click='toggle("sent")'>
                                       <small>Sent Offers </small>
-                                    </a>
+                                    </div>
                                   </span>
                                 </ul>
                               </div>
@@ -806,7 +806,7 @@ export default {
       // console.log(this.getMessagesUserFrom);
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
-      // console.log(allMessages);
+      console.log(allMessages);
     },
     getAllMessages() {
       const fromMessagePayload = this.messagesFrom;
@@ -846,3 +846,8 @@ export default {
   }
 };
 </script>
+<style>
+  .selector {
+    cursor: pointer
+  }
+</style>
