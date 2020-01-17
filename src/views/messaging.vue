@@ -150,26 +150,26 @@
                                 <h4>Inbox</h4>
                                 <ul class="tabs-menu nav">
                                   <span>
-                                    <a href="#tab1" class="active" data-toggle="tab">
+                                    <a href="#" v-bind:class="{ 'active': tab1 }"  @click='toggle("all")'>
                                       <small>All Offers</small>
                                     </a>
                                   </span>
                                   <div style="width:10px"></div>
                                   <span>
-                                    <a href="#tab2" class="" data-toggle="tab">
+                                    <a href="#" v-bind:class="{ 'active': tab2 }" @click='toggle("received")'>
                                       <small>Recevied Offers</small>
                                     </a>
                                   </span>
                                   <div style="width:10px"></div>
                                   <span>
-                                    <a href="#tab3" class="" data-toggle="tab">
+                                    <a href="#" v-bind:class="{ 'active': tab3 }" @click='toggle("sent")'>
                                       <small>Sent Offers </small>
                                     </a>
                                   </span>
                                 </ul>
                               </div>
-                              <div class="tab-content">
-                                <div class="tab-pane active" id="tab1">
+                              <div class="">
+                                <div class="" v-if="tab1">
                                   <div class="list-wrap ps-container ps-active-y">
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
@@ -200,7 +200,7 @@
                                     </ul>
                                   </div>
                                 </div>
-                                <div class="tab-pane" id="tab2">
+                                <div class="tab-pane"  v-if="tab2">
                                   <div class="list-wrap ps-container ps-active-y">
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
@@ -231,7 +231,7 @@
                                     </ul>
                                   </div>
                                 </div>
-                                <div class="tab-pane" id="tab3">
+                                <div class="tab-pane" v-if="tab3">
                                   <div class="list-wrap ps-container ps-active-y">
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
@@ -772,6 +772,9 @@ export default {
     return {
       messages: null,
       message: null,
+      tab1: true,
+      tab2: false,
+      tab3: false
     }
   },
   components: {
@@ -810,7 +813,29 @@ export default {
       this.messages = allMessages;
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
+<<<<<<< HEAD
       console.log(allMessages);
+=======
+      // console.log(allMessages);
+    },
+    toggle(param){
+      // console.log(param)
+      if(param == "all"){
+        this.tab1=true;
+        this.tab2=false;
+        this.tab3=false;
+      }else if(param == "received"){
+        this.tab1=false;
+        this.tab2=true;
+        this.tab3=false;
+      }else if(param == "sent"){
+        this.tab1=false;
+        this.tab2=false;
+        this.tab3=true;
+      }else{
+
+      }
+>>>>>>> a7463a7a9325381832476e88272bb232e6673f00
     }
   },
   created() {
