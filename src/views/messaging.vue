@@ -150,19 +150,31 @@
                                 <h4>Inbox</h4>
                                 <ul class="tabs-menu nav">
                                   <span>
-                                    <div v-bind:class="{ 'active': tab1 }" class="selector"  @click='toggle("all")'>
+                                    <div
+                                      v-bind:class="{ active: tab1 }"
+                                      class="selector"
+                                      @click="toggle('all')"
+                                    >
                                       <small>All Offers</small>
                                     </div>
                                   </span>
                                   <div style="width:10px"></div>
                                   <span>
-                                    <div v-bind:class="{ 'active': tab2 }" class="selector" @click='toggle("received")'>
+                                    <div
+                                      v-bind:class="{ active: tab2 }"
+                                      class="selector"
+                                      @click="toggle('received')"
+                                    >
                                       <small>Recevied Offers</small>
                                     </div>
                                   </span>
                                   <div style="width:10px"></div>
                                   <span>
-                                    <div v-bind:class="{ 'active': tab3 }" class="selector" @click='toggle("sent")'>
+                                    <div
+                                      v-bind:class="{ active: tab3 }"
+                                      class="selector"
+                                      @click="toggle('sent')"
+                                    >
                                       <small>Sent Offers </small>
                                     </div>
                                   </span>
@@ -170,10 +182,17 @@
                               </div>
                               <div class="">
                                 <div class="" v-if="tab1">
-                                  <div class="list-wrap ps-container ps-active-y">
+                                  <div
+                                    class="list-wrap ps-container ps-active-y"
+                                  >
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
-                                      <li class="message-grid" v-for="(message, index) in getMessagesUserTo" :key="index">
+                                      <li
+                                        class="message-grid"
+                                        v-for="(message,
+                                        index) in getMessagesUserTo"
+                                        :key="index"
+                                      >
                                         <a href="#">
                                           <div class="image img-square">
                                             <img
@@ -186,7 +205,9 @@
                                               <span>{{ message.from }}</span>
                                               <div class="user-status"></div>
                                             </div>
-                                            <p>Honda Civic 2017 Sports Edition</p>
+                                            <p>
+                                              Honda Civic 2017 Sports Edition
+                                            </p>
                                             <div class="time">
                                               <span
                                                 ><i class="icon-envelope"></i
@@ -200,21 +221,39 @@
                                     </ul>
                                   </div>
                                 </div>
-                                <div class="tab-pane"  v-if="tab2">
-                                  <div class="list-wrap ps-container ps-active-y">
+                                <div class="tab-pane" v-if="tab2">
+                                  <div
+                                    class="list-wrap ps-container ps-active-y"
+                                  >
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
-                                      <li class="message-grid" v-for="(user, index) in userRecievedOffers" :key="index">
-                                        <a  @click.prevent="getSelectedUserConversations(user.id)">
+                                      <li
+                                        class="message-grid"
+                                        v-for="(user,
+                                        index) in userRecievedOffers"
+                                        :key="index"
+                                      >
+                                        <a
+                                          @click.prevent="
+                                            getSelectedUserConversations(
+                                              user.id
+                                            )
+                                          "
+                                        >
                                           <div class="image img-square">
                                             <img
-                                              src="../../public/assets/images/profile-product-details.jpg"
+                                              :src="
+                                                `https://www.tradexplora.com.ng/media/${user.pictureUrl}`
+                                              "
                                               alt=""
                                             />
                                           </div>
                                           <div class="user-name">
                                             <div class="author">
-                                              <span>{{ user.firstname }} {{ user.lastname }}</span>
+                                              <span
+                                                >{{ user.firstname }}
+                                                {{ user.lastname }}</span
+                                              >
                                               <div class="user-status"></div>
                                             </div>
                                             <p></p>
@@ -232,20 +271,38 @@
                                   </div>
                                 </div>
                                 <div class="tab-pane" v-if="tab3">
-                                  <div class="list-wrap ps-container ps-active-y">
+                                  <div
+                                    class="list-wrap ps-container ps-active-y"
+                                  >
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
-                                      <li class="message-grid" v-for="(user, index) in userSentOffers" :key="index">
-                                        <a href="#" @click.prevent="getSelectedUserConversations(user.id)">
+                                      <li
+                                        class="message-grid"
+                                        v-for="(user, index) in userSentOffers"
+                                        :key="index"
+                                      >
+                                        <a
+                                          href="#"
+                                          @click.prevent="
+                                            getSelectedUserConversations(
+                                              user.id
+                                            )
+                                          "
+                                        >
                                           <div class="image img-square">
                                             <img
-                                              src="../../public/assets/images/profile-product-details.jpg"
+                                              :src="
+                                                `https://www.tradexplora.com.ng/media/${user.pictureUrl}`
+                                              "
                                               alt=""
                                             />
                                           </div>
                                           <div class="user-name">
                                             <div class="author">
-                                              <span>{{ user.firstname }} {{ user.lastname }}</span>
+                                              <span
+                                                >{{ user.firstname }}
+                                                {{ user.lastname }}</span
+                                              >
                                               <div class="user-status"></div>
                                             </div>
                                             <p></p>
@@ -269,52 +326,72 @@
                             class="col-md-8 clearfix col-sm-5 col-xs-12 message-content"
                           >
                             <div class="message-details">
-                              <div class="author">
+                              <div
+                                class="author"
+                                v-for="(user, index) in selectedUser"
+                                :key="index"
+                              >
                                 <div class="image">
                                   <img
+                                    v-if="user.avatar"
+                                    :src="
+                                      `https://www.tradexplora.com.ng/media/${user.avatar}`
+                                    "
+                                    :alt="user.name"
+                                  />
+                                  <img
+                                    v-else
                                     src="../../public/assets/images/profile-product-details.jpg"
                                     alt=""
                                   />
                                 </div>
-                                <span class="author-name">Muhammad Umair</span>
-                                <em>5 days ago</em>
+                                <span class="author-name">{{ user.name }}</span>
+                                <!-- <em>5 days ago</em> -->
                               </div>
                               <h2>
-                                <a href="single-page-listing.html"
+                                <!--  <a href="single-page-listing.html"
                                   >2017 Audi A4 sport Auto MY17 For Sale</a
-                                >
+                                > -->
                               </h2>
                               <div class="list-wraps ps-container ps-active-y">
                                 <ul class="messages">
-                                  <li class="friend-message clearfix" v-for="(message, index) in messages" :key="index">
-                                    <figure class="profile-picture">
+                                  <li
+                                    class="friend-message clearfix"
+                                    v-for="(message, index) in messages"
+                                    :key="index"
+                                  >
+                                    <!--  <figure class="profile-picture">
                                       <img
                                         src="../../public/assets/images/profile-product-details.jpg"
                                         class="img-circle img-circle-messaging"
                                         alt="Profile Pic"
                                       />
-                                    </figure>
-                                    <div class="message">
-                                     {{ message.message }}
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 8:53
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="my-message clearfix" v-for="(message, index) in loggedInmessages" :key="index">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
+                                    </figure> -->
                                     <div class="message">
                                       {{ message.message }}
                                       <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 8:55
-                                        AM
+                                        <!-- <i class="fa fa-clock-o"></i> Today 8:53
+                                        AM -->
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    class="my-message clearfix"
+                                    v-for="(message, index) in loggedInmessages"
+                                    :key="index"
+                                  >
+                                    <!-- <figure class="profile-picture">
+                                      <img
+                                        src="../../public/assets/images/profile-product-details.jpg"
+                                        class="img-circle img-circle-messaging"
+                                        alt="Profile Pic"
+                                      />
+                                    </figure> -->
+                                    <div class="message">
+                                      {{ message.message }}
+                                      <div class="time">
+                                        <!--  <i class="fa fa-clock-o"></i> Today 8:55
+                                        AM -->
                                       </div>
                                     </div>
                                   </li>
@@ -339,18 +416,25 @@
                                 </div>
                               </div>
                               <div class="chat-form ">
-                                <form role="form" class="form-inline" >
+                                <form role="form" class="form-inline">
                                   <div class="form-group">
                                     <input
                                       style="width: 100%"
                                       @keyup.enter="sendNewMessage"
+                                      @keydown.space="preventLeadingSpace"
                                       placeholder="Type a message here..."
                                       v-model="message"
                                       class="form-control"
                                       type="text"
                                     />
                                   </div>
-                                  <button class="btn btn-theme" type="submit"  @click.prevent="sendNewMessage" >
+                                  <button
+                                    class="btn btn-theme"
+                                    type="submit"
+                                    :class="disabled ? 'disabled' : ''"
+                                    @click.prevent="sendNewMessage"
+                                    :disabled="disabled"
+                                  >
                                     <i class="fa fa-paper-plane-o"></i>
                                   </button>
                                 </form>
@@ -552,6 +636,7 @@ require("../../public/assets/css/components.css");
 
 import dsidebar from "@/components/Dsidebar";
 import { mapActions, mapGetters, mapState } from "vuex";
+import ash from "lodash";
 export default {
   name: "messaging",
   data() {
@@ -560,30 +645,58 @@ export default {
       messages: [],
       message: null,
       selectedId: null,
+      disabled: true,
+      selectedUser: [],
       tab1: true,
       tab2: false,
       tab3: false
-    }
+    };
   },
   components: {
     dsidebar
   },
   computed: {
-    ...mapGetters("chat", ["getMessagesUserFrom", "getMessagesUserTo", "userSentOffers", "userRecievedOffers"]),
+    ...mapGetters("chat", [
+      "getMessagesUserFrom",
+      "getMessagesUserTo",
+      "userSentOffers",
+      "userRecievedOffers"
+    ]),
     ...mapGetters("auth", ["getUser"]),
-    ...mapState("chat", ["messagesFrom", "messagesTo"])
+    ...mapState("chat", [
+      "messagesFrom",
+      "messagesTo",
+      "recievedOfferUsers",
+      "sentOfferUsers"
+    ])
   },
   methods: {
-    ...mapActions("chat", ["sendMessage", "fetchUserMessagesto", "fetchUserMessagesfrom", "getRecievedOfferUsers", "getSentOfferUsers", "getAll"]),
+    ...mapActions("chat", [
+      "sendMessage",
+      "fetchUserMessagesto",
+      "fetchUserMessagesfrom",
+      "getRecievedOfferUsers",
+      "getSentOfferUsers",
+      "getAll"
+    ]),
+    preventLeadingSpace(e) {
+      // only prevent the keypress if the value is blank
+      if (!e.target.value) e.preventDefault();
+      // otherwise, if the leading character is a space, remove all leading white-space
+      else if (e.target.value[0] == " ")
+        e.target.value = e.target.value.replace(/^\s*/, "");
+    },
     sendNewMessage() {
       const payload = {
         message: this.message,
         to: this.selectedId,
-        from: this.getUser.id,
+        from: this.getUser.id
       };
       this.sendMessage(payload);
+      this.message = null;
       this.fetchAllMessages();
       this.getSentWithRecievedOfferUsers();
+      this.getSelectedUserConversations(this.selectedId);
     },
     fetchAllMessages() {
       this.fetchUserMessagesto();
@@ -603,18 +716,40 @@ export default {
       const fromMessages = this.messagesFrom;
       const toMessages = this.messagesTo;
       this.messages = [];
+      this.selectedUser = [];
       this.loggedInmessages = [];
       this.selectedId = userId;
-      // loop through from messages,
-      for(let message in fromMessages ) {
-        // get messages logged in user sent to other chat user
-        if(this.getUser.id == fromMessages[message].from && userId == fromMessages[message].to) {
-          this.loggedInmessages.push(fromMessages[message])
+      // merge user details arrays
+      let fm = JSON.parse(JSON.stringify(this.sentOfferUsers));
+      let tm = JSON.parse(JSON.stringify(this.recievedOfferUsers));
+      let allUsers = Object.assign({}, fm, tm);
+      for (let user in allUsers) {
+        // loop through to get selected user.
+        // if statement checks for the id and makes sure the selected user is empty.
+        // before looping and adding new seleceted user to prevent duplicate users
+        if (allUsers[user].id == userId && ash.isEmpty(this.selectedUser)) {
+          this.selectedUser.push({
+            name: allUsers[user].firstname + "  " + allUsers[user].lastname,
+            avatar: allUsers[user].pictureUrl
+          });
         }
-      };
-      for(let chat in toMessages) {
+      }
+      // loop through from messages,
+      for (let message in fromMessages) {
+        // get messages logged in user sent to other chat user
+        if (
+          this.getUser.id == fromMessages[message].from &&
+          userId == fromMessages[message].to
+        ) {
+          this.loggedInmessages.push(fromMessages[message]);
+        }
+      }
+      for (let chat in toMessages) {
         // get messages sent to logged in user
-        if(this.getUser.id == toMessages[chat].to && userId == toMessages[chat].from) {
+        if (
+          this.getUser.id == toMessages[chat].to &&
+          userId == toMessages[chat].from
+        ) {
           this.messages.push(toMessages[chat]);
         }
       }
@@ -630,35 +765,49 @@ export default {
     //   this.messages = allMessages;
     //   console.log(this.messages);
     // },
-    toggle(param){
+    toggle(param) {
       // console.log(param)
-      if(param == "all"){
-        this.tab1=true;
-        this.tab2=false;
-        this.tab3=false;
-      }else if(param == "received"){
-        this.tab1=false;
-        this.tab2=true;
-        this.tab3=false;
-      }else if(param == "sent"){
-        this.tab1=false;
-        this.tab2=false;
-        this.tab3=true;
-      }else{
+      if (param == "all") {
+        this.tab1 = true;
+        this.tab2 = false;
+        this.tab3 = false;
+      } else if (param == "received") {
+        this.tab1 = false;
+        this.tab2 = true;
+        this.tab3 = false;
+      } else if (param == "sent") {
+        this.tab1 = false;
+        this.tab2 = false;
+        this.tab3 = true;
+      } else {
+      }
+    }
+  },
+  watch: {
+    message: {
+      handler: function(message) {
+        if (message) {
+          // console.log("message is increasing...");
+          this.disabled = false;
+        } else {
+          // console.log("message is reducing...");
+          this.disabled = true;
+        }
       }
     }
   },
   created() {
     this.fetchAllMessages();
     this.getSentWithRecievedOfferUsers();
+    this.getSelectedUserConversations(this.selectedId);
     // this.getSentOfferUsers();
     // console.log(this.getMessages);
-    this.getAllMessages();
+    // this.getAllMessages();
   }
 };
 </script>
 <style>
-  .selector {
-    cursor: pointer
-  }
+.selector {
+  cursor: pointer;
+}
 </style>
