@@ -25,5 +25,8 @@ export default {
   },
   comments() {
     return Api().get("product/comments/allcomment");
+  },
+  singleProductcomments(pid) {
+    return Api().get(`product/comments/${pid}`);
   }
 };

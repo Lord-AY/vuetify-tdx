@@ -287,7 +287,7 @@
                       <li class="wallet-balance">
                         <img
                           src="@/assets/images/wallet.svg"
-                          height="18px"
+                          height="16px"
                           style="margin-top: -4px; margin-right: 5px;"
                         />
                         Balance
@@ -862,5 +862,21 @@ export default {
 .header-search-button:hover {
   color: #fff !important;
   box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9) !important;
+}
+.profile-dropdown-list {
+  margin-right: 0px!important;
+  width: 100%!important;
+}
+.profile-dropdown-list a {
+  padding-top: 10px!important;
+  padding-bottom: 10px!important;
+}
+/* .profile-dropdown-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+} */
+.profile-dropdown-icon {
+  color: #232323!important;
+  font-size: 16px!important;
 }
 </style>

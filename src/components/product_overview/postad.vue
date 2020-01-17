@@ -26,7 +26,7 @@
 
                   <div class="row">
                     <div
-                      class="col-md-10 offset-md-1 col-sm-12 col-lg-10 offset-lg-1"
+                      class="col-md-12  col-sm-12 col-lg-12 "
                     >
                       <!-- Ad Details -->
                       <div class="row">
@@ -61,8 +61,8 @@
                               </button>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col-md-12 col-sm-12 col-lg-12">
+                          <div class="post-ad-content">
+                            <!-- <div class="col-md-12 col-sm-12 col-lg-12"> -->
                               <!-- AD details -->
 
                               <div class="ad-information ">
@@ -92,8 +92,8 @@
                               </div>
 
                               <div class="row form-group-tx form-group">
-                                <div class="col-md-12">
-                                  <div class="form-group">
+                                <div class="col-md-6">
+                                  <div class="">
                                     <label class="form-label text-dark"
                                       >Category</label
                                     >
@@ -107,8 +107,41 @@
                                       v-model="ads.cid"
                                       required
                                     >
-                                      <option value="0" disabled
-                                        >-- Select Option --</option
+                                    <i class="fa fa-sort" aria-hidden="true"></i>
+                                      <option value=""
+                                        >-- Select Category --</option
+                                      >
+                                      <option
+                                        :value="category.id"
+                                        v-for="category in categories"
+                                        :key="category.id"
+                                        >{{ category.name }}</option
+                                      >
+                                      
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6"></div>
+                              </div>
+
+                              <div class="row form-group-tx form-group">
+                                <div class="col-md-6">
+                                  <div class="">
+                                    <label class="form-label text-dark"
+                                      >Sub Category</label
+                                    >
+                                    <select
+                                      class="form-control custom-select"
+                                      :class="
+                                        dbErrors && dbErrors.cid
+                                          ? 'is-invalid'
+                                          : ''
+                                      "
+                                      v-model="ads.cid"
+                                      required
+                                    >
+                                      <option value=""
+                                        >-- Select Sub Category --</option
                                       >
                                       <option
                                         :value="category.id"
@@ -119,12 +152,12 @@
                                     </select>
                                   </div>
                                 </div>
-                                <div class="col-md-12"></div>
+                                <div class="col-md-6"></div>
                               </div>
 
                               <div class="row form-group-tx form-group">
-                                <div class="col-md-12">
-                                  <div class="form-group">
+                                <div class="col-md-6">
+                                  <div class="">
                                     <label class="form-label text-dark">
                                       Country</label
                                     >
@@ -137,8 +170,8 @@
                                       "
                                       required
                                     >
-                                      <option value="0" disabled
-                                        >-- Select Option --</option
+                                      <option value="" 
+                                        >-- Select Country --</option
                                       >
                                       <option
                                         :value="item.name"
@@ -636,22 +669,31 @@
                                 </div>
                               </div>
 
-                              <div class="p-2 border mb-4 form-group">
-                                <label for="">Upload images</label>
-                                <vue-upload-multiple-image
-                                  @upload-success="selectImageSuccess"
-                                  @before-remove="beforeRemove"
-                                  :maxImage="7"
-                                  :data-images="images"
-                                  dragText="Images must not exceed 2mb for each"
-                                  browseText="Browse image"
-                                  primaryText="Default Image"
-                                  markIsPrimaryText="slide images"
-                                  popupText="This image will be used as the default display image, when showing your ads"
-                                  required
-                                ></vue-upload-multiple-image>
+                              <div class="row form-group-tx form-group">
+                                <div class="col-md-12">
+                                  <div class="p-2 border upload-image-box mb-4 form-group">
+                                    <label for="">Upload images</label>
+                                    <p >Ads with photo attracts more customers. Formats accepted are .jpg, .png and .gif. Maximum size for uploading files is 5 MB.
+														          Add 1 photo or more for this category.</p>
+                                    <vue-upload-multiple-image
+                                      @upload-success="selectImageSuccess"
+                                      @before-remove="beforeRemove"
+                                      :maxImage="7"
+                                      :data-images="images"
+                                      dragText="Images must not exceed 2mb for each"
+                                      browseText="Browse image"
+                                      primaryText="Default Image"
+                                      markIsPrimaryText="slide images"
+                                      popupText="This image will be used as the default display image, when showing your ads"
+                                      required
+                                    ></vue-upload-multiple-image>
+                                    <p style="margin-top: 16px;"> <b>Note:</b>  The first photo is used as the main photo that the customers see.</p>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
+
+                              
+                            <!-- </div> -->
                           </div>
                         </div>
                       </div>
@@ -773,7 +815,7 @@
                                         <span class="custom-control-label">
                                           <b>Regular List</b>
                                           <span
-                                            class=""
+                                            class="price-tag-regular-packages"
                                             style="float: right; font-size: 18px;"
                                           >
                                             <span style="font-size: 14px;"
@@ -801,7 +843,7 @@
                                         <span class="custom-control-label">
                                           <b>Urgent Ad</b>
                                           <span
-                                            class=""
+                                            class="price-tag-regular-packages"
                                             style="float: right; font-size: 18px;"
                                             >&#8358; 500</span
                                           >
@@ -825,7 +867,7 @@
                                         <span class="custom-control-label">
                                           <b>Top Ad</b>
                                           <span
-                                            class=""
+                                            class="price-tag-regular-packages"
                                             style="float: right; font-size: 18px;"
                                             >&#8358; 1000</span
                                           >
@@ -857,7 +899,7 @@
                                   style="margin-top: 20px;"
                                   v-if="isHidden"
                                 >
-                                  <div class="col-lg-4 col-md-6 col-sm-12">
+                                  <div class="col-lg-4 col-md-6 col-sm-12 top-notch-ad-package-gold">
                                     <div class="senior-ads form-group">
                                       <div
                                         class="senior-ads-header gold"
@@ -907,7 +949,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="col-lg-4 col-md-6 col-sm-12">
+                                  <div class="col-lg-4 col-md-6 col-sm-12 top-notch-ad-package-premium">
                                     <div class="senior-ads">
                                       <div
                                         class="senior-ads-header premium"
@@ -951,7 +993,7 @@
                                       <div class="select-senior-ad">
                                         <button
                                           class="btn btn-block btn-primary"
-                                          style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                          style="background-color: rgba(39, 199, 129, 0.3); border-color: rgba(39, 199, 129, 0.3); color: rgb(21, 152, 95);"
                                           @click.prevent="setPayment('5')"
                                         >
                                           Select
@@ -959,7 +1001,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="col-lg-4 col-md-6 col-sm-12">
+                                  <div class="col-lg-4 col-md-6 col-sm-12 top-notch-ad-package-hot">
                                     <div class="senior-ads">
                                       <div
                                         class="senior-ads-header hot"
@@ -1002,7 +1044,7 @@
                                       <div class="select-senior-ad">
                                         <button
                                           class="btn btn-block btn-primary"
-                                          style="background-color: #f7dbb4; border-color: #f7dbb4; color: #D37E04;"
+                                          style="background-color: rgb(168, 243, 171); border-color: rgb(168, 243, 171); color: rgb(76, 175, 80);"
                                           @click.prevent="setPayment('6')"
                                         >
                                           Select
@@ -1036,13 +1078,13 @@
                     >
                   </div>
 
-                  <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                      <!-- <form action="" class="form-horizontal"> -->
-                      <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
+                  <!-- <div class="row">
+                    <div class="col-md-12">
+                      
+                      <div class="row"> -->
+                        <div class="card-body">
                           <div class="tab-content card-body border mb-0 b-0">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-payment panel-primary">
                               <div
                                 class=" tab-menu-heading border-0 pl-0 pr-0 pt-0"
                               >
@@ -1290,10 +1332,10 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <!-- </form> -->
+                      <!-- </div>
+                     
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
 
@@ -1419,7 +1461,8 @@
 </template>
 <script>
 /* eslint-disable no-undef */
-// require("@/assets/plugins/fancyuploder/fancy_fileupload.css");
+require("@/assets/plugins/vertical-scroll/jquery.bootstrap.newsbox.js");
+require("@/assets/plugins/vertical-scroll/vertical-scroll.js");
 // require("@/assets/css/style.css");
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
@@ -1654,6 +1697,50 @@ export default {
 .tab-pane .cash-info {
   margin-top: 20px;
 }
+.top-notch-ad-package-gold {
+  padding-right: 8px!important;
+  padding-left: 0px!important;
+}
+.top-notch-ad-package-premium {
+  padding: 0px 4px!important;
+}
+.top-notch-ad-package-hot {
+  padding-right: 0px!important;
+  padding-left: 8px!important;
+}
+
+.upload-image-box p{
+  color: #232323;
+}
+.image-container {
+  /* background-image: purple!important; */
+  width:100%!important;
+  border: 2px dashed #4CAF50!important;
+  background-color: #e8ebf3!important;
+  /* height: 100px!important; */
+}
+.image-container:hover {
+  background-color: #fff!important;
+}
+
+select {
+  padding: 0px 15px!important;
+}
+textarea {
+  resize:none;
+}
+.total-pricing-sub-div i{
+  font-size: 24px!important;
+  color: #232323;
+}
+
+.card-body {
+  padding: 1.5rem 1.5rem !important;
+}
+
+.panel-payment {
+  padding-top: 20px!important;
+}
 
 .mobile-hidden {
   display: none;
@@ -1742,7 +1829,13 @@ export default {
 .option-input.radio::after {
   border-radius: 50%;
 }
-
+.row.form-group-tx.form-group {
+  margin-bottom: 1rem!important;
+}
+.price-tag-regular-packages {
+  color: #777!important;
+  font-weight: 400!important;
+}
 .cusbutton {
   cursor: pointer;
   position: relative;
