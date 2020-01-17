@@ -104,6 +104,9 @@ export default {
 				});
 		},
 		async fetchUserMessagesto({ commit, rootState }) {
+			commit("auth/SET_LOADING", true, { root: true });
+			commit("SET_SUCCESS_MSG", null);
+			commit("SET_ERRORS", null);
 			let fetchedMessagesTo = [];
 			let users = await chatDb
 				.collection("chat")
@@ -153,9 +156,9 @@ export default {
 						commit("SET_SENT_OFFERS", fullUsersArray);
 						// console.log(fullUsersArray);
 					})
-					.catch(error => {
+					.catch(() => {
 						commit("auth/SET_LOADING", false, { root: true });
-						console.log(error.response);
+						commit("SET_ERRORS", "Network Error, Couldn connect to server");
 					});
 			}
 		},
@@ -178,9 +181,9 @@ export default {
 						commit("SET_RECIEVED_OFFERS", fullUsersArray);
 						// console.log(fullUsersArray);
 					})
-					.catch(error => {
+					.catch(() => {
 						commit("auth/SET_LOADING", false, { root: true });
-						console.log(error.response);
+						commit("SET_ERRORS", "Network Error, Couldn connect to server");
 					});
 			}
 		}

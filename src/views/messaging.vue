@@ -559,6 +559,7 @@ export default {
       loggedInmessages: [],
       messages: [],
       message: null,
+      selectedId: null,
       tab1: true,
       tab2: false,
       tab3: false
@@ -577,9 +578,12 @@ export default {
     sendNewMessage() {
       const payload = {
         message: this.message,
+        to: this.selectedId,
+        from: this.getUser.id,
       };
       this.sendMessage(payload);
       this.fetchAllMessages();
+      this.getSentWithRecievedOfferUsers();
     },
     fetchAllMessages() {
       this.fetchUserMessagesto();
@@ -594,13 +598,13 @@ export default {
       // console.log(this.getMessagesUserFrom);
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
-      console.log(allMessages);
     },
     getSelectedUserConversations(userId) {
       const fromMessages = this.messagesFrom;
       const toMessages = this.messagesTo;
       this.messages = [];
       this.loggedInmessages = [];
+      this.selectedId = userId;
       // loop through from messages,
       for(let message in fromMessages ) {
         // get messages logged in user sent to other chat user
@@ -615,17 +619,17 @@ export default {
         }
       }
     },
-    getAllMessages() {
-      const fromMessagePayload = this.messagesFrom;
-      const toMessagePayload = this.messages;
-      let fm =JSON.parse(JSON.stringify(fromMessagePayload));
-      let tm = JSON.parse(JSON.stringify(toMessagePayload));
-      const allMessages  = Object.assign({}, fm, tm);
-      // console.log(this.getMessagesFrom);
-      // console.log(this.getMessagesTo);
-      this.messages = allMessages;
-      console.log(this.messages);
-    },
+    // getAllMessages() {
+    //   const fromMessagePayload = this.messagesFrom;
+    //   const toMessagePayload = this.messages;
+    //   let fm =JSON.parse(JSON.stringify(fromMessagePayload));
+    //   let tm = JSON.parse(JSON.stringify(toMessagePayload));
+    //   const allMessages  = Object.assign({}, fm, tm);
+    //   // console.log(this.getMessagesFrom);
+    //   // console.log(this.getMessagesTo);
+    //   this.messages = allMessages;
+    //   console.log(this.messages);
+    // },
     toggle(param){
       // console.log(param)
       if(param == "all"){
