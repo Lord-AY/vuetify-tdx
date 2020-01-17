@@ -144,7 +144,7 @@
                     data-placement="bottom"
                     title="Color Family"
                     href="javascript:void(0)"
-                  >
+                  > 
                     <i class="flaticon-cogwheel-outline car-color"></i>
                     <p>Blue</p>
                   </a>
@@ -152,30 +152,31 @@
               </div>
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
-                  <li class="tab-pane-tx active">
+                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab1 }">
                     <!-- <a data-toggle="pill" href="#home">Description</a> -->
-                    <router-link class="nav-link" active-class="active" to="#home">Description</router-link>
+                    <a href="#" class="nav-link"   @click='toggle("Description")'>Description</a>
                   </li>
-                  <li class="tab-pane-tx">
+                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab2 }">
                     <!-- <a data-toggle="pill" href="#menu1">Features</a> -->
-                    <router-link class="nav-link" active-class to="#menu1">Features</router-link>
+                    <a href="#" class="nav-link"  @click='toggle("Features")'>Features</a>
                   </li>
-                  <li class="tab-pane-tx">
+                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab3 }">
                     <!-- <a data-toggle="pill" href="#menu2">Reviews(0)</a> -->
-                    <router-link class="nav-link" active-class to="#menu2">Reviews(0)</router-link>
+                    <a href="#" class="nav-link" @click='toggle("Reviews")'>Reviews(0)</a>
                   </li>
-                  <li class="tab-pane-tx">
+                  <li class="tab-pane-tx" v-bind:class="{ 'active': tab4 }">
                     <!-- <a data-toggle="pill" href="#menu3">Location Map</a> -->
-                    <router-link class="nav-link" active-class to="#menu3">LocationMap</router-link>
+                    <a href="#" class="nav-link"  @click='toggle("LocationMap")'>LocationMap</a>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-Limit="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
 
-                <div class="tab-content">
-                  <router-view>
+                <div class="">
+                  <!-- <router-view> -->
                     
-                    <div id="home" class="tab-pane fade in active">
+                    <div  class="tab-pane fade in active" v-if="tab1">
                       <h3 class="tab-title">Description</h3>
+                      ds
                       <!-- Paste -->
                       <div class="desc-points">
                         <!-- <ol>
@@ -200,11 +201,11 @@
                       <!-- Desc tab end -->
                     </div>
 
-                    <div id="menu1" class="tab-pane fade">
+                    <div class="fade" v-if="tab2">
                       <h3 class="tab-title">Features</h3>
-                      <div class="short-features">
+                      <div class="">
                         <div
-                          class="col-sm-12 col-md-12 col-xs-12 no-padding categories-exist"
+                          class="col-sm-12 col-md-12 col-xs-12 no-padding"
                         >
                           <span>
                             <strong>
@@ -325,9 +326,9 @@
                       <!--Features tab end  -->
                     </div>
                     <div
-                      id="menu2"
                       class="tab-pane fade"
                       style="margin-top: 26px!important"
+                      v-if="tab3"
                     >
                       <h3 class="tab-title" style="display: inline-block;">
                         Reviews
@@ -366,7 +367,7 @@
                       </div>
                       <!-- Reviews tab end -->
                     </div>
-                    <div id="menu3" class="tab-pane fade">
+                    <div class="tab-pane fade" v-if="tab4">
                       <h3 class="tab-title">Location Map</h3>
                       <!-- <div id="menu2" class="tab-pane fade"> -->
                       <!-- <h3 class="tab-title">Reviews</h3> -->
@@ -380,7 +381,7 @@
                       ></iframe>
                     </div>
 
-                  </router-view>
+                  <!-- </router-view> -->
                   
                 </div>
               </div>
@@ -1103,7 +1104,11 @@ export default {
       limit: 3,
       limitBtn: true,
       isHidden: false,
-      message: null
+      message: null,
+      tab1: true,
+      tab2: false,
+      tab3: false,
+      tab4: false
     };
   },
   components: {
@@ -1150,6 +1155,32 @@ export default {
       };
       this.sendMessage(payload);
       // console.log(payload);
+    },
+    toggle(param){
+      console.log(param)
+      if(param == "Description"){
+        this.tab1=true;
+        this.tab2=false;
+        this.tab3=false;
+        this.tab4=false;
+      }else if(param == "Features"){
+        this.tab1=false;
+        this.tab2=true;
+        this.tab3=false;
+        this.tab4=false;
+      }else if(param == "Reviews"){
+        this.tab1=false;
+        this.tab2=false;
+        this.tab3=true;
+        this.tab4=false;
+      }else if(param == "LocationMap"){
+        this.tab1=false;
+        this.tab2=false;
+        this.tab3=false;
+        this.tab4=true;
+      }else{
+
+      }
     },
     sync() {
       $(document).ready(function() {
