@@ -809,7 +809,7 @@ export default {
         JSON.stringify(toMessagePayload));
 
       const allMessages  = Object.assign({}, fm, tm);
-      // console.log(allMessages2);
+      console.log(allMessages);
       this.messages = allMessages;
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
