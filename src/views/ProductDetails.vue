@@ -168,7 +168,7 @@ export default {
     // console.log(this.singleProduct);
     // console.log(this.productWithSeller);
     // console.log(this.getSimilarProds);
-    console.log(this.ProductsComment);
+    // console.log(this.ProductsComment);
   },
   beforeCreate() {
     // console.log("this is before created");
