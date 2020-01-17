@@ -13,6 +13,7 @@
     "firebase": "^7.6.2",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
+    "v-clipboard": "^2.2.2",
     "v-file-upload": "^3.1.7",
     "vue": "^2.6.10",
     "vue-content-loader": "^0.2.2",
