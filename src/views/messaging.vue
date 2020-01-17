@@ -205,7 +205,7 @@
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
                                       <li class="message-grid" v-for="(user, index) in userRecievedOffers" :key="index">
-                                        <a href="#">
+                                        <a  @click.prevent="getSelectedUserConversations(user.id)">
                                           <div class="image img-square">
                                             <img
                                               src="../../public/assets/images/profile-product-details.jpg"
@@ -217,7 +217,7 @@
                                               <span>{{ user.firstname }} {{ user.lastname }}</span>
                                               <div class="user-status"></div>
                                             </div>
-                                            <p>imm Civic 2017 Sports Edition</p>
+                                            <p></p>
                                             <div class="time">
                                               <span
                                                 ><i class="icon-envelope"></i
@@ -236,7 +236,7 @@
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
                                       <li class="message-grid" v-for="(user, index) in userSentOffers" :key="index">
-                                        <a href="#">
+                                        <a href="#" @click.prevent="getSelectedUserConversations(user.id)">
                                           <div class="image img-square">
                                             <img
                                               src="../../public/assets/images/profile-product-details.jpg"
@@ -248,7 +248,7 @@
                                               <span>{{ user.firstname }} {{ user.lastname }}</span>
                                               <div class="user-status"></div>
                                             </div>
-                                            <p>io Civic 2017 Sports Edition</p>
+                                            <p></p>
                                             <div class="time">
                                               <span
                                                 ><i class="icon-envelope"></i
@@ -286,7 +286,7 @@
                               </h2>
                               <div class="list-wraps ps-container ps-active-y">
                                 <ul class="messages">
-                                  <li class="friend-message clearfix">
+                                  <li class="friend-message clearfix" v-for="(message, index) in messages" :key="index">
                                     <figure class="profile-picture">
                                       <img
                                         src="../../public/assets/images/profile-product-details.jpg"
@@ -295,14 +295,14 @@
                                       />
                                     </figure>
                                     <div class="message">
-                                      Morning! How are you doing today?
+                                     {{ message.message }}
                                       <div class="time">
                                         <i class="fa fa-clock-o"></i> Today 8:53
                                         AM
                                       </div>
                                     </div>
                                   </li>
-                                  <li class="my-message clearfix">
+                                  <li class="my-message clearfix" v-for="(message, index) in loggedInmessages" :key="index">
                                     <figure class="profile-picture">
                                       <img
                                         src="../../public/assets/images/profile-product-details.jpg"
@@ -311,223 +311,9 @@
                                       />
                                     </figure>
                                     <div class="message">
-                                      Hey! I am doing good! What about you?
+                                      {{ message.message }}
                                       <div class="time">
                                         <i class="fa fa-clock-o"></i> Today 8:55
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="friend-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      Doing great!
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 8:56
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="friend-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      We just received a new project.
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 8:56
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="my-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      Sweet! What is it about?
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:00
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="friend-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      An Android and IOS app for client X.
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:03
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="my-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      Is it a complex project? What is the
-                                      deadline?
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:07
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="friend-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      Nah! Rather simple for the team. We have 3
-                                      months to deliver the final product.
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:08
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="friend-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      The client has a budget of $5000 btw.
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:09
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="my-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      That is awesome!
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:12
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="my-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      With that budget we can make something
-                                      pretty powerful. As soon as I get to the
-                                      office we can start the team briefing!
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:12
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="friend-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      Absolutely! Can't wait to get started!
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:14
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="my-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      I am just grabbing the coffee and
-                                      doughnuts. I will be at the office ASAP.
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:17
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="friend-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      Sure. We are wrapping up the previous
-                                      project, you have some time.
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:18
-                                        AM
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="my-message clearfix">
-                                    <figure class="profile-picture">
-                                      <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
-                                        class="img-circle img-circle-messaging"
-                                        alt="Profile Pic"
-                                      />
-                                    </figure>
-                                    <div class="message">
-                                      Alrighty, cool!
-                                      <div class="time">
-                                        <i class="fa fa-clock-o"></i> Today 9:17
                                         AM
                                       </div>
                                     </div>
@@ -770,7 +556,8 @@ export default {
   name: "messaging",
   data() {
     return {
-      messages: null,
+      loggedInmessages: [],
+      messages: [],
       message: null,
       tab1: true,
       tab2: false,
@@ -782,6 +569,7 @@ export default {
   },
   computed: {
     ...mapGetters("chat", ["getMessagesUserFrom", "getMessagesUserTo", "userSentOffers", "userRecievedOffers"]),
+    ...mapGetters("auth", ["getUser"]),
     ...mapState("chat", ["messagesFrom", "messagesTo"])
   },
   methods: {
@@ -807,6 +595,25 @@ export default {
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
       console.log(allMessages);
+    },
+    getSelectedUserConversations(userId) {
+      const fromMessages = this.messagesFrom;
+      const toMessages = this.messagesTo;
+      this.messages = [];
+      this.loggedInmessages = [];
+      // loop through from messages,
+      for(let message in fromMessages ) {
+        // get messages logged in user sent to other chat user
+        if(this.getUser.id == fromMessages[message].from && userId == fromMessages[message].to) {
+          this.loggedInmessages.push(fromMessages[message])
+        }
+      };
+      for(let chat in toMessages) {
+        // get messages sent to logged in user
+        if(this.getUser.id == toMessages[chat].to && userId == toMessages[chat].from) {
+          this.messages.push(toMessages[chat]);
+        }
+      }
     },
     getAllMessages() {
       const fromMessagePayload = this.messagesFrom;
