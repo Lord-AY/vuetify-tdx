@@ -102,7 +102,7 @@
               <div class="input-group w-100">
                 <input
                   type="text"
-                  class="form-control form-control-tx br-tl-3  br-bl-3 footer-input"
+                  class="form-control form-control-tx-footer form-control-tx br-tl-3  br-bl-3 footer-input"
                   placeholder="Email"
                 />
                 <div class="input-group-append ">
@@ -212,5 +212,8 @@ export default {
   .about-company {
     margin-bottom: 1.5rem!important;
     margin-top: -6px;
+  }
+  .footer-main .form-control-tx-footer {
+    height: auto!important;
   }
 </style>
