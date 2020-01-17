@@ -801,18 +801,21 @@ export default {
       const fromMessagePayload = this.getMessagesFrom;
       const toMessagePayload = this.getMessagesTo;
 
-      var fm =JSON.parse(
+      let fm =JSON.parse(
         JSON.stringify(fromMessagePayload));
       // console.log(toMessagePayload)
 
-      var tm = JSON.parse(
+      let tm = JSON.parse(
         JSON.stringify(toMessagePayload));
 
       const allMessages  = Object.assign({}, fm, tm);
-      // console.log(allMessages2);
+      // console.log(toMessagePayload);
       this.messages = allMessages;
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
+<<<<<<< HEAD
+      console.log(allMessages);
+=======
       // console.log(allMessages);
     },
     toggle(param){
@@ -832,12 +835,13 @@ export default {
       }else{
 
       }
+>>>>>>> a7463a7a9325381832476e88272bb232e6673f00
     }
   },
   created() {
     this.fetchAllMessages();
     this.getSentWithRecievedOfferUsers();
-
+    // this.getSentOfferUsers();
     // console.log(this.getMessages);
   }
 };

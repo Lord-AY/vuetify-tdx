@@ -4,13 +4,24 @@ export default {
 	state: {
 		messagesTo: {},
 		messagesFrom: {},
+		sentOfferUsers: null,
+		recievedOfferUsers: null,
 		errors: null,
 		success: null
 	},
 	getters: {
 		getMessagesTo(state) {
-			if (state.messagesTo !== null && state.messagesTo !== undefined) {
-				return state.messagesTo;
+			let FilteredMessageSenders = [];
+			let fromUsers = [];
+			let messagesTo = state.messagesTo;
+			console.log(messagesTo);
+			if (messagesTo !== null && messagesTo !== undefined) {
+				for (let message in messagesTo) {
+					fromUsers.push(messagesTo[message].from);
+				}
+				FilteredMessageSenders = ash.sortedUniq(fromUsers);
+				// console.log(FilteredMessageSenders);
+				return FilteredMessageSenders;
 			}
 			return;
 		},
@@ -19,7 +30,7 @@ export default {
 				state.messagesFrom !== null &&
 				state.messagesFrom !== undefined
 			) {
-				return state.messagesFrom;
+				// ash
 			}
 			return;
 		},
@@ -95,19 +106,43 @@ export default {
 			// console.log(fetchedMessagesTo)
 			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
 		},
-		getSentOfferUsers({ commit }, payload) {
-			var parsedObj = JSON.parse(JSON.stringify(payload));
-			// console.log("start sent message");
-			// console.log(parsedObj)
-
-			for (let i in parsedObj) {
-				// console.log(parsedObj[i])
+		getSentOfferUsers({ commit, state }, payload) {
+			console.log("got to this action");
+			console.log(payload);
+			commit("auth/SET_LOADING", true, { root: true });
+			// get all user details loggedin user sent messages to...
+			let FilteredMessageSenders = [];
+			let fromUsers = [];
+			let fullUsersArray = [];
+			// variable for state messages where userId is the from
+			let messagesFrom = state.messagesFrom;
+			// console.log(messagesFrom);
+			if (messagesFrom !== null && messagesFrom !== undefined) {
+				// loop through messages and get all userid in messagesFrom
+				for (let message in messagesFrom) {
+					// push each userid from message where loggedin user is from
+					// into a new array
+					fromUsers.push(messagesFrom[message].from);
+				}
+				// remove duplicate ids from array
+				FilteredMessageSenders = ash.sortedUniq(fromUsers);
+				// console.log(FilteredMessageSenders);
+				// fetch users from db
+				for (let userId in FilteredMessageSenders) {
+					console.log(userId);
+					return UserService.user(FilteredMessageSenders[userId])
+						.then(({ data }) => {
+							commit("auth/SET_LOADING", false, { root: true });
+							fullUsersArray.push(data);
+							// console.log(data)
+						})
+						.catch(error => {
+							commit("auth/SET_LOADING", false, { root: true });
+							console.log(error.response.data);
+						});
+					commit("SET_SENT_OFFERS", fullUsersArray);
+				}
 			}
-			// let keys = Object.keys(payload);
-			// parsedyourElement.forEach(key => {
-			//    let item = key;
-			//    console.log(item);
-			// })
 		},
 		getRecievedOfferUsers({ commit }, payload) {
 			var parsedObj = JSON.parse(JSON.stringify(payload));
@@ -130,6 +165,12 @@ export default {
 		},
 		SET_ERRORS(state, errors) {
 			state.errors = errors;
+		},
+		SET_SENT_OFFERS(state, data) {
+			state.sentOfferUsers = data;
+		},
+		SET_RECIEVED_OFFERS(state, data) {
+			state.recievedOfferUsers = data;
 		}
 	}
 };
