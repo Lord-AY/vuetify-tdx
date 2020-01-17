@@ -43,67 +43,82 @@
               <div class="col-md-9 col-lg-9 col-xs-12">
                 <!-- Row -->
                 <div class="clearfix"></div>
-                <div class="panel-body">
-                  <transition name="fade">
-                    <div
-                      class="tab-pane fade in active"
-                      v-show="selected"
-                      id="tab1default"
-                    >
-                      <div class="row">
-                        <Loading
-                          :active.sync="isLoading"
-                          :is-full-page="fullPage"
-                        ></Loading>
-                        <div
-                          class="col-md-6 col-lg-3 mb-5"
-                          v-show="!isLoading"
-                          v-for="(biller, index) in filteredBillers"
-                          :key="index"
-                        >
-                          <div class="card card-cat-tx mb-0 box-shadow-2">
-                            <div class="item-card item-card-tx">
-                              <div class="item-card-desc item-card-desc-tx">
-                                <router-link
+                <transition name="fade">
+                  <div
+                    class="tab-pane fade in active"
+                    v-show="selected"
+                    id="tab1default"
+                  >
+                    <div class="row">
+                      <Loading
+                        :active.sync="isLoading"
+                        :is-full-page="fullPage"
+                      ></Loading>
+                      <div
+                        class="col-md-6 col-lg-3 mb-5"
+                        v-show="!isLoading"
+                        v-for="(biller, index) in filteredBillers"
+                        :key="index"
+                      >
+                        <div class="card card-cat-tx mb-0 box-shadow-2">
+                          <div class="item-card item-card-tx">
+                            <div class="item-card-desc item-card-desc-tx">
+                              <router-link
+                                v-if="biller.mediumImageId"
+                                :to="
+                                  `paymentitem/${biller.billerid}/company/${biller.mediumImageId}`
+                                "
+                              ></router-link>
+                              <router-link
+                                v-else
+                                :to="
+                                  `paymentitem/${biller.billerid}/default/${defaultImg}`
+                                "
+                              ></router-link>
+                              <div class="item-card-img item-card-img-tx">
+                                <img
                                   v-if="biller.mediumImageId"
-                                  :to="
-                                    `paymentitem/${biller.billerid}/company/${biller.mediumImageId}`
+                                  :src="
+                                    `https://quickteller.sandbox.interswitchng.com/Content/Images/Downloaded/${biller.mediumImageId}` +
+                                      '.png'
                                   "
-                                ></router-link>
-                                 <router-link
+                                  alt="img"
+                                  class="br-tr-7 br-tl-7"
+                                />
+                                <img
                                   v-else
-                                  :to="
-                                    `paymentitem/${biller.billerid}/default/${defaultImg}`
-                                  "
-                                ></router-link>
-                                <div class="item-card-img item-card-img-tx">
-                                  <img
-                                    v-if="biller.mediumImageId"
-                                    :src="
-                                      `https://quickteller.sandbox.interswitchng.com/Content/Images/Downloaded/${biller.mediumImageId}` +
-                                        '.png'
-                                    "
-                                    alt="img"
-                                    class="br-tr-7 br-tl-7"
-                                  />
-                                  <img
-                                    v-else
-                                    :src="'img/'+defaultImg+'.png'"
-                                    alt="img"
-                                    class="br-tr-7 br-tl-7"
-                                  />
-                                </div>
-                                <div class="item-card-text item-card-text-tx">
-                                  <h4 class="mb-0">{{ biller.billername }}</h4>
-                                </div>
+                                  :src="'img/' + defaultImg + '.png'"
+                                  alt="img"
+                                  class="br-tr-7 br-tl-7"
+                                />
+                              </div>
+                              <div class="item-card-text item-card-text-tx">
+                                <h4 class="mb-0">{{ biller.billername }}</h4>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </transition>
+                  </div>
+                </transition>
+
+                
+                  <!-- This state should show when there is no initial activity 
+                  and should go when the user clicks any of the services -->
+                <div class="empty-state">
+                  <div class="empty-state-content">
+                    <img src="../../public/assets/images/empty-state.svg" />
+                    <h1>Tradexplora Plus</h1>
+                    <p>
+                      Recharge your phone, pay utility bills, transfer money, 
+                      pay for subscription and much more here on Tradexplora plus
+                    </p>
+                  </div>
+                  
                 </div>
+
+                
 
                 <div class="clearfix"></div>
                 <!-- <div class="text-center margin-top-30 margin-bottom-20">
@@ -257,5 +272,44 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+div.tab-pane.fade.in.active {
+  background-color: #fff;
+  padding: 20px 10px;
+}
+// Active class should be on the product services list
+a.collapsed.active {
+  background-color: #4CAF50!important;
+  color: #fff!important;
+}
+.empty-state {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  text-align: center;
+  background-color: #fff;
+
+  .empty-state-content {
+    width: 75%;
+    color: #232323;
+
+    img {
+      width: 20em;
+    }
+    
+    h1 {
+      font-size: 24px!important;
+      font-weight: 500;
+      opacity: .7;
+      margin-top: 24px;
+    }
+
+    p {
+      font-size: 18px!important;
+      opacity: .7;
+    }
+  }
+
+  
 }
 </style>

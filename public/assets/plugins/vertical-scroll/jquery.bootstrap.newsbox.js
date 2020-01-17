@@ -36,7 +36,7 @@ if (typeof Object.create !== "function") {
       if (typeof options === "string") {
         //string was passed
         if (console) {
-          console.error("String property override is not supported");
+          // console.error("String property override is not supported");
         }
         throw "String property override is not supported";
       } else {

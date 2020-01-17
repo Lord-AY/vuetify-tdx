@@ -1062,7 +1062,7 @@ export default {
       // console.log(payload);
     },
     toggle(param){
-      console.log(param)
+      // console.log(param)
       if(param == "Description"){
         this.tab1=true;
         this.tab2=false;
