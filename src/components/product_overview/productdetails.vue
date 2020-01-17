@@ -280,7 +280,7 @@
                       </iframe> -->
                       <div v-if="product.latitude != null && product.logitude !=null ">
                         <iframe 
-                          src = "https://maps.google.com/maps?q=product.latitude,product.logitude&hl=es;z=14&amp;output=embed"
+                          :src="`https://maps.google.com/maps?q=${product.latitude},${product.logitude}&hl=es;z=14&amp;output=embed`"
                           width="600"
                           height="450"
                           frameborder="0"
@@ -1014,7 +1014,7 @@ export default {
   data() {
     return {
       limit: 3,
-      limit2: 3,
+      limit2: 2,
       limitBtn: true,
       limitBtn2: true,
       isHidden: false,

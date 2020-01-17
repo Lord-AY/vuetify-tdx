@@ -47,9 +47,12 @@
                         <a href="#" class="text-dark"
                           ><h3 class="card-title">
                             <img
-                              src="@/assets/images/categories/apartment.png"
+                              :src="
+                                `https://www.tradexplora.com.ng/media/${category.icon}` ||
+                                  './assets/images/categories/car.svg'
+                              "
+                              alt="img"
                               class="h-5"
-                              alt=""
                             />
                             {{ category.name }}
                           </h3></a
@@ -67,9 +70,19 @@
                                 {{ subcategory.name }}</a
                               >
                             </li>
-                            <li class="mb-0">
-                              <a href="#" class="text-primary"> View more..</a>
-                            </li>
+                            <!--                        
+                              <li class="mb-0">
+                                <a href="#" class="text-primary"> View more..</a>
+                              </li>
+                            -->                        
+                            <div  class="selector" v-if="catego.length > 2">
+                              <li class="mb-0" @click="limit2 = null" v-show="limitBtn2">
+                                View more
+                              </li>
+                              <li class="mb-0" @click="limit2 = 3" v-show="!limitBtn2"
+                                >Show Less
+                              </li>
+                            </div>
                           </ul>
                         </div>
                       </div>
@@ -91,16 +104,36 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
-    return {};
+    return {
+      limit2: 2,
+      limitBtn2: true,
+      catego: Object,
+    };
   },
-
   computed: {
     ...mapGetters("product", ["categories"]),
-    // ...mapState("product", ["categories"])
+    toggleCategory() {
+      return this.limit2
+        ? this.catego.slice(0, this.limit2)
+        : this.catego;
+    },
   },
-
+  watch: {
+    $route: "sync",
+    limit2: {
+      handler: function(limit) {
+        if (limit == null) {
+          this.limitBtn2 = false;
+        } else {
+          this.limitBtn2 = true;
+        }
+      }
+    },
+  },
   methods: {
     ...mapActions("product", ["fetchAllCategories", "fetchSubCategories"]),
+    sync() {
+    },
     sendFetchSubCategories() {
       let categories = this.categories
       for(let category in categories) {
@@ -111,11 +144,15 @@ export default {
       }
     }
   },
-
   created() {
     this.fetchAllCategories();
     this.sendFetchSubCategories();
+    this.catego = this.categories;
   }
 };
 </script>
-<style></style>
+<style>
+  .selector {
+    cursor: pointer
+  }
+</style>
