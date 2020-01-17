@@ -173,7 +173,7 @@
                                   <div class="list-wrap ps-container ps-active-y">
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
-                                      <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
+                                      <li class="message-grid" v-for="(message, index) in getMessagesUserTo" :key="index">
                                         <a href="#">
                                           <div class="image img-square">
                                             <img
@@ -204,7 +204,7 @@
                                   <div class="list-wrap ps-container ps-active-y">
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
-                                      <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
+                                      <li class="message-grid" v-for="(user, index) in userRecievedOffers" :key="index">
                                         <a href="#">
                                           <div class="image img-square">
                                             <img
@@ -214,7 +214,7 @@
                                           </div>
                                           <div class="user-name">
                                             <div class="author">
-                                              <span>{{ message.from }}</span>
+                                              <span>{{ user.firstname }} {{ user.lastname }}</span>
                                               <div class="user-status"></div>
                                             </div>
                                             <p>imm Civic 2017 Sports Edition</p>
@@ -235,7 +235,7 @@
                                   <div class="list-wrap ps-container ps-active-y">
                                     <ul class="message-history">
                                       <!-- LIST ITEM -->
-                                      <li class="message-grid" v-for="(message, index) in getMessagesTo" :key="index">
+                                      <li class="message-grid" v-for="(user, index) in userSentOffers" :key="index">
                                         <a href="#">
                                           <div class="image img-square">
                                             <img
@@ -245,7 +245,7 @@
                                           </div>
                                           <div class="user-name">
                                             <div class="author">
-                                              <span>{{ message.from }}</span>
+                                              <span>{{ user.firstname }} {{ user.lastname }}</span>
                                               <div class="user-status"></div>
                                             </div>
                                             <p>io Civic 2017 Sports Edition</p>
@@ -765,7 +765,7 @@ require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 
 import dsidebar from "@/components/Dsidebar";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapState } from "vuex";
 export default {
   name: "messaging",
   data() {
@@ -781,8 +781,8 @@ export default {
     dsidebar
   },
   computed: {
-    ...mapGetters("chat", ["getMessagesTo"]),
-    ...mapGetters("chat", ["getMessagesFrom"]),
+    ...mapGetters("chat", ["getMessagesUserFrom", "getMessagesUserTo", "userSentOffers", "userRecievedOffers"]),
+    ...mapState("chat", ["messagesFrom", "messagesTo"])
   },
   methods: {
     ...mapActions("chat", ["sendMessage", "fetchUserMessagesto", "fetchUserMessagesfrom", "getRecievedOfferUsers", "getSentOfferUsers", "getAll"]),
@@ -798,22 +798,26 @@ export default {
       this.fetchUserMessagesfrom();
     },
     getSentWithRecievedOfferUsers() {
-      const fromMessagePayload = this.getMessagesFrom;
-      const toMessagePayload = this.getMessagesTo;
-
-      var fm =JSON.parse(
-        JSON.stringify(fromMessagePayload));
-      // console.log(toMessagePayload)
-
-      var tm = JSON.parse(
-        JSON.stringify(toMessagePayload));
-
-      const allMessages  = Object.assign({}, fm, tm);
-
-      this.messages = allMessages;
+      // user ids loggedin user sent messages to
+      const toMessagePayload = this.getMessagesUserTo;
+      // user ids loggedin user recieved messages from
+      const fromMessagePayload = this.getMessagesUserFrom;
+      // console.log(this.getMessagesUserTo);
+      // console.log(this.getMessagesUserFrom);
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
-      console.log(allMessages);
+      // console.log(allMessages);
+    },
+    getAllMessages() {
+      const fromMessagePayload = this.messagesFrom;
+      const toMessagePayload = this.messages;
+      let fm =JSON.parse(JSON.stringify(fromMessagePayload));
+      let tm = JSON.parse(JSON.stringify(toMessagePayload));
+      const allMessages  = Object.assign({}, fm, tm);
+      // console.log(this.getMessagesFrom);
+      // console.log(this.getMessagesTo);
+      this.messages = allMessages;
+      console.log(this.messages);
     },
     toggle(param){
       // console.log(param)
@@ -830,7 +834,6 @@ export default {
         this.tab2=false;
         this.tab3=true;
       }else{
-
       }
     }
   },
@@ -839,6 +842,7 @@ export default {
     this.getSentWithRecievedOfferUsers();
     // this.getSentOfferUsers();
     // console.log(this.getMessages);
+    this.getAllMessages();
   }
 };
 </script>
