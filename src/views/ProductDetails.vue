@@ -6,6 +6,7 @@
         :product="productWithSeller"
         :similarprods="getSimilarProds"
         :getUser="getUser"
+        :productcomment="ProductsComment"
       >
       </productdetails>
     </div>
@@ -95,7 +96,8 @@ export default {
     ...mapGetters("product", [
       "singleProduct",
       "productWithSeller",
-      "getSimilarProds"
+      "getSimilarProds",
+      "ProductsComment"
     ]),
     ...mapGetters("auth", ["loading", "getUser"])
   },
@@ -103,7 +105,8 @@ export default {
     ...mapActions("product", [
       "selectedProduct",
       "fetchSeller",
-      "fetchSimilarProducts"
+      "fetchSimilarProducts",
+      "fetchCommentForProduct"
     ]),
     sync() {
       // console.log("Jquery mounted");
@@ -114,8 +117,16 @@ export default {
       const payload = {
         id: this.$route.params.id
       };
-      console.log(payload);
+      // console.log(payload);
       this.selectedProduct(payload);
+    },
+    getSingleProductComment() {
+      this.isLoading = true;
+      const payload = {
+        id: this.$route.params.id
+      };
+      // console.log(payload);
+      this.fetchCommentForProduct(payload);
     },
     getProductSeller() {
       this.isLoading = true;
@@ -153,9 +164,11 @@ export default {
     this.getSingleProduct();
     this.getProductSeller();
     this.getSimilarProducts();
-    console.log(this.singleProduct);
-    console.log(this.productWithSeller);
-    console.log(this.getSimilarProds);
+    this.getSingleProductComment();
+    // console.log(this.singleProduct);
+    // console.log(this.productWithSeller);
+    // console.log(this.getSimilarProds);
+    console.log(this.ProductsComment);
   },
   beforeCreate() {
     // console.log("this is before created");

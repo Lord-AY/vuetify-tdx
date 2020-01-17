@@ -8,6 +8,7 @@ export default {
   state: {
     products: [],
     comments: null,
+    productComments: null,
     product: null,
     categories: null,
     subcategories: null,
@@ -27,6 +28,13 @@ export default {
       if (state.products !== null && state.products !== undefined) {
         let latest = state.products.reverse();
         return latest;
+      }
+      return;
+    },
+    ProductsComment(state) {
+      if (state.productComments !== null && state.productComments !== undefined) {
+        let comments = state.productComments;
+        return comments;
       }
       return;
     },
@@ -224,6 +232,43 @@ export default {
           console.log(error.response.data);
         });
     },
+    fetchCommentUser({commit}, payload){
+      // console.log("we eneterd");
+      const payload2 = JSON.parse(JSON.stringify(payload));
+      // console.log(payload2[0]);
+      const fetchedComment = []
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
+      return UserService.user(payload2[0].user)
+        .then(({ data }) => {
+          const data2 = JSON.parse(JSON.stringify(data))
+          const joined = Object.assign(data2, payload2[0]);
+          fetchedComment.push(joined);
+          console.log(joined);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_PRODUCT_COMMENTS", fetchedComment);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error.response.data);
+        });
+    },
+    fetchCommentForProduct({ commit, dispatch }, payload){
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
+      return ProductService.singleProductcomments(payload.id)
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          dispatch("fetchCommentUser",data)
+          // console.log(data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error.response.data);
+        });
+    },
     fetchSeller({ commit }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       return UserService.user(payload.sellerId)
@@ -310,6 +355,9 @@ export default {
     },
     SET_COMMENTS(state, data) {
       state.comments = data;
+    },
+    SET_PRODUCT_COMMENTS(state, data) {
+      state.productComments = data;
     },
     SET_SELLER(state, data) {
       state.seller = data;

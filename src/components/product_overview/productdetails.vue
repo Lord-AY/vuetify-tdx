@@ -176,7 +176,6 @@
                     
                     <div  class="tab-pane fade in active" v-if="tab1">
                       <h3 class="tab-title">Description</h3>
-                      ds
                       <!-- Paste -->
                       <div class="desc-points">
                         <!-- <ol>
@@ -218,20 +217,35 @@
                       <h3 class="tab-title" style="display: inline-block;">
                         Reviews
                       </h3>
-                      <div class="viewall">
-                        <a href="">Show All</a>
+                      <div class="viewall-similar" v-if="productcomment.length > 2">
+                        <a @click="limit2 = null" v-show="limitBtn2"
+                          >Show All
+                          <i
+                            class="fa fa-arrow-circle-right"
+                            style="color: #4caf50;"
+                          ></i
+                        ></a>
+                        <a @click="limit2 = 3" v-show="!limitBtn2"
+                          >Show Less
+                          <i
+                            class="fa fa-arrow-circle-right"
+                            style="color: #4caf50;"
+                          ></i
+                        ></a>
                       </div>
+
                       <hr style="margin-top: -10px;" />
-                      <div class="row">
+                      <!-- {{ productcomment }} -->
+                      <div class="row" v-for="(comment, index) in toggleComment" :key="index">
                         <div class="col-md-12">
                           <h4 class="review-name" style="display: inline-block">
-                            Ademola Mike :
+                            {{ comment.firstname }}  {{ comment.lastname}}:
                           </h4>
-                          <span class="rating-number">4</span>
+                          <!-- <span class="rating-number">4</span> -->
                           <i class="fa fa-star star-rating-summary"></i>
-                          <p class="review-date">23-11-2019</p>
+                          <p class="review-date">{{ daysago(format_date(comment.createdAt)) }}</p>
                           <p class="review">
-                            I like the product. It came in a very good condition
+                            {{ comment.comment }}
                           </p>
                         </div>
                       </div>
@@ -256,14 +270,27 @@
                       <h3 class="tab-title">Location Map</h3>
                       <!-- <div id="menu2" class="tab-pane fade"> -->
                       <!-- <h3 class="tab-title">Reviews</h3> -->
-                      <iframe
+<!--                       <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.957357390124!2d7.483373915245445!3d9.067649490878031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0a7ec1aac221%3A0xc536ed77b3c4d078!2sSilverbird%20Cinemas%20Abuja!5e0!3m2!1sen!2sng!4v1574666126350!5m2!1sen!2sng"
                         width="600"
                         height="450"
                         frameborder="0"
                         style="border:0;"
-                        allowfullscreen=""
-                      ></iframe>
+                        allowfullscreen="">
+                      </iframe> -->
+                      <div v-if="product.latitude != null && product.logitude !=null ">
+                        <iframe 
+                          src = "https://maps.google.com/maps?q=product.latitude,product.logitude&hl=es;z=14&amp;output=embed"
+                          width="600"
+                          height="450"
+                          frameborder="0"
+                          style="border:0;"
+                          allowfullscreen="">
+                        </iframe>
+                      </div>
+                      <div v-else>
+                        No Location for this Product
+                      </div>
                     </div>
 
                   <!-- </router-view> -->
@@ -987,7 +1014,9 @@ export default {
   data() {
     return {
       limit: 3,
+      limit2: 3,
       limitBtn: true,
+      limitBtn2: true,
       isHidden: false,
       message: null,
       tab1: true,
@@ -1002,7 +1031,8 @@ export default {
   props: {
     product: Object,
     similarprods: [Object, Array],
-    getUser: [Object, Array]
+    getUser: [Object, Array],
+    productcomment: Object
   },
   methods: {
     ...mapActions("chat", ["sendMessage"]),
@@ -1013,16 +1043,6 @@ export default {
         return true;
       }
       return false;
-    },
-    format_date(value) {
-      if (value) {
-        return moment(String(value)).format("YYYY-MM-DD");
-      }
-    },
-    daysago(dateago) {
-      if (dateago) {
-        return moment.duration(moment().diff(dateago)).humanize() + " ago";
-      }
     },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
@@ -1065,6 +1085,16 @@ export default {
         this.tab4=true;
       }else{
 
+      }
+    },
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    daysago(dateago){
+      if (dateago){
+        return  moment.duration(moment().diff(dateago)).humanize() + " ago";
       }
     },
     sync() {
@@ -1143,6 +1173,11 @@ export default {
         ? this.similarprods.slice(0, this.limit)
         : this.similarprods;
     },
+    toggleComment() {
+      return this.limit2
+        ? this.productcomment.slice(0, this.limit2)
+        : this.productcomment;
+    },
     ...mapGetters("chat", ["getErrors", "getSuccess"])
   },
   watch: {
@@ -1153,6 +1188,15 @@ export default {
           this.limitBtn = false;
         } else {
           this.limitBtn = true;
+        }
+      }
+    },
+    limit2: {
+      handler: function(limit) {
+        if (limit == null) {
+          this.limitBtn2 = false;
+        } else {
+          this.limitBtn2 = true;
         }
       }
     },
