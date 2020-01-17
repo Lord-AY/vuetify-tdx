@@ -11,7 +11,7 @@
         </h2>
         <div class="viewall2 mobile-hidden">
           <router-link to="/Gridlist"
-            >Show All <img href="../assets/images/flags/ng.svg"/>
+            >Show All
             <i class="fa fa-arrow-circle-right"></i
           ></router-link>
         </div>

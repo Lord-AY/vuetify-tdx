@@ -44,7 +44,7 @@
                     <select
                       class="main-category form-control select2-show-search  border-bottom-0 select-home-page "
                       data-placeholder="Property Type"
-                      style="padding-left: 40px!important;"
+                      style="padding-left: 40px!important; width: 100%!important"
                     >
                       <optgroup label="Categories">
                         <option>Category</option>
@@ -179,6 +179,12 @@ export default {
 </script>
 
 <style>
+select + span.select2-container--default, .select2-container--open {
+  width: 100%!important;
+}
+select + .select2.select2-container.select2-container--default.select2-container--below.select2-container--open {
+  width: 100%!important;
+}
 .select2-container .select2-selection--single .select2-selection__rendered {
   padding-left: 40px!important;
 }
@@ -188,6 +194,10 @@ export default {
 
 .select2.select2-container.select2-container--default.select2-container--below.select2-container--open {
   width: 100%!important;
+}
+
+span.select2-container--open {
+  width: initial!important;
 }
 
 .select2-hidden-accessible {
