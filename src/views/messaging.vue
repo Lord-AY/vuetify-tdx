@@ -801,11 +801,11 @@ export default {
       const fromMessagePayload = this.getMessagesFrom;
       const toMessagePayload = this.getMessagesTo;
 
-      let fm =JSON.parse(
+      var fm =JSON.parse(
         JSON.stringify(fromMessagePayload));
       // console.log(toMessagePayload)
 
-      let tm = JSON.parse(
+      var tm = JSON.parse(
         JSON.stringify(toMessagePayload));
 
       const allMessages  = Object.assign({}, fm, tm);
@@ -813,10 +813,7 @@ export default {
       this.messages = allMessages;
       this.getSentOfferUsers(toMessagePayload);
       this.getRecievedOfferUsers(fromMessagePayload);
-<<<<<<< HEAD
       console.log(allMessages);
-=======
-      // console.log(allMessages);
     },
     toggle(param){
       // console.log(param)
@@ -835,7 +832,6 @@ export default {
       }else{
 
       }
->>>>>>> a7463a7a9325381832476e88272bb232e6673f00
     }
   },
   created() {
