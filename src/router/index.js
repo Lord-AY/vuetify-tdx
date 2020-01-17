@@ -105,7 +105,7 @@ const routes = [
     name: "referal",
     component: () => import("../views/ref.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {
