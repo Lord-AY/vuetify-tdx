@@ -38,6 +38,13 @@ export default {
       }
       return;
     },
+    subcategories(state){
+      if (state.subcategories !== null && state.subcategories !== undefined) {
+        let subcat = state.subcategories;
+        return subcat;
+      }
+      return;
+    },
     categories(state) {
       const categories = state.categories;
       const subcategories = state.subcategories;
@@ -167,7 +174,7 @@ export default {
          .then(({data}) => {
           commit("auth/SET_LOADING", false, { root: true });
           let subcategories = data;
-          // console.log(subcategories);
+          console.log(subcategories);
           commit("SET_SUBCATEGORIES", subcategories);
          }).catch(error => {
           commit("auth/SET_LOADING", false, { root: true });

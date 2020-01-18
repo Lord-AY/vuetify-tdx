@@ -11,7 +11,7 @@
       :dbErrors="getErrors"
       :success="getSuccess"
     ></postad>
-  </div>
+  </div> 
 </template>
 <script>
 require("../../public/assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
@@ -73,7 +73,7 @@ export default {
     ...mapGetters("auth", ["loading"])
   },
   methods: {
-    ...mapActions("product", ["createProduct"]),
+    ...mapActions("product", ["createProduct", "fetchSubCategories"]),
     sync() {
       // console.log("Jquert Mounted");
     },
