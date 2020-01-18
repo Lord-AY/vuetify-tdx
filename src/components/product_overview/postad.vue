@@ -99,6 +99,7 @@
                                     >
                                     <select
                                       class="form-control custom-select"
+                                      @change="sendFetchSubCategories($event)"
                                       :class="
                                         dbErrors && dbErrors.cid
                                           ? 'is-invalid'
@@ -144,10 +145,10 @@
                                         >-- Select Sub Category --</option
                                       >
                                       <option
-                                        :value="category.id"
-                                        v-for="category in categories"
-                                        :key="category.id"
-                                        >{{ category.name }}</option
+                                        :value="subcategory.id"
+                                        v-for="subcategory in subcategories"
+                                        :key="subcategory.id"
+                                        >{{ subcategory.name }}</option
                                       >
                                     </select>
                                   </div>
@@ -1470,7 +1471,7 @@ import axios from "axios";
 // import ash from "lodash";
 // Import component
 import Loading from "vue-loading-overlay";
-import {mapGetters} from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 // Import stylesheet
 import "vue-loading-overlay/dist/vue-loading.css";
 export default {
@@ -1483,7 +1484,8 @@ export default {
       selected: 1,
       isLoading: false,
       fullPage: true,
-      isHidden: false
+      isHidden: false,
+      selectedCategories: null
     };
   },
   props: {
@@ -1526,13 +1528,23 @@ export default {
     document.head.appendChild(extScript);
   },
   computed: {
-    ...mapGetters("product", ["getErrors"])
+    ...mapGetters("product", ["getErrors","subcategories"]),
   },
   methods: {
+     ...mapActions("product", ["fetchSubCategories"]),
     selectImageSuccess(formData, index, fileList) {
       // console.log("data", formData, index, fileList);
       // store images to data object
       this.selectedImages = fileList;
+    },
+    sendFetchSubCategories(cid) {
+      let categories = this.selectedCategories;
+      const payload =  {
+          cid: cid
+      }
+      console.log(cid.target.value);
+      this.fetchSubCategories(payload);
+      
     },
     beforeRemove(index, done, fileList) {
       // console.log("index", index, fileList);
