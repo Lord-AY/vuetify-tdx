@@ -137,6 +137,27 @@ export default {
 			// console.log(fetchedMessagesTo)
 			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
 		},
+		async fetchUserMessagesfrom2({ commit, rootState }) {
+			let fetchedMessagesFrom = [];
+
+			let users = await chatDb
+				.collection("chat")
+				.where("from", "==", rootState.auth.user.id)
+				.orderBy("createdAt");
+
+				users.onSnapshot(snapshot => {
+		          snapshot.docChanges().forEach(userDoc => {
+		          	if (userDoc.type == 'added') {
+ 				  		let doc = userDoc.doc;
+						fetchedMessagesFrom.push(doc.data());
+					}
+				  });	
+		        })
+
+			await Promise.all(fetchedMessagesFrom);
+			// console.log(fetchedMessagesTo)
+			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
+		},
 		getSentOfferUsers({ commit, rootState }, payload) {
 			commit("auth/SET_LOADING", true, { root: true });
 			commit("SET_SUCCESS_MSG", null);
