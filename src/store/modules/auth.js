@@ -143,7 +143,7 @@ export default {
           commit("SET_USER_DATA", loggedUser);
           // send user to home
           router.push("/");
-        }) 
+        })
         .catch(error => {
           commit("SET_LOADING", false);
           // check if error obj is empty

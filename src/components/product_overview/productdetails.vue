@@ -1059,6 +1059,8 @@ export default {
         createdAt: new Date()
       };
       this.sendMessage(payload);
+      this.message = null;
+      this.isHidden = false;
       // console.log(payload);
     },
     toggle(param){

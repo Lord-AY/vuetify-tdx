@@ -108,50 +108,50 @@ export default {
 			commit("SET_SUCCESS_MSG", null);
 			commit("SET_ERRORS", null);
 			let fetchedMessagesTo = [];
-			let users = await chatDb
+			let users = chatDb
 				.collection("chat")
 				.where("to", "==", rootState.auth.user.id)
-				.orderBy("createdAt")
-				.onSnapshot();
-			users.forEach(userDoc => {
-				fetchedMessagesTo.push(userDoc.data());
-			});
+				.orderBy("createdAt");
+				await users.onSnapshot((snapshot) => {
+		          snapshot.forEach((userDoc) => {
+ 				  		let doc = userDoc.doc;
+						fetchedMessagesTo.push(userDoc.data());
+				  });
+		        });
 
 			await Promise.all(fetchedMessagesTo);
 			// console.log(fetchedMessagesTo)
 			commit("SET_MESSAGES_TO", fetchedMessagesTo);
 		},
+		// async fetchUserMessagesfrom({ commit, rootState }) {
+		// 	let fetchedMessagesFrom = [];
+
+		// 	let users = await chatDb
+		// 		.collection("chat")
+		// 		.where("from", "==", rootState.auth.user.id)
+		// 		.orderBy("createdAt")
+		// 		.get();
+		// 	users.forEach(userDoc => {
+		// 		fetchedMessagesFrom.push(userDoc.data());
+		// 	});
+
+		// 	await Promise.all(fetchedMessagesFrom);
+		// 	// console.log(fetchedMessagesTo)
+		// 	commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
+		// },
 		async fetchUserMessagesfrom({ commit, rootState }) {
 			let fetchedMessagesFrom = [];
 
-			let users = await chatDb
-				.collection("chat")
-				.where("from", "==", rootState.auth.user.id)
-				.orderBy("createdAt")
-				.get();
-			users.forEach(userDoc => {
-				fetchedMessagesFrom.push(userDoc.data());
-			});
-
-			await Promise.all(fetchedMessagesFrom);
-			// console.log(fetchedMessagesTo)
-			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
-		},
-		async fetchUserMessagesfrom2({ commit, rootState }) {
-			let fetchedMessagesFrom = [];
-
-			let users = await chatDb
+			let users = chatDb
 				.collection("chat")
 				.where("from", "==", rootState.auth.user.id)
 				.orderBy("createdAt");
 
-				users.onSnapshot(snapshot => {
-		          snapshot.docChanges().forEach(userDoc => {
-		          	if (userDoc.type == 'added') {
+				await users.onSnapshot((snapshot) => {
+		          snapshot.forEach((userDoc) => {
  				  		let doc = userDoc.doc;
-						fetchedMessagesFrom.push(doc.data());
-					}
-				  });	
+						fetchedMessagesFrom.push(userDoc.data());
+				  });
 		        })
 
 			await Promise.all(fetchedMessagesFrom);
