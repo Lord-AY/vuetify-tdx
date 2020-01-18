@@ -796,7 +796,7 @@ export default {
   created() {
     this.fetchAllMessages();
     this.getSentWithRecievedOfferUsers();
-    this.getSelectedUserConversations(this.selectedId);
+    // this.getSelectedUserConversations(this.selectedId);
     // this.getSentOfferUsers();
     // console.log(this.getMessages);
     // this.getAllMessages();
