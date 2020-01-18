@@ -7,9 +7,9 @@
           alt="referral"
           class="referral-img"
         />
-        <h1>Invite friends to Clipchamp</h1>
+        <h1>Invite friends to Tradexplora</h1>
         <h2>
-          Share a Clipchamp with a friend using the link below and when they
+          Share a Tradexplora with a friend using the link below and when they
           sign up you both get <strong>1 month free</strong>
         </h2>
       </div>
@@ -19,10 +19,22 @@
         <button class="referral-btn" @click="copyData">COPY</button>
       </div>
       <div class="referral-links">
-        <img src="https://img.icons8.com/color/48/000000/facebook-new.png" />
-        <img src="https://img.icons8.com/color/48/000000/twitter.png" />
-        <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
-        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" />
+        <router-link to="">
+          <img src="https://img.icons8.com/color/48/000000/facebook-new.png" />
+        </router-link>
+        <router-link to="">
+          <img src="https://img.icons8.com/color/48/000000/twitter.png" />
+        </router-link>
+        <router-link to="">
+          <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
+        </router-link>
+        <router-link to="">
+          <img src="https://img.icons8.com/color/48/000000/whatsapp.png" />
+        </router-link>
+        
+        
+        
+        
       </div>
 
       <div class="referral-bottom">

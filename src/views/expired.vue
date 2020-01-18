@@ -16,7 +16,7 @@
                 <div class="row">
                   <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
                     <h3 class="panel-title">
-                      Published 
+                      Expired
                       <span style="display: inline;">( 0 )</span>
                     </h3>
                   </div>
@@ -468,7 +468,7 @@ require("../../public/assets/css/components.css");
 import dsidebar from "@/components/Dsidebar";
 // import dheader from "@/components/Dheader";
 export default {
-  name: "published-inventory",
+  name: "expired",
   components: {
     dsidebar
   }

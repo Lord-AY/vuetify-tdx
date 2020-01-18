@@ -39,7 +39,7 @@
           style="overflow: hidden; width: auto; height: 95%;"
         >
           <nav>
-            <ul class="nav">
+            <ul class="nav dashboard-sidebar">
               <li class="welcome-text">
                 <img
                   src="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/6.png"
@@ -73,7 +73,7 @@
               </li>
               <li>
                 <a href="#subPages" class="collapsed" data-toggle="collapse">
-                  <i class="la la-tasks"></i>
+                  <i class="la la-list"></i>
                   <span>My Inventory</span>
                   <i class="icon-submenu la la-chevron-left"></i>
                 </a>
@@ -86,26 +86,26 @@
                       </router-link>
                     </li>
                     <li>
-                      <router-link to="/ordersInventory">
+                      <router-link to="/expired">
                         <span>Expired</span>
                         <span class="badge">0</span>
                       </router-link>
                     </li>
                     <li>
-                      <router-link to="/messaging">
+                      <router-link to="/sold">
                         <span>Sold</span>
                         <span class="badge">0</span>
                       </router-link>
                     </li>
                     <li>
-                      <router-link to="/messaging">
+                      <router-link to="/pending">
                         <span>Pending</span>
                         <span class="badge">0</span>
                       </router-link>
                     </li>
                     <li>
-                      <router-link to="/messaging">
-                        <span>Saved</span>
+                      <router-link to="/saved">
+                        <span>Favourite</span>
                         <span class="badge">0</span>
                       </router-link>
                     </li>
@@ -214,7 +214,10 @@ export default {
 };
 </script>
 
-<style>
+<style >
+.nav.dashboard-sidebar {
+  display: block!important;
+}
 @media only screen and (max-width: 991px) {
   .horizontal-header .smllogo {
     display: inline-block;
