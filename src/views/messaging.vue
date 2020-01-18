@@ -7,7 +7,18 @@
       <div class="main dashboard-main">
         <!-- MAIN CONTENT -->
         <div class="main-content">
-          <div class="container-fluid">
+        <div class="container" v-if="showMessage">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="text-center">
+                <img src="assets/images/chat.jpg" alt="" class="img-responsive chat-img">
+                <h3>Please come back when you have messages</h3>
+                <p>To use this tab, chat up a seller first...</p>
+              </div>
+            </div>
+          </div>
+      </div>
+          <div class="container-fluid" v-if="!showMessage">
             <!-- OVERVIEW -->
             <div class="row">
               <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
@@ -520,6 +531,7 @@ export default {
       loggedInmessages: [],
       messages: [],
       message: null,
+      showMessage: false,
       selectedId: null,
       disabled: true,
       selectedUser: [],
@@ -533,19 +545,25 @@ export default {
   },
   computed: {
     unique() {
+      if(this.recievedOfferUsers !== null && this.recievedOfferUsers !== undefined) {
       return this.userRecievedOffers.reduce((seed, current) => {
         return Object.assign(seed, {
           [current.id]: current
         });
       }, {});
-    },
+    };
+    return 0;
+  },
     unique2() {
+      if(this.userSentOffers !== null && this.userSentOffers !== undefined) {
       return this.userSentOffers.reduce((seed, current) => {
         return Object.assign(seed, {
           [current.id]: current
         });
       }, {});
-    },
+    };
+    return 0;
+  },
     ...mapGetters("chat", [
       "getMessagesUserFrom",
       "getMessagesUserTo",
@@ -569,6 +587,18 @@ export default {
       "getSentOfferUsers",
       "getAll"
     ]),
+    noMessages() {
+      // console.log(this.messagesFrom);
+      // console.log(this.messagesTo);
+      if(this.messagesFrom.length == 0
+        && this.messagesTo.length == 0) {
+         this.showMessage = true;
+        console.log("returned true");
+      } else {
+      console.log("returned false");
+      this.showMessage = false;
+    }
+    },
     preventLeadingSpace(e) {
       // only prevent the keypress if the value is blank
       if (!e.target.value) e.preventDefault();
@@ -684,6 +714,18 @@ export default {
           this.disabled = true;
         }
       }
+    },
+    messagesFrom: {
+      handler: function() {
+        this.fetchAllMessages()
+        this.getSentWithRecievedOfferUsers()
+      }
+    },
+     messagesTo: {
+      handler: function() {
+        this.fetchAllMessages()
+        this.getSentWithRecievedOfferUsers()
+      }
     }
   },
   created() {
@@ -691,7 +733,8 @@ export default {
     this.getSentWithRecievedOfferUsers();
     // this.getSelectedUserConversations(this.selectedId);
     // this.getSentOfferUsers();
-    console.log(this.userRecievedOffers);
+    // console.log(this.userRecievedOffers);
+    this.noMessages();
     // this.getAllMessages();
   }
 };
@@ -699,5 +742,9 @@ export default {
 <style>
 .selector {
   cursor: pointer;
+}
+.chat-img {
+  width: 30em;
+  margin: 0 auto;
 }
 </style>

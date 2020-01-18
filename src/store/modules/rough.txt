@@ -1,0 +1,11 @@
+let users = chatDb
+                .collection("chat")
+                .where("to", "==", rootState.auth.user.id)
+                .orderBy("createdAt");
+
+                await users.onSnapshot((snapshot) => {
+                  snapshot.forEach((userDoc) => {
+                        let doc = userDoc.doc;
+                        fetchedMessagesTo.push(doc.data());
+                  });
+                });
