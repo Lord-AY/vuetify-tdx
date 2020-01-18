@@ -40,6 +40,52 @@
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-md-3">
+                        <div class="metric metric-services">
+                          <span class="icon">
+                            <i class="fa fa-mobile"></i>
+                          </span>
+                          <p>
+                            <span class="title">Airtime</span>
+                            <span class="number">0</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="metric metric-services">
+                          <span class="icon">
+                            <i class="fa fa-television"></i>
+                          </span>
+                          <p>
+                            <span class="title">Cable TV</span>
+                            <span class="number">0</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="metric metric-services">
+                          <span class="icon">
+                            <i class="fa fa-bolt"></i>
+                          </span>
+                          <p>
+                            <span class="title">Electricity</span>
+                            <span class="number">0</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="metric metric-services">
+                          <span class="icon">
+                            <i class="fa fa-plane"></i>
+                          </span>
+                          <p>
+                            <span class="title">Flight</span>
+                            <span class="number">0</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
                         <div class="metric">
                           <span class="icon">
                             <i class="fa fa-star"></i>
@@ -348,3 +394,35 @@ export default {
   }
 };
 </script>
+<style>
+  .alert-icon {
+    padding-left: 0px!important;
+  }
+  /* .col-md-3:nth-child(1) .metric-services {
+    
+  }
+  .col-md-3:nth-child(2) .metric-services {
+
+  }
+  .col-md-3:nth-child(3) .metric-services {
+    
+  }
+  .col-md-3:nth-child(4) .metric-services {
+    
+  } */
+  .metric-services {
+    background-color: #e3f8f5!important;
+  }
+  .metric-services .title {
+    color: #939daa;
+  }
+  .metric-services .number {
+    color: #232323;
+  }
+  .metric-services .icon {
+    background-color: #3bbeb0!important;
+  }
+  .metric-services .icon i {
+    color: #fff!important;
+  }
+</style>

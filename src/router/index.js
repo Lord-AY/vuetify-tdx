@@ -241,6 +241,66 @@ const routes = [
     }
   },
   {
+    path: "/expired",
+    name: "expired",
+    component: () => import("../views/expired.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
+    meta: {
+      header: 2
+    }
+  },
+  {
+    path: "/sold",
+    name: "sold",
+    component: () => import("../views/sold.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
+    meta: {
+      header: 2
+    }
+  },
+  {
+    path: "/pending",
+    name: "pending",
+    component: () => import("../views/pending.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
+    meta: {
+      header: 2
+    }
+  },
+  {
+    path: "/saved",
+    name: "saved",
+    component: () => import("../views/saved.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
+    meta: {
+      header: 2
+    }
+  },
+  {
     path: "/ordersInventory",
     name: "ordersInventory",
     component: () => import("../views/ordersInventory.vue"),

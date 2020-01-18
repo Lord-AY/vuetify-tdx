@@ -292,17 +292,176 @@
                                   />
                                 </div>
                               </div>
-
                               <div class="row">
-                                <!-- <div
-                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-6 col-lg-push-6 col-md-push-6 col-sm-push-6"
-                                > -->
                                 <div
-                                  class="col-md-6 offset-md-9 col-lg-6 offset-lg-9 col-sm-12 col-xs-12"
+                                  class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
                                 >
                                   <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >About Yourself</label
+                                    >
+                                    <textarea
+                                      class="form-control dashboard"
+                                      name="sb_user_about"
+                                      required=""
+                                      rows="5"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >City</label
+                                    >
+                                    <select
+                                      class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
+                                      data-placeholder="Select"
+                                    >
+                                      <optgroup label="Categories">
+                                        <option>-- Select City --</option>
+                                        <option value="1">Germany</option>
+                                        <option value="2">USA</option>
+                                        <option value="3">Canada</option>
+                                        <option value="4">Usa</option>
+                                        <option value="5">Afghanistan</option>
+                                        <option value="6">Albania</option>
+                                        <option value="7">China</option>
+                                        <option value="8">Denmark</option>
+                                        <option value="9">Finland</option>
+                                        <option value="10">India</option>
+                                        <option value="11">Kiribati</option>
+                                        <option value="12">Kuwait</option>
+                                        <option value="13">Mexico</option>
+                                        <option value="14">Pakistan</option>
+                                      </optgroup>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard protip"
+                                      >Country</label
+                                    >
+                                    <select
+                                      class="form-control form-control-dashboard select2-show-search border-bottom-0 w-100 select2-show-search"
+                                      data-placeholder="Select"
+                                    >
+                                      <optgroup label="Categories">
+                                        <option>-- Select Country --</option>
+                                        <option value="1">Germany</option>
+                                        <option value="2">USA</option>
+                                        <option value="3">Canada</option>
+                                        <option value="4">Usa</option>
+                                        <option value="5">Afghanistan</option>
+                                        <option value="6">Albania</option>
+                                        <option value="7">China</option>
+                                        <option value="8">Denmark</option>
+                                        <option value="9">Finland</option>
+                                        <option value="10">India</option>
+                                        <option value="11">Kiribati</option>
+                                        <option value="12">Kuwait</option>
+                                        <option value="13">Mexico</option>
+                                        <option value="14">Pakistan</option>
+                                      </optgroup>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >Facebook</label
+                                    >
+                                    <input
+                                      class="form-control form-control-dashboard"
+                                      type="text"
+                                      name="sb_user_name"
+                                      value="https://www.facebook.com/"
+                                      required=""
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard protip"
+                                      >Twitter</label
+                                    >
+                                    <input
+                                      class="protip form-control form-control-dashboard"
+                                      type="email"
+                                      name="user_email"
+                                      value="https://www.twitter.com/"
+                                      readonly=""
+                                      data-pt-title=" You can not edit email address"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard"
+                                      >Whatsapp</label
+                                    >
+                                    <input
+                                      class="form-control form-control-dashboard"
+                                      type="text"
+                                      name="sb_user_name"
+                                      value="https://www.whatsapp.com/"
+                                      required=""
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="col-md-6 col-lg-6 col-xs-12 col-sm-12"
+                                >
+                                  <div class="form-group">
+                                    <label
+                                      class="control-label control-label-dashboard protip"
+                                      >Google</label
+                                    >
+                                    <input
+                                      class="protip form-control form-control-dashboard"
+                                      type="email"
+                                      name="user_email"
+                                      value="https://www.google.com/"
+                                      readonly=""
+                                      data-pt-title=" You can not edit email address"
+                                      data-pt-position="top"
+                                      data-pt-scheme="dark-transparent"
+                                      data-pt-size="small"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6  col-xs-12 col-sm-6"></div>
+                                <div class="col-md-6 col-sm-12 col-sm-6 ">
+                                  <div class="form-group">
                                     <span
-                                      class="tooltip-disabled"
+                                      class="tooltip-disabled pull-right"
                                       data-toggle="tooltip"
                                       title="Disabled in demo"
                                     >
@@ -525,29 +684,29 @@ export default {
   },
   watch: {
     $route: "sync",
-      loading: {
+    loading: {
       handler: function(loading) {
         if (loading) {
-          this.showLoadingAlert()
+          this.showLoadingAlert();
           // console.log(this.isLoading);
         }
         // console.log(this.isLoading);
       }
     },
-   getUpdateErrors: {
+    getUpdateErrors: {
       handler: function(errors) {
-        if(errors) {
-        this.showErrorMsg(errors);
-        // console.log("errors just changed");
-      }
+        if (errors) {
+          this.showErrorMsg(errors);
+          // console.log("errors just changed");
+        }
       }
     },
     getUpdateSuccess: {
       handler: function(success) {
-        if(success) {
-        this.showSuccess(success);
-        // console.log("success just changed");
-      }
+        if (success) {
+          this.showSuccess(success);
+          // console.log("success just changed");
+        }
       }
     }
   }
@@ -557,6 +716,18 @@ export default {
 <style>
 .panel-body-settings {
   width: auto !important;
+}
+textarea {
+  resize: none;
+}
+.form-control:focus {
+  color: #232323!important;
+}
+input[data-value=""] {
+  color: #232323!important;
+}
+.tooltip-disabled {
+  padding-right: 0px !important;
 }
 @media (max-width: 1023px) and (min-width: 768px) {
   .dashboard-main .profile-details li i {

@@ -165,7 +165,7 @@
                       <div class="form-group">
                         <button
                           type="submit"
-                          class="btn btn-theme"
+                          class="btn btn-theme btn-search"
                           style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
                         >
                           Search
@@ -388,6 +388,9 @@ export default {
   /* border-top-right-radius: 0px;
   border-bottom-right-radius: 0px; */
   border-radius: 8px 0px 0px 8px !important;
+}
+.btn.btn-theme.btn-search {
+  border-radius: 0px 8px 8px 0px!important;
 }
 .form-published-search {
   display: flex;

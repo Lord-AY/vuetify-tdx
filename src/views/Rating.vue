@@ -212,6 +212,9 @@ export default {
   border-bottom-right-radius: 0px; */
   border-radius: 8px 0px 0px 8px !important;
 }
+.btn.btn-theme.btn-search {
+  border-radius: 0px 8px 8px 0px!important;
+}
 .form-published-search {
   display: flex;
 }
