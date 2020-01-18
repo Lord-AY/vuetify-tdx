@@ -112,7 +112,7 @@ export default {
 				.collection("chat")
 				.where("to", "==", rootState.auth.user.id)
 				.orderBy("createdAt")
-				.get();
+				.onSnapshot();
 			users.forEach(userDoc => {
 				fetchedMessagesTo.push(userDoc.data());
 			});
