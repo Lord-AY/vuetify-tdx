@@ -43,7 +43,8 @@ export default {
         phone: "",
         password: "",
         confirmPassword: "",
-        rcountry: "null"
+        rcountry: "null",
+        referer: null
       },
       items: [],
       errors: null,
@@ -86,7 +87,8 @@ export default {
             address: this.signUp.address,
             phone: this.signUp.phone.replace(/ /g, ""),
             password: this.signUp.password,
-            rcountry: this.signUp.rcountry
+            rcountry: this.signUp.rcountry,
+            referer: this.$route.params.referal
           }
         };
         this.registerUser(payload);

@@ -149,7 +149,7 @@
                               <div class="message-header">
                                 <h4>Inbox</h4>
                                 <ul class="tabs-menu nav">
-                                  <span>
+  <!--                                 <span>
                                     <div
                                       v-bind:class="{ active: tab1 }"
                                       class="selector"
@@ -157,8 +157,8 @@
                                     >
                                       <small>All Offers</small>
                                     </div>
-                                  </span>
-                                  <div style="width:10px"></div>
+                                  </span> -->
+                                  <!-- <div style="width:10px"></div> -->
                                   <span>
                                     <div
                                       v-bind:class="{ active: tab2 }"
@@ -181,12 +181,11 @@
                                 </ul>
                               </div>
                               <div class="">
-                                <div class="" v-if="tab1">
+  <!--                               <div class="" v-if="tab1">
                                   <div
                                     class="list-wrap ps-container ps-active-y"
                                   >
                                     <ul class="message-history">
-                                      <!-- LIST ITEM -->
                                       <li
                                         class="message-grid"
                                         v-for="(message,
@@ -216,11 +215,9 @@
                                           </div>
                                         </a>
                                       </li>
-                                      <!-- END / LIST ITEM -->
-                                      <!-- LIST ITEM -->
                                     </ul>
                                   </div>
-                                </div>
+                                </div> -->
                                 <div class="tab-pane" v-if="tab2">
                                   <div
                                     class="list-wrap ps-container ps-active-y"
@@ -647,8 +644,8 @@ export default {
       selectedId: null,
       disabled: true,
       selectedUser: [],
-      tab1: true,
-      tab2: false,
+      tab1: false,
+      tab2: true,
       tab3: false
     };
   },
