@@ -106,7 +106,7 @@
                                       <li
                                         class="message-grid"
                                         v-for="(user,
-                                        index) in userRecievedOffers"
+                                        index) in unique"
                                         :key="index"
                                       >
                                         <a
@@ -154,7 +154,7 @@
                                       <!-- LIST ITEM -->
                                       <li
                                         class="message-grid"
-                                        v-for="(user, index) in userSentOffers"
+                                        v-for="(user, index) in unique2"
                                         :key="index"
                                       >
                                         <a
@@ -532,6 +532,20 @@ export default {
     dsidebar
   },
   computed: {
+    unique() {
+      return this.userRecievedOffers.reduce((seed, current) => {
+        return Object.assign(seed, {
+          [current.id]: current
+        });
+      }, {});
+    },
+    unique2() {
+      return this.userSentOffers.reduce((seed, current) => {
+        return Object.assign(seed, {
+          [current.id]: current
+        });
+      }, {});
+    },
     ...mapGetters("chat", [
       "getMessagesUserFrom",
       "getMessagesUserTo",
@@ -677,7 +691,7 @@ export default {
     this.getSentWithRecievedOfferUsers();
     this.getSelectedUserConversations(this.selectedId);
     // this.getSentOfferUsers();
-    // console.log(this.getMessages);
+    console.log(this.userRecievedOffers);
     // this.getAllMessages();
   }
 };
