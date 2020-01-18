@@ -31,7 +31,7 @@ const routes = [
     }
   },
   {
-    path: "/register",
+    path: "/register/:referal?",
     name: "register",
     // component: () => import("../views/Register.vue"),
     component: userRegister,

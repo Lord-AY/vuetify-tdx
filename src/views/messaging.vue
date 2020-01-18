@@ -3,127 +3,6 @@
     <div id="wrapper" style="height: 100vh;">
       <!-- LEFT SIDEBAR -->
       <dsidebar></dsidebar>
-      <!-- <div id="sidebar-nav" class="sidebar">
-        <div
-          class="slimScrollDiv"
-          style="position: relative; overflow: hidden; width: auto; height: 95%;"
-        >
-          <div
-            class="sidebar-scroll"
-            style="overflow: hidden; width: auto; height: 95%;"
-          >
-            <nav>
-              <ul class="nav">
-                <li class="welcome-text">
-                  <img
-                    src="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/6.png"
-                    class="img-responsive"
-                    alt="Profile Picture"
-                  />
-                  <div class="text-box">
-                    Welcome back: <span>testuser </span>
-                  </div>
-                </li>
-                <li>
-                  <a href="../tempview/dashboard-carspot.html" class=""
-                    ><i class="la la-home"></i> <span>Dashboard</span></a
-                  >
-                </li>
-                <li>
-                  <a href="../tempview/edit-profile-carspot.html" class=""
-                    ><i class="la la-pencil"></i> <span>Edit Profile</span></a
-                  >
-                </li>
-                <!- <li><a href="https://carspot.scriptsbundle.com/individual/oyink7/ "><i class="la la-user"></i> <span>My Profile</span></a></li> ->
-                <li>
-                  <a href="../tempview/messaging.html" class="active"
-                    ><i class="la la-envelope"></i> <span>My Messages</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#subPages" class="collapsed" data-toggle="collapse"
-                    ><i class="la la-tasks"></i> <span>My Inventory</span>
-                    <i class="icon-submenu la la-chevron-left"></i
-                  ></a>
-                  <div id="subPages" class="collapse ">
-                    <ul class="nav">
-                      <li>
-                        <a href="../tempview/published-inventory.html" class="">
-                          Published
-                          <span class="badge">
-                            0
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../tempview/published-inventory.html" class="">
-                          Expired
-                          <span class="badge"> 0 </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../tempview/published-inventory.html" class="">
-                          Sold
-                          <span class="badge"> 0 </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../tempview/published-inventory.html" class="">
-                          Pending
-                          <span class="badge"> 0 </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../tempview/published-inventory.html" class="">
-                          Saved
-                          <span class="badge"> 0 </span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <a href="#" class=""
-                    ><i class="la la-users"></i> <span>Referral</span
-                    ><span class="badge referral">0</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="../tempview/ratings-inventory.html" class=""
-                    ><i class="la la-star"></i> <span>My Ratings </span></a
-                  >
-                </li>
-                <li>
-                  <a href="../tempview/orders-inventory.html"
-                    ><i class="la la-check-circle-o"></i>
-                    <span> My Orders</span></a
-                  >
-                </li>
-                <li>
-                  <a href="../tempview/settings-carspot.html"
-                    ><i class="la la-cog"></i> <span> Settings</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#" class=""
-                    ><i class="fa fa-sign-out"></i> <span>Logout</span></a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div
-            class="slimScrollBar"
-            style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 643px;"
-          ></div>
-          <div
-            class="slimScrollRail"
-            style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"
-          ></div>
-        </div>
-      </div> -->
-      <!-- END LEFT SIDEBAR -->
-
       <!-- MAIN -->
       <div class="main dashboard-main">
         <!-- MAIN CONTENT -->
@@ -149,7 +28,7 @@
                               <div class="message-header">
                                 <h4>Inbox</h4>
                                 <ul class="tabs-menu nav">
-                                  <span>
+  <!--                                 <span>
                                     <div
                                       v-bind:class="{ active: tab1 }"
                                       class="selector"
@@ -157,8 +36,8 @@
                                     >
                                       <small>All Offers</small>
                                     </div>
-                                  </span>
-                                  <div style="width:10px"></div>
+                                  </span> -->
+                                  <!-- <div style="width:10px"></div> -->
                                   <span>
                                     <div
                                       v-bind:class="{ active: tab2 }"
@@ -181,12 +60,11 @@
                                 </ul>
                               </div>
                               <div class="">
-                                <div class="" v-if="tab1">
+  <!--                               <div class="" v-if="tab1">
                                   <div
                                     class="list-wrap ps-container ps-active-y"
                                   >
                                     <ul class="message-history">
-                                      <!-- LIST ITEM -->
                                       <li
                                         class="message-grid"
                                         v-for="(message,
@@ -216,11 +94,9 @@
                                           </div>
                                         </a>
                                       </li>
-                                      <!-- END / LIST ITEM -->
-                                      <!-- LIST ITEM -->
                                     </ul>
                                   </div>
-                                </div>
+                                </div> -->
                                 <div class="tab-pane" v-if="tab2">
                                   <div
                                     class="list-wrap ps-container ps-active-y"
@@ -647,8 +523,8 @@ export default {
       selectedId: null,
       disabled: true,
       selectedUser: [],
-      tab1: true,
-      tab2: false,
+      tab1: false,
+      tab2: true,
       tab3: false
     };
   },

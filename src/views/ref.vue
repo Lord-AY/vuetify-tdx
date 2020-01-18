@@ -19,22 +19,34 @@
         <button class="referral-btn" @click="copyData">COPY</button>
       </div>
       <div class="referral-links">
-        <router-link to="">
-          <img src="https://img.icons8.com/color/48/000000/facebook-new.png" />
-        </router-link>
-        <router-link to="">
-          <img src="https://img.icons8.com/color/48/000000/twitter.png" />
-        </router-link>
-        <router-link to="">
-          <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
-        </router-link>
-        <router-link to="">
-          <img src="https://img.icons8.com/color/48/000000/whatsapp.png" />
-        </router-link>
-        
-        
-        
-        
+         <social-sharing :url="`https://www.tradexplora.com/dist/#/register/${getUser.referalId}`" 
+            title="Register On Tradexplora"
+            description="Sell, Buy and trade faster on Tradexplora."
+            quote="tradexplora adlisting site."
+            hashtags="buy,sell,tradexplora, adlisting"
+            twitter-user="tradexplora"
+            inline-template>
+            <div>
+              <network class="selector" network="facebook">
+                  <img src="https://img.icons8.com/color/48/000000/facebook-new.png" />
+              </network>
+              <network class="selector" network="twitter">
+                  <img src="https://img.icons8.com/color/48/000000/twitter.png" />
+              </network>
+              <network class="selector" network="linkedin">
+                  <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
+              </network>
+              <network class="selector" network="whatsapp">
+                  <img src="https://img.icons8.com/color/48/000000/whatsapp.png" />
+              </network>
+              <network class="selector" network="skype">
+                  <img src="https://img.icons8.com/color/48/000000/skype.png" />
+              </network>
+              <network class="selector" network="sms">
+                <img src="https://img.icons8.com/color/48/000000/sms.png" />
+              </network>
+            </div>
+          </social-sharing>
       </div>
 
       <div class="referral-bottom">
@@ -251,3 +263,9 @@ export default {
 }
 
 </style>
+<style>
+.selector {
+  cursor: pointer;
+}
+</style>
+
