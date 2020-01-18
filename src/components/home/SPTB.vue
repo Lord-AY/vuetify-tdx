@@ -10,7 +10,7 @@
           Popular Categories
         </h2>
         <div class="viewall2 mobile-hidden">
-          <router-link to="/Gridlist"
+          <router-link to="/categories"
             >Show All
             <i class="fa fa-arrow-circle-right"></i
           ></router-link>
@@ -37,7 +37,7 @@
           <div class="card card-cat-tx mb-0 box-shadow-0">
             <div class="item-card item-card-tx">
               <div class="item-card-desc item-card-desc-tx">
-                <router-link to="/Gridlist"></router-link>
+                <router-link to="/categories"></router-link>
                 <div class="item-card-img item-card-img-tx">
                   <img
                     :src="

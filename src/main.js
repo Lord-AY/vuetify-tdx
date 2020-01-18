@@ -5,6 +5,7 @@ import store from "./store";
 import { sync } from "vuex-router-sync";
 import Notifications from "vue-notification";
 import firebase from "firebase";
+import Clipboard from 'v-clipboard'
 require("firebase/firestore")
 var firebaseConfig = {
     apiKey: "AIzaSyDHL1CoDv-fQc_uEGuiVXEbTKPRYh65K7w",
@@ -27,6 +28,7 @@ var firebaseConfig = {
 import "vue-phone-number-input/dist/vue-phone-number-input.css";
 Vue.config.productionTip = false;
 Vue.use(Notifications);
+Vue.use(Clipboard)
 export const bus = new Vue();
 sync(store, router);
 new Vue({

@@ -251,22 +251,22 @@ export default {
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response.data);
+          // console.log(error.response.data);
         });
     },
     fetchCommentForProduct({ commit, dispatch }, payload){
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
       commit("SET_SUCCESS_MSG", null);
-      return ProductService.singleProductcomments(payload.id)
+      ProductService.singleProductcomments(payload.id)
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
           dispatch("fetchCommentUser",data)
-          // console.log(data);
+          console.log(data);
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response.data);
+          // console.log(error.response.data);
         });
     },
     fetchSeller({ commit }, payload) {
@@ -280,7 +280,7 @@ export default {
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response.data);
+          // console.log(error.response.data);
         });
     },
     createProduct({ commit, rootState }, payload) {
