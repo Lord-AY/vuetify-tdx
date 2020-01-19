@@ -10,8 +10,9 @@
       :loading="loading"
       :dbErrors="getErrors"
       :success="getSuccess"
+      :subcategories="subcategories"
     ></postad>
-  </div> 
+  </div>
 </template>
 <script>
 require("../../public/assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css");
@@ -69,7 +70,7 @@ export default {
   },
   computed: {
     ...mapState("product", ["categories"]),
-    ...mapGetters("product", ["getErrors", "getSuccess"]),
+    ...mapGetters("product", ["getErrors", "getSuccess", "subcategories"]),
     ...mapGetters("auth", ["loading"])
   },
   methods: {

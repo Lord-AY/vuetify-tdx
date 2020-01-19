@@ -81,8 +81,14 @@ export default {
 			commit("auth/SET_LOADING", true, { root: true });
 			commit("SET_SUCCESS_MSG", null);
 			commit("SET_ERRORS", null);
-			// create message in firestore
-			chatDb
+			// fetch the message reciever details
+			UserService.user(payload.recieverId)
+			.then(({data}) => {
+				// add the fetched user details to the original payload
+				payload.recieverName = data.firstname + " " + data.lastname;
+				payload.recieverAvatar = data.pictureUrl;
+				// store message to firestore database
+				chatDb
 				.collection("chat")
 				.add({
 					from: payload.from,
@@ -102,6 +108,17 @@ export default {
 					// console.log(error.response.data);
 					commit("SET_ERRORS", "Network Error, please try again...");
 				});
+			}).catch(error => {
+				if(error.response.status == 500) {
+					commit("SET_ERROR", "Cant connect to server, please try again... ");
+				}else if (error.response.status == 404 ) {
+					commit("SET_ERROR", error.response.data);
+				} else if(error.response.status === 400) {
+					commit("SET_ERROR", "Unauthorized Access, please login to continue...");
+				} else {
+					commit("SET_ERROR", error.response.data);
+				}
+			});
 		},
 		async fetchUserMessagesto({ commit, rootState }) {
 			commit("auth/SET_LOADING", true, { root: true });
