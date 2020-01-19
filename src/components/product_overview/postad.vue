@@ -118,7 +118,6 @@
                                         :key="category.id"
                                         >{{ category.name }}</option
                                       >
-                                      
                                     </select>
                                   </div>
                                 </div>
@@ -1081,7 +1080,6 @@
 
                   <!-- <div class="row">
                     <div class="col-md-12">
-                      
                       <div class="row"> -->
                         <div class="card-body">
                           <div class="tab-content card-body border mb-0 b-0">
@@ -1544,7 +1542,6 @@ export default {
       }
       console.log(cid.target.value);
       this.fetchSubCategories(payload);
-      
     },
     beforeRemove(index, done, fileList) {
       // console.log("index", index, fileList);
