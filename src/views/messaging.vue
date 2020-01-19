@@ -715,18 +715,16 @@ export default {
         }
       }
     },
-    messagesFrom: {
-      handler: function() {
-        this.fetchAllMessages()
-        this.getSentWithRecievedOfferUsers()
-      }
-    },
-     messagesTo: {
-      handler: function() {
-        this.fetchAllMessages()
-        this.getSentWithRecievedOfferUsers()
-      }
-    }
+    // messagesFrom: {
+    //   handler: function() {
+    //     this.fetchAllMessages()
+    //   }
+    // },
+    //  messagesTo: {
+    //   handler: function() {
+    //     this.fetchAllMessages()
+    //   }
+    // }
   },
   created() {
     this.fetchAllMessages();

@@ -114,7 +114,7 @@ export default {
 				.orderBy("createdAt");
 				await users.onSnapshot((snapshot) => {
 		          snapshot.forEach((userDoc) => {
- 				  		let doc = userDoc.doc;
+ 				  		// let doc = userDoc.doc;
 						fetchedMessagesTo.push(userDoc.data());
 				  });
 		        });
@@ -149,7 +149,7 @@ export default {
 
 				await users.onSnapshot((snapshot) => {
 		          snapshot.forEach((userDoc) => {
- 				  		let doc = userDoc.doc;
+ 				  		// let doc = userDoc.doc;
 						fetchedMessagesFrom.push(userDoc.data());
 				  });
 		        })
@@ -167,10 +167,10 @@ export default {
 			// console.log(payload);
 			commit("auth/SET_LOADING", true, { root: true });
 			// get all user details the loggedin user sent messages to...
-			for (let userId in payload) {
-				// console.log(payload);
+			for (let i = 1; payload.length < i; i++) {
+				console.log(payload[i]);
 				// console.log(FilteredMessageRecievers[userId]);
-				UserService.user(payload[userId])
+				UserService.user(payload[i])
 					.then(({ data }) => {
 						commit("auth/SET_LOADING", false, { root: true });
 						fullUsersArray.push(data);
