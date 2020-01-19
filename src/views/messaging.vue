@@ -241,7 +241,7 @@
                                 > -->
                               </h2>
                               <div class="list-wraps ps-container ps-active-y">
-                                <ul class="messages">
+                                <ul class="messages" style="overflow-y: auto; max-height: 400px;" v-chat-scroll>
                                   <li
                                     class="friend-message clearfix"
                                     v-for="(message, index) in messages"
@@ -315,6 +315,7 @@
                                       type="text"
                                     />
                                   </div>
+                                  <!-- <p v-if="testing">Hey You got the error</p> -->
                                   <button
                                     class="btn btn-theme"
                                     type="submit"
@@ -530,14 +531,16 @@ export default {
     return {
       loggedInmessages: [],
       messages: [],
-      message: null,
+      message: '',
       showMessage: false,
       selectedId: null,
       disabled: true,
       selectedUser: [],
       tab1: false,
       tab2: true,
-      tab3: false
+      tab3: false,
+      isValidationAllowed: false,
+      testing: false
     };
   },
   components: {
@@ -556,6 +559,7 @@ export default {
   },
     unique2() {
       if(this.userSentOffers !== null && this.userSentOffers !== undefined) {
+        console.log("inside unique two");
       return this.userSentOffers.reduce((seed, current) => {
         return Object.assign(seed, {
           [current.id]: current
@@ -563,6 +567,9 @@ export default {
       }, {});
     };
     return 0;
+  },
+  validated() {
+    return this.isValidationAllowed && !this.message
   },
     ...mapGetters("chat", [
       "getMessagesUserFrom",
@@ -587,11 +594,22 @@ export default {
       "getSentOfferUsers",
       "getAll"
     ]),
+    scrollToElement() {
+      const el = this.$el.querySelector('.messages');
+      console.log("i am meant to scoll to last" + el)
+      if (el) {
+        el[el.length - 1].scrollHeight;
+      }
+    },
+    validate() {
+      this.isValidationAllowed = true
+    },
     noMessages() {
       // console.log(this.messagesFrom);
       // console.log(this.messagesTo);
-      if(this.messagesFrom.length == 0
-        && this.messagesTo.length == 0) {
+      if(this.messagesFrom.length == 0 && this.messagesTo.length == 0) {
+        // console.log(this.messagesFrom);
+        // console.log(this.messagesTo);
          this.showMessage = true;
         console.log("returned true");
       } else {
@@ -607,16 +625,21 @@ export default {
         e.target.value = e.target.value.replace(/^\s*/, "");
     },
     sendNewMessage() {
-      const payload = {
-        message: this.message,
-        to: this.selectedId,
-        from: this.getUser.id
-      };
-      this.sendMessage(payload);
-      this.message = null;
-      this.fetchAllMessages();
-      this.getSentWithRecievedOfferUsers();
-      this.getSelectedUserConversations(this.selectedId);
+      if(this.message){
+        const payload = {
+          message: this.message,
+          to: this.selectedId,
+          from: this.getUser.id
+        };
+        this.sendMessage(payload);
+        this.message = null;
+        this.fetchAllMessages();
+        this.getSentWithRecievedOfferUsers();
+        this.getSelectedUserConversations(this.selectedId);
+        // this.scrollToElement();
+      }else{
+        this.testing = true
+      }
     },
     fetchAllMessages() {
       this.fetchUserMessagesto();
@@ -673,6 +696,7 @@ export default {
           this.messages.push(toMessages[chat]);
         }
       }
+      // this.scrollToElement();
     },
     // getAllMessages() {
     //   const fromMessagePayload = this.messagesFrom;
@@ -717,13 +741,13 @@ export default {
     },
     messagesFrom: {
       handler: function() {
-        this.fetchAllMessages()
+        // this.fetchAllMessages()
         this.getSentWithRecievedOfferUsers()
       }
     },
      messagesTo: {
       handler: function() {
-        this.fetchAllMessages()
+        // this.fetchAllMessages()
         this.getSentWithRecievedOfferUsers()
       }
     }
@@ -733,7 +757,8 @@ export default {
     this.getSentWithRecievedOfferUsers();
     // this.getSelectedUserConversations(this.selectedId);
     // this.getSentOfferUsers();
-    // console.log(this.userRecievedOffers);
+    console.log(this.userRecievedOffers);
+    console.log(this.userSentOffers)
     this.noMessages();
     // this.getAllMessages();
   }
