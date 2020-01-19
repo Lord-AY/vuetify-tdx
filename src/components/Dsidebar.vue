@@ -215,6 +215,9 @@ export default {
 </script>
 
 <style >
+#sidebar-nav {
+  padding-top: 104.98px!important;
+}
 .nav.dashboard-sidebar {
   display: block!important;
 }

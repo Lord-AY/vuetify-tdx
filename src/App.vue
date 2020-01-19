@@ -20,6 +20,7 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
     <div v-if="$route.meta.header === 1"><topbar></topbar></div>
     <div v-else-if="$route.meta.header === 3"><topbar2></topbar2></div>
     <div v-else-if="$route.meta.header === 4"><topbar2></topbar2></div>
+    <div v-else-if="$route.meta.header === 5"><dashboardtopbar></dashboardtopbar></div>
     <!-- <topbar></topbar> -->
     <transition name="page-animation">
       <div class="tdx-main-view">
@@ -55,6 +56,7 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
 /* eslint-disable no-undef*/
 
 import topbar from "@/components/Topbar";
+import dashboardtopbar from "@/components/dashboardtopbar";
 // import topbar2 from "@/components/Topbar2";
 import router from "@/router"
 import Footer from "@/components/Footer";
@@ -70,6 +72,7 @@ export default {
     topbar,
     // topbar2,
     // BNav,
+    dashboardtopbar,
     Footer,
     Homeloader,
     HomeMobileLoader,

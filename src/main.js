@@ -5,7 +5,9 @@ import store from "./store";
 import { sync } from "vuex-router-sync";
 import Notifications from "vue-notification";
 import firebase from "firebase";
-import Clipboard from 'v-clipboard'
+import Clipboard from 'v-clipboard';
+import VueChatScroll from 'vue-chat-scroll';
+
 require("firebase/firestore");
 var SocialSharing = require('vue-social-sharing');
 
@@ -32,6 +34,7 @@ Vue.config.productionTip = false;
 Vue.use(Notifications);
 Vue.use(Clipboard)
 Vue.use(SocialSharing);
+Vue.use(VueChatScroll);
 export const bus = new Vue();
 sync(store, router);
 new Vue({

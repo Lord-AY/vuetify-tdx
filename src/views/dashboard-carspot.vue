@@ -17,7 +17,7 @@
       <!-- END LEFT SIDEBAR -->
 
       <!-- MAIN -->
-      <div class="main dashboard-main">
+      <div class="main dashboard-main dashboard-main-content">
         <!-- MAIN CONTENT -->
         <div class="main-content">
           <div class="container-fluid">
@@ -395,6 +395,9 @@ export default {
 };
 </script>
 <style>
+.dashboard-main-content {
+  padding-top: 107px!important;
+}
   .alert-icon {
     padding-left: 0px!important;
   }
