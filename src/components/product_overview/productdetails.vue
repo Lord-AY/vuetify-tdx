@@ -1062,9 +1062,6 @@ export default {
         };
         this.sendMessage(payload);
         this.message = null;
-        this.fetchAllMessages();
-        this.getSentWithRecievedOfferUsers();
-        this.getSelectedUserConversations(this.selectedId);
         // this.scrollToElement();
       }else{
         this.testing = true

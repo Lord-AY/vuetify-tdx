@@ -138,6 +138,9 @@ export default {
 
 			await Promise.all(fetchedMessagesTo);
 			// console.log(fetchedMessagesTo)
+			commit("auth/SET_LOADING", false, { root: true });
+			commit("SET_SUCCESS_MSG", null);
+			commit("SET_ERRORS", null);
 			commit("SET_MESSAGES_TO", fetchedMessagesTo);
 		},
 		// async fetchUserMessagesfrom({ commit, rootState }) {
