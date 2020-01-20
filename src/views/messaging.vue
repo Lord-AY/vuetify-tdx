@@ -560,6 +560,9 @@ export default {
     unique2() {
       if(this.userSentOffers !== null && this.userSentOffers !== undefined) {
         console.log("inside unique two");
+        // for(let i in this.userSentOffers){
+        //   console.log(this.userSentOffers[i]);
+        // }
       return this.userSentOffers.reduce((seed, current) => {
         return Object.assign(seed, {
           [current.id]: current
@@ -742,23 +745,23 @@ export default {
     messagesFrom: {
       handler: function() {
         // this.fetchAllMessages()
-        this.getSentWithRecievedOfferUsers()
+        // this.getSentWithRecievedOfferUsers()
       }
     },
      messagesTo: {
       handler: function() {
         // this.fetchAllMessages()
-        this.getSentWithRecievedOfferUsers()
+        // this.getSentWithRecievedOfferUsers()
       }
     }
   },
   created() {
     this.fetchAllMessages();
-    this.getSentWithRecievedOfferUsers();
+    // this.getSentWithRecievedOfferUsers();
     // this.getSelectedUserConversations(this.selectedId);
     // this.getSentOfferUsers();
-    console.log(this.userRecievedOffers);
-    console.log(this.userSentOffers)
+    // console.log(this.userRecievedOffers);
+    // console.log(this.userSentOffers)
     this.noMessages();
     // this.getAllMessages();
   }

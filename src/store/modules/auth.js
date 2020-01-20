@@ -24,7 +24,8 @@ export default {
     user: null,
     loginErrors: null,
     registerErrors: null,
-    errors: null
+    errors: null,
+    referee: null
   },
 
   getters: {
@@ -42,6 +43,9 @@ export default {
     },
     registerErrors(state) {
       return state.registerErrors;
+    },
+    getReferee(state) {
+      return state.referee;
     },
     isLoggedIn(state) {
       if (ash.isEmpty(state.user) || state.user == null) {
@@ -112,6 +116,21 @@ export default {
             // else account not verified or something else
             commit("SET_REGISTER_ERRORS", error.response.data);
           }
+        });
+    },
+    fetchUserReferee({ commit }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      return AuthService.referee(payload.refcode)
+        .then(({ data }) => {
+          //   console.log(data);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_REFEREE", data);
+        })
+        .catch(error => {
+          // console.log(error);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", "Network Error, error fetching ads categories");
         });
     },
     loginUser({ commit, state }, payload) {
@@ -215,22 +234,12 @@ export default {
           );
         });
     }
-
-    // getVerificationCode({ state }) {
-    // 	return axios
-    // 		.get(
-    // 			`http://157.245.82.193/auth/verification/${state.user.id}/${state.user.token}`
-    // 		)
-    // 		.then(response => {
-    // 			console.log(response)
-    // 		})
-    // 		.catch(error => {
-    // 			console.log(error)
-    // 		})
-    // }
   },
 
   mutations: {
+    SET_REFEREE(state, data) {
+      state.referee = data;
+    },
     SET_REGISTER_STATE(state, { newUser }) {
       state.registerData.firstName = newUser.firstName;
       state.registerData.lastName = newUser.lastName;

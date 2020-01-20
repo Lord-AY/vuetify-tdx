@@ -4,7 +4,7 @@
       <!-- LEFT SIDEBAR -->
       <dsidebar></dsidebar>
       <!-- END LEFT SIDEBAR -->
-
+ 
       <!-- MAIN -->
       <div class="main dashboard-main" style="min-height: 713px;">
         <!-- MAIN CONTENT -->
@@ -274,13 +274,39 @@ require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 
+import { mapActions, mapGetters } from "vuex";
 import dsidebar from "@/components/Dsidebar";
 // import dheader from "@/components/Dheader";
 export default {
   name: "referals",
+  data() {
+    return {
+    };
+  },
   components: {
     dsidebar
-  }
+  },
+  computed: {
+    ...mapGetters("auth", ["loading", "errors", "getReferee", "getUser"])
+  },
+  methods: {
+    ...mapActions("auth", ["fetchUserReferee"]),
+    getUserReferees() {
+      const payload = {
+        refcode: this.getUser.referalId
+      };
+      // console.log(payload);
+      this.getReferee(payload);
+    },
+  },
+  watch: {
+    $route: "sync",
+  },
+  created() {
+    console.log(this.getUser);
+    // this.getUserReferees();
+  },
+
 };
 </script>
 
