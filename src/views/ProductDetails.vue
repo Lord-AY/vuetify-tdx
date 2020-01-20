@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="pdetails">
+    <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
       <productdetails
         :product="productWithSeller"
         :similarprods="getSimilarProds"
@@ -76,11 +76,11 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/js/slide4d2c.
 
 import productdetails from "@/components/product_overview/productdetails";
 import { mapState, mapActions, mapGetters } from "vuex";
-import Loading from "vue-loading-overlay";
+// import Loading from "vue-loading-overlay";
 export default {
   name: "productDetails",
   data() {
-    return { 
+    return {
       product: {},
       isLoading: true,
       fullPage: true,
@@ -89,7 +89,7 @@ export default {
   },
   components: {
     productdetails,
-    Loading
+    // Loading
   },
   computed: {
     ...mapState("product", ["products"]),

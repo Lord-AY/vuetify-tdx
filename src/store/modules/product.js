@@ -174,7 +174,7 @@ export default {
          .then(({data}) => {
           commit("auth/SET_LOADING", false, { root: true });
           let subcategories = data;
-          console.log(subcategories);
+          // console.log(subcategories);
           commit("SET_SUBCATEGORIES", subcategories);
          }).catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
