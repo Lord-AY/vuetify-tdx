@@ -1055,9 +1055,9 @@ export default {
       if(this.message){
         const payload = {
           message: this.message,
-          recieverId: this.selectedId,
+          recieverId: this.$route.params.uid,
           senderId: this.getUser.id,
-          senderName: this.getUser.name,
+          senderName: this.getUser.firstname + " " + this.getUser.lastname,
           senderAvatar: this.getUser.pictureUrl
         };
         this.sendMessage(payload);

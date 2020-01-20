@@ -91,10 +91,13 @@ export default {
 				chatDb
 				.collection("chat")
 				.add({
-					from: payload.from,
-					to: payload.to,
-					message: payload.message,
-					createdAt: new Date()
+					senderId: payload.senderId,
+					senderName: payload.senderName,
+					senderAvatar: payload.senderAvatar,
+					recieverId: payload.recieverId,
+					recieverName: payload.recieverName,
+					recieverAvatar: payload.recieverAvatar,
+					message: payload.message
 				})
 				.then(({ data }) => {
 					commit("auth/SET_LOADING", false, { root: true });
@@ -106,18 +109,10 @@ export default {
 				.catch(error => {
 					commit("auth/SET_LOADING", false, { root: true });
 					// console.log(error.response.data);
-					commit("SET_ERRORS", "Network Error, please try again...");
+					commit("SET_ERRORS", error);
 				});
 			}).catch(error => {
-				if(error.response.status == 500) {
-					commit("SET_ERROR", "Cant connect to server, please try again... ");
-				}else if (error.response.status == 404 ) {
-					commit("SET_ERROR", error.response.data);
-				} else if(error.response.status === 400) {
-					commit("SET_ERROR", "Unauthorized Access, please login to continue...");
-				} else {
-					commit("SET_ERROR", error.response.data);
-				}
+					commit("SET_ERRORS", error);
 			});
 		},
 		async fetchUserMessagesto({ commit, rootState }) {
