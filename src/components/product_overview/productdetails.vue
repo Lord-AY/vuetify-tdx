@@ -1051,17 +1051,21 @@ export default {
         return false;
       }
     },
-    sendSellerMessage() {
-      const payload = {
-        message: this.message,
-        to: this.product.seller.id,
-        from: this.getUser.id,
-        createdAt: new Date()
-      };
-      this.sendMessage(payload);
-      this.message = null;
-      this.isHidden = false;
-      // console.log(payload);
+     sendSellerMessage() {
+      if(this.message){
+        const payload = {
+          message: this.message,
+          recieverId: this.selectedId,
+          senderId: this.getUser.id,
+          senderName: this.getUser.name,
+          senderAvatar: this.getUser.pictureUrl
+        };
+        this.sendMessage(payload);
+        this.message = null;
+        // this.scrollToElement();
+      }else{
+        this.testing = true
+      }
     },
     toggle(param){
       // console.log(param)

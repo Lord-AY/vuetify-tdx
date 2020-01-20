@@ -631,8 +631,10 @@ export default {
       if(this.message){
         const payload = {
           message: this.message,
-          to: this.selectedId,
-          from: this.getUser.id
+          recieverId: this.selectedId,
+          senderId: this.getUser.id,
+          senderName: this.getUser.name,
+          senderAvatar: this.getUser.pictureUrl
         };
         this.sendMessage(payload);
         this.message = null;
@@ -742,18 +744,19 @@ export default {
         }
       }
     },
-    messagesFrom: {
-      handler: function() {
-        // this.fetchAllMessages()
-        // this.getSentWithRecievedOfferUsers()
-      }
-    },
-     messagesTo: {
-      handler: function() {
-        // this.fetchAllMessages()
-        // this.getSentWithRecievedOfferUsers()
-      }
-    }
+    // messagesFrom: {
+    //   handler: function() {
+    //     // this.fetchAllMessages()
+    //     this.getSentWithRecievedOfferUsers()
+    //   }
+    // },
+    //  messagesTo: {
+    //   handler: function() {
+    //     // this.fetchAllMessages()
+    //     this.getSentWithRecievedOfferUsers()
+    //   }
+    // }
+
   },
   created() {
     this.fetchAllMessages();
