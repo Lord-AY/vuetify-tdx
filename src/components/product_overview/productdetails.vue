@@ -799,14 +799,15 @@
               <div class="category-list-icon">
                 <i class="purple flaticon-smartphone"></i>
                 <div class="category-list-title">
-                  <h5>
-                    <a
-                      href="javascript:void(0)"
-                      class="number"
+                  <h5 v-if="!showDetails">
+                    <div
+                      class="selector number"
+                      @click="showDetails = !showDetails"
                       data-last="2221111999"
-                      ><span>Click to View</span></a
+                      ><span>Click to View</span></div
                     >
                   </h5>
+                  <h2 v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600;" @click="showDetails = !showDetails">{{ product.seller.phone }}</h2>
                 </div>
               </div>
               <div class="additional-btns">
@@ -1022,7 +1023,8 @@ export default {
       tab1: true,
       tab2: false,
       tab3: false,
-      tab4: false
+      tab4: false,
+      showDetails: false,
     };
   },
   components: {
@@ -1230,6 +1232,9 @@ export default {
 </script>
 
 <style scoped>
+.selector {
+  cursor: pointer;
+}
 .breadcrumb {
   padding: 8px 15px 8px 0px !important;
   margin-bottom: 20px !important;
