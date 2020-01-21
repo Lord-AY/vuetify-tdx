@@ -210,19 +210,25 @@
                           <div
                             class="col-md-8 clearfix col-sm-5 col-xs-12 message-content"
                           >
-                            <div class="message-details">
+                            <div class="list-wraps ps-container ps-active-y" id="over" style="position:absolute; width:100%; height:100%" v-if="noselected">
+                              <div class="empty-state-content">
+                                <img src="../../public/assets/images/chatshow.png" />
+                              </div>
+                            </div>
+
+                            <div class="message-details" v-if="isSelected">
+                              <!-- {{ selectedUser[0].avatar }} -->
                               <div
                                 class="author"
-                                v-for="(user, index) in selectedUser"
                                 :key="index"
                               >
                                 <div class="image">
                                   <img
-                                    v-if="user.avatar"
+                                    v-if="selectedUser[0].avatar"
                                     :src="
-                                      `https://www.tradexplora.com.ng/media/${user.avatar}`
+                                      `https://www.tradexplora.com.ng/media/${selectedUser[0].avatar}`
                                     "
-                                    :alt="user.name"
+                                    :alt="selectedUser[0].name"
                                   />
                                   <img
                                     v-else
@@ -230,7 +236,7 @@
                                     alt=""
                                   />
                                 </div>
-                                <span class="author-name">{{ user.name }}</span>
+                                <span class="author-name">{{ selectedUser[0].name }}</span>
                                 <!-- <em>5 days ago</em> -->
                               </div>
                               <h2>
@@ -238,7 +244,7 @@
                                   >2017 Audi A4 sport Auto MY17 For Sale</a
                                 > -->
                               </h2>
-                              <div class="list-wraps ps-container ps-active-y">
+                              <div class="list-wraps ps-container ps-active-y" >
                                 <ul class="messages" style="overflow-y: auto; max-height: 400px;" v-chat-scroll>
                                   <li
                                     class="friend-message clearfix"
@@ -539,6 +545,8 @@ export default {
       tab3: false,
       isValidationAllowed: false,
       testing: false,
+      noselected: true,
+      isSelected: false,
     };
   },
   components: {
@@ -633,6 +641,8 @@ export default {
      await this.fetchMessages();
     },
     getSelectedUserConversations(userId) {
+      this.noselected = false;
+      this.isSelected = true;
       let stateMessages = this.messages;
       this.selectedUser = [];
       this.recievedMessages = [];
@@ -725,5 +735,10 @@ export default {
 .chat-img {
   width: 30em;
   margin: 0 auto;
+}
+#over img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 </style>

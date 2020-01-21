@@ -106,7 +106,7 @@
                 
                   <!-- This state should show when there is no initial activity 
                   and should go when the user clicks any of the services -->
-                <div class="empty-state">
+                <div class="empty-state" v-if="noselected">
                   <div class="empty-state-content">
                     <img src="../../public/assets/images/empty-state.svg" />
                     <h1>Tradexplora Plus</h1>
@@ -177,6 +177,7 @@ export default {
       filteredBillers: [],
       isLoading: true,
       fullPage: true,
+      noselected: true,
       defaultImg: "TRADEXPLORA-V4.1-mini.b55c0fd7"
     };
   },
@@ -189,6 +190,7 @@ export default {
   methods: {
     ...mapActions("valueAdded", ["fetchAllBillers"]),
     showCategoryBillers(category) {
+      this.noselected = false;
       // console.log(category);
       let billerListings = this.billerListings;
       this.filteredBillers = [];
