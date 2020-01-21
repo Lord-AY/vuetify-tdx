@@ -1550,14 +1550,14 @@ export default {
       this.fetchSubCategories(payload);
     },
     filterSubCategories(subcategories) {
-      console.log("Entered this function");
+      // console.log("Entered this function");
       this.currentSubCategory = [];
       // console.log(subcategories);
       for (let subcategory in subcategories) {
         if (
           Number(this.selectedCategory) == subcategories[subcategory].parent
         ) {
-          console.log(subcategories[subcategory]);
+          // console.log(subcategories[subcategory]);
           this.currentSubCategory.push(subcategories[subcategory]);
         }
       }
