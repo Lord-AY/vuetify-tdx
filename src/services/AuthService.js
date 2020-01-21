@@ -14,6 +14,6 @@ export default {
     return Api().post("auth/reset", credentials); 
   }, 
   referee(refcode) {
-    return Api().get(`auth/referal/${refcode.refcode}`);
+    return Api().get(`auth/referal/${refcode}`);
   }
 };

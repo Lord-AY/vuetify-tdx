@@ -2,6 +2,7 @@ import ash from "lodash";
 import router from "../../router";
 // import axios from "axios";
 import AuthService from "@/services/AuthService";
+import UserService from "@/services/UserService";
 
 export default {
   namespaced: true,
@@ -121,11 +122,21 @@ export default {
     fetchUserReferee({ commit }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
+      // console.log(payload)
+      let refree = [];
       return AuthService.referee(payload.refcode)
         .then(({ data }) => {
           //   console.log(data);
+          const data1 = data;
+          for(let i in data1){
+            UserService.user(data[i].userId).then(({ data }) => {
+              const data2 = data;
+              refree.push(Object.assign(data1[i], data2))
+            })
+          }
+          // console.log(refree);
           commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_REFEREE", data);
+          commit("SET_REFEREE", refree);
         })
         .catch(error => {
           // console.log(error);
@@ -239,6 +250,9 @@ export default {
   mutations: {
     SET_REFEREE(state, data) {
       state.referee = data;
+    },
+    SET_ERRORS(state, data){
+      state.errors = data;
     },
     SET_REGISTER_STATE(state, { newUser }) {
       state.registerData.firstName = newUser.firstName;
