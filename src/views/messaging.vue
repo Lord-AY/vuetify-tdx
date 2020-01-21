@@ -245,13 +245,13 @@
                                     v-for="(message, index) in recievedMessages"
                                     :key="index"
                                   >
-                                    <!--  <figure class="profile-picture">
+                                     <figure class="profile-picture" v-if="message.recieverAvatar">
                                       <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
+                                        :src="'https://www.tradexplora.com.ng/media/'+message.recieverAvatar"
                                         class="img-circle img-circle-messaging"
                                         alt="Profile Pic"
                                       />
-                                    </figure> -->
+                                    </figure>
                                     <div class="message">
                                       {{ message.message }}
                                       <div class="time">
@@ -265,13 +265,13 @@
                                     v-for="(message, index) in sentMessages"
                                     :key="index"
                                   >
-                                    <!-- <figure class="profile-picture">
+                                    <figure class="profile-picture" v-if="message.senderAvatar">
                                       <img
-                                        src="../../public/assets/images/profile-product-details.jpg"
+                                        :src="'https://www.tradexplora.com.ng/media/'+message.senderAvatar"
                                         class="img-circle img-circle-messaging"
                                         alt="Profile Pic"
                                       />
-                                    </figure> -->
+                                    </figure>
                                     <div class="message">
                                       {{ message.message }}
                                       <div class="time">
@@ -622,7 +622,7 @@ export default {
         this.sendMessage(payload);
         this.message = null;
         this.fetchAllMessages();
-        this.getSelectedUserConversations(this.selecetedId)
+        this.getSelectedUserConversations(this.selectedId);
       }else{
         this.testing = true
       }
@@ -685,6 +685,12 @@ export default {
         } else {
           // console.log("message is reducing...");
           this.disabled = true;
+        }
+      },
+      messages: {
+        handler: function() {
+          this.fetchAllMessages();
+        this.getSelectedUserConversations(this.selecetedId);
         }
       }
     },
