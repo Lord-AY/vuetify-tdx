@@ -792,7 +792,7 @@
                 <div class="template-icons" style="margin-bottom: 5px;">
                   <div class="icon-box-icon flaticon-location"></div>
                   <div class="class-name">
-                    3225 West Olympic Boulevard, Los Angeles, CA, United States
+                    {{ product.seller.address }}
                   </div>
                 </div>
               </div>
