@@ -594,7 +594,7 @@ export default {
     ]),
     scrollToElement() {
       const el = this.$el.querySelector('.messages');
-      console.log("i am meant to scoll to last" + el)
+      // console.log("i am meant to scoll to last" + el)
       if (el) {
         el[el.length - 1].scrollHeight;
       }

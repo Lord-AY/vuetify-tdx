@@ -301,7 +301,7 @@ export default {
   },
   created() {
     this.getUserReferees().then(data => {
-        console.log(this.getReferee);
+        // console.log(this.getReferee);
         this.myreferals = this.getReferee;
     });
     // console.log(this.getUser);
