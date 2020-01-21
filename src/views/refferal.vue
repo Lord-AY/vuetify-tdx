@@ -31,19 +31,24 @@
                           class="form-control search-input"
                           name="search_title"
                           value
-                          placeholder="Search Inventory"
+                          placeholder="Search referal"
+                          v-model="search_input"
+                          @keyup.enter="getUserReferees()"
                         />
-                        <input
+<!--                         <input
                           type="hidden"
                           name="page-type"
                           value="published-ads"
+                          v-model="search_input"
+                          @keyup.enter="getUserReferees()"
                         />
-                      </div>
+ -->                  </div>
                       <div class="form-group">
                         <button
                           type="submit"
                           class="btn btn-theme"
                           style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
+                          @click.prevent="getUserReferees()"
                         >
                           Search
                         </button>
@@ -76,18 +81,18 @@
                   <table class="table dashboard-table table-fit">
                     <thead>
                       <tr>
-                        <th>Referral id</th>
-                        <th>detail</th>
-                        <th>Platform</th>
+                        <th> S/N</th>
+                        <th>detail</th> 
+                        <th>referal id</th>
                         <!-- <th> Views</th> -->
-                        <th>action</th>
+                        <!-- <th>referal id</th> -->
                       </tr>
                     </thead>
                     <tbody>
                       <!-- <tr> <td colspan="5"><h4> no Inventory found</h4></td> </tr> -->
-                      <tr>
+                      <tr v-for="(referal, index) in filteredRow" :key="index">
                         <td>
-                          12bs2
+                          {{index}}
                           <!-- <span class="ad-image">
                           <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"><img src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg" alt="na me" class="img-responsive"></a>                                     </span>-->
                         </td>
@@ -95,10 +100,10 @@
                           <a
                             href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
                           >
-                            <span class="ad-title">Ade Johnson</span>
+                            <span class="ad-title">{{referal.firstname}} {{referal.lastname}}</span>
                           </a>
                           <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3, 2019
+                            <i class="la la-calendar-o"></i> {{ format_date(referal.createdAt) }}
                           </span>
                           <!-- <span class="pending-post-msg"> <i class="fa fa-warning"></i> 
                           Your post is under review                                    </span>-->
@@ -106,38 +111,12 @@
                         <td>
                           <span class="ad-cats">
                             <span class="padding_cats">
-                              <a
-                                href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                                >Whatsapp</a
-                              >
+                              https://www.tradexplora.com/dist/#/register/{{ referal.referalId }}
                             </span>
                             <span class="padding_cats"></span>
                           </span>
                         </td>
                         <!-- <td>0</td> -->
-                        <td>
-                          <span class="ad-actions">
-                            <ul class="nav navbar-nav">
-                              <!-- <li>
-                                                <a class="protip" data-pt-title=" Edit Ad" data-pt-position="top" data-pt-scheme="dark-transparent" data-pt-size="small" href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741" data-adid="3741"> <i class="la la-edit"></i></a>
-                              </li>-->
-                              <li>
-                                <a
-                                  class="protip delete_ad"
-                                  data-pt-title=" Delete Ad"
-                                  data-pt-position="top"
-                                  data-pt-scheme="dark-transparent"
-                                  data-pt-size="small"
-                                  href="javascript:void(0);"
-                                  data-adid="3741"
-                                  style="color: red;"
-                                >
-                                  <i class="la la-trash"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </span>
-                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -276,35 +255,57 @@ require("../../public/assets/css/components.css");
 
 import { mapActions, mapGetters } from "vuex";
 import dsidebar from "@/components/Dsidebar";
+import moment from "moment";
 // import dheader from "@/components/Dheader";
 export default {
   name: "referals",
   data() {
     return {
+      myreferals : [],
+      search_input: ''
     };
   },
   components: {
     dsidebar
   },
   computed: {
-    ...mapGetters("auth", ["loading", "errors", "getReferee", "getUser"])
+    ...mapGetters("auth", ["loading", "errors", "getReferee", "getUser"]),
+    filteredRow: function(){
+      return this.myreferals.filter((row) => {
+        for(var key in row){
+          if(String(row[key]).indexOf(this.search_input) !== -1){
+            return true;
+          }
+        }
+        return false;
+      });
+    }
   },
   methods: {
     ...mapActions("auth", ["fetchUserReferee"]),
-    getUserReferees() {
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    async getUserReferees() {
       const payload = {
-        refcode: this.getUser.referalId
+        refcode: this.getUser.id
       };
       // console.log(payload);
-      this.getReferee(payload);
+      await this.fetchUserReferee(payload);
     },
   },
   watch: {
     $route: "sync",
   },
   created() {
-    console.log(this.getUser);
-    // this.getUserReferees();
+    this.getUserReferees().then(data => {
+        console.log(this.getReferee);
+        this.myreferals = this.getReferee;
+    });
+    // console.log(this.getUser);
+    
   },
 
 };
