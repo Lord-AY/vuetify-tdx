@@ -623,6 +623,8 @@ export default {
         this.message = null;
         this.fetchAllMessages();
         this.getSelectedUserConversations(this.selectedId);
+        let at = this;
+        setTimeout(function() {at.getSelectedUserConversations(at.selectedId);}, 2000);
       }else{
         this.testing = true
       }
