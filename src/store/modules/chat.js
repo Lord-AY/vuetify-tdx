@@ -3,65 +3,50 @@ import UserService from "@/services/UserService";
 export default {
 	namespaced: true,
 	state: {
-		messagesTo: {},
-		messagesFrom: {},
-		sentOfferUsers: null,
-		recievedOfferUsers: null,
+		messages: null,
 		errors: null,
 		success: null
 	},
 	getters: {
-		getMessagesUserTo(state, getters, rootState) {
+		getUserMessages(state, getters, rootState) {
 			// console.log(rootState);
-			let filteredSentMessageUsers = [];
-			let toUsers = [];
-			let messagesTo = state.messagesFrom;
-			// console.log(messagesTo);
-			if (messagesTo !== null && messagesTo !== undefined) {
-				for (let message in messagesTo) {
+			let filteredUserMessages = [];
+			let messages = state.messages;
+			// console.log(messages);
+			if (messages !== null && messages !== undefined) {
+				for (let message in messages) {
 					// get users id loggedin user sent messages to
-					if (rootState.auth.user.id == messagesTo[message].from) {
-						toUsers.push(messagesTo[message].to);
+					if (rootState.auth.user.id == messages[message].senderId || rootState.auth.user.id == messages[message].recieverId) {
+						filteredUserMessages.push(messages[message]);
 					}
 				}
-				// filter ids to be unique
-				filteredSentMessageUsers = ash.sortedUniq(toUsers);
-				console.log(filteredSentMessageUsers);
-				return filteredSentMessageUsers;
-			}
+				return filteredUserMessages;
+			};
 			return;
 		},
-		getMessagesUserFrom(state, getters, rootState) {
-			let filteredMessagesSent = [];
-			let fromUsers = [];
-			let messagesTo = state.messagesTo;
-			// console.log(messagesTo);
-			if (messagesTo !== null && messagesTo !== undefined) {
-				for (let message in messagesTo) {
-					// get user id loggedin user recieved messages from
-					if (rootState.auth.user.id == messagesTo[message].to) {
-						fromUsers.push(messagesTo[message].from);
-					}
-				}
-				// filter ids to be unique
-				filteredMessagesSent = ash.sortedUniq(fromUsers);
-				console.log(filteredMessagesSent);
-				return filteredMessagesSent;
-			}
-			return;
-		},
-		userSentOffers(state) {
-			if(state.sentOfferUsers !== null && state.sentOfferUsers !== undefined) {
-				return state.sentOfferUsers;
-			}
-			return null;
-		},
-		userRecievedOffers(state) {
-			if(state.recievedOfferUsers !== null && state.recievedOfferUsers !== undefined) {
-				return state.recievedOfferUsers;
-			}
-			return null;
-		},
+	sentOfferUsers(state, getters, rootState) {
+      let messages = state.messages;
+      let loggedInUser = rootState.auth.user.id;
+      let sentOfferUsers = [];
+      for(var i = 0, length3 = messages.length; i < length3; i++){
+        if(loggedInUser == messages[i].senderId) {
+        	sentOfferUsers.push(messages[i]);
+        }
+      };
+      return sentOfferUsers;
+    },
+    recievedOfferUsers(state, getters, rootState) {
+      let messages = state.messages;
+      // console.log(messages);
+      let loggedInUser = rootState.auth.user.id;
+      let recievedOfferUsers = [];
+      for(var i = 0, length3 = messages.length; i < length3; i++){
+        if(loggedInUser == messages[i].recieverId) {
+        	recievedOfferUsers.push(messages[i]);
+        }
+      };
+      return recievedOfferUsers;
+    },
 		getErrors(state) {
 			if (state.errors !== null && state.errors !== undefined) {
 				return state.errors;
@@ -97,7 +82,8 @@ export default {
 					recieverId: payload.recieverId,
 					recieverName: payload.recieverName,
 					recieverAvatar: payload.recieverAvatar,
-					message: payload.message
+					message: payload.message,
+					createdAt: new Date()
 				})
 				.then(({ data }) => {
 					commit("auth/SET_LOADING", false, { root: true });
@@ -109,127 +95,37 @@ export default {
 				.catch(error => {
 					commit("auth/SET_LOADING", false, { root: true });
 					// console.log(error.response.data);
-					commit("SET_ERRORS", error);
+					commit("SET_ERRORS", error.response.data);
 				});
 			}).catch(error => {
 					commit("SET_ERRORS", error);
 			});
 		},
-		async fetchUserMessagesto({ commit, rootState }) {
+		async fetchMessages({ commit, rootState }) {
 			commit("auth/SET_LOADING", true, { root: true });
 			commit("SET_SUCCESS_MSG", null);
 			commit("SET_ERRORS", null);
-			let fetchedMessagesTo = [];
-			let users = chatDb
-				.collection("chat")
-				.where("to", "==", rootState.auth.user.id)
-				.orderBy("createdAt");
-				await users.onSnapshot((snapshot) => {
-		          snapshot.forEach((userDoc) => {
+			let fetchedMessages = [];
+			let users = chatDb.collection("chat").orderBy('createdAt');
+				await users.onSnapshot(snapshot => {
+		          snapshot.forEach(doc => {
  				  		// let doc = userDoc.doc;
-						fetchedMessagesTo.push(userDoc.data());
+ 				  		// console.log(doc.data());
+						fetchedMessages.push(doc.data());
 				  });
 		        });
 
-			await Promise.all(fetchedMessagesTo);
-			// console.log(fetchedMessagesTo)
+			await Promise.all(fetchedMessages);
+			commit("SET_MESSAGES", fetchedMessages);
 			commit("auth/SET_LOADING", false, { root: true });
 			commit("SET_SUCCESS_MSG", null);
 			commit("SET_ERRORS", null);
-			commit("SET_MESSAGES_TO", fetchedMessagesTo);
-		},
-		// async fetchUserMessagesfrom({ commit, rootState }) {
-		// 	let fetchedMessagesFrom = [];
-
-		// 	let users = await chatDb
-		// 		.collection("chat")
-		// 		.where("from", "==", rootState.auth.user.id)
-		// 		.orderBy("createdAt")
-		// 		.get();
-		// 	users.forEach(userDoc => {
-		// 		fetchedMessagesFrom.push(userDoc.data());
-		// 	});
-
-		// 	await Promise.all(fetchedMessagesFrom);
-		// 	// console.log(fetchedMessagesTo)
-		// 	commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
-		// },
-		async fetchUserMessagesfrom({ commit, rootState }) {
-			let fetchedMessagesFrom = [];
-
-			let users = chatDb
-				.collection("chat")
-				.where("from", "==", rootState.auth.user.id)
-				.orderBy("createdAt");
-
-				await users.onSnapshot((snapshot) => {
-		          snapshot.forEach((userDoc) => {
- 				  		// let doc = userDoc.doc;
-						fetchedMessagesFrom.push(userDoc.data());
-				  });
-		        })
-
-			await Promise.all(fetchedMessagesFrom);
-			// console.log(fetchedMessagesTo)
-			commit("SET_MESSAGES_FROM", fetchedMessagesFrom);
-		},
-		getSentOfferUsers({ commit, rootState }, payload) {
-			commit("auth/SET_LOADING", true, { root: true });
-			commit("SET_SUCCESS_MSG", null);
-			commit("SET_ERRORS", null);
-			console.log("got to this action");
-			let fullUsersArray = [];
-			// console.log(payload);
-			commit("auth/SET_LOADING", true, { root: true });
-			// get all user details the loggedin user sent messages to...
-			for (let i = 1; payload.length < i; i++) {
-				console.log(payload[i]);
-				// console.log(FilteredMessageRecievers[userId]);
-				UserService.user(payload[i])
-					.then(({ data }) => {
-						commit("auth/SET_LOADING", false, { root: true });
-						fullUsersArray.push(data);
-						commit("SET_SENT_OFFERS", fullUsersArray);
-						// console.log(fullUsersArray);
-					})
-					.catch(() => {
-						commit("auth/SET_LOADING", false, { root: true });
-						commit("SET_ERRORS", "Network Error, Couldn connect to server");
-					});
-			}
-		},
-		getRecievedOfferUsers({ commit }, payload) {
-			commit("auth/SET_LOADING", true, { root: true });
-			commit("SET_SUCCESS_MSG", null);
-			commit("SET_ERRORS", null);
-			console.log("got to this action");
-			let fullUsersArray = [];
-			console.log(payload);
-			commit("auth/SET_LOADING", true, { root: true });
-			// get all user details the loggedin user sent messages to...
-			for (let userId in payload) {
-				// console.log(payload);
-				// console.log(FilteredMessageRecievers[userId]);
-				UserService.user(payload[userId])
-					.then(({ data }) => {
-						commit("auth/SET_LOADING", false, { root: true });
-						fullUsersArray.push(data);
-						commit("SET_RECIEVED_OFFERS", fullUsersArray);
-						// console.log(fullUsersArray);
-					})
-					.catch(() => {
-						commit("auth/SET_LOADING", false, { root: true });
-						commit("SET_ERRORS", "Network Error, Couldn connect to server");
-					});
-			}
+			// console.log(rootState.chat.messages);
 		}
 	},
 	mutations: {
-		SET_MESSAGES_TO(state, to) {
-			state.messagesTo = to;
-		},
-		SET_MESSAGES_FROM(state, from) {
-			state.messagesFrom = from;
+		SET_MESSAGES(state, data) {
+			state.messages = data;
 		},
 		SET_SUCCESS_MSG(state, success) {
 			state.success = success;
@@ -237,11 +133,5 @@ export default {
 		SET_ERRORS(state, errors) {
 			state.errors = errors;
 		},
-		SET_SENT_OFFERS(state, data) {
-			state.sentOfferUsers = data;
-		},
-		SET_RECIEVED_OFFERS(state, data) {
-			state.recievedOfferUsers = data;
-		}
 	}
 };

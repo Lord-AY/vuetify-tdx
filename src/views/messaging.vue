@@ -123,14 +123,14 @@
                                         <a
                                           @click.prevent="
                                             getSelectedUserConversations(
-                                              user.id
+                                              user.senderId
                                             )
                                           "
                                         >
                                           <div class="image img-square">
                                             <img
                                               :src="
-                                                `https://www.tradexplora.com.ng/media/${user.pictureUrl}`
+                                                `https://www.tradexplora.com.ng/media/${user.senderAvatar}`
                                               "
                                               alt=""
                                             />
@@ -138,8 +138,7 @@
                                           <div class="user-name">
                                             <div class="author">
                                               <span
-                                                >{{ user.firstname }}
-                                                {{ user.lastname }}</span
+                                                >{{ user.senderName }}</span
                                               >
                                               <div class="user-status"></div>
                                             </div>
@@ -172,14 +171,14 @@
                                           href="#"
                                           @click.prevent="
                                             getSelectedUserConversations(
-                                              user.id
+                                              user.recieverId
                                             )
                                           "
                                         >
                                           <div class="image img-square">
                                             <img
                                               :src="
-                                                `https://www.tradexplora.com.ng/media/${user.pictureUrl}`
+                                                `https://www.tradexplora.com.ng/media/${user.recieverAvatar}`
                                               "
                                               alt=""
                                             />
@@ -187,8 +186,7 @@
                                           <div class="user-name">
                                             <div class="author">
                                               <span
-                                                >{{ user.firstname }}
-                                                {{ user.lastname }}</span
+                                                >{{ user.recieverName }}</span
                                               >
                                               <div class="user-status"></div>
                                             </div>
@@ -244,7 +242,7 @@
                                 <ul class="messages" style="overflow-y: auto; max-height: 400px;" v-chat-scroll>
                                   <li
                                     class="friend-message clearfix"
-                                    v-for="(message, index) in messages"
+                                    v-for="(message, index) in recievedMessages"
                                     :key="index"
                                   >
                                     <!--  <figure class="profile-picture">
@@ -264,7 +262,7 @@
                                   </li>
                                   <li
                                     class="my-message clearfix"
-                                    v-for="(message, index) in loggedInmessages"
+                                    v-for="(message, index) in sentMessages"
                                     :key="index"
                                   >
                                     <!-- <figure class="profile-picture">
@@ -307,7 +305,7 @@
                                   <div class="form-group">
                                     <input
                                       style="width: 100%"
-                                      @keyup.enter="sendNewMessage"
+                                      @keydown.enter="sendNewMessage"
                                       @keydown.space="preventLeadingSpace"
                                       placeholder="Type a message here..."
                                       v-model="message"
@@ -529,8 +527,8 @@ export default {
   name: "messaging",
   data() {
     return {
-      loggedInmessages: [],
-      messages: [],
+      sentMessages: [],
+      recievedMessages: [],
       message: '',
       showMessage: false,
       selectedId: null,
@@ -540,7 +538,7 @@ export default {
       tab2: true,
       tab3: false,
       isValidationAllowed: false,
-      testing: false
+      testing: false,
     };
   },
   components: {
@@ -549,7 +547,8 @@ export default {
   computed: {
     unique() {
       if(this.recievedOfferUsers !== null && this.recievedOfferUsers !== undefined) {
-      return this.userRecievedOffers.reduce((seed, current) => {
+        // console.log(this.recievedOfferUsers);
+      return this.recievedOfferUsers.reduce((seed, current) => {
         return Object.assign(seed, {
           [current.id]: current
         });
@@ -558,12 +557,13 @@ export default {
     return 0;
   },
     unique2() {
-      if(this.userSentOffers !== null && this.userSentOffers !== undefined) {
-        console.log("inside unique two");
-        // for(let i in this.userSentOffers){
-        //   console.log(this.userSentOffers[i]);
+      if(this.sentOfferUsers !== null && this.sentOfferUsers !== undefined) {
+        // console.log("inside unique two");
+        // for(let i in this.sentOfferUsers){
+        //   console.log(this.sentOfferUsers[i]);
         // }
-      return this.userSentOffers.reduce((seed, current) => {
+        // console.log(this.sentOfferUsers);
+      return this.sentOfferUsers.reduce((seed, current) => {
         return Object.assign(seed, {
           [current.id]: current
         });
@@ -574,27 +574,14 @@ export default {
   validated() {
     return this.isValidationAllowed && !this.message
   },
-    ...mapGetters("chat", [
-      "getMessagesUserFrom",
-      "getMessagesUserTo",
-      "userSentOffers",
-      "userRecievedOffers"
-    ]),
     ...mapGetters("auth", ["getUser"]),
-    ...mapState("chat", [
-      "messagesFrom",
-      "messagesTo",
-      "recievedOfferUsers",
-      "sentOfferUsers"
-    ])
+    ...mapGetters("chat", ["sentOfferUsers", "recievedOfferUsers"]),
+    ...mapState("chat", ["messages"])
   },
   methods: {
     ...mapActions("chat", [
       "sendMessage",
-      "fetchUserMessagesto",
-      "fetchUserMessagesfrom",
-      "getRecievedOfferUsers",
-      "getSentOfferUsers",
+      "fetchMessages",
       "getAll"
     ]),
     scrollToElement() {
@@ -610,13 +597,9 @@ export default {
     noMessages() {
       // console.log(this.messagesFrom);
       // console.log(this.messagesTo);
-      if(this.messagesFrom.length == 0 && this.messagesTo.length == 0) {
-        // console.log(this.messagesFrom);
-        // console.log(this.messagesTo);
+      if(this.messages.length !== 0 && this.messages.length !== null ) {
          this.showMessage = true;
-        console.log("returned true");
       } else {
-      console.log("returned false");
       this.showMessage = false;
     }
     },
@@ -624,7 +607,7 @@ export default {
       // only prevent the keypress if the value is blank
       if (!e.target.value) e.preventDefault();
       // otherwise, if the leading character is a space, remove all leading white-space
-      else if (e.target.value[0] == " ")
+       else if (e.target.value[0] == " ")
         e.target.value = e.target.value.replace(/^\s*/, "");
     },
     sendNewMessage() {
@@ -633,87 +616,48 @@ export default {
           message: this.message,
           recieverId: this.selectedId,
           senderId: this.getUser.id,
-          senderName: this.getUser.name,
+          senderName: this.getUser.firstname + " " + this.getUser.lastname,
           senderAvatar: this.getUser.pictureUrl
         };
         this.sendMessage(payload);
         this.message = null;
         this.fetchAllMessages();
-        this.getSentWithRecievedOfferUsers();
-        this.getSelectedUserConversations(this.selectedId);
-        // this.scrollToElement();
+        this.getSelectedUserConversations(this.selecetedId)
       }else{
         this.testing = true
       }
     },
-    fetchAllMessages() {
-      this.fetchUserMessagesto();
-      this.fetchUserMessagesfrom();
-    },
-    getSentWithRecievedOfferUsers() {
-      // user ids loggedin user sent messages to
-      const toMessagePayload = this.getMessagesUserTo;
-      // user ids loggedin user recieved messages from
-      const fromMessagePayload = this.getMessagesUserFrom;
-      // console.log(this.getMessagesUserTo);
-      // console.log(this.getMessagesUserFrom);
-      this.getSentOfferUsers(toMessagePayload);
-      this.getRecievedOfferUsers(fromMessagePayload);
+   async fetchAllMessages() {
+     await this.fetchMessages();
     },
     getSelectedUserConversations(userId) {
-      const fromMessages = this.messagesFrom;
-      const toMessages = this.messagesTo;
-      this.messages = [];
+      let stateMessages = this.messages;
       this.selectedUser = [];
-      this.loggedInmessages = [];
+      this.recievedMessages = [];
+      this.sentMessages = [];
       this.selectedId = userId;
-      // merge user details arrays
-      let fm = JSON.parse(JSON.stringify(this.sentOfferUsers));
-      let tm = JSON.parse(JSON.stringify(this.recievedOfferUsers));
-      let allUsers = Object.assign({}, fm, tm);
-      for (let user in allUsers) {
+      for (let user in stateMessages) {
         // loop through to get selected user.
         // if statement checks for the id and makes sure the selected user is empty.
         // before looping and adding new seleceted user to prevent duplicate users
-        if (allUsers[user].id == userId && ash.isEmpty(this.selectedUser)) {
+        if (stateMessages[user].senderId == userId || stateMessages[user].recieverId == userId  && ash.isEmpty(this.selectedUser)) {
           this.selectedUser.push({
-            name: allUsers[user].firstname + "  " + allUsers[user].lastname,
-            avatar: allUsers[user].pictureUrl
+            name: stateMessages[user].sernderName || stateMessages[user].recieverName,
+            avatar: stateMessages[user].senderAvatar || stateMessages[user].recieverAvatar
           });
         }
       }
       // loop through from messages,
-      for (let message in fromMessages) {
+      for (let message in stateMessages) {
         // get messages logged in user sent to other chat user
-        if (
-          this.getUser.id == fromMessages[message].from &&
-          userId == fromMessages[message].to
-        ) {
-          this.loggedInmessages.push(fromMessages[message]);
+        if (this.getUser.id == stateMessages[message].senderId && userId == stateMessages[message].recieverId) {
+          this.sentMessages.push(stateMessages[message]);
+        };
+        if (this.getUser.id == stateMessages[message].recieverId && userId == stateMessages[message].senderId) {
+          this.recievedMessages.push(stateMessages[message]);
         }
       }
-      for (let chat in toMessages) {
-        // get messages sent to logged in user
-        if (
-          this.getUser.id == toMessages[chat].to &&
-          userId == toMessages[chat].from
-        ) {
-          this.messages.push(toMessages[chat]);
-        }
-      }
-      // this.scrollToElement();
     },
-    // getAllMessages() {
-    //   const fromMessagePayload = this.messagesFrom;
-    //   const toMessagePayload = this.messages;
-    //   let fm =JSON.parse(JSON.stringify(fromMessagePayload));
-    //   let tm = JSON.parse(JSON.stringify(toMessagePayload));
-    //   const allMessages  = Object.assign({}, fm, tm);
-    //   // console.log(this.getMessagesFrom);
-    //   // console.log(this.getMessagesTo);
-    //   this.messages = allMessages;
-    //   console.log(this.messages);
-    // },
     toggle(param) {
       // console.log(param)
       if (param == "all") {
@@ -759,13 +703,9 @@ export default {
 
   },
   created() {
-    this.fetchAllMessages();
-    // this.getSentWithRecievedOfferUsers();
-    // this.getSelectedUserConversations(this.selectedId);
-    // this.getSentOfferUsers();
-    // console.log(this.userRecievedOffers);
-    // console.log(this.userSentOffers)
+    this.fetchAllMessages().then(data => {
     this.noMessages();
+    });
     // this.getAllMessages();
   }
 };
