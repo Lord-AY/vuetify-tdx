@@ -807,7 +807,7 @@
                       ><span>Click to View</span></div
                     >
                   </h5>
-                  <h2 v-if="showDetails" style="color: #4baf50; margin-top: 1px; " @click="showDetails = !showDetails">{{ product.seller.phone }}</h2>
+                  <h2 v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600;" @click="showDetails = !showDetails">{{ product.seller.phone }}</h2>
                 </div>
               </div>
               <div class="additional-btns">
