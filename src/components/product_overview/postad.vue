@@ -182,6 +182,27 @@
                                   </label>
                                 </div>
                               </div>
+                              <div class="row form-group-tx form-group" v-show="categoryInputFields.length > 0 && categoryInputFields[0] !== ''">
+                              <div class="col-md-12 col-sm-12 col-lg-12" v-for="(field, index) in categoryInputFields" :key="index">
+                                <label class="form-label text-dark"
+                                  >{{field}}</label
+                                >
+                                <div class="radio">
+                                  <input
+                                    type="text"
+                                    class="form-control post-ad-input"
+                                    :class="
+                                      dbErrors && dbErrors.name
+                                        ? 'is-invalid'
+                                        : ''
+                                    "
+                                    placeholder="Ad title"
+                                    v-model="ads.name"
+                                    required
+                                  />
+                                </div>
+                              </div>
+                            </div>
                             </div>
                             <!-- Extra fields for category-->
                             <div class="row form-group-tx form-group">
@@ -1515,7 +1536,8 @@ export default {
       isHidden: false,
       selectedCategory: null,
       currentSubCategory: [],
-      categoryFields: []
+      categoryFields: [],
+      categoryInputFields: [],
     };
   },
   props: {
@@ -1582,8 +1604,13 @@ export default {
       this.categoryFields = [];
       for(let i in categories) {
         if(this.selectedCategory == categories[i].id) {
-          const fieldsArr = ash.split(categories[i].fields, ",", 10);
+          const fieldsArr = ash.split(categories[i].checkFields, ",", 10);
           this.categoryFields = fieldsArr;
+          // console.log(this.categoryFields);
+        }
+        if(this.selectedCategory == categories[i].id) {
+          const fieldsArr = ash.split(categories[i].inputFields, ",", 10);
+          this.categoryInputFields = fieldsArr;
           // console.log(this.categoryFields);
         }
       }
