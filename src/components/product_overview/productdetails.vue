@@ -807,7 +807,7 @@
                       ><span>Click to View</span></div
                     >
                   </h5>
-                  <h2 v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600;" @click="showDetails = !showDetails">{{ product.seller.phone }}</h2>
+                  <h2 v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600; cursor: pointer;" @click="showDetails = !showDetails">{{ product.seller.phone }}</h2>
                 </div>
               </div>
               <div class="additional-btns">
@@ -840,9 +840,20 @@
                   </h5>
                 </div>
               </div>
+               <div v-if="!isLoggedIn">
+                  <router-link to="/login">
+                    <div
+                      class="btn btn-block btn-primary contact-seller cusbutton"
+                      style="border-radius:0px; font-size: 20px;"
+                    >
+                      <i class="fa fa-commenting-o"></i> Chat With Seller
+                    </div>
+                  </router-link>
+                </div>
               <div
                 class="category-list-title"
                 style="padding: 0;"
+                v-if="isLoggedIn"
               >
                 <!-- Email Button trigger modal -->
                 <div v-if="!isHidden">
@@ -1186,7 +1197,8 @@ export default {
         ? this.productcomment.slice(0, this.limit2)
         : this.productcomment;
     },
-    ...mapGetters("chat", ["getErrors", "getSuccess"])
+    ...mapGetters("chat", ["getErrors", "getSuccess"]),
+    ...mapGetters("auth", ["isLoggedIn"])
   },
   watch: {
     $route: "sync",
