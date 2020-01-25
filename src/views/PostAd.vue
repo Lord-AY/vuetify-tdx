@@ -51,6 +51,7 @@ export default {
         creator: "",
         price: null,
         amount: null,
+        address:  null,
         negotiable: false,
         subcategory: null,
         featured: false,
@@ -71,7 +72,7 @@ export default {
   computed: {
     ...mapState("product", ["categories"]),
     ...mapGetters("product", ["getErrors", "getSuccess", "subcategories"]),
-    ...mapGetters("auth", ["loading"])
+    ...mapGetters("auth", ["loading", "getUser"])
   },
   methods: {
     ...mapActions("product", ["createProduct", "fetchSubCategories"]),
@@ -119,6 +120,8 @@ export default {
   created() {
     this.sync();
     this.watchCountries();
+    this.ads.address = this.getUser.address;
+    console.log(this.getUser.address);
     // console.log(!!this.itemsExists);
   }
 };

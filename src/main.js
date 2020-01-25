@@ -7,6 +7,8 @@ import Notifications from "vue-notification";
 import firebase from "firebase";
 import Clipboard from 'v-clipboard';
 import VueChatScroll from 'vue-chat-scroll';
+import Vue2Filters from 'vue2-filters';
+
 
 require("firebase/firestore");
 var SocialSharing = require('vue-social-sharing');
@@ -35,6 +37,8 @@ Vue.use(Notifications);
 Vue.use(Clipboard)
 Vue.use(SocialSharing);
 Vue.use(VueChatScroll);
+Vue.use(Vue2Filters);
+
 export const bus = new Vue();
 sync(store, router);
 new Vue({

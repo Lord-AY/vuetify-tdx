@@ -41,7 +41,7 @@
           </div>
           <div class="col-md-4 col-sm-4 detail_price col-xs-12">
             <div class="singleprice-tag">
-              NGN {{ product.amount }}
+               {{ product.amount |  currency }}
               <span class="">(Negotiable)</span>
             </div>
           </div>
@@ -72,7 +72,7 @@
 
               <!-- Heading Area -->
               <div class="key-features">
-                <div class="boxicon">
+                <div class="boxicon" v-for="(field,index) in singleCart" :key="index">
                   <a
                     data-Limit="tooltip"
                     data-placement="bottom"
@@ -80,73 +80,7 @@
                     href="javascript:void(0)"
                   >
                     <i class="flaticon-gas-station-1 petrol"></i>
-                    <p>Petrol</p>
-                  </a>
-                </div>
-                <div class="boxicon">
-                  <a
-                    data-Limit="tooltip"
-                    data-placement="bottom"
-                    title="Mileage"
-                    href="javascript:void(0)"
-                  >
-                    <i class="flaticon-dashboard-1 kilo-meter"></i>
-                    <p>1,694 Km</p>
-                  </a>
-                </div>
-                <div class="boxicon">
-                  <a
-                    data-Limit="tooltip"
-                    data-placement="bottom"
-                    title="Engine Capacity"
-                    href="javascript:void(0)"
-                  >
-                    <i class="flaticon-tool engile-capacity"></i>
-                    <p>3000</p>
-                  </a>
-                </div>
-                <div class="boxicon">
-                  <a
-                    data-Limit="tooltip"
-                    data-placement="bottom"
-                    title="Year"
-                    href="javascript:void(0)"
-                  >
-                    <i class="flaticon-calendar reg-year"></i>
-                    <p>2017</p>
-                  </a>
-                </div>
-                <div class="boxicon">
-                  <a
-                    data-Limit="tooltip"
-                    data-placement="bottom"
-                    title="Transmission Type"
-                    href="javascript:void(0)"
-                  >
-                    <i class="flaticon-gearshift transmission"></i>
-                    <p>Automatic</p>
-                  </a>
-                </div>
-                <div class="boxicon">
-                  <a
-                    data-Limit="tooltip"
-                    data-placement="bottom"
-                    title="Body Type"
-                    href="javascript:void(0)"
-                  >
-                    <i class="flaticon-transport-1 body-type"></i>
-                    <p>Sedan</p>
-                  </a>
-                </div>
-                <div class="boxicon">
-                  <a
-                    data-Limit="tooltip"
-                    data-placement="bottom"
-                    title="Color Family"
-                    href="javascript:void(0)"
-                  > 
-                    <i class="flaticon-cogwheel-outline car-color"></i>
-                    <p>Blue</p>
+                    <p>{{field}}</p>
                   </a>
                 </div>
               </div>
@@ -1025,6 +959,7 @@ export default {
       tab3: false,
       tab4: false,
       showDetails: false,
+      singleCart: null
     };
   },
   components: {
@@ -1034,7 +969,8 @@ export default {
     product: Object,
     similarprods: [Object, Array],
     getUser: [Object, Array],
-    productcomment: Object
+    productcomment: Array,
+    fsingleCategory: Object,
   },
   methods: {
     ...mapActions("chat", ["sendMessage"]),
@@ -1052,6 +988,10 @@ export default {
       } else {
         return false;
       }
+    },
+    formatPrice(value) {
+        let val = (value/1).toFixed(2).replace('.', ',')
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
     },
      sendSellerMessage() {
       if(this.message){
@@ -1226,6 +1166,10 @@ export default {
     }
   },
   created() {
+    // console.log(this.fsingleCategory);
+    // array1.concat(array2)
+    this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
+    console.log(this.singleCart);
     this.sync();
   }
 };

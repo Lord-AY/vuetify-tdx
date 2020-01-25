@@ -674,6 +674,29 @@
                             </div>
 
                             <div class="row form-group-tx form-group">
+                              <div class="col-md-12 col-sm-12 col-lg-12">
+                                <label class="form-label text-dark"
+                                  >Address</label
+                                >
+                                <textarea
+                                  class="form-control"
+                                  :class="
+                                    dbErrors && dbErrors.description
+                                      ? 'is-invalid'
+                                      : ''
+                                  "
+                                  name="example-textarea-input"
+                                  rows="4"
+                                  placeholder="Write a short description about the item"
+                                  style="padding-top: 10px"
+                                  v-model="ads.address"
+                                  required
+                                ></textarea>
+                              </div>
+                            </div>
+
+
+                            <div class="row form-group-tx form-group">
                               <div class="col-md-12">
                                 <div
                                   class="p-2 border upload-image-box mb-4 form-group"
@@ -1533,7 +1556,8 @@ export default {
     document.head.appendChild(extScript);
   },
   computed: {
-    ...mapGetters("product", ["getErrors"])
+    ...mapGetters("product", ["getErrors"]),
+    ...mapGetters("auth", ["loading", "getUser"]),
   },
   methods: {
     ...mapActions("product", ["fetchSubCategories"]),
