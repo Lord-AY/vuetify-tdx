@@ -172,7 +172,7 @@
                                     <input
                                       type="checkbox"
                                       class="custom-control-input"
-                                      v-model="ads.field"
+                                      v-model="ads.checkFields"
                                     />
                                     <span
                                       class="custom-control-label text-dark pl-2"
@@ -191,13 +191,8 @@
                                   <input
                                     type="text"
                                     class="form-control post-ad-input"
-                                    :class="
-                                      dbErrors && dbErrors.name
-                                        ? 'is-invalid'
-                                        : ''
-                                    "
                                     placeholder="Ad title"
-                                    v-model="ads.name"
+                                    v-model="field.value"
                                     required
                                   />
                                 </div>
