@@ -10,7 +10,7 @@
           <div class="container">
             <!-- Row -->
             <div class="row">
-              <div class="col-md-12 col-lg-12 col-xs-12">
+              <div class="col-md-9 col-lg-9 col-xs-12">
                 <!-- Row -->
                 <div class="row">
                   <div class="clearfix"></div>
