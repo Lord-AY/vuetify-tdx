@@ -16,7 +16,8 @@ export default {
     similarProducts: [],
     success: null,
     errors: null,
-    singleCategory: null
+    singleCategory: null,
+    hotSellers: null
   },
   getters: {
     productListings(state) {
@@ -28,6 +29,12 @@ export default {
     getSingleCategory(state) {
       if (state.singleCategory !== null && state.singleCategory !== undefined) {
         return state.singleCategory;
+      }
+      return;
+    },    
+    getHotSellers(state) {
+      if (state.hotSellers !== null && state.hotSellers !== undefined) {
+        return state.hotSellers;
       }
       return;
     },
@@ -165,7 +172,7 @@ export default {
             "Network Error, Please make sure you are connected..."
           );
         });
-    },
+    }, 
     fetchAllCategories({ commit }) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
@@ -174,6 +181,21 @@ export default {
           //   console.log(data);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_CATEGORIES", data);
+        })
+        .catch(error => {
+          // console.log(error); 
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", "Network Error, error fetching ads categories");
+        });
+    },
+    fetchHotSellers({ commit }) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      return ProductService.hotsellers()
+        .then(({ data }) => {
+          //   console.log(data);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_HOT_SELLERS", data);
         })
         .catch(error => {
           // console.log(error); 
@@ -374,6 +396,9 @@ export default {
   mutations: {
     SET_PRODUCTS(state, data) {
       state.products = data;
+    },
+    SET_HOT_SELLERS(state, data) {
+      state.hotSellers = data;
     },
     SET_SINGLE_CATEGORIES(state, data) {
       state.singleCategory = data;

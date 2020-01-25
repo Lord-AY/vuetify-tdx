@@ -10,6 +10,9 @@ export default {
   categories() {
     return Api().get("product/categories");
   },
+  hotsellers() {
+    return Api().get("product/hotsellers");
+  },
   singleCategory(payload) {
     return Api().get(`product/categories/${payload.cid}`);
   },

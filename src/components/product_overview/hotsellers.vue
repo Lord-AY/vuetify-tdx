@@ -53,12 +53,12 @@
                 </div>
               </div>
             </div>
-
+ 
             <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
             <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
               <div class="short-feature-body">
                 <div class="featured-slider-1 owl-carousel owl-theme">
-                  <div class="item">
+                  <div class="item" v-for="(sellers, index) in hotsellers" :key="index">
                     <div
                       class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
                       id="holder-1554"
@@ -70,16 +70,25 @@
                         <div class="image-price">
                           <div class="image">
                             <a
-                              href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
+                              href="/#/"
                             >
                               <img
-                                src="@/assets/images/profile-5.jpg"
-                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
+                                v-if="sellers.avatar === null"
                                 class="img-responsive"
+                                alt="Avatar"
+                                src="https://www.tradexplora.com.ng/media/avatar.png"
+                              />
+                              <img
+                                v-else
+                                class="img-responsive"
+                                alt="Avatar"
+                                :src="sellers.avatar !== null ? `https://www.tradexplora.com.ng/media/${sellers.avatar}`
+                                : 'https://www.tradexplora.com.ng/media/avatar.png' "
                               />
                             </a>
 
-                            <div class="new-hot-sellers">new</div>
+                            <div class="new-hot-sellers" v-if="getdiff(sellers.createdAt) <  4">new</div>
+                            <!-- <div class="" v-else></div> -->
                           </div>
                         </div>
 
@@ -88,176 +97,8 @@
                         >
                           <div class="category-title-tx">
                             <p>
-                              Obed
+                              {{ sellers.name }}
                               <!--Nwankwo-->
-                            </p>
-                          </div>
-
-                          <div class="follow">
-                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div
-                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                      id="holder-81"
-                    >
-                      <div class="category-grid-box-1 category-grid-box-tx">
-                        <div class="hot-ribbon">
-                          <img src="@/assets/images/hoticonv2.png" />
-                        </div>
-                        <div class="image-price">
-                          <div class="image">
-                            <a
-                              href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                            >
-                              <img
-                                src="@/assets/images/profile-4.jpg"
-                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                                class="img-responsive"
-                              />
-                            </a>
-
-                            <div class="new-hot-sellers">new</div>
-                          </div>
-                        </div>
-
-                        <div
-                          class="short-description-1 hot-sellers-name-tx clearfix"
-                        >
-                          <div class="category-title-tx">
-                            <p>
-                              Justin
-                              <!--Peace-->
-                            </p>
-                          </div>
-
-                          <div class="follow">
-                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div
-                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                      id="holder-44"
-                    >
-                      <div class="category-grid-box-1 category-grid-box-tx">
-                        <div class="hot-ribbon">
-                          <img src="@/assets/images/hoticonv2.png" />
-                        </div>
-                        <div class="image-price">
-                          <div class="image">
-                            <a
-                              href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                            >
-                              <img
-                                src="@/assets/images/profile-3.jpg"
-                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                                class="img-responsive"
-                              />
-                            </a>
-
-                            <div class="new-hot-sellers">new</div>
-                          </div>
-                        </div>
-
-                        <div
-                          class="short-description-1 hot-sellers-name-tx clearfix"
-                        >
-                          <div class="category-title-tx">
-                            <p>
-                              Yusuff
-                              <!--Isa-->
-                            </p>
-                          </div>
-
-                          <div class="follow">
-                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div
-                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                      id="holder-1552"
-                    >
-                      <div class="category-grid-box-1 category-grid-box-tx">
-                        <div class="hot-ribbon">
-                          <img src="@/assets/images/hoticonv2.png" />
-                        </div>
-                        <div class="image-price">
-                          <div class="image">
-                            <a
-                              href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                            >
-                              <img
-                                src="@/assets/images/profile-2.jpg"
-                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                                class="img-responsive"
-                              />
-                            </a>
-
-                            <div class="new-hot-sellers">new</div>
-                          </div>
-                        </div>
-
-                        <div
-                          class="short-description-1 hot-sellers-name-tx clearfix"
-                        >
-                          <div class="category-title-tx">
-                            <p>
-                              Yemi
-                              <!--Olumide-->
-                            </p>
-                          </div>
-
-                          <div class="follow">
-                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div
-                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                      id="holder-54"
-                    >
-                      <div class="category-grid-box-1 category-grid-box-tx">
-                        <div class="hot-ribbon">
-                          <img src="@/assets/images/hoticonv2.png" />
-                        </div>
-                        <div class="image-price">
-                          <div class="image">
-                            <a
-                              href="../ad/2017-maserati-ghibli-sq4-blue-1695-miles-2/index.html"
-                            >
-                              <img
-                                src="@/assets/images/profile-1.jpg"
-                                alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"
-                                class="img-responsive"
-                              />
-                            </a>
-
-                            <div class="new-hot-sellers">new</div>
-                          </div>
-                        </div>
-
-                        <div
-                          class="short-description-1 hot-sellers-name-tx clearfix"
-                        >
-                          <div class="category-title-tx">
-                            <p>
-                              Esiri
-                              <!--Justice-->
                             </p>
                           </div>
 
@@ -280,8 +121,18 @@
 
 <script>
 /* eslint-disable no-undef */
+import ash from "lodash";
+import moment from "moment";
+
 export default {
   name: "hotsellers",
+  data() {
+    return {
+    };
+  },
+  props: {
+    hotsellers: Array
+  },
   methods: {
     sync() {
       $(document).ready(function() {
@@ -310,6 +161,21 @@ export default {
           }
         });
       });
+    },
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    daysago(dateago){
+      if (dateago){
+        return  moment.duration(moment().diff(dateago)).humanize() + " ago";
+      }
+    },
+    getdiff(ddate){
+      const diff = moment().diff(ddate, 'days');
+      console.log(diff);
+      return diff;
     }
   },
   watch: {
@@ -317,6 +183,7 @@ export default {
   },
   created() {
     this.sync();
+    console.log(this.hotsellers);
   }
 };
 </script>
