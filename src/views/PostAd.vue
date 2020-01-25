@@ -46,6 +46,8 @@ export default {
         name: "",
         photos: "",
         videos: [],
+        inputFields:[],
+        checkFields:[],
         region: "",
         currency: "Naira",
         creator: "",
