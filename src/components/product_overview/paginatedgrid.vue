@@ -317,7 +317,7 @@
                 <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
                 <div class="image">
                   <div class="hot-ribbon">
-                    <img src="@/assets/images/hot-deals.svg" />
+                    <img src="../../assets/images/hoticonv2.png" />
                   </div>
                   <router-link
                     :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
@@ -329,7 +329,14 @@
                     />
                   </router-link>
                   <div class="price-tag">
-                    <div class="price">
+                    <div class="camera">
+                      1 <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="video">
+                      2 <i class="fa fa-video-camera"></i>
+                    </div>
+                   
+                    <!-- <div class="price">
                       <span class="price-tag-tx">
                         &#8358; {{ product.amount }}
                         <span class v-if="product.negotiable"
@@ -337,16 +344,16 @@
                         >
                         <span class v-else>(Fixed)</span>
                       </span>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
                 <div class="short-description-1 clearfix">
                   <div class="category-title">
                     <span class="padding_cats">
-                      <router-link
+                      <!-- <router-link
                         :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                         >{{ product.category }}
-                      </router-link>
+                      </router-link> -->
                     </span>
                   </div>
                   <h3>
@@ -362,12 +369,19 @@
                       product.region
                     }}</a>
                   </p>
-                </div>
-                <div class="ad-info-1">
                   <p>
                     <i class="flaticon-calendar"></i> &nbsp;
                     <span>{{ format_date(product.createdAt) }}</span>
                   </p>
+                </div>
+                <div class="ad-info-1">
+                  <span class="price-tag-tx">
+                    &#8358; {{ product.amount  }}
+                    <span class v-if="product.negotiable"
+                      > (Negotiable)</span
+                    >
+                    <span class v-else> (Fixed)</span>
+                  </span>
                   <div class="icon-reveal mobile-hidden">
                     <a class="btn icon-reveal-btn">
                       <i class="fa fa-heart-o"></i>
@@ -649,7 +663,29 @@ button {
   border: none;
   cursor: pointer;
 }
+.price-tag {
+  display: flex;
+  margin-bottom: 8px;
+}
+.price-tag .video {
+  margin-right: 16px;
+  margin-left: 8px;
+}
+.price-tag-tx {
+    background-color: transparent!important;
+    display: flex;
+    justify-content: center;
+    color: rgb(76, 175, 80);
+    font-weight: 600;
+    line-height: 48px;
+    font-size: 16px;
+}
 
+.price-tag-tx span{
+    background-color: transparent!important;
+    margin-left: 4px;
+    
+}
 //----------  pagination
 //------------------------------------------------------------------------------
 .pagination-wrapper {
