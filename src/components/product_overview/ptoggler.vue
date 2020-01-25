@@ -11,10 +11,19 @@
               <li class="active">
                 <a
                   href="javascript:void(0)"
-                  style="background-color: #e0e0e0; color: #232323;"
+                  style="color: #232323;"
                 >
                   Found Ads
                   <small>(12)</small>
+                </a>
+              </li>
+              <li class="active">
+                <a
+                  href="javascript:void(0)"
+                  style="color: #232323;"
+                >
+                  Most viewed
+                  <small>(1,232)</small>
                 </a>
               </li>
             </ul>
@@ -112,6 +121,9 @@ i.grid {
 }
 .select2 .select2-container .select2-container--default {
   width: 160px!important;
+}
+.grid-list i {
+  font-size: 20px;
 }
 
 </style>
