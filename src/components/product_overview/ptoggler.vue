@@ -63,6 +63,7 @@
       <!-- Ads Archive End -->
       <div class="clearfix"></div>
     </div>
+    
   </div>
   <!--/Section-->
 </template>
