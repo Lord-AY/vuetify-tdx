@@ -8,10 +8,7 @@
       >
         <div class="container">
           <div class="value-added-services-row row mobile-hidden">
-            <div
-              class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; "
-            > 
+            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
               <a href="#">
                 <div class="d-flex value-added">
                   <div class="outline1">
@@ -37,10 +34,7 @@
                 </div>
               </a>
             </div>
-            <div
-              class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; "
-            >
+            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
               <a href="#">
                 <div class="d-flex value-added">
                   <div
@@ -62,10 +56,7 @@
                 </div>
               </a>
             </div>
-            <div
-              class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; "
-            >
+            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
               <a href="#">
                 <div class="d-flex value-added">
                   <div
@@ -87,10 +78,7 @@
                 </div>
               </a>
             </div>
-            <div
-              class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; "
-            >
+            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
               <a href="#">
                 <div class="d-flex value-added">
                   <div
@@ -112,10 +100,7 @@
                 </div>
               </a>
             </div>
-            <div
-              class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; "
-            >
+            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
               <a href="#">
                 <div class="d-flex value-added">
                   <div
@@ -167,18 +152,23 @@
           <hotsellers class="mobile-hidden"></hotsellers>
           <!-- Row -->
           <div class="row">
-            <gsidebar></gsidebar>
-            <ptoggler :current-comp="currentComp"></ptoggler>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+              <gsidebar></gsidebar>
+            </div>
+            <div class="col-md-9 col-lg-9 col-xs-12">
+              <ptoggler :current-comp="currentComp"></ptoggler>
+              <paginatedGrid
+                :is="currentComp"
+                :data="paginatedProducts"
+                :total-pages="Math.ceil(paginatedProducts.length / 9)"
+                :total="paginatedProducts.length"
+                :per-page="10"
+                :current-page="currentPage"
+                @pagechanged="onPageChange"
+              />
+            </div>
           </div>
-          <paginatedGrid
-            :is="currentComp"
-            :data="paginatedProducts"
-            :total-pages="Math.ceil(paginatedProducts.length / 9)"
-            :total="paginatedProducts.length"
-            :per-page="10"
-            :current-page="currentPage"
-            @pagechanged="onPageChange"
-          />
+
           <!-- <component :is="currentComp" :products="productListings"></component> -->
           <!-- <gridprops></gridprops> -->
           <!-- <listprops  
@@ -194,7 +184,6 @@
   </div>
 </template>
 <script>
-
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 require("../../public/assets/plugins/select2/select2.min.css");
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
@@ -204,7 +193,7 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c
 // require("../../public/assets/css/imported/style4d2c.css");
 // require("../../public/assets/css/iocustom.css");
 import hotsellers from "@/components/product_overview/hotsellers";
-import gsidebar from "@/components/product_overview/gridSidebar"
+import gsidebar from "@/components/product_overview/gridSidebar";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
 import listprops from "@/components/listPaginated";
 import ptoggler from "@/components/product_overview/ptoggler";
@@ -304,7 +293,7 @@ export default {
   },
   beforeMount() {
     // console.log("this is before mounted");
-  },
+  }
   // mounted() {
   //   // console.log("this route just got mounted");
   //   // this.$forceUpdate();
@@ -333,14 +322,14 @@ export default {
 };
 </script>
 
-
-<style >
-.ml-4, .mx-4 {
-    margin-left: 0.625rem !important;
+<style>
+.ml-4,
+.mx-4 {
+  margin-left: 0.625rem !important;
 }
 
 .mt-3 {
-  margin-top: 0.46875rem!important;
+  margin-top: 0.46875rem !important;
 }
 
 /* i.list {
@@ -354,15 +343,15 @@ i.switch[disabled="disabled"] {
 } */
 
 .visible-xs-block {
-    display: none !important;
-  }
+  display: none !important;
+}
 
 .value-added-tx {
-  font-size: 1.5rem!important;
-  font-weight: normal!important;
+  font-size: 1.5rem !important;
+  font-weight: normal !important;
 }
 .value-added-tx:hover {
-    color: #4CAF50!important;
+  color: #4caf50 !important;
 }
 
 .category-grid-box-tx .image img {
@@ -396,15 +385,13 @@ i.switch[disabled="disabled"] {
   padding-left: 30px;
 }
 
-html{
+html {
   font-size: 10px;
 }
-
 
 .ad-meta:first-child a {
   margin-right: 10px;
 }
-
 </style>
 <style scoped>
 @media only screen and (max-width: 991px) {
@@ -456,12 +443,10 @@ textarea {
 }
 
 .red-title:hover {
-  background-color: rgb(43, 124, 46)!important;
+  background-color: rgb(43, 124, 46) !important;
 }
 
 .select2 .select2-container .select2-container--default {
-  width: 160px!important;
+  width: 160px !important;
 }
-
-
 </style>
