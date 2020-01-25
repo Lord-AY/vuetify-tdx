@@ -310,7 +310,8 @@ strong {
     background-color: #f6f6f6
 }
 .white-bg {
-    background-color: #fff
+    background-color: #fff;
+    padding: 0px 16px;
 }
 .badge-overlay {
     left: 10px;
@@ -1863,11 +1864,11 @@ img.resize {
     top: 20px
 }
 .ad-info-1 {
-    background: #fff none repeat scroll 0 0;
+    background: rgb(168, 243, 171) none repeat scroll 0 0 !important;
     padding: 5px 10px;
     overflow: hidden;
     width: 100%;
-    border-top: 1px solid #f1f1f1
+    border-top: 1px solid rgb(168, 243, 171) !important;
 }
 .ad-info-1 .skin-minimal .list li label {
     color: #888;
@@ -2446,8 +2447,8 @@ img.resize {
     color: #232323
 }
 .ad-meta-info {
-    font-size: 14px;
-    margin: 0;
+    font-size: 16px;
+    margin: 0px;
     padding: 0
 }
 .ad-meta-info li {
@@ -2659,20 +2660,24 @@ ul.add_info li i {
 }
 .ad-archive-desc .ad-meta .btn {
     padding: 3px 10px;
-    text-transform: capitalize
+    text-transform: capitalize;
+    border-radius: 6px;
 }
 .ad-archive-desc .ad-meta .btn i {
-    padding-right: 5px
+    /* padding-right: 5px */
 }
 .ad-archive-desc .ad-meta .save-ad {
     background-color: #fcfcfc;
     border-color: #eaedef;
     border: 1px solid #eaedef;
     color: #464e60;
-    font-size: 14px
+    font-size: 14px;
+    margin-right: 16px;
+    border-radius: 6px;
 }
+
 .ad-archive-desc .pull-right .btn i {
-    padding-right: 5px
+    /* padding-right: 5px */
 }
 .ad-archive-desc .last-updated {
     font-size: 12px;
@@ -3363,9 +3368,9 @@ div.boxicon:last-child {
     font-size: 14px;
     line-height: normal
 }
-.sidebar .widget .widget-content ul li:first-child {
+/* .sidebar .widget .widget-content ul li:first-child {
     padding-top: 0
-}
+} */
 .sidebar .widget .widget-content ul li:last-child {
     border-bottom: medium none;
     padding-bottom: 0
@@ -3573,10 +3578,16 @@ div.boxicon:last-child {
     height: auto;
     width: 90px
 }
+
+.user-information {
+    margin-top: 8px;
+}
+
 .user-information .user-name {
     font-size: 20px;
     font-weight: 600;
-    color: #232323
+    color: #232323;
+    text-align: center;
 }
 .user-information .user-name a {
     color: #232323
@@ -3606,6 +3617,10 @@ div.boxicon:last-child {
     margin-bottom: 15px;
     padding-left: 10px;
     position: relative
+}
+.saftey {
+    font-size: 16px;
+    line-height: 1.5;
 }
 .widget-content.saftey ol li {
     margin-bottom: 0;
@@ -3976,7 +3991,7 @@ div.boxicon:last-child {
     color: #777;
 }
 .user-contact-info {
-    margin-bottom: 5px;
+    margin-bottom: 16px;
 }
 .blog-detial .page-numbers {
     display: inline-block;
@@ -4201,7 +4216,7 @@ label {
     padding: 0 15px
 }
 .small-breadcrumb .breadcrumb-link ul li:first-child {
-    padding-left: 0
+    padding-left: 0px
 }
 .small-breadcrumb .breadcrumb-link ul li a {
     color: #fff;
@@ -6078,6 +6093,9 @@ span.app-store-btn {
     line-height: 26px;
     padding: 18px 0 18px
 }
+#single-slider {
+    margin-bottom: 8px;
+}
 .ad-modal .single-product .diblock .flexslider .slide-main img {
     border: medium none;
     margin: 0;
@@ -6321,9 +6339,22 @@ span.app-store-btn {
 }
 .item-date {
     font-size: 14px;
-    margin-top: 0;
-    padding-bottom: 8px
+    margin-top: 12px;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-around;
 }
+
+.item-date .ad-pub {
+    text-align: center;
+}
+
+.item-date .ad-pub h4{
+    font-size: 20px;
+    color: #4CAF50;
+    font-weight: 500;
+}
+
 .profile-edit {
     background: #fff none repeat scroll 0 0;
     padding: 45px
@@ -7271,10 +7302,10 @@ a.delete i {
     margin: 15px 0
 }
 .listingTopFilterBar {
-    background: #fff none repeat scroll 0 0;
-    box-shadow: 0 0 3px rgba(206, 206, 206, 0.36);
+    background: transparent none repeat scroll 0 0 !important;
+    box-shadow: none!important;
     min-height: 46px;
-    border-color: #eee;
+    border-color: transparent!important;
     border-radius: 0;
     margin-bottom: 30px
 }
@@ -9538,7 +9569,7 @@ footer.footer-bg.dark  .footer-top .widget h5 , footer.footer-bg.dark .footer-to
 }
 .feuture-posts,
 .singlepage-detail div#carousel {
-    margin-bottom: 15px
+    margin-bottom: 8px
 }
 .single-blog .blog-post .woocommerce .woocommerce-checkout label {
     color: #232323!important
@@ -9678,6 +9709,19 @@ footer.footer-bg.dark  .footer-top .widget h5 , footer.footer-bg.dark .footer-to
 
 .header-top  .header-right .listnone .dropdown-menu {
     min-width: 250px;
+}
+
+#singleprice-tag-tx {
+    background-color: #4CAF50;
+    text-align: center;
+    font-size: 32px;
+    padding: 34px 30px;
+    color: #fff;
+}
+
+#singleprice-tag-tx span {
+    font-size: 12px;
+    margin-left: 4px;
 }
 
 .singleprice-tag {
@@ -13806,8 +13850,11 @@ ul.review-stars li.star {
     font-family: 'Poppins', sans-serif !important;
 }*/
 .btn-tx {
-    height: 50px!important;
-    font-weight: 400!important;
+    height: 40px!important;
+    font-weight: 500!important;
+    border-radius: 4px!important;
+    padding: 8px 12px!important;
+    margin-top: 4px!important;
 }
 /*.post-ad-header-tx {
 	color: #fff!important;
@@ -14079,10 +14126,32 @@ hr.accent-2 {
 } */
 .contact-seller {
     padding: 15px; 
+    background-color: #fff!important;
+    border: 2px solid #4CAF50!important;
+    color: #4CAF50!important;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+.view-contact {
+    padding: 15px; 
     color: #fff!important;
     background-color: #4CAF50!important;
     border: 2px solid #4CAF50!important;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-radius: 6px;
 }
+
+.view-contact .place-left, .contact-seller .place-left {
+    font-size: 24px;
+    padding-top: 8px;
+    float: left;
+}
+
+.view-contact:hover {
+    background-color: rgb(49, 119, 52)!important;
+}
+
 .send-message-button {
     padding: 15px; 
     color: #fff!important;
@@ -14094,9 +14163,10 @@ hr.accent-2 {
     border: 2px solid rgb(62, 139, 65)!important;
 }
 .contact-seller:hover{
-    background-color: #fff!important;
+    padding: 15px; 
+    color: #fff!important;
+    background-color: #4CAF50!important;
     border: 2px solid #4CAF50!important;
-    color: #4CAF50!important;
 }
 .social-and-product-highlight {
     background-color: #dedede;
@@ -14267,6 +14337,11 @@ hr.accent-2 {
     color: #4CAF50!important;
 }
 
+#show-more-details {
+    border: none;
+    font-size: 16px;
+}
+
 .list-style-1.margin-top-20 .viewall-similar {
 	display: inline-block;
 	text-align: center!important;
@@ -14326,6 +14401,61 @@ hr.accent-2 {
 .post-ad-input {
 	padding: 0.5rem .75rem;
 }
+
+.follow-seller {
+    /* width: 20px;
+    height: 20px; */
+    border: 3px solid #fff;
+    background-color: rgb(167, 167, 167);
+    border-radius: 0px;
+    position: absolute;
+    top: -25px;
+    right: -18px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow-seller:hover {
+    cursor: pointer!important;
+    color: #fff!important;
+    background-color: #e0952c!important;
+    border: 2px solid #e0952c!important;
+}
+
+.follow-seller .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(102, 102, 102);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -2px;
+    left: 110%;
+  }
+
+  .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent rgb(102, 102, 102) transparent transparent;
+  }
+
+  .follow-seller:hover .tooltiptext {
+    visibility: visible;
+  }
+
+
 .seller-online {
     width: 18px;
     height: 18px;
@@ -14334,18 +14464,24 @@ hr.accent-2 {
     border-radius: 50%;
     position: absolute;
     bottom: 0px;
-    right: 24px
+    right: 130px
 }
 
 .seller-offline {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border: 3px solid #fff;
-    background-color: #777;
+    background-color: rgb(167, 167, 167);
     border-radius: 50%;
     position: absolute;
     bottom: 0px;
-    right: 24px
+    right: 130px
+}
+
+.center-with-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .arrow-ribbon {
@@ -14371,11 +14507,11 @@ hr.accent-2 {
 }
 
 .price-tag-tx {
-    background-color: rgba(160, 160, 160, 0.5)!important;
+    background-color: transparent!important;
 }
 
 .price-tag-tx span{
-    background-color: rgba(160, 160, 160, 0.5)!important;
+    background-color: transparent!important;
 }
 
 .grid-list {
@@ -14412,7 +14548,7 @@ hr.accent-2 {
 .button-reveal-btn {
     background-color: rgba(76, 175, 80, 0.5);
     color: #fff!important;
-    font-weight: 500!important;
+    font-weight: 400!important;
     display: none;
     font-family: 'Poppins';
     text-transform: capitalize;

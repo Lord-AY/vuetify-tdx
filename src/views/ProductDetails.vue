@@ -7,6 +7,7 @@
         :similarprods="getSimilarProds"
         :getUser="getUser"
         :productcomment="ProductsComment"
+        :fsingleCategory="getSingleCategory"
       >
       </productdetails>
     </div>
@@ -97,7 +98,8 @@ export default {
       "singleProduct",
       "productWithSeller",
       "getSimilarProds",
-      "ProductsComment"
+      "ProductsComment",
+      "getSingleCategory"
     ]),
     ...mapGetters("auth", ["loading", "getUser"])
   },
@@ -106,7 +108,8 @@ export default {
       "selectedProduct",
       "fetchSeller",
       "fetchSimilarProducts",
-      "fetchCommentForProduct"
+      "fetchCommentForProduct",
+      "fetchSingleCategory"
     ]),
     sync() {
       // console.log("Jquery mounted");
@@ -119,6 +122,15 @@ export default {
       };
       // console.log(payload);
       this.selectedProduct(payload);
+    },
+    singleCategory() {
+      console.log("got to single category");
+      this.isLoading = true;
+      const payload = {
+        cid: this.$route.params.cid
+      };
+      // console.log(payload);
+      this.fetchSingleCategory(payload);
     },
     getSingleProductComment() {
       this.isLoading = true;
@@ -165,6 +177,7 @@ export default {
     this.getProductSeller();
     this.getSimilarProducts();
     this.getSingleProductComment();
+    this.singleCategory();
     // console.log(this.singleProduct);
     // console.log(this.productWithSeller);
     // console.log(this.getSimilarProds);

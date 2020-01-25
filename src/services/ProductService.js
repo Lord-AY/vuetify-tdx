@@ -10,6 +10,9 @@ export default {
   categories() {
     return Api().get("product/categories");
   },
+  singleCategory(payload) {
+    return Api().get(`product/categories/${payload.cid}`);
+  },
   subcategory(payload) {
     return Api().get(`product/subcategory/${payload.cid}`);
   },

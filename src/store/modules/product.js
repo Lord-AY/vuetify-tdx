@@ -15,12 +15,19 @@ export default {
     seller: null,
     similarProducts: [],
     success: null,
-    errors: null
+    errors: null,
+    singleCategory: null
   },
   getters: {
     productListings(state) {
       if (state.products !== null && state.products !== undefined) {
         return state.products;
+      }
+      return;
+    },
+    getSingleCategory(state) {
+      if (state.singleCategory !== null && state.singleCategory !== undefined) {
+        return state.singleCategory;
       }
       return;
     },
@@ -66,7 +73,7 @@ export default {
               }
             }
           }
-          console.log("returned after the loop");
+          // console.log("returned after the loop");
           return categories;
         }
         return categories;
@@ -169,6 +176,22 @@ export default {
           commit("SET_CATEGORIES", data);
         })
         .catch(error => {
+          // console.log(error); 
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", "Network Error, error fetching ads categories");
+        });
+    },
+    fetchSingleCategory({ commit }, payload) {
+      // console.log(payload)
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      return ProductService.singleCategory(payload)
+        .then(({ data }) => {
+            // console.log(data);
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_SINGLE_CATEGORIES", data);
+        })
+        .catch(error => {
           // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", "Network Error, error fetching ads categories");
@@ -243,7 +266,7 @@ export default {
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response.data);
+          // console.log(error.response.data);
         });
     },
     fetchCommentUser({commit}, payload){
@@ -259,7 +282,7 @@ export default {
           const data2 = JSON.parse(JSON.stringify(data))
           const joined = Object.assign(data2, payload2[0]);
           fetchedComment.push(joined);
-          console.log(joined);
+          // console.log(joined);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_PRODUCT_COMMENTS", fetchedComment);
         })
@@ -276,7 +299,7 @@ export default {
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
           dispatch("fetchCommentUser",data)
-          console.log(data);
+          // console.log(data);
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
@@ -351,6 +374,9 @@ export default {
   mutations: {
     SET_PRODUCTS(state, data) {
       state.products = data;
+    },
+    SET_SINGLE_CATEGORIES(state, data) {
+      state.singleCategory = data;
     },
     SET_CATEGORIES(state, data) {
       state.categories = data;

@@ -236,6 +236,7 @@
                     <router-link
                       to="/login"
                       class="btn btn-tx btn-theme text-dark post-ad-header-tx"
+                      style="height: 40px!important; font-weight: 500!important; border-radius: 4px!important; padding: 8px 12px!important; margin-top: 4px!important;"
                       >POST AN AD</router-link
                     >
                   </li>
@@ -318,6 +319,7 @@
                     <router-link
                       to="/postad"
                       class="btn btn-tx btn-theme text-dark post-ad-header-tx"
+                      style="height: 40px!important; font-weight: 500!important; border-radius: 4px!important; padding: 8px 12px!important; margin-top: 4px!important;"
                       >POST AN AD
                     </router-link>
                   </li>
