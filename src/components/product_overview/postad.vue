@@ -192,7 +192,7 @@
                                     type="text"
                                     class="form-control post-ad-input"
                                     placeholder="Ad title"
-                                    v-model="field.value"
+                                    v-model="ads.inputFields['field_' + index]"
                                     required
                                   />
                                 </div>
@@ -1599,8 +1599,8 @@ export default {
     document.head.appendChild(extScript);
   },
   computed: {
-    ...mapGetters("product", ["getErrors"]),
-    ...mapGetters("auth", ["loading", "getUser"]),
+    ...mapGetters("product", ["getErrors", "fullCategories"]),
+    // ...mapGetters("auth", ["loading", "getUser"]),
   },
   methods: {
     ...mapActions("product", ["fetchSubCategories"]),
@@ -1619,16 +1619,19 @@ export default {
     },
     selectCategoryFields() {
       let categories = this.fullCategories;
-      // console.log(categories);
+      console.log(categories);
       this.categoryFields = [];
-      for(let i in categories) {
+      for(let i in categories ) {
+      console.log("entered method");
         if(this.selectedCategory == categories[i].id) {
           const fieldsArr = ash.split(categories[i].checkFields, ",", 10);
+          console.log(fieldsArr);
           this.categoryFields = fieldsArr;
           // console.log(this.categoryFields);
         }
         if(this.selectedCategory == categories[i].id) {
           const fieldsArr = ash.split(categories[i].inputFields, ",", 10);
+          console.log(fieldsArr);
           this.categoryInputFields = fieldsArr;
           // console.log(this.categoryFields);
         }

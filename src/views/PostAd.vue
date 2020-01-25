@@ -46,7 +46,7 @@ export default {
         name: "",
         photos: "",
         videos: [],
-        inputFields:[],
+        inputFields:{ field_: '',},
         checkFields:[],
         region: "",
         currency: "Naira",
