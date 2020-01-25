@@ -39,12 +39,12 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-4 detail_price col-xs-12">
+          <!-- <div class="col-md-4 col-sm-4 detail_price col-xs-12">
             <div class="singleprice-tag">
                {{ product.amount |  currency }}
               <span class="">(Negotiable)</span>
             </div>
-          </div>
+          </div> -->
           <!-- Middle Content Area -->
           <div class="col-md-8 col-xs-12 col-sm-12">
             <!-- Single Ad -->
@@ -71,19 +71,21 @@
               </div>
 
               <!-- Heading Area -->
-              <div class="key-features">
-                <div class="boxicon" v-for="(field,index) in singleCart" :key="index">
-                  <a
-                    data-Limit="tooltip"
-                    data-placement="bottom"
-                    title="Engine Type"
-                    href="javascript:void(0)"
-                  >
-                    <i class="flaticon-gas-station-1 petrol"></i>
-                    <p>{{field}}</p>
-                  </a>
-                </div>
-              </div>
+              <!-- 
+                <div class="key-features">
+                  <div class="boxicon" v-for="(field,index) in singleCart" :key="index">
+                    <a
+                      data-Limit="tooltip"
+                      data-placement="bottom"
+                      title="Engine Type"
+                      href="javascript:void(0)"
+                    >
+                      <i class="flaticon-gas-station-1 petrol"></i>
+                      <p>{{field}}</p>
+                    </a>
+                  </div>
+                </div> 
+              -->
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
                   <li class="tab-pane-tx" v-bind:class="{ 'active': tab1 }" @click='toggle("Description")'>
@@ -610,6 +612,9 @@
                             </ul>
                             <!-- Ad History -->
                             <div class="clearfix archive-history">
+                              <div style="margin-top: 8px;">
+                                Location : Area 11, Garki, Abuja, Nigeria
+                              </div>
                               <div class="last-updated">
                                 Posted : July 21, 2017
                               </div>
@@ -618,7 +623,7 @@
                                   href="javascript:void(0);"
                                   data-adid="960"
                                   class="btn save-ad"
-                                  ><i class="fa fa-heart-o"></i> Favourite</a
+                                  ><i class="fa fa-heart-o"></i> </a
                                 >
                                 <router-link
                                   :to="
@@ -626,7 +631,7 @@
                                   "
                                   class="btn btn-success"
                                 >
-                                  View Details</router-link
+                                  <i class="fa fa-eye"></i></router-link
                                 >
                               </div>
                             </div>
@@ -645,7 +650,7 @@
                   <!--                   <div class="viewall-similar">
                     <a href="">Show More</a>
                   </div> -->
-                  <div class="viewall-similar" v-if="similarprods.length > 3">
+                  <div class="viewall-similar" id="show-more-details" v-if="similarprods.length > 3">
                     <a @click="limit = null" v-show="limitBtn"
                       >Show More
                       <i
@@ -669,9 +674,19 @@
           </div>
           <div class="col-md-4 col-xs-12 col-sm-12">
             <div class="sidebar">
+              <div class="detail_price">
+                <div id="singleprice-tag-tx">
+                  &#x20A6; {{ product.amount }}
+                  <!-- <span class="">(Negotiable)</span> -->
+                </div>
+              </div>
               <div class="white-bg user-contact-info">
                 <div class="user-info-card">
-                  <div class="user-photo col-md-4 col-sm-3  col-xs-4">
+                  <div class="user-photo col-md-12 col-sm-12  col-xs-12 center-with-flex">
+                    <div class="follow-seller">
+                      <i class="fa fa-user-plus"></i>
+                      <span class="tooltiptext">Follow Seller</span>
+                    </div>
                     <a href="../../dealer/gavien72/index.html" class="link">
                       <img
                         v-if="getUser === null"
@@ -691,8 +706,8 @@
                     <!-- <div class="seller-online"></div> -->
                     <div class="seller-offline"></div>
                   </div>
-                  <div class="user-information  col-md-8 col-sm-9 col-xs-8">
-                    <span class="user-name">
+                  <div class="user-information  col-md-12 ">
+                    <div class="user-name">
                       <a
                         class="hover-color"
                         href="../../dealer/gavien72/index.html"
@@ -700,37 +715,82 @@
                         {{ product.seller.firstname }}
                         {{ product.seller.lastname }}
                       </a>
-                    </span>
+                    </div>
                     <div class="item-date">
-                      <span class="ad-pub">
-                        <b>Last Logged in:</b>
-                        {{
+                      <div class="ad-pub">
+                        <h4>{{
                           daysago(format_date(product.seller.updatedAt))
-                        }}</span
+                        }}</h4>
+                        
+                        <span>Last Logged in</span>
+                        </div
                       >
-                      <p
+                      <div
                         class="ad-pub"
-                        style="font-size: 14px; margin-top: 4px;"
+                        
                       >
-                        <b
-                          >Registered:
-                          {{ format_date(product.seller.createdAt) }}</b
-                        >
-                      </p>
+                        <h4>{{ format_date(product.seller.createdAt) }}</h4>
+                        <span>Registered</span>
+                      </div>
                     </div>
                   </div>
                   <div class="clearfix"></div>
                 </div>
+                <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;">
+                  <div v-if="!showDetails">
+                    <div class="selector number" @click="showDetails = !showDetails" data-last="2221111999">
+                      <i class="fa fa-phone place-left"></i>
+                      View Contact
+                    </div>
+                  </div>
+                  <div v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600; cursor: pointer;" @click="showDetails = !showDetails">{{ product.seller.phone }}</div>
+                  
+                </div>
+                <div
+                  class="category-list-title"
+                  style="padding: 0;"
+                  v-if="isLoggedIn"
+                >
+                  <!-- Email Button trigger modal -->
+                  <div v-if="!isHidden">
+                    <h5 v-on:click="isHidden = !isHidden">
+                      <div
+                        class="btn btn-block btn-primary contact-seller cusbutton"
+                        style="font-size: 20px;"
+                      >
+                        <i class="fa fa-commenting-o place-left"></i> Chat With Seller
+                      </div>
+                    </h5>
+                  </div>
+                  <div class="row" style="margin-top: 10px;" v-if="isHidden">
+                    <p style="font-weight: 500; margin-bottom: 6px; color: #232323;">Message &#128522;</p>
+                    <textarea
+                      class="message-box"
+                      rows="6"
+                      cols="50"
+                      v-model="message"
+                    ></textarea>
+                    <h5 class="send-message">
+                      <div
+                        class="btn btn-block btn-primary send-message-button cusbutton"
+                        style="border-radius:6px; font-size: 20px;box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4)"
+                        @click="sendSellerMessage()"
+                      >
+                        <i class="fa fa-commenting-o"></i> Send Message
+                      </div>
+                    </h5>
+                  </div>
+                </div>
               </div>
-              <div class="singlemap-location">
+              <!-- <div class="singlemap-location">
                 <div class="template-icons" style="margin-bottom: 5px;">
                   <div class="icon-box-icon flaticon-location"></div>
                   <div class="class-name">
                     {{ product.seller.address }}
                   </div>
                 </div>
-              </div>
-              <div class="category-list-icon">
+              </div> -->
+              <!-- <div class="category-list-icon">
                 <i class="purple flaticon-smartphone"></i>
                 <div class="category-list-title">
                   <h5 v-if="!showDetails">
@@ -741,10 +801,11 @@
                       ><span>Click to View</span></div
                     >
                   </h5>
-                  <h2 v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600;" @click="showDetails = !showDetails">{{ product.seller.phone }}</h2>
+                  <h2 v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600; cursor: pointer;" @click="showDetails = !showDetails">{{ product.seller.phone }}</h2>
                 </div>
-              </div>
-              <div class="additional-btns">
+              </div> -->
+              
+              <!-- <div class="additional-btns">
                 <ul>
                   <li>
                     <a
@@ -758,12 +819,12 @@
                     </a>
                   </li>
                 </ul>
-              </div>
-
+              </div> -->
+<!-- 
               <div class="category-list-icon" style="">
-                <!-- <i class="green flaticon-mail-1"></i>             -->
+                <i class="green flaticon-mail-1"></i>            
                 <div class="category-list-title" style="padding: 0;">
-                  <!-- Email Button trigger modal -->
+                  Email Button trigger modal
                   <h5>
                     <a
                       class="btn btn-block btn-warning"
@@ -773,42 +834,19 @@
                     </a>
                   </h5>
                 </div>
-              </div>
-              <div
-                class="category-list-title"
-                style="padding: 0;"
-              >
-                <!-- Email Button trigger modal -->
-                <div v-if="!isHidden">
-                  <h5 v-on:click="isHidden = !isHidden">
+              </div> -->
+               <!-- <div v-if="!isLoggedIn">
+                  <router-link to="/login">
                     <div
                       class="btn btn-block btn-primary contact-seller cusbutton"
                       style="border-radius:0px; font-size: 20px;"
                     >
-                      <i class="fa fa-commenting-o"></i> Chat With Seller
+                      <i class="fa fa-commenting-o place-left"></i> Chat With Seller
                     </div>
-                  </h5>
-                </div>
-                <div class="row" style="margin-top: 10px;" v-if="isHidden">
-                  <p style="font-weight: 500; margin-bottom: 6px; color: #232323;">Message</p>
-                  <textarea
-                    class="message-box"
-                    rows="4"
-                    cols="50"
-                    v-model="message"
-                  ></textarea>
-                  <h5 class="send-message">
-                    <div
-                      class="btn btn-block btn-primary send-message-button cusbutton"
-                      style="border-radius:0px; font-size: 20px;box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4)"
-                      @click="sendSellerMessage()"
-                    >
-                      <i class="fa fa-commenting-o"></i> Send Message
-                    </div>
-                  </h5>
-                </div>
-              </div>
-              <div class="social-and-product-highlight">
+                  </router-link>
+                </div> -->
+              
+              <!-- <div class="social-and-product-highlight">
                 <div class="fule-economy">
                   <h4>Product Highlight</h4>
                   <ul class="list-inline">
@@ -868,14 +906,14 @@
                     /></a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
 
               <!-- Saftey Tips  -->
-              <div class="widget" style="margin-top: 5px;">
+              <div class="widget" style="margin-bottom: 16px;">
                 <div class="widget-heading">
                   <h4
                     class="panel-title"
-                    style="text-align: center; font-weight: 600;"
+                    style="text-align: center; font-size: 16px; font-weight: 600;"
                   >
                     <span>Safety tips for buyers</span>
                   </h4>
@@ -889,15 +927,64 @@
                   </ol>
                 </div>
               </div>
-              <div class="widget">
-                <div class="widget-heading">
+              <div class="widget" style="margin-bottom: 16px; ">
+                <div class="widget-content saftey" style="padding: 4px 12px;">
+                  <ul
+                  class="footer-payments"
+                  style="margin-top: 0px; display: flex; justify-content: space-between; padding-left: 8px;"
+                >
+                  <li >
+                    <a href="javascript:;"
+                      ><img
+                        class="payment-card-icon-footer-tx"
+                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
+                        src="@/assets/images/socials/facebook.svg"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="javascript:;"
+                      ><img
+                        class="payment-card-icon-footer-tx"
+                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
+                        src="@/assets/images/socials/twitter.svg"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="javascript:; "
+                      ><img
+                        class="payment-card-icon-footer-tx"
+                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%; "
+                        src="@/assets/images/socials/whatsapp.svg"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="javascript:;"
+                      ><img
+                        class="payment-card-icon-footer-tx"
+                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
+                        src="@/assets/images/socials/linkedin.svg"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="javascript:;"
+                      ><img
+                        class="payment-card-icon-footer-tx"
+                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
+                        src="@/assets/images/socials/google plus.svg"
+                    /></a>
+                  </li>
+                </ul>
+                </div>
+              </div>
+              <div class="widget" style="margin-bottom: 16px;">
+                <!-- <div class="widget-heading">
                   <h4
                     class="panel-title"
                     style="text-align: center; font-weight: 600;"
                   >
                     <span> Ads</span>
                   </h4>
-                </div>
+                </div> -->
                 <div class="widget-content ">
                   <div class="ads">
                     <img src="@/assets/images/gloads.jpg" alt="" srcset="" />
@@ -1126,7 +1213,8 @@ export default {
         ? this.productcomment.slice(0, this.limit2)
         : this.productcomment;
     },
-    ...mapGetters("chat", ["getErrors", "getSuccess"])
+    ...mapGetters("chat", ["getErrors", "getSuccess"]),
+    ...mapGetters("auth", ["isLoggedIn"])
   },
   watch: {
     $route: "sync",
@@ -1228,11 +1316,12 @@ textarea {
 
 .message-box {
   width: 100%;
+  border-radius: 6px;
 }
 
 .message-box:focus {
   border: 1px solid rgb(76, 175, 80);
-  box-shadow: 0px 1px 10px 0px rgba(76, 175, 80, 0.1) ;
+  box-shadow: 0px 1px 10px 0px rgba(76, 175, 80, 0.3) ;
 }
 
 .send-message {

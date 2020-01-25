@@ -52,6 +52,13 @@ export default {
       }
       return;
     },
+    fullCategories(state) {
+      const categories = state.categories;
+      if(categories !== null && categories !== undefined ) {
+        return categories;
+      };
+      return null;
+    },
     categories(state) {
       const categories = state.categories;
       const subcategories = state.subcategories;

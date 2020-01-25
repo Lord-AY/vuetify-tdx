@@ -159,6 +159,52 @@
                                 <div class="col-md-6"></div>
                               </div>
                             </transition>
+                            <!-- Extra fields for category-->
+                            <div class="row" v-show="categoryFields.length > 0 && categoryFields[0] !== ''">
+                              <div class="col-sm-12 col-lg-3 col-md-6" v-for="(field, index) in categoryFields" :key="index">
+                                <div
+                                  class="checkbox checkbox-info"
+                                  style="margin-top: 40px;"
+                                >
+                                  <label
+                                    class="custom-control mt-4 custom-checkbox"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      class="custom-control-input"
+                                      v-model="ads.field"
+                                    />
+                                    <span
+                                      class="custom-control-label text-dark pl-2"
+                                      style="margin-left: -10px;"
+                                      >{{ field }}</span
+                                    >
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="row form-group-tx form-group" v-show="categoryInputFields.length > 0 && categoryInputFields[0] !== ''">
+                              <div class="col-md-12 col-sm-12 col-lg-12" v-for="(field, index) in categoryInputFields" :key="index">
+                                <label class="form-label text-dark"
+                                  >{{field}}</label
+                                >
+                                <div class="radio">
+                                  <input
+                                    type="text"
+                                    class="form-control post-ad-input"
+                                    :class="
+                                      dbErrors && dbErrors.name
+                                        ? 'is-invalid'
+                                        : ''
+                                    "
+                                    placeholder="Ad title"
+                                    v-model="ads.name"
+                                    required
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                            <!-- Extra fields for category-->
                             <div class="row form-group-tx form-group">
                               <div class="col-md-6">
                                 <div class="">
@@ -1494,7 +1540,7 @@ require("@/assets/plugins/vertical-scroll/vertical-scroll.js");
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import axios from "axios";
-// import ash from "lodash";
+import ash from "lodash";
 // Import component
 import Loading from "vue-loading-overlay";
 import { mapState, mapActions, mapGetters } from "vuex";
@@ -1512,7 +1558,9 @@ export default {
       fullPage: true,
       isHidden: false,
       selectedCategory: null,
-      currentSubCategory: []
+      currentSubCategory: [],
+      categoryFields: [],
+      categoryInputFields: [],
     };
   },
   props: {
@@ -1572,6 +1620,24 @@ export default {
         cid: cid.target.value
       };
       this.fetchSubCategories(payload);
+      this.selectCategoryFields();
+    },
+    selectCategoryFields() {
+      let categories = this.fullCategories;
+      // console.log(categories);
+      this.categoryFields = [];
+      for(let i in categories) {
+        if(this.selectedCategory == categories[i].id) {
+          const fieldsArr = ash.split(categories[i].checkFields, ",", 10);
+          this.categoryFields = fieldsArr;
+          // console.log(this.categoryFields);
+        }
+        if(this.selectedCategory == categories[i].id) {
+          const fieldsArr = ash.split(categories[i].inputFields, ",", 10);
+          this.categoryInputFields = fieldsArr;
+          // console.log(this.categoryFields);
+        }
+      }
     },
     filterSubCategories(subcategories) {
       // console.log("Entered this function");
