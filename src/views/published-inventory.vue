@@ -7,7 +7,7 @@
       <!-- END LEFT SIDEBAR -->
 
       <!-- MAIN -->
-      <div class="main dashboard-main" style="min-height: 713px;">
+      <div class="main dashboard-main dashboard-main-content" style="min-height: 713px;">
         <!-- MAIN CONTENT -->
         <div class="main-content">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -476,6 +476,9 @@ export default {
 </script>
 
 <style>
+.dashboard-main-content {
+    padding-top: 107px!important;
+  }
 .table th {
   font-size: 14px;
 }
