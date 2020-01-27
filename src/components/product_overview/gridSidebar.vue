@@ -10,37 +10,20 @@
     >
       <div class="panel panel-default" id="red-titl">
         <!-- Heading -->
-        <div class="panel-heading red-title" role="tab" id="headingMain">
-          <h4 class="panel-title">
-            <a
-              class="collapsed"
-              role="button"
-              data-toggle="collapse"
-              data-parent="#accordion1"
-              href="#collapseMain"
-              aria-expanded="false"
-              aria-controls="collapseMain"
-              style="color: white!important;"
-            >
-              <i class="more-less glyphicon glyphicon-plus"></i>
-              Categories
-            </a>
+        <div class="panel-heading red-title" id="headingMain">
+          <h4 class="panel-title panel-title-side">
+            <!-- <i class="more-less glyphicon glyphicon-plus"></i> -->
+            Categories
           </h4>
         </div>
-        <div
-          id="collapseMain"
-          class="panel-collapse collapse"
-          role="tabpanel"
-          aria-labelledby="headingMain"
-          style="height: auto!important;"
-        >
+        <div class="panel-collapse">
           <div class="panel-body">
             <ul class="sub-categories">
               <li>
-                <a href="">Bikes | 10</a>
+                <a href="">Bikes  <span>| 10</span> </a>
               </li>
               <li>
-                <a href="">Cars | 20</a>
+                <a href="">Cars <span>| 30</span> </a>
               </li>
             </ul>
           </div>
@@ -1135,10 +1118,20 @@ export default {
 </script>
 
 <style scoped>
+.panel-title-side {
+  padding: 10px 15px;
+}
   .panel-title-tx {
     margin-top: 12px;
   }
+  
   .sub-categories li {
     margin: 8px 0;
+    font-size: 16px;
+    /* opacity: 0.7; */
+  }
+  .sub-categories li span{
+    
+    opacity: 0.7;
   }
 </style>
