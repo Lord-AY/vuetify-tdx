@@ -1,18 +1,4 @@
-<circle cx="472" cy="159" r="7" />
-<rect x="487" y="154" rx="5" ry="5" width="220" height="10" />
-<circle cx="472" cy="190" r="7" />
-<rect x="487" y="184" rx="5" ry="5" width="220" height="10" />
-<circle cx="472" cy="219" r="7" />
-<rect x="487" y="214" rx="5" ry="5" width="220" height="10" />
-<circle cx="472" cy="249" r="7" />
-<rect x="487" y="244" rx="5" ry="5" width="220" height="10" />
-<rect x="64" y="18" rx="0" ry="0" width="346" height="300" />
-<rect x="229" y="300" rx="0" ry="0" width="0" height="0" />
-<rect x="111" y="340" rx="0" ry="0" width="0" height="0" />
-<rect x="121" y="342" rx="0" ry="0" width="0" height="0" />
-<rect x="10" y="20" rx="0" ry="0" width="40" height="44" />
-<rect x="10" y="80" rx="0" ry="0" width="40" height="44" />
-<rect x="10" y="140" rx="0" ry="0" width="40" height="44" />
+
 <script>
 import { ContentLoader } from "vue-content-loader";
 
@@ -24,23 +10,26 @@ export default {
 </script>
 <template>
       <content-loader
-            :height="160"
-            :width="856"
+            :height="896"
+            :width="1520"
             :speed="2"
-            primaryColor="#bbb7b7"
+            primaryColor="#bebdbd"
             secondaryColor="#d2d3d2"
       >
-            <rect x="194" y="329" rx="0" ry="0" width="0" height="0" />
-            <rect x="192" y="323" rx="0" ry="0" width="0" height="0" />
-            <rect x="185" y="323" rx="0" ry="0" width="0" height="0" />
-            <rect x="10" y="200" rx="0" ry="0" width="40" height="44" />
-            <rect x="470" y="18" rx="0" ry="0" width="300" height="25" />
-            <rect x="470" y="58" rx="0" ry="0" width="300" height="6" />
-            <rect x="470" y="68" rx="0" ry="0" width="300" height="6" />
-            <rect x="470" y="78" rx="0" ry="0" width="300" height="6" />
-            <rect x="798" y="135" rx="0" ry="0" width="0" height="0" />
-            <rect x="731" y="132" rx="0" ry="0" width="0" height="0" />
-            <rect x="470" y="99" rx="0" ry="0" width="70" height="30" />
-            <rect x="560" y="99" rx="0" ry="0" width="70" height="30" />
+            <rect x="0" y="0" rx="0" ry="0" width="1520" height="50" /> 
+            <circle cx="196" cy="120" r="54" /> 
+            <rect x="266" y="91" rx="6" ry="6" width="111" height="24" /> 
+            <rect x="266" y="131" rx="6" ry="6" width="88" height="16" /> 
+            <rect x="409" y="93" rx="6" ry="6" width="101" height="48" /> 
+            <rect x="542" y="93" rx="6" ry="6" width="534" height="48" /> 
+            <rect x="1092" y="93" rx="6" ry="6" width="101" height="48" /> 
+            <rect x="1225" y="93" rx="6" ry="6" width="48" height="48" /> 
+            <rect x="1289" y="93" rx="6" ry="6" width="106" height="24" /> 
+            <rect x="1289" y="123" rx="0" ry="0" width="77" height="16" /> 
+            <rect x="142" y="340" rx="0" ry="0" width="842" height="546" /> 
+            <rect x="1024" y="340" rx="0" ry="0" width="385" height="399" /> 
+            <rect x="145" y="253" rx="6" ry="6" width="179" height="16" /> 
+            <rect x="144" y="290" rx="6" ry="6" width="91" height="12" /> 
+            <rect x="1024" y="772" rx="0" ry="0" width="385" height="119" />
       </content-loader>
 </template>
