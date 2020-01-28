@@ -4,7 +4,8 @@ export default {
   namespaced: true,
   state: {
     errors: null,
-    success: null
+    success: null,
+    walletData: null 
   },
   getters: {
     getUpdateSuccess(state) {
@@ -16,6 +17,12 @@ export default {
     getUpdateErrors(state) {
       if(state.errors !== null && state.errors !== undefined) {
         return state.errors;
+      }
+      return;
+    },
+    getwalletData(state){
+      if(state.walletData !== null && state.walletData !== undefined) {
+        return state.walletData;
       }
       return;
     }
@@ -76,11 +83,39 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           console.log(error);
         });
-    }
+    },
+    FetchUserwallet({ commit }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      return UserService.getWallet(payload)
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_USER_WALLET", data);
+          console.log(data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error);
+        });
+    },
+    createUserwallet({ commit, state }, payload) {
+      // set inputs to state
+      commit("auth/SET_LOADING", true, { root: true });
+      return UserService.createWallet(payload)
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_USER_WALLET", data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+        });
+    },
   },
   mutations: {
     SET_ERRORS(state, error) {
       state.errors = error;
+    },
+    SET_USER_WALLET(state, error) {
+      state.walletData = error;
     },
     SET_SUCCESS_MSG(state, success) {
       state.success = success;

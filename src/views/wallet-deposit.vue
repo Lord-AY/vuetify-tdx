@@ -71,10 +71,11 @@
                               class="form-control form-control-dashboard"
                               type="text"
                               name="first_name"
-                              
+                              :value="getwalletData.walletid"
                               data-pt-position="top"
                               data-pt-scheme="dark-transparent"
                               data-pt-size="small"
+                              disabled
                             />
                           </div>
                         </div>
@@ -249,13 +250,56 @@ require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 
+
+import { mapActions, mapGetters } from "vuex";
+
 import dsidebar from "@/components/Dsidebar";
 // import dheader from "@/components/Dheader";
 export default {
   name: "wallet-deposit",
+  data() {
+    return {
+      isLoading: true,
+      userWallet: null,
+    };
+  },
   components: {
     dsidebar
-  }
+  },
+  computed: {
+    ...mapGetters("auth", ["getUser"]),
+    ...mapGetters("user", ["getwalletData"]),
+    loading() {
+      return this.$store.getters["auth/loading"];
+    }
+  },
+  methods: {
+    ...mapActions("user", ["createUserwallet", "FetchUserwallet"]),
+
+    checkUserWalletState(){
+      this.createUserwallet(this.getUser.id)
+    }
+  },
+  watch: {
+    $route: "sync",
+    getwalletData: {
+      handler: function(walletData) {
+        if (walletData == null) {
+          this.checkUserWalletState();
+          console.log(this.getwalletData);
+        }else{
+          console.log("wallet data isnot empty");
+        }
+      }
+    },
+  },
+  created() {
+    this.FetchUserwallet(this.getUser.id);
+  },
+  beforeCreate() {
+    // console.log("this is before created");
+  },
+
 };
 </script>
 
