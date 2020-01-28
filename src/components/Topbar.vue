@@ -551,8 +551,8 @@
                   No entry found
                 </div>
                  <div class="search-result" v-if="showResults">
-                  <ul class="dropdown">
-                    <li class="dropdown-item" v-for="(result, index) in getResults.slice(0, 5)" :key="index"><router-link :to="`/productDetails/${result.id}/${result.cid}/${result.uid}`">{{ result.name }}</router-link></li>
+                  <ul class="dropdown search-dropdown">
+                    <li class="dropdown-item search-dropdown-item" v-for="(result, index) in getResults.slice(0, 5)" :key="index"><router-link :to="`/productDetails/${result.id}/${result.cid}/${result.uid}`">{{ result.name }}</router-link></li>
                   </ul>
                 </div>
                 <span>
@@ -831,6 +831,25 @@ export default {
 </script>
 
 <style>
+/* Search bar styles */
+.search-result {
+  margin-top: 8px;
+  position: absolute;
+  display: block;
+  background: #fff;
+  width: 95%;
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid #dee2e4;
+  border-top: none;
+  border-radius: 4px;
+  z-index: 4;
+}
+.search-dropdown-item {
+  padding: .75rem 1.5rem!important;
+  font-size: 1rem!important;
+  font-weight: 500!important;
+}
 /* Sidebar Test Styles => Don't remove */
 .sidenav {
   box-shadow: 3px 5px 30px rgba(0, 0, 0, 0.1);
