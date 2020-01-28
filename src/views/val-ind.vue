@@ -23,7 +23,7 @@
             <div>
               <div class="form-group">
                 <input
-                  type="hidden"
+                  type="text"
                   class="form-control"
                   :value="webpayDetails.amt"
                   name="amount"
@@ -135,7 +135,8 @@ export default {
   name: "valind",
   data() {
     return {
-      hiddenForm: false
+      hiddenForm: false,
+      payAmount: null,
     };
   },
   computed: {
