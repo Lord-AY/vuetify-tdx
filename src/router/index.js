@@ -89,7 +89,7 @@ const routes = [
     name: "valind",
     component: () => import("../views/val-ind.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {
