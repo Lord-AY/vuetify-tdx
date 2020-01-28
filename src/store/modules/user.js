@@ -5,7 +5,7 @@ export default {
   state: {
     errors: null,
     success: null,
-    walletData: null 
+    walletData: 0,
   },
   getters: {
     getUpdateSuccess(state) {
@@ -20,12 +20,6 @@ export default {
       }
       return;
     },
-    getwalletData(state){
-      if(state.walletData !== null && state.walletData !== undefined) {
-        return state.walletData;
-      }
-      return;
-    }
   },
   actions: {
     updateUser({ rootState, commit }, user) {
@@ -82,31 +76,6 @@ export default {
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
           console.log(error);
-        });
-    },
-    FetchUserwallet({ commit }, payload) {
-      commit("auth/SET_LOADING", true, { root: true });
-      return UserService.getWallet(payload)
-        .then(({ data }) => {
-          commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_USER_WALLET", data);
-          console.log(data);
-        })
-        .catch(error => {
-          commit("auth/SET_LOADING", false, { root: true });
-          console.log(error);
-        });
-    },
-    createUserwallet({ commit, state }, payload) {
-      // set inputs to state
-      commit("auth/SET_LOADING", true, { root: true });
-      return UserService.createWallet(payload)
-        .then(({ data }) => {
-          commit("auth/SET_LOADING", false, { root: true });
-          commit("SET_USER_WALLET", data);
-        })
-        .catch(error => {
-          commit("auth/SET_LOADING", false, { root: true });
         });
     },
   },

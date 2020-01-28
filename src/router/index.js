@@ -81,7 +81,7 @@ const routes = [
     name: "valAdd",
     component: () => import("../views/val-add.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {

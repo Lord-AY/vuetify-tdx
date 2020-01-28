@@ -58,7 +58,7 @@
                     <form
                       id="sb_update_profile"
                       class="sb_update_profile"
-                      @submit.prevent="updateUser(user)"
+                      @submit.prevent="updatePayment"
                     >
                       <div class="row">
                         <div class="col-md-3"></div>
@@ -71,7 +71,7 @@
                               class="form-control form-control-dashboard"
                               type="text"
                               name="first_name"
-                              :value="getwalletData.walletid"
+                              :value="userWallet"
                               data-pt-position="top"
                               data-pt-scheme="dark-transparent"
                               data-pt-size="small"
@@ -91,8 +91,7 @@
                             <input
                               class="form-control form-control-dashboard"
                               type="number"
-                              name="first_name"
-                              
+                              v-model="amount"
                               data-pt-position="top"
                               data-pt-scheme="dark-transparent"
                               data-pt-size="small"
@@ -110,8 +109,6 @@
                             </div>
                           </div>
                           <div class="col-md-3"></div>
-
-                          
                       </div>
                     </form>
                   </div>
@@ -121,7 +118,6 @@
           </div>
         </div>
         <!-- END MAIN CONTENT -->
-        
       </div>
       <!-- END MAIN -->
       <div class="clearfix"></div>
@@ -261,6 +257,7 @@ export default {
     return {
       isLoading: true,
       userWallet: null,
+      amount: null
     };
   },
   components: {
@@ -268,16 +265,22 @@ export default {
   },
   computed: {
     ...mapGetters("auth", ["getUser"]),
-    ...mapGetters("user", ["getwalletData"]),
+    ...mapGetters("wallet", ["getwalletData"]),
     loading() {
       return this.$store.getters["auth/loading"];
     }
   },
   methods: {
-    ...mapActions("user", ["createUserwallet", "FetchUserwallet"]),
-
-    checkUserWalletState(){
-      this.createUserwallet(this.getUser.id)
+    ...mapActions("wallet", ["createUserwallet", "FetchUserwallet", "paymentStepOne"]),
+    async checkUserWalletState(){
+      await this.FetchUserwallet(this.getUser.id)
+    },
+    updatePayment() {
+      const payload = {
+        user: this.getUser.firstname + " " + this.getUser.lastname,
+        amt: this.amount,
+      };
+      this.paymentStepOne(payload);
     }
   },
   watch: {
@@ -285,10 +288,13 @@ export default {
     getwalletData: {
       handler: function(walletData) {
         if (walletData == null) {
-          this.checkUserWalletState();
-          console.log('wallet is null');
+          this.createUserwallet(this.getUser.id)
+          this.userWallet = this.getwalletData.walletid;
+          console.log(this.getwalletData);
+          console.log("wallet changed");
         }else{
-          console.log("wallet data isnt empty");
+          this.userWallet = this.getwalletData.walletid;
+          console.log(walletData);
         }
       }
     },
