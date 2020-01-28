@@ -71,7 +71,7 @@
                               class="form-control form-control-dashboard"
                               type="text"
                               name="first_name"
-                              :value="getwalletData.walletid"
+                              :value="userWallet"
                               data-pt-position="top"
                               data-pt-scheme="dark-transparent"
                               data-pt-size="small"
@@ -286,8 +286,10 @@ export default {
       handler: function(walletData) {
         if (walletData == null) {
           this.checkUserWalletState();
+          this.userWallet = this.getwalletData.walletid;
           console.log(this.getwalletData);
         }else{
+          this.userWallet = this.getwalletData.walletid;
           console.log("wallet data isnot empty");
         }
       }
