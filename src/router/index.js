@@ -35,10 +35,10 @@ const routes = [
     name: "register",
     // component: () => import("../views/Register.vue"),
     component: userRegister,
-    beforeEnter: (to, from, next) => {
+   beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "home" });
+      if (!auth) {
+        next({ name: "login" });
       }
       next();
     },
@@ -65,10 +65,10 @@ const routes = [
     path: "/reset",
     name: "reset",
     component: reset,
-    beforeEnter: (to, from, next) => {
+  beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "home" });
+      if (!auth) {
+        next({ name: "login" });
       }
       next();
     },
@@ -92,6 +92,14 @@ const routes = [
       header: 3
     }
   },
+   {
+    path: "/search/keyword=:keyword",
+    name: "search",
+    component: () => import("../views/search.vue"),
+    meta: {
+      header: 3
+    }
+  },
   {
     path: "/overview",
     name: "productoverview",
@@ -104,6 +112,13 @@ const routes = [
     path: "/referal",
     name: "referal",
     component: () => import("../views/ref.vue"),
+      beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "referal" });
+      }
+      next();
+    },
     meta: {
       header: 1
     }
@@ -319,6 +334,13 @@ const routes = [
     path: "/refferal",
     name: "refferal",
     component: () => import("../views/refferal.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
     meta: {
       header: 2
     }
@@ -327,6 +349,13 @@ const routes = [
     path: "/favorite",
     name: "favorite",
     component: () => import("../views/Favorite.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
     meta: {
       header: 3
     }
@@ -335,6 +364,13 @@ const routes = [
     path: "/orders",
     name: "orders",
     component: () => import("../views/Orders.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
     meta: {
       header: 3
     }
@@ -343,6 +379,13 @@ const routes = [
     path: "/postad",
     name: "postad",
     component: () => import("../views/PostAd.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
     meta: {
       header: 1
     }

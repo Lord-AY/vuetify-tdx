@@ -320,17 +320,25 @@ export default {
           // console.log(error.response.data);
         });
     },
-    createProduct({ commit, rootState }, payload) {
+    createProduct({ commit, rootState }, payload ) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
       commit("SET_SUCCESS_MSG", null);
       // set payload details
+      let checkFields = payload.product.checkFields;
+      let inputFields = payload.product.inputFields;
+      // convert object to comma seperated values
+      let checkField = Object.keys(checkFields).map(function(k){return checkFields[k]}).join(",");
+      let inputField = Object.keys(inputFields).map(function(k){return inputFields[k]}).join(",");
+
       const product = {
         cid: payload.product.cid,
         uid: rootState.auth.user.id,
         name: payload.product.name,
         photos: payload.product.photos,
         videos: [],
+        inputFields: inputField,
+        checkFields: checkField,
         region: payload.product.region || "Nigeria",
         currency: "Naira",
         creator:
@@ -349,6 +357,7 @@ export default {
         keywords: [],
         canExchange: false
       };
+      console.log(product);
       return ProductService.createProduct(product, rootState.auth.user.token)
         .then(() => {
           commit("auth/SET_LOADING", false, { root: true });
