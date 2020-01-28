@@ -149,7 +149,10 @@
             </div>
           </div>
           <!-- <hr /> -->
-          <hotsellers class="mobile-hidden"></hotsellers>
+          <hotsellers 
+            class="mobile-hidden"
+            :hotsellers="getHotSellers"
+          ></hotsellers>
           <!-- Row -->
           <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12">
@@ -213,7 +216,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors"]),
+    ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors","getHotSellers"]),
     ...mapGetters("auth", ["loading"])
   },
   components: {
@@ -225,7 +228,7 @@ export default {
     Loading
   },
   methods: {
-    ...mapActions("product", ["fetchAllProducts"]),
+    ...mapActions("product", ["fetchAllProducts", "fetchHotSellers"]),
     sync() {},
     onPageChange(page) {
       this.currentPage = page;
@@ -286,6 +289,8 @@ export default {
     });
     this.sync();
     this.fetchAllProducts();
+    this.fetchHotSellers();
+    // console.log(this.getHotSellers);
     // vm.$forceUpdate();
   },
   beforeCreate() {
