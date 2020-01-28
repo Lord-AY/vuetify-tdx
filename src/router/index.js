@@ -97,7 +97,7 @@ const routes = [
     name: "search",
     component: () => import("../views/search.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {

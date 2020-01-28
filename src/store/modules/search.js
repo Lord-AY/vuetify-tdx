@@ -14,7 +14,7 @@ export default {
         getResults(state) {
             if (
                 state.results == null &&
-                state.results == undefined && 
+                state.results == undefined &&
                 state.results.length <= 0
             ) {
                 return null;
@@ -31,6 +31,16 @@ export default {
                 .then(({ data }) => {
                     commit("auth/SET_LOADING", false, { root: true });
                     commit("SET_SUCCESS_MSG", "Search Successfull");
+                    for (let product in data) {
+                        // console.log(product);
+                        const photosArr = ash.split(
+                            data[product].photos,
+                            ",",
+                            7
+                        );
+                        data[product].photos = photosArr;
+                        // console.log(data);
+                    }
                     commit("SET_SEARCH_RESULTS", data);
                 })
                 .catch(error => {

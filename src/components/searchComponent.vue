@@ -19,18 +19,18 @@
                         <ul class="nav nav-tabs">
                           <li class="active">
                             <a href="#tab1default" data-toggle="tab"
-                              >Latest Ads</a
+                              >Search Results ({{ results.length }})</a
                             >
                           </li>
                         </ul>
                       </div>
                       <div class="panel-body">
-                        <div class="tab-content" v-if="result !== null">
+                        <div class="tab-content" v-if="results !== null">
                           <div
                             class="tab-pane fade in active"
                             id="tab1default"
-                            v-for="product in results"
-                            :key="product.id"
+                            v-for="(product, index) in results"
+                            :key="index"
                           >
                             <div class="ads-list-archive featured_ads">
                               <!-- Image Block -->
@@ -45,7 +45,9 @@
                                     "
                                   >
                                     <img
-                                      :src="product.photos[0]"
+                                      v-for="(image, index) in product.photos.slice(0, 1)"
+                                      :key="index"
+                                      :src="image"
                                       :alt="product.name"
                                       class="img-responsive"
                                     />
@@ -109,9 +111,12 @@
                                         "
                                       >
                                         <img
-                                          :src="product.photos[1]"
-                                          :alt="product.name"
-                                        />
+                                      v-for="(image, index) in product.photos.slice(1)"
+                                      :key="index"
+                                      :src="image"
+                                      :alt="product.name"
+                                      class="img-responsive"
+                                    />
                                       </router-link>
                                     </li>
                                   </ul>
