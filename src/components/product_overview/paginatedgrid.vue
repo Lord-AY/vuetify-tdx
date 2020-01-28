@@ -312,7 +312,7 @@
             :key="product.id"
             v-show="!showLoader(paginatedList)"
           >
-            <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" id=".holder-1375">
+            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col-md-3-tx col-lg-3-tx col-sm-6-tx col-xs-12-tx" id=".holder-1375">
               <div class="category-grid-box-1">
                 <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
                 <div class="image">
@@ -662,6 +662,10 @@ button {
   text-decoration: none;
   border: none;
   cursor: pointer;
+}
+.col-md-3-tx, .col-lg-3-tx, .col-sm-6-tx, .col-xs-12-tx {
+  padding-right: 8px!important;
+  padding-left: 8px!important;
 }
 .price-tag {
   display: flex;

@@ -78,7 +78,7 @@
                   <i class="icon-submenu la la-chevron-left"></i>
                 </a>
                 <div id="subPages" class="collapse">
-                  <ul class="nav">
+                  <ul class="nav nav-dash">
                     <li>
                       <router-link to="/publishedInventory">
                         <span>Published</span>
@@ -111,6 +111,12 @@
                     </li>
                   </ul>
                 </div>
+              </li>
+              <li>
+                <router-link to="/wallet">
+                  <i class="la la-money"></i>
+                  <span>Wallet</span>
+                </router-link>
               </li>
               <li>
                 <router-link to="/refferal">
@@ -217,6 +223,10 @@ export default {
 <style >
 #sidebar-nav {
   padding-top: 104.98px!important;
+}
+
+.nav-dash li {
+  width: 100%;
 }
 .nav.dashboard-sidebar {
   display: block!important;

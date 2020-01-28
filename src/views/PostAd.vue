@@ -46,15 +46,13 @@ export default {
         name: "",
         photos: "",
         videos: [],
-        inputFields:{ field_: '',},
-        checkFields:[],
         region: "",
         currency: "Naira",
         creator: "",
         price: null,
         amount: null,
-        address:  null,
         negotiable: false,
+        address:  null,
         subcategory: null,
         featured: false,
         tradexplorer: true,
@@ -64,7 +62,9 @@ export default {
         published: true,
         description: "",
         keywords: [],
-        canExchange: false
+        canExchange: false,
+        inputFields:{},
+        checkFields:{},
       }
     };
   },

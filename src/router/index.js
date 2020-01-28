@@ -35,10 +35,10 @@ const routes = [
     name: "register",
     // component: () => import("../views/Register.vue"),
     component: userRegister,
-    beforeEnter: (to, from, next) => {
+   beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "home" });
+      if (!auth) {
+        next({ name: "login" });
       }
       next();
     },
@@ -65,10 +65,10 @@ const routes = [
     path: "/reset",
     name: "reset",
     component: reset,
-    beforeEnter: (to, from, next) => {
+  beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "home" });
+      if (!auth) {
+        next({ name: "login" });
       }
       next();
     },
@@ -92,6 +92,14 @@ const routes = [
       header: 1
     }
   },
+   {
+    path: "/search/keyword=:keyword",
+    name: "search",
+    component: () => import("../views/search.vue"),
+    meta: {
+      header: 3
+    }
+  },
   {
     path: "/overview",
     name: "productoverview",
@@ -104,6 +112,13 @@ const routes = [
     path: "/referal",
     name: "referal",
     component: () => import("../views/ref.vue"),
+      beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (auth) {
+        next({ name: "referal" });
+      }
+      next();
+    },
     meta: {
       header: 1
     }
@@ -207,7 +222,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -222,7 +237,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -237,7 +252,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -252,7 +267,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -267,7 +282,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -282,7 +297,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -297,7 +312,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -312,37 +327,81 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
+    }
+  },
+  {
+    path: "/wallet",
+    name: "wallet",
+    component: () => import("../views/wallet.vue"),
+    meta: {
+      header: 5
+    }
+  },
+  {
+    path: "/wallet-deposit",
+    name: "wallet-deposit",
+    component: () => import("../views/wallet-deposit.vue"),
+    meta: {
+      header: 5
     }
   },
   {
     path: "/refferal",
-    name: "refferal",
+    name: "referals",
     component: () => import("../views/refferal.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
     path: "/favorite",
     name: "favorite",
     component: () => import("../views/Favorite.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
     meta: {
-      header: 3
+      header: 5
     }
   },
   {
     path: "/orders",
     name: "orders",
     component: () => import("../views/Orders.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
     meta: {
-      header: 3
+      header: 5
     }
   },
   {
     path: "/postad",
     name: "postad",
     component: () => import("../views/PostAd.vue"),
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
     meta: {
       header: 1
     }
@@ -352,7 +411,7 @@ const routes = [
     name: "settings",
     component: () => import("../views/Settings.vue"),
     meta: {
-      header: 3
+      header: 5
     }
   },
   {
@@ -360,7 +419,7 @@ const routes = [
     name: "mainsettings",
     component: () => import("../views/settings-carspot.vue"),
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -384,7 +443,7 @@ const routes = [
     name: "rating",
     component: () => import("../views/Rating.vue"),
     meta: {
-      header: 2
+      header: 5
     }
   },
   {

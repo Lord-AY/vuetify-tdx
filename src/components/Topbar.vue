@@ -292,7 +292,7 @@
                           style="margin-top: -4px; margin-right: 5px;"
                         />
                         Balance
-                        <span>00.00</span>
+                        <span>0.00</span>
                       </li>
                       <li class="profile-dropdown-list">
                         <router-link
@@ -524,6 +524,8 @@
                   type="text"
                   class="form-control input-lg br-tr-md-0 br-br-md-0 main-search main-search-tx"
                   id="text4"
+                  v-model="keyword"
+                  @keydown.enter="sendSearch"
                   placeholder="Search products, brands and categories"
                   style="background-color: #fff!important; font-size: 15px!important; "
                 />
@@ -535,7 +537,7 @@
                 class="col-xl-2 col-lg-12 col-md-12"
                 style="padding-left: 0px;"
               >
-                <button class="header-search-button btn btn-theme" style="text-transform: none!important;">
+                <button class="header-search-button btn btn-theme" style="text-transform: none!important;" @click.prevent="sendSearch">
                   Search
                 </button>
               </div>
@@ -571,6 +573,11 @@ import { mapGetters, mapActions } from "vuex";
 /* eslint-disable no-undef */
 export default {
   name: "topbar",
+  data() {
+    return {
+      keyword: null,
+    }
+  },
   components: {
     // timer
   },
@@ -591,8 +598,13 @@ export default {
             cid: categories[category].id
           }
         this.fetchSubCategories(payload);
-      }
+      };
     },
+     sendSearch() {
+        if(this.keyword !== null) {
+          this.$router.push(`search/keyword=${this.keyword}`);
+        };
+      },
     sync() {
       $(document).ready(function() {
         $("#bmenu_toggle").prop("checked", false);
@@ -611,8 +623,6 @@ export default {
         $(window).scroll(function() {
           stickyNav();
         });
-        
-        
         // $(window).scroll(function() {
         //   var scroll = $(window).scrollTop();
         //   // console.log("we are scrolling " + scroll);
@@ -848,7 +858,7 @@ export default {
 }
 @media (min-width: 1200px) {
   .container2 {
-    width: 1170px;
+    width: 1270px!important;
   }
 }
 /* .top-bar-hide {
