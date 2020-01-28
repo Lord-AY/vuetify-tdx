@@ -8,6 +8,6 @@ export default {
         return Api().post(`users/${userId}/wallet`);
     },
     postPayment(payload) {
-        return Api().post('webpay/payment', payload);
+        return Api().post("webpay/payment", payload);
     }
 };

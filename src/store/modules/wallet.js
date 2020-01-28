@@ -1,9 +1,10 @@
 import WalletService from "@/services/WalletService";
-
+import router from "@/router";
 export default {
     namespaced: true,
     state: {
-        walletData: 0
+        walletData: 0,
+        webpayResponse: null
     },
     getters: {
         getwalletData(state) {
@@ -11,11 +12,18 @@ export default {
                 return state.walletData;
             }
             return null;
+        },
+        webpayDetails(state) {
+            if (state.webpayResponse !== null && state.webpayResponse !== undefined) {
+                return state.webpayResponse;
+            }
+            return null;
         }
     },
     actions: {
         FetchUserwallet({ commit }, payload) {
             commit("auth/SET_LOADING", true, { root: true });
+            commit("SET_PAYMENT_RESPONSE", null);
             return WalletService.getWallet(payload)
                 .then(({ data }) => {
                     commit("auth/SET_LOADING", false, { root: true });
@@ -30,6 +38,7 @@ export default {
         createUserwallet({ commit, state }, payload) {
             // set inputs to state
             commit("auth/SET_LOADING", true, { root: true });
+            commit("SET_PAYMENT_RESPONSE", null);
             return WalletService.createWallet(payload)
                 .then(({ data }) => {
                     commit("auth/SET_LOADING", false, { root: true });
@@ -42,11 +51,14 @@ export default {
         paymentStepOne({ commit }, payload) {
             commit("auth/SET_LOADING", true, { root: true });
             console.log(payload);
-            WalletService.postPayment(payload).then(({data}) => {
-                console.log(data);
-            }).catch(error => {
-                console.log(error);
-            });
+            WalletService.postPayment(payload)
+                .then(({ data }) => {
+                    commit("SET_PAYMENT_RESPONSE", data);
+                    router.push("/valueind");
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     },
     mutations: {
@@ -58,6 +70,9 @@ export default {
         },
         SET_SUCCESS_MSG(state, success) {
             state.success = success;
+        },
+        SET_PAYMENT_RESPONSE(state, data) {
+            state.webpayResponse = data;
         }
     }
 };
