@@ -426,13 +426,13 @@ export default {
   }
 }
 @media (min-width: 1200px) {
-  .container2 {
+  .container2-dashboard  {
     width: 122rem !important;
   }
 }
 
 @media (min-width: 1440px) {
-  .container2 {
+  .container2-dashboard {
     width: 138.25rem !important;
   }
 }
