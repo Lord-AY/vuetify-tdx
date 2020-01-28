@@ -19,11 +19,8 @@
         <div class="panel-collapse">
           <div class="panel-body">
             <ul class="sub-categories">
-              <li>
-                <a href="">Bikes  <span>| 10</span> </a>
-              </li>
-              <li>
-                <a href="">Cars <span>| 30</span> </a>
+              <li v-for="(category, index) in categories" :key="index">
+                <a href="">{{ category.name }}  <span>| 10</span> </a>
               </li>
             </ul>
           </div>
@@ -1111,7 +1108,9 @@ require("../../../public/assets/plugins/select2/select2.min.css");
 import { bus } from "../../main.js";
 export default {
   name: "gsidebar",
-  props: {},
+  props: {
+    categories: [Object, Array],
+  },
 
   methods: {}
 };
