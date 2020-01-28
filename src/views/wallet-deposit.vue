@@ -1,12 +1,16 @@
 <template>
-  <div class="referals">
+  <div class="publishInventory">
     <div id="wrapper">
       <!-- LEFT SIDEBAR -->
+
       <dsidebar></dsidebar>
       <!-- END LEFT SIDEBAR -->
- 
+
       <!-- MAIN -->
-      <div class="main dashboard-main dashboard-main-content" style="min-height: 713px;">
+      <div
+        class="main dashboard-main dashboard-main-content "
+        style="min-height: 713px;"
+      >
         <!-- MAIN CONTENT -->
         <div class="main-content">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -15,50 +19,19 @@
                 <div class="row">
                   <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
                     <h3 class="panel-title">
-                      My Refferals
-                      <span style="display: inline;">( 0 )</span>
+                      Wallet
+                      <!-- <span style="display: inline;">( 0 )</span> -->
                     </h3>
-                  </div>
-
-                  <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
-                    <form
-                      class="form form-inline form-published-search"
-                      method="get"
-                    >
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control search-input"
-                          name="search_title"
-                          value
-                          placeholder="Search referal"
-                          v-model="search_input"
-                          @keyup.enter="getUserReferees()"
-                        />
-<!--                         <input
-                          type="hidden"
-                          name="page-type"
-                          value="published-ads"
-                          v-model="search_input"
-                          @keyup.enter="getUserReferees()"
-                        />
- -->                  </div>
-                      <div class="form-group">
-                        <button
-                          type="submit"
-                          class="btn btn-theme"
-                          style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
-                          @click.prevent="getUserReferees()"
-                        >
-                          Search
-                        </button>
+                    <div class="wallet-details">
+                      <div class="balance">
+                        <h4>&#x20A6; 0.00</h4>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
                 <!-- <h3 class="panel-title">
-                  My Refferals
-                  <span style="display: inline;">( 1 )</span>
+                  Published
+                  <span style="display: inline;">( 0 )</span>
                 </h3>
                 <form class="form form-inline form-published-search" method="get">
                   <div class="form-group">
@@ -77,55 +50,77 @@
                 </form> -->
               </div>
               <div class="panel-body">
-                <div class="table-responsive">
-                  <table class="table dashboard-table table-fit">
-                    <thead>
-                      <tr>
-                        <th> S/N</th>
-                        <th>detail</th> 
-                        <th>referal id</th>
-                        <!-- <th> Views</th> -->
-                        <!-- <th>referal id</th> -->
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- <tr> <td colspan="5"><h4> no Inventory found</h4></td> </tr> -->
-                      <tr v-for="(referal, index) in filteredRow" :key="index">
-                        <td>
-                          {{index}}
-                          <!-- <span class="ad-image">
-                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"><img src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg" alt="na me" class="img-responsive"></a>                                     </span>-->
-                        </td>
-                        <td>
-                          <a
-                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                          >
-                            <span class="ad-title">{{referal.firstname}} {{referal.lastname}}</span>
-                          </a>
-                          <span class="ad-date">
-                            <i class="la la-calendar-o"></i> {{ format_date(referal.createdAt) }}
-                          </span>
-                          <!-- <span class="pending-post-msg"> <i class="fa fa-warning"></i> 
-                          Your post is under review                                    </span>-->
-                        </td>
-                        <td>
-                          <span class="ad-cats">
-                            <span class="padding_cats">
-                              https://www.tradexplora.com/dist/#/register/{{ referal.referalId }}
-                            </span>
-                            <span class="padding_cats"></span>
-                          </span>
-                        </td>
-                        <!-- <td>0</td> -->
-                      </tr>
-                    </tbody>
-                  </table>
+                <div
+                  class="col-md-12 col-lg-12 col-sm-12 col-xs-12"
+                  style="margin-top: 24px;"
+                >
+                  <div class="edit-profile-form">
+                    <form
+                      id="sb_update_profile"
+                      class="sb_update_profile"
+                      @submit.prevent="updateUser(user)"
+                    >
+                      <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                          <div class="form-group">
+                            <label class="control-label control-label-dashboard"
+                              >Wallet ID</label
+                            >
+                            <input
+                              class="form-control form-control-dashboard"
+                              type="text"
+                              name="first_name"
+                              
+                              data-pt-position="top"
+                              data-pt-scheme="dark-transparent"
+                              data-pt-size="small"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                          <div class="form-group">
+                            <label class="control-label control-label-dashboard"
+                              >Amount</label
+                            >
+                            <input
+                              class="form-control form-control-dashboard"
+                              type="number"
+                              name="first_name"
+                              
+                              data-pt-position="top"
+                              data-pt-scheme="dark-transparent"
+                              data-pt-size="small"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-6">
+                              <div class="col-md-10"></div>
+                            <div class="col-md-2 col-dash">
+                                <button class="btn btn-theme btn-theme-dash">Continue to Pay</button>
+                            </div>
+                          </div>
+                          <div class="col-md-3"></div>
+
+                          
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- END MAIN CONTENT -->
+        
       </div>
       <!-- END MAIN -->
       <div class="clearfix"></div>
@@ -158,6 +153,7 @@
     <!-- Email verification and reset password -->
   </div>
 </template>
+
 <script>
 require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
@@ -253,76 +249,67 @@ require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 
-import { mapActions, mapGetters } from "vuex";
 import dsidebar from "@/components/Dsidebar";
-import moment from "moment";
 // import dheader from "@/components/Dheader";
 export default {
-  name: "referals",
-  data() {
-    return {
-      myreferals : [],
-      search_input: ''
-    };
-  },
+  name: "wallet-deposit",
   components: {
     dsidebar
-  },
-  computed: {
-    ...mapGetters("auth", ["loading", "errors", "getReferee", "getUser"]),
-    filteredRow: function(){
-      return this.myreferals.filter((row) => {
-        for(var key in row){
-          if(String(row[key]).indexOf(this.search_input) !== -1){
-            return true;
-          }
-        }
-        return false;
-      });
-    }
-  },
-  methods: {
-    ...mapActions("auth", ["fetchUserReferee"]),
-    format_date(value) {
-      if (value) {
-        return moment(String(value)).format("YYYY-MM-DD");
-      }
-    },
-    async getUserReferees() {
-      const payload = {
-        refcode: this.getUser.id
-      };
-      // console.log(payload);
-      await this.fetchUserReferee(payload);
-    },
-  },
-  watch: {
-    $route: "sync",
-  },
-  created() {
-    this.getUserReferees().then(data => {
-        // console.log(this.getReferee);
-        this.myreferals = this.getReferee;
-    });
-    // console.log(this.getUser);
-    
-  },
-
+  }
 };
 </script>
 
 <style>
 .dashboard-main-content {
-  padding-top: 107px!important;
+  padding-top: 107px !important;
+}
+.wallet-details {
+  display: flex;
+  margin-top: 16px;
+}
+.balance h4 {
+  font-size: 20px;
+  padding-top: 4px;
+  margin-right: 20px;
+}
+.btn-theme-dash {
+  padding: 10px 16px;
+  border-radius: 6px;
+  
+}
+.col-dash {
+    padding-right: 0px!important;
+}
+.col-dash .btn-theme-dash{
+    float: right;
+    margin-top: 16px;
+    margin-bottom: 32px;
 }
 .table th {
   font-size: 14px;
 }
+ul.ad-actions-list li {
+  display: inline-block;
+}
+.dashboard-table tr td .ad-actions i {
+  font-size: 24px;
+}
+
+/* .dashboard-table .ad-image img {
+    width: 100px;
+    height: auto !important;
+    border-radius: 5px;
+    margin: 0px auto;
+} */
 .search-input {
   /* border-top-right-radius: 0px;
   border-bottom-right-radius: 0px; */
   border-radius: 8px 0px 0px 8px !important;
 }
+.btn.btn-theme.btn-search {
+  border-radius: 0px 8px 8px 0px !important;
+}
+
 .form-published-search {
   display: flex;
 }

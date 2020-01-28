@@ -6,7 +6,7 @@
       <!-- END LEFT SIDEBAR -->
 
       <!-- MAIN -->
-      <div class="main dashboard-main" style="min-height: 713px;">
+      <div class="main dashboard-main dashboard-main-content " style="min-height: 713px;">
         <!-- MAIN CONTENT -->
         <div class="main-content">
           <div class="container-fluid">
@@ -1187,3 +1187,8 @@ export default {
   }
 };
 </script>
+<style >
+  .dashboard-main-content {
+    padding-top: 107px!important;
+  }
+</style>

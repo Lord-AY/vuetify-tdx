@@ -2,7 +2,6 @@
   <!--Topbar-->
   <!--Topbar-->
   <div class="header-main">
-    
     <!--/Topbar-->
 
     <!-- Header -->
@@ -50,13 +49,14 @@
     <div
       class="horizontal-main horizontal-main-dashboard bg-dark-transparent my-dashboard-nav clearfix mobile-hidden"
     >
-      <div class="horizontal-mainwrapper container2 container2-dashboard clearfix">
+      <div
+        class="horizontal-mainwrapper container2 container2-dashboard clearfix"
+      >
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
           <div class="desktoplogo">
             <router-link to="/">
               <img src="@/assets/images/brand/TRADEXPLORA-V4.1-mini.png" alt />
-              
             </router-link>
           </div>
           <div class="desktoplogo-1">
@@ -66,119 +66,29 @@
           </div>
           <ul class="horizontalMenu-list" style="margin-top: 12px;">
             <li aria-haspopup="true" style="margin-right: 10px;">
-              <!-- <button class="btn">
-                <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
-              </button> -->
-
-              <input
-                id="bmenu_toggle"
-                type="checkbox"
-                name="bmenu-open"
-                class="hidden"
-                aria-checked="true"
-              />
-              <label
-                class="bmenu toggle"
-                for="bmenu_toggle"
-                accesskey="1"
-                style="padding: 10px; height: 40px;"
-              >
-                <span style="font-size: 14.6px; font-weight: 400;">
-                  <i
-                    class="fa fa-bars"
-                    style="color: #4CAF50; margin-right: 3px;"
-                  ></i>
-                  All Categories
-                </span>
-              </label>
-              <div class="hide-at-start-wrapper">
-                <nav class="bmenu panel animated">
-                  <router-link to="/categories" v-for="(category, index) in categories" :key="++index + categories.length"
-                    ><span class="triangle-origin">{{ category.name }}</span></router-link
-                  >
-                  <hr />
-                  <article class="panel" v-for="category in categories" :key="category.id">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>{{ category.name }}</header>
-                        <div v-if="category.subcategory">
-                        <a href="/categories" v-for="subcategory in category.subcategory" :key="subcategory.id">{{ subcategory.name }}</a>
-                        </div>
-                        <a href="/categories" v-else="">No subcategories present.</a>
-                      </section>
-                     <!--  <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section> -->
-                    </div>
-   <!--                  <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div> -->
-                  </article>
-                 <!--  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Title</header>
-                        <a href="#">It's our work o!!</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Title</header>
-                        <a href="#">It's our work o!!</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Title</header>
-                        <a href="#">It's our work o!!</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article> -->
-                </nav>
-              </div>
+              
             </li>
-            
           </ul>
-          <div class="call-us-now" style="width: 32%!important;">
-            <div class="contact-us-header">
-              <!-- <i style="color:black;" class="flaticon-customer-service"></i> -->
 
-              <router-link
-                  to="/postad"
-                  class="btn btn-tx btn-theme text-dark post-ad-header-tx post-ad-header-tx-dashbaord"
-                  >POST AN AD
+          <div class="call-us-now" style="width: 32%!important;">
+            
+            <div class="contact-us-header contact-us-header-dash">
+              <!-- <i style="color:black;" class="flaticon-customer-service"></i> -->
+              <div class="notification-dash">
+                <router-link
+                  class="shopping_bag_btn"
+                  to="https://carspot.scriptsbundle.com/transparent-1/cart/"
+                >
+                  <i class="fa fa-bell-o"></i>
+                  <span>0</span>
                 </router-link>
+              </div>
+              <router-link
+                to="/postad"
+                class="btn btn-theme post-ad-header-tx-dashbaord"
+                id="post-ad-header-tx-dashbaord-tx"
+                >POST AN AD
+              </router-link>
             </div>
           </div>
           <!-- <div class="postad">
@@ -213,7 +123,7 @@ export default {
   },
   computed: {
     ...mapGetters("auth", ["isLoggedIn", "getUser"]),
-    ...mapGetters("product", ["categories"]),
+    ...mapGetters("product", ["categories"])
   },
   methods: {
     ...mapActions("product", ["fetchAllCategories", "fetchSubCategories"]),
@@ -222,11 +132,11 @@ export default {
       this.logoutUser();
     },
     sendFetchSubCategories() {
-      let categories = this.categories
-      for(let category in categories) {
-         const payload =  {
-            cid: categories[category].id
-          }
+      let categories = this.categories;
+      for (let category in categories) {
+        const payload = {
+          cid: categories[category].id
+        };
         this.fetchSubCategories(payload);
       }
     },
@@ -248,8 +158,7 @@ export default {
         // $(window).scroll(function() {
         //   stickyNav();
         // });
-        
-        
+
         // $(window).scroll(function() {
         //   var scroll = $(window).scrollTop();
         //   // console.log("we are scrolling " + scroll);
@@ -344,7 +253,7 @@ export default {
           var $state = $(
             '<span><img src="./assets/images/flags/' +
               state.element.value.toLowerCase() +
-              '.svg" class="img-flag" /> ' +  
+              '.svg" class="img-flag" /> ' +
               state.text +
               "</span>"
           );
@@ -407,7 +316,29 @@ export default {
 <style>
 /* Sidebar Test Styles => Don't remove */
 .container2-dashboard {
-  width: 1436px!important;
+  width: 1492px !important;
+}
+.contact-us-header-dash {
+  height: 100%;
+}
+.notification-dash {
+  margin-right: 48px;
+}
+.notification-dash i {
+  color: #eee!important;
+  font-size: 28px!important;
+  margin-top: 18px!important;
+}
+
+.notification-dash span {
+  position: absolute;
+  margin-left: 10px;
+  top: 34px;
+}
+
+.contact-us-header-dash a {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
 }
 .sidenav {
   box-shadow: 3px 5px 30px rgba(0, 0, 0, 0.1);
@@ -471,7 +402,7 @@ export default {
   /* font-family: avenir; */
 }
 .my-dashboard-nav {
-  position: fixed!important;
+  position: fixed !important;
   right: 0;
   left: 0;
   z-index: 1030;
@@ -481,7 +412,7 @@ export default {
   border-bottom: 3px solid #4caf50;
 }
 .horizontal-main-dashboard {
-  border-bottom: none!important;
+  border-bottom: none !important;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 768px) {
@@ -505,6 +436,13 @@ export default {
 .post-ad-header-tx-dashbaord {
   margin-top: 20px;
 }
+.notification i {
+  color: #4caf50;
+}
+#post-ad-header-tx-dashbaord-tx {
+  padding: 12px 16px !important;
+  border-radius: 6px;
+}
 .header-search-button {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
   text-transform: uppercase;
@@ -517,19 +455,19 @@ export default {
   box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9) !important;
 }
 .profile-dropdown-list {
-  margin-right: 0px!important;
-  width: 100%!important;
+  margin-right: 0px !important;
+  width: 100% !important;
 }
 .profile-dropdown-list a {
-  padding-top: 10px!important;
-  padding-bottom: 10px!important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 /* .profile-dropdown-link {
   padding-top: 10px;
   padding-bottom: 10px;
 } */
 .profile-dropdown-icon {
-  color: #232323!important;
-  font-size: 16px!important;
+  color: #232323 !important;
+  font-size: 16px !important;
 }
 </style>
