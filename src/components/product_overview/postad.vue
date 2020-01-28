@@ -172,7 +172,7 @@
                                     <input
                                       type="checkbox"
                                       class="custom-control-input"
-                                      v-model="ads.checkFields"
+                                      v-model="ads.checkFields['check_'+index]"
                                     />
                                     <span
                                       class="custom-control-label text-dark pl-2"
