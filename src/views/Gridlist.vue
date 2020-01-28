@@ -126,7 +126,8 @@
               class="col-md-2 col-sm-4 col-xs-4"
               style="padding-left: 0px; padding-right: 0px; "
             >
-              <a href="#">
+              
+            <router-link to="/listbillers">
                 <div class="d-flex value-added">
                   <div
                     class="icon-bg-service"
@@ -145,7 +146,7 @@
                     </h3>
                   </div>
                 </div>
-              </a>
+              </router-link>
             </div>
           </div>
           <!-- <hr /> -->
@@ -256,6 +257,59 @@ export default {
         duration: 10000,
         speed: 1000
       });
+    },
+    alphabeticallyZtoA(array){
+        let res = array.sort(function(a, b) {
+            var textA = a.name.toUpperCase();
+            var textB = b.name.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        console.log(res);
+    },
+    alphabeticallyAtoZ(array){
+       let res = array.sort(function(a, b) {
+            var textA = a.name.toUpperCase();
+            var textB = b.name.toUpperCase();
+            return (textB < textA) ? -1 : (textB > textA) ? 1 : 0;
+      });
+      console.log(res);
+    },
+    newestTooldest(array){
+       let res = array.sort(function(a, b) {
+          var c = new Date(a.createdAt);
+          var d = new Date(b.createdAt);
+          return d-c;
+      });
+      console.log(res);
+    },
+    oldestToNewest(array){
+       let res = array.sort(function(a, b) {
+          var c = new Date(a.createdAt);
+          var d = new Date(b.createdAt);
+          return c-d;
+      });
+      console.log(res);
+    },
+    highestTolowestPrice(array){
+       let res = array.sort(function(a, b) {
+            return parseFloat(a.amount) - parseFloat(b.amount);
+        });
+      console.log(res);
+    },
+    lowestTohighestPrice(array){
+       let res = array.sort(function(a, b) {
+            return parseFloat(b.amount) - parseFloat(a.amount);
+        });
+      console.log(res);
+    },
+    filterByCategory(array, value){
+      var filtered = [];
+      for (var i = 0; i < array.length; i++) {
+          if (array[i].cid == value) {
+              filtered.push(array[i]);
+          }
+      }
+      console.log(filtered);
     }
   },
   watch: {
@@ -290,6 +344,7 @@ export default {
     this.sync();
     this.fetchAllProducts();
     this.fetchHotSellers();
+    this.filterByCategory(this.paginatedProducts, 1);
     // console.log(this.getHotSellers);
     // vm.$forceUpdate();
   },

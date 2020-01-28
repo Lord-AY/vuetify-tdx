@@ -156,6 +156,7 @@ export default {
   },
   created() {
     this.sendPaymentItem();
+    console.log(this.paymentItems);
   }
 };
 </script>
