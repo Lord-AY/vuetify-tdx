@@ -844,7 +844,7 @@ export default {
   position: sticky;
 }
 .horizontal-main {
-  border-bottom: 3px solid #4caf50;
+  /* border-bottom: 3px solid #4caf50; */
 }
 @media (min-width: 768px) {
   .container2 {
