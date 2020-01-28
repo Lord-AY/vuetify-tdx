@@ -404,7 +404,6 @@
           <div class="desktoplogo">
             <router-link to="/">
               <img src="@/assets/images/brand/TRADEXPLORA-V4.1-mini.png" alt />
-              
             </router-link>
           </div>
           <div class="desktoplogo-1">
@@ -441,20 +440,36 @@
               </label>
               <div class="hide-at-start-wrapper">
                 <nav class="bmenu panel animated">
-                  <router-link to="/categories" v-for="(category, index) in categories" :key="++index + categories.length"
-                    ><span class="triangle-origin">{{ category.name }}</span></router-link
+                  <router-link
+                    to="/categories"
+                    v-for="(category, index) in categories"
+                    :key="++index + categories.length"
+                    ><span class="triangle-origin">{{
+                      category.name
+                    }}</span></router-link
                   >
                   <hr />
-                  <article class="panel" v-for="category in categories" :key="category.id">
+                  <article
+                    class="panel"
+                    v-for="category in categories"
+                    :key="category.id"
+                  >
                     <div class="column">
                       <section class="titled-group">
                         <header>{{ category.name }}</header>
                         <div v-if="category.subcategory">
-                        <a href="/categories" v-for="subcategory in category.subcategory" :key="subcategory.id">{{ subcategory.name }}</a>
+                          <a
+                            href="/categories"
+                            v-for="subcategory in category.subcategory"
+                            :key="subcategory.id"
+                            >{{ subcategory.name }}</a
+                          >
                         </div>
-                        <a href="/categories" v-else="">No subcategories present.</a>
+                        <a href="/categories" v-else=""
+                          >No subcategories present.</a
+                        >
                       </section>
-                     <!--  <section class="titled-group">
+                      <!--  <section class="titled-group">
                         <header>Category Title</header>
                         <a href="#">A sub category...</a>
                         <a href="#">A Sub Category</a>
@@ -469,7 +484,7 @@
                         <a href="#">A Sub Category</a>
                       </section> -->
                     </div>
-   <!--                  <div class="column">
+                    <!--                  <div class="column">
                       <section class="titled-group">
                         <header>Category Title</header>
                         <a href="#">A sub category...</a>
@@ -486,7 +501,7 @@
                       </section>
                     </div> -->
                   </article>
-                 <!--  <article class="panel">
+                  <!--  <article class="panel">
                     <div class="column">
                       <section class="titled-group">
                         <header>Title</header>
@@ -529,6 +544,17 @@
                   placeholder="Search products, brands and categories"
                   style="background-color: #fff!important; font-size: 15px!important; "
                 />
+                <div
+                  style="display:none;"
+                  class="dropdown-header dropdown_empty"
+                >
+                  No entry found
+                </div>
+                 <div class="search-result" v-if="showResults">
+                  <ul class="dropdown">
+                    <li class="dropdown-item" v-for="(result, index) in getResults.slice(0, 5)" :key="index"><router-link :to="`/productDetails/${result.id}/${result.cid}/${result.uid}`">{{ result.name }}</router-link></li>
+                  </ul>
+                </div>
                 <span>
                   <i class="fa fa-search location-gps mr-1"></i>
                 </span>
@@ -537,7 +563,11 @@
                 class="col-xl-2 col-lg-12 col-md-12"
                 style="padding-left: 0px;"
               >
-                <button class="header-search-button btn btn-theme" style="text-transform: none!important;" @click.prevent="sendSearch">
+                <button
+                  class="header-search-button btn btn-theme"
+                  style="text-transform: none!important;"
+                  @click.prevent="sendSearch"
+                >
                   Search
                 </button>
               </div>
@@ -576,7 +606,8 @@ export default {
   data() {
     return {
       keyword: null,
-    }
+      showResults: false
+    };
   },
   components: {
     // timer
@@ -584,40 +615,50 @@ export default {
   computed: {
     ...mapGetters("auth", ["isLoggedIn", "getUser"]),
     ...mapGetters("product", ["categories"]),
+    ...mapGetters("search", ["getResults"])
   },
   methods: {
     ...mapActions("product", ["fetchAllCategories", "fetchSubCategories"]),
+    ...mapActions("search", ["searchAction"]),
     ...mapActions("auth", ["logoutUser"]),
     setLogout() {
       this.logoutUser();
     },
     sendFetchSubCategories() {
-      let categories = this.categories
-      for(let category in categories) {
-         const payload =  {
-            cid: categories[category].id
-          }
-        this.fetchSubCategories(payload);
-      };
-    },
-     sendSearch() {
-        if(this.keyword !== null) {
-          this.$router.push(`search/keyword=${this.keyword}`);
+      let categories = this.categories;
+      for (let category in categories) {
+        const payload = {
+          cid: categories[category].id
         };
-      },
+        this.fetchSubCategories(payload);
+      }
+    },
+    sendSearch() {
+      if (this.keyword !== null) {
+        this.$router.push(`search/keyword=${this.keyword}`);
+      }
+    },
+     getSearchResults(keyword) {
+      if (this.keyword !== null) {
+        const payload = {
+          keyword
+        };
+        this.searchAction(payload);
+      }
+    },
     sync() {
       $(document).ready(function() {
         $("#bmenu_toggle").prop("checked", false);
-        var stickyNavTop = $('.my-nav').offset().top;
+        var stickyNavTop = $(".my-nav").offset().top;
         var stickyNav = function() {
           var scrollTop = $(window).scrollTop();
           if (scrollTop >= stickyNavTop) {
-              $("#topb").removeClass("mobile-hidden");
-              $(".my-nav").addClass("top-bar-fixed");
-            } else {
-              $(".my-nav").removeClass("top-bar-fixed");
+            $("#topb").removeClass("mobile-hidden");
+            $(".my-nav").addClass("top-bar-fixed");
+          } else {
+            $(".my-nav").removeClass("top-bar-fixed");
           }
-        }
+        };
 
         stickyNav();
         $(window).scroll(function() {
@@ -717,7 +758,7 @@ export default {
           var $state = $(
             '<span><img src="./assets/images/flags/' +
               state.element.value.toLowerCase() +
-              '.svg" class="img-flag" /> ' +  
+              '.svg" class="img-flag" /> ' +
               state.text +
               "</span>"
           );
@@ -767,6 +808,18 @@ export default {
           width: "100%"
         });
       });
+    }
+  },
+  watch: {
+    keyword: {
+      handler: function(keyword) {
+        if(keyword.length >= 3) {
+          this.showResults = true;
+          this.getSearchResults(keyword);
+        }else {
+          this.showResults = false;
+        }
+      }
     }
   },
   created() {
@@ -858,7 +911,7 @@ export default {
 }
 @media (min-width: 1200px) {
   .container2 {
-    width: 1270px!important;
+    width: 1270px !important;
   }
 }
 /* .top-bar-hide {
@@ -876,19 +929,19 @@ export default {
   box-shadow: 0 6px 16px -6px rgba(76, 175, 80, 0.9) !important;
 }
 .profile-dropdown-list {
-  margin-right: 0px!important;
-  width: 100%!important;
+  margin-right: 0px !important;
+  width: 100% !important;
 }
 .profile-dropdown-list a {
-  padding-top: 10px!important;
-  padding-bottom: 10px!important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 /* .profile-dropdown-link {
   padding-top: 10px;
   padding-bottom: 10px;
 } */
 .profile-dropdown-icon {
-  color: #232323!important;
-  font-size: 16px!important;
+  color: #232323 !important;
+  font-size: 16px !important;
 }
 </style>
