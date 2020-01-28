@@ -149,17 +149,17 @@
             </div>
           </div>
           <!-- <hr /> -->
-          <hotsellers 
+          <hotsellers
             class="mobile-hidden"
             :hotsellers="getHotSellers"
           ></hotsellers>
           <!-- Row -->
           <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12">
-              <gsidebar></gsidebar>
+              <gsidebar :categories="categories"></gsidebar>
             </div>
             <div class="col-md-9 col-lg-9 col-xs-12">
-              <ptoggler :current-comp="currentComp"></ptoggler>
+              <ptoggler :current-comp="currentComp" :ads="paginatedProducts"></ptoggler>
               <paginatedGrid
                 :is="currentComp"
                 :data="paginatedProducts"
@@ -216,7 +216,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors","getHotSellers"]),
+    ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors","getHotSellers", "categories"]),
     ...mapGetters("auth", ["loading"])
   },
   components: {

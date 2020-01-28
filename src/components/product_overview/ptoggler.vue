@@ -13,16 +13,7 @@
                   style="color: #232323;"
                 >
                   Found Ads
-                  <small>(12)</small>
-                </a>
-              </li>
-              <li class="active">
-                <a
-                  href="javascript:void(0)"
-                  style="color: #232323;"
-                >
-                  Most viewed
-                  <small>(1,232)</small>
+                  <small>({{ ads.length }})</small>
                 </a>
               </li>
             </ul>
@@ -74,7 +65,8 @@ export default {
     currentComp: {
       type: String,
       required: true
-    }
+    },
+    ads: [Object, Array]
   },
 
   methods: {
