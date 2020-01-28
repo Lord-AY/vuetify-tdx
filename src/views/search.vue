@@ -1,5 +1,5 @@
 <template>
-    <SearchComponent results="getResults"></SearchComponent>
+    <SearchComponent :results="getResults"></SearchComponent>
 </template>
 
 <script>
