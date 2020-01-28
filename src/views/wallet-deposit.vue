@@ -286,9 +286,9 @@ export default {
       handler: function(walletData) {
         if (walletData == null) {
           this.checkUserWalletState();
-          console.log(this.getwalletData);
+          console.log('wallet is null');
         }else{
-          console.log("wallet data isnot empty");
+          console.log("wallet data isnt empty");
         }
       }
     },
