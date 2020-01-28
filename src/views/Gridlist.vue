@@ -160,7 +160,7 @@
               <gsidebar :categories="categories"></gsidebar>
             </div>
             <div class="col-md-9 col-lg-9 col-xs-12">
-              <ptoggler :current-comp="currentComp" :ads="paginatedProducts"></ptoggler>
+              <ptoggler :current-comp="currentComp" :ads="paginatedProducts" ></ptoggler>
               <paginatedGrid
                 :is="currentComp"
                 :data="paginatedProducts"

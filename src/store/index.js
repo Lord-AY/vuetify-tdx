@@ -7,6 +7,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   // strict: true,
+  state: {
+    baseURL: `https://sandbox.interswitchng.com/collections/w/pay`,
+  },
   modules,
   plugins: [createPersistedState()]
 });
