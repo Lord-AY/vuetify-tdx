@@ -292,7 +292,7 @@
                           style="margin-top: -4px; margin-right: 5px;"
                         />
                         Balance
-                        <span>00.00</span>
+                        <span>0.00</span>
                       </li>
                       <li class="profile-dropdown-list">
                         <router-link
@@ -858,7 +858,7 @@ export default {
 }
 @media (min-width: 1200px) {
   .container2 {
-    width: 1170px;
+    width: 1270px!important;
   }
 }
 /* .top-bar-hide {

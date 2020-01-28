@@ -819,6 +819,11 @@ body .select2-container--default .select2-selection--single {
         -moz-transform: rotate(360deg)
     }
 }
+.container {
+    max-width: 1320px !important;
+    width: 1320px !important;
+    padding: 0 8px!important;
+}
 .color-switcher {
     width: 234px;
     position: fixed;
@@ -9233,7 +9238,7 @@ footer.footer-bg.dark  .footer-top .widget h5 , footer.footer-bg.dark .footer-to
 
 
 .sidebar .panel-group .panel+.panel {
-    margin-top: 0
+    margin: 12px 0!important
 }
 
 
@@ -14668,7 +14673,7 @@ hr.accent-2 {
     text-align: center;
     position: absolute;
     bottom: 0.28rem;
-    left: 7.5rem;
+    left: 8.5rem!important;
     color: #fff;
     padding: 1px 4px 2px;
     line-height: 14px;

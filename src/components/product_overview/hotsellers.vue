@@ -206,7 +206,7 @@ p.btn {
   cursor: default!important;
 }
 .new-hot-sellers {
-  left: 7.5rem!important;
+  left: 8.5rem!important;
 }
 @media (max-width: 767px) {
   .hotseller-sub {

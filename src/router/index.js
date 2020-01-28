@@ -89,7 +89,7 @@ const routes = [
     name: "valind",
     component: () => import("../views/val-ind.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
    {
@@ -222,7 +222,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -237,7 +237,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -252,7 +252,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -267,7 +267,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -282,7 +282,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -297,7 +297,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -312,7 +312,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -327,12 +327,28 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
+    }
+  },
+  {
+    path: "/wallet",
+    name: "wallet",
+    component: () => import("../views/wallet.vue"),
+    meta: {
+      header: 5
+    }
+  },
+  {
+    path: "/wallet-deposit",
+    name: "wallet-deposit",
+    component: () => import("../views/wallet-deposit.vue"),
+    meta: {
+      header: 5
     }
   },
   {
     path: "/refferal",
-    name: "refferal",
+    name: "referals",
     component: () => import("../views/refferal.vue"),
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
@@ -342,7 +358,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -357,7 +373,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 3
+      header: 5
     }
   },
   {
@@ -372,7 +388,7 @@ const routes = [
       next();
     },
     meta: {
-      header: 3
+      header: 5
     }
   },
   {
@@ -395,7 +411,7 @@ const routes = [
     name: "settings",
     component: () => import("../views/Settings.vue"),
     meta: {
-      header: 3
+      header: 5
     }
   },
   {
@@ -403,7 +419,7 @@ const routes = [
     name: "mainsettings",
     component: () => import("../views/settings-carspot.vue"),
     meta: {
-      header: 2
+      header: 5
     }
   },
   {
@@ -427,7 +443,7 @@ const routes = [
     name: "rating",
     component: () => import("../views/Rating.vue"),
     meta: {
-      header: 2
+      header: 5
     }
   },
   {

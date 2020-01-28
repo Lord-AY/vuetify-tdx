@@ -676,7 +676,8 @@
             <div class="sidebar">
               <div class="detail_price">
                 <div id="singleprice-tag-tx">
-                  &#x20A6; {{ product.amount }}
+                  &#x20A6; {{  formatCurrency(product.amount) }}
+
                   <!-- <span class="">(Negotiable)</span> -->
                 </div>
               </div>
@@ -1027,6 +1028,7 @@
 // import pricingArea from "@/components/product_overview/pricingArea";
 
 // require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+const formatCurrency = require('format-currency')
 import { ContentLoader } from "vue-content-loader";
 import { mapActions, mapGetters } from "vuex";
 import ash from "lodash";
@@ -1061,6 +1063,9 @@ export default {
   },
   methods: {
     ...mapActions("chat", ["sendMessage"]),
+    formatCurrency(data){
+      return formatCurrency(data)
+    },
     avatarCheck() {
       let avatar = this.getUser.pictureUrl;
       if (avatar !== null || avatar !== undefined || avatar !== "") {
