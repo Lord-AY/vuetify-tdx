@@ -14912,7 +14912,7 @@ hr.accent-2 {
     top: 0;
     z-index: 100;
     border-top: 0;
-    border-bottom: 3px solid #4caf50;
+    border-bottom: 3px solid #4caf50!important;
 }
 .testimonial {
     border-radius: 3px!important;

@@ -844,6 +844,7 @@ export default {
   border-top: none;
   border-radius: 4px;
   z-index: 4;
+  overflow-y: scroll;
 }
 .search-dropdown-item {
   padding: .75rem 1.5rem!important;
@@ -916,7 +917,7 @@ export default {
   position: sticky;
 }
 .horizontal-main {
-  /* border-bottom: 3px solid #4caf50; */
+  border-bottom: none!important;
 }
 @media (min-width: 768px) {
   .container2 {
