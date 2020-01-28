@@ -2,20 +2,103 @@
   <div class="val-ind-box">
     <div class="top-box">
       <div class="top-box-1 val-card">
-        <h1>Tolls</h1>
-
-        <div class="top-box-body">
-          <button class="val-ind-button">
-            continue to pay
-          </button>
+        <h1>Transaction Details</h1>
+        <div class="container mt-5">
+          <p class="details">
+            Name: <strong>{{ webpayDetails.nm }}</strong>
+          </p>
+          <p class="details">
+            Amount: <strong>{{ webpayDetails.amt }}</strong>
+          </p>
         </div>
       </div>
       <div class="top-box-2 val-card">
-        <h1>Get Tickets For Live Events</h1>
-
+        <h1>Make Payment</h1>
         <div class="top-box-body">
-          Don't miss out on events happening around you. Get tickets for live
-          events and shows with trade explora One!
+          <div class="top-box-body">
+            <form
+              :action="`${$store.state.baseURL}`"
+              method="POST"
+            >
+            <div>
+              <div class="form-group">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  :value="webpayDetails.amt"
+                  name="amount"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  :value="webpayDetails.nm"
+                  name="cust_name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  :value="webpayDetails.hash"
+                  name="hash"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="product_id"
+                  type="hidden"
+                  value="1076"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="pay_item_id"
+                  type="hidden"
+                  value="101"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="pay_item_id"
+                  type="hidden"
+                  value="566"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="site_redirect_url"
+                  type="hidden"
+                  :value="webpayDetails.url"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="txn_ref"
+                  type="hidden"
+                  :value="webpayDetails.trn"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="cust_id"
+                  type="hidden"
+                  value="JUST-AVASYN"
+                  class="form-control"
+                />
+              </div>
+            </div>
+              <button class="val-ind-button text-white">
+                continue to pay
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -47,11 +130,30 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  name: "valind"
+  name: "valind",
+  data() {
+    return {
+      hiddenForm: false
+    };
+  },
+  computed: {
+    ...mapGetters("wallet", ["webpayDetails"])
+  },
+  methods: {
+    makePayment() {
+      const payload  = {
+
+      }
+      axios.post('https://sandbox.interswitchng.com/collections/w/pay', payload).then(({data}) => {
+        console.log(data);
+      });
+    }
+  }
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 .val-card {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
   padding: 20px;
@@ -117,5 +219,12 @@ export default {
 
 .bottom-box-text {
   margin-bottom: 20px;
+}
+.details {
+  font-size: 18px !important;
+  strong {
+    color: #4caf50;
+    text-transfrom: uppercase !important;
+  }
 }
 </style>
