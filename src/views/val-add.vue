@@ -24,11 +24,9 @@ export default {
   height: 300px;
   text-align: center;
 }
-
 .value-section {
   margin: 0 370px;
 }
-
 .val-headertext {
   font-size: 45px;
   font-weight: 600;
