@@ -316,7 +316,7 @@ export default {
 <style>
 /* Sidebar Test Styles => Don't remove */
 .container2-dashboard {
-  width: 1492px !important;
+  /* width: 1492px !important; */
 }
 .contact-us-header-dash {
   height: 100%;
@@ -427,7 +427,13 @@ export default {
 }
 @media (min-width: 1200px) {
   .container2 {
-    width: 1170px;
+    width: 122rem !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container2 {
+    width: 138.25rem !important;
   }
 }
 /* .top-bar-hide {
