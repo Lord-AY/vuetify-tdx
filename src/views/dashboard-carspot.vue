@@ -142,6 +142,31 @@
                     <a href class>View All Posts</a>
                   </div>
                   <div class="panel-body table-responsive">
+                    
+                  </div>
+                </div>
+                <div class="panel panel-headline">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Most Recent Reviews</h3>
+                    <a href class>View All Reviews</a>
+                  </div>
+                  <div class="panel-body">
+                    <metrics></metrics>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="panel panel-headline">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Most Viewed Posts</h3>
+                    <a href class>View All Posts</a>
+                  </div>
+                  <div class="panel-body table-responsive">
                     <table
                       class="table dashboard-table table-fit table-striped"
                     >
@@ -385,23 +410,25 @@ require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 import dsidebar from "@/components/Dsidebar";
+import metrics from "@/components/metrics";
 // import dheader from "@/components/Dheader";
 export default {
   name: "dashboard",
   components: {
-    dsidebar
+    dsidebar,
+    metrics
     // dheader
   }
 };
 </script>
 <style>
 .dashboard-main-content {
-  padding-top: 107px!important;
+  padding-top: 107px !important;
 }
-  .alert-icon {
-    padding-left: 0px!important;
-  }
-  /* .col-md-3:nth-child(1) .metric-services {
+.alert-icon {
+  padding-left: 0px !important;
+}
+/* .col-md-3:nth-child(1) .metric-services {
     
   }
   .col-md-3:nth-child(2) .metric-services {
@@ -413,19 +440,19 @@ export default {
   .col-md-3:nth-child(4) .metric-services {
     
   } */
-  .metric-services {
-    background-color: #e3f8f5!important;
-  }
-  .metric-services .title {
-    color: #939daa;
-  }
-  .metric-services .number {
-    color: #232323;
-  }
-  .metric-services .icon {
-    background-color: #3bbeb0!important;
-  }
-  .metric-services .icon i {
-    color: #fff!important;
-  }
+.metric-services {
+  background-color: #e3f8f5 !important;
+}
+.metric-services .title {
+  color: #939daa;
+}
+.metric-services .number {
+  color: #232323;
+}
+.metric-services .icon {
+  background-color: #3bbeb0 !important;
+}
+.metric-services .icon i {
+  color: #fff !important;
+}
 </style>
