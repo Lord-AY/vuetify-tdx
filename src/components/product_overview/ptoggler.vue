@@ -23,13 +23,13 @@
               <h6>Sort by:</h6>
               <div class="custom-select-box">
                 <form method="get">
-                  <select name="sort" id="order_by" class="select2 custom-select">
-                    <option value="id-desc">Newest To Oldest</option>
-                    <option value="id-asc">Oldest To New</option>
-                    <option value="title-asc">Alphabetically [a-z]</option>
-                    <option value="title-desc">Alphabetically [z-a]</option>
-                    <option value="price-desc">Highest price</option>
-                    <option value="price-asc">Lowest price</option>
+                  <select name="sort" id="order_by" class="select2 custom-select" @change="filterSelection($event)">
+                    <option value="1">Newest To Oldest</option>
+                    <option value="2">Oldest To New</option>
+                    <option value="3">Alphabetically [a-z]</option>
+                    <option value="4">Alphabetically [z-a]</option>
+                    <option value="5">Highest price</option>
+                    <option value="6">Lowest price</option>
                   </select>
                 </form>
               </div>
@@ -72,6 +72,14 @@ export default {
   methods: {
     switchComponent(comp) {
       bus.$emit("switchComp", comp);
+    },
+    filterSelection(e) {
+      console.log(e.target.value);
+      const payload = {
+        type: e.target.value,
+        data: this.ads
+      };
+      this.$emit('selectedFilter', payload);
     }
   }
 };

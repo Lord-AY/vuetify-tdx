@@ -2,7 +2,8 @@
   <div>
     <!--Start Section-->
     <!--  -->
-    <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
+    <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
+          <Loading :active.sync="loading" :is-full-page="fullPage"></Loading>
     <div class="row">
       <div class="col-md-12 col-grid-tx">
         <div class="grid-style-2">
@@ -10,7 +11,7 @@
             :height="300"
             :width="856"
             :speed="2"
-            primaryColor="#f3f3f3"
+            primaryColor="#bcbcbc"
             secondaryColor="#ecebeb"
             v-show="showLoader(paginatedList)"
           >
@@ -160,7 +161,7 @@
             :height="300"
             :width="856"
             :speed="2"
-            primaryColor="#f3f3f3"
+            primaryColor="#bcbcbc"
             secondaryColor="#ecebeb"
             v-show="showLoader(paginatedList)"
           >
@@ -481,6 +482,7 @@ export default {
     };
   },
   props: {
+    loading: Boolean,
     data: {
       type: [Array, Object],
       required: true
