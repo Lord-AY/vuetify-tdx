@@ -1,7 +1,12 @@
 <template>
   <div>
+     <div id="global-loader">
+      <HomeLoader
+        class="mobile-hidden"
+        v-show="$route.name == 'home'"
+      ></HomeLoader>
+    </div>
     <div class="home" v-if="!isLoading">
-      
       <start></start>
       <categories></categories>
       <sptb :categories="categories"></sptb>
@@ -35,6 +40,7 @@ import recent_post from "@/components/home/RecentPost";
 //experimental...
 import BNav from "@/components/BNav";
 
+import HomeLoader from "@/components/loaders/Homeloader";
 export default {
   name: "home",
   data() {
@@ -54,7 +60,8 @@ export default {
     total_sellers,
     testimonial,
     recent_post,
-    BNav
+    BNav,
+    HomeLoader
   },
 
   computed: {
