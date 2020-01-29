@@ -3,7 +3,6 @@
      <div id="global-loader">
       <ProductDetailsLoader
         class="mobile-hidden"
-        v-show="$route.name == 'home'"
       ></ProductDetailsLoader>
     </div>
     <div class="pdetails">

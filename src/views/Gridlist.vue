@@ -1,9 +1,8 @@
 <template>
   <div>
-    <div id="global-loader" v-show="isLoading">
+    <div id="global-loader">
       <GridListLoader
         class="mobile-hidden"
-        v-show="$route.name == 'home'"
       ></GridListLoader>
     </div>
     <div class="gridlist">
