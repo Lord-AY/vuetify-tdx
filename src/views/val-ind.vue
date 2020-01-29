@@ -12,39 +12,24 @@
           </p>
         </div>
       </div>
+      <input name="product_id" type="hidden" value="1076" />
+                        <input name="pay_item_id" type="hidden" value="101" />
+                        <input name="currency" type="hidden" value="566" />
+                        <input name="site_redirect_url" type="hidden" value="<%= url %>" />
+                        <input name="txn_ref" type="hidden" value="<%= trn %>" />
+                        <input name="cust_id" type="hidden" value="JUST-AVASYN" >
+                        <input name="amount" type="hidden" value="<%= amt %>" />
+                        <input name="cust_name" type="hidden" value="<%= nm %>" />
+                        <input name="hash" type="hidden" value="<%= hash %>">
       <div class="top-box-2 val-card">
         <h1>Make Payment</h1>
         <div class="top-box-body">
           <div class="top-box-body">
             <form
-              :action="`${$store.state.baseURL}`"
+              action="https://sandbox.interswitchng.com/collections/w/pay" 
               method="POST"
             >
-            <div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  :value="webpayDetails.amt"
-                  name="amount"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="hidden"
-                  class="form-control"
-                  :value="webpayDetails.nm"
-                  name="cust_name"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="hidden"
-                  class="form-control"
-                  :value="webpayDetails.hash"
-                  name="hash"
-                />
-              </div>
+            <!-- <div> -->
               <div class="form-group">
                 <input
                   name="product_id"
@@ -63,7 +48,7 @@
               </div>
               <div class="form-group">
                 <input
-                  name="pay_item_id"
+                  name="currency"
                   type="hidden"
                   value="566"
                   class="form-control"
@@ -93,7 +78,31 @@
                   class="form-control"
                 />
               </div>
-            </div>
+              <div class="form-group">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  :value="webpayDetails.amt"
+                  name="amount"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  :value="webpayDetails.nm"
+                  name="cust_name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  :value="webpayDetails.hash"
+                  name="hash"
+                />
+              </div>
+            <!-- </div> -->
               <button class="val-ind-button text-white">
                 continue to pay
               </button>
@@ -135,8 +144,7 @@ export default {
   name: "valind",
   data() {
     return {
-      hiddenForm: false,
-      payAmount: null,
+      hiddenForm: false
     };
   },
   computed: {
