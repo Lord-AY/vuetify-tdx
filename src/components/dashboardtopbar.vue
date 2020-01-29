@@ -416,12 +416,12 @@ export default {
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 768px) {
-  .container2 {
+  .container2-dashboard {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container2 {
+  .container2-dashboard {
     width: 970px;
   }
 }

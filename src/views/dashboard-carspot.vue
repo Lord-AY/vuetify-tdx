@@ -9,11 +9,11 @@
       </span>
     </button>-->
   <div>
-     <div id="global-loader">
+ <!--     <div id="global-loader">
       <DashboardLoader
         class="mobile-hidden"
       ></DashboardLoader>
-    </div>
+    </div> -->
     <div id="wrapper">
       <div class="dashboard-carspot">
         <!-- LEFT SIDEBAR -->
@@ -139,18 +139,43 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="panel panel-headline">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Most Viewed Posts</h3>
-                      <a href class>View All Posts</a>
-                    </div>
-                    <div class="panel-body table-responsive">
-                      <table
-                        class="table dashboard-table table-fit table-striped"
-                      >
-                        <!--<thead>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="panel panel-headline">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Most Viewed Posts</h3>
+                    <a href class>View All Posts</a>
+                  </div>
+                  <div class="panel-body table-responsive">
+                  </div>
+                </div>
+                <div class="panel panel-headline">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Most Recent Reviews</h3>
+                    <a href class>View All Reviews</a>
+                  </div>
+                  <div class="panel-body">
+                    <metrics></metrics>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="panel panel-headline">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Most Viewed Posts</h3>
+                    <a href class>View All Posts</a>
+                  </div>
+                  <div class="panel-body table-responsive">
+                    <table
+                      class="table dashboard-table table-fit table-striped"
+                    >
+                      <!--<thead>
                                 <tr>
                                     <th></th>
                                     <th> detail</th>
@@ -290,7 +315,6 @@
       <a href="#0" class="cd-top">Top</a>
       <!-- Email verification and reset password -->
     </div>
-  </div>
 </template>
 <script>
 /* eslint-disable no-undef */
@@ -391,13 +415,15 @@ require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 import dsidebar from "@/components/Dsidebar";
-import DashboardLoader from "@/components/loaders/dashboardloader";
+// import DashboardLoader from "@/components/loaders/dashboardloader";
+import metrics from "@/components/metrics";
 // import dheader from "@/components/Dheader";
 export default {
   name: "dashboard",
   components: {
     dsidebar,
-    DashboardLoader,
+    // DashboardLoader,
+    metrics
     // dheader
   }
 };
