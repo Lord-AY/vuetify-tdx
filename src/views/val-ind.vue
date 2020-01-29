@@ -8,19 +8,11 @@
             Name: <strong>{{ webpayDetails.nm }}</strong>
           </p>
           <p class="details">
-            Amount: <strong>{{ webpayDetails.amt }}</strong>
+            Amount: <strong>{{ webpayDetails.amt/100 }}</strong>
           </p>
         </div>
       </div>
-      <input name="product_id" type="hidden" value="1076" />
-                        <input name="pay_item_id" type="hidden" value="101" />
-                        <input name="currency" type="hidden" value="566" />
-                        <input name="site_redirect_url" type="hidden" value="<%= url %>" />
-                        <input name="txn_ref" type="hidden" value="<%= trn %>" />
-                        <input name="cust_id" type="hidden" value="JUST-AVASYN" >
-                        <input name="amount" type="hidden" value="<%= amt %>" />
-                        <input name="cust_name" type="hidden" value="<%= nm %>" />
-                        <input name="hash" type="hidden" value="<%= hash %>">
+      
       <div class="top-box-2 val-card">
         <h1>Make Payment</h1>
         <div class="top-box-body">
@@ -159,7 +151,42 @@ export default {
         console.log(data);
       });
     }
-  }
+  },
+  mounted() {
+  // console.log("this route just got mounted");
+  // this.$forceUpdate();
+    if (localStorage.getItem('walletDeposit')) {
+        // The page was just reloaded. Clear the value from local storage
+        // so that it will reload the next time this page is visited.
+        localStorage.removeItem('walletDeposit');
+    } else {
+        // Set a flag so that we know not to reload the page twice.
+        this.$router.push('wallet-deposit');
+    }
+  },
+  created() {
+    if (window.performance) {
+      console.info("window.performance is supported");
+    }
+
+    // do something based on the navigation type...
+    switch(performance.navigation.type) {
+      case 0:
+        console.info("TYPE_NAVIGATE");
+        break;
+      case 1:
+        console.info("TYPE_RELOAD");
+        localStorage.setItem('walletDeposit', '1');
+        break;
+      case 2:
+        console.info("TYPE_BACK_FORWARD");
+        break;
+      case 255:
+        console.info("255");
+        break;
+    }
+  },
+
 };
 </script>
 <style scoped lang="scss">

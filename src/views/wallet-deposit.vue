@@ -280,8 +280,13 @@ export default {
         user: this.getUser.firstname + " " + this.getUser.lastname,
         amt: this.amount,
       };
-      this.paymentStepOne(payload);
-    }
+      if(this.amount > 999){
+        localStorage.setItem('walletDeposit', '1');
+        this.paymentStepOne(payload);
+      }else{
+
+      }
+    },
   },
   watch: {
     $route: "sync",
@@ -290,7 +295,7 @@ export default {
         if (walletData == null) {
           this.createUserwallet(this.getUser.id)
           this.userWallet = this.getwalletData.walletid;
-          console.log(this.getwalletData);
+          // console.log(this.getwalletData);
           console.log("wallet changed");
         }else{
           this.userWallet = this.getwalletData.walletid;
