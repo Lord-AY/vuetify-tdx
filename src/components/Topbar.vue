@@ -277,11 +277,11 @@
                         src="https://www.tradexplora.com.ng/media/avatar.png"
                       />
                       <img
-                        v-else
-                        class="img-circle resize"
-                        alt="Avatar"
-                        src="https://www.tradexplora.com.ng/media/avatar.png"
-                      />
+                      class="img-circle resize"
+                      v-else
+                      alt="Avatar"
+                       :src="`https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`"
+                    />
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
                     <ul class="dropdown-menu">

@@ -93,7 +93,7 @@ const routes = [
     }
   },
    {
-    path: "/search/keyword=:keyword",
+    path: "/search/:keyword",
     name: "search",
     component: () => import("../views/search.vue"),
     meta: {

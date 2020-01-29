@@ -42,13 +42,13 @@
             <ul class="nav dashboard-sidebar">
               <li class="welcome-text">
                 <img
-                  src="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/6.png"
+                  :src="'https://www.tradexplora.com.ng/media/'+getUser.pictureUrl"
                   class="img-responsive"
                   alt="Profile Picture"
                 />
                 <div class="text-box">
                   Welcome back:
-                  <span>{{ firstName }}</span>
+                  <span>{{ getUser.firstname }}</span>
                 </div>
               </li>
               <li>
@@ -169,6 +169,12 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   /* eslint-disable no-undef */
+props: {
+  user: [Object, Array]
+},
+computed: {
+    ...mapGetters("auth", ["getUser"]),
+},
   methods: {
     ...mapActions("auth", ["logoutUser"]),
     setLogout() {
@@ -214,9 +220,6 @@ export default {
   created() {
     this.sync();
   },
-  computed: {
-    ...mapGetters("auth", ["firstName"])
-  }
 };
 </script>
 

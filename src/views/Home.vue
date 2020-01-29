@@ -173,7 +173,7 @@ export default {
   mounted() {
     // console.log("this route just got mounted");
     // this.$forceUpdate();
-      if (localStorage.getItem('reloaded')) {
+    if (localStorage.getItem('reloaded')) {
           // The page was just reloaded. Clear the value from local storage
           // so that it will reload the next time this page is visited.
           localStorage.removeItem('reloaded');

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="global-loader">
+    <div id="global-loader" v-show="isLoading">
       <GridListLoader
         class="mobile-hidden"
       ></GridListLoader>

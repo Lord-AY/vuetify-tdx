@@ -9,11 +9,11 @@
       </span>
     </button>-->
   <div>
- <!--     <div id="global-loader">
+     <div id="global-loader" v-show="loading">
       <DashboardLoader
         class="mobile-hidden"
       ></DashboardLoader>
-    </div> -->
+    </div>
     <div id="wrapper">
       <div class="dashboard-carspot">
         <!-- LEFT SIDEBAR -->
@@ -415,16 +415,20 @@ require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 import dsidebar from "@/components/Dsidebar";
-// import DashboardLoader from "@/components/loaders/dashboardloader";
+import DashboardLoader from "@/components/loaders/dashboardloader";
+import { mapState } from "vuex";
 import metrics from "@/components/metrics";
 // import dheader from "@/components/Dheader";
 export default {
   name: "dashboard",
   components: {
     dsidebar,
-    // DashboardLoader,
+    DashboardLoader,
     metrics
     // dheader
+  },
+  computed: {
+    ...mapState("auth", ["loading"]),
   }
 };
 </script>
