@@ -14480,7 +14480,7 @@ hr.accent-2 {
     border-radius: 50%;
     position: absolute;
     bottom: 0px;
-    right: 130px
+    right: 148px
 }
 
 .center-with-flex {
@@ -14912,6 +14912,7 @@ hr.accent-2 {
     top: 0;
     z-index: 100;
     border-top: 0;
+    border-bottom: 3px solid #4caf50!important;
 }
 .testimonial {
     border-radius: 3px!important;

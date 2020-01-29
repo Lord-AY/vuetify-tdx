@@ -1,6 +1,6 @@
 <template>
   <div class="gridlist">
-    <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
+    <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
     <div class="main-content-area clearfix">
       <section
         class="section-padding gray page-search"
@@ -126,8 +126,7 @@
               class="col-md-2 col-sm-4 col-xs-4"
               style="padding-left: 0px; padding-right: 0px; "
             >
-              
-            <router-link to="/listbillers">
+              <router-link to="/listbillers">
                 <div class="d-flex value-added">
                   <div
                     class="icon-bg-service"
@@ -160,12 +159,17 @@
               <gsidebar :categories="categories"></gsidebar>
             </div>
             <div class="col-md-9 col-lg-9 col-xs-12">
-              <ptoggler :current-comp="currentComp" :ads="paginatedProducts" ></ptoggler>
+              <ptoggler
+                :current-comp="currentComp"
+                :ads="paginatedProducts"
+                @selectedFilter="chooseFilter"
+              ></ptoggler>
               <paginatedGrid
                 :is="currentComp"
                 :data="paginatedProducts"
                 :total-pages="Math.ceil(paginatedProducts.length / 9)"
                 :total="paginatedProducts.length"
+                :loading="isLoading"
                 :per-page="10"
                 :current-page="currentPage"
                 @pagechanged="onPageChange"
@@ -175,7 +179,7 @@
 
           <!-- <component :is="currentComp" :products="productListings"></component> -->
           <!-- <gridprops></gridprops> -->
-          <!-- <listprops  
+          <!-- <listprops
             :data="paginatedProducts"
             :total-pages="Math.ceil(paginatedProducts.length / 9)"
             :total="paginatedProducts.length"
@@ -217,7 +221,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("product", ["paginatedProducts", "getSuccess", "getErrors","getHotSellers", "categories"]),
+    ...mapGetters("product", [
+      "paginatedProducts",
+      "getSuccess",
+      "getErrors",
+      "getHotSellers",
+      "categories"
+    ]),
     ...mapGetters("auth", ["loading"])
   },
   components: {
@@ -258,56 +268,72 @@ export default {
         speed: 1000
       });
     },
-    alphabeticallyZtoA(array){
-        let res = array.sort(function(a, b) {
-            var textA = a.name.toUpperCase();
-            var textB = b.name.toUpperCase();
-            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-        });
-        console.log(res);
+    chooseFilter(payload) {
+      console.log(payload);
+      if(payload.type == 2) {
+        this.newestTooldest(payload.data);
+      } else if(payload.type == 3) {
+        this.alphabeticallyAtoZ(payload.data);
+      } else if(payload.type == 4) {
+        this.alphabeticallyZtoA(payload.data)
+      } else if(payload.type == 5) {
+        this.highestTolowestPrice(payload.data);
+      } else if(payload.type == 6) {
+        this.lowestTohighestPrice(payload.data);
+      } else {
+        console.log("return normal list");
+      }
     },
-    alphabeticallyAtoZ(array){
-       let res = array.sort(function(a, b) {
-            var textA = a.name.toUpperCase();
-            var textB = b.name.toUpperCase();
-            return (textB < textA) ? -1 : (textB > textA) ? 1 : 0;
+    alphabeticallyZtoA(array) {
+      let res = array.sort(function(a, b) {
+        var textA = a.name.toUpperCase();
+        var textB = b.name.toUpperCase();
+        return textA < textB ? -1 : textA > textB ? 1 : 0;
+      });
+      // this.paginatedProducts = res;
+    },
+    alphabeticallyAtoZ(array) {
+      let res = array.sort(function(a, b) {
+        var textA = a.name.toUpperCase();
+        var textB = b.name.toUpperCase();
+        return textB < textA ? -1 : textB > textA ? 1 : 0;
       });
       console.log(res);
     },
-    newestTooldest(array){
-       let res = array.sort(function(a, b) {
-          var c = new Date(a.createdAt);
-          var d = new Date(b.createdAt);
-          return d-c;
+    newestTooldest(array) {
+      let res = array.sort(function(a, b) {
+        var c = new Date(a.createdAt);
+        var d = new Date(b.createdAt);
+        return d - c;
       });
       console.log(res);
     },
-    oldestToNewest(array){
-       let res = array.sort(function(a, b) {
-          var c = new Date(a.createdAt);
-          var d = new Date(b.createdAt);
-          return c-d;
+    oldestToNewest(array) {
+      let res = array.sort(function(a, b) {
+        var c = new Date(a.createdAt);
+        var d = new Date(b.createdAt);
+        return c - d;
       });
       console.log(res);
     },
-    highestTolowestPrice(array){
-       let res = array.sort(function(a, b) {
-            return parseFloat(a.amount) - parseFloat(b.amount);
-        });
+    highestTolowestPrice(array) {
+      let res = array.sort(function(a, b) {
+        return parseFloat(a.amount) - parseFloat(b.amount);
+      });
       console.log(res);
     },
-    lowestTohighestPrice(array){
-       let res = array.sort(function(a, b) {
-            return parseFloat(b.amount) - parseFloat(a.amount);
-        });
+    lowestTohighestPrice(array) {
+      let res = array.sort(function(a, b) {
+        return parseFloat(b.amount) - parseFloat(a.amount);
+      });
       console.log(res);
     },
-    filterByCategory(array, value){
+    filterByCategory(array, value) {
       var filtered = [];
       for (var i = 0; i < array.length; i++) {
-          if (array[i].cid == value) {
-              filtered.push(array[i]);
-          }
+        if (array[i].cid == value) {
+          filtered.push(array[i]);
+        }
       }
       console.log(filtered);
     }
@@ -320,6 +346,13 @@ export default {
           this.isLoading = true;
         }
         this.isLoading = false;
+      }
+    },
+    paginatedProducts: {
+      handler: function(products) {
+        this.isLoading = true;
+        let as = this;
+        setTimeout(function() { as.isLoading = false; }, 1500);
       }
     },
     getErrors: {
