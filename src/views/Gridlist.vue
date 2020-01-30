@@ -188,11 +188,7 @@
                 <paginatedGrid
                   :is="currentComp"
                   :data="paginatedProducts"
-                  :total-pages="Math.ceil(paginatedProducts.length / 9)"
-                  :total="paginatedProducts.length"
                   :loading="isLoading"
-                  :per-page="10"
-                  :current-page="currentPage"
                   @pagechanged="onPageChange"
                 />
               </div>
@@ -250,7 +246,7 @@ export default {
       "getHotSellers",
       "categories"
     ]),
-    ...mapGetters("auth", ["loading"])
+    ...mapGetters("auth", ["loading"]),
   },
   components: {
     gsidebar: gsidebar,

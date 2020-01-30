@@ -309,7 +309,7 @@
           </ContentLoader>
           <div
             class="posts-masonry"
-            v-for="product in paginatedList"
+            v-for="product in list"
             :key="product.id"
             v-show="!showLoader(paginatedList)"
           >
@@ -336,7 +336,6 @@
                     <div class="video">
                       2 <i class="fa fa-video-camera"></i>
                     </div>
-                   
                     <!-- <div class="price">
                       <span class="price-tag-tx">
                         &#8358; {{ product.amount }}
@@ -406,79 +405,30 @@
               </div>
             </div>
           </div>
+          <infinite-loading @infinite="infiniteHandler"></infinite-loading>
         </div>
       </div>
     </div>
-
-    <!-- PAGINATION CONTROLS -->
-    <div class="pagination-wrapper" v-if="data.length > 5">
-      <div class="pagination">
-        <button
-          class="prev page-numbers"
-          type="button"
-          @click="onClickPreviousPage"
-          :disabled="isInFirstPage"
-        >
-          prev
-        </button>
-        <button
-          class="page-numbers"
-          type="button"
-          @click="onClickFirstPage"
-          :disabled="isInFirstPage"
-        >
-          First
-        </button>
-
-        <!-- Range of pages -->
-        <button
-          class="page-numbers"
-          :class="{ current: isPageActive(page.number) }"
-          type="button"
-          v-for="(page, index) in pages"
-          :key="index"
-          :disabled="page.isDisabled"
-          @click="onClickPage(page.number)"
-        >
-          {{ page.number }}
-        </button>
-        <!-- End page range-->
-        <!-- <span aria-current="page" class="page-numbers current">1</span> -->
-
-        <button
-          class="page-numbers"
-          type="button"
-          @click="onClickNextPage"
-          :disabled="isInLastPage"
-        >
-          Next
-        </button>
-        <button
-          class="next page-numbers"
-          type="button"
-          @click="onClickLastPage"
-          :disabled="isInLastPage"
-        >
-          Last
-        </button>
-      </div>
-    </div>
-    <!-- END PAGINATION CONTROLS -->
   </div>
 </template>
 <script>
 // Import component
 import Loading from "vue-loading-overlay";
+import InfiniteLoading from 'vue-infinite-loading';
 // Import stylesheet
+import axios from "axios";
 import "vue-loading-overlay/dist/vue-loading.css";
 import ash from "lodash";
 import moment from "moment";
 import { ContentLoader } from "vue-content-loader";
+const api = 'https://www.tradexplora.com.ng/product/product';
 export default {
   data() {
     return {
       isLoading: false,
-      fullPage: true
+      fullPage: true,
+      list: [],
+      page: 1,
     };
   },
   props: {
@@ -487,105 +437,36 @@ export default {
       type: [Array, Object],
       required: true
     },
-    maxVisibleButton: {
-      type: Number,
-      required: false,
-      default: 3
-    },
-    totalPages: {
-      type: Number,
-      required: true
-    },
-    total: {
-      type: Number,
-      required: true
-    },
-    perPage: {
-      type: Number,
-      required: true
-    },
-    currentPage: {
-      type: Number,
-      required: true
-    }
   },
   components: {
     Loading,
-    ContentLoader
+    ContentLoader,
+    InfiniteLoading
   },
   computed: {
     paginatedList() {
-      let start = (this.currentPage - 1) * this.perPage,
-        end = start + this.perPage;
-      return this.data.slice(start, end);
+      return this.data.slice(0, 10);
     },
-    startPage() {
-      //getting first page
-      if (this.currentPage === 1) {
-        return 1;
-      }
-      // when on the last page
-      if (this.currentPage === this.totalPages) {
-        return (
-          this.totalPages - this.maxVisibleButton + (this.maxVisibleButton - 1)
-        );
-      }
-      // when at the middle
-      return this.currentPage - 1;
-    },
-    pages() {
-      const range = [];
-
-      for (
-        let i = this.startPage;
-        i <=
-        Math.min(this.startPage + this.maxVisibleButtons - 1, this.totalPages);
-        i += 1
-      ) {
-        range.push({
-          number: i,
-          isDisabled: i === this.currentPage
-        });
-      }
-
-      return range;
-    },
-    isInFirstPage() {
-      return this.currentPage === 1;
-    },
-    isInLastPage() {
-      return this.currentPage === this.totalPages;
-    }
   },
   methods: {
-    onClickFirstPage() {
-      this.isLoading = true;
-      this.$emit("pagechanged", 1);
-      this.loading = false;
-    },
-    onClickPreviousPage() {
-      this.isLoading = true;
-      this.$emit("pagechanged", this.currentPage - 1);
-    },
-    onClickPage(page) {
-      this.isLoading = true;
-      this.$emit("pagechanged", page);
-    },
-    onClickNextPage() {
-      this.isLoading = true;
-      this.$emit("pagechanged", this.currentPage + 1);
-    },
-    onClickLastPage() {
-      this.$emit("pagechanged", this.totalPages);
-    },
-    isPageActive(page) {
-      return this.currentPage === page;
-    },
-    onPageChange(page) {
-      this.currentPage = page;
-    },
     sync() {
       $("html,body").animate({ scrollTop: 0 }, "slow");
+    },
+     infiniteHandler($state) {
+      axios.get(api, {
+        params: {
+          page: this.page,
+        },
+      }).then(({ data }) => {
+        // console.log(data.length)
+        if (data.lenght) {
+          this.page += 1;
+          this.list.push(...data);
+          $state.loaded();
+        } else {
+          $state.complete();
+        }
+      });
     },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {

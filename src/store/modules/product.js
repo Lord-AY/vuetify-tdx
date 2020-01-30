@@ -31,7 +31,7 @@ export default {
         return state.singleCategory;
       }
       return;
-    },    
+    },
     getHotSellers(state) {
       if (state.hotSellers !== null && state.hotSellers !== undefined) {
         return state.hotSellers;
