@@ -1,193 +1,211 @@
 <template>
-  <div class="gridlist">
-    <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
-    <div class="main-content-area clearfix">
-      <section
-        class="section-padding gray page-search"
-        style="padding: 8px 0px!important;"
-      >
-        <div class="container">
-          <div class="value-added-services-row row mobile-hidden">
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div class="outline1">
-                    <div class="outline2">
-                      <div
-                        class="icon-bg-service"
-                        style="background-color:#5E57BF; border-radius:16%;"
-                      >
-                        <span class="icon-service1 text-primary">
-                          <i
-                            class="fa fa-mobile fa-5x"
-                            style="color: #fff !important; font-size: 35px;"
-                          ></i>
-                        </span>
+  <div>
+    <div id="global-loader" v-show="isLoading">
+      <GridListLoader
+        class="mobile-hidden"
+      ></GridListLoader>
+    </div>
+    <div class="gridlist">
+      <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
+      <div class="main-content-area clearfix">
+        <section
+          class="section-padding gray page-search"
+          style="padding: 8px 0px!important;"
+        >
+          <div class="container">
+            <div class="value-added-services-row row mobile-hidden">
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <a href="#">
+                  <div class="d-flex value-added">
+                    <div class="outline1">
+                      <div class="outline2">
+                        <div
+                          class="icon-bg-service"
+                          style="background-color:#5E57BF; border-radius:16%;"
+                        >
+                          <span class="icon-service1 text-primary">
+                            <i
+                              class="fa fa-mobile fa-5x"
+                              style="color: #fff !important; font-size: 35px;"
+                            ></i>
+                          </span>
+                        </div>
                       </div>
                     </div>
+                    <div class="ml-4 mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Airtime / Data
+                      </h3>
+                    </div>
                   </div>
-                  <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Airtime / Data
-                    </h3>
+                </a>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <a href="#">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#579CDF; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-warning">
+                        <i
+                          class="fa fa-television"
+                          style="color: #fff !important; font-size: 25px; margin-left: 3px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="ml-4 mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Cable TV
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <a href="#">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#4BAD4C; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-secondary">
+                        <i
+                          class="fa fa-bolt"
+                          style="color: #fff !important; font-size: 25px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="ml-4 mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Electricity
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <a href="#">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#CB8A47; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-primary">
+                        <i
+                          class="fa fa-plane fa-3x"
+                          style="color: #fff !important; font-size: 21px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Flight
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <a href="#">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#31B19B; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-warning">
+                        <i
+                          class="fa fa-bed"
+                          style="color: #fff !important; font-size: 21px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Hotel
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; padding-right: 0px; "
+              >
+                <router-link to="/listbillers">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#1C1E23; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-warning">
+                        <i
+                          class="fa fa-ellipsis-h"
+                          style="color: #fff !important; font-size: 28px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="ml-4 mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        More Services
+                      </h3>
+                    </div>
+                  </div>
+                </router-link>
+              </div>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#579CDF; border-radius:16%;"
-                  >
-                    <span class="icon-service1 text-warning">
-                      <i
-                        class="fa fa-television"
-                        style="color: #fff !important; font-size: 25px; margin-left: 3px;"
-                      ></i>
-                    </span>
-                  </div>
-                  <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Cable TV
-                    </h3>
-                  </div>
-                </div>
-              </a>
+            <!-- <hr /> -->
+            <hotsellers
+              class="mobile-hidden"
+              :hotsellers="getHotSellers"
+            ></hotsellers>
+            <!-- Row -->
+            <div class="row">
+              <div class="col-md-3 col-sm-12 col-xs-12">
+                <gsidebar :categories="categories"></gsidebar>
+              </div>
+              <div class="col-md-9 col-lg-9 col-xs-12">
+                <ptoggler
+                  :current-comp="currentComp"
+                  :ads="paginatedProducts"
+                  @selectedFilter="chooseFilter"
+                ></ptoggler>
+                <paginatedGrid
+                  :is="currentComp"
+                  :data="paginatedProducts"
+                  :loading="isLoading"
+                  @pagechanged="onPageChange"
+                />
+              </div>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#4BAD4C; border-radius:16%;"
-                  >
-                    <span class="icon-service1 text-secondary">
-                      <i
-                        class="fa fa-bolt"
-                        style="color: #fff !important; font-size: 25px;"
-                      ></i>
-                    </span>
-                  </div>
-                  <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Electricity
-                    </h3>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#CB8A47; border-radius:16%;"
-                  >
-                    <span class="icon-service1 text-primary">
-                      <i
-                        class="fa fa-plane fa-3x"
-                        style="color: #fff !important; font-size: 21px;"
-                      ></i>
-                    </span>
-                  </div>
-                  <div class="mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Flight
-                    </h3>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#31B19B; border-radius:16%;"
-                  >
-                    <span class="icon-service1 text-warning">
-                      <i
-                        class="fa fa-bed"
-                        style="color: #fff !important; font-size: 21px;"
-                      ></i>
-                    </span>
-                  </div>
-                  <div class="mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Hotel
-                    </h3>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div
-              class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; padding-right: 0px; "
-            >
-              <router-link to="/listbillers">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#1C1E23; border-radius:16%;"
-                  >
-                    <span class="icon-service1 text-warning">
-                      <i
-                        class="fa fa-ellipsis-h"
-                        style="color: #fff !important; font-size: 28px;"
-                      ></i>
-                    </span>
-                  </div>
-                  <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      More Services
-                    </h3>
-                  </div>
-                </div>
-              </router-link>
-            </div>
-          </div>
-          <!-- <hr /> -->
-          <hotsellers
-            class="mobile-hidden"
-            :hotsellers="getHotSellers"
-          ></hotsellers>
-          <!-- Row -->
-          <div class="row">
-            <div class="col-md-3 col-sm-12 col-xs-12">
-              <gsidebar :categories="categories"></gsidebar>
-            </div>
-            <div class="col-md-9 col-lg-9 col-xs-12">
-              <ptoggler
-                :current-comp="currentComp"
-                :ads="paginatedProducts"
-                @selectedFilter="chooseFilter"
-              ></ptoggler>
-              <paginatedGrid
-                :is="currentComp"
-                :data="paginatedProducts"
-                :total-pages="Math.ceil(paginatedProducts.length / 9)"
-                :total="paginatedProducts.length"
-                :loading="isLoading"
-                :per-page="10"
-                :current-page="currentPage"
-                @pagechanged="onPageChange"
-              />
-            </div>
-          </div>
 
-          <!-- <component :is="currentComp" :products="productListings"></component> -->
-          <!-- <gridprops></gridprops> -->
-          <!-- <listprops
+            <!-- <component :is="currentComp" :products="productListings"></component> -->
+            <!-- <gridprops></gridprops> -->
+            <!-- <listprops
             :data="paginatedProducts"
             :total-pages="Math.ceil(paginatedProducts.length / 9)"
             :total="paginatedProducts.length"
             :per-page="10"
             :current-page="currentPage"
             @pagechanged="onPageChange"></listprops> -->
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -208,7 +226,7 @@ import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 import Loading from "vue-loading-overlay";
-
+import GridListLoader from "@/components/loaders/GridlistLoader";
 export default {
   name: "gridlist",
   data() {
@@ -228,7 +246,7 @@ export default {
       "getHotSellers",
       "categories"
     ]),
-    ...mapGetters("auth", ["loading"])
+    ...mapGetters("auth", ["loading"]),
   },
   components: {
     gsidebar: gsidebar,
@@ -236,6 +254,7 @@ export default {
     paginatedGrid: paginatedGrid,
     listprops: listprops,
     ptoggler: ptoggler,
+    GridListLoader,
     Loading
   },
   methods: {
@@ -272,13 +291,13 @@ export default {
       // console.log(payload);
       if(payload.type == 2) {
         this.newestTooldest(payload.data);
-      } else if(payload.type == 3) {
+      } else if (payload.type == 3) {
         this.alphabeticallyAtoZ(payload.data);
-      } else if(payload.type == 4) {
-        this.alphabeticallyZtoA(payload.data)
-      } else if(payload.type == 5) {
+      } else if (payload.type == 4) {
+        this.alphabeticallyZtoA(payload.data);
+      } else if (payload.type == 5) {
         this.highestTolowestPrice(payload.data);
-      } else if(payload.type == 6) {
+      } else if (payload.type == 6) {
         this.lowestTohighestPrice(payload.data);
       } else {
         // console.log("return normal list");
@@ -352,7 +371,9 @@ export default {
       handler: function(products) {
         this.isLoading = true;
         let as = this;
-        setTimeout(function() { as.isLoading = false; }, 1500);
+        setTimeout(function() {
+          as.isLoading = false;
+        }, 1500);
       }
     },
     getErrors: {
