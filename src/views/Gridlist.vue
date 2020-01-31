@@ -407,7 +407,22 @@ export default {
   },
   beforeMount() {
     // console.log("this is before mounted");
-  }
+  },
+    mounted() {
+    // console.log("this route just got mounted");
+    // this.$forceUpdate();
+    if (localStorage.getItem('reloaded')) {
+          // The page was just reloaded. Clear the value from local storage
+          // so that it will reload the next time this page is visited.
+          localStorage.removeItem('reloaded');
+      } else {
+          // Set a flag so that we know not to reload the page twice.
+          localStorage.setItem('reloaded', '2');
+          location.reload();
+      }
+    this.sync();
+  },
+
   // mounted() {
   //   // console.log("this route just got mounted");
   //   // this.$forceUpdate();
