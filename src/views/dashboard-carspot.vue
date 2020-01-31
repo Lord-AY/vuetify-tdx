@@ -151,7 +151,7 @@
                     <a href class>View All Reviews</a>
                   </div>
                   <div class="panel-body">
-                    <metrics></metrics>
+                    <!-- <metrics></metrics> -->
                   </div>
                 </div>
               </div>
@@ -410,13 +410,13 @@ require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/css/components.css");
 import dsidebar from "@/components/Dsidebar";
-import metrics from "@/components/metrics";
+// import metrics from "@/components/metrics";
 // import dheader from "@/components/Dheader";
 export default {
   name: "dashboard",
   components: {
     dsidebar,
-    metrics
+    // metrics
     // dheader
   }
 };
