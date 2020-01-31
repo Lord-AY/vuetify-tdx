@@ -8,7 +8,7 @@ import firebase from "firebase";
 import Clipboard from 'v-clipboard';
 import VueChatScroll from 'vue-chat-scroll';
 import Vue2Filters from 'vue2-filters';
-
+// import infiniteScroll from 'vue-infinite-scroll';
 
 require("firebase/firestore");
 var SocialSharing = require('vue-social-sharing');
@@ -34,16 +34,18 @@ var firebaseConfig = {
 import "vue-phone-number-input/dist/vue-phone-number-input.css";
 Vue.config.productionTip = false;
 Vue.use(Notifications);
-Vue.use(Clipboard)
+Vue.use(Clipboard);
 Vue.use(SocialSharing);
 Vue.use(VueChatScroll);
 Vue.use(Vue2Filters);
+// Vue.use(infiniteScroll);
 
 export const bus = new Vue();
 sync(store, router);
 new Vue({
   router,
   store,
+  // directives: {infiniteScroll},
   render: h => h(App)
   // watch: {
   //   $route(to) {
