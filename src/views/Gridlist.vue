@@ -226,7 +226,7 @@ import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 import Loading from "vue-loading-overlay";
-import GridListLoader from "@/components/loaders/GridlistLoader";
+import GridListLoader from "@/components/loaders/Homeloader";
 export default {
   name: "gridlist",
   data() {
@@ -309,7 +309,7 @@ export default {
         var textB = b.name.toUpperCase();
         return textA < textB ? -1 : textA > textB ? 1 : 0;
       });
-      // this.paginatedProducts = res;
+      this.paginatedProducts = res;
     },
     alphabeticallyAtoZ(array) {
       let res = array.sort(function(a, b) {
@@ -373,7 +373,7 @@ export default {
         let as = this;
         setTimeout(function() {
           as.isLoading = false;
-        }, 1500);
+        }, 1000);
       }
     },
     getErrors: {
