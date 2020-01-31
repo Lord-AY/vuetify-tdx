@@ -1262,7 +1262,7 @@ export default {
     // console.log(this.fsingleCategory);
     // array1.concat(array2)
     this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
-    console.log(this.singleCart);
+    // console.log(this.singleCart);
     this.sync();
   }
 };

@@ -4,12 +4,19 @@ export default {
     namespaced: true,
     state: {
         walletData: 0,
-        webpayResponse: null
+        webpayResponse: null,
+        walletHistory: null
     },
     getters: {
         getwalletData(state) {
             if (state.walletData !== null && state.walletData !== undefined) {
                 return state.walletData;
+            }
+            return null;
+        },
+        getwalletHistory(state){
+            if(state.walletHistory !== null && state.walletHistory !== undefined){
+                return state.walletHistory;
             }
             return null;
         },
@@ -28,6 +35,20 @@ export default {
                 .then(({ data }) => {
                     commit("auth/SET_LOADING", false, { root: true });
                     commit("SET_USER_WALLET", data);
+                    // console.log(data);
+                })
+                .catch(error => {
+                    commit("auth/SET_LOADING", false, { root: true });
+                    console.log(error);
+                });
+        },
+        FetchUserwalletHistory({ commit }, payload) {
+            commit("auth/SET_LOADING", true, { root: true });
+            commit("SET_PAYMENT_RESPONSE", null);
+            return WalletService.getWalletHistory(payload)
+                .then(({ data }) => {
+                    commit("auth/SET_LOADING", false, { root: true });
+                    commit("SET_USER_WALLET_HISTORY", data);
                     // console.log(data);
                 })
                 .catch(error => {
@@ -64,6 +85,9 @@ export default {
     mutations: {
         SET_ERRORS(state, error) {
             state.errors = error;
+        },        
+        SET_USER_WALLET_HISTORY(state, error) {
+            state.walletHistory = error;
         },
         SET_USER_WALLET(state, data) {
             state.walletData = data;

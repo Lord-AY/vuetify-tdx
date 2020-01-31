@@ -174,7 +174,7 @@ export default {
     },
     getdiff(ddate){
       const diff = moment().diff(ddate, 'days');
-      console.log(diff);
+      // console.log(diff);
       return diff;
     }
   },
@@ -183,7 +183,7 @@ export default {
   },
   created() {
     this.sync();
-    console.log(this.hotsellers);
+    // console.log(this.hotsellers);
   }
 };
 </script>
