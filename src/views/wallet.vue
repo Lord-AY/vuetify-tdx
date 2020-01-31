@@ -5,7 +5,7 @@
 
       <dsidebar></dsidebar>
       <!-- END LEFT SIDEBAR -->
-
+ 
       <!-- MAIN -->
       <div
         class="main dashboard-main dashboard-main-content "
@@ -24,7 +24,7 @@
                     </h3>
                     <div class="wallet-details">
                         <div class="balance">
-                           <h4>&#x20A6; 0.00</h4> 
+                           <h4>&#x20A6; {{ formatCurrency(filteredRow[filteredRow.length -1].currentBal) }}</h4> 
                         </div>
                         <div>
                             <router-link to="/wallet-deposit">
@@ -58,12 +58,14 @@
                       <div class="form-group">
                         <button
                           type="submit"
-                          class="btn btn-theme btn-search"
+                          class="btn btn-theme"
                           style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
+                          @click.prevent="checkUserWalletState()"
                         >
                           Search
                         </button>
                       </div>
+
                     </form>
                   </div>
                 </div>
@@ -94,8 +96,8 @@
                       <tr>
                         <!-- <th>S/N</th> -->
                         <th>Transaction ID</th>
-                        <th>Transaction Detail</th>
-                        <th>Status</th>
+                        <th>Transaction Description</th>
+                        <th>activity</th>
                         <th>Date</th>
                         <!-- <th>Action</th> -->
                         <!-- <th>action</th> -->
@@ -103,54 +105,28 @@
                     </thead>
                     <tbody>
                       <!-- <tr> <td colspan="5"><h4> no Inventory found</h4></td> </tr> -->
-                      <tr>
+                      <tr v-for="(mydata, index) in filteredRow" :key="index">
                         <!-- <td>1</td> -->
                         <td>
                           <span class="ad-image">
-                            12223261g7g2
+                            {{ mydata.id }}{{genid }}
                           </span>
                         </td>
                         <td>
                           <a
                             href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
                           >
-                            <span class="ad-title">Deposit</span>
+                            <span class="ad-title">{{ mydata.description }}</span>
                           </a>
-                          <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3, 2019
-                          </span>
-                          <!-- <span class="pending-post-msg">
-                            <i class="fa fa-warning"></i> Your post is under
-                            review
-                          </span> -->
                         </td>
                         <td>
                           <span class="ad-cats">
                             <span class="padding_cats">
-                              Successful
+                              {{ mydata.activity }}
                             </span>
                           </span>
                         </td>
-                        <td>22th January 2020</td>
-                        <!-- <td>
-                          <span class="ad-actions">
-                            <ul class="ad-actions-list">
-                              <li>
-                                <a
-                                  class="protip"
-                                  data-pt-title=" View details"
-                                  data-pt-position="top"
-                                  data-pt-scheme="dark-transparent"
-                                  data-pt-size="small"
-                                  href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
-                                  data-adid="3741"
-                                >
-                                  <a href="" data-target="#myModal" data-toggle="modal"><i class="la la-eye"></i></a>
-                                </a>
-                              </li>
-                            </ul>
-                          </span>
-                        </td> -->
+                        <td>{{ format_date(mydata.createdAt) }} </td>
                       </tr>
                     </tbody>
                   </table>
@@ -262,110 +238,182 @@
 </template>
 
 <script>
-require("../../public/assets/skins/color-skins/color15.css");
-require("../../public/assets/plugins/horizontal-menu/horizontal.css");
-require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
-require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css");
-require("../../public/assets/css/user-dashboard/protip.css");
+// require("../../public/assets/skins/color-skins/color15.css");
+// require("../../public/assets/plugins/horizontal-menu/horizontal.css");
+// require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
+// require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css");
+// require("../../public/assets/css/user-dashboard/protip.css");
 
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
-require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-require("../../public/assets/skins/color-skins/color15.css");
-require("../../public/assets/plugins/horizontal-menu/horizontal.css");
-require("../../public/assets/css/components.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
+// require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
+// require("../../public/assets/skins/color-skins/color15.css");
+// require("../../public/assets/plugins/horizontal-menu/horizontal.css");
+// require("../../public/assets/css/components.css");
 
+import moment from "moment";
+import { mapActions, mapGetters } from "vuex";
 import dsidebar from "@/components/Dsidebar";
+const formatCurrency = require('format-currency')
 // import dheader from "@/components/Dheader";
 export default {
   name: "wallet",
+  data() {
+    return {
+      isLoading: true,
+      userWalletHistory: [],
+      search_input: '',
+      amount: null,
+      genid: Math.floor(Math.random()*90000) + 10000,
+      mybal: null,
+    };
+  },
   components: {
     dsidebar
-  }
+  },
+  computed: {
+    ...mapGetters("auth", ["getUser"]),
+    ...mapGetters("wallet", ["getwalletData", "getwalletHistory"]),
+    loading() {
+      return this.$store.getters["auth/loading"];
+    },
+    filteredRow: function(){
+      return this.userWalletHistory.filter((row) => {
+        for(var key in row){
+          if(String(row[key]).indexOf(this.search_input) !== -1){
+            return true;
+          }
+        }
+        return false;
+      });
+    }
+  },
+  methods: {
+    ...mapActions("wallet", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "FetchUserwalletHistory"]),
+    async checkUserWalletState(){
+      await this.FetchUserwalletHistory(this.getUser.id)
+    },
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    formatCurrency(data){
+      return formatCurrency(data)
+    },
+  },
+  watch: {
+    $route: "sync",
+    // getwalletHistory: {
+    //   handler: function(walletData) {
+    //     this.FetchUserwalletHistory(this.getUser.id)
+    //     console.log(this.getwalletHistory);
+    //   }
+    // },
+  },
+  created() {
+    // this.FetchUserwalletHistory(this.getUser.id);
+    this.FetchUserwalletHistory(this.getUser.id).then(data => {
+        // console.log(this.getReferee);
+        this.userWalletHistory.push(this.getwalletHistory);
+        // this.mybal = this.userWalletHistory[this.userWalletHistory.length-1]
+        // console.log(this.mybal);
+    });
+    
+  },
+  beforeCreate() {
+    // console.log("this is before created");
+  },
 };
 </script>
-
+<style scoped>
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css';
+</style>
 <style>
 .dashboard-main-content {
   padding-top: 107px !important;

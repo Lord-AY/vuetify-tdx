@@ -124,7 +124,7 @@ export default {
       this.selectedProduct(payload);
     },
     singleCategory() {
-      console.log("got to single category");
+      // console.log("got to single category");
       this.isLoading = true;
       const payload = {
         cid: this.$route.params.cid

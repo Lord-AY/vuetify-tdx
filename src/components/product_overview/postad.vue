@@ -1619,19 +1619,19 @@ export default {
     },
     selectCategoryFields() {
       let categories = this.fullCategories;
-      console.log(categories);
+      // console.log(categories);
       this.categoryFields = [];
       for(let i in categories ) {
-      console.log("entered method");
+      // console.log("entered method");
         if(this.selectedCategory == categories[i].id) {
           const fieldsArr = ash.split(categories[i].checkFields, ",", 10);
-          console.log(fieldsArr);
+          // console.log(fieldsArr);
           this.categoryFields = fieldsArr;
           // console.log(this.categoryFields);
         }
         if(this.selectedCategory == categories[i].id) {
           const fieldsArr = ash.split(categories[i].inputFields, ",", 10);
-          console.log(fieldsArr);
+          // console.log(fieldsArr);
           this.categoryInputFields = fieldsArr;
           // console.log(this.categoryFields);
         }

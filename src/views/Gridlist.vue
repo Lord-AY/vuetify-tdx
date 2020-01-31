@@ -269,7 +269,7 @@ export default {
       });
     },
     chooseFilter(payload) {
-      console.log(payload);
+      // console.log(payload);
       if(payload.type == 2) {
         this.newestTooldest(payload.data);
       } else if(payload.type == 3) {
@@ -281,7 +281,7 @@ export default {
       } else if(payload.type == 6) {
         this.lowestTohighestPrice(payload.data);
       } else {
-        console.log("return normal list");
+        // console.log("return normal list");
       }
     },
     alphabeticallyZtoA(array) {
@@ -298,7 +298,7 @@ export default {
         var textB = b.name.toUpperCase();
         return textB < textA ? -1 : textB > textA ? 1 : 0;
       });
-      console.log(res);
+      // console.log(res);
     },
     newestTooldest(array) {
       let res = array.sort(function(a, b) {
@@ -306,7 +306,7 @@ export default {
         var d = new Date(b.createdAt);
         return d - c;
       });
-      console.log(res);
+      // console.log(res);
     },
     oldestToNewest(array) {
       let res = array.sort(function(a, b) {
@@ -314,19 +314,19 @@ export default {
         var d = new Date(b.createdAt);
         return c - d;
       });
-      console.log(res);
+      // console.log(res);
     },
     highestTolowestPrice(array) {
       let res = array.sort(function(a, b) {
         return parseFloat(a.amount) - parseFloat(b.amount);
       });
-      console.log(res);
+      // console.log(res);
     },
     lowestTohighestPrice(array) {
       let res = array.sort(function(a, b) {
         return parseFloat(b.amount) - parseFloat(a.amount);
       });
-      console.log(res);
+      // console.log(res);
     },
     filterByCategory(array, value) {
       var filtered = [];
@@ -335,7 +335,7 @@ export default {
           filtered.push(array[i]);
         }
       }
-      console.log(filtered);
+      // console.log(filtered);
     }
   },
   watch: {

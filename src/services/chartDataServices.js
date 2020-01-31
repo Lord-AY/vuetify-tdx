@@ -1,11 +1,11 @@
 export const userChartData = {
     type: 'line',
     data: {
-      labels: ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'],
+      labels: ['january', 'febuary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'],
       datasets: [
         { // one line graph
-          label: 'Number of Moons',
-          data: [0, 0, 1, 2, 67, 62, 27, 14],
+          label: 'trades',
+          data: [0, 0, 1, 2, 12, 7, 15, 14, 11, 12, 2, 4],
           backgroundColor: [
             'rgba(54,73,93,.5)', // Blue
             'rgba(54,73,93,.5)',
@@ -14,9 +14,17 @@ export const userChartData = {
             'rgba(54,73,93,.5)',
             'rgba(54,73,93,.5)',
             'rgba(54,73,93,.5)',
-            'rgba(54,73,93,.5)'
+            'rgba(54,73,93,.5)',
+            'rgba(54,73,93,.5)',
+            'rgba(54,73,93,.5)',
+            'rgba(54,73,93,.5)',
+            'rgba(54,73,93,.5)',
           ],
           borderColor: [
+            '#36495d',
+            '#36495d',
+            '#36495d',
+            '#36495d',
             '#36495d',
             '#36495d',
             '#36495d',
@@ -29,8 +37,8 @@ export const userChartData = {
           borderWidth: 3
         },
         { // another line graph
-          label: 'Planet Mass (x1,000 km)',
-          data: [4.8, 12.1, 12.7, 6.7, 139.8, 116.4, 50.7, 49.2],
+          label: 'transactions',
+          data: [4.8, 12.1, 12.7, 6.7, 46.8, 31.4, 50.7, 49.2, 13.0, 12.4, 11.0, 12.0],
           backgroundColor: [
             'rgba(71, 183,132,.5)', // Green
           ],
