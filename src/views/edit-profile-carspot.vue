@@ -45,7 +45,7 @@
                                         href="https://carspot.scriptsbundle.com/individual/oyink7/"
                                       >
                                         <img
-                                          src="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/6.png"
+                                           :src="'https://www.tradexplora.com.ng/media/'+user.pictureUrl"
                                           class="img-responsive"
                                           id="profile-image"
                                           alt="Profile Picture"
@@ -629,6 +629,7 @@ export default {
   },
   computed: {
     ...mapState("auth", ["user"]),
+    ...mapGetters("auth", ["getUser"]),
     ...mapGetters("user", ["getUpdateErrors", "getUpdateSuccess"]),
     loading() {
       return this.$store.getters["auth/loading"];

@@ -123,7 +123,7 @@ export default {
     this.sync();
     this.watchCountries();
     this.ads.address = this.getUser.address;
-    console.log(this.getUser.address);
+    // console.log(this.getUser.address);
     // console.log(!!this.itemsExists);
   }
 };

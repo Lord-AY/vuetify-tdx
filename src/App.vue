@@ -2,20 +2,6 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
 <template>
   <div id="app">
     <!--Loader-->
-    <div id="global-loader">
-      <Homeloader
-        class="mobile-hidden"
-        v-show="$route.name == 'home'"
-      ></Homeloader>
-      <HomeMobileLoader v-show="this.$route.name == 'home'"></HomeMobileLoader>
-      <GridListLoader
-        class="mobile-hidden"
-        v-show="this.$route.name == 'Gridlist'"
-      ></GridListLoader>
-       <GridListMobileLoader
-        v-show="$route.name == 'Gridlist'"
-      ></GridListMobileLoader>
-    </div>
     <!-- <topbar></topbar> -->
     <div v-if="$route.meta.header === 1"><topbar></topbar></div>
     <div v-else-if="$route.meta.header === 3"><topbar2></topbar2></div>
@@ -60,10 +46,6 @@ import dashboardtopbar from "@/components/dashboardtopbar";
 // import topbar2 from "@/components/Topbar2";
 import router from "@/router"
 import Footer from "@/components/Footer";
-import Homeloader from "@/components/loaders/Homeloader";
-import HomeMobileLoader from "@/components/loaders/HomeMbLoader";
-import GridListLoader from "@/components/loaders/GridlistLoader";
-import GridListMobileLoader from "@/components/loaders/GridlistLoaderMB";
 // import BNav from "@/components/BNav";
 // import Vue from "vue";
 // Vue.forceUpdate();
@@ -74,10 +56,6 @@ export default {
     // BNav,
     dashboardtopbar,
     Footer,
-    Homeloader,
-    HomeMobileLoader,
-    GridListLoader,
-    GridListMobileLoader
   },
   methods: {
     sync() {

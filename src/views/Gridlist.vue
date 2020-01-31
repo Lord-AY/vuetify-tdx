@@ -1,29 +1,44 @@
 <template>
-  <div class="gridlist">
-    <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
-    <div class="main-content-area clearfix">
-      <section
-        class="section-padding gray page-search"
-        style="padding: 8px 0px!important;"
-      >
-        <div class="container">
-          <div class="value-added-services-row row mobile-hidden">
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div class="outline1">
-                    <div class="outline2">
-                      <div
-                        class="icon-bg-service"
-                        style="background-color:#5E57BF; border-radius:50%; border: 3px solid #b1abff;"
-                      >
-                        <span class="icon-service1 text-primary">
-                          <i
-                            class="fa fa-mobile fa-5x"
-                            style="color: #fff !important; font-size: 35px; padding: 0px 6px 6px 0px;"
-                          ></i>
-                        </span>
+  <div>
+    <div id="global-loader" v-show="isLoading">
+      <GridListLoader
+        class="mobile-hidden"
+      ></GridListLoader>
+    </div>
+    <div class="gridlist">
+      <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
+      <div class="main-content-area clearfix">
+        <section
+          class="section-padding gray page-search"
+          style="padding: 8px 0px!important;"
+        >
+          <div class="container">
+            <div class="value-added-services-row row mobile-hidden">
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <router-link to="/listbillers">
+                  <div class="d-flex value-added">
+                    <div class="outline1">
+                      <div class="outline2">
+                        <div
+                          class="icon-bg-service"
+                          style="background-color:#5E57BF; border-radius:16%;"
+                        >
+                          <span class="icon-service1 text-primary">
+                            <i
+                              class="fa fa-mobile fa-5x"
+                              style="color: #fff !important; font-size: 35px;"
+                            ></i>
+                          </span>
+                        </div>
                       </div>
+                    </div>
+                    <div class="ml-4 mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Airtime / Data
+                      </h3>
                     </div>
                   </div>
                   <div class="ml-4 mt-1">
@@ -114,10 +129,30 @@
                       ></i>
                     </span>
                   </div>
-                  <div class="mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Hotel
-                    </h3>
+                </router-link>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <router-link to="/listbillers">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#CB8A47; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-primary">
+                        <i
+                          class="fa fa-plane fa-3x"
+                          style="color: #fff !important; font-size: 21px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Flight
+                      </h3>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -138,56 +173,73 @@
                         style="color: #fff !important; font-size: 28px; padding: 0px 5px 6px 0px;"
                       ></i>
                     </span>
-                  </div>
-                  <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      More Services
-                    </h3>
-                  </div>
-                </div>
-              </router-link>
-            </div>
-          </div>
-          <!-- <hr /> -->
-          <hotsellers
-            class="mobile-hidden"
-            :hotsellers="getHotSellers"
-          ></hotsellers>
-          <!-- Row -->
-          <div class="row">
-            <div class="col-md-3 col-sm-12 col-xs-12">
-              <gsidebar :categories="categories"></gsidebar>
-            </div>
-            <div class="col-md-9 col-lg-9 col-xs-12">
-              <ptoggler
-                :current-comp="currentComp"
-                :ads="paginatedProducts"
-                @selectedFilter="chooseFilter"
-              ></ptoggler>
-              <paginatedGrid
-                :is="currentComp"
-                :data="paginatedProducts"
-                :total-pages="Math.ceil(paginatedProducts.length / 9)"
-                :total="paginatedProducts.length"
-                :loading="isLoading"
-                :per-page="10"
-                :current-page="currentPage"
-                @pagechanged="onPageChange"
-              />
-            </div>
-          </div>
 
-          <!-- <component :is="currentComp" :products="productListings"></component> -->
-          <!-- <gridprops></gridprops> -->
-          <!-- <listprops
+                  </div>
+                </router-link>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; padding-right: 0px; "
+              >
+                <router-link to="/listbillers">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#1C1E23; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-warning">
+                        <i
+                          class="fa fa-ellipsis-h"
+                          style="color: #fff !important; font-size: 28px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="ml-4 mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        More Services
+                      </h3>
+                    </div>
+                  </div>
+                </router-link>
+              </div>
+            </div>
+            <!-- <hr /> -->
+            <hotsellers
+              class="mobile-hidden"
+              :hotsellers="getHotSellers"
+            ></hotsellers>
+            <!-- Row -->
+            <div class="row">
+              <div class="col-md-3 col-sm-12 col-xs-12">
+                <gsidebar :categories="categories"></gsidebar>
+              </div>
+              <div class="col-md-9 col-lg-9 col-xs-12">
+                <ptoggler
+                  :current-comp="currentComp"
+                  :ads="paginatedProducts"
+                  @selectedFilter="chooseFilter"
+                ></ptoggler>
+                <paginatedGrid
+                  :is="currentComp"
+                  :data="paginatedProducts"
+                  :loading="isLoading"
+                  @pagechanged="onPageChange"
+                />
+              </div>
+            </div>
+
+            <!-- <component :is="currentComp" :products="productListings"></component> -->
+            <!-- <gridprops></gridprops> -->
+            <!-- <listprops
             :data="paginatedProducts"
             :total-pages="Math.ceil(paginatedProducts.length / 9)"
             :total="paginatedProducts.length"
             :per-page="10"
             :current-page="currentPage"
             @pagechanged="onPageChange"></listprops> -->
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -208,7 +260,7 @@ import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
 import Loading from "vue-loading-overlay";
-
+import GridListLoader from "@/components/loaders/Homeloader";
 export default {
   name: "gridlist",
   data() {
@@ -228,7 +280,7 @@ export default {
       "getHotSellers",
       "categories"
     ]),
-    ...mapGetters("auth", ["loading"])
+    ...mapGetters("auth", ["loading"]),
   },
   components: {
     gsidebar: gsidebar,
@@ -236,6 +288,7 @@ export default {
     paginatedGrid: paginatedGrid,
     listprops: listprops,
     ptoggler: ptoggler,
+    GridListLoader,
     Loading
   },
   methods: {
@@ -269,19 +322,19 @@ export default {
       });
     },
     chooseFilter(payload) {
-      console.log(payload);
+      // console.log(payload);
       if(payload.type == 2) {
         this.newestTooldest(payload.data);
-      } else if(payload.type == 3) {
+      } else if (payload.type == 3) {
         this.alphabeticallyAtoZ(payload.data);
-      } else if(payload.type == 4) {
-        this.alphabeticallyZtoA(payload.data)
-      } else if(payload.type == 5) {
+      } else if (payload.type == 4) {
+        this.alphabeticallyZtoA(payload.data);
+      } else if (payload.type == 5) {
         this.highestTolowestPrice(payload.data);
-      } else if(payload.type == 6) {
+      } else if (payload.type == 6) {
         this.lowestTohighestPrice(payload.data);
       } else {
-        console.log("return normal list");
+        // console.log("return normal list");
       }
     },
     alphabeticallyZtoA(array) {
@@ -290,7 +343,7 @@ export default {
         var textB = b.name.toUpperCase();
         return textA < textB ? -1 : textA > textB ? 1 : 0;
       });
-      // this.paginatedProducts = res;
+      this.paginatedProducts = res;
     },
     alphabeticallyAtoZ(array) {
       let res = array.sort(function(a, b) {
@@ -298,7 +351,7 @@ export default {
         var textB = b.name.toUpperCase();
         return textB < textA ? -1 : textB > textA ? 1 : 0;
       });
-      console.log(res);
+      // console.log(res);
     },
     newestTooldest(array) {
       let res = array.sort(function(a, b) {
@@ -306,7 +359,7 @@ export default {
         var d = new Date(b.createdAt);
         return d - c;
       });
-      console.log(res);
+      // console.log(res);
     },
     oldestToNewest(array) {
       let res = array.sort(function(a, b) {
@@ -314,19 +367,19 @@ export default {
         var d = new Date(b.createdAt);
         return c - d;
       });
-      console.log(res);
+      // console.log(res);
     },
     highestTolowestPrice(array) {
       let res = array.sort(function(a, b) {
         return parseFloat(a.amount) - parseFloat(b.amount);
       });
-      console.log(res);
+      // console.log(res);
     },
     lowestTohighestPrice(array) {
       let res = array.sort(function(a, b) {
         return parseFloat(b.amount) - parseFloat(a.amount);
       });
-      console.log(res);
+      // console.log(res);
     },
     filterByCategory(array, value) {
       var filtered = [];
@@ -335,7 +388,7 @@ export default {
           filtered.push(array[i]);
         }
       }
-      console.log(filtered);
+      // console.log(filtered);
     }
   },
   watch: {
@@ -352,7 +405,9 @@ export default {
       handler: function(products) {
         this.isLoading = true;
         let as = this;
-        setTimeout(function() { as.isLoading = false; }, 1500);
+        setTimeout(function() {
+          as.isLoading = false;
+        }, 1000);
       }
     },
     getErrors: {
@@ -386,7 +441,22 @@ export default {
   },
   beforeMount() {
     // console.log("this is before mounted");
-  }
+  },
+    mounted() {
+    // console.log("this route just got mounted");
+    // this.$forceUpdate();
+    if (localStorage.getItem('reloaded')) {
+          // The page was just reloaded. Clear the value from local storage
+          // so that it will reload the next time this page is visited.
+          localStorage.removeItem('reloaded');
+      } else {
+          // Set a flag so that we know not to reload the page twice.
+          localStorage.setItem('reloaded', '2');
+          location.reload();
+      }
+    this.sync();
+  },
+
   // mounted() {
   //   // console.log("this route just got mounted");
   //   // this.$forceUpdate();

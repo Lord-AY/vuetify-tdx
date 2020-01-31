@@ -148,7 +148,7 @@ export default {
 
       }
       axios.post('https://sandbox.interswitchng.com/collections/w/pay', payload).then(({data}) => {
-        console.log(data);
+        // console.log(data);
       });
     }
   },
@@ -166,23 +166,23 @@ export default {
   },
   created() {
     if (window.performance) {
-      console.info("window.performance is supported");
+      // console.info("window.performance is supported");
     }
 
     // do something based on the navigation type...
     switch(performance.navigation.type) {
       case 0:
-        console.info("TYPE_NAVIGATE");
+        // console.info("TYPE_NAVIGATE");
         break;
       case 1:
-        console.info("TYPE_RELOAD");
+        // console.info("TYPE_RELOAD");
         localStorage.setItem('walletDeposit', '1');
         break;
       case 2:
-        console.info("TYPE_BACK_FORWARD");
+        // console.info("TYPE_BACK_FORWARD");
         break;
       case 255:
-        console.info("255");
+        // console.info("255");
         break;
     }
   },

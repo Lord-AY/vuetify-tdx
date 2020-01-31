@@ -74,7 +74,7 @@ export default {
       bus.$emit("switchComp", comp);
     },
     filterSelection(e) {
-      console.log(e.target.value);
+      // console.log(e.target.value);
       const payload = {
         type: e.target.value,
         data: this.ads
