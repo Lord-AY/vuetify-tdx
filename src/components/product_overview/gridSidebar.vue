@@ -9,7 +9,6 @@
       aria-multiselectable="true"
     >
       <div class="panel panel-default" id="red-titl">
-        <!-- Heading -->
         <div class="panel-heading red-title" id="headingMain">
           <h4 class="panel-title panel-title-side">
             <!-- <i class="more-less glyphicon glyphicon-plus"></i> -->
@@ -26,6 +25,10 @@
           </div>
         </div>
       </div>
+        <!-- Heading -->
+        
+      <!-- </div> -->
+    <!-- </div> -->
       <div
         class="panel-group"
         id="accordion"
@@ -60,6 +63,7 @@
               class="panel-collapse collapse"
               role="tabpanel"
               aria-labelledby="headingFive"
+              aris-expanded="false"
             >
               <div class="panel-body">
                 <div class="search-widget">
@@ -1097,8 +1101,9 @@
             </div>
           </form>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
+  </div>
   </div>
   <!--/Section-->
 </template>

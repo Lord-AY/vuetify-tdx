@@ -32,7 +32,7 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
     ></BNav> -->
     <!-- /Mobile Bottom Bar -->
     <!-- Back to top -->
-    <a href="#top" id="back-to-top"><i class="fa fa-rocket"></i></a>
+    <!-- <i href="#top" id="back-to-top"><i class="fa fa-rocket"></i></a> -->
   </div>
 </template>
 
