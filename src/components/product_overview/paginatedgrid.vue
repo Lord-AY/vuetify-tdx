@@ -309,7 +309,7 @@
           </ContentLoader>
           <div
             class="posts-masonry"
-            v-for="product in list"
+            v-for="product in paginatedList"
             :key="product.id"
             v-show="!showLoader(paginatedList)"
           >
@@ -405,7 +405,6 @@
               </div>
             </div>
           </div>
-          <infinite-loading @infinite="infiniteHandler"></infinite-loading>
         </div>
       </div>
     </div>
@@ -414,21 +413,16 @@
 <script>
 // Import component
 import Loading from "vue-loading-overlay";
-import InfiniteLoading from 'vue-infinite-loading';
 // Import stylesheet
-import axios from "axios";
 import "vue-loading-overlay/dist/vue-loading.css";
 import ash from "lodash";
 import moment from "moment";
 import { ContentLoader } from "vue-content-loader";
-const api = 'https://www.tradexplora.com.ng/product/product';
 export default {
   data() {
     return {
       isLoading: false,
-      fullPage: true,
-      list: [],
-      page: 1,
+      fullPage: true
     };
   },
   props: {
@@ -440,33 +434,16 @@ export default {
   },
   components: {
     Loading,
-    ContentLoader,
-    InfiniteLoading
+    ContentLoader
   },
   computed: {
     paginatedList() {
       return this.data.slice(0, 10);
-    },
+    }
   },
   methods: {
     sync() {
       $("html,body").animate({ scrollTop: 0 }, "slow");
-    },
-     infiniteHandler($state) {
-      axios.get(api, {
-        params: {
-          page: this.page,
-        },
-      }).then(({ data }) => {
-        // console.log(data.length)
-        if (data.lenght) {
-          this.page += 1;
-          this.list.push(...data);
-          $state.loaded();
-        } else {
-          $state.complete();
-        }
-      });
     },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
