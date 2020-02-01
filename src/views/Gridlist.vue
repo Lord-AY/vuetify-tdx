@@ -177,7 +177,7 @@
             <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
-                <gsidebar :categories="categories"></gsidebar>
+                <gsidebar :categories="categories" @selectedFilter="chooseFilter" :ads="paginatedProducts"></gsidebar>
               </div>
               <div class="col-md-9 col-lg-9 col-xs-12">
                 <ptoggler
@@ -299,7 +299,7 @@ export default {
       } else if (payload.type == 6) {
         this.lowestTohighestPrice(payload.data);
       } else {
-        
+        this.filterByCategory(payload.data, payload.type)
       }
     },
     alphabeticallyZtoA(array) {
@@ -347,12 +347,14 @@ export default {
       // console.log(res);
     },
     filterByCategory(array, value) {
+      console.log("clicked this category filter");
       var filtered = [];
       for (var i = 0; i < array.length; i++) {
         if (array[i].cid == value) {
           filtered.push(array[i]);
         }
       }
+      return filtered;
       // console.log(filtered);
     }
   },

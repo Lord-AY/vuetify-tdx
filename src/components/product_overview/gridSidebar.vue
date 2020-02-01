@@ -19,7 +19,7 @@
           <div class="panel-body">
             <ul class="sub-categories">
               <li v-for="(category, index) in categories" :key="index">
-                <a href="">{{ category.name }}  <span>| 10</span> </a>
+                <button type="button" @click="filterSelection(category)"> {{ category.name }} <span>| 10</span> </button>
               </li>
             </ul>
           </div>
@@ -1115,9 +1115,20 @@ export default {
   name: "gsidebar",
   props: {
     categories: [Object, Array],
+    ads: [Object, Array],
   },
 
-  methods: {}
+  methods: {
+      filterSelection(category) {
+      // console.log(e.target.value);
+      const payload = {
+        type: category.id,
+        data: this.ads
+      };
+      console.log(payload);
+      this.$emit('selectedFilter', payload);
+    }
+  }
 };
 </script>
 
