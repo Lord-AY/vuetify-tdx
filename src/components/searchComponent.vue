@@ -41,11 +41,12 @@
                                 <div class="ad-archive-img">
                                   <router-link
                                     :to="
-                                      `/ProductDetails/${product.id}/${product.cid}`
+                                      `/productDetails/${product.id}/${product.cid}/${product.uid}`
                                     "
                                   >
                                     <img
-                                      v-for="(image, index) in product.photos.slice(0, 1)"
+                                      v-for="(image,
+                                      index) in product.photos.slice(0, 1)"
                                       :key="index"
                                       :src="image"
                                       :alt="product.name"
@@ -80,7 +81,7 @@
                                   <h3>
                                     <router-link
                                       :to="
-                                        `/ProductDetails/${product.id}/${product.cid}`
+                                        `/productDetails/${product.id}/${product.cid}/${product.uid}`
                                       "
                                     >
                                       {{ product.name }}
@@ -91,7 +92,7 @@
                                     <span class="padding_cats">
                                       <router-link
                                         :to="
-                                          `/ProductDetails/${product.id}/${product.cid}`
+                                          `/productDetails/${product.id}/${product.cid}/${product.uid}`
                                         "
                                         >{{ product.category }}</router-link
                                       >
@@ -107,16 +108,17 @@
                                     <li>
                                       <router-link
                                         :to="
-                                          `/ProductDetails/${product.id}/${product.cid}`
+                                          `/productDetails/${product.id}/${product.cid}/${product.uid}`
                                         "
                                       >
                                         <img
-                                      v-for="(image, index) in product.photos.slice(1)"
-                                      :key="index"
-                                      :src="image"
-                                      :alt="product.name"
-                                      class="img-responsive"
-                                    />
+                                          v-for="(image,
+                                          index) in product.photos.slice(1)"
+                                          :key="index"
+                                          :src="image"
+                                          :alt="product.name"
+                                          class="img-responsive"
+                                        />
                                       </router-link>
                                     </li>
                                   </ul>
@@ -136,7 +138,7 @@
                                       </a>
                                       <router-link
                                         :to="
-                                          `/ProductDetails/${product.id}/${product.cid}`
+                                          `/productDetails/${product.id}/${product.cid}/${product.uid}`
                                         "
                                         class="btn2 btn-success"
                                       >
@@ -151,7 +153,9 @@
                             </div>
                           </div>
                         </div>
-                        <div v-else> <h4>Sorry No Results for this search...</h4></div>
+                        <div v-else>
+                          <h4>Sorry No Results for this search...</h4>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -246,9 +250,9 @@ require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.
 
 export default {
   props: {
-    results: [Object, Array, String],
-  },
-}
+    results: [Object, Array, String]
+  }
+};
 </script>
 
 <style>

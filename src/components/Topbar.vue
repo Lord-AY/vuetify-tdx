@@ -635,7 +635,8 @@ export default {
     },
     sendSearch() {
       if (this.keyword !== null) {
-        this.$router.push(`search/keyword=${this.keyword}`);
+        this.$router.push(`/search/${this.keyword}`);
+        this.keyword = null;
       }
     },
      getSearchResults(keyword) {
