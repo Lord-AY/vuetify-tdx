@@ -376,11 +376,7 @@
                           `productDetails/${product.id}/${product.cid}/${product.uid}`
                         "
                       >
-                        <img
-                          :src="product.photos[0]"
-                          :alt="product.name"
-                          class="img-responsive"
-                        />
+                        {{ product.name }}
                       </router-link>
                     </h3>
                     <span class="price-tag-tx">

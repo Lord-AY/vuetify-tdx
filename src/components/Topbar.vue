@@ -542,7 +542,7 @@
                   v-model="keyword"
                   @keydown.enter="sendSearch"
                   placeholder="Search products, brands and categories"
-                  style="background-color: #fff!important; font-size: 15px!important; "
+                  style="background-color: #fff!important; color: #232323!important; font-size: 15px!important; "
                 />
                 <div
                   style="display:none;"
@@ -848,9 +848,9 @@ export default {
   overflow-y: scroll;
 }
 .search-dropdown-item {
-  padding: .75rem 1.5rem!important;
-  font-size: 1rem!important;
-  font-weight: 500!important;
+  padding: 10px 16px!important;
+  font-size: 16px!important;
+  font-weight: 400!important;
 }
 /* Sidebar Test Styles => Don't remove */
 .sidenav {
