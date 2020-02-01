@@ -57,10 +57,12 @@
             <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
             <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
               <div class="short-feature-body">
-                <div class="featured-slider-1 owl-carousel owl-theme">
+                <!-- <div class="featured-slider-1 owl-carousel owl-theme"> -->
+                  <carousel :autoplay="true" :nav="false">
+                    <!-- <template style="display:none" slot="prev"><span class="prev">prev</span></template> -->
                   <div class="item" v-for="(sellers, index) in hotsellers" :key="index">
                     <div
-                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
+                      class="col-md-8 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
                       id="holder-1554"
                     >
                       <div class="category-grid-box-1 category-grid-box-tx">
@@ -109,7 +111,9 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                  <!-- <template style="display:none" slot="next"><span class="next">next</span></template> -->
+                </carousel>
+                <!-- </div> -->
               </div>
             </div>
           </div>
@@ -123,7 +127,7 @@
 /* eslint-disable no-undef */
 import ash from "lodash";
 import moment from "moment";
-
+import carousel from 'vue-owl-carousel';
 export default {
   name: "hotsellers",
   data() {
@@ -133,34 +137,37 @@ export default {
   props: {
     hotsellers: Array
   },
+  components: { 
+    carousel 
+  },
   methods: {
     sync() {
-      $(document).ready(function() {
-        $(".owl-carousel").owlCarousel({
-          items: 5,
-          loop: true,
-          autoplay: true,
-          autoplayTimeout: 3000,
-          autoplayHoverPause: true,
-          freeDrag: false,
-          responsiveClass: true,
-          // mouseDrag: false,
-          responsive: {
-            0: {
-              items: 1,
-              nav: false
-            },
-            600: {
-              items: 3,
-              nav: false
-            },
-            1000: {
-              items: 5,
-              nav: true
-            }
-          }
-        });
-      });
+      // $(document).ready(function() {
+      //   $(".owl-carousel").owlCarousel({
+      //     items: 5,
+      //     loop: true,
+      //     autoplay: true,
+      //     autoplayTimeout: 3000,
+      //     autoplayHoverPause: true,
+      //     freeDrag: false,
+      //     responsiveClass: true,
+      //     // mouseDrag: false,
+      //     responsive: {
+      //       0: {
+      //         items: 1,
+      //         nav: false
+      //       },
+      //       600: {
+      //         items: 3,
+      //         nav: false
+      //       },
+      //       1000: {
+      //         items: 5,
+      //         nav: true
+      //       }
+      //     }
+      //   });
+      // });
     },
     format_date(value) {
       if (value) {

@@ -307,6 +307,8 @@
             />
             <circle cx="565.14" cy="260.58" r="26.91" />
           </ContentLoader>
+          <div>
+            <div class="item-container">
               <div
                 class="posts-masonry"
                 v-for="product in paginatedList"
@@ -425,7 +427,9 @@
                   </div>
                 </div>
               </div>
-              <infinite-loading force-use-infinite-wrapper=".infinite-wrapper" @infinite="infiniteHandler"></infinite-loading>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -433,10 +437,10 @@
 </template>
 <script>
 // Import component
-import {  mapGetters } from "vuex";
 import Loading from "vue-loading-overlay";
-import InfiniteLoading from 'vue-infinite-loading';
+// import { infiniteScroll } from 'vue-infinite-scroll'
 // Import stylesheet
+import { mapActions, mapGetters } from "vuex";
 import "vue-loading-overlay/dist/vue-loading.css";
 import ash from "lodash";
 import moment from "moment";
@@ -446,7 +450,11 @@ export default {
     return {
       isLoading: false,
       fullPage: true,
-      list: [],
+      loadMore: true,
+      page: 1,
+      pageSize: 9,
+      bottom: false,
+      beers: []
     };
   },
   props: {
@@ -458,21 +466,15 @@ export default {
   },
   components: {
     Loading,
-    ContentLoader,
-    InfiniteLoading
+    ContentLoader
   },
-
   computed: {
-    ...mapGetters("product", [
-      "paginatedProducts",
-    ]),
-    ...mapGetters("auth", ["loading"]),
     paginatedList() {
       return this.data.slice(0, 10);
-    },
+    }
   },
-
   methods: {
+    ...mapActions("product", ["fetchAllProducts", "fetchHotSellers"]),
     sync() {
       $("html,body").animate({ scrollTop: 0 }, "slow");
     },
@@ -488,24 +490,41 @@ export default {
         return moment(String(value)).format("YYYY-MM-DD");
       }
     },
-    infiniteHandler($state) {
-      setTimeout(() => {
-        const temp = [];
-        for (let i = this.list.length + 1; i <= this.list.length + 20; i++) {
-          temp.push(i);
-        }
-        this.list = this.list.concat(temp);
-        $state.loaded();
-      }, 1000);
+    bottomVisible() {
+      const scrollY = window.scrollY
+      const visible = document.documentElement.clientHeight
+      const pageHeight = document.documentElement.scrollHeight
+      const bottomOfPage = visible + scrollY >= pageHeight
+      return bottomOfPage || pageHeight < visible
     },
-   },
+    addBeer() {
+      this.fetchAllProducts()
+        .then(response => {
+          this.beers.push(response)
+          if (this.bottomVisible()) {
+            this.addBeer()
+          }
+      })
+    }
+  },
   watch: {
     isLoading: {
       handler: function(loading) {
         this.sync();
         this.isLoading = false;
       }
+    },
+    bottom(bottom) {
+      if (bottom) {
+        this.addBeer()
+      }
     }
+  },
+  created() {
+    window.addEventListener('scroll', () => {
+      this.bottom = this.bottomVisible()
+    })
+    this.addBeer()
   }
 };
 </script>

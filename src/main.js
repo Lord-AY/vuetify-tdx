@@ -8,7 +8,7 @@ import firebase from "firebase";
 import Clipboard from 'v-clipboard';
 import VueChatScroll from 'vue-chat-scroll';
 import Vue2Filters from 'vue2-filters';
-
+import ScrollLoader from 'vue-scroll-loader'
 
 
 require("firebase/firestore");
@@ -39,6 +39,8 @@ Vue.use(Clipboard);
 Vue.use(SocialSharing);
 Vue.use(VueChatScroll);
 Vue.use(Vue2Filters);
+Vue.use(ScrollLoader);
+
 export const bus = new Vue();
 sync(store, router);
 new Vue({
