@@ -29,11 +29,10 @@ import router from '../../router';
         </router-link>
       </div>
       <ProductLoader v-show="showLoader(ads)"></ProductLoader>
-      <div
-        id="defaultCarousel"
-        class="owl-carousel owl-carousel-icons2"
+      <div        
         v-show="!showLoader(ads)"
       >
+      <carousel :autoplay="true" :nav="false">
         <div class="item" v-for="product in ads" :key="product.id">
           <div class="card mb-0">
             <div class="item-card2-img">
@@ -100,6 +99,7 @@ import router from '../../router';
             </div>
           </div>
         </div>
+      </carousel>
       </div>
     </div>
   </section>
@@ -112,13 +112,15 @@ import router from '../../router';
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
 import ash from "lodash";
+import carousel from 'vue-owl-carousel'
 export default {
   name: "SPTB-White",
   props: {
     ads: [Object, Array]
   },
   components: {
-    ProductLoader
+    ProductLoader,
+    carousel
   },
   methods: {
     showLoader(data) {
@@ -139,36 +141,6 @@ export default {
       }
     },
     sync() {
-      $(document).ready(() => {
-        // ______________Owl-carousel-icons2
-        $(".owl-carousel-icons2").owlCarousel({
-          loop: true,
-          rewind: false,
-          margin: 25,
-          animateIn: "fadeInDowm",
-          animateOut: "fadeOutDown",
-          autoplayTimeout: 5000, // set value to change speed
-          autoplayHoverPause: true,
-          dots: false,
-          nav: true,
-          autoplay: true,
-          responsiveClass: true,
-          responsive: {
-            0: {
-              items: 1,
-              nav: true
-            },
-            600: {
-              items: 2,
-              nav: true
-            },
-            1300: {
-              items: 4,
-              nav: true
-            }
-          }
-        });
-      });
     }
   },
   beforeRouteEnter(to, from, next) {

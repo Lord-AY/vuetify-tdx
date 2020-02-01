@@ -58,7 +58,8 @@
             <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
             <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
               <div class="short-feature-body">
-                <div class="featured-slider-1 owl-carousel owl-theme">
+                <!-- <div class="featured-slider-1 owl-carousel owl-theme"> -->
+                  <carousel :autoplay="true" :nav="false">
                   <div class="item" v-for="(sellers, index) in hotsellers" :key="index">
                     <div
                       class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
@@ -110,7 +111,8 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </carousel>
+                <!-- </div> -->
               </div>
             </div>
           </div>
@@ -124,7 +126,7 @@
 /* eslint-disable no-undef */
 import ash from "lodash";
 import moment from "moment";
-
+import carousel from 'vue-owl-carousel'
 export default {
   name: "hotsellers",
   data() {
@@ -133,6 +135,9 @@ export default {
   },
   props: {
     hotsellers: Array
+  },
+  components: {
+    carousel
   },
   methods: {
     sync() {
