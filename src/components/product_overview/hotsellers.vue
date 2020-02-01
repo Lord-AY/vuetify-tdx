@@ -169,7 +169,7 @@ export default {
                           }
                         }
                     }).trigger('to.owl.carousel', app.items.length)
-                    console.log("crousel inserted")
+                    // console.log("crousel inserted")
                 },
             }
         },
