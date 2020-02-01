@@ -362,7 +362,15 @@
                   <div class="">
                     <div class="category-title" style="margin-bottom: 6px;">
                       <span class="padding_cats">
-                        <router-link to="#"> <i>Premium</i> </router-link>
+                        <router-link to="#"> 
+                            <i v-if="product.adtype==0">regular</i> 
+                            <i v-else-if="product.adtype==1">urgent</i> 
+                            <i v-else-if="product.adtype==2">top ad</i> 
+                            <i v-else-if="product.adtype==3">gold</i> 
+                            <i v-else-if="product.adtype==4">Premium</i> 
+                            <i v-else-if="product.adtype==5">Hot seller</i> 
+                            <i v-else>Regular</i> 
+                        </router-link>
                       </span>
                     </div>
                     
@@ -436,8 +444,6 @@
       </div>
         </div>
       </div>
-    <!-- </div>
-  </div> -->
 </template>
 <script>
 // Import component
