@@ -156,7 +156,7 @@
                     <a href class>View All Reviews</a>
                   </div>
                   <div class="panel-body">
-                    <!-- <metrics></metrics> -->
+                    <metrics></metrics>
                   </div>
                 </div>
               </div>

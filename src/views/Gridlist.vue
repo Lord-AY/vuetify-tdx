@@ -41,93 +41,55 @@
                       </h3>
                     </div>
                   </div>
-                  <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Airtime / Data
-                    </h3>
+                </router-link>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <router-link to="/listbillers">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#579CDF; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-warning">
+                        <i
+                          class="fa fa-television"
+                          style="color: #fff !important; font-size: 25px; margin-left: 3px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="ml-4 mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Cable TV
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#579CDF; border-radius:50%; border: 3px solid #a3cdf5;"
-                  >
-                    <span class="icon-service1 text-warning">
-                      <i
-                        class="fa fa-television"
-                        style="color: #fff !important; font-size: 22px!important; margin-left: 3px; padding: 0px 8px 6px 0px;"
-                      ></i>
-                    </span>
-                  </div>
-                  <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Cable TV
-                    </h3>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#4BAD4C; border-radius:50%; border: 3px solid #84da85;"
-                  >
-                    <span class="icon-service1 text-secondary">
-                      <i
-                        class="fa fa-bolt"
-                        style="color: #fff !important; font-size: 25px!important; padding: 0px 4px 6px 0px;"
-                      ></i>
-                    </span>
-                  </div>
-                  <div class="ml-4 mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Electricity
-                    </h3>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#CB8A47; border-radius:50%; border: 3px solid #e4af79;"
-                  >
-                    <span class="icon-service1 text-primary">
-                      <i
-                        class="fa fa-plane fa-3x"
-                        style="color: #fff !important; font-size: 24px!important; padding: 0px 5px 6px 0px;"
-                      ></i>
-                    </span>
-                  </div>
-                  <div class="mt-1">
-                    <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
-                      Flight
-                    </h3>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="padding-left: 0px; ">
-              <a href="#">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#31B19B; border-radius:50%; border: 3px solid #a6eadf;"
-                  >
-                    <span class="icon-service1 text-warning">
-                      <i
-                        class="fa fa-bed"
-                        style="color: #fff !important; font-size: 22px!important; padding: 0px 5px 6px 0px;"
-                      ></i>
-                    </span>
+                </router-link>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <router-link to="/listbillers">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#4BAD4C; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-secondary">
+                        <i
+                          class="fa fa-bolt"
+                          style="color: #fff !important; font-size: 25px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="ml-4 mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Electricity
+                      </h3>
+                    </div>
                   </div>
                 </router-link>
               </div>
@@ -154,26 +116,30 @@
                       </h3>
                     </div>
                   </div>
-                </div>
-              </a>
-            </div>
-            <div
-              class="col-md-2 col-sm-4 col-xs-4"
-              style="padding-left: 0px; padding-right: 0px; "
-            >
-              <router-link to="/listbillers">
-                <div class="d-flex value-added">
-                  <div
-                    class="icon-bg-service"
-                    style="background-color:#1C1E23; border-radius:50%; border: 3px solid #878788;"
-                  >
-                    <span class="icon-service1 text-warning">
-                      <i
-                        class="fa fa-ellipsis-h"
-                        style="color: #fff !important; font-size: 28px; padding: 0px 5px 6px 0px;"
-                      ></i>
-                    </span>
-
+                </router-link>
+              </div>
+              <div
+                class="col-md-2 col-sm-4 col-xs-4"
+                style="padding-left: 0px; "
+              >
+                <router-link to="/listbillers">
+                  <div class="d-flex value-added">
+                    <div
+                      class="icon-bg-service"
+                      style="background-color:#31B19B; border-radius:16%;"
+                    >
+                      <span class="icon-service1 text-warning">
+                        <i
+                          class="fa fa-bed"
+                          style="color: #fff !important; font-size: 21px;"
+                        ></i>
+                      </span>
+                    </div>
+                    <div class="mt-1">
+                      <h3 class="mb-0 mt-3 font-weight-bold value-added-tx">
+                        Hotel
+                      </h3>
+                    </div>
                   </div>
                 </router-link>
               </div>
@@ -322,7 +288,6 @@ export default {
       });
     },
     chooseFilter(payload) {
-      // console.log(payload);
       if(payload.type == 2) {
         this.newestTooldest(payload.data);
       } else if (payload.type == 3) {
@@ -334,7 +299,7 @@ export default {
       } else if (payload.type == 6) {
         this.lowestTohighestPrice(payload.data);
       } else {
-        // console.log("return normal list");
+        
       }
     },
     alphabeticallyZtoA(array) {
@@ -433,7 +398,7 @@ export default {
     this.fetchAllProducts();
     this.fetchHotSellers();
     this.filterByCategory(this.paginatedProducts, 1);
-    // console.log(this.getHotSellers);
+    console.log(this.paginatedProducts);
     // vm.$forceUpdate();
   },
   beforeCreate() {
