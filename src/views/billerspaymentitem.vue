@@ -134,7 +134,7 @@ export default {
       this.showModal = true;
     },
     sendValidatePayment(payload) {
-      console.log(payload);
+      // console.log(payload);
       this.validatePaymentOption(payload);
       localStorage.setItem("walletDeposit", "1");
     },

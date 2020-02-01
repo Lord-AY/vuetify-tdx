@@ -97,7 +97,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="listbillers">
+                <router-link to="/listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -122,7 +122,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="listbillers">
+                <router-link to="/listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -398,7 +398,7 @@ export default {
     this.fetchAllProducts();
     this.fetchHotSellers();
     this.filterByCategory(this.paginatedProducts, 1);
-    console.log(this.paginatedProducts);
+    // console.log(this.paginatedProducts);
     // vm.$forceUpdate();
   },
   beforeCreate() {
@@ -410,15 +410,15 @@ export default {
     mounted() {
     // console.log("this route just got mounted");
     // this.$forceUpdate();
-    if (localStorage.getItem('reloaded')) {
-          // The page was just reloaded. Clear the value from local storage
-          // so that it will reload the next time this page is visited.
-          localStorage.removeItem('reloaded');
-      } else {
-          // Set a flag so that we know not to reload the page twice.
-          localStorage.setItem('reloaded', '2');
-          location.reload();
-      }
+    // if (localStorage.getItem('reloaded')) {
+    //       // The page was just reloaded. Clear the value from local storage
+    //       // so that it will reload the next time this page is visited.
+    //       localStorage.removeItem('reloaded');
+    //   } else {
+    //       // Set a flag so that we know not to reload the page twice.
+    //       localStorage.setItem('reloaded', '2');
+    //       location.reload();
+    //   }
     this.sync();
   },
 
