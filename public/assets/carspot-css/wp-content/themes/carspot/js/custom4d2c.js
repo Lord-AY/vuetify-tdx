@@ -174,7 +174,7 @@
 
   /*SCROLL TO SPASIFIC BLOCK*/
   $(function() {
-    $("a[href*=#].scroller:not([href=#])").click(function() {
+    $("a[href*=\\#].scroller:not([href=\\#])").click(function() {
       var target = $(this.hash);
       target = target.length ? target : $("[name=" + this.hash.substr(1) + "]");
       if (target.length) {
