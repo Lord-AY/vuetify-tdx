@@ -18,7 +18,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="listbillers">
+                <router-link to="/listbillers">
                   <div class="d-flex value-added">
                     <div class="outline1">
                       <div class="outline2">
@@ -47,7 +47,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="listbillers">
+                <router-link to="/listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -72,7 +72,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="listbillers">
+                <router-link to="/listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -288,7 +288,6 @@ export default {
       });
     },
     chooseFilter(payload) {
-      // console.log(payload);
       if(payload.type == 2) {
         this.newestTooldest(payload.data);
       } else if (payload.type == 3) {
@@ -300,7 +299,7 @@ export default {
       } else if (payload.type == 6) {
         this.lowestTohighestPrice(payload.data);
       } else {
-        // console.log("return normal list");
+        
       }
     },
     alphabeticallyZtoA(array) {
@@ -399,7 +398,7 @@ export default {
     this.fetchAllProducts();
     this.fetchHotSellers();
     this.filterByCategory(this.paginatedProducts, 1);
-    // console.log(this.getHotSellers);
+    console.log(this.paginatedProducts);
     // vm.$forceUpdate();
   },
   beforeCreate() {
@@ -407,7 +406,22 @@ export default {
   },
   beforeMount() {
     // console.log("this is before mounted");
-  }
+  },
+    mounted() {
+    // console.log("this route just got mounted");
+    // this.$forceUpdate();
+    if (localStorage.getItem('reloaded')) {
+          // The page was just reloaded. Clear the value from local storage
+          // so that it will reload the next time this page is visited.
+          localStorage.removeItem('reloaded');
+      } else {
+          // Set a flag so that we know not to reload the page twice.
+          localStorage.setItem('reloaded', '2');
+          location.reload();
+      }
+    this.sync();
+  },
+
   // mounted() {
   //   // console.log("this route just got mounted");
   //   // this.$forceUpdate();
