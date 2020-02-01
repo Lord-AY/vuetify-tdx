@@ -19,7 +19,8 @@
           <div class="panel-body">
             <ul class="sub-categories">
               <li v-for="(category, index) in categories" :key="index">
-                <a href="">{{ category.name }}  <span>| 10</span> </a>
+                <a href="">{{ category.name }}   </a>
+                <span> 10</span>
               </li>
             </ul>
           </div>
@@ -1130,12 +1131,17 @@ export default {
   }
   
   .sub-categories li {
-    margin: 8px 0;
+    margin: 12px 0;
     font-size: 16px;
+        display: flex;
+    justify-content: space-between;
     /* opacity: 0.7; */
   }
   .sub-categories li span{
-    
+    background-color: #232323;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 50%;
     opacity: 0.7;
   }
 </style>
