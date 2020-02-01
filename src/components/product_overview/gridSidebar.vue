@@ -18,7 +18,7 @@
         <div class="panel-collapse">
           <div class="panel-body">
             <ul class="sub-categories">
-              <li v-for="(category, index) in categories" :key="index">
+              <li v-for="(category, index) in categories" :key="index" @click.prevent="filterSelection(category)">
                 <a href="">{{ category.name }}   </a>
                 <span> 10</span>
               </li>
@@ -1121,12 +1121,11 @@ export default {
 
   methods: {
       filterSelection(category) {
-      // console.log(e.target.value);
       const payload = {
         type: category.id,
         data: this.ads
       };
-      console.log(payload);
+      // console.log(payload);
       this.$emit('selectedFilter', payload);
     }
   }

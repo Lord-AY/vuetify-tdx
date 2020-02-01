@@ -324,7 +324,9 @@
                     Sold
                   </div> -->
                   <div class="hot-ribbon-tx">
-                    <img src="../../assets/images/brand/tradexplora_main_logo.png" />
+                    <img
+                      src="../../assets/images/brand/tradexplora_main_logo.png"
+                    />
                   </div>
                   <!-- <div class="hot-ribbon">
                     <img src="../../assets/images/hoticonv2.png" />
@@ -341,9 +343,12 @@
                     />
                   </router-link>
                   <div class="price-tagg" id="price-tag">
-                    <div class="camera">8 <i class="fa fa-camera"></i></div>
+                    <div class="camera">
+                      {{ product.photos.length }} <i class="fa fa-camera"></i>
+                    </div>
                     <div class="video">
-                      1 <i class="fa fa-video-camera"></i>
+                      {{ product.videos.length }}
+                      <i class="fa fa-video-camera"></i>
                     </div>
 
                     <!-- <div class="price">
@@ -362,36 +367,33 @@
                   <div class="">
                     <div class="category-title" style="margin-bottom: 6px;">
                       <span class="padding_cats">
-                        <router-link to="#"> 
-                            <i v-if="product.adtype==0">regular</i> 
-                            <i v-else-if="product.adtype==1">urgent</i> 
-                            <i v-else-if="product.adtype==2">top ad</i> 
-                            <i v-else-if="product.adtype==3">gold</i> 
-                            <i v-else-if="product.adtype==4">Premium</i> 
-                            <i v-else-if="product.adtype==5">Hot seller</i> 
-                            <i v-else>Regular</i> 
+                        <router-link to="#">
+                          <i v-if="product.adtype == 0">regular</i>
+                          <i v-else-if="product.adtype == 1">urgent</i>
+                          <i v-else-if="product.adtype == 2">top ad</i>
+                          <i v-else-if="product.adtype == 3">gold</i>
+                          <i v-else-if="product.adtype == 4">Premium</i>
+                          <i v-else-if="product.adtype == 5">Hot seller</i>
+                          <i v-else>Regular</i>
                         </router-link>
                       </span>
                     </div>
-                    
-                    
                     <!-- <i class="fa fa-heart-o"></i> -->
-                    
                   </div>
                   <h3 class="product-name-tx">
-                      <router-link
-                        :to="
-                          `productDetails/${product.id}/${product.cid}/${product.uid}`
-                        "
-                      >
-                        {{ product.name }}
-                      </router-link>
-                    </h3>
-                    <span class="price-tag-tx">
-                      &#8358; {{ formatCurrency(product.amount) }}
-                      <!-- <span class v-if="product.negotiable"> (Negotiable)</span>
+                    <router-link
+                      :to="
+                        `productDetails/${product.id}/${product.cid}/${product.uid}`
+                      "
+                    >
+                      {{ product.name }}
+                    </router-link>
+                  </h3>
+                  <span class="price-tag-tx">
+                    &#8358; {{ formatCurrency(product.amount) }}
+                    <!-- <span class v-if="product.negotiable"> (Negotiable)</span>
                       <span class v-else> (Fixed)</span> -->
-                    </span>
+                  </span>
                   <!-- <span class="price-tag-tx">
                     &#8358; {{ product.amount }}
                     <span class v-if="product.negotiable"> (Negotiable)</span>
@@ -437,20 +439,19 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
-        </div>
-      </div>
+    </div>
+  </div>
 </template>
 <script>
 // Import component
 import Loading from "vue-loading-overlay";
 // import { infiniteScroll } from 'vue-infinite-scroll'
 // Import stylesheet
-const formatCurrency = require('format-currency')
+const formatCurrency = require("format-currency");
 import { mapActions, mapGetters } from "vuex";
 import "vue-loading-overlay/dist/vue-loading.css";
 import ash from "lodash";
@@ -473,7 +474,7 @@ export default {
     data: {
       type: [Array, Object],
       required: true
-    },
+    }
   },
   components: {
     Loading,
@@ -486,8 +487,8 @@ export default {
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts", "fetchHotSellers"]),
-    formatCurrency(data){
-      return formatCurrency(data)
+    formatCurrency(data) {
+      return formatCurrency(data);
     },
     sync() {
       $("html,body").animate({ scrollTop: 0 }, "slow");
@@ -505,20 +506,19 @@ export default {
       }
     },
     bottomVisible() {
-      const scrollY = window.scrollY
-      const visible = document.documentElement.clientHeight
-      const pageHeight = document.documentElement.scrollHeight
-      const bottomOfPage = visible + scrollY >= pageHeight
-      return bottomOfPage || pageHeight < visible
+      const scrollY = window.scrollY;
+      const visible = document.documentElement.clientHeight;
+      const pageHeight = document.documentElement.scrollHeight;
+      const bottomOfPage = visible + scrollY >= pageHeight;
+      return bottomOfPage || pageHeight < visible;
     },
     addBeer() {
-      this.fetchAllProducts()
-        .then(response => {
-          this.beers.push(response)
-          if (this.bottomVisible()) {
-            this.addBeer()
-          }
-      })
+      this.fetchAllProducts().then(response => {
+        this.beers.push(response);
+        if (this.bottomVisible()) {
+          this.addBeer();
+        }
+      });
     }
   },
   watch: {
@@ -530,15 +530,15 @@ export default {
     },
     bottom(bottom) {
       if (bottom) {
-        this.addBeer()
+        this.addBeer();
       }
     }
   },
   created() {
-    window.addEventListener('scroll', () => {
-      this.bottom = this.bottomVisible()
-    })
-    this.addBeer()
+    window.addEventListener("scroll", () => {
+      this.bottom = this.bottomVisible();
+    });
+    this.addBeer();
   }
 };
 </script>
@@ -609,31 +609,31 @@ button {
   justify-content: space-between;
 }
 
-.p-name-p-category i.fa{
+.p-name-p-category i.fa {
   font-size: 18px;
 }
 .category-grid-box-1 #price-tag {
-    bottom: 0;
-    position: absolute;
-    right: 0!important
+  bottom: 0;
+  position: absolute;
+  right: 0 !important;
 }
 .price-tagg {
   display: flex;
   background-color: rgba(0, 0, 0, 0.4);
-    padding: 4px 0px 4px 8px ;
-    border-radius: 8px 0 0 0 ;
-    color: #fff!important;
+  padding: 4px 0px 4px 8px;
+  border-radius: 8px 0 0 0;
+  color: #fff !important;
 }
 .price-tagg .video {
   margin-right: 16px;
   margin-left: 8px;
 }
 .location-tx {
-  margin-top: 4px!important;
-  margin-bottom: 6px!important;
+  margin-top: 4px !important;
+  margin-bottom: 6px !important;
 }
 .location-tx i {
-  margin-right: 4px!important;
+  margin-right: 4px !important;
 }
 .price-tag-tx {
   background-color: transparent !important;
@@ -643,11 +643,9 @@ button {
   // line-height: 1.2;
 }
 
-
-
 .img-responsive {
-  max-height: 166px!important;
-  min-height: 166px!important;
+  max-height: 166px !important;
+  min-height: 166px !important;
 }
 
 .price-tag-tx span {
@@ -667,11 +665,11 @@ button {
 
 .hot-ribbon-tx {
   position: absolute;
-    right: 10px;
-    text-align: left;
-    top: 10px;
-    width: 30px;
-    z-index: 1;
+  right: 10px;
+  text-align: left;
+  top: 10px;
+  width: 30px;
+  z-index: 1;
 }
 
 //----------  pagination
@@ -691,29 +689,29 @@ button {
 }
 
 .gd-date-tx {
-  margin-bottom:  14px!important;
+  margin-bottom: 14px !important;
 }
 
-.gd-date-tx i{
-  margin-right: 4px!important;
+.gd-date-tx i {
+  margin-right: 4px !important;
 }
 
 .icon-reveal-btn {
-    background-color: #232323!important;
-    color: #fff!important;
-    font-size: 20px;
-    font-weight: 600!important;
-    padding: 3px 10px!important;
-    display: none;
-    border-radius: 50%!important;
-    opacity: 0.4;
+  background-color: #232323 !important;
+  color: #fff !important;
+  font-size: 20px;
+  font-weight: 600 !important;
+  padding: 3px 10px !important;
+  display: none;
+  border-radius: 50% !important;
+  opacity: 0.4;
 }
 
 .icon-reveal-btn:hover {
-    background-color: #232323!important;
-    color: #fff!important;
-    font-weight: 700;
-    opacity: 1;
+  background-color: #232323 !important;
+  color: #fff !important;
+  font-weight: 700;
+  opacity: 1;
 }
 
 .pagination {
