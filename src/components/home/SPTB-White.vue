@@ -30,9 +30,12 @@ import router from '../../router';
       </div>
       <ProductLoader v-show="showLoader(ads)"></ProductLoader>
       <div
+        id="defaultCarousel"
+        class="owl-carousel owl-carousel-icons2"
         v-show="!showLoader(ads)"
+        v-carousel
       >
-      <carousel :autoplay="true" :nav="false" :pagination="false">
+      <!-- <carousel :autoplay="true" :nav="false"> -->
         <div class="item" v-for="product in ads" :key="product.id">
           <div class="card mb-0">
             <div class="item-card2-img">
@@ -99,7 +102,7 @@ import router from '../../router';
             </div>
           </div>
         </div>
-      </carousel>
+      <!-- </carousel> -->
       </div>
     </div>
   </section>
@@ -112,7 +115,7 @@ import router from '../../router';
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
 import ash from "lodash";
-import carousel from 'vue-owl-carousel'
+// import carousel from 'vue-owl-carousel'
 export default {
   name: "SPTB-White",
   props: {
@@ -120,7 +123,7 @@ export default {
   },
   components: {
     ProductLoader,
-    carousel
+    // carousel
   },
   methods: {
     showLoader(data) {
@@ -143,6 +146,26 @@ export default {
     sync() {
     }
   },
+  directives: {
+            carousel: {
+                inserted: function (el) {
+                    $(el).owlCarousel({
+                        //loop: true,
+                        margin: 10,
+                        nav: true,
+                        responsive: {
+                          0: {
+                            items: 1
+                          },
+                          600: {
+                            items: 3
+                          }
+                        }
+                    }).trigger('to.owl.carousel', app.items.length)
+                    console.log("crousel inserted")
+                },
+            }
+        },
   beforeRouteEnter(to, from, next) {
     next(vm => {
       this.sync();
