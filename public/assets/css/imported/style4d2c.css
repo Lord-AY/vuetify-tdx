@@ -820,8 +820,8 @@ body .select2-container--default .select2-selection--single {
     }
 }
 .container {
-    max-width: 1320px !important;
-    width: 1320px !important;
+    max-width: 1440px !important;
+    width: 1440px !important;
     padding: 0 8px!important;
 }
 .color-switcher {
@@ -1608,6 +1608,11 @@ img.resize {
     width: 100%
 }
 */
+.form-control-auth {
+    background-color: #fff!important;
+    border: 1px solid #eee;
+    font-size: 16px!important;
+}
 .background-rotator .search-section {
     color: #fff;
     left: 0;
@@ -1661,7 +1666,8 @@ img.resize {
     float: left;
     display: block;
     width: 100%;
-    position: relative
+    position: relative;
+    border-radius: 6px;
 }
 .category-grid-box-1:after {
     content: '';
@@ -1828,7 +1834,7 @@ img.resize {
 .category-grid-box-1 .price-tag {
     bottom: 0;
     position: absolute;
-    right: 0
+    left: 0!important
 }
 .category-grid-box-1 .image {
     overflow: hidden;
@@ -1869,11 +1875,11 @@ img.resize {
     top: 20px
 }
 .ad-info-1 {
-    background: rgb(168, 243, 171) none repeat scroll 0 0 !important;
+    /* background: rgb(168, 243, 171) none repeat scroll 0 0 !important; */
     padding: 5px 10px;
     overflow: hidden;
     width: 100%;
-    border-top: 1px solid rgb(168, 243, 171) !important;
+    /* border-top: 1px solid rgb(168, 243, 171) !important; */
 }
 .ad-info-1 .skin-minimal .list li label {
     color: #888;
@@ -6631,11 +6637,11 @@ span.app-store-btn {
         margin: 0
     }
 }
-.sold img {
+/* .sold img {
     position: absolute;
     top: 10px;
     left: 0
-}
+} */
 a.delete i {
     color: #ed1c24
 }
@@ -7391,7 +7397,7 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 
 .hot-ribbon {
     position: absolute;
-    left: 10px;
+    left: 50px!important;
     text-align: left;
     top: 10px;
     width: 13px;
@@ -14254,6 +14260,7 @@ hr.accent-2 {
 
 .col-join-tx {
     padding-right: 0px;
+    padding-right: 0px;
 }
 
 .col-sellers-tx {
@@ -14412,14 +14419,18 @@ hr.accent-2 {
     height: 20px; */
     border: 3px solid #fff;
     background-color: rgb(167, 167, 167);
-    border-radius: 0px;
+    border-radius: 6px;
     position: absolute;
-    top: -25px;
-    right: -18px;
-    padding: 8px 12px;
+    top: -4px;
+    right: -63px;
+    padding: 6px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.follow-seller i {
+    padding-right: 0px!important;
 }
 
 .follow-seller:hover {
@@ -14469,7 +14480,7 @@ hr.accent-2 {
     border-radius: 50%;
     position: absolute;
     bottom: 0px;
-    right: 130px
+    right: 172px!important
 }
 
 .seller-offline {
@@ -14480,7 +14491,7 @@ hr.accent-2 {
     border-radius: 50%;
     position: absolute;
     bottom: 0px;
-    right: 148px
+    right: 172px!important
 }
 
 .center-with-flex {
@@ -14561,12 +14572,13 @@ hr.accent-2 {
 }
 
 .icon-reveal-btn {
-    background-color: rgba(255,255,255,0.5);
-    color: #232323!important;
+    background-color: rgba(255,255,255,0.2)!important;
+    color: #fff!important;
     font-size: 20px;
     font-weight: 600!important;
-    padding: 6px 10px!important;
+    padding: 3px 10px!important;
     display: none;
+    border-radius: 50%!important;
 }
 
 .category-grid-box-1:hover .button-reveal-btn {
@@ -14579,8 +14591,8 @@ hr.accent-2 {
 .category-grid-box-1:hover .icon-reveal-btn {
     display: inline-block;
     position: absolute;
-    top: 6px;
-    right: 0;
+    top: 166px!important;
+    right: 6px!important;
 }
 
 .button-reveal-btn:hover {
@@ -14912,7 +14924,7 @@ hr.accent-2 {
     top: 0;
     z-index: 100;
     border-top: 0;
-    border-bottom: 3px solid #4caf50!important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06)!important;
 }
 .testimonial {
     border-radius: 3px!important;

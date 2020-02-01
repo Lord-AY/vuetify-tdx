@@ -103,6 +103,7 @@
                 <input
                   type="text"
                   class="form-control form-control-tx br-tl-3  br-bl-3 footer-input"
+                  style="height: auto!important;"
                   placeholder="Email"
                 />
                 <div class="input-group-append ">

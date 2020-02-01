@@ -307,136 +307,150 @@
             />
             <circle cx="565.14" cy="260.58" r="26.91" />
           </ContentLoader>
-              <div
-                class="posts-masonry"
-                v-for="product in paginatedList"
-                :key="product.id"
-                v-show="!showLoader(paginatedList)"
-              >
-                <div
-                  class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col-md-3-tx col-lg-3-tx col-sm-6-tx col-xs-12-tx"
-                  id=".holder-1375"
-                >
-                  <div class="category-grid-box-1">
-                    <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
-                    <div class="image">
-                      <div class="hot-ribbon">
-                        <img src="../../assets/images/hoticonv2.png" />
-                      </div>
+          <div
+            class="posts-masonry"
+            v-for="product in paginatedList"
+            :key="product.id"
+            v-show="!showLoader(paginatedList)"
+          >
+            <div
+              class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col-md-3-tx col-lg-3-tx col-sm-6-tx col-xs-12-tx"
+              id=".holder-1375"
+            >
+              <div class="category-grid-box-1 sold-tx">
+                <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
+                <div class="image">
+                  <!-- <div class="arrow-ribbon bg-primary bg-sold bg-tag-tx">
+                    Sold
+                  </div> -->
+                  <div class="hot-ribbon-tx">
+                    <img src="../../assets/images/brand/tradexplora_main_logo.png" />
+                  </div>
+                  <!-- <div class="hot-ribbon">
+                    <img src="../../assets/images/hoticonv2.png" />
+                  </div> -->
+                  <router-link
+                    :to="
+                      `productDetails/${product.id}/${product.cid}/${product.uid}`
+                    "
+                  >
+                    <img
+                      :src="product.photos[0]"
+                      :alt="product.name"
+                      class="img-responsive"
+                    />
+                  </router-link>
+                  <div class="price-tagg" id="price-tag">
+                    <div class="camera">8 <i class="fa fa-camera"></i></div>
+                    <div class="video">
+                      1 <i class="fa fa-video-camera"></i>
+                    </div>
+
+                    <!-- <div class="price">
+                      <span class="price-tag-tx">
+                        &#8358; {{ product.amount }}
+                        <span class v-if="product.negotiable"
+                          >(Negotiable)</span
+                        >
+                        <span class v-else>(Fixed)</span>
+                      </span>
+                    </div> -->
+                    <!-- </div> -->
+                  </div>
+                </div>
+                <div class="short-description-1 clearfix">
+                  <div class="">
+                    <div class="category-title" style="margin-bottom: 6px;">
+                      <span class="padding_cats">
+                        <router-link to="#"> 
+                            <i v-if="product.adtype==0">regular</i> 
+                            <i v-else-if="product.adtype==1">urgent</i> 
+                            <i v-else-if="product.adtype==2">top ad</i> 
+                            <i v-else-if="product.adtype==3">gold</i> 
+                            <i v-else-if="product.adtype==4">Premium</i> 
+                            <i v-else-if="product.adtype==5">Hot seller</i> 
+                            <i v-else>Regular</i> 
+                        </router-link>
+                      </span>
+                    </div>
+                    
+                    
+                    <!-- <i class="fa fa-heart-o"></i> -->
+                    
+                  </div>
+                  <h3 class="product-name-tx">
                       <router-link
                         :to="
                           `productDetails/${product.id}/${product.cid}/${product.uid}`
                         "
                       >
-                        <img
-                          :src="product.photos[0]"
-                          :alt="product.name"
-                          class="img-responsive"
-                        />
+                        {{ product.name }}
                       </router-link>
-                      <div class="price-tag">
-                        <div class="camera">1 <i class="fa fa-camera"></i></div>
-                        <div class="video">
-                          2 <i class="fa fa-video-camera"></i>
-                        </div>
-
-                        <!-- <div class="price">
-                          <span class="price-tag-tx">
-                            &#8358; {{ product.amount }}
-                            <span class v-if="product.negotiable"
-                              >(Negotiable)</span
-                            >
-                            <span class v-else>(Fixed)</span>
-                          </span>
-                        </div> -->
-                      </div>
-                    </div>
-                    <div class="short-description-1 clearfix">
-                      <div class="p-name-p-category">
-                        
-                        <div class="category-title" style="margin-bottom: 6px;">
-                          <span class="padding_cats">
-                            <router-link to="#"> 
-                              <i v-if="product.adtype==0">regular</i> 
-                              <i v-else-if="product.adtype==1">urgent</i> 
-                              <i v-else-if="product.adtype==2">top ad</i> 
-                              <i v-else-if="product.adtype==3">gold</i> 
-                              <i v-else-if="product.adtype==4">Premium</i> 
-                              <i v-else-if="product.adtype==5">Hot seller</i> 
-                              <i v-else>Regular</i> 
-                            </router-link>
-                          </span>
-                        </div>
-                        <h3 class="product-name-tx">
-                          <router-link
-                            :to="
-                              `productDetails/${product.id}/${product.cid}/${product.uid}`
-                            "
-                          >
-                            {{ product.name }}
-                          </router-link>
-                        </h3>
-                      </div>
-
-                      <span class="price-tag-tx">
-                        &#8358; {{ product.amount }}
-                        <span class v-if="product.negotiable"> (Negotiable)</span>
-                        <span class v-else> (Fixed)</span>
-                      </span>
-                      <p class="location">
-                        <i class="fa fa-map-marker"></i>
-                        <a href="../ad_country/california/index.html">{{
-                          product.region
-                        }}</a>
-                      </p>
-                      <p>
-                        <i class="flaticon-calendar"></i> &nbsp;
-                        <span>{{ format_date(product.createdAt) }}</span>
-                      </p>
-                    </div>
-                    <div class="ad-info-1">
-                      <!-- <span class="price-tag-tx">
-                        
-                      </span> -->
-                      <div class="icon-reveal mobile-hidden">
-                        <a class="btn icon-reveal-btn">
-                          <i class="fa fa-heart-o"></i>
-                        </a>
-                      </div>
-                      <div class="button-reveal mobile-hidden">
-                        <router-link
-                          class="btn btn-block button-reveal-btn"
-                          :to="
-                            `productDetails/${product.id}/${product.cid}/${product.uid}`
-                          "
-                          >Contact Seller</router-link
-                        >
-                      </div>
-                      <div class="button-griddy hidden-desktop">
-                        <router-link
-                          class="btn btn-block btn-theme"
-                          :to="
-                            `productDetails/${product.id}/${product.cid}/${product.uid}`
-                          "
-                          >Contact Seller</router-link
-                        >
-                      </div>
-                    </div>
+                    </h3>
+                    <span class="price-tag-tx">
+                      &#8358; {{ product.amount }}
+                      <!-- <span class v-if="product.negotiable"> (Negotiable)</span>
+                      <span class v-else> (Fixed)</span> -->
+                    </span>
+                  <!-- <span class="price-tag-tx">
+                    &#8358; {{ product.amount }}
+                    <span class v-if="product.negotiable"> (Negotiable)</span>
+                    <span class v-else> (Fixed)</span>
+                  </span> -->
+                  <p class="location location-tx">
+                    <i class="fa fa-map-marker"></i>
+                    <a href="../ad_country/california/index.html">{{
+                      product.region
+                    }}</a>
+                  </p>
+                  <p class="gd-date-tx">
+                    <i class="flaticon-calendar"></i> &nbsp;
+                    <span>{{ format_date(product.createdAt) }}</span>
+                  </p>
+                </div>
+                <div class="ad-info-1">
+                  <!-- <span class="price-tag-tx">
+                    
+                  </span> -->
+                  <div class="icon-reveal mobile-hidden">
+                    <a class="btn icon-reveal-btn">
+                      <i class="fa fa-heart"></i>
+                    </a>
+                  </div>
+                  <div class="button-reveal mobile-hidden">
+                    <router-link
+                      class="btn btn-block button-reveal-btn"
+                      :to="
+                        `productDetails/${product.id}/${product.cid}/${product.uid}`
+                      "
+                      >Contact Seller</router-link
+                    >
+                  </div>
+                  <div class="button-griddy hidden-desktop">
+                    <router-link
+                      class="btn btn-block btn-theme"
+                      :to="
+                        `productDetails/${product.id}/${product.cid}/${product.uid}`
+                      "
+                      >Contact Seller</router-link
+                    >
                   </div>
                 </div>
               </div>
-              <infinite-loading force-use-infinite-wrapper=".infinite-wrapper" @infinite="infiniteHandler"></infinite-loading>
+
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+        </div>
+      </div>
 </template>
 <script>
 // Import component
-import {  mapGetters } from "vuex";
 import Loading from "vue-loading-overlay";
-import InfiniteLoading from 'vue-infinite-loading';
+// import { infiniteScroll } from 'vue-infinite-scroll'
 // Import stylesheet
+import { mapActions, mapGetters } from "vuex";
 import "vue-loading-overlay/dist/vue-loading.css";
 import ash from "lodash";
 import moment from "moment";
@@ -446,7 +460,11 @@ export default {
     return {
       isLoading: false,
       fullPage: true,
-      list: [],
+      loadMore: true,
+      page: 1,
+      pageSize: 9,
+      bottom: false,
+      beers: []
     };
   },
   props: {
@@ -458,21 +476,15 @@ export default {
   },
   components: {
     Loading,
-    ContentLoader,
-    InfiniteLoading
+    ContentLoader
   },
-
   computed: {
-    ...mapGetters("product", [
-      "paginatedProducts",
-    ]),
-    ...mapGetters("auth", ["loading"]),
     paginatedList() {
       return this.data.slice(0, 10);
-    },
+    }
   },
-
   methods: {
+    ...mapActions("product", ["fetchAllProducts", "fetchHotSellers"]),
     sync() {
       $("html,body").animate({ scrollTop: 0 }, "slow");
     },
@@ -488,24 +500,41 @@ export default {
         return moment(String(value)).format("YYYY-MM-DD");
       }
     },
-    infiniteHandler($state) {
-      setTimeout(() => {
-        const temp = [];
-        for (let i = this.list.length + 1; i <= this.list.length + 20; i++) {
-          temp.push(i);
-        }
-        this.list = this.list.concat(temp);
-        $state.loaded();
-      }, 1000);
+    bottomVisible() {
+      const scrollY = window.scrollY
+      const visible = document.documentElement.clientHeight
+      const pageHeight = document.documentElement.scrollHeight
+      const bottomOfPage = visible + scrollY >= pageHeight
+      return bottomOfPage || pageHeight < visible
     },
-   },
+    addBeer() {
+      this.fetchAllProducts()
+        .then(response => {
+          this.beers.push(response)
+          if (this.bottomVisible()) {
+            this.addBeer()
+          }
+      })
+    }
+  },
   watch: {
     isLoading: {
       handler: function(loading) {
         this.sync();
         this.isLoading = false;
       }
+    },
+    bottom(bottom) {
+      if (bottom) {
+        this.addBeer()
+      }
     }
+  },
+  created() {
+    window.addEventListener('scroll', () => {
+      this.bottom = this.bottomVisible()
+    })
+    this.addBeer()
   }
 };
 </script>
@@ -571,28 +600,74 @@ button {
   padding-right: 8px !important;
   padding-left: 8px !important;
 }
-// .p-name-p-category {
-//   display: flex;
-//   justify-content: space-between;
-// }
-.price-tag {
+.p-name-p-category {
   display: flex;
-  margin-bottom: 8px;
+  justify-content: space-between;
 }
-.price-tag .video {
+
+.p-name-p-category i.fa{
+  font-size: 18px;
+}
+.category-grid-box-1 #price-tag {
+    bottom: 0;
+    position: absolute;
+    right: 0!important
+}
+.price-tagg {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.4);
+    padding: 4px 0px 4px 8px ;
+    border-radius: 8px 0 0 0 ;
+    color: #fff!important;
+}
+.price-tagg .video {
   margin-right: 16px;
   margin-left: 8px;
 }
+.location-tx {
+  margin-top: 4px!important;
+  margin-bottom: 6px!important;
+}
+.location-tx i {
+  margin-right: 4px!important;
+}
 .price-tag-tx {
   background-color: transparent !important;
-  color: #4caf50;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.2;
+  color: #232323;
+  font-weight: 400;
+  font-size: 17px;
+  // line-height: 1.2;
+}
+
+
+
+.img-responsive {
+  max-height: 166px!important;
+  min-height: 166px!important;
 }
 
 .price-tag-tx span {
   background-color: transparent !important;
+}
+
+// .sold-tx {
+//   opacity: 0.3;
+// }
+
+// .bg-sold {
+//   background-color: #ed5151!important
+// }
+// .arrow-ribbon.bg-sold:before {
+//   border-left: 15px solid #ed5151;
+// }
+
+.hot-ribbon-tx {
+  position: absolute;
+    right: 10px;
+    text-align: left;
+    top: 10px;
+    width: 30px;
+    z-index: 1;
 }
 
 //----------  pagination
@@ -603,11 +678,38 @@ button {
 }
 
 .product-name-tx {
-  font-size: 18px !important;
+  font-size: 17px !important;
+  margin-bottom: 6px;
 }
 
 .product-name-tx a {
   font-weight: 600 !important;
+}
+
+.gd-date-tx {
+  margin-bottom:  14px!important;
+}
+
+.gd-date-tx i{
+  margin-right: 4px!important;
+}
+
+.icon-reveal-btn {
+    background-color: #232323!important;
+    color: #fff!important;
+    font-size: 20px;
+    font-weight: 600!important;
+    padding: 3px 10px!important;
+    display: none;
+    border-radius: 50%!important;
+    opacity: 0.4;
+}
+
+.icon-reveal-btn:hover {
+    background-color: #232323!important;
+    color: #fff!important;
+    font-weight: 700;
+    opacity: 1;
 }
 
 .pagination {
@@ -631,6 +733,7 @@ button {
   padding: 2px 8px;
   border-radius: 24px;
   color: #fff !important;
+  margin-bottom: 8px;
 }
 
 .padding_cats a {

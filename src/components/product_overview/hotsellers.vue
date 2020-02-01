@@ -25,6 +25,7 @@
             <!-- <div class="col-xs-6 col-sm-4 col-md-2 col-join-tx"> -->
             <div
               class="col-lg-2 col-md-4 col-sm-12 col-xs-12 col-join-tx category-grid-box-tx-custom"
+              style="padding-left: 6px!important;"
             >
               <div class="category-grid-box-1 category-grid-box-tx">
                 <div class="hot-ribbon">
