@@ -28,9 +28,6 @@
                 alt="img"
                 class="cover-image"
               />
-              <!-- <div class="item7-card-text">
-              <span class="badge badge-success">3BHK Flats</span>
-            </div> -->
             </div>
             <div class="card-body p-4">
               <div class="item7-card-desc d-flex mb-2">
