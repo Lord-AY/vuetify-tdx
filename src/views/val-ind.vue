@@ -1,24 +1,27 @@
 <template>
   <div class="val-ind-box">
-    <div class="top-box">
+    <div class="top-box" v-if="!getTransaction.error">
       <div class="top-box-1 val-card">
         <h1>Transaction Details</h1>
         <div class="container mt-5">
           <p class="details">
-            Name: <strong>{{ webpayDetails.nm }}</strong>
+            Name: <strong>{{ getUser.firstname + " " + getUser.lastname }}</strong>
           </p>
-          <p class="details">
+          <p class="details" v-if="webpayDetails !== null">
             Amount: <strong>{{ webpayDetails.amt/100 }}</strong>
+          </p>
+          <p class="details" v-if="!getTransaction.error">
+            Amount: <strong>{{ getTransaction.amount }}</strong>
           </p>
         </div>
       </div>
-      
       <div class="top-box-2 val-card">
         <h1>Make Payment</h1>
         <div class="top-box-body">
           <div class="top-box-body">
             <form
-              action="https://sandbox.interswitchng.com/collections/w/pay" 
+              v-if="webpayDetails !== null"
+              action="https://sandbox.interswitchng.com/collections/w/pay"
               method="POST"
             >
             <!-- <div> -->
@@ -99,11 +102,23 @@
                 continue to pay
               </button>
             </form>
+            <div v-show="getTransaction.amount">
+             <button class="val-ind-button text-white" @click.prevent="makePayment">
+                continue to pay
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
+    <div v-else>
+      <div class="container">
+      <div class="top-box-2 val-card">
+        <h1 class="mb-5">{{ getTransaction.error.message }}</h1>
+        <router-link class=" val-ind-button text-white" to="/listbillers"> Go Back </router-link>
+  </div>
+</div>
+    </div>
     <div class="bottom-box val-card">
       <div class="bottom-box-text">
         <h1>Save Money</h1>
@@ -140,16 +155,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("wallet", ["webpayDetails"])
+    ...mapGetters("wallet", ["webpayDetails"]),
+    ...mapGetters("valueAdded", ["getTransaction"]),
+    ...mapGetters("auth", ["getUser"]),
   },
   methods: {
     makePayment() {
-      const payload  = {
-
-      }
-      axios.post('https://sandbox.interswitchng.com/collections/w/pay', payload).then(({data}) => {
-        // console.log(data);
-      });
+      this.paymentAdvices();
     }
   },
   mounted() {

@@ -19,6 +19,12 @@ export default {
       }
       return;
     },
+    getTransaction(state) {
+      if (state.transaction !== null && state.transaction !== undefined) {
+        return state.transaction;
+      };
+      return null;
+    },
     getBillerCategories(state) {
       let categories = [];
       let sortedCategories = [];
@@ -58,6 +64,8 @@ export default {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
+      commit("SET_TRANSACTION_DETAILS", null);
+      commit("wallet/SET_PAYMENT_RESPONSE", null, {root: true});
       return valueAddedService
         .billers()
         .then(({ data }) => {
@@ -85,34 +93,29 @@ export default {
            commit("SET_ERRORS", "Network Error, Cant connect to server...");
         })
     },
-    validatePaymentOption({commit, rootState, dispatch}, payload) {
+    validatePaymentOption({commit, dispatch, rootState}, payload) {
+      // console.log(payload);
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
-      if (rootState.auth.user == null) {
-        router.push('login');
-      }
       payload.custId = "00000000" + rootState.auth.user.id
       // console.log(payload);
       return valueAddedService.paymentOption(payload)
         .then(({data}) => {
+          // console.log(data);
           commit("auth/SET_LOADING", true, { root: true });
           commit("SET_SUCCESS_MSG", "Payment request validated successfully...");
           commit("SET_TRANSACTION_DETAILS", payload);
-          dispatch('paymentAdvices', {payload: data});
+          dispatch("paymentAdvices", data);
         }).catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          if(error.status == 500 ) {
-          commit("SET_ERROR", "Server Error, please try again...")
-          } else if(error.status == 404) {
-          commit("SET_ERROR", "Network Error, please try again");
-          }
-          commit("SET_ERROR", "Please fill in the correct details")
-          // console.log(error.response);
+          console.log(error.response);
         })
     },
-    paymentAdvices({commit, state, rootState}, {payload}) {
+    paymentAdvices({commit, rootState, state}, payload) {
+      console.log("dispatched function");
       commit("auth/SET_LOADING", true, { root: true });
+      // commit("SET_TRANSACTION_DETAILS", null);
       let customers = payload.Customers;
       const parseObj = Object.assign({}, customers[0]);
       // console.log(parseObj.amount);
@@ -124,10 +127,13 @@ export default {
         email: rootState.auth.user.email,
         paymentCode: parseObj.paymentCode
       }
+      console.log(refinedPayload);
       valueAddedService.advice(refinedPayload)
         .then(({data}) => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(data)
+          commit("SET_TRANSACTION_DETAILS", data);
+          // console.log(data);
+          router.push('/valueind');
         }).catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
           console.log(error.response);

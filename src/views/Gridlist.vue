@@ -18,7 +18,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <a href="#">
+                <router-link to="listbillers">
                   <div class="d-flex value-added">
                     <div class="outline1">
                       <div class="outline2">
@@ -41,13 +41,13 @@
                       </h3>
                     </div>
                   </div>
-                </a>
+                </router-link>
               </div>
               <div
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <a href="#">
+                <router-link to="listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -66,13 +66,13 @@
                       </h3>
                     </div>
                   </div>
-                </a>
+                </router-link>
               </div>
               <div
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <a href="#">
+                <router-link to="listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -91,13 +91,13 @@
                       </h3>
                     </div>
                   </div>
-                </a>
+                </router-link>
               </div>
               <div
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <a href="#">
+                <router-link to="listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -116,13 +116,13 @@
                       </h3>
                     </div>
                   </div>
-                </a>
+                </router-link>
               </div>
               <div
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <a href="#">
+                <router-link to="listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -141,7 +141,7 @@
                       </h3>
                     </div>
                   </div>
-                </a>
+                </router-link>
               </div>
               <div
                 class="col-md-2 col-sm-4 col-xs-4"

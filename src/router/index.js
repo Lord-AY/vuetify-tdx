@@ -153,7 +153,14 @@ const routes = [
     component: () => import("../views/listbillers.vue"),
     meta: {
       header: 1
-    }
+    },
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
   },
   {
     path: "/billercategory/:category",
@@ -161,7 +168,14 @@ const routes = [
     component: () => import("../views/billersCategory.vue"),
     meta: {
       header: 1
-    }
+    },
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
   },
   {
     path: "/paymentitem/:payid/:type/:imageId",
@@ -169,7 +183,14 @@ const routes = [
     component: () => import("../views/billerspaymentitem.vue"),
     meta: {
       header: 1
-    }
+    },
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
   },
   {
     path: "/comparison",
@@ -185,7 +206,14 @@ const routes = [
     component: () => import("../views/Profile.vue"),
     meta: {
       header: 3
-    }
+    },
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
   },
   {
     path: "/dashboard",
