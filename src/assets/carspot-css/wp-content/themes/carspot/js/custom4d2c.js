@@ -677,7 +677,7 @@
   }
 
   /* ======= Preloader ======= */
-  $(window).load(function() {
+  $(window).on(function() {
     $("#cssload-wrapper").fadeOut("slow", function() {
       $(this).remove();
     });

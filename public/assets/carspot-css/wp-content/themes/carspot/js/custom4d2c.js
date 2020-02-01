@@ -189,72 +189,72 @@
     });
   });
 
-  $(".date-pop").datepicker({
-    timepicker: true,
-    minDate: 0,
-    dateFormat: "yyyy-mm-dd",
-    language: {
-      days: [
-        get_strings.Sunday,
-        get_strings.Monday,
-        get_strings.Tuesday,
-        get_strings.Wednesday,
-        get_strings.Thursday,
-        get_strings.Friday,
-        get_strings.Saturday
-      ],
-      daysShort: [
-        get_strings.Sun,
-        get_strings.Mon,
-        get_strings.Tue,
-        get_strings.Wed,
-        get_strings.Thu,
-        get_strings.Fri,
-        get_strings.Sat
-      ],
-      daysMin: [
-        get_strings.Su,
-        get_strings.Mo,
-        get_strings.Tu,
-        get_strings.We,
-        get_strings.Th,
-        get_strings.Fr,
-        get_strings.Sa
-      ],
-      months: [
-        get_strings.January,
-        get_strings.February,
-        get_strings.March,
-        get_strings.April,
-        get_strings.May,
-        get_strings.June,
-        get_strings.July,
-        get_strings.August,
-        get_strings.September,
-        get_strings.October,
-        get_strings.November,
-        get_strings.December
-      ],
-      monthsShort: [
-        get_strings.Jan,
-        get_strings.Feb,
-        get_strings.Mar,
-        get_strings.Apr,
-        get_strings.May,
-        get_strings.Jun,
-        get_strings.Jul,
-        get_strings.Aug,
-        get_strings.Sep,
-        get_strings.Oct,
-        get_strings.Nov,
-        get_strings.Dec
-      ],
-      today: get_strings.Today,
-      clear: get_strings.Clear,
-      dateFormat: "dd/mm/yyyy",
-      firstDay: 0
-    }
-  });
+  // $(".date-pop").datepicker({
+  //   timepicker: true,
+  //   minDate: 0,
+  //   dateFormat: "yyyy-mm-dd",
+  //   language: {
+  //     days: [
+  //       get_strings.Sunday,
+  //       get_strings.Monday,
+  //       get_strings.Tuesday,
+  //       get_strings.Wednesday,
+  //       get_strings.Thursday,
+  //       get_strings.Friday,
+  //       get_strings.Saturday
+  //     ],
+  //     daysShort: [
+  //       get_strings.Sun,
+  //       get_strings.Mon,
+  //       get_strings.Tue,
+  //       get_strings.Wed,
+  //       get_strings.Thu,
+  //       get_strings.Fri,
+  //       get_strings.Sat
+  //     ],
+  //     daysMin: [
+  //       get_strings.Su,
+  //       get_strings.Mo,
+  //       get_strings.Tu,
+  //       get_strings.We,
+  //       get_strings.Th,
+  //       get_strings.Fr,
+  //       get_strings.Sa
+  //     ],
+  //     months: [
+  //       get_strings.January,
+  //       get_strings.February,
+  //       get_strings.March,
+  //       get_strings.April,
+  //       get_strings.May,
+  //       get_strings.June,
+  //       get_strings.July,
+  //       get_strings.August,
+  //       get_strings.September,
+  //       get_strings.October,
+  //       get_strings.November,
+  //       get_strings.December
+  //     ],
+  //     monthsShort: [
+  //       get_strings.Jan,
+  //       get_strings.Feb,
+  //       get_strings.Mar,
+  //       get_strings.Apr,
+  //       get_strings.May,
+  //       get_strings.Jun,
+  //       get_strings.Jul,
+  //       get_strings.Aug,
+  //       get_strings.Sep,
+  //       get_strings.Oct,
+  //       get_strings.Nov,
+  //       get_strings.Dec
+  //     ],
+  //     today: get_strings.Today,
+  //     clear: get_strings.Clear,
+  //     dateFormat: "dd/mm/yyyy",
+  //     firstDay: 0
+  //   }
+  // });
 
   if ($("#test_drive_pop-form").length > 0) {
     $("#test_drive_pop-form")
@@ -677,7 +677,7 @@
   }
 
   /* ======= Preloader ======= */
-  $(window).load(function() {
+  $(window).on(function() {
     $("#cssload-wrapper").fadeOut("slow", function() {
       $(this).remove();
     });
