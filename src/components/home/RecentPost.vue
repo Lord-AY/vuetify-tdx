@@ -16,7 +16,7 @@
         class="owl-carousel Card-owlcarousel owl-carousel-icons"
         v-show="!showLoader(comments)"
       >
-        <div class="item" v-for="comment in comments" :key="comment.id">
+        <div class="item" v-for="(comment, index) in comments" :key="index">
           <div class="card mb-0">
             <div class="item7-card-img">
               <router-link
@@ -155,7 +155,7 @@ export default {
   },
   created() {
     this.sync();
-    // console.log(this.comments.products);
+    // console.log(this.comments);
   }
 };
 </script>

@@ -2,6 +2,7 @@ import ProductService from "@/services/ProductService";
 import ash from "lodash";
 import router from "../../router";
 import UserService from "../../services/UserService";
+import {_} from 'vue-underscore';
 // import ash from 'lodash';
 export default {
   namespaced: true,
@@ -116,21 +117,30 @@ export default {
       return null;
     },
     comments(state) {
+      var myarr = [];
       let comments = state.comments;
       let products = state.products;
+      // console.log(products);
+      // console.log(comments);
+      // console.log(products);
+      // var mergedList = _.map(comments, function(item){
+      //     return _.extend(item, _.findWhere(products, { id: item.pid }));
+      // });
+      // console.log(mergedList);
       if (comments !== null && comments !== undefined) {
         if (products !== null && products !== undefined) {
           for (let comment in comments) {
             for (let product in products) {
               if (products[product].id == comments[comment].pid) {
                 comments[comment].products = products[product];
-                // console.log(comments[comment]);
+                myarr.push(comments[comment]);
               }
             }
           }
-          return comments;
+          // console.log(myarr);
+          return myarr;
         } else {
-          return comments;
+          return null;
         }
       } else {
         return;
