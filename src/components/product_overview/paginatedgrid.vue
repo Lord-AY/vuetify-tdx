@@ -388,7 +388,7 @@
                       </router-link>
                     </h3>
                     <span class="price-tag-tx">
-                      &#8358; {{ product.amount }}
+                      &#8358; {{ formatCurrency(product.amount) }}
                       <!-- <span class v-if="product.negotiable"> (Negotiable)</span>
                       <span class v-else> (Fixed)</span> -->
                     </span>
@@ -450,6 +450,7 @@
 import Loading from "vue-loading-overlay";
 // import { infiniteScroll } from 'vue-infinite-scroll'
 // Import stylesheet
+const formatCurrency = require('format-currency')
 import { mapActions, mapGetters } from "vuex";
 import "vue-loading-overlay/dist/vue-loading.css";
 import ash from "lodash";
@@ -485,6 +486,9 @@ export default {
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts", "fetchHotSellers"]),
+    formatCurrency(data){
+      return formatCurrency(data)
+    },
     sync() {
       $("html,body").animate({ scrollTop: 0 }, "slow");
     },

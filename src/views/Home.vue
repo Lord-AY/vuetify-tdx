@@ -115,6 +115,13 @@ export default {
         duration: 10000,
         speed: 1000
       });
+    },
+    async loadfunc(){
+      await this.fetchAllProducts().then(data => {
+        this.fetchAllComments();
+      }).catch(function (error) {
+        // console.log(error)
+      })
     }
   },
   watch: {
@@ -160,9 +167,8 @@ export default {
     this.sync();
     this.$forceUpdate();
     this.fetchAllCategories();
-    this.fetchAllProducts();
-    this.fetchAllComments();
-    // console.log(this.paginatedProducts);
+    // this.fetchAllProducts();
+    this.loadfunc();    
   },
   beforeCreate() {
     // console.log("this is before created");
