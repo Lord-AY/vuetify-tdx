@@ -95,7 +95,7 @@
                         <input
                           name
                           placeholder="John"
-                          class="form-control input-md"
+                          class="form-control-auth form-control input-md"
                           :class="errors.firstname ? 'is-invalid' : ''"
                           required
                           v-model="formFields.firstName"
@@ -119,7 +119,7 @@
                           placeholder="Doe"
                           :class="errors.lastname ? 'is-invalid' : ''"
                           v-model="formFields.lastName"
-                          class="form-control input-md"
+                          class="form-control-auth form-control input-md"
                           required
                           type="text"
                         />
@@ -141,7 +141,7 @@
                         <input
                           name
                           placeholder="Email"
-                          class="form-control input-md"
+                          class="form-control-auth form-control input-md"
                           :class="errors.email ? 'is-invalid' : ''"
                           type="text"
                           v-model.trim="formFields.email"
@@ -162,6 +162,7 @@
                       <label class="control-label">Phone Number</label>
                       <VuePhoneNumberInput
                         v-model.trim="formFields.phone"
+                        class="form-control-auth form-control"
                         :class="errors.phone ? 'is-invalid' : ''"
                         
                         default-country-code="NG"
@@ -192,7 +193,7 @@
                       <input
                         name
                         placeholder="Enter Address"
-                        class="form-control input-md"
+                        class="form-control-auth form-control input-md"
                         :class="errors.address ? 'is-invalid' : ''"
                         type="text"
                         v-model="formFields.address"
@@ -211,7 +212,7 @@
                     <div class="col-md-8">
                       <label class="control-label">Country</label>
                       <select
-                        class="form-control"
+                        class="form-control-auth form-control"
                         for="country"
                         v-model="formFields.rcountry"
                         
@@ -411,7 +412,7 @@
                         <input
                           name
                           placeholder="Password"
-                          class="form-control input-md"
+                          class="form-control-auth form-control input-md"
                           :class="
                             passwordErr
                               ? 'is-invalid'
@@ -453,7 +454,7 @@
                         <input
                           name
                           placeholder="Verify password"
-                          class="form-control input-md"
+                          class="form-control-auth form-control input-md"
                           :class="
                             passwordErr
                               ? 'is-invalid'

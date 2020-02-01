@@ -932,7 +932,7 @@ export default {
 }
 @media (min-width: 1200px) {
   .container2 {
-    width: 1270px !important;
+    width: 1370px !important;
   }
 }
 /* .top-bar-hide {

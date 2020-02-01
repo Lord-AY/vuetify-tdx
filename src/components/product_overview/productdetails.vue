@@ -57,6 +57,7 @@
                       <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="@/assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
                       <img :alt="product.name" :src="photo" />
                     </a>
+                    <i class="fa fa-search-plus zoom"></i>
                   </li>
                 </ul>
               </div>
@@ -103,6 +104,12 @@
                   <li class="tab-pane-tx" v-bind:class="{ 'active': tab4 }" @click='toggle("LocationMap")'>
                     <!-- <a data-toggle="pill" href="#menu3">Location Map</a> -->
                     <div href="#" class="nav-link">LocationMap</div>
+                  </li>
+                  <li>
+                    <div class="follow-seller">
+                      <i class="fa fa-user-plus"></i>
+                      <span class="tooltiptext">Follow Seller</span>
+                    </div>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-Limit="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
@@ -684,10 +691,7 @@
               <div class="white-bg user-contact-info">
                 <div class="user-info-card">
                   <div class="user-photo col-md-12 col-sm-12  col-xs-12 center-with-flex">
-                    <div class="follow-seller">
-                      <i class="fa fa-user-plus"></i>
-                      <span class="tooltiptext">Follow Seller</span>
-                    </div>
+                    
                     <a href="../../dealer/gavien72/index.html" class="link">
                       <img
                         v-if="getUser === null"
@@ -928,7 +932,7 @@
                   </ol>
                 </div>
               </div>
-              <div class="widget" style="margin-bottom: 16px; ">
+              <!-- <div class="widget" style="margin-bottom: 16px; ">
                 <div class="widget-content saftey" style="padding: 4px 12px;">
                   <ul
                   class="footer-payments"
@@ -976,7 +980,7 @@
                   </li>
                 </ul>
                 </div>
-              </div>
+              </div> -->
               <div class="widget" style="margin-bottom: 16px;">
                 <!-- <div class="widget-heading">
                   <h4
@@ -1271,6 +1275,16 @@ export default {
 <style scoped>
 .selector {
   cursor: pointer;
+}
+.zoom {
+  bottom: 59px;
+  left: 15px;
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.5);
 }
 .breadcrumb {
   padding: 8px 15px 8px 0px !important;

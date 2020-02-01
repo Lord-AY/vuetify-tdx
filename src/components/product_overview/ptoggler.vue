@@ -16,6 +16,15 @@
                   <small>({{ ads.length }})</small>
                 </a>
               </li>
+              <li class="active">
+                <a
+                  href="javascript:void(0)"
+                  style="color: #232323;"
+                >
+                  Most searched categories
+                  <small>({{ ads.length }})</small>
+                </a>
+              </li>
             </ul>
           </div>
           <div class="col-md-5 col-xs-12 col-sm-6 no-padding">
@@ -37,12 +46,12 @@
                 <i
                   class="switch grid fa fa-th product-arrangement-icon"
                   @click="switchComponent('paginatedGrid')"
-                  :disabled="currentComp === 'paginatedGrid'"
+                  :disabled="currentComp === 'listprops'"
                 ></i>
                 <i
                   class="switch list fa fa-list product-arrangement-icon"
                   @click="switchComponent('listprops')"
-                  :disabled="currentComp === 'listprops'"
+                  :disabled="currentComp === 'paginatedGrid'"
                 ></i>
               </div>
             </div>
@@ -104,18 +113,19 @@ i.switch[disabled="disabled"] {
   border-color: lightgray;
 }
 
-i.switch:not([disabled="disabled"]):hover {
-  background-color: black;
-  border-color: gray;
-  color: lightgray;
+i.switch[disabled="disabled"]:hover {
+  background-color: green;
+  /* border-color: gray; */
+  color: white;
+  padding: 2px 4px
 }
 i.list {
-  border-color: green;
-  color: green;
+  border-color: #232323;
+  color: #232323;
 }
 i.grid {
-  border-color: green;
-  color: green;
+  border-color: #232323;
+  color: #232323;
 }
 .select2 .select2-container .select2-container--default {
   width: 160px!important;
