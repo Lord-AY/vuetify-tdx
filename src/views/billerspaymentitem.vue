@@ -1,6 +1,6 @@
 <template>
   <div id="billerpaymentitem">
-  <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
+    <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="section-padding  gray page-search">
       <div class="container">
         <!-- Row -->
@@ -34,13 +34,19 @@
                                       >
                                         <img
                                           v-if="$route.params.type == 'company'"
-                                          :src="'https://quickteller.sandbox.interswitchng.com/Content/Images/Downloaded/'+transform($route.params.imageId)"
+                                          :src="
+                                            'https://quickteller.sandbox.interswitchng.com/Content/Images/Downloaded/' +
+                                              transform($route.params.imageId)
+                                          "
                                           alt="img"
                                           class="br-tr-7 br-tl-7"
                                         />
                                         <img
-                                            v-else
-                                          :src="'img/'+transform($route.params.imageId)"
+                                          v-else
+                                          :src="
+                                            'img/' +
+                                              transform($route.params.imageId)
+                                          "
                                           alt="img"
                                           class="br-tr-7 br-tl-7"
                                         />
@@ -73,7 +79,7 @@
                                       :payment="selectedPayment"
                                       v-if="showModal"
                                       @close="showModal = false"
-                                      @ValidPayment="sendValidatePayment"
+                                      @savePayment="sendValidatePayment"
                                       :user="getUser"
                                       :loading="isLoading"
                                     ></PaymentModal>
@@ -97,7 +103,7 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import PaymentModal from "@/components/paymentModal";
 import Loading from "vue-loading-overlay";
 export default {
@@ -115,7 +121,8 @@ export default {
     Loading
   },
   methods: {
-    ...mapActions("valueAdded", ["paymentItem", "validatePaymentOption"]),
+    ...mapActions("valueAdded", ["paymentItem", "validatePaymentOption", "paymentAdvices"]),
+    ...mapMutations("wallet", ["SET_PAYMENT_RESPONSE"]),
     sendPaymentItem() {
       const payload = {
         payId: this.$route.params.payid
@@ -127,17 +134,13 @@ export default {
       this.showModal = true;
     },
     sendValidatePayment(payload) {
+      console.log(payload);
       this.validatePaymentOption(payload);
-    },
-    addAmount(payment) {
-      const payload = {
-        paymentCode: payment.paymentCode
-      };
-      this.validatePaymentOption(payload);
+      localStorage.setItem("walletDeposit", "1");
     },
     transform(image) {
       // console.log(image);
-      return image +'.png';
+      return image + ".png";
     }
   },
   computed: {

@@ -16,7 +16,7 @@
                                 <input
                                     type="text"
                                     class="form-control"
-                                    placeholder="Enter Details"
+                                    placeholder="Enter phone,card No,etc...."
                                     v-model="phone"
                                 />
                             </div>
@@ -27,7 +27,7 @@
                                 <input
                                     type="text"
                                     class="form-control"
-                                    placeholder="Enter Details"
+                                    placeholder="Specify Amount"
                                     v-model="amount"
                                 />
                             </div>
@@ -98,7 +98,7 @@ export default {
                     paymentCode: this.payment.paymentCode,
                     customerId: "000000000" + this.user.id
                 };
-                this.$emit("ValidPayment", payload);
+                this.$emit("savePayment", payload);
             }
             const payload = {
                 phone: this.phone,
@@ -106,7 +106,7 @@ export default {
                 customerId: "000000000" + this.user.id,
                 amount: this.payment.amount
             };
-            this.$emit("ValidPayment", payload);
+            this.$emit("savePayment", payload);
         },
         checkStringLength(string) {
             if (string.length < 10) {

@@ -97,7 +97,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="/listbillers">
+                <router-link to="listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -122,7 +122,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="/listbillers">
+                <router-link to="listbillers">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
