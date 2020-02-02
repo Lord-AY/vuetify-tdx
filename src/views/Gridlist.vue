@@ -188,6 +188,7 @@
                 <paginatedGrid
                   :is="currentComp"
                   :data="paginatedProducts"
+                  :list="list"
                   :loading="isLoading"
                 />
               </div>
@@ -233,6 +234,7 @@ export default {
       currentComp: "paginatedGrid",
       currentPage: 1,
       isLoading: false,
+      list: [],
       fullPage: true,
       prevRoute: null
     };
@@ -358,7 +360,8 @@ export default {
       }
       // console.log(filtered);
       // console.log(this.paginatedProducts);
-      return filtered;
+      this.list = filtered;
+      return list;
       // console.log(filtered);
     }
   },

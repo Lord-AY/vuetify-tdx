@@ -27,7 +27,6 @@
         </div>
       </div>
         <!-- Heading -->
-        
       <!-- </div> -->
     <!-- </div> -->
       <div
@@ -1114,6 +1113,11 @@ require("../../../public/assets/plugins/select2/select2.min.css");
 import { bus } from "../../main.js";
 export default {
   name: "gsidebar",
+  data() {
+    return {
+      selectedCategory: null,
+    }
+  },
   props: {
     categories: [Object, Array],
     ads: [Object, Array],
@@ -1121,6 +1125,7 @@ export default {
 
   methods: {
       filterSelection(category) {
+        this.selectedCategory = category.id;
       const payload = {
         type: category.id,
         data: this.ads
@@ -1128,6 +1133,9 @@ export default {
       // console.log(payload);
       this.$emit('selectedFilter', payload);
     }
+  },
+  created() {
+    this.selectedCategory = null;
   }
 };
 </script>
