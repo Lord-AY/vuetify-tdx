@@ -137,7 +137,7 @@ export default {
       }
     },
     sync() {
-      $(document).ready(() => {
+      $(window).on('load', function() {
         // ______________Owl-carousel-icons2
         $(".owl-carousel-icons2").owlCarousel({
           loop: true,

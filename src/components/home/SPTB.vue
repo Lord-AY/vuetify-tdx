@@ -86,7 +86,7 @@ export default {
       }
     },
     sync() {
-      $(document).ready(function() {
+      $(window).on('load', function() {
         // $(".small-categories").slick({
         //   slidesToShow: 5,
         //   slidesToScroll: 1,
