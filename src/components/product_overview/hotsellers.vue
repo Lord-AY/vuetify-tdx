@@ -57,9 +57,9 @@
  
             <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
             <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
-              <div class="short-feature-body">
-                <div class="featured-slider-1 owl-carousel owl-theme">
-                  <div class="item" v-for="(sellers, index) in hotsellers" :key="index">
+              <div class="short-feature-body" v-if="hotsellers">
+                <div id="owl-carousel" class="owl-carousel owl-theme">
+                  <div class="item item-carousel" v-for="(sellers, index) in hotsellers" :key="index">
                     <div
                       class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
                       id="holder-1554"
@@ -124,7 +124,8 @@
 /* eslint-disable no-undef */
 import ash from "lodash";
 import moment from "moment";
-
+let owl_carousel = require('owl.carousel');
+window.fn = owl_carousel;
 export default {
   name: "hotsellers",
   data() {
@@ -135,8 +136,9 @@ export default {
     hotsellers: Array
   },
   methods: {
-    sync() {
-      $(document).ready(function() {
+    sync : function(){
+      $(window).on('load', function() {
+
         $(".owl-carousel").owlCarousel({
           items: 5,
           loop: true,
@@ -182,10 +184,17 @@ export default {
   watch: {
     $route: "sync"
   },
+  mounted(){
+    // var vm = this;
+    // vm.hotsellers = this.hotsellers;
+    // this.$nextTick(function(){
+     this.sync();
+    // }.bind(vm));
+  },
   created() {
-    this.sync();
-    // console.log(this.hotsellers);
-  }
+  },
+  beforeMount() {
+  },
 };
 </script>
 

@@ -767,7 +767,7 @@ img.resize {
     position: relative;
     z-index: -1
 }
-.background-rotator .owl-carousel .owl-item {
+.background-rotator .owl-carousel2 .owl-item {
     height: 100%;
     width: 100%
 }
@@ -7115,14 +7115,14 @@ ul.listingViewIcon li.shortByListingLi ul li a {
     opacity: 1;
     position: relative
 }
-.featured-slider.container.owl-carousel .owl-nav button i {
+.featured-slider.container.owl-carousel2 .owl-nav button i {
     background-color:#e1e1e1;
     color:#242424;
     padding:15px;
     border-radius:3px;
     border-color:#e1e1e1;
 }
-.featured-slider.container.owl-carousel .owl-nav button i:hover {
+.featured-slider.container.owl-carousel2 .owl-nav button i:hover {
     background-color:#242424;
     border-color:#242424;
     color:#FFF;
@@ -13759,19 +13759,19 @@ hr.accent-2 {
     color: #232323!important;
 }
 
-.owl-carousel button.owl-dot.active span{
+.owl-carousel2 button.owl-dot.active span{
     background: #232323!important;
 }
 
-.owl-carousel button.owl-dot.active {
+.owl-carousel2 button.owl-dot.active {
     background: transparent!important;
 }
 
-.owl-carousel button.owl-dot span{
+.owl-carousel2 button.owl-dot span{
     background: #d0d0d0!important;
 }
 
-.owl-carousel button.owl-dot {
+.owl-carousel2 button.owl-dot {
     background: transparent!important;
 }
 
