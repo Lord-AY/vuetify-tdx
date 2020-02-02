@@ -185,7 +185,7 @@ export default {
     this.getSimilarProducts();
     this.getSingleProductComment();
     this.singleCategory();
-    // console.log(this.singleProduct);
+    console.log(this.singleProduct);
     // console.log(this.productWithSeller);
     // console.log(this.getSimilarProds);
     // console.log(this.ProductsComment);
