@@ -18,7 +18,7 @@
         <div class="panel-collapse">
           <div class="panel-body">
             <ul class="sub-categories">
-              <li v-for="(category, index) in categories" :key="index">
+              <li v-for="(category, index) in categories" :key="index" @click.prevent="filterSelection(category)">
                 <a href="">{{ category.name }}   </a>
                 <span> 10</span>
               </li>
@@ -27,7 +27,6 @@
         </div>
       </div>
         <!-- Heading -->
-        
       <!-- </div> -->
     <!-- </div> -->
       <div
@@ -1114,11 +1113,30 @@ require("../../../public/assets/plugins/select2/select2.min.css");
 import { bus } from "../../main.js";
 export default {
   name: "gsidebar",
+  data() {
+    return {
+      selectedCategory: null,
+    }
+  },
   props: {
     categories: [Object, Array],
+    ads: [Object, Array],
   },
 
-  methods: {}
+  methods: {
+      filterSelection(category) {
+        this.selectedCategory = category.id;
+      const payload = {
+        type: category.id,
+        data: this.ads
+      };
+      // console.log(payload);
+      this.$emit('selectedFilter', payload);
+    }
+  },
+  created() {
+    this.selectedCategory = null;
+  }
 };
 </script>
 

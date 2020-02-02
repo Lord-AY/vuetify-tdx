@@ -1,6 +1,9 @@
 <template>
+  <div>
+    <div id="global-loader" v-show="isLoading">
+      <Homeloader class="mobile-hidden"></Homeloader>
+    </div>
   <div id="billerpaymentitem">
-    <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading>
     <div class="section-padding  gray page-search">
       <div class="container">
         <!-- Row -->
@@ -101,11 +104,13 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import PaymentModal from "@/components/paymentModal";
-import Loading from "vue-loading-overlay";
+import Homeloader from "@/components/loaders/Homeloader";
+// import Loading from "vue-loading-overlay";
 export default {
   data() {
     return {
@@ -118,10 +123,14 @@ export default {
   },
   components: {
     PaymentModal,
-    Loading
+    Homeloader
   },
   methods: {
-    ...mapActions("valueAdded", ["paymentItem", "validatePaymentOption", "paymentAdvices"]),
+    ...mapActions("valueAdded", [
+      "paymentItem",
+      "validatePaymentOption",
+      "paymentAdvices"
+    ]),
     ...mapMutations("wallet", ["SET_PAYMENT_RESPONSE"]),
     sendPaymentItem() {
       const payload = {

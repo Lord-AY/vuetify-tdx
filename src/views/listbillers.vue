@@ -1,6 +1,10 @@
 <template>
   <div>
-    <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
+    <div id="global-loader" v-show="isLoading">
+      <ListBillerLoader
+        class="mobile-hidden"
+      ></ListBillerLoader>
+    </div>
     <div class="list">
       <div class="main-content-area clearfix">
         <section
@@ -169,6 +173,7 @@
 
 import { mapActions, mapGetters } from "vuex";
 import Loading from "vue-loading-overlay";
+import ListBillerLoader from "@/components/loaders/listBillerLoader";
 import ash from "lodash";
 export default {
   data() {
@@ -182,7 +187,8 @@ export default {
     };
   },
   components: {
-    Loading
+    Loading,
+    ListBillerLoader
   },
   computed: {
     ...mapGetters("valueAdded", ["billerListings", "getBillerCategories"])
