@@ -177,7 +177,7 @@
             <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
-                <gsidebar :categories="categories"></gsidebar>
+                <gsidebar :categories="categories" @selectedFilter="chooseFilter" :ads="paginatedProducts"></gsidebar>
               </div>
               <div class="col-md-9 col-lg-9 col-xs-12">
                 <ptoggler
@@ -188,8 +188,8 @@
                 <paginatedGrid
                   :is="currentComp"
                   :data="paginatedProducts"
+                  :list="list"
                   :loading="isLoading"
-                  @pagechanged="onPageChange"
                 />
               </div>
             </div>
@@ -234,6 +234,7 @@ export default {
       currentComp: "paginatedGrid",
       currentPage: 1,
       isLoading: false,
+      list: [],
       fullPage: true,
       prevRoute: null
     };
@@ -260,7 +261,7 @@ export default {
   methods: {
     ...mapActions("product", ["fetchAllProducts", "fetchHotSellers"]),
     sync() {},
-    onPageChange(page) {
+    onPageChange() {
       this.currentPage = page;
     },
     showError() {
@@ -288,7 +289,10 @@ export default {
       });
     },
     chooseFilter(payload) {
-      if(payload.type == 2) {
+     if(payload.type == 1) {
+      this.oldestToNewest(payload.data)
+     }
+      else if(payload.type == 2) {
         this.newestTooldest(payload.data);
       } else if (payload.type == 3) {
         this.alphabeticallyAtoZ(payload.data);
@@ -299,7 +303,7 @@ export default {
       } else if (payload.type == 6) {
         this.lowestTohighestPrice(payload.data);
       } else {
-        
+        this.filterByCategory(payload.data, payload.type)
       }
     },
     alphabeticallyZtoA(array) {
@@ -308,7 +312,7 @@ export default {
         var textB = b.name.toUpperCase();
         return textA < textB ? -1 : textA > textB ? 1 : 0;
       });
-      this.paginatedProducts = res;
+      // this.paginatedProducts = res;
     },
     alphabeticallyAtoZ(array) {
       let res = array.sort(function(a, b) {
@@ -347,12 +351,17 @@ export default {
       // console.log(res);
     },
     filterByCategory(array, value) {
+      // console.log("clicked this category filter");
       var filtered = [];
       for (var i = 0; i < array.length; i++) {
         if (array[i].cid == value) {
           filtered.push(array[i]);
         }
       }
+      // console.log(filtered);
+      // console.log(this.paginatedProducts);
+      this.list = filtered;
+      return list;
       // console.log(filtered);
     }
   },

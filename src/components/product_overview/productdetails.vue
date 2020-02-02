@@ -66,13 +66,13 @@
                 <ul class="slides small-slides">
                   <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
                   <li v-for="(photo, index) in product.photos" :key="index">
-                    <img :alt="product.name" draggable="false" :src="photo" />
+                    <img :alt="product.name" draggable="false" :src="photo"  class="img-responsive" />
                   </li>
                 </ul>
               </div>
 
               <!-- Heading Area -->
-              <!-- 
+              <!--
                 <div class="key-features">
                   <div class="boxicon" v-for="(field,index) in singleCart" :key="index">
                     <a
@@ -222,7 +222,7 @@
                         allowfullscreen="">
                       </iframe> -->
                       <div v-if="product.latitude != null && product.logitude !=null ">
-                        <iframe 
+                        <iframe
                           :src="`https://maps.google.com/maps?q=${product.latitude},${product.logitude}&hl=es;z=14&amp;output=embed`"
                           width="600"
                           height="450"
@@ -237,7 +237,6 @@
                     </div>
 
                   <!-- </router-view> -->
-                  
                 </div>
               </div>
               <div class="clearfix"></div>
@@ -449,95 +448,7 @@
                   <div class="tab-content">
                     <div class="tab-pane  in active  fade" id="tab1default">
                       <h3 class="tab-title">Similar Ads</h3>
-                      <content-loader
-                        :height="160"
-                        :width="800"
-                        :speed="2"
-                        primaryColor="#ece8e8"
-                        secondaryColor="#ecebeb"
-                        v-show="showLoader(similarprods)"
-                      >
-                        <rect
-                          x="98.23"
-                          y="269.67"
-                          rx="0"
-                          ry="0"
-                          width="0"
-                          height="0"
-                        />
-                        <rect
-                          x="22.23"
-                          y="21.67"
-                          rx="0"
-                          ry="0"
-                          width="184.61"
-                          height="127"
-                        />
-                        <rect
-                          x="221.23"
-                          y="38.67"
-                          rx="0"
-                          ry="0"
-                          width="189"
-                          height="10"
-                        />
-                        <rect
-                          x="408.23"
-                          y="43.67"
-                          rx="0"
-                          ry="0"
-                          width="0"
-                          height="4"
-                        />
-                        <rect
-                          x="237.23"
-                          y="59.67"
-                          rx="0"
-                          ry="0"
-                          width="161"
-                          height="10"
-                        />
-                        <rect
-                          x="237.23"
-                          y="84.67"
-                          rx="0"
-                          ry="0"
-                          width="80"
-                          height="62"
-                        />
-                        <rect
-                          x="337.23"
-                          y="83.67"
-                          rx="0"
-                          ry="0"
-                          width="80"
-                          height="62"
-                        />
-                        <rect
-                          x="527.23"
-                          y="34.67"
-                          rx="0"
-                          ry="0"
-                          width="126"
-                          height="13"
-                        />
-                        <rect
-                          x="484.23"
-                          y="121.67"
-                          rx="0"
-                          ry="0"
-                          width="94.6"
-                          height="19.14"
-                        />
-                        <rect
-                          x="588.23"
-                          y="122.67"
-                          rx="0"
-                          ry="0"
-                          width="101.2"
-                          height="19.14"
-                        />
-                      </content-loader>
+                      <SimilarProductLoader></SimilarProductLoader>
                       <div
                         class="ads-list-archive"
                         v-show="!showLoader(similarprods)"
@@ -553,11 +464,14 @@
                                 `/ProductDetails/${simProduct.id}/${simProduct.cid}`
                               "
                             >
-                              <img
-                                :src="simProduct.photos[0]"
-                                alt="Audi A5 For Sale"
-                                class="img-responsive"
-                              />
+                               <img
+                                      v-for="(image,
+                                      index) in product.photos.slice(0, 1)"
+                                      :key="index"
+                                      :src="image"
+                                      :alt="product.name"
+                                      class="img-responsive"
+                                    />
                             </router-link>
                           </div>
                           <!-- Img Block -->
@@ -691,7 +605,6 @@
               <div class="white-bg user-contact-info">
                 <div class="user-info-card">
                   <div class="user-photo col-md-12 col-sm-12  col-xs-12 center-with-flex">
-                    
                     <a href="../../dealer/gavien72/index.html" class="link">
                       <img
                         v-if="getUser === null"
@@ -726,13 +639,11 @@
                         <h4>{{
                           daysago(format_date(product.seller.updatedAt))
                         }}</h4>
-                        
                         <span>Last Logged in</span>
                         </div
                       >
                       <div
                         class="ad-pub"
-                        
                       >
                         <h4>{{ format_date(product.seller.createdAt) }}</h4>
                         <span>Registered</span>
@@ -1033,7 +944,7 @@
 
 // require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 const formatCurrency = require('format-currency')
-import { ContentLoader } from "vue-content-loader";
+import SimilarProductLoader from "@/components/loaders/SimilarProductLoader";
 import { mapActions, mapGetters } from "vuex";
 import ash from "lodash";
 import moment from "moment";
@@ -1056,7 +967,7 @@ export default {
     };
   },
   components: {
-    ContentLoader
+    SimilarProductLoader
   },
   props: {
     product: Object,

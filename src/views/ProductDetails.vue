@@ -2,6 +2,10 @@
   <div>
      <div id="global-loader">
       <ProductDetailsLoader
+      v-if="productWithSeller.photos.length"
+        class="mobile-hidden"
+      ></ProductDetailsLoader>
+      <ProductDetailsLoader
         class="mobile-hidden"
       ></ProductDetailsLoader>
     </div>

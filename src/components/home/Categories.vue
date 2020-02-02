@@ -48,7 +48,7 @@
                     >
                       <optgroup label="Categories">
                         <option>Category</option>
-                        <option value="1">Phones & Tablets</option>
+                        <option value="1"><a href="#">Phones & Tablets</a></option>
                         <option value="2">Real Estate</option>
                         <option value="3">Electronics</option>
                         <option value="4">Fashion</option>
@@ -88,7 +88,7 @@
                       style="padding: 0px !important;"
                     >
                       <h3 class=" mb-0 font-weight-bold value-added-tx">
-                        Airtime or Data
+                        <router-link to="/listbillers">Airtime or Data</router-link>
                       </h3>
                     </div>
                   </div>
@@ -110,7 +110,7 @@
                       style="padding: 0px !important;"
                     >
                       <h3 class=" mb-0  font-weight-bold value-added-tx">
-                        TV Subscription
+                        <router-link to="/listbillers">TV Subscription</router-link>
                       </h3>
                     </div>
                   </div>
@@ -132,7 +132,7 @@
                       style="padding: 0px !important;"
                     >
                       <h3 class=" mb-0 font-weight-bold value-added-tx">
-                        Electricity Units
+                       <router-link to="/listbillers">Electricity Units</router-link>
                       </h3>
                     </div>
                   </div>
@@ -157,7 +157,7 @@
                         class=" mb-0 font-weight-bold value-added-tx"
                         style=""
                       >
-                        More Services
+                        <router-link to="/listbillers">More Services</router-link>
                       </h3>
                     </div>
                   </div>
