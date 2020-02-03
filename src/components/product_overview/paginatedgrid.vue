@@ -307,9 +307,145 @@
             />
             <circle cx="565.14" cy="260.58" r="26.91" />
           </ContentLoader>
+          <div v-if="list.length == 0">
           <div
             class="posts-masonry"
             v-for="product in paginatedList"
+            :key="product.id"
+            v-show="!showLoader(paginatedList)"
+          >
+            <div
+              class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col-md-3-tx col-lg-3-tx col-sm-6-tx col-xs-12-tx"
+              id=".holder-1375"
+            >
+              <div class="category-grid-box-1 sold-tx">
+                <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
+                <div class="image">
+                  <!-- <div class="arrow-ribbon bg-primary bg-sold bg-tag-tx">
+                    Sold
+                  </div> -->
+                  <div class="hot-ribbon-tx">
+                    <img
+                      src="../../assets/images/brand/tradexplora_main_logo.png"
+                    />
+                  </div>
+                  <!-- <div class="hot-ribbon">
+                    <img src="../../assets/images/hoticonv2.png" />
+                  </div> -->
+                  <router-link
+                    :to="
+                      `productDetails/${product.id}/${product.cid}/${product.uid}`
+                    "
+                  >
+                    <img
+                      :src="product.photos[0]"
+                      :alt="product.name"
+                      class="img-responsive"
+                    />
+                  </router-link>
+                  <div class="price-tagg" id="price-tag">
+                    <div class="camera">
+                      {{ product.photos.length }} <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="video">
+                      {{ product.videos.length }}
+                      <i class="fa fa-video-camera"></i>
+                    </div>
+
+                    <!-- <div class="price">
+                      <span class="price-tag-tx">
+                        &#8358; {{ product.amount }}
+                        <span class v-if="product.negotiable"
+                          >(Negotiable)</span
+                        >
+                        <span class v-else>(Fixed)</span>
+                      </span>
+                    </div> -->
+                    <!-- </div> -->
+                  </div>
+                </div>
+                <div class="short-description-1 clearfix">
+                  <div class="">
+                    <div class="category-title" style="margin-bottom: 6px;">
+                      <span class="padding_cats">
+                        <router-link to="#">
+                          <i v-if="product.adtype == 0">regular</i>
+                          <i v-else-if="product.adtype == 1">urgent</i>
+                          <i v-else-if="product.adtype == 2">top ad</i>
+                          <i v-else-if="product.adtype == 3">gold</i>
+                          <i v-else-if="product.adtype == 4">Premium</i>
+                          <i v-else-if="product.adtype == 5">Hot seller</i>
+                          <i v-else>Regular</i>
+                        </router-link>
+                      </span>
+                    </div>
+                    <!-- <i class="fa fa-heart-o"></i> -->
+                  </div>
+                  <h3 class="product-name-tx">
+                    <router-link
+                      :to="
+                        `productDetails/${product.id}/${product.cid}/${product.uid}`
+                      "
+                    >
+                      {{ product.name }}
+                    </router-link>
+                  </h3>
+                  <span class="price-tag-tx">
+                    &#8358; {{ formatCurrency(product.amount) }}
+                    <!-- <span class v-if="product.negotiable"> (Negotiable)</span>
+                      <span class v-else> (Fixed)</span> -->
+                  </span>
+                  <!-- <span class="price-tag-tx">
+                    &#8358; {{ product.amount }}
+                    <span class v-if="product.negotiable"> (Negotiable)</span>
+                    <span class v-else> (Fixed)</span>
+                  </span> -->
+                  <p class="location location-tx">
+                    <i class="fa fa-map-marker"></i>
+                    <a href="../ad_country/california/index.html">{{
+                      product.region
+                    }}</a>
+                  </p>
+                  <p class="gd-date-tx">
+                    <i class="flaticon-calendar"></i> &nbsp;
+                    <span>{{ format_date(product.createdAt) }}</span>
+                  </p>
+                </div>
+                <div class="ad-info-1">
+                  <!-- <span class="price-tag-tx">
+                  </span> -->
+                  <div class="icon-reveal mobile-hidden">
+                    <a class="btn icon-reveal-btn">
+                      <i class="fa fa-heart"></i>
+                    </a>
+                  </div>
+                  <div class="button-reveal mobile-hidden">
+                    <router-link
+                      class="btn btn-block button-reveal-btn"
+                      :to="
+                        `productDetails/${product.id}/${product.cid}/${product.uid}`
+                      "
+                      >Contact Seller</router-link
+                    >
+                  </div>
+                  <div class="button-griddy hidden-desktop">
+                    <router-link
+                      class="btn btn-block btn-theme"
+                      :to="
+                        `productDetails/${product.id}/${product.cid}/${product.uid}`
+                      "
+                      >Contact Seller</router-link
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-else>
+          <div
+            class="posts-masonry"
+            v-for="product in list"
             :key="product.id"
             v-show="!showLoader(paginatedList)"
           >
@@ -442,6 +578,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </div>
@@ -524,6 +661,7 @@ export default {
   },
   watch: {
     isLoading: {
+      immediate: true,
       handler: function(loading) {
         this.sync();
         this.isLoading = false;

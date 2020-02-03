@@ -1,67 +1,61 @@
 <template>
   <!--Start Section-->
-    <!-- Row -->
-    <div class="row">
-      <div class="col-md-12 col-xs-12 col-md-search-tx col-sm-12 col-lg-12">
-        <div class="clearfix"></div>
-        <div class="listingTopFilterBar">
-          <div class="col-md-7 col-xs-12 col-sm-6 no-padding">
-            <ul class="filterAdType">
-              <li class="active">
-                <a
-                  href="javascript:void(0)"
-                  style="color: #232323;"
+  <!-- Row -->
+  <div class="row">
+    <div class="col-md-12 col-xs-12 col-md-search-tx col-sm-12 col-lg-12">
+      <div class="clearfix"></div>
+      <div class="listingTopFilterBar">
+        <div class="col-md-7 col-xs-12 col-sm-6 no-padding">
+          <ul class="filterAdType">
+            <li class="active">
+              <a href="javascript:void(0)" style="color: #232323;">
+                Found Ads
+                <small v-if="list.length == 0">({{ ads.length }})</small>
+                <small v-else>({{ list.length }})</small>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-5 col-xs-12 col-sm-6 no-padding">
+          <div class="header-listing">
+            <h6>Sort by:</h6>
+            <div class="custom-select-box">
+              <form method="get">
+                <select
+                  name="sort"
+                  id="order_by"
+                  class="select2 custom-select"
+                  @change="filterSelection($event)"
                 >
-                  Found Ads
-                  <small>({{ ads.length }})</small>
-                </a>
-              </li>
-              <li class="active">
-                <a
-                  href="javascript:void(0)"
-                  style="color: #232323;"
-                >
-                  Most searched categories
-                  <small>({{ ads.length }})</small>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-5 col-xs-12 col-sm-6 no-padding">
-            <div class="header-listing">
-              <h6>Sort by:</h6>
-              <div class="custom-select-box">
-                <form method="get">
-                  <select name="sort" id="order_by" class="select2 custom-select" @change="filterSelection($event)">
-                    <option value="1">Newest To Oldest</option>
-                    <option value="2">Oldest To New</option>
-                    <option value="3">Alphabetically [a-z]</option>
-                    <option value="4">Alphabetically [z-a]</option>
-                    <option value="5">Highest price</option>
-                    <option value="6">Lowest price</option>
-                  </select>
-                </form>
-              </div>
-              <div class="grid-list">
-                <i
-                  class="switch grid fa fa-th product-arrangement-icon"
-                  @click="switchComponent('paginatedGrid')"
-                  :disabled="currentComp === 'listprops'"
-                ></i>
-                <i
-                  class="switch list fa fa-list product-arrangement-icon"
-                  @click="switchComponent('listprops')"
-                  :disabled="currentComp === 'paginatedGrid'"
-                ></i>
-              </div>
+                  <option value="1">Newest To Oldest</option>
+                  <option value="2">Oldest To New</option>
+                  <option value="3">Alphabetically [a-z]</option>
+                  <option value="4">Alphabetically [z-a]</option>
+                  <option value="5">Highest price</option>
+                  <option value="6">Lowest price</option>
+                </select>
+              </form>
+            </div>
+            <div class="grid-list">
+              <i
+                class="switch grid fa fa-th product-arrangement-icon"
+                @click="switchComponent('paginatedGrid')"
+                :disabled="currentComp === 'listprops'"
+              ></i>
+              <i
+                class="switch list fa fa-list product-arrangement-icon"
+                @click="switchComponent('listprops')"
+                :disabled="currentComp === 'paginatedGrid'"
+              ></i>
             </div>
           </div>
         </div>
       </div>
-      <!-- Ads Archive -->
-      <!-- Ads Archive End -->
-      <div class="clearfix"></div>
     </div>
+    <!-- Ads Archive -->
+    <!-- Ads Archive End -->
+    <div class="clearfix"></div>
+  </div>
   <!--/Section-->
 </template>
 
@@ -75,7 +69,8 @@ export default {
       type: String,
       required: true
     },
-    ads: [Object, Array]
+    ads: [Object, Array],
+    list: [Array]
   },
 
   methods: {
@@ -84,11 +79,21 @@ export default {
     },
     filterSelection(e) {
       // console.log(e.target.value);
-      const payload = {
-        type: e.target.value,
-        data: this.ads
-      };
-      this.$emit('selectedFilter', payload);
+      if (this.list.length == 0) {
+        const payload = {
+          type: e.target.value,
+          data: this.ads
+        };
+        console.log(payload);
+        this.$emit("selectedFilter", payload);
+      } else {
+        const payload = {
+          type: e.target.value,
+          data: this.list
+        };
+        console.log(payload);
+        this.$emit("selectedFilter", payload);
+      }
     }
   }
 };
@@ -96,8 +101,8 @@ export default {
 
 <style scoped>
 .col-md-12.col-xs-12.col-md-search-tx.col-sm-12.col-lg-12 {
-    padding-right: 0px!important;
-    padding-left: 0px!important;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 }
 small {
   font-size: 85%;
@@ -117,7 +122,7 @@ i.switch[disabled="disabled"]:hover {
   background-color: green;
   /* border-color: gray; */
   color: white;
-  padding: 2px 4px
+  padding: 2px 4px;
 }
 i.list {
   border-color: #232323;
@@ -128,10 +133,9 @@ i.grid {
   color: #232323;
 }
 .select2 .select2-container .select2-container--default {
-  width: 160px!important;
+  width: 160px !important;
 }
 .grid-list i {
   font-size: 20px;
 }
-
 </style>

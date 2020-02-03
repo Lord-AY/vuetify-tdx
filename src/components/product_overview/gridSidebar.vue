@@ -18,17 +18,27 @@
         <div class="panel-collapse">
           <div class="panel-body">
             <ul class="sub-categories">
-              <li v-for="(category, index) in categories" :key="index" @click.prevent="filterSelection(category)">
-                <a href="">{{ category.name }}   </a>
+               <li
+                @click.prevent="resetProductsData"
+              >
+              <a href="">All Categories</a>
+                <span>{{ categories.length }}</span>
+              </li>
+              <li
+                v-for="(category, index) in categories"
+                :key="index"
+                @click.prevent="filterSelection(category)"
+              >
+                <a href="">{{ category.name }} </a>
                 <span> 10</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
-        <!-- Heading -->
+      <!-- Heading -->
       <!-- </div> -->
-    <!-- </div> -->
+      <!-- </div> -->
       <div
         class="panel-group"
         id="accordion"
@@ -84,7 +94,7 @@
             </div>
           </form>
         </div>
-       
+
         <div class="panel panel-default" id="red-country">
           <!-- Heading -->
           <div class="panel-heading" role="tab" id="location_heading">
@@ -1101,9 +1111,9 @@
             </div>
           </form>
         </div>
-      <!-- </div> -->
+        <!-- </div> -->
+      </div>
     </div>
-  </div>
   </div>
   <!--/Section-->
 </template>
@@ -1114,28 +1124,27 @@ import { bus } from "../../main.js";
 export default {
   name: "gsidebar",
   data() {
-    return {
-      selectedCategory: null,
-    }
+    return {};
   },
   props: {
     categories: [Object, Array],
     ads: [Object, Array],
+    selected: [String, Number],
+    list: [Array],
   },
 
   methods: {
-      filterSelection(category) {
-        this.selectedCategory = category.id;
+    filterSelection(category) {
       const payload = {
         type: category.id,
-        data: this.ads
+        data: this.ads,
       };
-      // console.log(payload);
-      this.$emit('selectedFilter', payload);
+      console.log(payload);
+      this.$emit("categoryChoice", payload);
+    },
+    resetProductsData() {
+      this.$emit("reset");
     }
-  },
-  created() {
-    this.selectedCategory = null;
   }
 };
 </script>
@@ -1144,22 +1153,22 @@ export default {
 .panel-title-side {
   padding: 10px 15px;
 }
-  .panel-title-tx {
-    margin-top: 12px;
-  }
-  
-  .sub-categories li {
-    margin: 12px 0;
-    font-size: 16px;
-        display: flex;
-    justify-content: space-between;
-    /* opacity: 0.7; */
-  }
-  .sub-categories li span{
-    background-color: #232323;
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 50%;
-    opacity: 0.7;
-  }
+.panel-title-tx {
+  margin-top: 12px;
+}
+
+.sub-categories li {
+  margin: 12px 0;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  /* opacity: 0.7; */
+}
+.sub-categories li span {
+  background-color: #232323;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
 </style>

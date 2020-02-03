@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div id="global-loader">
+      <Homeloader class="mobile-hidden"></Homeloader>
+    </div>
     <div id="global-loader" v-show="isLoading">
       <Homeloader class="mobile-hidden"></Homeloader>
     </div>

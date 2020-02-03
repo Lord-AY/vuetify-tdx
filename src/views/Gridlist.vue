@@ -1,9 +1,7 @@
 <template>
   <div>
     <div id="global-loader" v-show="isLoading">
-      <GridListLoader
-        class="mobile-hidden"
-      ></GridListLoader>
+      <GridListLoader class="mobile-hidden"></GridListLoader>
     </div>
     <div class="gridlist">
       <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
@@ -177,12 +175,20 @@
             <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
-                <gsidebar :categories="categories" @selectedFilter="chooseFilter" :ads="paginatedProducts"></gsidebar>
+                <gsidebar
+                  :categories="categories"
+                  @categoryChoice="filterByCategory"
+                  @reset="resetCategories"
+                  :selected="selectedCategory"
+                  :list="list"
+                  :ads="paginatedProducts"
+                ></gsidebar>
               </div>
               <div class="col-md-9 col-lg-9 col-xs-12">
                 <ptoggler
                   :current-comp="currentComp"
                   :ads="paginatedProducts"
+                  :list="list"
                   @selectedFilter="chooseFilter"
                 ></ptoggler>
                 <paginatedGrid
@@ -234,6 +240,7 @@ export default {
       currentComp: "paginatedGrid",
       currentPage: 1,
       isLoading: false,
+      selectedCategory: null,
       list: [],
       fullPage: true,
       prevRoute: null
@@ -247,7 +254,7 @@ export default {
       "getHotSellers",
       "categories"
     ]),
-    ...mapGetters("auth", ["loading"]),
+    ...mapGetters("auth", ["loading"])
   },
   components: {
     gsidebar: gsidebar,
@@ -289,69 +296,131 @@ export default {
       });
     },
     chooseFilter(payload) {
-     if(payload.type == 1) {
-      this.oldestToNewest(payload.data)
-     }
-      else if(payload.type == 2) {
-        this.newestTooldest(payload.data);
+      if (payload.type == 1) {
+          this.oldestToNewest(payload.data);
+      } else if (payload.type == 2) {
+          this.newestTooldest(payload.data);
       } else if (payload.type == 3) {
-        this.alphabeticallyAtoZ(payload.data);
+          this.alphabeticallyAtoZ(payload.data);
       } else if (payload.type == 4) {
-        this.alphabeticallyZtoA(payload.data);
+          this.alphabeticallyZtoA(payload.data);
       } else if (payload.type == 5) {
-        this.highestTolowestPrice(payload.data);
+          this.highestTolowestPrice(payload.data);
       } else if (payload.type == 6) {
-        this.lowestTohighestPrice(payload.data);
+          this.lowestTohighestPrice(payload.data);
       } else {
-        this.filterByCategory(payload.data, payload.type)
       }
     },
     alphabeticallyZtoA(array) {
-      let res = array.sort(function(a, b) {
-        var textA = a.name.toUpperCase();
-        var textB = b.name.toUpperCase();
-        return textA < textB ? -1 : textA > textB ? 1 : 0;
-      });
+      console.log("called Z- A");
+      if (this.list.length > 0) {
+        let res = this.list.sort(function(a, b) {
+          var textA = a.name.toUpperCase();
+          var textB = b.name.toUpperCase();
+          return textA < textB ? -1 : textA > textB ? 1 : 0;
+        });
+        this.list = res;
+        return this.list;
+      } else {
+        let res = array.sort(function(a, b) {
+          var textA = a.name.toUpperCase();
+          var textB = b.name.toUpperCase();
+          return textA < textB ? -1 : textA > textB ? 1 : 0;
+        });
+        return res;
+      }
       // this.paginatedProducts = res;
     },
     alphabeticallyAtoZ(array) {
-      let res = array.sort(function(a, b) {
-        var textA = a.name.toUpperCase();
-        var textB = b.name.toUpperCase();
-        return textB < textA ? -1 : textB > textA ? 1 : 0;
-      });
+      console.log("called A - Z");
+      if (this.list.length > 0) {
+        let res = array.sort(function(a, b) {
+          var textA = a.name.toUpperCase();
+          var textB = b.name.toUpperCase();
+          return textB < textA ? -1 : textB > textA ? 1 : 0;
+          this.list = res;
+          return this.list;
+        });
+      } else {
+        let res = array.sort(function(a, b) {
+          var textA = a.name.toUpperCase();
+          var textB = b.name.toUpperCase();
+          return textB < textA ? -1 : textB > textA ? 1 : 0;
+        });
+        return res;
+      }
       // console.log(res);
     },
     newestTooldest(array) {
-      let res = array.sort(function(a, b) {
-        var c = new Date(a.createdAt);
-        var d = new Date(b.createdAt);
-        return d - c;
-      });
+      if (this.list.length > 0) {
+        let res = array.sort(function(a, b) {
+          var c = new Date(a.createdAt);
+          var d = new Date(b.createdAt);
+          return d - c;
+        });
+        this.list = res;
+        return this.list;
+      } else {
+        let res = array.sort(function(a, b) {
+          var c = new Date(a.createdAt);
+          var d = new Date(b.createdAt);
+          return d - c;
+        });
+        return res;
+      }
       // console.log(res);
     },
     oldestToNewest(array) {
+      if (this.list.length > 0) {
+        let res = array.sort(function(a, b) {
+          var c = new Date(a.createdAt);
+          var d = new Date(b.createdAt);
+          return c - d;
+        });
+        this.list = res;
+        return this.list;
+      }
       let res = array.sort(function(a, b) {
         var c = new Date(a.createdAt);
         var d = new Date(b.createdAt);
         return c - d;
       });
+      return res;
       // console.log(res);
     },
     highestTolowestPrice(array) {
-      let res = array.sort(function(a, b) {
-        return parseFloat(a.amount) - parseFloat(b.amount);
-      });
-      // console.log(res);
+      if (this.list.length > 0) {
+        let res = array.sort(function(a, b) {
+          return parseFloat(a.amount) - parseFloat(b.amount);
+        });
+        this.list = res;
+        return this.list;
+      } else {
+        let res = array.sort(function(a, b) {
+          return parseFloat(a.amount) - parseFloat(b.amount);
+        });
+        // console.log(res);
+        return res;
+      }
     },
     lowestTohighestPrice(array) {
+      if (this.list.length > 0) {
+        let res = array.sort(function(a, b) {
+          return parseFloat(b.amount) - parseFloat(a.amount);
+        });
+        this.list = res;
+        return this.list;
+      }
       let res = array.sort(function(a, b) {
         return parseFloat(b.amount) - parseFloat(a.amount);
       });
+      return res;
       // console.log(res);
     },
-    filterByCategory(array, value) {
-      // console.log("clicked this category filter");
+    filterByCategory(payload) {
+      let array = payload.data;
+      let value = payload.type;
+      console.log("clicked this category filter");
       var filtered = [];
       for (var i = 0; i < array.length; i++) {
         if (array[i].cid == value) {
@@ -361,9 +430,14 @@ export default {
       // console.log(filtered);
       // console.log(this.paginatedProducts);
       this.list = filtered;
+      // console.log(this.list);
+      this.selectedCategory = value;
       return this.list;
       // console.log(filtered);
-    }
+    },
+    resetCategories() {
+      this.list = [];
+    },
   },
   watch: {
     $route: "sync",
@@ -406,7 +480,9 @@ export default {
     this.sync();
     this.fetchAllProducts();
     this.fetchHotSellers();
-    this.filterByCategory(this.paginatedProducts, 1);
+    // this.filterByCategory(this.paginatedProducts, 1);
+    this.selectedCategory = null;
+    this.list = [];
     // console.log(this.paginatedProducts);
     // vm.$forceUpdate();
   },
@@ -416,7 +492,7 @@ export default {
   beforeMount() {
     // console.log("this is before mounted");
   },
-    mounted() {
+  mounted() {
     // console.log("this route just got mounted");
     // this.$forceUpdate();
     // if (localStorage.getItem('reloaded')) {
@@ -429,7 +505,7 @@ export default {
     //       location.reload();
     //   }
     this.sync();
-  },
+  }
 
   // mounted() {
   //   // console.log("this route just got mounted");
