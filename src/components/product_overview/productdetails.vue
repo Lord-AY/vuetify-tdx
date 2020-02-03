@@ -461,7 +461,7 @@
                           <div class="ad-archive-img">
                             <router-link
                               :to="
-                                `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
                               "
                             >
                                <img
@@ -494,7 +494,7 @@
                             <h3>
                               <router-link
                                 :to="
-                                  `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                  `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
                                 "
                                 >{{ simProduct.name }}</router-link
                               >
@@ -504,7 +504,7 @@
                               <span class="padding_cats"
                                 ><router-link
                                   :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
                                   "
                                   >{{ simProduct.category }}</router-link
                                 ></span
@@ -525,7 +525,7 @@
                               >
                                 <router-link
                                   :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
                                   "
                                   ><img :src="photo" :alt="simProduct.name"
                                 /></router-link>
@@ -548,7 +548,7 @@
                                 >
                                 <router-link
                                   :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}`
+                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
                                   "
                                   class="btn btn-success"
                                 >

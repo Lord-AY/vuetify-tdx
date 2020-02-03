@@ -39,6 +39,7 @@ import testimonial from "@/components/home/Testimonial";
 import recent_post from "@/components/home/RecentPost";
 //experimental...
 import BNav from "@/components/BNav";
+const formatCurrency = require('format-currency');
 
 import HomeLoader from "@/components/loaders/Homeloader";
 export default {
@@ -47,7 +48,8 @@ export default {
     return {
       isLoading: true,
       renderKey: 0,
-      productRender: 0
+      productRender: 0,
+      userWalletHistory: [],
     };
   },
   components: {
@@ -73,13 +75,20 @@ export default {
       "comments",
       "paginatedProducts"
     ]),
-    ...mapGetters("auth", ["loading", "errors"])
+    ...mapGetters("auth", ["loading", "errors", "getUser"]),
+    ...mapGetters("wallet", ["getwalletData"]),
   },
   methods: {
     ...mapActions("product", [
       "fetchAllCategories",
       "fetchAllProducts",
       "fetchAllComments"
+    ]),
+    ...mapActions("wallet", [
+      "createUserwallet", 
+      "FetchUserwallet", 
+      "paymentStepOne", 
+      "FetchUserwalletHistory"
     ]),
     forceRerender() {
       this.renderKey += 1;
@@ -88,6 +97,9 @@ export default {
     },
     sync() {
       // console.log("Jquery mounted");
+    },
+    formatCurrency(data){
+      return formatCurrency(data)
     },
     onWindowLoad() {
       window.location.reload();
@@ -161,14 +173,39 @@ export default {
         }
         this.showSuccess();
       }
-    }
+    },
+    getwalletData: {
+      handler: function(walletData) {
+        if (walletData == null) {
+          this.isLoading = true;
+          this.createUserwallet(this.getUser.id)
+          this.userWallet = this.getwalletData.walletid;
+          // console.log(this.getwalletData);
+          // console.log("wallet changed");
+        }else{
+          this.userWallet = this.getwalletData.walletid;
+          this.isLoading = false;
+          // console.log(walletData);
+        }
+      }
+    },
   },
   created() {
     this.sync();
     this.$forceUpdate();
     this.fetchAllCategories();
     // this.fetchAllProducts();
-    this.loadfunc();    
+    this.loadfunc();   
+    if(this.getUser !== null){
+      this.FetchUserwalletHistory(this.getUser.id).then(data => {
+          // console.log(this.getwalletData);
+          this.userWalletHistory.push(this.getwalletHistory);
+          // this.mybal = this.userWalletHistory[this.userWalletHistory.length-1]
+          // console.log(this.mybal);
+      }); 
+    }
+    var walletBalance = formatCurrency(this.userWalletHistory[this.userWalletHistory.length -1])
+    localStorage.setItem("walletBalance", walletBalance);
   },
   beforeCreate() {
     // console.log("this is before created");
