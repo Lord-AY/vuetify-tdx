@@ -474,7 +474,8 @@ export default {
     data: {
       type: [Array, Object],
       required: true
-    }
+    },
+    list: [Array, Object],
   },
   components: {
     Loading,
