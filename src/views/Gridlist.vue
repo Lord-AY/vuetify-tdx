@@ -361,7 +361,7 @@ export default {
       // console.log(filtered);
       // console.log(this.paginatedProducts);
       this.list = filtered;
-      return list;
+      return this.list;
       // console.log(filtered);
     }
   },
