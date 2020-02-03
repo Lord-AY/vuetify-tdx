@@ -75,6 +75,7 @@ export default {
     registerUser({ commit, state }, payload) {
       // set inputs to state
       commit("SET_REGISTER_STATE", payload);
+       commit("SET_REGISTER_ERRORS", null);
       commit("SET_LOADING", true);
       return AuthService.register({
         firstname: state.registerData.firstName,
@@ -147,6 +148,8 @@ export default {
     loginUser({ commit, state }, payload) {
       commit("SET_LOGIN_STATE", payload);
       commit("SET_LOADING", true);
+      commit("SET_ERRORS", null);
+       commit("SET_LOGIN_ERRORS", null);
       return AuthService.login({
         email: state.loginData.email,
         password: state.loginData.password
@@ -154,7 +157,6 @@ export default {
         .then(({ data }) => {
           // console.log(data)
           commit("SET_LOADING", false);
-          commit("SET_LOGIN_ERRORS", null);
           // set user state with results
           const loggedUser = {
             id: data.id,
@@ -213,7 +215,7 @@ export default {
             commit("SET_LOGIN_ERRORS", "Network error, please try again");
           } else {
             // else account not verified or something else
-            commit("SET_LOGIN_ERRORS", error.response.data.message);
+            commit("SET_LOGIN_ERRORS", error.response.data);
           }
         });
     },
