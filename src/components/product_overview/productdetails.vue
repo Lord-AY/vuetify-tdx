@@ -484,7 +484,7 @@
                           <div class="ad-archive-desc">
                             <!-- Price -->
                             <div class="ad-price">
-                              &#8358; {{ simProduct.amount }}
+                              &#8358; {{ formatCurrency(simProduct.amount) }}
                               <span class="" v-if="simProduct.negotiable"
                                 >(Negotiable)</span
                               >
