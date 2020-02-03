@@ -68,7 +68,7 @@
                 <router-link to="/messaging">
                   <i class="la la-envelope"></i>
                   <span>My Messages</span>
-                  <span class="badge referral">0</span>
+                  <!-- <span class="badge referral">0</span> -->
                 </router-link>
               </li>
               <li>

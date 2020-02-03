@@ -277,22 +277,26 @@
                         src="https://www.tradexplora.com.ng/media/avatar.png"
                       />
                       <img
-                      class="img-circle resize"
-                      v-else
-                      alt="Avatar"
-                       :src="`https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`"
-                    />
+                        class="img-circle resize"
+                        v-else
+                        alt="Avatar"
+                        :src="
+                          `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`
+                        "
+                      />
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
                     <ul class="dropdown-menu">
-                      <li class="wallet-balance">
-                        <img
-                          src="@/assets/images/wallet.svg"
-                          height="16px"
-                          style="margin-top: -4px; margin-right: 5px;"
-                        />
-                        Balance
-                        <span>0.00</span>
+                      <li class="wallet-balance" v-if="userbalance">
+                        <router-link to="/wallet">
+                          <img
+                            src="@/assets/images/wallet.svg"
+                            height="16px"
+                            style="margin-top: -4px; margin-right: 0px;"
+                          />
+                          Balance
+                        </router-link>
+                        <span>{{ userbalance }}</span>
                       </li>
                       <li class="profile-dropdown-list">
                         <router-link
@@ -419,7 +423,7 @@
 
               <input
                 id="bmenu_toggle"
-                type="checkbox"
+               type="checkbox"
                 name="bmenu-open"
                 class="hidden"
                 aria-checked="true"
@@ -435,6 +439,7 @@
                     class="fa fa-bars"
                     style="color: #4CAF50; margin-right: 3px;"
                   ></i>
+                  <!-- {{ categories }} -->
                   All Categories
                 </span>
               </label>
@@ -444,91 +449,36 @@
                     to="/categories"
                     v-for="(category, index) in categories"
                     :key="++index + categories.length"
-                    ><span class="triangle-origin">{{
-                      category.name
-                    }}</span></router-link
-                  >
-                  <hr />
-                  <article
-                    class="panel"
-                    v-for="category in categories"
-                    :key="category.id"
-                  >
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>{{ category.name }}</header>
-                        <div v-if="category.subcategory">
-                          <a
-                            href="/categories"
-                            v-for="subcategory in category.subcategory"
-                            :key="subcategory.id"
-                            >{{ subcategory.name }}</a
-                          >
-                        </div>
-                        <a href="/categories" v-else=""
-                          >No subcategories present.</a
-                        >
-                      </section>
-                      <!--  <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section> -->
+                    >
+
+                    <div @mouseover="getsubcategory(category.id)">
+                      <span class="triangle-origin">
+                        {{ category.name }}
+                      </span>
                     </div>
-                    <!--                  <div class="column">
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Category Title</header>
-                        <a href="#">A sub category...</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div> -->
+                    <hr />
+                  </router-link>
+                  <article class="panel"  v-for="(category, index) in categories"
+                    :key="++index + categories.length -2">
+                    <div 
+                      v-for="subcategory in subcategories"
+                      :key="subcategory.id">
+                      <div class="column">
+                        <section class="titled-group">
+                          <header>Subcategory for Category {{ subcategory.name }}</header>
+                          <div v-if="subcategories">
+                            <a href="/categories">{{ subcategory.name }}</a>
+                          </div>
+                          <div v-else>
+                            <a href="/categories"
+                              >No subcategories present.</a
+                            >
+                          </div>
+                        </section>
+                      </div>
+                    </div>
                   </article>
-                  <!--  <article class="panel">
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Title</header>
-                        <a href="#">It's our work o!!</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                      <section class="titled-group">
-                        <header>Title</header>
-                        <a href="#">It's our work o!!</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                    <div class="column">
-                      <section class="titled-group">
-                        <header>Title</header>
-                        <a href="#">It's our work o!!</a>
-                        <a href="#">A Sub Category</a>
-                        <a href="#">A Sub Category</a>
-                      </section>
-                    </div>
-                  </article> -->
-                </nav>
+                 </nav>
               </div>
             </li>
             <div class="row-tdx">
@@ -550,9 +500,20 @@
                 >
                   No entry found
                 </div>
-                 <div class="search-result" v-if="showResults">
+                <div class="search-result" v-if="showResults">
                   <ul class="dropdown search-dropdown">
-                    <li class="dropdown-item search-dropdown-item" v-for="(result, index) in getResults.slice(0, 5)" :key="index"><router-link :to="`/productDetails/${result.id}/${result.cid}/${result.uid}`">{{ result.name }}</router-link></li>
+                    <li
+                      class="dropdown-item search-dropdown-item"
+                      v-for="(result, index) in getResults.slice(0, 5)"
+                      :key="index"
+                    >
+                      <router-link
+                        :to="
+                          `/productDetails/${result.id}/${result.cid}/${result.uid}`
+                        "
+                        >{{ result.name }}</router-link
+                      >
+                    </li>
                   </ul>
                 </div>
                 <span>
@@ -606,7 +567,8 @@ export default {
   data() {
     return {
       keyword: null,
-      showResults: false
+      showResults: false,
+      userbalance: null
     };
   },
   components: {
@@ -614,7 +576,7 @@ export default {
   },
   computed: {
     ...mapGetters("auth", ["isLoggedIn", "getUser"]),
-    ...mapGetters("product", ["categories"]),
+    ...mapGetters("product", ["categories", "subcategories"]),
     ...mapGetters("search", ["getResults"])
   },
   methods: {
@@ -623,6 +585,15 @@ export default {
     ...mapActions("auth", ["logoutUser"]),
     setLogout() {
       this.logoutUser();
+    },
+    getsubcategory(id) {
+      // console.log(id);
+      // console.log("sub category called ");
+      const payload = {
+        cid: id
+      };
+      this.fetchSubCategories(payload);
+      // console.log(this.subcategories);
     },
     sendFetchSubCategories() {
       let categories = this.categories;
@@ -639,7 +610,7 @@ export default {
         this.keyword = null;
       }
     },
-     getSearchResults(keyword) {
+    getSearchResults(keyword) {
       if (this.keyword !== null) {
         const payload = {
           keyword
@@ -665,16 +636,6 @@ export default {
         $(window).scroll(function() {
           stickyNav();
         });
-        // $(window).scroll(function() {
-        //   var scroll = $(window).scrollTop();
-        //   // console.log("we are scrolling " + scroll);
-        //   if (scroll > 0) {
-        //     $("#topb").removeClass("mobile-hidden");
-        //     $("#topb").addClass("top-bar-hide");
-        //   } else {
-        //     $("#topb").removeClass("top-bar-hide");
-        //   }
-        // });
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });
@@ -814,10 +775,10 @@ export default {
   watch: {
     keyword: {
       handler: function(keyword) {
-        if(keyword.length >= 3) {
+        if (keyword.length >= 3) {
           this.showResults = true;
           this.getSearchResults(keyword);
-        }else {
+        } else {
           this.showResults = false;
         }
       }
@@ -827,6 +788,8 @@ export default {
     this.sync();
     this.fetchAllCategories();
     this.sendFetchSubCategories();
+    this.userbalance = localStorage.getItem("walletBalance");
+    // console.log(this.userbalance);
   }
 };
 </script>
@@ -848,9 +811,9 @@ export default {
   overflow-y: scroll;
 }
 .search-dropdown-item {
-  padding: 10px 16px!important;
-  font-size: 16px!important;
-  font-weight: 400!important;
+  padding: 10px 16px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
 }
 /* Sidebar Test Styles => Don't remove */
 .sidenav {
@@ -918,7 +881,7 @@ export default {
   position: sticky;
 }
 .horizontal-main {
-  border-bottom: none!important;
+  border-bottom: none !important;
 }
 @media (min-width: 768px) {
   .container2 {
