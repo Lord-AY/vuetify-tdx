@@ -451,7 +451,7 @@
                     :key="++index + categories.length"
                     >
 
-                    <div @mouseover="getsubcategory(category.id)">
+                    <div @mouseover.prevent="getsubcategory(category.id)">
                       <span class="triangle-origin">
                         {{ category.name }}
                       </span>
@@ -459,20 +459,23 @@
                     <hr />
                   </router-link>
                   <article class="panel"  v-for="(category, index) in categories"
-                    :key="++index + categories.length -2">
-                    <div 
-                      v-for="subcategory in subcategories"
-                      :key="subcategory.id">
+                    :key="++index + categories.length + categories.length" style="min-width: 20%; margin-right: 100px;">
+                    <div>
                       <div class="column">
                         <section class="titled-group">
-                          <header>Subcategory for Category {{ subcategory.name }}</header>
-                          <div v-if="subcategories">
-                            <a href="/categories">{{ subcategory.name }}</a>
+                          <header>Subcategory for Category {{ category.name }}</header>
+                          <div v-if="subcategories.length > 0">
+                            <a
+                              href="/categories"
+                              v-for="subcategory in subcategories"
+                              :key="subcategory.id"
+                              >{{ subcategory.name }}</a
+                            >
                           </div>
                           <div v-else>
-                            <a href="/categories"
-                              >No subcategories present.</a
-                            >
+                            <a href="/categories">
+                              No subcategories present.
+                            </a>
                           </div>
                         </section>
                       </div>
