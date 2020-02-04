@@ -186,58 +186,6 @@
       <a href="#0" class="cd-top">Top</a>
       <!-- Email verification and reset password -->
     </div>
-    <!-- PAGINATION CONTROLS -->
-    <div class="pagination-wrapper" v-if="data.length > 5 || currentPage > 1">
-      <div class="pagination">
-        <button
-          class="prev page-numbers"
-          type="button"
-          @click="onClickPreviousPage"
-          :disabled="isInFirstPage"
-        >
-          prev
-        </button>
-        <button
-          class="page-numbers"
-          type="button"
-          @click="onClickFirstPage"
-          :disabled="isInFirstPage"
-        >
-          First
-        </button>
-
-        <!-- Range of pages -->
-        <button
-          class="page-numbers"
-          type="button"
-          v-for="(page, index) in pages"
-          :key="index"
-          @click="onClickPage(page.range.number)"
-        >
-          {{ page.range.number }}
-        </button>
-        <!-- End page range-->
-        <!-- <span aria-current="page" class="page-numbers current">1</span> -->
-
-        <button
-          class="page-numbers"
-          type="button"
-          @click="onClickNextPage"
-          :disabled="isInLastPage"
-        >
-          Next
-        </button>
-        <button
-          class="next page-numbers"
-          type="button"
-          @click="onClickLastPage"
-          :disabled="isInLastPage"
-        >
-          Last
-        </button>
-      </div>
-    </div>
-    <!-- END PAGINATION CONTROLS -->
   </div>
 </template>
 
@@ -258,101 +206,16 @@ export default {
       type: [Array, Object],
       required: true
     },
-    maxVisibleButton: {
-      type: Number,
-      required: false,
-      default: 3
-    },
-    totalPages: {
-      type: Number,
-      required: true
-    },
-    total: {
-      type: Number,
-      required: true
-    },
-    perPage: {
-      type: Number,
-      required: true
-    },
-    currentPage: {
-      type: Number,
-      required: true
-    }
   },
   components: {
     Loading
   },
   computed: {
     paginatedList() {
-      let start = (this.currentPage - 1) * this.perPage,
-        end = start + this.perPage;
-      return this.data.slice(start, end);
+      return this.data.slice(0, 10);
     },
-    startPage() {
-      //getting first page
-      if (this.currentPage === 1) {
-        return 1;
-      }
-      // when on the last page
-      if (this.currentPage === this.totalPages) {
-        return (
-          this.totalPages - this.maxVisibleButton + (this.maxVisibleButton - 1)
-        );
-      }
-      // when at the middle
-      return this.currentPage - 1;
-    },
-    endPage() {
-      return Math.min(
-        this.startPage + this.maxVisibleButtons - 1,
-        this.totalPages
-      );
-    },
-    pages() {
-      const range = [];
-      for (let i = this.startPage; i <= this.endPage; i += 1) {
-        range.push({
-          number: i,
-          isDisabled: i === this.currentPage
-        });
-      }
-      return range;
-    },
-    isInFirstPage() {
-      return this.currentPage === 1;
-    },
-    isInLastPage() {
-      return this.currentPage === this.totalPages;
-    }
   },
   methods: {
-    onClickFirstPage() {
-      this.isLoading = true;
-      this.$emit("pagechanged", 1);
-      this.loading = false;
-    },
-    onClickPreviousPage() {
-      this.isLoading = true;
-      this.$emit("pagechanged", this.currentPage - 1);
-    },
-    onClickPage(page) {
-      this.isLoading = true;
-      this.$emit("pagechanged", page);
-    },
-    onClickNextPage() {
-      this.isLoading = true;
-      this.$emit("pagechanged", this.currentPage + 1);
-    },
-    onClickLastPage() {
-      this.$emit("pagechanged", this.totalPages);
-    },
-    isPageActive(page) {
-      return this.currentPage === page;
-    },
-    onPageChange(page) {
-      this.currentPage = page;
-    },
     sync() {
       $("html,body").animate({ scrollTop: 0 }, "slow");
     }

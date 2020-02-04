@@ -202,13 +202,8 @@
 
             <!-- <component :is="currentComp" :products="productListings"></component> -->
             <!-- <gridprops></gridprops> -->
-            <!-- <listprops
-            :data="paginatedProducts"
-            :total-pages="Math.ceil(paginatedProducts.length / 9)"
-            :total="paginatedProducts.length"
-            :per-page="10"
-            :current-page="currentPage"
-            @pagechanged="onPageChange"></listprops> -->
+            <listprops
+            :data="paginatedProducts"></listprops>
           </div>
         </section>
       </div>
