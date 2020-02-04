@@ -21,7 +21,7 @@
         </div>
 
         <div class="container">
-          <div class="row">
+          <div class="row" v-if="hotsellers">
             <!-- <div class="col-xs-6 col-sm-4 col-md-2 col-join-tx"> -->
             <div
               class="col-lg-2 col-md-4 col-sm-12 col-xs-12 col-join-tx category-grid-box-tx-custom"
@@ -54,12 +54,16 @@
                 </div>
               </div>
             </div>
- 
+
             <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
             <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
-              <div class="short-feature-body" v-if="hotsellers">
+              <div class="short-feature-body">
                 <div id="owl-carousel" class="owl-carousel owl-theme">
-                  <div class="item item-carousel" v-for="(sellers, index) in hotsellers" :key="index">
+                  <div
+                    class="item item-carousel"
+                    v-for="(sellers, index) in hotsellers"
+                    :key="index"
+                  >
                     <div
                       class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
                       id="holder-1554"
@@ -70,25 +74,27 @@
                         </div>
                         <div class="image-price">
                           <div class="image">
-                            <a
-                              href="/#/"
-                            >
-                              <img
-                                v-if="sellers.avatar === null"
+                            <a href="/#/">
+                               <img
+                                v-if="sellers.avatar"
                                 class="img-responsive"
-                                alt="Avatar"
-                                src="https://www.tradexplora.com.ng/media/avatar.png"
+                                :alt="sellers.name"
+                                :src="`https://www.tradexplora.com.ng/media/${sellers.avatar}`"
                               />
                               <img
                                 v-else
                                 class="img-responsive"
                                 alt="Avatar"
-                                :src="sellers.avatar !== null ? `https://www.tradexplora.com.ng/media/${sellers.avatar}`
-                                : 'https://www.tradexplora.com.ng/media/avatar.png' "
+                                src="https://www.tradexplora.com.ng/media/avatar.png"
                               />
                             </a>
 
-                            <div class="new-hot-sellers" v-if="getdiff(sellers.createdAt) <  4">new</div>
+                            <div
+                              class="new-hot-sellers"
+                              v-if="getdiff(sellers.createdAt) < 4"
+                            >
+                              new
+                            </div>
                             <!-- <div class="" v-else></div> -->
                           </div>
                         </div>
@@ -104,7 +110,9 @@
                           </div>
 
                           <div class="follow">
-                            <p class="btn"><i class="fa fa-user-plus"></i> Follow</p>
+                            <p class="btn">
+                              <i class="fa fa-user-plus"></i> Follow
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -124,21 +132,20 @@
 /* eslint-disable no-undef */
 import ash from "lodash";
 import moment from "moment";
-let owl_carousel = require('owl.carousel');
+let owl_carousel = require("owl.carousel");
 window.fn = owl_carousel;
 export default {
   name: "hotsellers",
   data() {
-    return {
-    };
+    return {};
   },
   props: {
-    hotsellers: Array
+    hotsellers: Array,
+    isLoading: Boolean
   },
   methods: {
-    sync : function(){
-      $(window).on('load', function() {
-
+    sync: function() {
+      $(window).on("load", function() {
         $(".owl-carousel").owlCarousel({
           items: 5,
           loop: true,
@@ -170,13 +177,13 @@ export default {
         return moment(String(value)).format("YYYY-MM-DD");
       }
     },
-    daysago(dateago){
-      if (dateago){
-        return  moment.duration(moment().diff(dateago)).humanize() + " ago";
+    daysago(dateago) {
+      if (dateago) {
+        return moment.duration(moment().diff(dateago)).humanize() + " ago";
       }
     },
-    getdiff(ddate){
-      const diff = moment().diff(ddate, 'days');
+    getdiff(ddate) {
+      const diff = moment().diff(ddate, "days");
       // console.log(diff);
       return diff;
     }
@@ -184,39 +191,37 @@ export default {
   watch: {
     $route: "sync"
   },
-  mounted(){
+  mounted() {
     // var vm = this;
     // vm.hotsellers = this.hotsellers;
     // this.$nextTick(function(){
-     this.sync();
+    this.sync();
     // }.bind(vm));
   },
-  created() {
-  },
-  beforeMount() {
-  },
+  created() {},
+  beforeMount() {}
 };
 </script>
 
 <style>
 p.btn {
-  text-transform: none!important;
-  color: #fff!important;
-  font-weight: 500!important;
-  margin-bottom: 0px!important;
-  padding: 1px 15px!important;
+  text-transform: none !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+  margin-bottom: 0px !important;
+  padding: 1px 15px !important;
 }
 /* div.follow:hover {
   box-shadow: 0px 4px 14px 6px rgba(0, 0, 0, 0.5);
 } */
 .owl-carousel {
-  cursor: default!important;
+  cursor: default !important;
 }
 .short-description-1.hot-sellers-name-tx.clearfix {
-  cursor: default!important;
+  cursor: default !important;
 }
 .new-hot-sellers {
-  left: 8.5rem!important;
+  left: 8.5rem !important;
 }
 @media (max-width: 767px) {
   .hotseller-sub {

@@ -37,7 +37,7 @@ export default {
       if (state.hotSellers !== null && state.hotSellers !== undefined) {
         return state.hotSellers;
       }
-      return;
+      return null;
     },
     paginatedProducts(state) {
       if (state.products !== null && state.products !== undefined) {
@@ -208,7 +208,7 @@ export default {
           commit("SET_HOT_SELLERS", data);
         })
         .catch(error => {
-          // console.log(error); 
+          // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", "Network Error, error fetching ads categories");
         });
