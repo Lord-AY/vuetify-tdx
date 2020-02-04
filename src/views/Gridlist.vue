@@ -307,7 +307,7 @@ export default {
       }
     },
     alphabeticallyZtoA(array) {
-      console.log("called Z- A");
+      // console.log("called Z- A");
       if (this.list.length > 0) {
         let res = this.list.sort(function(a, b) {
           var textA = a.name.toUpperCase();
@@ -327,7 +327,7 @@ export default {
       // this.paginatedProducts = res;
     },
     alphabeticallyAtoZ(array) {
-      console.log("called A - Z");
+      // console.log("called A - Z");
       if (this.list.length > 0) {
         let res = array.sort(function(a, b) {
           var textA = a.name.toUpperCase();
@@ -415,7 +415,7 @@ export default {
     filterByCategory(payload) {
       let array = payload.data;
       let value = payload.type;
-      console.log("clicked this category filter");
+      // console.log("clicked this category filter");
       var filtered = [];
       for (var i = 0; i < array.length; i++) {
         if (array[i].cid == value) {

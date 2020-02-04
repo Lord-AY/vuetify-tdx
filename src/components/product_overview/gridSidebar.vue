@@ -30,7 +30,7 @@
                 @click.prevent="filterSelection(category)"
               >
                 <a href="">{{ category.name }} </a>
-                <span> 10</span>
+                <span> {{ selectCategory(category.id) }}</span>
               </li>
             </ul>
           </div>
@@ -1124,7 +1124,10 @@ import { bus } from "../../main.js";
 export default {
   name: "gsidebar",
   data() {
-    return {};
+    return {
+      categoryCount :null,
+      cloneAds: null,
+    };
   },
   props: {
     categories: [Object, Array],
@@ -1134,17 +1137,36 @@ export default {
   },
 
   methods: {
+    countEachCategory(){
+      var ress = this.ads.reduce(function(obj, v) {
+        obj[v.cid] = (obj[v.cid] || 0) + 1;
+        return obj;
+      }, {})
+      this.categoryCount = ress;
+    },
     filterSelection(category) {
       const payload = {
         type: category.id,
         data: this.ads,
       };
-      console.log(payload);
+      // console.log(payload);
       this.$emit("categoryChoice", payload);
+    },
+    selectCategory(catid){
+      if(this.categoryCount[catid]){
+        return this.categoryCount[catid];
+      }else{
+        return 0;
+      }
     },
     resetProductsData() {
       this.$emit("reset");
     }
+  },
+  created(){
+    this.countEachCategory();
+    this.cloneAds = this.ads;
+    // console.log(this.categoryCount[1]);
   }
 };
 </script>
