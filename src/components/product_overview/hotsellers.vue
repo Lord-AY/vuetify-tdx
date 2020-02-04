@@ -33,7 +33,7 @@
                 </div>
                 <div class="image-price">
                   <div class="image">
-                    <router-link to="/register">
+                    <router-link to="/postad">
                       <img
                         src="@/assets/images/add-seller.svg"
                         alt="2017 Maserati Ghibli SQ4 Blue 1,695 Miles"

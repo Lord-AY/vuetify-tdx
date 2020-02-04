@@ -1126,6 +1126,7 @@ export default {
   data() {
     return {
       categoryCount :null,
+      cloneAds: null,
     };
   },
   props: {
@@ -1148,11 +1149,15 @@ export default {
         type: category.id,
         data: this.ads,
       };
-      console.log(payload);
+      // console.log(payload);
       this.$emit("categoryChoice", payload);
     },
     selectCategory(catid){
-      return this.categoryCount[catid];
+      if(this.categoryCount[catid]){
+        return this.categoryCount[catid];
+      }else{
+        return 0;
+      }
     },
     resetProductsData() {
       this.$emit("reset");
@@ -1160,6 +1165,7 @@ export default {
   },
   created(){
     this.countEachCategory();
+    this.cloneAds = this.ads;
     // console.log(this.categoryCount[1]);
   }
 };
