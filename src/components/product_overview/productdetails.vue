@@ -466,10 +466,10 @@
                             >
                                <img
                                       v-for="(image,
-                                      index) in product.photos.slice(0, 1)"
+                                      index) in simProduct.photos.slice(0, 1)"
                                       :key="index"
                                       :src="image"
-                                      :alt="product.name"
+                                      :alt="simProduct.name"
                                       class="img-responsive"
                                     />
                             </router-link>
