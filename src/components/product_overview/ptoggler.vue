@@ -20,12 +20,12 @@
           <div class="header-listing">
             <h6>Sort by:</h6>
             <div class="custom-select-box">
-              <form method="get">
+              <form method="get" v-if="list.length == 0">
                 <select
                   name="sort"
                   id="order_by"
                   class="select2 custom-select"
-                  @change="filterSelection($event)"
+                  v-model="filter"
                 >
                   <option value="1">Newest To Oldest</option>
                   <option value="2">Oldest To New</option>
@@ -33,6 +33,21 @@
                   <option value="4">Alphabetically [z-a]</option>
                   <option value="5">Highest price</option>
                   <option value="6">Lowest price</option>
+                </select>
+              </form>
+              <form method="get" v-else>
+                <select
+                  name="sort"
+                  id="order_by"
+                  class="select2 custom-select"
+                  v-model="filter"
+                >
+                  <option value="2">Newest To Oldest</option>
+                  <option value="1">Oldest To New</option>
+                  <option value="4">Alphabetically [a-z]</option>
+                  <option value="3">Alphabetically [z-a]</option>
+                  <option value="6">Highest price</option>
+                  <option value="5">Lowest price</option>
                 </select>
               </form>
             </div>
@@ -64,6 +79,11 @@ require("../../../public/assets/plugins/select2/select2.min.css");
 import { bus } from "../../main.js";
 export default {
   name: "ptoggler",
+  data() {
+    return {
+      filter: null
+    }
+  },
   props: {
     currentComp: {
       type: String,
@@ -77,22 +97,29 @@ export default {
     switchComponent(comp) {
       bus.$emit("switchComp", comp);
     },
-    filterSelection(e) {
+    filterSelection(type) {
       // console.log(e.target.value);
       if (this.list.length == 0) {
         const payload = {
-          type: e.target.value,
+          type,
           data: this.ads
         };
         // console.log(payload);
         this.$emit("selectedFilter", payload);
       } else {
         const payload = {
-          type: e.target.value,
+          type,
           data: this.list
         };
         // console.log(payload);
         this.$emit("selectedFilter", payload);
+      }
+    }
+  },
+  watch: {
+    filter: {
+      handler: function(filter) {
+        this.filterSelection(filter);
       }
     }
   }
