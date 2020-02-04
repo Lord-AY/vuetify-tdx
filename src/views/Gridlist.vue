@@ -202,8 +202,8 @@
 
             <!-- <component :is="currentComp" :products="productListings"></component> -->
             <!-- <gridprops></gridprops> -->
-            <listprops
-            :data="paginatedProducts"></listprops>
+           <!--  <listprops
+            :data="paginatedProducts"></listprops> -->
           </div>
         </section>
       </div>
