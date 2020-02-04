@@ -84,14 +84,14 @@ export default {
           type: e.target.value,
           data: this.ads
         };
-        console.log(payload);
+        // console.log(payload);
         this.$emit("selectedFilter", payload);
       } else {
         const payload = {
           type: e.target.value,
           data: this.list
         };
-        console.log(payload);
+        // console.log(payload);
         this.$emit("selectedFilter", payload);
       }
     }
