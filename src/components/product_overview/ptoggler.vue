@@ -19,8 +19,8 @@
         <div class="col-md-5 col-xs-12 col-sm-6 no-padding">
           <div class="header-listing">
             <h6>Sort by:</h6>
-            <div class="custom-select-box">
-              <form method="get" v-if="list.length == 0">
+            <div class="custom-select-box" v-show="list.length == 0">
+              <form method="get">
                 <select
                   name="sort"
                   id="order_by"
@@ -35,7 +35,9 @@
                   <option value="6">Lowest price</option>
                 </select>
               </form>
-              <form method="get" v-else>
+            </div>
+             <div class="custom-select-box" v-show="list.length > 0">
+              <form method="get">
                 <select
                   name="sort"
                   id="order_by"
@@ -118,6 +120,7 @@ export default {
   },
   watch: {
     filter: {
+      immediate: true,
       handler: function(filter) {
         this.filterSelection(filter);
       }
