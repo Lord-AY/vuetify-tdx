@@ -503,7 +503,8 @@
                 >
                   No entry found
                 </div>
-                <div class="search-result" v-if="showResults">
+                <div id="searchResult" v-if="showResults">
+                <div class="search-result">
                   <ul class="dropdown search-dropdown">
                     <li
                       class="dropdown-item search-dropdown-item"
@@ -514,10 +515,11 @@
                         :to="
                           `/productDetails/${result.id}/${result.cid}/${result.uid}`
                         "
-                        >{{ result.name }}</router-link
-                      >
+                        >{{ result.name }}
+                      </router-link>
                     </li>
                   </ul>
+                </div>
                 </div>
                 <span>
                   <i class="fa fa-search location-gps mr-1"></i>
@@ -559,8 +561,12 @@
 </template>
 
 <script>
+$(document).click(function (e) {
+    e.stopPropagation();
+    var container = $(".toggle");
+})
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/css/tdx-mega.css");
+// require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
 import timer from "@/components/countdownTimer";
 import { mapGetters, mapActions } from "vuex";
@@ -571,7 +577,8 @@ export default {
     return {
       keyword: null,
       showResults: false,
-      userbalance: null
+      userbalance: null,
+      isOpened: false
     };
   },
   components: {
@@ -620,6 +627,19 @@ export default {
         };
         this.searchAction(payload);
       }
+    },
+    documentClick(e){
+      $(document).ready(function() {
+        var isShown = $(".hide-at-start-wrapper").hasClass("show");
+        $(document).click(function(){
+          $("#bmenu_toggle").prop("checked", false);
+          this.showResults = false;
+          $("#searchResult").hide();
+        });
+        $("#bmenu_toggle").click(function(e){
+          e.stopPropagation();
+        });
+      });
     },
     sync() {
       $(document).ready(function() {
@@ -779,6 +799,10 @@ export default {
     keyword: {
       handler: function(keyword) {
         if (keyword.length >= 3) {
+          $(document).ready(function() {
+              $("#searchResult").show();
+          });
+
           this.showResults = true;
           this.getSearchResults(keyword);
         } else {
@@ -792,8 +816,14 @@ export default {
     this.fetchAllCategories();
     this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
+    document.addEventListener('click', this.documentClick);
     // console.log(this.userbalance);
+  },
+  destroyed () {
+    // important to clean up!!
+    document.removeEventListener('click', this.documentClick);
   }
+
 };
 </script>
 
