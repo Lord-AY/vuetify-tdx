@@ -174,8 +174,8 @@
                                       class="form-control form-control-dashboard"
                                       type="text"
                                       name="first_name"
-                                      v-model="user.firstname"
-                                      :value="user.firstname"
+                                      v-model="form.firstname"
+                                      :placeholder="user.firstname"
                                       :readonly="loading"
                                       :data-pt-title="
                                         loading
@@ -200,8 +200,8 @@
                                       class="protip form-control form-control-dashboard"
                                       type="text"
                                       name="last_name"
-                                      :value="user.lastname"
-                                      v-model="user.lastname"
+                                      :placeholder="user.lastname"
+                                      v-model="form.lastname"
                                       :readonly="loading"
                                       :data-pt-title="
                                         loading
@@ -228,8 +228,8 @@
                                       class="protip form-control form-control-dashboard"
                                       type="email"
                                       name="user_email"
-                                      :value="user.email"
-                                      v-model="user.email"
+                                      :placeholder="user.email"
+                                      v-model="form.email"
                                       :readonly="loading"
                                       :data-pt-title="
                                         loading
@@ -255,7 +255,8 @@
                                       data-parsley-type="number"
                                       type="text"
                                       name="sb_user_contact"
-                                      :value="user.phone"
+                                      :placeholder="user.phone"
+                                      v-model="form.phone"
                                       :readonly="loading"
                                       :data-pt-title="
                                         loading
@@ -282,7 +283,8 @@
                                     data-parsley-type="number"
                                     type="text"
                                     name="sb_user_contact"
-                                    :value="user.address"
+                                    :placeholder="user.address"
+                                    v-model="form.address"
                                     :readonly="loading"
                                     :data-pt-title="
                                       loading
@@ -307,6 +309,7 @@
                                     <textarea
                                       class="form-control dashboard"
                                       name="sb_user_about"
+                                      v-model="form.about"
                                       required=""
                                       rows="5"
                                     ></textarea>
@@ -624,7 +627,8 @@ export default {
   data() {
     return {
       current: true,
-      imageFile: null
+      imageFile: null,
+      form: {},
     };
   },
   components: {
