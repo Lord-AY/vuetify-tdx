@@ -71,13 +71,12 @@
                       </div>
                     </div>
                   </div>
-                  <div v-if="errors" class="">
-                    <div class="alert alert-danger alert-dismissible fade show">
-                      <strong>Error!</strong>
-                      {{ errors.message }}
-                      <button type="button" class="close" data-dismiss="alert">
-                        &times;
-                      </button>
+                    <div v-if="errors" class="" style="width:80%; margin: 1em auto;">
+                    <div
+                      class="alert alert-warning alert-dismissible"
+                      role="alert"
+                    >
+                      <strong>Error!</strong> {{ errors.message }}
                     </div>
                   </div>
                   <!-- Customer Name -->
