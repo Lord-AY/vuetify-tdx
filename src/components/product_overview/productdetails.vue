@@ -448,7 +448,7 @@
                   <div class="tab-content">
                     <div class="tab-pane  in active  fade" id="tab1default">
                       <h3 class="tab-title">Similar Ads</h3>
-                      <SimilarProductLoader></SimilarProductLoader>
+                      <SimilarProductLoader @showLoader="showLoader" :similarprods="similarprods"></SimilarProductLoader>
                       <div
                         class="ads-list-archive"
                         v-show="!showLoader(similarprods)"

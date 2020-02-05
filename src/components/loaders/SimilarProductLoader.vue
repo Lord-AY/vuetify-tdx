@@ -2,7 +2,15 @@
 import { ContentLoader } from "vue-content-loader";
 
 export default {
-  components: { ContentLoader }
+  components: { ContentLoader },
+  props: {
+    similarprods: [Array, Object]
+  },
+  methods: {
+    showLoader(data) {
+        this.$emit('similarprods', data);
+    }
+  }
 };
 </script>
 <template>

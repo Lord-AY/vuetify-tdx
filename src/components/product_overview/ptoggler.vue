@@ -19,7 +19,7 @@
         <div class="col-md-5 col-xs-12 col-sm-6 no-padding">
           <div class="header-listing">
             <h6>Sort by:</h6>
-            <div class="custom-select-box" v-show="list.length == 0">
+            <div class="custom-select-box">
               <form method="get">
                 <select
                   name="sort"
@@ -27,29 +27,35 @@
                   class="select2 custom-select"
                   v-model="filter"
                 >
-                  <option value="1">Newest To Oldest</option>
-                  <option value="2">Oldest To New</option>
-                  <option value="3">Alphabetically [a-z]</option>
-                  <option value="4">Alphabetically [z-a]</option>
-                  <option value="5">Highest price</option>
-                  <option value="6">Lowest price</option>
-                </select>
-              </form>
-            </div>
-             <div class="custom-select-box" v-show="list.length > 0">
-              <form method="get">
-                <select
-                  name="sort"
-                  id="order_by"
-                  class="select2 custom-select"
-                  v-model="filter"
-                >
-                  <option value="2">Newest To Oldest</option>
-                  <option value="1">Oldest To New</option>
-                  <option value="4">Alphabetically [a-z]</option>
-                  <option value="3">Alphabetically [z-a]</option>
-                  <option value="6">Highest price</option>
-                  <option value="5">Lowest price</option>
+                  <option value="1" v-if="list.length == 0"
+                    >Newest To Oldest</option
+                  >
+                  <option value="2" v-else>Newest To Oldest</option>
+
+                  <option value="2" v-if="list.length == 0"
+                    >Oldest To New</option
+                  >
+                  <option value="1" v-else>Oldest To New</option>
+
+                  <option value="3" v-if="list.length == 0"
+                    >Alphabetically [a-z]</option
+                  >
+                  <option value="4" v-else>Alphabetically [a-z]</option>
+
+                  <option value="4" v-if="list.length == 0"
+                    >Alphabetically [z-a]</option
+                  >
+                  <option value="3" v-else>Alphabetically [z-a]</option>
+
+                  <option value="5" v-if="list.length == 0"
+                    >Highest price</option
+                  >
+                  <option value="6" v-else>Highest price</option>
+
+                  <option value="6" v-if="list.length == 0"
+                    >Lowest price</option
+                  >
+                  <option value="5" v-else>Lowest price</option>
                 </select>
               </form>
             </div>
@@ -84,7 +90,7 @@ export default {
   data() {
     return {
       filter: null
-    }
+    };
   },
   props: {
     currentComp: {

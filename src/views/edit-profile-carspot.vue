@@ -159,7 +159,7 @@
                             <form
                               id="sb_update_profile"
                               class="sb_update_profile"
-                              @submit.prevent="updateUser(user)"
+                              @submit.prevent="updateUser"
                             >
                               <div class="row">
                                 <div
@@ -174,6 +174,7 @@
                                       class="form-control form-control-dashboard"
                                       type="text"
                                       name="first_name"
+                                      v-model="user.firstname"
                                       :value="user.firstname"
                                       :readonly="loading"
                                       :data-pt-title="
@@ -200,6 +201,7 @@
                                       type="text"
                                       name="last_name"
                                       :value="user.lastname"
+                                      v-model="user.lastname"
                                       :readonly="loading"
                                       :data-pt-title="
                                         loading
@@ -227,6 +229,7 @@
                                       type="email"
                                       name="user_email"
                                       :value="user.email"
+                                      v-model="user.email"
                                       :readonly="loading"
                                       :data-pt-title="
                                         loading

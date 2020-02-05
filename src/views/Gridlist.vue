@@ -168,10 +168,19 @@
               </div>
             </div>
             <!-- <hr /> -->
-            <hotsellers
-              class="mobile-hidden"
-              :hotsellers="getHotSellers"
-            ></hotsellers>
+            <div v-if="getHotSellers.length > 0">
+              <hotsellers
+                class="mobile-hidden"
+                :hotsellers="getHotSellers"
+              ></hotsellers>
+            </div>
+            <div v-else>
+              <HotSellerLoader
+                class="mobile-hidden"
+                v-show="isLoading"
+                style="margin: -4em 5em 0 -4em;"
+              ></HotSellerLoader>
+            </div>
             <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
@@ -202,7 +211,7 @@
 
             <!-- <component :is="currentComp" :products="productListings"></component> -->
             <!-- <gridprops></gridprops> -->
-           <!--  <listprops
+            <!--  <listprops
             :data="paginatedProducts"></listprops> -->
           </div>
         </section>
@@ -220,6 +229,7 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c
 // require("../../public/assets/css/imported/style4d2c.css");
 // require("../../public/assets/css/iocustom.css");
 import hotsellers from "@/components/product_overview/hotsellers";
+import HotSellerLoader from "@/components/loaders/hotsellerLoader";
 import gsidebar from "@/components/product_overview/gridSidebar";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
 import listprops from "@/components/listPaginated";
@@ -234,7 +244,7 @@ export default {
     return {
       currentComp: "paginatedGrid",
       currentPage: 1,
-      isLoading: false,
+      isLoading: true,
       selectedCategory: null,
       list: [],
       fullPage: true,
@@ -258,7 +268,8 @@ export default {
     listprops: listprops,
     ptoggler: ptoggler,
     GridListLoader,
-    Loading
+    Loading,
+    HotSellerLoader
   },
   methods: {
     ...mapActions("product", ["fetchAllProducts", "fetchHotSellers"]),
@@ -292,17 +303,17 @@ export default {
     },
     chooseFilter(payload) {
       if (payload.type == 1) {
-          this.oldestToNewest(payload.data);
+        this.oldestToNewest(payload.data);
       } else if (payload.type == 2) {
-          this.newestTooldest(payload.data);
+        this.newestTooldest(payload.data);
       } else if (payload.type == 3) {
-          this.alphabeticallyAtoZ(payload.data);
+        this.alphabeticallyAtoZ(payload.data);
       } else if (payload.type == 4) {
-          this.alphabeticallyZtoA(payload.data);
+        this.alphabeticallyZtoA(payload.data);
       } else if (payload.type == 5) {
-          this.highestTolowestPrice(payload.data);
+        this.highestTolowestPrice(payload.data);
       } else if (payload.type == 6) {
-          this.lowestTohighestPrice(payload.data);
+        this.lowestTohighestPrice(payload.data);
       } else {
       }
     },
@@ -432,7 +443,7 @@ export default {
     },
     resetCategories() {
       this.list = [];
-    },
+    }
   },
   watch: {
     $route: "sync",
@@ -490,15 +501,15 @@ export default {
   mounted() {
     // console.log("this route just got mounted");
     // this.$forceUpdate();
-      if (localStorage.getItem('reloaded')) {
-          // The page was just reloaded. Clear the value from local storage
-          // so that it will reload the next time this page is visited.
-          localStorage.removeItem('reloaded');
-      } else {
-          // Set a flag so that we know not to reload the page twice.
-          localStorage.setItem('reloaded', '1');
-          location.reload();
-      }
+    if (localStorage.getItem("reloaded")) {
+      // The page was just reloaded. Clear the value from local storage
+      // so that it will reload the next time this page is visited.
+      localStorage.removeItem("reloaded");
+    } else {
+      // Set a flag so that we know not to reload the page twice.
+      localStorage.setItem("reloaded", "1");
+      location.reload();
+    }
     this.sync();
   }
 
