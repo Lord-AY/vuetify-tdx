@@ -838,8 +838,8 @@ body .select2-container--default .select2-selection--single {
 
 @media(min-width: 900px) {
     .container {
-        max-width: 820px !important;
-        width: 820px !important;
+        max-width: 1200px !important;
+        width: 1200px !important;
         padding: 0 8px!important;
     }
 }
