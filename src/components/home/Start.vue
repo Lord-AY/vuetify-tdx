@@ -74,7 +74,7 @@ export default {
           loop: true,
           nav: false,
           autoplay: true,
-          dots: true,
+          dots: false,
           animateIn: "fadeIn",
           animateOut: "fadeOut",
           autoplayTimeout: 4000,
