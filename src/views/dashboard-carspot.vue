@@ -97,7 +97,7 @@
                             </span>
                             <p>
                               <span class="title">Featured Posts</span>
-                              <span class="number">0</span>
+                              <span class="number">{{ getDashboard[1].sold }}</span>
                             </p>
                           </div>
                         </div>
@@ -383,7 +383,7 @@
 import dsidebar from "@/components/Dsidebar";
 
 import DashboardLoader from "@/components/loaders/dashboardloader";
-import { mapState } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 import metrics from "@/components/metrics";
 // import dheader from "@/components/Dheader";
 export default {
@@ -396,6 +396,13 @@ export default {
   },
   computed: {
     ...mapState("auth", ["loading"]),
+    ...mapGetters('user', ['getDashboard'])
+  },
+  methods: {
+    ...mapActions('user', ['fetchDashboardDetails'])
+  },
+  created() {
+    this.fetchDashboardDetails()
   }
 };
 </script>

@@ -62,5 +62,4 @@ export const userChartData = {
       }
     }
   }
-  
   export default userChartData;

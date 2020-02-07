@@ -159,7 +159,7 @@
                             <form
                               id="sb_update_profile"
                               class="sb_update_profile"
-                              @submit.prevent="updateUser"
+                              @submit.prevent="updateUserDetails"
                             >
                               <div class="row">
                                 <div
@@ -295,25 +295,6 @@
                                     data-pt-scheme="dark-transparent"
                                     data-pt-size="small"
                                   />
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div
-                                  class="col-md-12 col-lg-12 col-xs-12 col-sm-12"
-                                >
-                                  <div class="form-group">
-                                    <label
-                                      class="control-label control-label-dashboard"
-                                      >About Yourself</label
-                                    >
-                                    <textarea
-                                      class="form-control dashboard"
-                                      name="sb_user_about"
-                                      v-model="form.about"
-                                      required=""
-                                      rows="5"
-                                    ></textarea>
-                                  </div>
                                 </div>
                               </div>
                               <div class="row">
@@ -649,10 +630,15 @@ export default {
     },
     onUpload(user) {
       const payload = {
-        user,
         image: this.selectedFile
       };
       this.uploadProfileImage(payload);
+    },
+    updateUserDetails() {
+      const payload = {
+        data: this.form,
+      };
+      this.updateUser(payload);
     },
     showLoadingAlert() {
       this.$notify({

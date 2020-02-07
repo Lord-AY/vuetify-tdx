@@ -11,8 +11,8 @@ export default {
     return Api().post("auth/logout", credentials);
   },
   reset(credentials) {
-    return Api().post("auth/reset", credentials); 
-  }, 
+    return Api().post("auth/reset", credentials);
+  },
   referee(refcode) {
     return Api().get(`auth/referal/${refcode}`);
   }
