@@ -26,10 +26,7 @@ const routes = [
   {
     path: "/activation-successful",
     component: activation,
-    name: "activation",
-    meta: {
-      header: 1
-    }
+    name: "activation"
   },
   {
     path: "/about",
