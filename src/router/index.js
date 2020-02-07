@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import store from "@/store";
 // import middlewarePipeline from "./middlewarePipeline";
 import Home from "../views/Home.vue";
+import activation from "../views/activation.vue";
 import userRegister from "../views/Register.vue";
 import p404 from "../views/404.vue";
 import ProductDetails from "../views/ProductDetails.vue";
@@ -20,6 +21,14 @@ const routes = [
     meta: {
       header: 1,
       reload: true
+    }
+  },
+  {
+    path: "/activation-successful",
+    component: activation,
+    name: "activation",
+    meta: {
+      header: 1
     }
   },
   {
