@@ -89,12 +89,6 @@ export default {
       };
       // add image to payload
       payload.product.photos = e.toString();
-      // console.log("photos updated");
-      // send payload to vuex
-      // console.log(payload);
-      // this.createProduct(payload);
-      // console.log("action called");
-      // console.log(payload);
     },
     async fetchCountries() {
       const res = await axios.get("https://restcountries.eu/rest/v2/all");
