@@ -826,8 +826,8 @@ export default {
   },
   created() {
     this.sync();
-    this.fetchAllCategories();
-    this.sendFetchSubCategories();
+    // this.fetchAllCategories();
+    // this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
     document.addEventListener('click', this.documentClick);
     // console.log(this.userbalance);
