@@ -242,10 +242,11 @@
                   </li>
                 </ul>
                 <ul class="listnone custom" v-else>
-                  <li>
+                  <div class="" style="margin-top: auto; margin-right: 8px;">
+                    <li>
                     <a
                       class="shopping_bag_btn"
-                      href="https://carspot.scriptsbundle.com/transparent-1/cart/"
+                      href=""
                     >
                       <i class="fa fa-shopping-cart"></i>
                       <span>0</span>
@@ -254,12 +255,23 @@
                   <li>
                     <a
                       class="shopping_bag_btn"
-                      href="https://carspot.scriptsbundle.com/transparent-1/cart/"
+                      href=""
                     >
                       <i class="fa fa-bell"></i>
                       <span>0</span>
                     </a>
                   </li>
+                  <li>
+                    <a
+                      class="referal"
+                      href="../views/ref.vue"
+                    >
+                    <span>Refer</span>
+                      <i class="fa fa-share"></i>
+                    </a>
+                  </li>
+                  </div>
+                  
 
                   <li class="dropdown">
                     <a
@@ -287,8 +299,8 @@
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
                     <ul class="dropdown-menu">
-                      <li class="wallet-balance row">
-                        <router-link to="/wallet"> 
+                      <li class="wallet-balance" style="display: flex" v-if="userbalance">
+                        <router-link to="/wallet">
                           <img
                             src="@/assets/images/wallet.svg"
                             height="16px"
@@ -297,6 +309,7 @@
                           Balance
                           <span>{{ userbalance }}</span>
                         </router-link>
+                        <span style="line-height: 1.6!important">{{ userbalance }}</span>
                       </li>
                       <li class="profile-dropdown-list">
                         <router-link
@@ -902,6 +915,13 @@ export default {
   width: 100%;
   /* border-top: 3px solid #4caf50; */
 }
+.referal {
+  color: #fff;
+}
+
+.referal span{
+  margin-right: 5px;
+}
 .bmenu {
   background: white;
   color: black !important;
@@ -916,20 +936,28 @@ export default {
 .horizontal-main {
   border-bottom: none !important;
 }
-@media (min-width: 768px) {
-  .container2 {
-    width: 750px;
-  }
+@media(min-width: 1320px) {
+    .container2 {
+        max-width: 1440px !important;
+        width: 144px !important;
+        /* padding: 0 8px!important; */
+    }
 }
-@media (min-width: 992px) {
-  .container2 {
-    width: 970px;
-  }
+
+@media(min-width: 1200px) {
+    .container2 {
+        max-width: 1320px !important;
+        width: 1320px !important;
+        /* padding: 0 8px!important; */
+    }
 }
-@media (min-width: 1200px) {
-  .container2 {
-    width: 1370px !important;
-  }
+
+@media(min-width: 900px) {
+    .container2 {
+        max-width: 1200px !important;
+        width: 1200px !important;
+        /* padding: 0 8px!important; */
+    }
 }
 /* .top-bar-hide {
   display: none !important;
