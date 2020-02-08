@@ -205,8 +205,8 @@ export default {
           rewind: false,
           margin: 25,
           autoplay: true,
-          animateIn: "fadeInDowm",
-          animateOut: "fadeOutDown",
+          // animateIn: "fadeInDowm",
+          // animateOut: "fadeOutDown",
           autoplayTimeout: 5000, // set value to change speed
           autoplayHoverPause: true,
           dots: false,
