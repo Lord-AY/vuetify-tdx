@@ -13,7 +13,7 @@
             :speed="2"
             primaryColor="#bcbcbc"
             secondaryColor="#ecebeb"
-            v-show="showLoader(paginatedList)"
+            v-show="showLoader(products[0])"
           >
             <rect
               x="23.37"
@@ -163,7 +163,7 @@
             :speed="2"
             primaryColor="#bcbcbc"
             secondaryColor="#ecebeb"
-            v-show="showLoader(paginatedList)"
+            v-show="showLoader(products[0])"
           >
             <rect
               x="23.37"
@@ -307,147 +307,155 @@
             />
             <circle cx="565.14" cy="260.58" r="26.91" />
           </ContentLoader>
+          <!-- {{ products}} -->
           <div v-if="list.length == 0">
-          <div
-            class="posts-masonry"
-            v-for="product in paginatedList"
-            :key="product.id"
-            v-show="!showLoader(paginatedList)"
-          >
+          <div class="infinite-wrapper">
             <div
-              class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col-md-3-tx col-lg-3-tx col-sm-6-tx col-xs-12-tx"
-              id=".holder-1375"
+              class="posts-masonry"
+              v-for="product in products[0]"
+              :key="product.id"
+              v-show="!showLoader(products[0])"
             >
-              <div class="category-grid-box-1 sold-tx">
-                <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
-                <div class="image">
-                  <!-- <div class="arrow-ribbon bg-primary bg-sold bg-tag-tx">
-                    Sold
-                  </div> -->
-                  <div class="hot-ribbon-tx">
-                    <img
-                      src="../../assets/images/brand/tradexplora_main_logo.png"
-                    />
-                  </div>
-                  <!-- <div class="hot-ribbon">
-                    <img src="../../assets/images/hoticonv2.png" />
-                  </div> -->
-                  <router-link
-                    :to="
-                      `productDetails/${product.id}/${product.cid}/${product.uid}`
-                    "
-                  >
-                    <img
-                      :src="product.photos[0]"
-                      :alt="product.name"
-                      class="img-responsive"
-                    />
-                  </router-link>
-                  <div class="price-tagg" id="price-tag">
-                    <div class="camera">
-                      {{ product.photos.length }} <i class="fa fa-camera"></i>
-                    </div>
-                    <div class="video">
-                      {{ product.videos.length }}
-                      <i class="fa fa-video-camera"></i>
-                    </div>
-
-                    <!-- <div class="price">
-                      <span class="price-tag-tx">
-                        &#8358; {{ product.amount }}
-                        <span class v-if="product.negotiable"
-                          >(Negotiable)</span
-                        >
-                        <span class v-else>(Fixed)</span>
-                      </span>
+              <div
+                class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col-md-3-tx col-lg-3-tx col-sm-6-tx col-xs-12-tx"
+                id=".holder-1375"
+              >
+                <div class="category-grid-box-1 sold-tx">
+                  <!-- <div class="featured-ribbon"><span>Featured</span></div> -->
+                  <div class="image">
+                    <!-- <div class="arrow-ribbon bg-primary bg-sold bg-tag-tx">
+                      Sold
                     </div> -->
-                    <!-- </div> -->
-                  </div>
-                </div>
-                <div class="short-description-1 clearfix">
-                  <div class="">
-                    <div class="category-title" style="margin-bottom: 6px;">
-                      <span class="padding_cats">
-                        <router-link to="#">
-                          <i v-if="product.adtype == 0">regular</i>
-                          <i v-else-if="product.adtype == 1">urgent</i>
-                          <i v-else-if="product.adtype == 2">top ad</i>
-                          <i v-else-if="product.adtype == 3">gold</i>
-                          <i v-else-if="product.adtype == 4">Premium</i>
-                          <i v-else-if="product.adtype == 5">Hot seller</i>
-                          <i v-else>Regular</i>
-                        </router-link>
-                      </span>
+                    <div class="hot-ribbon-tx">
+                      <img
+                        src="../../assets/images/brand/tradexplora_main_logo.png"
+                      />
                     </div>
-                    <!-- <i class="fa fa-heart-o"></i> -->
-                  </div>
-                  <h3 class="product-name-tx">
+                    <!-- <div class="hot-ribbon">
+                      <img src="../../assets/images/hoticonv2.png" />
+                    </div> -->
                     <router-link
                       :to="
                         `productDetails/${product.id}/${product.cid}/${product.uid}`
                       "
                     >
-                      {{ product.name }}
+                      <img
+                        :src="product.photos[0]"
+                        :alt="product.name"
+                        class="img-responsive"
+                      />
                     </router-link>
-                  </h3>
-                  <span class="price-tag-tx">
-                    &#8358; {{ formatCurrency(product.amount) }}
-                    <!-- <span class v-if="product.negotiable"> (Negotiable)</span>
-                      <span class v-else> (Fixed)</span> -->
-                  </span>
-                  <!-- <span class="price-tag-tx">
-                    &#8358; {{ product.amount }}
-                    <span class v-if="product.negotiable"> (Negotiable)</span>
-                    <span class v-else> (Fixed)</span>
-                  </span> -->
-                  <p class="location location-tx">
-                    <i class="fa fa-map-marker"></i>
-                    <a href="../ad_country/california/index.html">{{
-                      product.region
-                    }}</a>
-                  </p>
-                  <p class="gd-date-tx">
-                    <i class="flaticon-calendar"></i> &nbsp;
-                    <span>{{ format_date(product.createdAt) }}</span>
-                  </p>
-                </div>
-                <div class="ad-info-1">
-                  <!-- <span class="price-tag-tx">
-                  </span> -->
-                  <div class="icon-reveal mobile-hidden">
-                    <a class="btn icon-reveal-btn">
-                      <i class="fa fa-heart"></i>
-                    </a>
+                    <div class="price-tagg" id="price-tag">
+                      <div class="camera">
+                        {{ product.photos.length }} <i class="fa fa-camera"></i>
+                      </div>
+                      <div class="video">
+                        {{ product.videos.length }}
+                        <i class="fa fa-video-camera"></i>
+                      </div>
+
+                      <!-- <div class="price">
+                        <span class="price-tag-tx">
+                          &#8358; {{ product.amount }}
+                          <span class v-if="product.negotiable"
+                            >(Negotiable)</span
+                          >
+                          <span class v-else>(Fixed)</span>
+                        </span>
+                      </div> -->
+                      <!-- </div> -->
+                    </div>
                   </div>
-                  <div class="button-reveal mobile-hidden">
-                    <router-link
-                      class="btn btn-block button-reveal-btn"
-                      :to="
-                        `productDetails/${product.id}/${product.cid}/${product.uid}`
-                      "
-                      >Contact Seller</router-link
-                    >
+                  <div class="short-description-1 clearfix">
+                    <div class="">
+                      <div class="category-title" style="margin-bottom: 6px;">
+                        <span class="padding_cats">
+                          <router-link to="#">
+                            <i v-if="product.adtype == 0">regular</i>
+                            <i v-else-if="product.adtype == 1">urgent</i>
+                            <i v-else-if="product.adtype == 2">top ad</i>
+                            <i v-else-if="product.adtype == 3">gold</i>
+                            <i v-else-if="product.adtype == 4">Premium</i>
+                            <i v-else-if="product.adtype == 5">Hot seller</i>
+                            <i v-else>Regular</i>
+                          </router-link>
+                        </span>
+                      </div>
+                      <!-- <i class="fa fa-heart-o"></i> -->
+                    </div>
+                    <h3 class="product-name-tx">
+                      <router-link
+                        :to="
+                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                        "
+                      >
+                        {{ product.name }}
+                      </router-link>
+                    </h3>
+                    <span class="price-tag-tx">
+                      &#8358; {{ formatCurrency(product.amount) }}
+                      <!-- <span class v-if="product.negotiable"> (Negotiable)</span>
+                        <span class v-else> (Fixed)</span> -->
+                    </span>
+                    <!-- <span class="price-tag-tx">
+                      &#8358; {{ product.amount }}
+                      <span class v-if="product.negotiable"> (Negotiable)</span>
+                      <span class v-else> (Fixed)</span>
+                    </span> -->
+                    <p class="location location-tx">
+                      <i class="fa fa-map-marker"></i>
+                      <a href="../ad_country/california/index.html">{{
+                        product.region
+                      }}</a>
+                    </p>
+                    <p class="gd-date-tx">
+                      <i class="flaticon-calendar"></i> &nbsp;
+                      <span>{{ format_date(product.createdAt) }}</span>
+                    </p>
                   </div>
-                  <div class="button-griddy hidden-desktop">
-                    <router-link
-                      class="btn btn-block btn-theme"
-                      :to="
-                        `productDetails/${product.id}/${product.cid}/${product.uid}`
-                      "
-                      >Contact Seller</router-link
-                    >
+                  <div class="ad-info-1">
+                    <!-- <span class="price-tag-tx">
+                    </span> -->
+                    <div class="icon-reveal mobile-hidden">
+                      <a class="btn icon-reveal-btn">
+                        <i class="fa fa-heart"></i>
+                      </a>
+                    </div>
+                    <div class="button-reveal mobile-hidden">
+                      <router-link
+                        class="btn btn-block button-reveal-btn"
+                        :to="
+                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                        "
+                        >Contact Seller</router-link
+                      >
+                    </div>
+                    <div class="button-griddy hidden-desktop">
+                      <router-link
+                        class="btn btn-block btn-theme"
+                        :to="
+                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                        "
+                        >Contact Seller</router-link
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <infinite-loading spinner="bubbles" @infinite="loadMore" force-use-infinite-wrapper=".infinite-wrapper">
+                <div class="text-red" slot="no-more">No more Data</div>
+                <div class="text-red" slot="no-results">No more Data</div>
+            </infinite-loading>
           </div>
+          <!-- <infinite-loading :identifier="infiniteId" @infinite="infiniteHandler"></infinite-loading> -->
         </div>
         <div v-else>
           <div
             class="posts-masonry"
             v-for="product in list"
             :key="product.id"
-            v-show="!showLoader(paginatedList)"
+            v-show="!showLoader(products[0])"
           >
             <div
               class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col-md-3-tx col-lg-3-tx col-sm-6-tx col-xs-12-tx"
@@ -586,7 +594,6 @@
 <script>
 // Import component
 import Loading from "vue-loading-overlay";
-// import { infiniteScroll } from 'vue-infinite-scroll'
 // Import stylesheet
 const formatCurrency = require("format-currency");
 import { mapActions, mapGetters } from "vuex";
@@ -594,16 +601,17 @@ import "vue-loading-overlay/dist/vue-loading.css";
 import ash from "lodash";
 import moment from "moment";
 import { ContentLoader } from "vue-content-loader";
+import InfiniteLoading from 'vue-infinite-loading';
+
 export default {
   data() {
     return {
       isLoading: false,
       fullPage: true,
-      loadMore: true,
       page: 1,
-      pageSize: 9,
-      bottom: false,
-      beers: []
+      busy: false,
+      products: [],
+      limit: 10,
     };
   },
   props: {
@@ -616,9 +624,13 @@ export default {
   },
   components: {
     Loading,
-    ContentLoader
+    ContentLoader,
+    InfiniteLoading
   },
   computed: {
+    ...mapGetters("product", [
+      "paginatedProducts"
+    ]),
     paginatedList() {
       return this.data.slice(0, 10);
     }
@@ -627,6 +639,25 @@ export default {
     ...mapActions("product", ["fetchAllProducts", "fetchHotSellers"]),
     formatCurrency(data) {
       return formatCurrency(data);
+    },
+    paginateData() {
+      this.products.push(this.data);
+    },
+    async getAllPro() {
+        return this.products;
+    },
+    loadMore: function($state) {
+      // setTimeout(function () {
+        this.getAllPro()
+            .then(response => {
+              // console.log(response);
+              if (response) {
+                $state.loaded();
+              } else {
+                $state.complete();
+              }
+          })
+      // }.bind(this), 1000);
     },
     sync() {
       $("html,body").animate({ scrollTop: 0 }, "slow");
@@ -643,42 +674,19 @@ export default {
         return moment(String(value)).format("YYYY-MM-DD");
       }
     },
-    bottomVisible() {
-      const scrollY = window.scrollY;
-      const visible = document.documentElement.clientHeight;
-      const pageHeight = document.documentElement.scrollHeight;
-      const bottomOfPage = visible + scrollY >= pageHeight;
-      return bottomOfPage || pageHeight < visible;
-    },
-    addBeer() {
-      this.fetchAllProducts().then(response => {
-        this.beers.push(response);
-        if (this.bottomVisible()) {
-          this.addBeer();
-        }
-      });
-    }
   },
   watch: {
     isLoading: {
-      immediate: true,
       handler: function(loading) {
         this.sync();
         this.isLoading = false;
       }
     },
-    bottom(bottom) {
-      if (bottom) {
-        this.addBeer();
-      }
-    }
   },
   created() {
-    window.addEventListener("scroll", () => {
-      this.bottom = this.bottomVisible();
-    });
-    this.addBeer();
-  }
+    this.paginateData();
+    // console.log(this.products);
+  },
 };
 </script>
 <style scoped lang="scss">

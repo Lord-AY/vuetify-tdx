@@ -3,10 +3,10 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
   <div id="app">
     <!--Loader-->
     <!-- <topbar></topbar> -->
-    <div v-if="$route.meta.header === 1"><topbar></topbar></div>
-    <div v-else-if="$route.meta.header === 3"><topbar2></topbar2></div>
-    <div v-else-if="$route.meta.header === 4"><topbar2></topbar2></div>
-    <div v-else-if="$route.meta.header === 5"><dashboardtopbar></dashboardtopbar></div>
+    <div v-if="$route.meta.header === 1" v-show="isloading"><topbar></topbar></div>
+    <div v-else-if="$route.meta.header === 3" v-show="isloading"><topbar2></topbar2></div>
+    <div v-else-if="$route.meta.header === 4" v-show="isloading"><topbar2></topbar2></div>
+    <div v-else-if="$route.meta.header === 5" v-show="isloading" ><dashboardtopbar></dashboardtopbar></div>
     <!-- <topbar></topbar> -->
     <transition name="page-animation">
       <div class="tdx-main-view">
@@ -14,9 +14,9 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
       </div>
     </transition>
     <!-- <Footer></Footer> -->
-    <div v-if="$route.meta.header === 1"><Footer></Footer></div>
-    <div v-if="$route.meta.header === 3"><Footer></Footer></div>
-    <div v-if="$route.meta.header === 4"><Footer></Footer></div>
+    <div v-if="$route.meta.header === 1" v-show="isloading"><Footer></Footer></div>
+    <div v-if="$route.meta.header === 3" v-show="isloading"><Footer></Footer></div>
+    <div v-if="$route.meta.header === 4" v-show="isloading"><Footer></Footer></div>
     <notifications group="errors" :speed="500" />
     <notifications group="notify" :speed="500" />
     <!-- <div v-else-if="$route.meta.header === 3">I'm visible on home page two</div> -->
@@ -50,6 +50,11 @@ import Footer from "@/components/Footer";
 // import Vue from "vue";
 // Vue.forceUpdate();
 export default {
+  data(){
+    return{
+      isloading: false
+    }
+  },
   components: {
     topbar,
     // topbar2,
@@ -60,8 +65,10 @@ export default {
   methods: {
     sync() {
       $(document).ready(() => {
+        this.isloading = true;
         // ______________ Global Loader
         $(window).on("load", function() {
+
           $("#global-loader").fadeOut("slow");
         });
         // ______________ Back to Top

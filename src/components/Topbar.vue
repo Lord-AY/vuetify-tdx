@@ -287,16 +287,16 @@
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
                     <ul class="dropdown-menu">
-                      <li class="wallet-balance" v-if="userbalance">
-                        <router-link to="/wallet">
+                      <li class="wallet-balance row">
+                        <router-link to="/wallet"> 
                           <img
                             src="@/assets/images/wallet.svg"
                             height="16px"
-                            style="margin-top: -4px; margin-right: 0px;"
+                            style="margin-top: -4px; margin-right: 5px;"
                           />
                           Balance
+                          <span>{{ userbalance }}</span>
                         </router-link>
-                        <span>{{ userbalance }}</span>
                       </li>
                       <li class="profile-dropdown-list">
                         <router-link
@@ -642,7 +642,7 @@ export default {
       });
     },
     sync() {
-      $(document).ready(function() {
+      $(window).on('load', function() {
         $("#bmenu_toggle").prop("checked", false);
         var stickyNavTop = $(".my-nav").offset().top;
         var stickyNav = function() {

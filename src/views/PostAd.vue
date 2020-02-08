@@ -52,12 +52,12 @@ export default {
         price: null,
         amount: null,
         negotiable: false,
-        address:  null,
+        address:  "",
         subcategory: null,
         featured: false,
         tradexplorer: true,
         adType: null,
-        paymentType: 1,
+        paymentype: 1,
         approved: true,
         published: true,
         description: "",
@@ -91,7 +91,8 @@ export default {
       payload.product.photos = e.toString();
       // console.log("photos updated");
       // send payload to vuex
-      this.createProduct(payload);
+      // console.log(payload);
+      // this.createProduct(payload);
       // console.log("action called");
       // console.log(payload);
     },
