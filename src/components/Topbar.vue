@@ -304,9 +304,10 @@
                           <img
                             src="@/assets/images/wallet.svg"
                             height="16px"
-                            style="margin-top: -4px; margin-right: 0px;"
+                            style="margin-top: -4px; margin-right: 5px;"
                           />
                           Balance
+                          <span>{{ userbalance }}</span>
                         </router-link>
                         <span style="line-height: 1.6!important">{{ userbalance }}</span>
                       </li>
@@ -654,7 +655,7 @@ export default {
       });
     },
     sync() {
-      $(document).ready(function() {
+      $(window).on('load', function() {
         $("#bmenu_toggle").prop("checked", false);
         var stickyNavTop = $(".my-nav").offset().top;
         var stickyNav = function() {

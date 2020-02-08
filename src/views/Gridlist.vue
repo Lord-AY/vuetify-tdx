@@ -172,6 +172,7 @@
               <hotsellers
                 class="mobile-hidden"
                 :hotsellers="getHotSellers"
+                :isLoading="isLoading"
               ></hotsellers>
             </div>
             <div v-else>
@@ -452,7 +453,7 @@ export default {
         if (loading) {
           this.isLoading = true;
         }
-        this.isLoading = false;
+        this.isLoading = true;
       }
     },
     paginatedProducts: {
