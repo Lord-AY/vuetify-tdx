@@ -457,7 +457,7 @@
                 </span>
               </label>
               <div class="hide-at-start-wrapper">
-                <nav class="bmenu panel animated">
+                <nav class="bmenu panel animated" v-if="categories">
                   <router-link
                     to="/categories"
                     v-for="(category, index) in categories"
