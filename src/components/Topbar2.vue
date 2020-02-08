@@ -567,7 +567,6 @@
                   <input
                     type="text"
                     class="form-control input-lg br-tr-md-0 br-br-md-0 main-search"
-                    id="text4"
                     placeholder="Search products, brands and categories"
                   />
                   <span>
