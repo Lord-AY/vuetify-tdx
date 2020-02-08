@@ -10,9 +10,11 @@
               <p id="paragraph">You have successfully verified your account.</p>
           </div>
           <div class="redirect-to-home-page">
+            <router-link to="/">
               <button class="btn btn-theme">
                   Go to Home
               </button>
+            </router-link>
           </div>
       </div>
   </section>
