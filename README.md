@@ -113,3 +113,56 @@ next endpoint
 
 http://157.245.82.193/qtell/getbillers
 - hot-sellers carousel on the gridlist shoudl be fixed.
+
+
+{
+	"cid":6,
+	"uid":1,
+	"name":"emmanuel",
+	"photos":"https://res.cloudinary.com/coderoute/image/upload/v1580833737/ecommerce/adzpg9h7bwufq7bkrv5r.jpg,https://res.cloudinary.com/coderoute/image/upload/v1580833737/ecommerce/pywfxdwubswggl8oqfbp.jpg",
+	"videos":[],
+	"inputFields":"",
+	"checkFields":"",
+	"region":"Nigeria",
+	"currency":"Naira",
+	"creator":"Adeojo emmanuel",
+	"price":null,
+	"amount":"2000000",
+	"negotiable":true,
+	"subcategory":null,
+	"featured":false,
+	"tradexplorer":true,
+	"adType":"4",
+	"paymentype":1,
+	"approved":true,
+	"published":true,
+	"description":"emmanuel adeojo for sale ",
+	"keywords":[],
+	"canExchange":false
+}
+ {
+        cid: "",
+        uid: "",
+        name: "",
+        photos: "",
+        videos: [],
+        region: "",
+        currency: "Naira",
+        creator: "",
+        price: null,
+        amount: null,
+        negotiable: false,
+        address:  "",
+        subcategory: null,
+        featured: false,
+        tradexplorer: true,
+        adType: null,
+        paymentType: 1,
+        approved: true,
+        published: true,
+        description: "",
+        keywords: [],
+        canExchange: false,
+        inputFields:{},
+        checkFields:{},
+      }

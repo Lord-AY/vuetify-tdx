@@ -10,7 +10,7 @@ import VueChatScroll from 'vue-chat-scroll';
 import Vue2Filters from 'vue2-filters';
 import ScrollLoader from 'vue-scroll-loader'
 import underscore from 'vue-underscore';
-
+import infiniteScroll from "vue-infinite-scroll";
 require("firebase/firestore");
 var SocialSharing = require('vue-social-sharing');
 
@@ -41,6 +41,7 @@ Vue.use(VueChatScroll);
 Vue.use(Vue2Filters);
 Vue.use(ScrollLoader);
 Vue.use(underscore);
+Vue.use(infiniteScroll);
 
 export const bus = new Vue();
 sync(store, router);

@@ -116,12 +116,12 @@ const routes = [
   },
   {
     path: "/referal",
-    name: "referal",
+    name: "referalll",
     component: () => import("../views/ref.vue"),
       beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
-      if (auth) {
-        next({ name: "referal" });
+      if (!auth) {
+        next({ name: "login" });
       }
       next();
     },

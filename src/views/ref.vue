@@ -151,12 +151,6 @@ export default {
   created() {
     this.sync();
   },
-  beforeCreate() {
-    // console.log("this is before created");
-  },
-  beforeMount() {
-    // console.log("this is before mounted");
-  }
 };
 </script>
 <style>

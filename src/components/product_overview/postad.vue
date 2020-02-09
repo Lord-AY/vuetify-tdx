@@ -12,7 +12,7 @@
     <div class="container">
       <div class="row ">
         <div class="col-lg-8 col-md-12 col-md-12">
-          <form action="" class="form-horizontal" @submit.prevent="processForm">
+          <form action="" class="form-horizontal" @submit.prevent="processForm" novalidate>
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="form-box">
@@ -1619,7 +1619,6 @@ export default {
     },
     selectCategoryFields() {
       let categories = this.fullCategories;
-      // console.log(categories);
       this.categoryFields = [];
       for(let i in categories ) {
       // console.log("entered method");
@@ -1636,6 +1635,13 @@ export default {
           // console.log(this.categoryFields);
         }
       }
+      let fields = this.categoryFields;
+      for(let i in fields){
+          const concat = "check_" + i
+          this.ads.checkFields[concat] = false;
+      }
+      // console.log(this.ads.checkFields);
+      
     },
     filterSubCategories(subcategories) {
       // console.log("Entered this function");
@@ -1735,12 +1741,6 @@ export default {
     //   });
     // },
     sync() {
-      $("#demo").FancyFileUpload({
-        params: {
-          action: "fileuploader"
-        },
-        maxfilesize: 1000000
-      });
       $(".vertical-scroll").bootstrapNews({
         newsPerPage: 4,
         autoplay: true,

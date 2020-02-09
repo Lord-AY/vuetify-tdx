@@ -170,6 +170,7 @@ export default {
             }
           }
         });
+        this.isLoading = false;
       });
     },
     format_date(value) {

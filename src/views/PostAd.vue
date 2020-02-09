@@ -52,11 +52,15 @@ export default {
         price: null,
         amount: null,
         negotiable: false,
-        address:  null,
+        address:  "",
         subcategory: null,
         featured: false,
         tradexplorer: true,
+<<<<<<< HEAD
         adtype: null,
+=======
+        adType: null,
+>>>>>>> 2c1b171439813ed2f79983c677640c208431dab8
         paymentype: 1,
         approved: true,
         published: true,
@@ -89,11 +93,6 @@ export default {
       };
       // add image to payload
       payload.product.photos = e.toString();
-      // console.log("photos updated");
-      // send payload to vuex
-      this.createProduct(payload);
-      // console.log("action called");
-      // console.log(payload);
     },
     async fetchCountries() {
       const res = await axios.get("https://restcountries.eu/rest/v2/all");

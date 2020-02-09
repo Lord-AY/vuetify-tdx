@@ -963,7 +963,8 @@ export default {
       tab3: false,
       tab4: false,
       showDetails: false,
-      singleCart: null
+      singleCart: null,
+      photos: []
     };
   },
   components: {
@@ -1174,10 +1175,11 @@ export default {
     }
   },
   created() {
-    // console.log(this.fsingleCategory);
+    var tempfix = this.fsingleCategory;
     // array1.concat(array2)
+    this.photos = this.product.photos;
     this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
-    // console.log(this.singleCart);
+    // console.log(this.photos);
     this.sync();
   }
 };
