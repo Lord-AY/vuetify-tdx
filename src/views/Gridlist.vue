@@ -222,8 +222,8 @@
 </template>
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
-require("../../public/assets/plugins/select2/select2.min.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
+// require("../../public/assets/plugins/select2/select2.min.css");
+// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
 
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
@@ -571,7 +571,7 @@ i.switch[disabled="disabled"] {
 }
 
 html {
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .ad-meta:first-child a {
