@@ -638,49 +638,7 @@ export default {
         return false;
     },
     sync() {
-      $(document).ready(function() {
-        $("#bmenu_toggle").prop("checked", false);
-        $(window).scroll(function() {
-          var scroll = $(window).scrollTop();
-          // console.log("we are scrolling " + scroll);
-          if (scroll > 25) {
-            $("#topb").removeClass("mobile-hidden");
-            $("#topb").addClass("top-bar-hide");
-          } else {
-            $("#topb").removeClass("top-bar-hide");
-          }
-        });
-        $("#tx-menu-toggle").click(function() {
-          $(this).toggleClass("open");
-        });
-
-        let sideBarTrigger = $(".openbtn");
-        // let sideBar = $("#sidebar-nav");
-        let sideBar = $("#tempSidebar");
-        let dashboardContent = $(".dashboard-main");
-        // let closeBtn = $("")
-        sideBarTrigger.click(() => {
-          if (sideBarTrigger.hasClass("closed")) {
-            //to open
-            sideBar.css({ left: "0px" });
-            dashboardContent.css({
-              left: "250px",
-              transition: "all 0.3s ease-in-out;"
-            });
-            sideBarTrigger.toggleClass("closed");
-            // console.log("Sidebar is now open");
-          } else {
-            //to close
-            sideBar.css({ left: "-260px" });
-            dashboardContent.css({
-              left: "0px",
-              transition: "all 0.3s ease-in-out;"
-            });
-            sideBarTrigger.toggleClass("closed");
-            // console.log("Sidebar is now closed");
-          }
-        });
-      });
+     
     }
   },
   watch: {

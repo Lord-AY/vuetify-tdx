@@ -8,7 +8,8 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div id="myCarousel" class="owl-carousel testimonial-owl-carousel">
+        <simple-carousel-container loop :watch-it="data">
+            <simple-carousel-item>
             <div class="item text-center">
               <div class="row">
                 <div class="col-xl-8 col-md-12 d-block mx-auto">
@@ -65,7 +66,11 @@
                 </div>
               </div>
             </div>
-            <div class="item text-center">
+            </simple-carousel-item>
+            <!-- </div> -->
+            
+            <simple-carousel-item>
+              <div class="item text-center">
               <div class="row">
                 <div class="col-xl-8 col-md-12 d-block mx-auto">
                   <div class="testimonia">
@@ -125,6 +130,8 @@
                 </div>
               </div>
             </div>
+            </simple-carousel-item>
+            <simple-carousel-item>
             <div class="item text-center">
               <div class="row">
                 <div class="col-xl-8 col-md-12 d-block mx-auto">
@@ -185,7 +192,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </simple-carousel-item>
+          </simple-carousel-container>
+          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -193,33 +202,23 @@
 </template>
 
 <script>
+import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
 /* eslint-disable no-undef */
 export default {
   name: "Testimonial",
+  data() {
+    return {
+      data: null
+    };
+  },
+
+  components: {
+    SimpleCarouselContainer,
+    SimpleCarouselItem
+  },
   methods: {
     sync() {
-      $(document).ready(() => {
-        // ______________Testimonial-owl-carousel
-        $(".testimonial-owl-carousel").owlCarousel({
-          loop: true,
-          rewind: false,
-          margin: 25,
-          autoplay: true,
-          // animateIn: "fadeInDowm",
-          // animateOut: "fadeOutDown",
-          autoplayTimeout: 5000, // set value to change speed
-          autoplayHoverPause: true,
-          dots: false,
-          nav: true,
-          responsiveClass: true,
-          responsive: {
-            0: {
-              items: 1,
-              nav: true
-            }
-          }
-        });
-      });
+     
     }
   },
   watch: {

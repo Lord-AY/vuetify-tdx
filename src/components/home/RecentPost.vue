@@ -11,12 +11,9 @@
         </div>
       </div>
       <ProductLoader v-show="showLoader(comments)"></ProductLoader>
-      <div
-        id="defaultCarousel"
-        class="owl-carousel Card-owlcarousel owl-carousel-icons"
-        v-show="!showLoader(comments)"
-      >
-        <div class="item" v-for="(comment, index) in comments" :key="index">
+      <simple-carousel-container loop :watch-it="comments">
+        <simple-carousel-item class="item" v-for="(comment, index) in comments" :key="index">
+        <!-- <div class="item" v-for="(comment, index) in comments" :key="index"> -->
           <div class="card mb-0">
             <div class="item7-card-img">
               <router-link
@@ -79,8 +76,10 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        <!-- </div> -->
+        </simple-carousel-item>
+      </simple-carousel-container>
+      <!-- </div> -->
     </div>
   </section>
   <!--Section-->
@@ -91,13 +90,16 @@
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
 import ash from "lodash";
+import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
 export default {
   name: "RecentPost",
   props: {
     comments: [Object, Array]
   },
   components: {
-    ProductLoader
+    ProductLoader,
+    SimpleCarouselContainer,
+    SimpleCarouselItem
   },
   methods: {
     showLoader(data) {
@@ -118,28 +120,6 @@ export default {
       }
     },
     sync() {
-      $(window).on('load', function() {
-        // ______________Owl-carousel-icons
-        var owl = $(".owl-carousel-icons");
-        owl.owlCarousel({
-          margin: 25,
-          loop: true,
-          nav: true,
-          autoplay: true,
-          dots: false,
-          responsive: {
-            0: {
-              items: 1
-            },
-            600: {
-              items: 2
-            },
-            1300: {
-              items: 3
-            }
-          }
-        });
-      });
     }
   },
   beforeRouteEnter(to, from, next) {

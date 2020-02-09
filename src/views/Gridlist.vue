@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div id="global-loader" v-show="isLoading">
+<!--     <div id="global-loader" v-show="isLoading">
       <GridListLoader class="mobile-hidden"></GridListLoader>
     </div>
-    <div class="gridlist">
+ -->    <div class="gridlist">
       <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
       <div class="main-content-area clearfix">
         <section
@@ -168,7 +168,7 @@
               </div>
             </div>
             <!-- <hr /> -->
-            <div v-if="getHotSellers.length > 0">
+<!--             <div v-if="getHotSellers.length > 0">
               <hotsellers
                 class="mobile-hidden"
                 :hotsellers="getHotSellers"
@@ -182,7 +182,7 @@
                 style="margin: -4em 5em 0 -4em;"
               ></HotSellerLoader>
             </div>
-            <!-- Row -->
+ -->            <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
                 <gsidebar
@@ -502,43 +502,8 @@ export default {
   mounted() {
     // console.log("this route just got mounted");
     // this.$forceUpdate();
-    if (localStorage.getItem("reloaded")) {
-      // The page was just reloaded. Clear the value from local storage
-      // so that it will reload the next time this page is visited.
-      localStorage.removeItem("reloaded");
-    } else {
-      // Set a flag so that we know not to reload the page twice.
-      localStorage.setItem("reloaded", "1");
-      location.reload();
-    }
     this.sync();
   }
-
-  // mounted() {
-  //   // console.log("this route just got mounted");
-  //   // this.$forceUpdate();
-  //   if (localStorage.getItem('reloaded')) {
-  //       // The page was just reloaded. Clear the value from local storage
-  //       // so that it will reload the next time this page is visited.
-  //       localStorage.removeItem('reloaded');
-  //   } else {
-  //       // Set a flag so that we know not to reload the page twice.
-  //       localStorage.setItem('reloaded', '1');
-  //       location.reload();
-  //   }
-  //   this.sync();
-  // },
-  // beforeRouteLeave: function(to, from, next) {
-  //     if (this.prevRoute.path === to.path) {
-  //       this.$router.go(to.path);
-  //     }
-  //     next()
-  // },
-  // beforeRouteEnter(to, from, next) {
-  //   next(vm => {
-  //     vm.prevRoute = from
-  //   })
-  // },
 };
 </script>
 

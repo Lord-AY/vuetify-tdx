@@ -28,11 +28,15 @@
       <div class="center-text col-md-12 ">
         <CategoryLoader v-show="showLoader(categories)"></CategoryLoader>
       </div>
-      <div
+<!--       <div
+        id="slick"
         class="slick single-item mobile-hidden"
         data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'
-        v-show="!showLoader(categories)"
+        
       >
+ -->   
+
+      <slick ref="slick" :options="slickOptions"  v-if="categories">     
         <div class="item" v-for="category in categories" :key="category.id">
           <div class="card card-cat-tx mb-0 box-shadow-0">
             <div class="item-card item-card-tx">
@@ -59,7 +63,8 @@
             </div>
           </div>
         </div>
-      </div>
+      </slick>
+      <!-- </div> -->
     </div>
   </section>
   <!--/Section-->
@@ -67,15 +72,34 @@
 
 <script>
 /* eslint-disable no-undef */
+import Slick from 'vue-slick';
+import './../../../node_modules/slick-carousel/slick/slick.css';
 import CategoryLoader from "@/components/loaders/Categoryloader";
 import ash from "lodash";
 export default {
   name: "SPTB",
+  data() {
+    return {
+      slickOptions: {
+          //options can be used from the plugin documentation
+          slidesToShow: 4,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: true,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true
+      }
+    }
+  },
   props: {
     categories: [Object, Array]
   },
   components: {
-    CategoryLoader
+    CategoryLoader,
+    Slick 
   },
   methods: {
     showLoader(data) {
@@ -86,77 +110,74 @@ export default {
       }
     },
     sync() {
-      $(window).on('load', function() {
-        // $(".small-categories").slick({
-        //   slidesToShow: 5,
-        //   slidesToScroll: 1,
-        //   autoplay: false,
-        //   autoplaySpeed: 2000,
-        //   mobileFirst: true,
-        //   responsive: [
-        //     {
-        //       breakpoint: 1280,
-        //       settings: {
-        //         slidesToShow: 5,
-        //         slidesToScroll: 1
-        //       }
-        //     },
-        //     {
-        //       breakpoint: 992,
-        //       settings: {
-        //         slidesToShow: 4,
-        //         slidesToScroll: 1
-        //       }
-        //     // },
-        //     // {
-        //     //   breakpoint: 768,
-        //     //   settings: {
-        //     //     slidesToShow: 3,
-        //     //     slidesToScroll: 1
-        //     //   }
-        //     // },
-        //     // {
-        //     //   breakpoint: 360,
-        //     //   settings: {
-        //     //     slidesToShow: 1,
-        //     //     slidesToScroll: 1
-        //     //   }
-        //     }
-        //   ]
-        // });
 
-        function slickify() {
-          $(".slick").slick({
-            autoplay: true,
-            autoplaySpeed: 4000,
-            delay: 5000,
-            speed: 700,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            responsive: [
-              {
-                breakpoint: 992,
-                settings: "unslick"
-              }
-            ]
-          });
-        }
-        slickify();
-        $(window).resize(function() {
-          var $windowWidth = $(window).width();
-          if ($windowWidth >= 992) {
-            slickify();
-          }
+    },
+    next() {
+      this.$refs.slick.next()
+    },
+    prev() {
+      this.$refs.slick.prev()
+    },
+    reInit() {
+        // Helpful if you have to deal with v-for to update dynamic lists
+        this.$nextTick(() => {
+            this.$refs.slick.reSlick();
         });
-      });
-    }
+    },
+
+    // Events listeners
+    handleAfterChange(event, slick, currentSlide) {
+        console.log('handleAfterChange', event, slick, currentSlide);
+    },
+    handleBeforeChange(event, slick, currentSlide, nextSlide) {
+        console.log('handleBeforeChange', event, slick, currentSlide, nextSlide);
+    },
+    handleBreakpoint(event, slick, breakpoint) {
+        console.log('handleBreakpoint', event, slick, breakpoint);
+    },
+    handleDestroy(event, slick) {
+        console.log('handleDestroy', event, slick);
+    },
+    handleEdge(event, slick, direction) {
+        console.log('handleEdge', event, slick, direction);
+    },
+    handleInit(event, slick) {
+        console.log('handleInit', event, slick);
+    },
+    handleReInit(event, slick) {
+        console.log('handleReInit', event, slick);
+    },
+    handleSetPosition(event, slick) {
+        console.log('handleSetPosition', event, slick);
+    },
+    handleSwipe(event, slick, direction) {
+        console.log('handleSwipe', event, slick, direction);
+    },
+    handleLazyLoaded(event, slick, image, imageSource) {
+        console.log('handleLazyLoaded', event, slick, image, imageSource);
+    },
+    handleLazeLoadError(event, slick, image, imageSource) {
+        console.log('handleLazeLoadError', event, slick, image, imageSource);
+    },  
   },
   watch: {
     $route: "sync"
   },
   created() {
     this.sync();
-  }
+  },
+  beforeUpdate() {
+      if (this.$refs.slick) {
+          this.$refs.slick.destroy();
+      }
+  },
+  updated() {
+      this.$nextTick(function () {
+          if (this.$refs.slick) {
+              this.$refs.slick.create(this.slickOptions);
+          }
+      });
+  },
 };
 </script>
 
@@ -231,5 +252,56 @@ export default {
   max-width: 90px;
   white-space: normal;
   word-wrap: break-word;
+}
+</style>
+
+<style scoped>
+  .fade-enter-active,
+.fade-leave-active {
+  transition: all 0.9s ease;
+  overflow: hidden;
+  visibility: visible;
+  position: absolute;
+  width:100%;
+  opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+  visibility: hidden;
+  width:100%;
+  opacity: 0;
+}
+
+img {
+  height:600px;
+  width:100%
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.7s ease;
+  border-radius: 0 4px 4px 0;
+  text-decoration: none;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+}
+
+.prev {
+  left: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.9);
 }
 </style>

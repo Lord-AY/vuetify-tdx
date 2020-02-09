@@ -1,12 +1,7 @@
 <template>
   <div>
-     <div id="global-loader">
-      <HomeLoader
-        class="mobile-hidden"
-        v-show="$route.name == 'home'"
-      ></HomeLoader>
-    </div>
-    <div class="home" v-if="!isLoading">
+
+    <div class="home">
       <start></start>
       <categories></categories>
       <sptb :categories="categories"></sptb>
@@ -41,7 +36,7 @@ import recent_post from "@/components/home/RecentPost";
 import BNav from "@/components/BNav";
 const formatCurrency = require('format-currency');
 
-import HomeLoader from "@/components/loaders/Homeloader";
+// import HomeLoader from "@/components/loaders/Homeloader";
 export default {
   name: "home",
   data() {
@@ -63,7 +58,7 @@ export default {
     testimonial,
     recent_post,
     BNav,
-    HomeLoader
+    // HomeLoader
   },
 
   computed: {
@@ -193,8 +188,8 @@ export default {
   created() {
     this.sync();
     this.$forceUpdate();
-    this.fetchAllCategories();
-    // this.fetchAllProducts();
+    // this.fetchAllCategories();
+    this.fetchAllProducts();
     this.loadfunc();   
     if(this.getUser !== null){
       this.FetchUserwalletHistory(this.getUser.id).then(data => {
@@ -214,29 +209,8 @@ export default {
     // console.log("this is before mounted");
   },
   mounted() {
-    // console.log("this route just got mounted");
-    // this.$forceUpdate();
-    // if (localStorage.getItem('reloaded')) {
-    //       localStorage.removeItem('reloaded');
-    //   } else {
-    //       localStorage.setItem('reloaded', '1');
-    //       location.reload();
-    //   }
     this.sync();
   },
-  // beforeRouteEnter(to, from, next) {
-  //   next(vm => {
-  //     if (localStorage.getItem('reloaded')) {
-  //         // The page was just reloaded. Clear the value from local storage
-  //         // so that it will reload the next time this page is visited.
-  //         localStorage.removeItem('reloaded');
-  //     } else {
-  //         // Set a flag so that we know not to reload the page twice.
-  //         localStorage.setItem('reloaded', '1');
-  //         location.reload();
-  //     }
-  //   })
-  // },
 };
 </script>
 

@@ -304,7 +304,7 @@ export default {
     fetchCommentUser({commit}, payload){
       // console.log("we eneterd");
       const payload2 = JSON.parse(JSON.stringify(payload));
-      // console.log(payload2[0]);
+      // console.log(payload2);
       const fetchedComment = []
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
@@ -330,7 +330,9 @@ export default {
       ProductService.singleProductcomments(payload.id)
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
-          dispatch("fetchCommentUser",data)
+          if(data.length > 0){
+            dispatch("fetchCommentUser",data);
+           }
           // console.log(data);
         })
         .catch(error => {
