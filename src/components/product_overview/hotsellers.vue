@@ -132,8 +132,8 @@
 /* eslint-disable no-undef */
 import ash from "lodash";
 import moment from "moment";
-let owl_carousel = require("owl.carousel");
-window.fn = owl_carousel;
+
+
 export default {
   name: "hotsellers",
   data() {
@@ -145,33 +145,7 @@ export default {
   },
   methods: {
     sync: function() {
-      $(window).on("load", function() {
-        $(".owl-carousel").owlCarousel({
-          items: 5,
-          loop: true,
-          autoplay: true,
-          autoplayTimeout: 3000,
-          autoplayHoverPause: true,
-          freeDrag: false,
-          responsiveClass: true,
-          // mouseDrag: false,
-          responsive: {
-            0: {
-              items: 1,
-              nav: false
-            },
-            600: {
-              items: 3,
-              nav: false
-            },
-            1000: {
-              items: 5,
-              nav: true
-            }
-          }
-        });
-        this.isLoading = false;
-      });
+
     },
     format_date(value) {
       if (value) {

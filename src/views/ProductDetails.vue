@@ -1,14 +1,5 @@
 <template>
   <div>
-     <div id="global-loader">
-      <ProductDetailsLoader
-      v-if="productWithSeller.photos.length"
-        class="mobile-hidden"
-      ></ProductDetailsLoader>
-      <ProductDetailsLoader
-        class="mobile-hidden"
-      ></ProductDetailsLoader>
-    </div>
     <div class="pdetails">
     <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
       <productdetails
@@ -17,6 +8,7 @@
         :getUser="getUser"
         :productcomment="ProductsComment"
         :fsingleCategory="getSingleCategory"
+        :photos="productWithSeller.photos"
       >
       </productdetails>
     </div>
@@ -86,7 +78,7 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/js/slide4d2c.
 
 import productdetails from "@/components/product_overview/productdetails";
 import { mapState, mapActions, mapGetters } from "vuex";
-import ProductDetailsLoader from "@/components/loaders/productdetailsLoader"
+// import ProductDetailsLoader from "@/components/loaders/productdetailsLoader"
 // import Loading from "vue-loading-overlay";
 export default {
   name: "productDetails",
@@ -99,8 +91,7 @@ export default {
     };
   },
   components: {
-    productdetails,
-    ProductDetailsLoader
+    productdetails
     // Loading
   },
   computed: {
@@ -123,8 +114,6 @@ export default {
       "fetchSingleCategory"
     ]),
     sync() {
-      // console.log("Jquery mounted");
-      $("html,body").animate({ scrollTop: 0 }, "slow");
     },
     getSingleProduct() {
       this.isLoading = true;
@@ -202,22 +191,6 @@ export default {
   },
   mounted() {
     // console.log("this route just got mounted");
-    let extScript = document.createElement("script");
-    extScript.setAttribute('src', '../../public/assets/js/vendors/jquery-3.2.1.min.js')
-    extScript.setAttribute(
-      "src",
-      "../../public/assets/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"
-    );
-    document.head.appendChild(extScript);
-    if (localStorage.getItem('reloaded')) {
-        // The page was just reloaded. Clear the value from local storage
-        // so that it will reload the next time this page is visited.
-        localStorage.removeItem('reloaded');
-    } else {
-        // Set a flag so that we know not to reload the page twice.
-        localStorage.setItem('reloaded', '1');
-        location.reload();
-    }
     // fetch single product for view
     // this.getSingleProduct();
     // // get similar products

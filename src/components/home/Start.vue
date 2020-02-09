@@ -1,55 +1,22 @@
 <template>
   <!--Start Section-->
   <!-- <section class="owl-carousel" id="banner"> -->
-  <section class="owl-carousel" id="banner">
-    <div
-      class="banner-1 cover-image sptb-2 sptb-tab bg-background2"
-      data-image-src="./assets/images/banners/buyairtime.jpg"
-    >
-      <div class="header-text mb-0">
-        <div class="container">
-          <div class="text-center text-white mb-7"></div>
-          <div class="row">
-            <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
-              <div class="search-background bg-transparent"></div>
-            </div>
-          </div>
-        </div>
+  <section class="" id="banner">
+    <div>
+<!--     <transition-group name="fade" tag="div">
+      <div v-for="i in [currentIndex]" :key="i">
+        <img :src="currentImg" />
       </div>
-      <!-- /header-text -->
-    </div>
-    <div
-      class="banner-1 cover-image sptb-2 sptb-tab bg-background2"
-      data-image-src="./assets/images/banners/getthebest.jpg"
-    >
-      <div class="header-text mb-0">
-        <div class="container">
-          <div class="text-center text-white mb-7"></div>
-          <div class="row">
-            <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
-              <div class="search-background bg-transparent"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /header-text -->
-    </div>
-    <div
-      class="banner-1 cover-image sptb-2 sptb-tab bg-background2"
-      data-image-src="./assets/images/banners/Sellprods.jpg"
-    >
-      <div class="header-text mb-0">
-        <div class="container">
-          <div class="text-center text-white mb-7"></div>
-          <div class="row">
-            <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
-              <div class="search-background bg-transparent"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /header-text -->
-    </div>
+    </transition-group>
+ -->    
+    <simple-carousel-container loop :watch-it="images">
+        <simple-carousel-item v-for="i in [currentIndex]" :key="i">
+          <img :src="currentImg" />
+        </simple-carousel-item>
+    </simple-carousel-container>
+    <!-- <a class="prev" @click="prev" href="#">&#10094; Previous</a>
+    <a class="next" @click="next" href="#">&#10095; Next</a> -->
+  </div>
   </section>
   <!--/Section-->
 </template>
@@ -57,43 +24,54 @@
 <script>
 /* eslint-disable no-undef */
 // require("../../../public/assets/plugins/animate/animate.css");
+import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
 export default {
   name: "start",
+  components: {
+    SimpleCarouselContainer,
+    SimpleCarouselItem
+  },
+
+  data() {
+    return {
+      images: [
+        "./assets/images/banners/Sellprods.jpg",
+        "./assets/images/banners/getthebest.jpg",
+        "./assets/images/banners/buyairtime.jpg"
+      ],
+      timer: null,
+      currentIndex: 0
+    };
+  },
   methods: {
     sync() {
-      $(document).ready(() => {
-        // ______________ Cover-image
-        $(".cover-image").each(function() {
-          var attr = $(this).attr("data-image-src");
-          if (typeof attr !== typeof undefined && attr !== false) {
-            $(this).css("background", "url(" + attr + ") center center");
-          }
-        });
-        $("#banner").owlCarousel({
-          navigation: false, // Show next and prev buttons
-          loop: true,
-          nav: false,
-          autoplay: true,
-          dots: false,
-          animateIn: "fadeIn",
-          animateOut: "fadeOut",
-          autoplayTimeout: 4000,
-          // smartSpeed: 450,
-          items: 1
-          // itemsDesktop : false,
-          // itemsDesktopSmall : false,
-          // itemsTablet: false,
-          // itemsMobile : false
-        });
-      });
+      
+    },
+    startSlide: function() {
+      this.timer = setInterval(this.next, 4000);
+    },
+
+    next: function() {
+      this.currentIndex += 1;
+    },
+    prev: function() {
+      this.currentIndex -= 1;
     }
   },
   watch: {
     $route: "sync"
   },
+  computed: {
+    currentImg: function() {
+      return this.images[Math.abs(this.currentIndex) % this.images.length];
+    }
+  },
   created() {
     this.sync();
-  }
+  },
+  mounted: function() {
+    this.startSlide();
+  },
 };
 </script>
 

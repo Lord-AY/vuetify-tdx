@@ -12,7 +12,7 @@
                 <div class="clearfix">
                   <ul class="contact">
                     <li class="select-country tdx-country mr-5">
-                      <select
+                      <!-- <select
                         class="form-control select2-flag-search"
                         data-placeholder="Select Country"
                         style="color: #fff!important;"
@@ -156,7 +156,7 @@
                         <option value="YE">Yemen</option>
                         <option value="ZM">Zambia</option>
                         <option value="ZW">Zimbabwe</option>
-                      </select>
+                      </select> -->
                     </li>
                     <li class="dropdown mr-5">
                       <a
@@ -456,7 +456,8 @@
                   All Categories
                 </span>
               </label>
-              <div class="hide-at-start-wrapper">
+              <!-- {{ categories }} -->
+<!--               <div class="hide-at-start-wrapper">
                 <nav class="bmenu panel animated" v-if="categories">
                   <router-link
                     to="/categories"
@@ -495,7 +496,7 @@
                     </div>
                   </article>
                  </nav>
-              </div>
+              </div> -->
             </li>
             <div class="row-tdx">
               <!-- <li aria-haspopup="true" style="padding: 0px;">
@@ -574,10 +575,6 @@
 </template>
 
 <script>
-$(document).click(function (e) {
-    e.stopPropagation();
-    var container = $(".toggle");
-})
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
 // require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
@@ -642,201 +639,38 @@ export default {
       }
     },
     documentClick(e){
-      $(document).ready(function() {
-        var isShown = $(".hide-at-start-wrapper").hasClass("show");
-        $(document).click(function(){
-          $("#bmenu_toggle").prop("checked", false);
-          this.showResults = false;
-          $("#searchResult").hide();
-        });
-        $("#bmenu_toggle").click(function(e){
-          e.stopPropagation();
-        });
-      });
+      
     },
     sync() {
-      $(window).on('load', function() {
-        $("#bmenu_toggle").prop("checked", false);
-        var stickyNavTop = $(".my-nav").offset().top;
-        var stickyNav = function() {
-          var scrollTop = $(window).scrollTop();
-          if (scrollTop >= stickyNavTop) {
-            $("#topb").removeClass("mobile-hidden");
-            $(".my-nav").addClass("top-bar-fixed");
-          } else {
-            $(".my-nav").removeClass("top-bar-fixed");
-          }
-        };
-
-        stickyNav();
-        $(window).scroll(function() {
-          stickyNav();
-        });
-        $("#tx-menu-toggle").click(function() {
-          $(this).toggleClass("open");
-        });
-        let sideBarTrigger = $(".openbtn");
-        // let sideBar = $("#sidebar-nav");
-        let sideBar = $("#tempSidebar");
-        let dashboardContent = $(".dashboard-main");
-        // let closeBtn = $("")
-        sideBarTrigger.click(() => {
-          if (sideBarTrigger.hasClass("closed")) {
-            //to open
-            sideBar.css({ left: "0px" });
-            dashboardContent.css({
-              left: "250px",
-              transition: "all 0.3s ease-in-out;"
-            });
-            sideBarTrigger.toggleClass("closed");
-            // console.log("Sidebar is now open");
-          } else {
-            //to close
-            sideBar.css({ left: "-260px" });
-            dashboardContent.css({
-              left: "0px",
-              transition: "all 0.3s ease-in-out;"
-            });
-            sideBarTrigger.toggleClass("closed");
-            // console.log("Sidebar is now closed");
-          }
-        });
-        ("use strict");
-        $(".select2").select2({
-          minimumResultsForSearch: Infinity
-        });
-        // Select2 Styles
-        $("#select-Categories1").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories2").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories3").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories4").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories5").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories6").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories7").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories8").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories9").select2({
-          minimumResultsForSearch: ""
-        });
-        $("#select-Categories10").select2({
-          minimumResultsForSearch: ""
-        });
-        // Select2 by showing the search
-        $(".select2-show-search").select2({
-          minimumResultsForSearch: "",
-          placeholder: "Search"
-        });
-        $("#job").select2({
-          minimumResultsForSearch: "",
-          placeholder: "Search jobs here "
-        });
-        $("#employe").select2({
-          minimumResultsForSearch: "",
-          placeholder: "Search profiles here "
-        });
-        function formatState(state) {
-          if (!state.id) {
-            return state.text;
-          }
-          var $state = $(
-            '<span><img src="./assets/images/flags/' +
-              state.element.value.toLowerCase() +
-              '.svg" class="img-flag" /> ' +
-              state.text +
-              "</span>"
-          );
-          return $state;
-        }
-        $(".select2-flag-search").select2({
-          templateResult: formatState,
-          templateSelection: formatState,
-          escapeMarkup: function(m) {
-            return m;
-          }
-        });
-        $("select2").select2({
-          width: "100%"
-        });
-        $(".ad-post-status").select2({
-          width: "100%",
-          theme: "classic"
-        });
-        $(".select2-show-search").select2({
-          placeholder: "Select Pice : Min",
-          width: "100%"
-        });
-        $(".search-price-max").select2({
-          placeholder: "Select Pice : Max",
-          width: "100%"
-        });
-        $(".search-loaction").select2({
-          placeholder: "Select Location : Any location",
-          width: "100%"
-        });
-        $(".make").select2({
-          placeholder: "Select Make : Any make",
-          width: "100%"
-        });
-        $(".model").select2({
-          placeholder: "Select Model : Any model",
-          width: "100%"
-        });
-        $(".bodytype").select2({
-          placeholder: "Body Type : Select body type",
-          width: "100%"
-        });
-        $(".search-year").select2({
-          placeholder: "Select Year : Any Year",
-          allowClear: true,
-          width: "100%"
-        });
-      });
+      
     }
   },
   watch: {
     keyword: {
       handler: function(keyword) {
-        if (keyword.length >= 3) {
-          $(document).ready(function() {
-              $("#searchResult").show();
-          });
+        // if(keyword){
+          if (keyword.length >= 3) {
+            // $(document).ready(function() {
+            //     $("#searchResult").show();
+            // });
 
-          this.showResults = true;
-          this.getSearchResults(keyword);
-        } else {
-          this.showResults = false;
-        }
+            this.showResults = true;
+            this.getSearchResults(keyword);
+          } else {
+            this.showResults = false;
+          }
+        // }
       }
     }
   },
   created() {
     this.sync();
     this.fetchAllCategories();
-    this.sendFetchSubCategories();
+    // this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
     document.addEventListener('click', this.documentClick);
     // console.log(this.userbalance);
   },
-  destroyed () {
-    // important to clean up!!
-    document.removeEventListener('click', this.documentClick);
-  }
-
 };
 </script>
 

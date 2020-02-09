@@ -312,9 +312,9 @@
           <div class="infinite-wrapper">
             <div
               class="posts-masonry"
-              v-for="product in products[0]"
+              v-for="product in paginatedList"
               :key="product.id"
-              v-show="!showLoader(products[0])"
+              v-show="!showLoader(paginatedList)"
             >
               <div
                 class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col-md-3-tx col-lg-3-tx col-sm-6-tx col-xs-12-tx"
@@ -443,10 +443,10 @@
                 </div>
               </div>
             </div>
-            <infinite-loading spinner="bubbles" @infinite="loadMore" force-use-infinite-wrapper=".infinite-wrapper">
+<!--             <infinite-loading spinner="bubbles" @infinite="loadMore" force-use-infinite-wrapper=".infinite-wrapper">
                 <div class="text-red" slot="no-more">No more Data</div>
                 <div class="text-red" slot="no-results">No more Data</div>
-            </infinite-loading>
+            </infinite-loading> -->
           </div>
           <!-- <infinite-loading :identifier="infiniteId" @infinite="infiniteHandler"></infinite-loading> -->
         </div>
@@ -601,7 +601,7 @@ import "vue-loading-overlay/dist/vue-loading.css";
 import ash from "lodash";
 import moment from "moment";
 import { ContentLoader } from "vue-content-loader";
-import InfiniteLoading from 'vue-infinite-loading';
+// import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
   data() {
@@ -624,8 +624,7 @@ export default {
   },
   components: {
     Loading,
-    ContentLoader,
-    InfiniteLoading
+    ContentLoader
   },
   computed: {
     ...mapGetters("product", [

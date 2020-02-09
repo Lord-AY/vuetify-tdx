@@ -49,19 +49,7 @@
           <div class="col-md-8 col-xs-12 col-sm-12">
             <!-- Single Ad -->
             <div class="singlepage-detail">
-              <div id="single-slider" class="flexslider">
-                <ul class="slides">
-                  <li v-for="(photo, index) in product.photos" :key="index">
-                    <a :href="photos" data-fancybox="group">
-                      <!-- <a href="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
-                      <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="@/assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
-                      <img :alt="product.name" :src="photo" />
-                    </a>
-                    <i class="fa fa-search-plus zoom"></i>
-                  </li>
-                </ul>
-              </div>
-              <!-- Listing Slider Thumb -->
+             <vue-image-slider :images="photos" :intervalVal=3000 :height=700 :width=1200 />              <!-- Listing Slider Thumb -->
               <div id="carousel" class="flexslider">
                 <ul class="slides small-slides">
                   <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
@@ -948,6 +936,7 @@ import SimilarProductLoader from "@/components/loaders/SimilarProductLoader";
 import { mapActions, mapGetters } from "vuex";
 import ash from "lodash";
 import moment from "moment";
+import VueImageSlider from 'vue-image-slider'
 export default {
   name: "productDetails",
   data() {
@@ -964,11 +953,11 @@ export default {
       tab4: false,
       showDetails: false,
       singleCart: null,
-      photos: []
     };
   },
   components: {
-    SimilarProductLoader
+    SimilarProductLoader,
+    VueImageSlider
   },
   props: {
     product: Object,
@@ -976,6 +965,7 @@ export default {
     getUser: [Object, Array],
     productcomment: Array,
     fsingleCategory: Object,
+    photos: Array,
   },
   methods: {
     ...mapActions("chat", ["sendMessage"]),
@@ -1054,49 +1044,7 @@ export default {
       }
     },
     sync() {
-      $(document).ready(function() {
-        $(".owl-carousel").owlCarousel({
-          items: 5,
-          loop: true,
-          autoplay: true,
-          autoplayTimeout: 3000,
-          autoplayHoverPause: true,
-          responsiveClass: true,
-          responsive: {
-            0: {
-              items: 1,
-              nav: false
-            },
-            600: {
-              items: 3,
-              nav: false
-            },
-            1000: {
-              items: 5,
-              nav: true
-            }
-          }
-        });
-        $("#carousel").flexslider({
-          animation: "slide",
-          controlNav: false,
-          animationLoop: false,
-          slideshow: false,
-          itemWidth: 160,
-          itemMargin: 5,
-          asNavFor: "#single-slider",
-          rtl: true
-        });
-
-        $("#single-slider").flexslider({
-          rtl: true,
-          animation: "slide",
-          controlNav: false,
-          animationLoop: false,
-          slideshow: false,
-          sync: "#carousel"
-        });
-      });
+     
     },
     showError(error, title) {
       this.$notify({
@@ -1177,8 +1125,10 @@ export default {
   created() {
     var tempfix = this.fsingleCategory;
     // array1.concat(array2)
-    this.photos = this.product.photos;
-    this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
+    // this.photos = this.product.photos;
+    if(this.fsingleCategory.checkFields !== null){
+      this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
+    }
     // console.log(this.photos);
     this.sync();
   }

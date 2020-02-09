@@ -3,10 +3,8 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
   <div id="app">
     <!--Loader-->
     <!-- <topbar></topbar> -->
-    <div v-if="$route.meta.header === 1" v-show="isloading"><topbar></topbar></div>
-    <div v-else-if="$route.meta.header === 3" v-show="isloading"><topbar2></topbar2></div>
-    <div v-else-if="$route.meta.header === 4" v-show="isloading"><topbar2></topbar2></div>
-    <div v-else-if="$route.meta.header === 5" v-show="isloading" ><dashboardtopbar></dashboardtopbar></div>
+    <div v-if="$route.meta.header === 1"><topbar></topbar></div>
+    <div v-else-if="$route.meta.header === 5"><dashboardtopbar></dashboardtopbar></div>
     <!-- <topbar></topbar> -->
     <transition name="page-animation">
       <div class="tdx-main-view">
@@ -20,19 +18,6 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
     <notifications group="errors" :speed="500" />
     <notifications group="notify" :speed="500" />
     <!-- <div v-else-if="$route.meta.header === 3">I'm visible on home page two</div> -->
-    <!-- <Footer></Footer> -->
-    <!-- Mobile Bottom Bar -->
-    <!-- <BNav
-      v-if="
-        $route.meta.header === 1 ||
-          route.meta.header === 3 ||
-          route.meta.header === 4
-      "
-      class="hidden-lg-up"
-    ></BNav> -->
-    <!-- /Mobile Bottom Bar -->
-    <!-- Back to top -->
-    <!-- <i href="#top" id="back-to-top"><i class="fa fa-rocket"></i></a> -->
   </div>
 </template>
 
@@ -64,31 +49,7 @@ export default {
   },
   methods: {
     sync() {
-      $(document).ready(() => {
-        this.isloading = true;
-        // ______________ Global Loader
-        $(window).on("load", function() {
 
-          $("#global-loader").fadeOut("slow");
-        });
-        // ______________ Back to Top
-        $(window).on("scroll", function() {
-          if ($(this).scrollTop() > 0) {
-            $("#back-to-top").fadeIn("slow");
-          } else {
-            $("#back-to-top").fadeOut("slow");
-          }
-        });
-        $("#back-to-top").on("click", function() {
-          $("html, body").animate(
-            {
-              scrollTop: 0
-            },
-            600
-          );
-          return false;
-        });
-      });
     }
   },
   watch: {
