@@ -1178,8 +1178,7 @@
                                 >
                                   <img
                                     src="@/assets/images/wallet.svg"
-                                    height="20px"
-                                    style="margin-top: -4px"
+                                    style="margin-top: -4px min-width:20px; height:20px"
                                     alt=""
                                     srcset=""
                                   />
@@ -1194,8 +1193,7 @@
                                 >
                                   <img
                                     src="@/assets/images/master_card.png"
-                                    height="20px"
-                                    style="margin-top: -4px;"
+                                    style="margin-top: -4px min-width:20px; height:20px"
                                     alt=""
                                     srcset=""
                                   />
@@ -1581,7 +1579,7 @@ export default {
   methods: {
     ...mapActions("product", ["fetchSubCategories"]),
     addPayment(type){
-      console.log(type);
+      // console.log(type);
       if(type == "1"){
         this.tab1=true;
         this.tab2=false;
