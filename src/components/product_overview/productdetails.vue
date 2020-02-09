@@ -49,32 +49,30 @@
           <div class="col-md-8 col-xs-12 col-sm-12">
             <!-- Single Ad -->
             <div class="singlepage-detail">
-             <vue-image-slider :images="photos" :intervalVal=3000 :height=700 :width=1200 />              <!-- Listing Slider Thumb -->
-              <div id="carousel" class="flexslider">
+              <vue-image-slider :images="photos" :intervalVal=5000 :height=700 :width=1200 />              <!-- Listing Slider Thumb -->
+              <div>
                 <ul class="slides small-slides">
-                  <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
-                  <li v-for="(photo, index) in product.photos" :key="index">
+                  <!-- <li v-for="(photo, index) in product.photos" :key="index">
                     <img :alt="product.name" draggable="false" :src="photo"  class="img-responsive" />
+                  </li> -->
+                  <li>
+                        <!-- <simple-carousel-container loop :watch-it="photos">
+                            <simple-carousel-item v-for="(photo, index) in product.photos" :key="index">
+                              <img :alt="product.name" draggable="false" :src="photo"  class="img-responsive"  />
+                            </simple-carousel-item>
+                        </simple-carousel-container>
+ -->                        
+                        <slick ref="slick" :options="slickOptions"  v-if="product.photos"> 
+                        <div v-for="(photo, index) in product.photos" :key="index">  
+                            <div>  
+                              <img :alt="product.name" style="width: 150px; height:120px"  draggable="false" :src="photo"  class="img-responsive"  />
+                            </div>
+                        </div>
+                        </slick>
                   </li>
                 </ul>
               </div>
 
-              <!-- Heading Area -->
-              <!--
-                <div class="key-features">
-                  <div class="boxicon" v-for="(field,index) in singleCart" :key="index">
-                    <a
-                      data-Limit="tooltip"
-                      data-placement="bottom"
-                      title="Engine Type"
-                      href="javascript:void(0)"
-                    >
-                      <i class="flaticon-gas-station-1 petrol"></i>
-                      <p>{{field}}</p>
-                    </a>
-                  </div>
-                </div> 
-              -->
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
                   <li class="tab-pane-tx" v-bind:class="{ 'active': tab1 }" @click='toggle("Description")'>
@@ -109,20 +107,6 @@
                       <h3 class="tab-title">Description</h3>
                       <!-- Paste -->
                       <div class="desc-points">
-                        <!-- <ol>
-                          <li>Looking to sell the car urgently.</li>
-                          <li>Engine is good condition.</li>
-                          <li>Complete service history available.</li>
-                          <li>Original return file is available.</li>
-                          <li>After Market Alloy rims.</li>
-                          <li>As good as a brand new car.</li>
-                          <li>Lady Driven Car in Immaculate Condition.</li>
-                          <li>No Work Required in Car.</li>
-                          <li>
-                            Excellent Mileage , Local Average = 14 km , Long
-                            Average = 16 km
-                          </li>
-                        </ol> -->
                         <p>
                           {{ product.description }}
                         </p>
@@ -199,16 +183,6 @@
                     </div>
                     <div class="tab-pane fade in active" v-if="tab4">
                       <h3 class="tab-title">Location Map</h3>
-                      <!-- <div id="menu2" class="tab-pane fade"> -->
-                      <!-- <h3 class="tab-title">Reviews</h3> -->
-<!--                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.957357390124!2d7.483373915245445!3d9.067649490878031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0a7ec1aac221%3A0xc536ed77b3c4d078!2sSilverbird%20Cinemas%20Abuja!5e0!3m2!1sen!2sng!4v1574666126350!5m2!1sen!2sng"
-                        width="600"
-                        height="450"
-                        frameborder="0"
-                        style="border:0;"
-                        allowfullscreen="">
-                      </iframe> -->
                       <div v-if="product.latitude != null && product.logitude !=null ">
                         <iframe
                           :src="`https://maps.google.com/maps?q=${product.latitude},${product.logitude}&hl=es;z=14&amp;output=embed`"
@@ -686,131 +660,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="singlemap-location">
-                <div class="template-icons" style="margin-bottom: 5px;">
-                  <div class="icon-box-icon flaticon-location"></div>
-                  <div class="class-name">
-                    {{ product.seller.address }}
-                  </div>
-                </div>
-              </div> -->
-              <!-- <div class="category-list-icon">
-                <i class="purple flaticon-smartphone"></i>
-                <div class="category-list-title">
-                  <h5 v-if="!showDetails">
-                    <div
-                      class="selector number"
-                      @click="showDetails = !showDetails"
-                      data-last="2221111999"
-                      ><span>Click to View</span></div
-                    >
-                  </h5>
-                  <h2 v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600; cursor: pointer;" @click="showDetails = !showDetails">{{ product.seller.phone }}</h2>
-                </div>
-              </div> -->
-              
-              <!-- <div class="additional-btns">
-                <ul>
-                  <li>
-                    <a
-                      href="#"
-                      class=""
-                      data-Limit="modal"
-                      data-target="#make-offer-modal"
-                    >
-                      <i class="la la-money"></i>
-                      <span>Make an Offer Price</span>
-                    </a>
-                  </li>
-                </ul>
-              </div> -->
-<!-- 
-              <div class="category-list-icon" style="">
-                <i class="green flaticon-mail-1"></i>            
-                <div class="category-list-title" style="padding: 0;">
-                  Email Button trigger modal
-                  <h5>
-                    <a
-                      class="btn btn-block btn-warning"
-                      style="color: #fff; padding: 16px; border-radius:0px;"
-                      href="../../sign-in-to-your-account/index.html"
-                      >Follow Seller
-                    </a>
-                  </h5>
-                </div>
-              </div> -->
-               <!-- <div v-if="!isLoggedIn">
-                  <router-link to="/login">
-                    <div
-                      class="btn btn-block btn-primary contact-seller cusbutton"
-                      style="border-radius:0px; font-size: 20px;"
-                    >
-                      <i class="fa fa-commenting-o place-left"></i> Chat With Seller
-                    </div>
-                  </router-link>
-                </div> -->
-              
-              <!-- <div class="social-and-product-highlight">
-                <div class="fule-economy">
-                  <h4>Product Highlight</h4>
-                  <ul class="list-inline">
-                    <li>
-                      <h5>30</h5>
-                      <p>Views</p>
-                    </li>
-                    <li>
-                      <h5 style="color: #FFF500;">4.5</h5>
-                      <p>Rating</p>
-                    </li>
-                  </ul>
-                </div>
-
-                <ul
-                  class="footer-payments"
-                  style="margin-top: 27px; display: flex; justify-content: space-between; padding-left: 8px;"
-                >
-                  <li class="pl-0">
-                    <a href="javascript:;"
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="@/assets/images/socials/facebook.svg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="javascript:;"
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="@/assets/images/socials/twitter.svg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="javascript:; "
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%; "
-                        src="@/assets/images/socials/whatsapp.svg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="javascript:;"
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="@/assets/images/socials/linkedin.svg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="javascript:;"
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="@/assets/images/socials/google plus.svg"
-                    /></a>
-                  </li>
-                </ul>
-              </div> -->
 
               <!-- Saftey Tips  -->
               <div class="widget" style="margin-bottom: 16px;">
@@ -831,64 +680,7 @@
                   </ol>
                 </div>
               </div>
-              <!-- <div class="widget" style="margin-bottom: 16px; ">
-                <div class="widget-content saftey" style="padding: 4px 12px;">
-                  <ul
-                  class="footer-payments"
-                  style="margin-top: 0px; display: flex; justify-content: space-between; padding-left: 8px;"
-                >
-                  <li >
-                    <a href="javascript:;"
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="@/assets/images/socials/facebook.svg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="javascript:;"
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="@/assets/images/socials/twitter.svg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="javascript:; "
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%; "
-                        src="@/assets/images/socials/whatsapp.svg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="javascript:;"
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="@/assets/images/socials/linkedin.svg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="javascript:;"
-                      ><img
-                        class="payment-card-icon-footer-tx"
-                        style="box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.4); border-radius: 50%;"
-                        src="@/assets/images/socials/google plus.svg"
-                    /></a>
-                  </li>
-                </ul>
-                </div>
-              </div> -->
               <div class="widget" style="margin-bottom: 16px;">
-                <!-- <div class="widget-heading">
-                  <h4
-                    class="panel-title"
-                    style="text-align: center; font-weight: 600;"
-                  >
-                    <span> Ads</span>
-                  </h4>
-                </div> -->
                 <div class="widget-content ">
                   <div class="ads">
                     <img src="@/assets/images/gloads.jpg" alt="" srcset="" />
@@ -936,7 +728,10 @@ import SimilarProductLoader from "@/components/loaders/SimilarProductLoader";
 import { mapActions, mapGetters } from "vuex";
 import ash from "lodash";
 import moment from "moment";
-import VueImageSlider from 'vue-image-slider'
+import VueImageSlider from 'vue-image-slider';
+import Slick from 'vue-slick';
+import './../../../node_modules/slick-carousel/slick/slick.css';
+
 export default {
   name: "productDetails",
   data() {
@@ -953,11 +748,24 @@ export default {
       tab4: false,
       showDetails: false,
       singleCart: null,
+      slickOptions: {
+          //options can be used from the plugin documentation
+          slidesToShow: this.photos.length,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: false,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true
+      }
     };
   },
   components: {
     SimilarProductLoader,
-    VueImageSlider
+    VueImageSlider,
+    Slick
   },
   props: {
     product: Object,
@@ -1263,5 +1071,168 @@ textarea {
     position: relative;
     display: block;
     padding: 10px 15px;
+}
+</style>
+
+<style lang="scss">
+$vue-navy: #2c3e50;
+$vue-navy-light: #3a5169;
+$vue-teal: #42b883;
+$vue-teal-light: #42b983;
+$gray: #666a73;
+$light-gray: #f8f8f8;
+
+
+.card-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 40px;
+  color: $gray;
+}
+
+.card-carousel {
+  display: flex;
+  justify-content: center;
+  width: 640px;
+  
+  &--overflow-container {
+    overflow: hidden;
+  }
+  
+  &--nav__left,
+  &--nav__right {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: 2px solid $vue-teal;
+    border-right: 2px solid $vue-teal;
+    cursor: pointer;
+    margin: 0 20px;
+    transition: transform 150ms linear;
+    &[disabled] {
+      opacity: 0.2;
+      border-color: black;
+    }
+  }
+  
+  &--nav__left {
+    transform: rotate(-135deg);
+    &:active {
+      transform: rotate(-135deg) scale(0.9);
+    }
+  }
+  
+  &--nav__right {
+    transform: rotate(45deg);
+    &:active {
+      transform: rotate(45deg) scale(0.9);
+    }
+  }
+}
+
+.card-carousel-cards {
+  display: flex;
+  transition: transform 150ms ease-out;
+  transform: translatex(0px);
+ 
+  .card-carousel--card {
+    margin: 0 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px 0 rgba(40,44,53,.06), 0 2px 2px 0 rgba(40,44,53,.08);
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: 3;
+    margin-bottom: 2px;
+    
+    &:first-child {
+      margin-left: 0;
+    }
+    
+    &:last-child {
+      margin-right: 0;
+    }
+    
+    img {
+      vertical-align: bottom;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      transition: opacity 150ms linear;
+      user-select: none;
+      
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    
+    &--footer {
+      border-top: 0;
+      padding: 7px 15px;
+      
+      p {
+        padding: 3px 0;
+        margin: 0;
+        margin-bottom: 2px;
+        font-size: 19px;
+        font-weight: 500;
+        color: $vue-navy;
+        user-select: none;
+        
+        &.tag {
+          font-size: 11px;
+          font-weight: 300;
+          padding: 4px;
+          background: rgba(40,44,53,.06);
+          display: inline-block;
+          position: relative;
+          margin-left: 4px;
+          color: $gray;
+          
+          &:before {
+            content:"";
+            float:left;
+            position:absolute;
+            top:0;
+            left: -12px;
+            width:0;
+            height:0;
+            border-color:transparent rgba(40,44,53,.06) transparent transparent;
+            border-style:solid;
+            border-width:8px 12px 12px 0;
+        }
+          &.secondary {
+            margin-left: 0;
+            border-left: 1.45px dashed white;
+            &:before {
+              display: none !important;
+            }
+          }
+        
+          &:after {
+            content:"";
+            position:absolute;
+            top:8px;
+            left:-3px;
+            float:left;
+            width:4px;
+            height:4px;
+            border-radius: 2px;
+            background: white;
+            box-shadow:-0px -0px 0px #004977;
+          }
+        }
+      }
+    }
+  }
+}
+
+h1 {
+  font-size: 3.6em;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 0;
+  color: $vue-teal;
 }
 </style>

@@ -1180,7 +1180,7 @@
                                   <img
                                     src="@/assets/images/wallet.svg"
                                     height="20px"
-                                    style="margin-top: -4px;"
+                                    style="margin-top: -4px"
                                     alt=""
                                     srcset=""
                                   />
@@ -1529,9 +1529,6 @@
 </template>
 <script>
 /* eslint-disable no-undef */
-require("@/assets/plugins/vertical-scroll/jquery.bootstrap.newsbox.js");
-require("@/assets/plugins/vertical-scroll/vertical-scroll.js");
-// require("@/assets/css/style.css");
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import axios from "axios";
@@ -1574,29 +1571,6 @@ export default {
     Loading
   },
   mounted() {
-    let extScript = document.createElement("script");
-    // extScript.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js')
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/jquery.ui.widget.js"
-    );
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/jquery.fileupload.js"
-    );
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/jquery.iframe-transport.js"
-    );
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"
-    );
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/fancy-uploader.js"
-    );
-    document.head.appendChild(extScript);
   },
   computed: {
     ...mapGetters("product", ["getErrors", "fullCategories"]),
@@ -1741,28 +1715,6 @@ export default {
     //   });
     // },
     sync() {
-      $(".vertical-scroll").bootstrapNews({
-        newsPerPage: 4,
-        autoplay: true,
-        pauseOnHover: true,
-        navigation: false,
-        direction: "down",
-        newsTickerInterval: 2500,
-        onToDo: function() {
-          //console.log(this);
-        }
-      });
-      $(".vertical-scroll1").bootstrapNews({
-        newsPerPage: 2,
-        autoplay: true,
-        pauseOnHover: true,
-        navigation: false,
-        direction: "down",
-        newsTickerInterval: 2500,
-        onToDo: function() {
-          //console.log(this);
-        }
-      });
     }
   },
   watch: {
