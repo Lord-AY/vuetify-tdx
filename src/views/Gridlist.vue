@@ -168,7 +168,7 @@
               </div>
             </div>
             <!-- <hr /> -->
-<!--             <div v-if="getHotSellers.length > 0">
+            <div v-if="getHotSellers.length > 0">
               <hotsellers
                 class="mobile-hidden"
                 :hotsellers="getHotSellers"
@@ -182,7 +182,8 @@
                 style="margin: -4em 5em 0 -4em;"
               ></HotSellerLoader>
             </div>
- -->            <!-- Row -->
+            
+ <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
                 <gsidebar
@@ -571,7 +572,7 @@ i.switch[disabled="disabled"] {
 }
 
 html {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .ad-meta:first-child a {

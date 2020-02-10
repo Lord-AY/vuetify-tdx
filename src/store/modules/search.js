@@ -14,8 +14,7 @@ export default {
         getResults(state) {
             if (
                 state.results == null &&
-                state.results == undefined &&
-                state.results.length <= 0
+                state.results == undefined
             ) {
                 return null;
             }
