@@ -236,7 +236,7 @@
                     <router-link
                       to="/login"
                       class="btn btn-tx btn-theme text-dark post-ad-header-tx"
-                      style="height: 40px!important; font-weight: 500!important; border-radius: 4px!important; padding: 8px 12px!important; margin-top: 4px!important;"
+                      style="height: 40px!important; font-weight: 500!important; border-radius: 4px!important; padding: 8px 12px!important; margin-top: 4px!important; color: white;"
                       >POST AN AD</router-link
                     >
                   </li>
@@ -301,7 +301,7 @@
                           <img
                             src="@/assets/images/wallet.svg"
                             height="16px"
-                            style="margin-top: -4px; margin-right: 5px;"
+                            style="margin-top: -4px; margin-right: 5px; height:16px; weight:16px;"
                           />
                           Balance
                         </router-link>
@@ -503,32 +503,35 @@
                   id="text4"
                   v-model="keyword"
                   @keydown.enter="sendSearch"
-                  placeholder="Search products, brands and categories"
+                  placeholder="Search products, brands and categories Using First 3 Letters"
                   style="background-color: #fff!important; color: #232323!important; font-size: 15px!important; "
                 />
-                <div
-                  style="display:none;"
-                  class="dropdown-header dropdown_empty"
-                >
-                  No entry found
-                </div>
+                
+                <!-- {{ getResults }} -->
                 <div id="searchResult" v-if="showResults">
-                <div class="search-result">
-                  <ul class="dropdown search-dropdown">
-                    <li
-                      class="dropdown-item search-dropdown-item"
-                      v-for="(result, index) in getResults.slice(0, 5)"
-                      :key="index"
-                    >
-                      <router-link
-                        :to="
-                          `/productDetails/${result.id}/${result.cid}/${result.uid}`
-                        "
-                        >{{ result.name }}
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
+                  <!-- {{ getResults }} -->
+                  <div
+                    v-if="getResults.length < 1"
+                    class="dropdown-header dropdown_empty"
+                  >
+                    No entry found
+                  </div>
+                  <div class="search-result">
+                    <ul class="dropdown search-dropdown">
+                      <li
+                        class="dropdown-item search-dropdown-item"
+                        v-for="(result, index) in getResults.slice(0, 5)"
+                        :key="index"
+                      >
+                        <router-link
+                          :to="
+                            `/productDetails/${result.id}/${result.cid}/${result.uid}`
+                          "
+                          >{{ result.name }}
+                        </router-link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
                 <span>
                   <i class="fa fa-search location-gps mr-1"></i>

@@ -58,7 +58,7 @@
             <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
             <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
               <div class="short-feature-body">
-                <div id="owl-carousel" class="owl-carousel owl-theme">
+                <slick ref="slick" :options="slickOptions"  v-if="hotsellers">     
                   <div
                     class="item item-carousel"
                     v-for="(sellers, index) in hotsellers"
@@ -118,7 +118,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </slick>
               </div>
             </div>
           </div>
@@ -132,16 +132,32 @@
 /* eslint-disable no-undef */
 import ash from "lodash";
 import moment from "moment";
-
+import Slick from 'vue-slick';
 
 export default {
   name: "hotsellers",
   data() {
-    return {};
+    return {
+      slickOptions: {
+          //options can be used from the plugin documentation
+          slidesToShow: 4,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: true,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true
+      }
+    }
   },
   props: {
     hotsellers: Array,
     isLoading: Boolean
+  },
+  components: {
+    Slick 
   },
   methods: {
     sync: function() {

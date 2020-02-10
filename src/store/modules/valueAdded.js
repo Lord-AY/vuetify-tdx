@@ -99,6 +99,8 @@ export default {
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
       payload.custId = "00000000" + rootState.auth.user.id
+      console.log(rootState.auth.user)
+      // add user email to rootstate and attach to payload
       // console.log(payload);
       return valueAddedService.paymentOption(payload)
         .then(({data}) => {
@@ -106,22 +108,24 @@ export default {
           commit("auth/SET_LOADING", true, { root: true });
           commit("SET_SUCCESS_MSG", "Payment request validated successfully...");
           commit("SET_TRANSACTION_DETAILS", payload);
-          dispatch("paymentAdvices", data);
+          dispatch("paymentAdvices", {payload, data});
         }).catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response);
+          // console.log(error.response);
         })
     },
-    paymentAdvices({commit, rootState, state}, payload) {
-      console.log("dispatched function");
+    paymentAdvices({commit, rootState, state}, {payload, data}) {
+      // console.log(payload);
+      // console.log(data);
       commit("auth/SET_LOADING", true, { root: true });
       // commit("SET_TRANSACTION_DETAILS", null);
-      let customers = payload.Customers;
+      let customers = data.Customers;
+      let userperson = payload;
       const parseObj = Object.assign({}, customers[0]);
       // console.log(parseObj.amount);
       const refinedPayload = {
         custId: parseObj.customerId,
-        amount: parseObj.amount,
+        amount: userperson.amount,
         phone: state.transaction.phone,
         userid: rootState.auth.user.id,
         email: rootState.auth.user.email,

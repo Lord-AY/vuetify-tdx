@@ -36,7 +36,7 @@ import router from '../../router';
           <div class="card mb-0">
             <div v-if="product.featured === 1">
               <div class="arrow-ribbon">
-                <img src="@/assets/images/hot-icon.png" alt="" width="32px" />
+                <img src="@/assets/images/hot-icon.png" style="width:32px; height:32px" alt="" />
               </div>
             </div>
             <div v-else-if="product.featured === 2">

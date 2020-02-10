@@ -99,14 +99,15 @@ export default {
                     customerId: "000000000" + this.user.id
                 };
                 this.$emit("savePayment", payload);
+            }else{
+                const payload = {
+                    phone: this.phone,
+                    paymentCode: this.payment.paymentCode,
+                    customerId: "000000000" + this.user.id,
+                    amount: this.payment.amount
+                };
+                this.$emit("savePayment", payload);
             }
-            const payload = {
-                phone: this.phone,
-                paymentCode: this.payment.paymentCode,
-                customerId: "000000000" + this.user.id,
-                amount: this.payment.amount
-            };
-            this.$emit("savePayment", payload);
         },
         checkStringLength(string) {
             if (string.length < 10) {
