@@ -954,7 +954,7 @@ export default {
     if(this.fsingleCategory.checkFields !== null){
       this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
     }
-    console.log(this.productcomment);
+    // console.log(this.productcomment);
     this.sync();
   }
 };
