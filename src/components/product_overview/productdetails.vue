@@ -132,7 +132,7 @@
                       <h3 class="tab-title" style="display: inline-block;">
                         Reviews
                       </h3>
-                      <div class="viewall-similar" v-if="productcomment.length > 2">
+                      <div class="viewall-similar" v-if="productcomment">
                         <a @click="limit2 = null" v-show="limitBtn2"
                           >Show All
                           <i
@@ -886,9 +886,13 @@ export default {
         : this.similarprods;
     },
     toggleComment() {
-      return this.limit2
-        ? this.productcomment.slice(0, this.limit2)
-        : this.productcomment;
+      if(this.productcomment){
+        return this.limit2
+          ? this.productcomment.slice(0, this.limit2)
+          : this.productcomment;
+      }else{
+        return null
+      }
     },
     ...mapGetters("chat", ["getErrors", "getSuccess"]),
     ...mapGetters("auth", ["isLoggedIn"])
@@ -930,6 +934,19 @@ export default {
       }
     }
   },
+    beforeUpdate() {
+      if (this.$refs.slick) {
+          this.$refs.slick.destroy();
+      }
+  },
+  updated() {
+      this.$nextTick(function () {
+          if (this.$refs.slick) {
+              this.$refs.slick.create(this.slickOptions);
+          }
+      });
+  },
+
   created() {
     var tempfix = this.fsingleCategory;
     // array1.concat(array2)
@@ -937,7 +954,7 @@ export default {
     if(this.fsingleCategory.checkFields !== null){
       this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
     }
-    // console.log(this.photos);
+    console.log(this.productcomment);
     this.sync();
   }
 };

@@ -29,8 +29,10 @@ import router from '../../router';
         </router-link>
       </div>
       <ProductLoader v-show="showLoader(ads)"></ProductLoader>
-      <simple-carousel-container loop :watch-it="ads">
-        <simple-carousel-item v-for="product in ads" :key="product.id">
+      <!-- <simple-carousel-container loop :watch-it="ads"> -->
+        <div v-if="ads">
+        <slick ref="slick" :options="slickOptions">     
+          <div class=""  v-for="product in ads" :key="product.id">
           <div class="card mb-0">
             <div v-if="product.featured === 1">
               <div class="arrow-ribbon hot-package">
@@ -99,8 +101,10 @@ import router from '../../router';
               </div>
             </div>
           </div>
-        </simple-carousel-item>
-      </simple-carousel-container>
+        </div>
+        </slick>
+      </div>
+      <!-- </simple-carousel-container> -->
     </div>
   </section>
   <!--/Section-->
@@ -108,21 +112,51 @@ import router from '../../router';
 
 <script>
 /* eslint-disable no-undef */
+import Slick from 'vue-slick';
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
 import ash from "lodash";
-import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
+// import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
 export default {
   name: "SPTB-Pattern",
+  data() {
+    return {
+      slickOptions: {
+          //options can be used from the plugin documentation
+          slidesToShow: 4,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: true,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true
+      }
+    }
+  },
   props: {
     ads: [Object, Array]
   },
   components: {
     ProductLoader,
-    SimpleCarouselContainer,
-    SimpleCarouselItem
+    Slick
   },
   methods: {
+    next () {
+      this.$refs.slick.next()
+    },
+
+    prev () {
+      this.$refs.slick.prev()
+    },
+
+    reInit () {
+      // Helpful if you have to deal with v-for to update dynamic lists
+      this.$nextTick(() => {
+        this.$refs.slick.reSlick()
+      })
+    },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
         return true;
@@ -146,6 +180,18 @@ export default {
   },
   watch: {
     $route: "sync"
+  },
+   beforeUpdate() {
+      if (this.$refs.slick) {
+          this.$refs.slick.destroy();
+      }
+  },
+  updated() {
+      this.$nextTick(function () {
+          if (this.$refs.slick) {
+              this.$refs.slick.create(this.slickOptions);
+          }
+      });
   },
   created() {
     this.sync();
