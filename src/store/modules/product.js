@@ -383,19 +383,26 @@ export default {
         subcategory: null,
         featured: false,
         tradexplorer: true,
-        adType: payload.product.adType,
-        paymentType: 1,
+        adtype: payload.product.adType,
+        paymentype: 1,
         approved: true,
         published: true,
         description: payload.product.description,
         keywords: [],
         canExchange: false
       };
-      console.log(product);
+      if(payload.product.adtype > 1) {
+        product.published = false;
+      };
+      // console.log(product);
       return ProductService.createProduct(product, rootState.auth.user.token)
         .then(() => {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SUCCESS_MSG", "Your Ads have Successfully been created.");
+          console.log(data);
+          if(data.adtype > 1) {
+            router.push('/valueind');
+          }
           router.push("/gridlist");
           // console.log(data);
         })

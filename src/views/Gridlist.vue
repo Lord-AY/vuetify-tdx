@@ -235,6 +235,7 @@ import HotSellerLoader from "@/components/loaders/hotsellerLoader";
 import gsidebar from "@/components/product_overview/gridSidebar";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
 import listprops from "@/components/listPaginated";
+import Vue from 'vue';
 import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
@@ -464,8 +465,7 @@ export default {
         setTimeout(function() {
           as.isLoading = false;
         }, 1000);
-      }
-    },
+      },
     getErrors: {
       handler: function(errors) {
         if (errors === null || errors === undefined) {
@@ -473,6 +473,7 @@ export default {
         }
         this.showError();
       }
+    }
     },
     getSuccess: {
       handler: () => {
@@ -490,7 +491,7 @@ export default {
     this.fetchHotSellers();
     // this.filterByCategory(this.paginatedProducts, 1);
     this.selectedCategory = null;
-    this.list = [];
+    Vue.set(this.list = []);
     // console.log(this.paginatedProducts);
     // vm.$forceUpdate();
   },

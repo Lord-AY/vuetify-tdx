@@ -25,33 +25,28 @@
                   name="sort"
                   id="order_by"
                   class="select2 custom-select"
-                  v-model="filter"
+                  @change="filterSelection($event)"
                 >
                   <option value="1" v-if="list.length == 0"
                     >Newest To Oldest</option
                   >
                   <option value="2" v-else>Newest To Oldest</option>
-
                   <option value="2" v-if="list.length == 0"
                     >Oldest To New</option
                   >
                   <option value="1" v-else>Oldest To New</option>
-
                   <option value="3" v-if="list.length == 0"
                     >Alphabetically [a-z]</option
                   >
                   <option value="4" v-else>Alphabetically [a-z]</option>
-
                   <option value="4" v-if="list.length == 0"
                     >Alphabetically [z-a]</option
                   >
                   <option value="3" v-else>Alphabetically [z-a]</option>
-
                   <option value="5" v-if="list.length == 0"
                     >Highest price</option
                   >
                   <option value="6" v-else>Highest price</option>
-
                   <option value="6" v-if="list.length == 0"
                     >Lowest price</option
                   >
@@ -105,32 +100,61 @@ export default {
     switchComponent(comp) {
       bus.$emit("switchComp", comp);
     },
-    filterSelection(type) {
-      // console.log(e.target.value);
-      if (this.list.length == 0) {
-        const payload = {
-          type,
-          data: this.ads
-        };
-        // console.log(payload);
-        this.$emit("selectedFilter", payload);
+    filterSelection(e) {
+      console.log(e.target.value);
+      console.log(e);
+      console.log("function filter called");
+      // this.filter = e.target.value;
+      if (e.target.value) {
+        console.log("func called");
+        if (this.list.length == 0) {
+          const payload = {
+            type: e.target.value,
+            data: this.ads
+          };
+          // console.log(payload);
+          this.$emit("selectedFilter", payload);
+        } else {
+          const payload = {
+            type: e.target.value,
+            data: this.list
+          };
+          // console.log(payload);
+          this.$emit("selectedFilter", payload);
+        }
       } else {
-        const payload = {
-          type,
-          data: this.list
-        };
-        // console.log(payload);
-        this.$emit("selectedFilter", payload);
+        console.log("function called");
+        if (this.list.length == 0) {
+          const payload = {
+            type: e,
+            data: this.ads
+          };
+          // console.log(payload);
+          this.$emit("selectedFilter", payload);
+        } else {
+          const payload = {
+            type: e,
+            data: this.list
+          };
+          // console.log(payload);
+          this.$emit("selectedFilter", payload);
+        }
       }
+    },
+    mounted() {
+      this.filterSelection(1);
+      console.log("function called");
     }
   },
   watch: {
-    filter: {
-      immediate: true,
-      handler: function(filter) {
-        this.filterSelection(filter);
-      }
-    }
+    // filter: {
+    //   immediate: true,
+    //   handler: function(filter) {
+    //     console.log("filter selected");
+    //     console.log(filter);
+    //     this.filterSelection(filter);
+    //   }
+    // },
   }
 };
 </script>

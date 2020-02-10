@@ -34,5 +34,5 @@ export default {
   },
   singleProductcomments(pid) {
     return Api().get(`product/comments/${pid}`);
-  }
+  },
 };

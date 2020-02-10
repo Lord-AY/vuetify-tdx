@@ -28,8 +28,7 @@
       <div class="center-text col-md-12 ">
         <CategoryLoader v-show="showLoader(categories)"></CategoryLoader>
       </div>
-
-      <slick ref="slick" :options="slickOptions"  v-if="categories">     
+      <slick ref="slick" :options="slickOptions"  v-if="categories">
         <div class="item" v-for="category in categories" :key="category.id">
           <div class="card card-cat-tx mb-0 box-shadow-0">
             <div class="item-card item-card-tx">
