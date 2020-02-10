@@ -12,9 +12,7 @@ import component from '../public/assets/plugins/slick-1.8.1/slick-1.8.1/componen
       </div>
     </transition>
     <!-- <Footer></Footer> -->
-    <div v-if="$route.meta.header === 1" v-show="isloading"><Footer></Footer></div>
-    <div v-if="$route.meta.header === 3" v-show="isloading"><Footer></Footer></div>
-    <div v-if="$route.meta.header === 4" v-show="isloading"><Footer></Footer></div>
+    <div v-if="$route.meta.header === 1"><Footer></Footer></div>
     <notifications group="errors" :speed="500" />
     <notifications group="notify" :speed="500" />
     <!-- <div v-else-if="$route.meta.header === 3">I'm visible on home page two</div> -->

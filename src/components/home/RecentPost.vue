@@ -11,10 +11,12 @@
         </div>
       </div>
       <ProductLoader v-show="showLoader(comments)"></ProductLoader>
-      <simple-carousel-container loop :watch-it="comments">
-        <simple-carousel-item class="item" v-for="(comment, index) in comments" :key="index">
-        <!-- <div class="item" v-for="(comment, index) in comments" :key="index"> -->
-          <div class="card mb-0">
+      <!-- <simple-carousel-container loop :watch-it="comments"> -->
+        <!-- <simple-carousel-item class="item" v-for="(comment, index) in comments" :key="index"> -->
+          <div v-if="comments">
+      <slick ref="slick" :options="slickOptions"  v-if="comments">     
+          <div class="" v-for="(comment, index) in comments" :key="index">
+          <div class="card">
             <div class="item7-card-img">
               <router-link
                 :to="
@@ -76,10 +78,9 @@
               </div>
             </div>
           </div>
-        <!-- </div> -->
-        </simple-carousel-item>
-      </simple-carousel-container>
-      <!-- </div> -->
+      </div>
+    </slick>
+  </div>
     </div>
   </section>
   <!--Section-->
@@ -87,19 +88,35 @@
 
 <script>
 /* eslint-disable no-undef */
+import Slick from 'vue-slick';
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
 import ash from "lodash";
 import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
 export default {
   name: "RecentPost",
+  data() {
+    return {
+      slickOptions: {
+          //options can be used from the plugin documentation
+          slidesToShow: 4,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: false,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true
+      }
+    }
+  },
   props: {
     comments: [Object, Array]
   },
   components: {
     ProductLoader,
-    SimpleCarouselContainer,
-    SimpleCarouselItem
+    Slick
   },
   methods: {
     showLoader(data) {
@@ -129,6 +146,18 @@ export default {
   },
   watch: {
     $route: "sync"
+  },
+  beforeUpdate() {
+      if (this.$refs.slick) {
+          this.$refs.slick.destroy();
+      }
+  },
+  updated() {
+      this.$nextTick(function () {
+          if (this.$refs.slick) {
+              this.$refs.slick.create(this.slickOptions);
+          }
+      });
   },
   created() {
     this.sync();

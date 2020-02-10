@@ -1171,45 +1171,42 @@
                             <!-- Tabs -->
                             <ul class="nav panel-tabs">
                               <li>
-                                <a
-                                  href="#tab5"
-                                  class="active"
+                                <div
+                                  v-bind:class="{ 'active': tab1 }"
                                   data-toggle="tab"
-                                  @click="addPayment(1)"
+                                  @click.prevent="addPayment(1)"
                                 >
                                   <img
                                     src="@/assets/images/wallet.svg"
-                                    height="20px"
-                                    style="margin-top: -4px;"
+                                    style="margin-top: -4px min-width:20px; height:20px"
                                     alt=""
                                     srcset=""
                                   />
-                                  Wallet</a
+                                  Wallet</div
                                 >
                               </li>
                               <li>
-                                <a
-                                  href="#tab6"
+                                <div
+                                v-bind:class="{ 'active': tab2 }"
                                   data-toggle="tab"
-                                  @click="addPayment(2)"
+                                  @click.prevent="addPayment(2)"
                                 >
                                   <img
                                     src="@/assets/images/master_card.png"
-                                    height="20px"
-                                    style="margin-top: -4px;"
+                                    style="margin-top: -4px min-width:20px; height:20px"
                                     alt=""
                                     srcset=""
                                   />
-                                  Credit/ Debit Card</a
+                                  Credit/ Debit Card</div
                                 >
                               </li>
                               <li>
-                                <a
-                                  href="#tab7"
+                                <div
+                                  v-bind:class="{ 'active': tab3 }"
                                   data-toggle="tab"
-                                  @click="addPayment(3)"
+                                  @click.prevent="addPayment(3)"
                                 >
-                                  <i class="fa fa-university"></i> Cash</a
+                                  <i class="fa fa-university"></i> Cash</div
                                 >
                               </li>
                               <!-- <li><a href="#tab8" data-toggle="tab">Gift Voucher</a></li> -->
@@ -1221,7 +1218,7 @@
                           style="padding-top: 0px;"
                         >
                           <div class="tab-content">
-                            <div class="tab-pane active " id="tab5">
+                            <div class="tab-pane active " v-if="tab1">
                               <div class="form-group">
                                 <label class="form-label">Wallet ID</label>
                                 <div class="input-group">
@@ -1278,7 +1275,7 @@
                                       </li>
                                     </ul> -->
                             </div>
-                            <div class="tab-pane " id="tab6">
+                            <div v-if="tab2">
                               <div class="form-group">
                                 <label class="form-label"
                                   >CardHolder Name</label
@@ -1379,7 +1376,7 @@
                                       </li>
                                     </ul> -->
                             </div>
-                            <div class="tab-pane " id="tab7">
+                            <div class="" v-if="tab3">
                               <div class="cash-info">
                                 <h4>Cash payment procedure:</h4>
 
@@ -1529,9 +1526,6 @@
 </template>
 <script>
 /* eslint-disable no-undef */
-require("@/assets/plugins/vertical-scroll/jquery.bootstrap.newsbox.js");
-require("@/assets/plugins/vertical-scroll/vertical-scroll.js");
-// require("@/assets/css/style.css");
 
 import VueUploadMultipleImage from "vue-upload-multiple-image";
 import axios from "axios";
@@ -1556,6 +1550,9 @@ export default {
       currentSubCategory: [],
       categoryFields: [],
       categoryInputFields: [],
+      tab1: true,
+      tab2: false,
+      tab3: false,
     };
   },
   props: {
@@ -1574,29 +1571,6 @@ export default {
     Loading
   },
   mounted() {
-    let extScript = document.createElement("script");
-    // extScript.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js')
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/jquery.ui.widget.js"
-    );
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/jquery.fileupload.js"
-    );
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/jquery.iframe-transport.js"
-    );
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"
-    );
-    extScript.setAttribute(
-      "src",
-      "@/assets/plugins/fancyuploder/fancy-uploader.js"
-    );
-    document.head.appendChild(extScript);
   },
   computed: {
     ...mapGetters("product", ["getErrors", "fullCategories"]),
@@ -1604,6 +1578,24 @@ export default {
   },
   methods: {
     ...mapActions("product", ["fetchSubCategories"]),
+    addPayment(type){
+      // console.log(type);
+      if(type == "1"){
+        this.tab1=true;
+        this.tab2=false;
+        this.tab3=false;
+      }else if(type == "2"){
+        this.tab1=false;
+        this.tab2=true;
+        this.tab3=false;
+      }else if(type == "3"){
+        this.tab1=false;
+        this.tab2=false;
+        this.tab3=true;
+      }else{
+
+      }    
+    },
     selectImageSuccess(formData, index, fileList) {
       // console.log("data", formData, index, fileList);
       // store images to data object
@@ -1741,28 +1733,6 @@ export default {
     //   });
     // },
     sync() {
-      $(".vertical-scroll").bootstrapNews({
-        newsPerPage: 4,
-        autoplay: true,
-        pauseOnHover: true,
-        navigation: false,
-        direction: "down",
-        newsTickerInterval: 2500,
-        onToDo: function() {
-          //console.log(this);
-        }
-      });
-      $(".vertical-scroll1").bootstrapNews({
-        newsPerPage: 2,
-        autoplay: true,
-        pauseOnHover: true,
-        navigation: false,
-        direction: "down",
-        newsTickerInterval: 2500,
-        onToDo: function() {
-          //console.log(this);
-        }
-      });
     }
   },
   watch: {

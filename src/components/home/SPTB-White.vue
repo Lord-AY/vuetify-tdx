@@ -29,9 +29,11 @@ import router from '../../router';
         </router-link>
       </div>
       <ProductLoader v-show="showLoader(ads)"></ProductLoader>
-      <simple-carousel-container loop :watch-it="ads">
-        <simple-carousel-item v-for="product in ads" :key="product.id">
-          <div class="card mb-0">
+      <!-- <simple-carousel-container loop :watch-it="ads"> -->
+        <div v-if="ads">
+      <slick ref="slick" :options="slickOptions">     
+        <div class=""  v-for="product in ads" :key="product.id">
+          <div class=" mb-0">
             <div class="item-card2-img">
             <!--   <router-link
                 :to="`/ProductDetails/${product.id}/${product.cid}`"
@@ -95,8 +97,10 @@ import router from '../../router';
               </div>
             </div>
           </div>
-        </simple-carousel-item>
-      </simple-carousel-container>
+        </div>
+      </slick>
+    </div>
+      <!-- </simple-carousel-container> -->
 <!--       <b-carousel :defaultIndex="3"
         v-show="!showLoader(ads)"
       >
@@ -112,20 +116,36 @@ import router from '../../router';
 <script>
 // require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 /* eslint-disable no-undef */
+import Slick from 'vue-slick';
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
 import ash from "lodash";
-import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
+// import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
 
 export default {
   name: "SPTB-White",
+  data() {
+    return {
+      slickOptions: {
+          //options can be used from the plugin documentation
+          slidesToShow: 4,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: true,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true
+      }
+    }
+  },
   props: {
     ads: [Object, Array]
   },
   components: {
     ProductLoader,
-    SimpleCarouselContainer,
-    SimpleCarouselItem
+    Slick
   },
   methods: {
     showLoader(data) {
@@ -156,6 +176,18 @@ export default {
   },
   watch: {
     $route: "sync"
+  },
+  beforeUpdate() {
+      if (this.$refs.slick) {
+          this.$refs.slick.destroy();
+      }
+  },
+  updated() {
+      this.$nextTick(function () {
+          if (this.$refs.slick) {
+              this.$refs.slick.create(this.slickOptions);
+          }
+      });
   },
   created() {
     this.sync();

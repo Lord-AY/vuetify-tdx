@@ -102,7 +102,7 @@ export default {
   display: inline-block;
   width: 120px;
   height: 120px;
-  background-image: "@/assets/images/emoji.png";
+  background-image: url('~@/assets/images/emoji.png');
   background-size: cover;
   -webkit-transform: scale(1.4);
   -ms-transform: scale(1.4);

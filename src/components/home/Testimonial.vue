@@ -8,9 +8,8 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-        <simple-carousel-container loop :watch-it="data">
-            <simple-carousel-item>
-            <div class="item text-center">
+          <simple-carousel-container loop :watch-it="data">
+            <SimpleCarouselItem class="item text-center">
               <div class="row">
                 <div class="col-xl-8 col-md-12 d-block mx-auto">
                   <div class="testimonia">
@@ -65,12 +64,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            </simple-carousel-item>
-            <!-- </div> -->
-            
-            <simple-carousel-item>
-              <div class="item text-center">
+            </SimpleCarouselItem>
+            <SimpleCarouselItem class="item text-center">
               <div class="row">
                 <div class="col-xl-8 col-md-12 d-block mx-auto">
                   <div class="testimonia">
@@ -129,10 +124,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            </simple-carousel-item>
-            <simple-carousel-item>
-            <div class="item text-center">
+            </SimpleCarouselItem>
+            <SimpleCarouselItem class="item text-center">
               <div class="row">
                 <div class="col-xl-8 col-md-12 d-block mx-auto">
                   <div class="testimonia">
@@ -191,10 +184,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </simple-carousel-item>
+            </SimpleCarouselItem>
           </simple-carousel-container>
-          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -202,31 +193,55 @@
 </template>
 
 <script>
-import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
 /* eslint-disable no-undef */
+import { SimpleCarouselContainer, SimpleCarouselItem } from 'vue-simple-carousel';
 export default {
   name: "Testimonial",
-  data() {
-    return {
-      data: null
-    };
-  },
-
   components: {
     SimpleCarouselContainer,
     SimpleCarouselItem
   },
+   data() {
+    return {
+      data: [
+        "first",
+        "second",
+        "third"
+      ],
+      timer: null,
+      currentIndex: 0
+    };
+  },
+  
   methods: {
     sync() {
-     
+    },
+    startSlide: function() {
+      this.timer = setInterval(this.next, 4000);
+    },
+
+    next: function() {
+      this.currentIndex += 1;
+    },
+    prev: function() {
+      this.currentIndex -= 1;
     }
   },
+  computed: {
+    currentImg: function() {
+      return this.images[Math.abs(this.currentIndex) % this.images.length];
+    }
+  },
+
   watch: {
     $route: "sync"
   },
   created() {
     this.sync();
-  }
+  },
+  mounted: function() {
+    this.startSlide();
+  },
 };
 </script>
 
