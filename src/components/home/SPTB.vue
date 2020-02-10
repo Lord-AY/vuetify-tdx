@@ -32,11 +32,10 @@
         id="slick"
         class="slick single-item mobile-hidden"
         data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'
-        
       >
- -->   
+ -->
 
-      <slick ref="slick" :options="slickOptions"  v-if="categories">     
+      <slick ref="slick" :options="slickOptions"  v-if="categories">
         <div class="item" v-for="category in categories" :key="category.id">
           <div class="card card-cat-tx mb-0 box-shadow-0">
             <div class="item-card item-card-tx">

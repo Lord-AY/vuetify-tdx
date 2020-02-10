@@ -56,11 +56,7 @@ export default {
         subcategory: null,
         featured: false,
         tradexplorer: true,
-<<<<<<< HEAD
         adtype: null,
-=======
-        adType: null,
->>>>>>> 2c1b171439813ed2f79983c677640c208431dab8
         paymentype: 1,
         approved: true,
         published: true,
