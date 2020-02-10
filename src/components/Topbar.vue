@@ -11,8 +11,8 @@
                 <div class="clearfix"></div>
                 <div class="clearfix">
                   <ul class="contact">
-                    <li class="select-country tdx-country mr-5">
-                      <!-- <select
+<!--                     <li class="select-country tdx-country mr-5">
+                      <select
                         class="form-control select2-flag-search"
                         data-placeholder="Select Country"
                         style="color: #fff!important;"
@@ -156,9 +156,9 @@
                         <option value="YE">Yemen</option>
                         <option value="ZM">Zambia</option>
                         <option value="ZW">Zimbabwe</option>
-                      </select> -->
+                      </select>
                     </li>
-                    <li class="dropdown mr-5">
+ -->                    <li class="dropdown mr-5">
                       <a
                         href="#"
                         class="text-dark dropdown-head"
@@ -262,13 +262,10 @@
                     </a>
                   </li>
                   <li>
-                    <a
-                      class="referal"
-                      href="../views/ref.vue"
-                    >
-                    <span>Refer</span>
-                      <i class="fa fa-share"></i>
-                    </a>
+                    <router-link to="/referal" class="referal">
+                      <span>Refer</span>
+                        <i class="fa fa-share"></i>
+                    </router-link>
                   </li>
                   </div>
                   
@@ -307,7 +304,6 @@
                             style="margin-top: -4px; margin-right: 5px;"
                           />
                           Balance
-                          <span>{{ userbalance }}</span>
                         </router-link>
                         <span style="line-height: 1.6!important">{{ userbalance }}</span>
                       </li>
@@ -456,8 +452,7 @@
                   All Categories
                 </span>
               </label>
-              <!-- {{ categories }} -->
-<!--               <div class="hide-at-start-wrapper">
+              <div class="hide-at-start-wrapper">
                 <nav class="bmenu panel animated" v-if="categories">
                   <router-link
                     to="/categories"
@@ -496,7 +491,7 @@
                     </div>
                   </article>
                  </nav>
-              </div> -->
+              </div>
             </li>
             <div class="row-tdx">
               <!-- <li aria-haspopup="true" style="padding: 0px;">
@@ -575,6 +570,10 @@
 </template>
 
 <script>
+$(document).click(function (e) {
+    e.stopPropagation();
+    var container = $(".toggle");
+})
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
 // require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
@@ -639,38 +638,111 @@ export default {
       }
     },
     documentClick(e){
-      
+      $(document).ready(function() {
+        var isShown = $(".hide-at-start-wrapper").hasClass("show");
+        $(document).click(function(){
+          $("#bmenu_toggle").prop("checked", false);
+          this.showResults = false;
+          $("#searchResult").hide();
+        });
+        $("#bmenu_toggle").click(function(e){
+          e.stopPropagation();
+        });
+      });
     },
     sync() {
-      
+      $(window).on('load', function() {
+        $("#bmenu_toggle").prop("checked", false);
+        var stickyNavTop = $(".my-nav").offset().top;
+        var stickyNav = function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop >= stickyNavTop) {
+            $("#topb").removeClass("mobile-hidden");
+            $(".my-nav").addClass("top-bar-fixed");
+          } else {
+            $(".my-nav").removeClass("top-bar-fixed");
+          }
+        };
+
+        stickyNav();
+        $(window).scroll(function() {
+          stickyNav();
+        });
+        $("#tx-menu-toggle").click(function() {
+          $(this).toggleClass("open");
+        });
+        let sideBarTrigger = $(".openbtn");
+        // let sideBar = $("#sidebar-nav");
+        let sideBar = $("#tempSidebar");
+        let dashboardContent = $(".dashboard-main");
+        // let closeBtn = $("")
+        sideBarTrigger.click(() => {
+          if (sideBarTrigger.hasClass("closed")) {
+            //to open
+            sideBar.css({ left: "0px" });
+            dashboardContent.css({
+              left: "250px",
+              transition: "all 0.3s ease-in-out;"
+            });
+            sideBarTrigger.toggleClass("closed");
+            // console.log("Sidebar is now open");
+          } else {
+            //to close
+            sideBar.css({ left: "-260px" });
+            dashboardContent.css({
+              left: "0px",
+              transition: "all 0.3s ease-in-out;"
+            });
+            sideBarTrigger.toggleClass("closed");
+            // console.log("Sidebar is now closed");
+          }
+        });
+
+        function formatState(state) {
+          if (!state.id) {
+            return state.text;
+          }
+          var $state = $(
+            '<span><img src="./assets/images/flags/' +
+              state.element.value.toLowerCase() +
+              '.svg" class="img-flag" /> ' +
+              state.text +
+              "</span>"
+          );
+          return $state;
+        }
+      });
     }
   },
   watch: {
     keyword: {
       handler: function(keyword) {
-        // if(keyword){
-          if (keyword.length >= 3) {
-            // $(document).ready(function() {
-            //     $("#searchResult").show();
-            // });
+        if (keyword.length >= 3) {
+          $(document).ready(function() {
+              $("#searchResult").show();
+          });
 
-            this.showResults = true;
-            this.getSearchResults(keyword);
-          } else {
-            this.showResults = false;
-          }
-        // }
+          this.showResults = true;
+          this.getSearchResults(keyword);
+        } else {
+          this.showResults = false;
+        }
       }
     }
   },
   created() {
     this.sync();
     this.fetchAllCategories();
-    // this.sendFetchSubCategories();
+    this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
     document.addEventListener('click', this.documentClick);
     // console.log(this.userbalance);
   },
+  destroyed () {
+    // important to clean up!!
+    document.removeEventListener('click', this.documentClick);
+  }
+
 };
 </script>
 

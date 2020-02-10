@@ -35,7 +35,7 @@ import router from '../../router';
           <div class=""  v-for="product in ads" :key="product.id">
           <div class="card mb-0">
             <div v-if="product.featured === 1">
-              <div class="arrow-ribbon hot-package">
+              <div class="arrow-ribbon">
                 <img src="@/assets/images/hot-icon.png" alt="" width="32px" />
               </div>
             </div>
