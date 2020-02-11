@@ -1525,7 +1525,8 @@ name: "postad",
   methods: {
   ...mapActions("product", ["fetchSubCategories"]),
   callback: function(response) {
-  console.log(response);
+    this.saveTransactions(response);
+    console.log(response);
   },
   close: function() {
   console.log("Payment closed");

@@ -133,7 +133,7 @@ export default {
       "validatePaymentOption",
       "paymentAdvices"
     ]),
-    ...mapMutations("wallet", ["SET_PAYMENT_RESPONSE"]),
+    ...mapMutations("transactions", ["SET_PAYMENT_RESPONSE"]),
     sendPaymentItem() {
       const payload = {
         payId: this.$route.params.payid
