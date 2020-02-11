@@ -1,11 +1,12 @@
-import WalletService from "@/services/WalletService";
+import TransactionService from "@/services/TransactionService";
 import router from "@/router";
 export default {
     namespaced: true,
     state: {
         walletData: 0,
         webpayResponse: null,
-        walletHistory: null
+        walletHistory: null,
+        paystackResponse: null,
     },
     getters: {
         getwalletData(state) {
@@ -31,7 +32,7 @@ export default {
         FetchUserwallet({ commit }, payload) {
             commit("auth/SET_LOADING", true, { root: true });
             commit("SET_PAYMENT_RESPONSE", null);
-            return WalletService.getWallet(payload)
+            return TransactionService.getWallet(payload)
                 .then(({ data }) => {
                     commit("auth/SET_LOADING", false, { root: true });
                     commit("SET_USER_WALLET", data);
@@ -45,7 +46,7 @@ export default {
         FetchUserwalletHistory({ commit }, payload) {
             commit("auth/SET_LOADING", true, { root: true });
             commit("SET_PAYMENT_RESPONSE", null);
-            return WalletService.getWalletHistory(payload)
+            return TransactionService.getWalletHistory(payload)
                 .then(({ data }) => {
                     commit("auth/SET_LOADING", false, { root: true });
                     commit("SET_USER_WALLET_HISTORY", data);
@@ -60,7 +61,7 @@ export default {
             // set inputs to state
             commit("auth/SET_LOADING", true, { root: true });
             commit("SET_PAYMENT_RESPONSE", null);
-            return WalletService.createWallet(payload)
+            return TransactionService.createWallet(payload)
                 .then(({ data }) => {
                     commit("auth/SET_LOADING", false, { root: true });
                     commit("SET_USER_WALLET", data);
@@ -72,7 +73,7 @@ export default {
         paymentStepOne({ commit }, payload) {
             commit("auth/SET_LOADING", true, { root: true });
             console.log(payload);
-            WalletService.postPayment(payload)
+            TransactionService.postPayment(payload)
                 .then(({ data }) => {
                     commit("SET_PAYMENT_RESPONSE", data);
                     router.push("/valueind");
@@ -80,6 +81,25 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
+        },
+        saveTransactions({commit, rootState}, payload) {
+            commit("auth/SET_LOADING", true, { root: true });
+            commit("SET_PAYMENT_RESPONSE", null);
+            const refinedPayload = {
+                userid: rootState.auth.user.id,
+                full_name: rootState.auth.user.firstname + " " + rootState.auth.user.lastname,
+                email: rootState.auth.user.email,
+                amount: payload.amount,
+                source: payload.source,
+                paymentCode: payload.payment,
+                phone: payload.phone
+            };
+            TransactionService.saveTransactions(refinedPayload)
+            .then(({data}) => {
+                console.log(data);
+            }).catch(error => {
+                console.log(error.response);
+            });
         }
     },
     mutations: {

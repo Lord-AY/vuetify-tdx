@@ -262,7 +262,7 @@ export default {
   },
   computed: {
     ...mapGetters("auth", ["getUser"]),
-    ...mapGetters("wallet", ["getwalletData", "getwalletHistory"]),
+    ...mapGetters("transactions", ["getwalletData", "getwalletHistory"]),
     loading() {
       return this.$store.getters["auth/loading"];
     },
@@ -289,7 +289,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("wallet", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "FetchUserwalletHistory"]),
+    ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "FetchUserwalletHistory"]),
     async checkUserWalletState(){
       await this.FetchUserwalletHistory(this.getUser.id)
     },

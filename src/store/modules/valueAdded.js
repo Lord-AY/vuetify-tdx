@@ -1,6 +1,6 @@
 import ash from "lodash";
 import router from "../../router";
-import valueAddedService from "@/services/valueAddedService";
+import TransactionService from "@/services/TransactionService";
 import UserService from "@/services/UserService";
 // import ash from 'lodash';
 export default {
@@ -66,7 +66,7 @@ export default {
       commit("SET_ERRORS", null);
       commit("SET_TRANSACTION_DETAILS", null);
       commit("wallet/SET_PAYMENT_RESPONSE", null, {root: true});
-      return valueAddedService
+      return TransactionService
         .billers()
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
@@ -84,7 +84,7 @@ export default {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
-      return valueAddedService.payment(payload)
+      return TransactionService.payment(payload)
         .then(({data}) => {
           commit("auth/SET_LOADING", false, {root: true});
           commit("SET_PAYMENT_ITEMS", data);
@@ -102,7 +102,7 @@ export default {
       console.log(rootState.auth.user)
       // add user email to rootstate and attach to payload
       // console.log(payload);
-      return valueAddedService.paymentOption(payload)
+      return TransactionService.paymentOption(payload)
         .then(({data}) => {
           // console.log(data);
           commit("auth/SET_LOADING", true, { root: true });
@@ -132,7 +132,7 @@ export default {
         paymentCode: parseObj.paymentCode
       }
       console.log(refinedPayload);
-      valueAddedService.advice(refinedPayload)
+      TransactionService.advice(refinedPayload)
         .then(({data}) => {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_TRANSACTION_DETAILS", data);

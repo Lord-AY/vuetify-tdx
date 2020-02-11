@@ -155,7 +155,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("wallet", ["webpayDetails"]),
+    ...mapGetters("transactions", ["webpayDetails"]),
     ...mapGetters("valueAdded", ["getTransaction"]),
     ...mapGetters("auth", ["getUser"]),
   },

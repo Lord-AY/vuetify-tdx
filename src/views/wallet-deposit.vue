@@ -175,14 +175,14 @@ export default {
     DashboardLoader
   },
   computed: {
-    ...mapGetters("wallet", ["getwalletData"]),
+    ...mapGetters("transactions", ["getwalletData"]),
     ...mapGetters("auth", ["getUser", "loading"]),
     loading() {
       return this.$store.getters["auth/loading"];
     }
   },
   methods: {
-    ...mapActions("wallet", ["createUserwallet", "FetchUserwallet", "paymentStepOne"]),
+    ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne"]),
     async checkUserWalletState(){
       await this.FetchUserwallet(this.getUser.id)
     },
