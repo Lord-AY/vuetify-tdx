@@ -131,7 +131,8 @@ export default {
           dots: false,
           draggable: true,
           edgeFriction: 0.30,
-          swipe: true
+          swipe: true,
+          autoplay: true
       }
     }
   },
