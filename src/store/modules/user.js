@@ -68,11 +68,11 @@ export default {
       })
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(data);
+          // console.log(data);
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error.response);
+          // console.log(error.response);
         });
     },
     fetchDashboardDetails({ commit, rootState, dispatch }) {
@@ -83,11 +83,11 @@ export default {
         .then(({ data }) => {
           commit("auth/SET_LOADING", true, { root: true });
           dispatch("fetchDashboardTransactions", data);
-          console.log(data);
+          // console.log(data);
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error);
+          // console.log(error);
         });
     },
     fetchDashboardTransactions({ commit, rootState }, payload) {
@@ -101,11 +101,11 @@ export default {
           dashboardArr.push(payload);
           dashboardArr.push(data);
           commit("SET_DASHBOARD_DETAILS", dashboardArr);
-          console.log(dashboardArr);
+          // console.log(dashboardArr);
         })
         .catch(error => {
           commit("auth/SET_LOADING", false, { root: true });
-          console.log(error);
+          // console.log(error);
         });
     },
     FetchUser({ commit }, payload) {

@@ -51,7 +51,7 @@
                             </span>
                             <p>
                               <span class="title">Airtime</span>
-                              <span class="number">0</span>
+                              <span class="number">{{ getAirtime() }}</span>
                             </p>
                           </div>
                         </div>
@@ -62,7 +62,7 @@
                             </span>
                             <p>
                               <span class="title">Cable TV</span>
-                              <span class="number">0</span>
+                              <span class="number">{{ getCableTV() }}</span>
                             </p>
                           </div>
                         </div>
@@ -73,7 +73,7 @@
                             </span>
                             <p>
                               <span class="title">Electricity</span>
-                              <span class="number">0</span>
+                              <span class="number">{{ getElectricity() }}</span>
                             </p>
                           </div>
                         </div>
@@ -84,7 +84,7 @@
                             </span>
                             <p>
                               <span class="title">Flight</span>
-                              <span class="number">0</span>
+                              <span class="number">{{ getFlight() }}</span>
                             </p>
                           </div>
                         </div>
@@ -97,7 +97,7 @@
                             </span>
                             <p>
                               <span class="title">Featured Posts</span>
-                              <span class="number">{{ getDashboard[1].sold }}</span>
+                              <span class="number">{{ getFeaturedAds() }}</span>
                             </p>
                           </div>
                         </div>
@@ -108,7 +108,7 @@
                             </span>
                             <p>
                               <span class="title">Active</span>
-                              <span class="number">0</span>
+                              <span class="number">{{ getActiveAds() }}</span>
                             </p>
                           </div>
                         </div>
@@ -119,7 +119,7 @@
                             </span>
                             <p>
                               <span class="title">Expired</span>
-                              <span class="number">0</span>
+                              <span class="number">{{ getDeletedAds() }}</span>
                             </p>
                           </div>
                         </div>
@@ -130,7 +130,7 @@
                             </span>
                             <p>
                               <span class="title">Sold</span>
-                              <span class="number">0</span>
+                              <span class="number">{{ getSoldAds() }}</span>
                             </p>
                           </div>
                         </div>
@@ -399,7 +399,73 @@ export default {
     ...mapGetters('user', ['getDashboard'])
   },
   methods: {
-    ...mapActions('user', ['fetchDashboardDetails'])
+    ...mapActions('user', ['fetchDashboardDetails']),
+    sum( obj ) {
+      var sum = 0;
+      for( var el in obj ) {
+        if( obj.hasOwnProperty( el ) ) {
+          sum += parseFloat( obj[el] );
+        }
+      }
+      return sum;
+    },
+    getFeaturedAds(){
+      if(this.getDashboard[1].fetured){
+        delete this.getDashboard[1].fetured['0'];
+        return this.sum( this.getDashboard[1].fetured );
+      }else{
+        return 0 
+      }
+    },
+    getSoldAds(){
+      if(this.getDashboard[1].sold){
+        return this.getDashboard[1].sold;
+      }else{
+        return 0 
+      }
+    },
+    getActiveAds(){
+      if(this.getDashboard[1].false){
+        return this.getDashboard[1].false;
+      }else{
+        return 0 
+      }
+    },    
+    getDeletedAds(){
+      if(this.getDashboard[1].true){
+        return this.getDashboard[1].true;
+      }else{
+        return 0 
+      }
+    },
+    getAirtime(){
+      if(this.getDashboard[0].Airtime){
+        return this.getDashboard[0].Airtime;
+      }else{
+        return 0 
+      }
+    },
+    getCableTV(){
+      if(this.getDashboard[0].CableTV){
+        return this.getDashboard[0].CableTV;
+      }else{
+        return 0 
+      }
+    },
+    getElectricity(){
+      if(this.getDashboard[0].Electricity){
+        return this.getDashboard[0].Electricity;
+      }else{
+        return 0 
+      }
+    },
+    getFlight(){
+      if(this.getDashboard[0].Flight){
+        return this.getDashboard[0].Flight;
+      }else{
+        return 0 
+      }
+    },
   },
   created() {
     this.fetchDashboardDetails()

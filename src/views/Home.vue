@@ -71,7 +71,7 @@ export default {
       "paginatedProducts"
     ]),
     ...mapGetters("auth", ["loading", "errors", "getUser"]),
-    ...mapGetters("wallet", ["getwalletData"]),
+    ...mapGetters("transactions", ["getwalletData"]),
   },
   methods: {
     ...mapActions("product", [
@@ -79,7 +79,7 @@ export default {
       "fetchAllProducts",
       "fetchAllComments"
     ]),
-    ...mapActions("wallet", [
+    ...mapActions("transactions", [
       "createUserwallet", 
       "FetchUserwallet", 
       "paymentStepOne", 
