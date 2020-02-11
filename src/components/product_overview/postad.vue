@@ -1417,27 +1417,26 @@ import "vue-loading-overlay/dist/vue-loading.css";
 export default {
   name: "postad",
   data() {
-    return {
-      selectedImages: [],
-      paystackkey: "pk_test_b9c529f4da742bbae2e19746ed9b9914f4e1f17c", //paystack public key
-      email: null, // paystack customer email
-      showPayment: false,
-      adType: null,
-      uploaded: [],
-      errors: null,
-      selected: 1,
-      isLoading: false,
-      fullPage: true,
-      isHidden: false,
-      selectedCategory: null,
-      currentSubCategory: [],
-      categoryFields: [],
-      categoryInputFields: [],
-      tab1: false,
-      tab2: true,
-      tab3: false,
-      adAmount: 0,
-      paymentCode: "28473"
+  return {
+    selectedImages: [],
+    paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
+    email: null, // paystack customer email
+    showPayment: false,
+    adType: null,
+    uploaded: [],
+    errors: null,
+    selected: 1,
+    isLoading: false,
+    fullPage: true,
+    isHidden: false,
+    selectedCategory: null,
+    currentSubCategory: [],
+    categoryFields: [],
+    categoryInputFields: [],
+    tab1: true,
+    tab2: false,
+    tab3: false,
+    adAmount: 0
     };
   },
   props: {
