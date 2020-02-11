@@ -71,7 +71,7 @@ export default {
       "paginatedProducts"
     ]),
     ...mapGetters("auth", ["loading", "errors", "getUser"]),
-    ...mapGetters("wallet", ["getwalletData"]),
+    ...mapGetters("transactions", ["getwalletData"]),
   },
   methods: {
     ...mapActions("product", [
@@ -79,7 +79,8 @@ export default {
       "fetchAllProducts",
       "fetchAllComments"
     ]),
-    ...mapActions("wallet", [
+    ...mapActions('user', ['fetchDashboardDetails']),
+    ...mapActions("transactions", [
       "createUserwallet", 
       "FetchUserwallet", 
       "paymentStepOne", 
@@ -192,6 +193,7 @@ export default {
     this.fetchAllProducts();
     this.loadfunc();   
     if(this.getUser !== null){
+      this.fetchDashboardDetails();
       this.FetchUserwalletHistory(this.getUser.id).then(data => {
           // console.log(this.getwalletData);
           this.userWalletHistory.push(this.getwalletHistory);

@@ -31,25 +31,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- <h3 class="panel-title">
-                  Published
-                  <span style="display: inline;">( 0 )</span>
-                </h3>
-                <form class="form form-inline form-published-search" method="get">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="search_title"
-                      value
-                      placeholder="Search Inventory"
-                    />
-                    <input type="hidden" name="page-type" value="published-ads" />
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-theme">Search</button>
-                  </div>
-                </form> -->
               </div>
               <div class="panel-body">
                 <div
@@ -60,7 +41,6 @@
                     <form
                       id="sb_update_profile"
                       class="sb_update_profile"
-                      @submit.prevent="updatePayment"
                     >
                       <div class="row">
                         <div class="col-md-3"></div>
@@ -91,6 +71,7 @@
                               >Amount</label
                             >
                             <input
+                              @input="onInput" 
                               class="form-control form-control-dashboard"
                               type="number"
                               v-model="amount"
@@ -107,7 +88,20 @@
                           <div class="col-md-6">
                               <div class="col-md-10"></div>
                             <div class="col-md-2 col-dash">
-                                <button class="btn btn-theme btn-theme-dash">Continue to Pay</button>
+                                <paystack
+                                  class="btn btn-theme btn-theme-dash"
+                                  :amount="Depositamount"
+                                  :email="getUser.email"
+                                  :paystackkey="paystackkey"
+                                  :reference="reference"
+                                  :callback="callback"
+                                  :close="close"
+                                  :embed="false"
+                                >
+                                  <i class="fas fa-money-bill-alt"></i>
+                                  Continue to Pay
+                                </paystack>
+
                             </div>
                           </div>
                           <div class="col-md-3"></div>
@@ -124,13 +118,6 @@
       <!-- END MAIN -->
       <div class="clearfix"></div>
     </div>
-    <!-- <div class="text-center margin-top-30 margin-bottom-20">
-        <ul class="pagination pagination-lg">
-<li class="active"><a href="index.html">1</a></li>
-<li><a href="page/2/index.html">2</a></li>
-<li><a href="page/2/index.html" >Next Page &raquo;</a></li>
-</ul>
-    </div>-->
 
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />
@@ -157,7 +144,7 @@
 
 
 import { mapActions, mapGetters } from "vuex";
-
+import paystack from "vue-paystack";
 import DashboardLoader from "@/components/loaders/dashboardloader";
 import dsidebar from "@/components/Dsidebar";
 // import dheader from "@/components/Dheader";
@@ -167,24 +154,39 @@ export default {
     return {
       isLoading: true,
       userWallet: null,
-      amount: null
+      paystackkey: "pk_test_b9c529f4da742bbae2e19746ed9b9914f4e1f17c", //paystack public key
+      amount: null,
+      Depositamount: 0
     };
   },
   components: {
     dsidebar,
-    DashboardLoader
+    DashboardLoader,
+    paystack
   },
   computed: {
     ...mapGetters("transactions", ["getwalletData"]),
     ...mapGetters("auth", ["getUser", "loading"]),
     loading() {
       return this.$store.getters["auth/loading"];
-    }
+    },
+    reference() {
+      let text = "";
+      let possible =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (let i = 0; i < 10; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      return text;
+    },
   },
   methods: {
     ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne"]),
     async checkUserWalletState(){
       await this.FetchUserwallet(this.getUser.id)
+    },
+    onInput($event) {
+      // console.log($event.target.value);
+      this.Depositamount = parseInt($event.target.value) * 100;
     },
     updatePayment() {
       const payload = {
@@ -197,6 +199,18 @@ export default {
       }else{
 
       }
+    },
+    callback: function(response) {
+      let customdata = {
+        "source":"Wallet Deposit",
+        "amount": this.amount
+      }
+      const transactionResponse = Object.assign(customdata,response)
+      // this.saveTransactions(response);
+      console.log(transactionResponse);
+    },
+    close: function() {
+      console.log("Payment closed");
     },
   },
   watch: {

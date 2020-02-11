@@ -3,7 +3,7 @@ import UserService from "@/services/UserService";
 export default {
 	namespaced: true,
 	state: {
-		messages: null,
+		messages: [],
 		errors: null,
 		success: null
 	},

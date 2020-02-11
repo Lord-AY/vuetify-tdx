@@ -604,12 +604,12 @@ export default {
     },
     noMessages() {
       // console.log(this.messagesFrom);
-      // console.log(this.messagesTo);
-      if(this.messages.length !== 0 && this.messages.length !== null ) {
-         this.showMessage = true;
+      // console.log(this.messages.length);
+      if(this.messages.length < 1) {
+         this.showMessage = false;
       } else {
-      this.showMessage = false;
-    }
+          this.showMessage = true;
+        }
     },
     preventLeadingSpace(e) {
       // only prevent the keypress if the value is blank
