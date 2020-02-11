@@ -168,7 +168,7 @@
               </div>
             </div>
             <!-- <hr /> -->
-            <div v-if="getHotSellers.length > 0">
+            <div v-if="getHotSellers">
               <hotsellers
                 class="mobile-hidden"
                 :hotsellers="getHotSellers"

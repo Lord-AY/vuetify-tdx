@@ -473,7 +473,7 @@
                       <div class="column">
                         <section class="titled-group">
                           <header>Subcategory for Category {{ category.name }}</header>
-                          <div v-if="subcategories.length > 0">
+                          <div v-if="subcategories">
                             <a
                               href="/categories"
                               v-for="subcategory in subcategories"
@@ -615,7 +615,6 @@ export default {
         cid: id
       };
       this.fetchSubCategories(payload);
-      // console.log(this.subcategories);
     },
     sendFetchSubCategories() {
       let categories = this.categories;

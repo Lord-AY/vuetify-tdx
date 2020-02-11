@@ -79,6 +79,7 @@ export default {
       "fetchAllProducts",
       "fetchAllComments"
     ]),
+    ...mapActions('user', ['fetchDashboardDetails']),
     ...mapActions("transactions", [
       "createUserwallet", 
       "FetchUserwallet", 
@@ -192,6 +193,7 @@ export default {
     this.fetchAllProducts();
     this.loadfunc();   
     if(this.getUser !== null){
+      this.fetchDashboardDetails();
       this.FetchUserwalletHistory(this.getUser.id).then(data => {
           // console.log(this.getwalletData);
           this.userWalletHistory.push(this.getwalletHistory);

@@ -54,7 +54,7 @@ export default {
                 })
                 .catch(error => {
                     commit("auth/SET_LOADING", false, { root: true });
-                    console.log(error);
+                    // console.log(error);
                 });
         },
         createUserwallet({ commit, state }, payload) {
@@ -82,7 +82,7 @@ export default {
                     console.log(error);
                 });
         },
-        saveTransactions({commit, rootState}, payload) {
+        saveTransactions({commit, rootState}, {payload, ads}) {
             commit("auth/SET_LOADING", true, { root: true });
             commit("SET_PAYMENT_RESPONSE", null);
             const refinedPayload = {
@@ -90,13 +90,21 @@ export default {
                 full_name: rootState.auth.user.firstname + " " + rootState.auth.user.lastname,
                 email: rootState.auth.user.email,
                 amount: payload.amount,
+                reference1: payload.reference,
+                trans: payload.trans,
+                status: payload.status,
+                message: payload.message,
+                transaction: payload.transaction,
+                trxref: payload.trxref,
                 source: payload.source,
-                paymentCode: payload.payment,
-                phone: payload.phone
+                custId: rootState.auth.user.id,
+                paymentCode: payload.reference,
+                phone: rootState.auth.user.phone
             };
             TransactionService.saveTransactions(refinedPayload)
             .then(({data}) => {
-                console.log(data);
+                dispatch("product/createProduct", ads, { root: true });
+                // commit("auth/SET_LOADING", false, { root: true });
             }).catch(error => {
                 console.log(error.response);
             });
