@@ -18,7 +18,8 @@ export default {
     success: null,
     errors: null,
     singleCategory: null,
-    hotSellers: null
+    hotSellers: null,
+    productloading: false
   },
   getters: {
     productListings(state) {
@@ -230,16 +231,16 @@ export default {
         });
     },
     fetchSubCategories({commit}, payload) {
-        commit("auth/SET_LOADING", true, { root: true });
+        commit("SET_PRODUCT_LOADING", true);
          commit("SET_ERRORS", null);
          ProductService.subcategory(payload)
          .then(({data}) => {
-          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_PRODUCT_LOADING", false);
           let subcategories = data;
           // console.log(subcategories);
           commit("SET_SUBCATEGORIES", subcategories);
          }).catch(error => {
-          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_PRODUCT_LOADING", false);
           commit("SET_ERRORS", "Cant connect to server...");
          });
     },
@@ -454,6 +455,9 @@ export default {
     },
     SET_SELLER(state, data) {
       state.seller = data;
+    },
+     SET_PRODUCT_LOADING(state, loading) {
+      state.productloading = loading;
     },
     SET_SUBCATEGORIES(state, subcategories) {
       state.subcategories = subcategories;

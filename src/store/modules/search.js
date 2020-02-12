@@ -17,7 +17,7 @@ export default {
                 state.results == null &&
                 state.results == undefined
             ) {
-                return null;
+                return [];
             }
             return state.results;
         }
