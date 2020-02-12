@@ -11,6 +11,9 @@ import Vue2Filters from 'vue2-filters';
 import ScrollLoader from 'vue-scroll-loader'
 import underscore from 'vue-underscore';
 import infiniteScroll from "vue-infinite-scroll";
+import { ValidationObserver, ValidationProvider, extend, localize } from 'vee-validate';
+import en from 'vee-validate/dist/locale/en.json';
+import * as rules from 'vee-validate/dist/rules';
 require("firebase/firestore");
 var SocialSharing = require('vue-social-sharing');
 
@@ -34,6 +37,9 @@ var firebaseConfig = {
 // import velocity from "velocity-animate";
 import "vue-phone-number-input/dist/vue-phone-number-input.css";
 Vue.config.productionTip = false;
+// install components and use imports
+Vue.component('ValidationObserver', ValidationObserver);
+Vue.component('ValidationProvider', ValidationProvider);
 Vue.use(Notifications);
 Vue.use(Clipboard);
 Vue.use(SocialSharing);

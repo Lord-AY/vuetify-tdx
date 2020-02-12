@@ -516,6 +516,15 @@
                   >
                     No entry found
                   </div>
+                   <div class="search-result" v-if="isLoading">
+                    <ul class="dropdown search-dropdown">
+                      <li
+                        class="dropdown-item search-dropdown-item"
+                      >
+                     <SearchLoader></SearchLoader>
+                      </li>
+                    </ul>
+                  </div>
                   <div class="search-result">
                     <ul class="dropdown search-dropdown">
                       <li

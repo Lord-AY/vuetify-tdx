@@ -11,6 +11,7 @@
     <div class="container">
       <div class="row ">
         <div class="col-lg-8 col-md-12 col-md-12">
+          <ValidationObserver v-slot="{ invalid }">
           <form
             action=""
             class="form-horizontal"
@@ -74,6 +75,7 @@
                                   >Ad Title</label
                                 >
                                 <div class="radio">
+                                  <ValidationProvider name="Ads Name" rules="required|alpha" v-slot="{ errors }">
                                   <input
                                     type="text"
                                     class="form-control post-ad-input"
@@ -83,9 +85,11 @@
                                         : ''
                                     "
                                     placeholder="Ad title"
-                                    v-model="ads.name"
+                                    v-model="sample"
                                     required
                                   />
+                                   <span>{{ errors[0] }}</span>
+                                </ValidationProvider>
                                 </div>
                               </div>
                             </div>
@@ -1292,6 +1296,7 @@
               </div>
             </div>
           </form>
+        </ValidationObserver>
         </div>
         <div class="col-lg-4 col-md-12 mobile-hidden">
           <div class="card">
@@ -1423,6 +1428,7 @@ export default {
     email: null, // paystack customer email
     showPayment: false,
     adType: null,
+    sample: null,
     uploaded: [],
     errors: null,
     selected: 1,
