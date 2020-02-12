@@ -739,7 +739,7 @@ export default {
   watch: {
     keyword: {
       handler: function(keyword) {
-        if (keyword.length >= 3) {
+        if (keyword.length >= 2) {
           $(document).ready(function() {
               $("#searchResult").show();
           });
