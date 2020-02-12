@@ -55,6 +55,7 @@ export default {
         negotiable: false,
         address:  "",
         subcategory: null,
+        category: null,
         featured: false,
         tradexplorer: true,
         adtype: null,
