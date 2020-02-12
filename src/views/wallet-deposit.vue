@@ -26,7 +26,7 @@
                     </h3>
                     <div class="wallet-details">
                       <div class="balance">
-                        <h4>&#x20A6; 0.00</h4>
+                        <h4>&#x20A6; {{ userbalance }}</h4>
                       </div>
                     </div>
                   </div>
@@ -39,6 +39,7 @@
                 >
                   <div class="edit-profile-form">
                     <form
+                      @submit.prevent="submit()"
                       id="sb_update_profile"
                       class="sb_update_profile"
                     >
@@ -154,9 +155,11 @@ export default {
     return {
       isLoading: true,
       userWallet: null,
-      paystackkey: "pk_test_b9c529f4da742bbae2e19746ed9b9914f4e1f17c", //paystack public key
+      paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
       amount: null,
-      Depositamount: 0
+      Depositamount: 0,
+      userbalance: null,
+      userWalletHistory: []
     };
   },
   components: {
@@ -165,7 +168,7 @@ export default {
     paystack
   },
   computed: {
-    ...mapGetters("transactions", ["getwalletData"]),
+    ...mapGetters("transactions", ["getwalletData","getwalletHistory"]),
     ...mapGetters("auth", ["getUser", "loading"]),
     loading() {
       return this.$store.getters["auth/loading"];
@@ -180,9 +183,12 @@ export default {
     },
   },
   methods: {
-    ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne"]),
+    ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "saveTransactionLogs"]),
     async checkUserWalletState(){
       await this.FetchUserwallet(this.getUser.id)
+    },
+    submit(){
+      
     },
     onInput($event) {
       // console.log($event.target.value);
@@ -205,9 +211,22 @@ export default {
         "source":"Wallet Deposit",
         "amount": this.amount
       }
+      let walletLogData = {
+        "userid": this.getUser.id,
+        "currentBal": this.userWalletHistory[userWalletHistory.length -1].previousBal + this.amount,
+        "previousBal": this.userWalletHistory[userWalletHistory.length -1].previousBal + this.amount,
+        "amount": this.amount,
+        "currency": "NGN",
+        "description": "deposit to wallet",
+        "type": "deposit",
+        "conversionRate": "360",
+        "walletid": this.userWallet,
+        "activity": "deposite"
+      }
       const transactionResponse = Object.assign(customdata,response)
-      // this.saveTransactions(response);
-      // console.log(transactionResponse);
+      this.saveTransactions(response);
+      this.saveTransactionLogs(walletLogData);
+      
     },
     close: function() {
       // console.log("Payment closed");
@@ -233,6 +252,9 @@ export default {
   },
   created() {
     this.FetchUserwallet(this.getUser.id);
+    this.userbalance = localStorage.getItem("walletBalance");
+    this.userWalletHistory.push(this.getwalletHistory);
+    // console.log(this.getwalletHistory);
   },
   beforeCreate() {
     // console.log("this is before created");

@@ -137,7 +137,9 @@ export default {
           draggable: true,
           edgeFriction: 0.30,
           swipe: true,
-          autoplay: true
+          autoplay: true,
+          nextArrow: '<i class="fa fa-arrow-right"></i>',
+          prevArrow: '<i class="fa fa-arrow-left"></i>'
       }
     }
   },
