@@ -491,6 +491,9 @@
                               No subcategories present.
                             </a>
                           </div>
+                          <div v-show="productloading">
+                            <SearchLoader></SearchLoader>
+                          </div>
                         </section>
                       </div>
                     </div>
@@ -515,11 +518,13 @@
                 <!-- {{ getResults }} -->
                 <div id="searchResult" v-if="showResults">
                   <!-- {{ getResults }} -->
-                  <div v-show="searchLoading" class="search-result" style="z-index: 2000">
-                    <div
-                      class="dropdown-header dropdown_empty"
-                    >
-                       <SearchLoader v-show="searchLoading"></SearchLoader>
+                  <div
+                    v-show="searchLoading"
+                    class="search-result"
+                    style="z-index: 2000"
+                  >
+                    <div class="dropdown-header dropdown_empty">
+                      <SearchLoader v-show="searchLoading"></SearchLoader>
                     </div>
                   </div>
                   <div v-if="getResults != null" class="search-result">
@@ -619,6 +624,7 @@ export default {
     ...mapGetters("auth", ["isLoggedIn", "getUser", "loading"]),
     ...mapGetters("product", ["categories", "subcategories"]),
     ...mapState("search", ["searching"]),
+    ...mapState("product", ["productloading"]),
     ...mapGetters("search", ["getResults"])
   },
   methods: {
