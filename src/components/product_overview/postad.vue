@@ -1275,10 +1275,9 @@ vue/no-parsing-error*/
                                     :paystackkey="paystackkey"
                                     :reference="reference"
                                     :callback="callback"
+                                    :disabled="disabledBtn"
                                     :close="close"
                                     :embed="false"
-                                    disabled="disabledBtn"
-                                    @click.prevent="validateForm"
                                     class="btn btn-success ml-5"
                                   >
                                     <i class="fas fa-money-bill-alt"></i>
@@ -1521,6 +1520,7 @@ export default {
     ...mapActions("product", ["fetchSubCategories"]),
     ...mapActions("transactions", ["saveTransactions"]),
     validateForm() {
+      console.log("function called");
       if (
         ads.title !== "" &&
         ads.cid !== "" &&
@@ -1529,7 +1529,9 @@ export default {
         ads.address !== "" &&
         ads.amount !== ""
       ) {
-        let newval = ads.cid;
+        this.$emit("pay-with-paystack");
+      } else {
+        alert("please fill out all the fields");
       }
     },
     callback: function(response) {
@@ -1709,8 +1711,24 @@ export default {
       handler: function(uploaded) {
         // console.log(uploaded);
         this.sendFormRequest(uploaded);
-      }
+      },
     },
+    ads: {
+        handler: function(ads) {
+          if (
+            ads.title !== "" &&
+            ads.cid !== "" &&
+            ads.country !== "" &&
+            ads.description !== "" &&
+            ads.address !== "" &&
+            ads.amount !== ""
+          ) {
+            this.disabledBtn = false;
+          } else {
+            this.disabledBtn = true;
+          }
+        }
+      },
     getErrors: {
       handler: function(errors) {
         if (errors === null || errors === undefined) {
