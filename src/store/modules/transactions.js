@@ -96,7 +96,7 @@ export default {
                 full_name:
                     rootState.auth.user.firstname +
                     " " +
-                    rootState.auth.user.lastname,
+                 rootState.auth.user.lastname,
                 email: rootState.auth.user.email,
                 amount: payload.amount,
                 reference1: payload.reference,
@@ -120,17 +120,20 @@ export default {
                     console.log(error.response);
                 });
         },
-        saveTransactionLogs({ commit }, transaction) {
+        saveTransactionLogs({ commit }, payload) {
             commit("auth/SET_LOADING", true, { root: true });
             commit("SET_PAYMENT_RESPONSE", null);
             const refinedPayload = {
                 userid: rootState.auth.user.id,
-                full_name: rootState.auth.user.firstname + " " + rootState.auth.user.lastname,
                 currentBal: payload.currentBal,
                 previousBal: payload.previousBal,
                 amount: payload.amount,
-                transaction: payload.transaction,
-                custId: rootState.auth.user.id
+                currency: "NGN",
+                description: "deposit to wallet",
+                type: "deposit",
+                conversionRate: "360",
+                walletid: payload.walletid,
+                activity: "deposite"
             };
             TransactionService.logs(refinedPayload)
                 .then(({ data }) => {
