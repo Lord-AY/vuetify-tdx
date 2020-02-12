@@ -380,6 +380,9 @@
                             <i v-else>Regular</i>
                           </router-link>
                         </span>
+                        <span class="padding_cats ml-3" v-if="product.category" >
+                          <i>{{ product.category }}</i>
+                        </span>
                       </div>
                       <!-- <i class="fa fa-heart-o"></i> -->
                     </div>

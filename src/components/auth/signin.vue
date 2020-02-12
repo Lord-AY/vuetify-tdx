@@ -86,7 +86,7 @@
                         aria-label="Close"
                         ><span aria-hidden="true">&times;</span></button
                       > -->
-                      <strong>Error!</strong> {{ errors.message || errors }}
+                      <strong>Error!</strong> {{ errors.message || errors || getErrors }}
                     </div>
                   </div>
                   <div

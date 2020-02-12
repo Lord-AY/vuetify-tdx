@@ -49,6 +49,7 @@ export default {
         region: "",
         currency: "Naira",
         creator: "",
+        country: "",
         price: null,
         amount: null,
         negotiable: false,
