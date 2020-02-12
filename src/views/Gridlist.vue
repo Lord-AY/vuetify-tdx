@@ -1,9 +1,9 @@
 <template>
   <div>
-<!--     <div id="global-loader" v-show="isLoading">
+    <div id="global-loader" v-show="isLoading">
       <GridListLoader class="mobile-hidden"></GridListLoader>
     </div>
- -->    <div class="gridlist">
+    <div class="gridlist">
       <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
       <div class="main-content-area clearfix">
         <section
