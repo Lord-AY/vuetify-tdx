@@ -129,8 +129,12 @@ export default {
                 currentBal: payload.currentBal,
                 previousBal: payload.previousBal,
                 amount: payload.amount,
-                transaction: payload.transaction,
-                custId: rootState.auth.user.id
+                currency: payload.currency,
+                description: payload.description,
+                type: payload.type,
+                walletId: payload.walletId,
+                type: payload.type,
+                activity: payload.activity
             };
             TransactionService.logs(refinedPayload)
                 .then(({ data }) => {

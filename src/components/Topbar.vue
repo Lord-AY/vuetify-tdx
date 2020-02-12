@@ -657,7 +657,7 @@ export default {
       if(this.getResults.length < 1 || this.keyword > 0) {
         this.isLoading = true;
       }
-      setTimeout(function(){as.isLoading = false;}, 400);
+      setTimeout(function(){as.isLoading = false;}, 2000);
     },
     documentClick(e){
       $(document).ready(function() {
@@ -743,13 +743,14 @@ export default {
           $(document).ready(function() {
               $("#searchResult").show();
           });
-
-          this.showResults = true;
+           let as = this;
+          setTimeout(function(){as.isLoading = true;}, 2000);
+          setTimeout(function(){as.showResults = true;}, 3200);
           this.getSearchResults(keyword);
           this.stopLoader();
         } else {
           let as = this;
-          setTimeout(function(){as.showResults = false;}, 1200);
+          setTimeout(function(){as.showResults = false;}, 3200);
            this.stopLoader();
         }
       }
@@ -759,7 +760,7 @@ export default {
         if(loading) {
           this.isLoading = true;
         }else {
-          setTimeout(function(){as.isLoading = false;}, 900);
+          setTimeout(function(){as.isLoading = false;}, 3000);
         }
       }
     }
