@@ -457,7 +457,7 @@
                   <router-link
                     to="/categories"
                     v-for="(category, index) in categories"
-                    :key="++index + categories.length"
+                    :key="++index + index * 10"
                     >
 
                     <div @mouseover.prevent="getsubcategory(category.id)">
@@ -468,7 +468,7 @@
                     <hr />
                   </router-link>
                   <article class="panel"  v-for="(category, index) in categories"
-                    :key="++index + categories.length + categories.length" style="min-width: 20%; margin-right: 100px;">
+                    :key="++index + index" style="min-width: 20%; margin-right: 100px;">
                     <div>
                       <div class="column">
                         <section class="titled-group">
@@ -510,11 +510,13 @@
                 <!-- {{ getResults }} -->
                 <div id="searchResult" v-if="showResults">
                   <!-- {{ getResults }} -->
-                  <div
-                    v-if="getResults.length < 1"
-                    class="dropdown-header dropdown_empty"
-                  >
-                    No entry found
+                  <div v-if="getResults != null">
+                    <div
+                      v-if="getResults.length < 1"
+                      class="dropdown-header dropdown_empty"
+                    >
+                      No entry found
+                    </div>
                   </div>
                    <div class="search-result" v-if="isLoading">
                     <ul class="dropdown search-dropdown">
@@ -599,7 +601,8 @@ export default {
       keyword: null,
       showResults: false,
       userbalance: null,
-      isOpened: false
+      isOpened: false,
+      gottenResults: []
     };
   },
   components: {
@@ -747,6 +750,7 @@ export default {
     this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
     document.addEventListener('click', this.documentClick);
+    this.gottenResults = this.getResults;
     // console.log(this.userbalance);
   },
   destroyed () {

@@ -1487,7 +1487,7 @@ export default {
       // console.log(transactionResponse);
     },
     close: function() {
-      console.log("Payment closed");
+      // console.log("Payment closed");
     },
     addPayment(type) {
       // console.log(type);

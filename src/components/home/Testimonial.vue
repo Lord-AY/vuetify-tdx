@@ -1,13 +1,13 @@
 <template>
   <section class="sptb position-relative ">
-    <div class="container">
+    <!-- <div class="container"> -->
       <div class="section-title center-block text-center">
         <h1 class="text-white position-relative" style="color: #000!important;">
           Testimonials
         </h1>
       </div>
-      <div class="row">
-        <div class="col-md-12">
+      <!-- <div class="row"> -->
+        <!-- <div class="col-md-12"> -->
           <simple-carousel-container loop :watch-it="data">
             <SimpleCarouselItem class="item text-center">
               <div class="row">
@@ -186,9 +186,9 @@
               </div>
             </SimpleCarouselItem>
           </simple-carousel-container>
-        </div>
-      </div>
-    </div>
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
   </section>
 </template>
 
