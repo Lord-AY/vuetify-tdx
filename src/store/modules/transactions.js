@@ -6,7 +6,7 @@ export default {
         walletData: 0,
         webpayResponse: null,
         walletHistory: null,
-        paystackResponse: null,
+        paystackResponse: null
     },
     getters: {
         getwalletData(state) {
@@ -15,14 +15,20 @@ export default {
             }
             return null;
         },
-        getwalletHistory(state){
-            if(state.walletHistory !== null && state.walletHistory !== undefined){
+        getwalletHistory(state) {
+            if (
+                state.walletHistory !== null &&
+                state.walletHistory !== undefined
+            ) {
                 return state.walletHistory;
             }
             return null;
         },
         webpayDetails(state) {
-            if (state.webpayResponse !== null && state.webpayResponse !== undefined) {
+            if (
+                state.webpayResponse !== null &&
+                state.webpayResponse !== undefined
+            ) {
                 return state.webpayResponse;
             }
             return null;
@@ -82,12 +88,15 @@ export default {
                     console.log(error);
                 });
         },
-        saveTransactions({commit, rootState}, {payload, ads}) {
+        saveTransactions({ commit, rootState }, { payload, ads }) {
             commit("auth/SET_LOADING", true, { root: true });
             commit("SET_PAYMENT_RESPONSE", null);
             const refinedPayload = {
                 userid: rootState.auth.user.id,
-                full_name: rootState.auth.user.firstname + " " + rootState.auth.user.lastname,
+                full_name:
+                    rootState.auth.user.firstname +
+                    " " +
+                    rootState.auth.user.lastname,
                 email: rootState.auth.user.email,
                 amount: payload.amount,
                 reference1: payload.reference,
@@ -102,13 +111,35 @@ export default {
                 phone: rootState.auth.user.phone
             };
             TransactionService.saveTransactions(refinedPayload)
-            .then(({data}) => {
-                dispatch("product/createProduct", ads, { root: true });
-                // commit("auth/SET_LOADING", false, { root: true });
-            }).catch(error => {
-                console.log(error.response);
-            });
-        }
+                .then(({ data }) => {
+                    dispatch("product/createProduct", ads, { root: true });
+                    dispatch("saveTransactionLogs", ads, { root: true });
+                    // commit("auth/SET_LOADING", false, { root: true });
+                })
+                .catch(error => {
+                    console.log(error.response);
+                });
+        },
+        saveTransactionLogs({ commit }, transaction) {
+            commit("auth/SET_LOADING", true, { root: true });
+            commit("SET_PAYMENT_RESPONSE", null);
+            const refinedPayload = {
+                userid: rootState.auth.user.id,
+                full_name: rootState.auth.user.firstname + " " + rootState.auth.user.lastname,
+                currentBal: payload.currentBal,
+                previousBal: payload.previousBal,
+                amount: payload.amount,
+                transaction: payload.transaction,
+                custId: rootState.auth.user.id
+            };
+            TransactionService.logs(refinedPayload)
+                .then(({ data }) => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
     },
     mutations: {
         SET_ERRORS(state, error) {

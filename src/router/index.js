@@ -6,6 +6,7 @@ import Home from "../views/Home.vue";
 import activation from "../views/activation.vue";
 import userRegister from "../views/Register.vue";
 import p404 from "../views/404.vue";
+import sample from '@/views/sample.vue';
 import ProductDetails from "../views/ProductDetails.vue";
 import signin from "../views/Signin.vue";
 import reset from "../views/Resetpass.vue";
@@ -27,6 +28,11 @@ const routes = [
     path: "/activation-successful",
     component: activation,
     name: "activation"
+  },
+    {
+    path: "/sample",
+    component: sample,
+    name: "sample"
   },
   {
     path: "/about",
