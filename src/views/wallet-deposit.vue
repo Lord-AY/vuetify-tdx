@@ -39,6 +39,7 @@
                 >
                   <div class="edit-profile-form">
                     <form
+                      @submit.prevent="submit()"
                       id="sb_update_profile"
                       class="sb_update_profile"
                     >
@@ -154,7 +155,7 @@ export default {
     return {
       isLoading: true,
       userWallet: null,
-      paystackkey: "pk_test_b9c529f4da742bbae2e19746ed9b9914f4e1f17c", //paystack public key
+      paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
       amount: null,
       Depositamount: 0,
       userbalance: null,
@@ -185,6 +186,9 @@ export default {
     ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "saveTransactionLogs"]),
     async checkUserWalletState(){
       await this.FetchUserwallet(this.getUser.id)
+    },
+    submit(){
+      
     },
     onInput($event) {
       // console.log($event.target.value);
