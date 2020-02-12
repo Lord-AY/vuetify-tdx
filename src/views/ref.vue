@@ -15,7 +15,7 @@
       </div>
 
       <div class="referral-input-box">
-        <input type="text" disabled :value="`https://www.tradexplora.com/dist/#/register/${getUser.referalId}`" class="referral-input" />
+        <input type="text" disabled :value="`https://www.tradexplora.com/register/${getUser.referalId}`" class="referral-input" />
         <button class="referral-btn" @click="copyData">COPY</button>
       </div>
       <div class="referral-links">
