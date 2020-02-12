@@ -44,7 +44,7 @@ export default {
                 })
                 .catch(error => {
                     commit("auth/SET_LOADING", false, { root: true });
-                    commit("SET_ERRORS", error.response.data);
+                    commit("SET_ERRORS", error.response);
                 });
         }
     },

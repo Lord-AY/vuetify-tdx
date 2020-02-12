@@ -518,6 +518,13 @@
                       No entry found
                     </div>
                   </div>
+                   <div v-show="isLoading" class="search-result">
+                    <ul class="dropdown search-dropdown">
+                      <li class="dropdown-item search-dropdown-item">
+                      <SearchLoader v-show="isLoading"></SearchLoader>
+                      </li>
+                    </ul>
+                    </div>
                   <div class="search-result">
                     <ul class="dropdown search-dropdown">
                       <li
@@ -584,6 +591,7 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4
 /* TDX custom Mega menu with no JS */
 import timer from "@/components/countdownTimer";
 import { mapGetters, mapActions } from "vuex";
+import SearchLoader from '@/components/loaders/SearchLoader';
 /* eslint-disable no-undef */
 export default {
   name: "topbar",
@@ -593,14 +601,16 @@ export default {
       showResults: false,
       userbalance: null,
       isOpened: false,
-      gottenResults: []
+      gottenResults: [],
+      isLoading: true,
     };
   },
   components: {
     // timer
+    SearchLoader
   },
   computed: {
-    ...mapGetters("auth", ["isLoggedIn", "getUser"]),
+    ...mapGetters("auth", ["isLoggedIn", "getUser","loading"]),
     ...mapGetters("product", ["categories", "subcategories"]),
     ...mapGetters("search", ["getResults"])
   },
@@ -641,6 +651,13 @@ export default {
         };
         this.searchAction(payload);
       }
+    },
+    stopLoader() {
+      let as = this;
+      if(this.getResults.length < 1 || this.keyword > 0) {
+        this.isLoading = true;
+      }
+      setTimeout(function(){as.isLoading = false;}, 400);
     },
     documentClick(e){
       $(document).ready(function() {
@@ -729,8 +746,20 @@ export default {
 
           this.showResults = true;
           this.getSearchResults(keyword);
+          this.stopLoader();
         } else {
-          this.showResults = false;
+          let as = this;
+          setTimeout(function(){as.showResults = false;}, 1200);
+           this.stopLoader();
+        }
+      }
+    },
+    loading: {
+      handler: function(loading) {
+        if(loading) {
+          this.isLoading = true;
+        }else {
+          setTimeout(function(){as.isLoading = false;}, 900);
         }
       }
     }
