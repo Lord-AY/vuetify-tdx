@@ -12,7 +12,6 @@ vue/no-parsing-error*/
     <div class="container">
       <div class="row ">
         <div class="col-lg-8 col-md-12 col-md-12">
-          <ValidationObserver v-slot="{ invalid }">
             <form
               action=""
               class="form-horizontal"
@@ -76,11 +75,6 @@ vue/no-parsing-error*/
                                     >Ad Title</label
                                   >
                                   <div class="radio">
-                                    <ValidationProvider
-                                      name="Ads Name"
-                                      rules="required|alpha"
-                                      v-slot="{ errors }"
-                                    >
                                       <input
                                         type="text"
                                         class="form-control post-ad-input"
@@ -93,8 +87,6 @@ vue/no-parsing-error*/
                                         v-model="sample"
                                         required
                                       />
-                                      <span>{{ errors[0] }}</span>
-                                    </ValidationProvider>
                                   </div>
                                 </div>
                               </div>
@@ -1269,13 +1261,13 @@ vue/no-parsing-error*/
                                   </ul> -->
                                 </div>
                                 <div v-if="tab2">
+                                  <div @click.prevent="validateForn">
                                   <paystack
                                     :amount="adAmount"
                                     :email="getUser.email"
                                     :paystackkey="paystackkey"
                                     :reference="reference"
                                     :callback="callback"
-                                    :disabled="disabledBtn"
                                     :close="close"
                                     :embed="false"
                                     class="btn btn-success ml-5"
@@ -1283,6 +1275,7 @@ vue/no-parsing-error*/
                                     <i class="fas fa-money-bill-alt"></i>
                                     Make Payment With Paystack
                                   </paystack>
+                                </div>
                                   <!-- <ul class=" mb-b-4 ">
                                     <li>
                                       <a
@@ -1337,7 +1330,6 @@ vue/no-parsing-error*/
                 </div>
               </div>
             </form>
-          </ValidationObserver>
         </div>
         <div class="col-lg-4 col-md-12 mobile-hidden">
           <div class="card">
@@ -1465,7 +1457,8 @@ export default {
   data() {
     return {
       selectedImages: [],
-      paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
+      // paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
+      paystackkey: "pk_test_b9c529f4da742bbae2e19746ed9b9914f4e1f17c", //paystack public key
       email: null, // paystack customer email
       showPayment: false,
       adType: null,
@@ -1519,20 +1512,8 @@ export default {
   methods: {
     ...mapActions("product", ["fetchSubCategories"]),
     ...mapActions("transactions", ["saveTransactions"]),
-    validateForm() {
-      console.log("function called");
-      if (
-        ads.title !== "" &&
-        ads.cid !== "" &&
-        ads.country !== "" &&
-        ads.description !== "" &&
-        ads.address !== "" &&
-        ads.amount !== ""
-      ) {
-        this.$emit("pay-with-paystack");
-      } else {
-        alert("please fill out all the fields");
-      }
+    validateForn() {
+      console.log("clicked a div");
     },
     callback: function(response) {
       let customdata = {
@@ -1715,6 +1696,7 @@ export default {
     },
     ads: {
         handler: function(ads) {
+          console.log("change happened");
           if (
             ads.title !== "" &&
             ads.cid !== "" &&
