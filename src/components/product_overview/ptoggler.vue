@@ -101,12 +101,12 @@ export default {
       bus.$emit("switchComp", comp);
     },
     filterSelection(e) {
-      console.log(e.target.value);
-      console.log(e);
-      console.log("function filter called");
+      // console.log(e.target.value);
+      // console.log(e);
+      // console.log("function filter called");
       // this.filter = e.target.value;
       if (e.target.value) {
-        console.log("func called");
+        // console.log("func called");
         if (this.list.length == 0) {
           const payload = {
             type: e.target.value,
@@ -123,7 +123,7 @@ export default {
           this.$emit("selectedFilter", payload);
         }
       } else {
-        console.log("function called");
+        // console.log("function called");
         if (this.list.length == 0) {
           const payload = {
             type: e,
@@ -143,7 +143,7 @@ export default {
     },
     mounted() {
       this.filterSelection(1);
-      console.log("function called");
+      // console.log("function called");
     }
   },
   watch: {
