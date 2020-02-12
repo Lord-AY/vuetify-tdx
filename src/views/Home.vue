@@ -1,6 +1,8 @@
 <template>
   <div>
-
+    <div id="global-loader" v-show="loading">
+      <HomeLoader class="mobile-hidden"></HomeLoader>
+    </div>
     <div class="home">
       <start></start>
       <categories></categories>
@@ -19,8 +21,6 @@
 // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
 // require("../../public/assets/css/iocustom.css");
 
-
-
 import { mapActions, mapGetters } from "vuex";
 
 // import timer from "@/components/countdownTimer";
@@ -32,9 +32,10 @@ import sptb_pattern from "@/components/home/SPTB-Pattern";
 import total_sellers from "@/components/home/TotalSellers";
 import testimonial from "@/components/home/Testimonial";
 import recent_post from "@/components/home/RecentPost";
+import HomeLoader from "@/components/loaders/Homeloader";
 //experimental...
 import BNav from "@/components/BNav";
-const formatCurrency = require('format-currency');
+const formatCurrency = require("format-currency");
 
 // import HomeLoader from "@/components/loaders/Homeloader";
 export default {
@@ -44,7 +45,7 @@ export default {
       isLoading: true,
       renderKey: 0,
       productRender: 0,
-      userWalletHistory: [],
+      userWalletHistory: []
     };
   },
   components: {
@@ -58,7 +59,7 @@ export default {
     testimonial,
     recent_post,
     BNav,
-    // HomeLoader
+    HomeLoader
   },
 
   computed: {
@@ -71,7 +72,7 @@ export default {
       "paginatedProducts"
     ]),
     ...mapGetters("auth", ["loading", "errors", "getUser"]),
-    ...mapGetters("transactions", ["getwalletData"]),
+    ...mapGetters("transactions", ["getwalletData"])
   },
   methods: {
     ...mapActions("product", [
@@ -79,11 +80,11 @@ export default {
       "fetchAllProducts",
       "fetchAllComments"
     ]),
-    ...mapActions('user', ['fetchDashboardDetails']),
+    ...mapActions("user", ["fetchDashboardDetails"]),
     ...mapActions("transactions", [
-      "createUserwallet", 
-      "FetchUserwallet", 
-      "paymentStepOne", 
+      "createUserwallet",
+      "FetchUserwallet",
+      "paymentStepOne",
       "FetchUserwalletHistory"
     ]),
     forceRerender() {
@@ -94,8 +95,8 @@ export default {
     sync() {
       // console.log("Jquery mounted");
     },
-    formatCurrency(data){
-      return formatCurrency(data)
+    formatCurrency(data) {
+      return formatCurrency(data);
     },
     onWindowLoad() {
       window.location.reload();
@@ -124,12 +125,14 @@ export default {
         speed: 1000
       });
     },
-    async loadfunc(){
-      await this.fetchAllProducts().then(data => {
-        this.fetchAllComments();
-      }).catch(function (error) {
-        // console.log(error)
-      })
+    async loadfunc() {
+      await this.fetchAllProducts()
+        .then(data => {
+          this.fetchAllComments();
+        })
+        .catch(function(error) {
+          // console.log(error)
+        });
     }
   },
   watch: {
@@ -174,34 +177,36 @@ export default {
       handler: function(walletData) {
         if (walletData == null) {
           this.isLoading = true;
-          this.createUserwallet(this.getUser.id)
+          this.createUserwallet(this.getUser.id);
           this.userWallet = this.getwalletData.walletid;
           // console.log(this.getwalletData);
           // console.log("wallet changed");
-        }else{
+        } else {
           this.userWallet = this.getwalletData.walletid;
           this.isLoading = false;
           // console.log(walletData);
         }
       }
-    },
+    }
   },
   created() {
     this.sync();
     this.$forceUpdate();
     // this.fetchAllCategories();
     this.fetchAllProducts();
-    this.loadfunc();   
-    if(this.getUser !== null){
+    this.loadfunc();
+    if (this.getUser !== null) {
       this.fetchDashboardDetails();
       this.FetchUserwalletHistory(this.getUser.id).then(data => {
-          // console.log(this.getwalletData);
-          this.userWalletHistory.push(this.getwalletHistory);
-          // this.mybal = this.userWalletHistory[this.userWalletHistory.length-1]
-          // console.log(this.mybal);
-      }); 
+        // console.log(this.getwalletData);
+        this.userWalletHistory.push(this.getwalletHistory);
+        // this.mybal = this.userWalletHistory[this.userWalletHistory.length-1]
+        // console.log(this.mybal);
+      });
     }
-    var walletBalance = formatCurrency(this.userWalletHistory[this.userWalletHistory.length -1])
+    var walletBalance = formatCurrency(
+      this.userWalletHistory[this.userWalletHistory.length - 1]
+    );
     localStorage.setItem("walletBalance", walletBalance);
   },
   beforeCreate() {
@@ -212,12 +217,11 @@ export default {
   },
   mounted() {
     this.sync();
-  },
+  }
 };
 </script>
 
 <style>
-
 @media (min-width: 992px) {
   .hidden-lg-up {
     display: none !important;
@@ -238,5 +242,4 @@ export default {
     display: none !important;
   }
 }
-
 </style>

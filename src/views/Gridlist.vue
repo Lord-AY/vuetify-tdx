@@ -1,9 +1,9 @@
 <template>
   <div>
-<!--     <div id="global-loader" v-show="isLoading">
+    <div id="global-loader" v-show="isLoading">
       <GridListLoader class="mobile-hidden"></GridListLoader>
     </div>
- -->    <div class="gridlist">
+    <div class="gridlist">
       <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
       <div class="main-content-area clearfix">
         <section
@@ -455,7 +455,7 @@ export default {
         if (loading) {
           this.isLoading = true;
         }
-        this.isLoading = true;
+        this.isLoading = false;
       }
     },
     paginatedProducts: {

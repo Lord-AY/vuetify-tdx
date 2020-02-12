@@ -8,7 +8,8 @@ export default {
     state: {
         results: null,
         success: null,
-        errors: null
+        errors: null,
+        searching: false
     },
     getters: {
         getResults(state) {
@@ -23,12 +24,12 @@ export default {
     },
     actions: {
         searchAction({ commit }, payload) {
-            commit("auth/SET_LOADING", true, { root: true });
+           commit("SET_LOADING", true);
             commit("SET_SUCCESS_MSG", null);
             commit("SET_ERRORS", null);
             SearchService.search(payload.keyword)
                 .then(({ data }) => {
-                    commit("auth/SET_LOADING", false, { root: true });
+                    commit("SET_LOADING", false);
                     commit("SET_SUCCESS_MSG", "Search Successfull");
                     for (let product in data) {
                         // console.log(product);
@@ -43,7 +44,7 @@ export default {
                     commit("SET_SEARCH_RESULTS", data);
                 })
                 .catch(error => {
-                    commit("auth/SET_LOADING", false, { root: true });
+                    commit("SET_LOADING", false);
                     commit("SET_ERRORS", error.response);
                 });
         }
@@ -57,6 +58,9 @@ export default {
         },
         SET_SEARCH_RESULTS(state, results) {
             state.results = results;
+        },
+        SET_LOADING(state, loading) {
+            state.searching = loading;
         }
     }
 };

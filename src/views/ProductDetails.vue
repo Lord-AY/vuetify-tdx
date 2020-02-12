@@ -1,5 +1,10 @@
 <template>
   <div>
+     <div id="global-loader" v-show="loading">
+      <ProductDetailsLoader
+        class="mobile-hidden"
+      ></ProductDetailsLoader>
+    </div>
     <div class="pdetails">
     <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
       <productdetails
@@ -78,7 +83,7 @@ require("../../public/assets/carspot-css/wp-content/themes/carspot/js/slide4d2c.
 
 import productdetails from "@/components/product_overview/productdetails";
 import { mapState, mapActions, mapGetters } from "vuex";
-// import ProductDetailsLoader from "@/components/loaders/productdetailsLoader"
+import ProductDetailsLoader from "@/components/loaders/productdetailsLoader"
 // import Loading from "vue-loading-overlay";
 export default {
   name: "productDetails",
@@ -91,7 +96,8 @@ export default {
     };
   },
   components: {
-    productdetails
+    productdetails,
+    ProductDetailsLoader
     // Loading
   },
   computed: {

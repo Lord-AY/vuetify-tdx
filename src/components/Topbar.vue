@@ -11,7 +11,7 @@
                 <div class="clearfix"></div>
                 <div class="clearfix">
                   <ul class="contact">
-<!--                     <li class="select-country tdx-country mr-5">
+                    <!--                     <li class="select-country tdx-country mr-5">
                       <select
                         class="form-control select2-flag-search"
                         data-placeholder="Select Country"
@@ -158,7 +158,8 @@
                         <option value="ZW">Zimbabwe</option>
                       </select>
                     </li>
- -->                    <li class="dropdown mr-5">
+ -->
+                    <li class="dropdown mr-5">
                       <a
                         href="#"
                         class="text-dark dropdown-head"
@@ -244,31 +245,24 @@
                 <ul class="listnone custom" v-else>
                   <div class="" style="margin-top: auto; margin-right: 8px;">
                     <li>
-                    <a
-                      class="shopping_bag_btn"
-                      href=""
-                    >
-                      <i class="fa fa-shopping-cart"></i>
-                      <span>0</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="shopping_bag_btn"
-                      href=""
-                    >
-                      <i class="fa fa-bell"></i>
-                      <span>0</span>
-                    </a>
-                  </li>
-                  <li>
-                    <router-link to="/referal" class="referal">
-                      <span>Refer</span>
+                      <a class="shopping_bag_btn" href="">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>0</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="shopping_bag_btn" href="">
+                        <i class="fa fa-bell"></i>
+                        <span>0</span>
+                      </a>
+                    </li>
+                    <li>
+                      <router-link to="/referal" class="referal">
+                        <span>Refer</span>
                         <i class="fa fa-share"></i>
-                    </router-link>
-                  </li>
+                      </router-link>
+                    </li>
                   </div>
-                  
 
                   <li class="dropdown">
                     <a
@@ -296,7 +290,11 @@
                       <span class="caret" style="color: #fff!important"></span>
                     </a>
                     <ul class="dropdown-menu">
-                      <li class="wallet-balance" style="display: flex" v-if="userbalance">
+                      <li
+                        class="wallet-balance"
+                        style="display: flex"
+                        v-if="userbalance"
+                      >
                         <router-link to="/wallet">
                           <img
                             src="@/assets/images/wallet.svg"
@@ -305,7 +303,9 @@
                           />
                           Balance
                         </router-link>
-                        <span style="line-height: 1.6!important">{{ userbalance }}</span>
+                        <span style="line-height: 1.6!important">{{
+                          userbalance
+                        }}</span>
                       </li>
                       <li class="profile-dropdown-list">
                         <router-link
@@ -432,7 +432,7 @@
 
               <input
                 id="bmenu_toggle"
-               type="checkbox"
+                type="checkbox"
                 name="bmenu-open"
                 class="hidden"
                 aria-checked="true"
@@ -458,8 +458,7 @@
                     to="/categories"
                     v-for="(category, index) in categories"
                     :key="++index + index * 10"
-                    >
-
+                  >
                     <div @mouseover.prevent="getsubcategory(category.id)">
                       <span class="triangle-origin">
                         {{ category.name }}
@@ -467,12 +466,18 @@
                     </div>
                     <hr />
                   </router-link>
-                  <article class="panel"  v-for="(category, index) in categories"
-                    :key="++index + index" style="min-width: 20%; margin-right: 100px;">
+                  <article
+                    class="panel"
+                    v-for="(category, index) in categories"
+                    :key="++index + index"
+                    style="min-width: 20%; margin-right: 100px;"
+                  >
                     <div>
                       <div class="column">
                         <section class="titled-group">
-                          <header>Subcategory for Category {{ category.name }}</header>
+                          <header>
+                            Subcategory for Category {{ category.name }}
+                          </header>
                           <div v-if="subcategories">
                             <a
                               href="/categories"
@@ -490,7 +495,7 @@
                       </div>
                     </div>
                   </article>
-                 </nav>
+                </nav>
               </div>
             </li>
             <div class="row-tdx">
@@ -506,11 +511,18 @@
                   placeholder="Search products, brands and categories Using First 3 Letters"
                   style="background-color: #fff!important; color: #232323!important; font-size: 15px!important; "
                 />
-                
+
                 <!-- {{ getResults }} -->
                 <div id="searchResult" v-if="showResults">
                   <!-- {{ getResults }} -->
-                  <div v-if="getResults != null">
+                  <div v-show="searchLoading" class="search-result" style="z-index: 2000">
+                    <div
+                      class="dropdown-header dropdown_empty"
+                    >
+                       <SearchLoader v-show="searchLoading"></SearchLoader>
+                    </div>
+                  </div>
+                  <div v-if="getResults != null" class="search-result">
                     <div
                       v-if="getResults.length < 1"
                       class="dropdown-header dropdown_empty"
@@ -518,13 +530,6 @@
                       No entry found
                     </div>
                   </div>
-                   <div v-show="isLoading" class="search-result">
-                    <ul class="dropdown search-dropdown">
-                      <li class="dropdown-item search-dropdown-item">
-                      <SearchLoader v-show="isLoading"></SearchLoader>
-                      </li>
-                    </ul>
-                    </div>
                   <div class="search-result">
                     <ul class="dropdown search-dropdown">
                       <li
@@ -582,16 +587,16 @@
 </template>
 
 <script>
-$(document).click(function (e) {
-    e.stopPropagation();
-    var container = $(".toggle");
-})
+$(document).click(function(e) {
+  e.stopPropagation();
+  var container = $(".toggle");
+});
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
 // require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
 import timer from "@/components/countdownTimer";
-import { mapGetters, mapActions } from "vuex";
-import SearchLoader from '@/components/loaders/SearchLoader';
+import { mapGetters, mapActions, mapState } from "vuex";
+import SearchLoader from "@/components/loaders/SearchLoader";
 /* eslint-disable no-undef */
 export default {
   name: "topbar",
@@ -600,9 +605,10 @@ export default {
       keyword: null,
       showResults: false,
       userbalance: null,
+      searchLoading: false,
       isOpened: false,
       gottenResults: [],
-      isLoading: true,
+      isLoading: true
     };
   },
   components: {
@@ -610,8 +616,9 @@ export default {
     SearchLoader
   },
   computed: {
-    ...mapGetters("auth", ["isLoggedIn", "getUser","loading"]),
+    ...mapGetters("auth", ["isLoggedIn", "getUser", "loading"]),
     ...mapGetters("product", ["categories", "subcategories"]),
+    ...mapState("search", ["searching"]),
     ...mapGetters("search", ["getResults"])
   },
   methods: {
@@ -654,26 +661,28 @@ export default {
     },
     stopLoader() {
       let as = this;
-      if(this.getResults.length < 1 || this.keyword > 0) {
-        this.isLoading = true;
+      if (this.getResults.length < 1 || this.keyword > 1) {
+        this.searchLoading = true;
       }
-      setTimeout(function(){as.isLoading = false;}, 400);
+      setTimeout(function() {
+        as.searchLoading = false;
+      }, 3000);
     },
-    documentClick(e){
+    documentClick(e) {
       $(document).ready(function() {
         var isShown = $(".hide-at-start-wrapper").hasClass("show");
-        $(document).click(function(){
+        $(document).click(function() {
           $("#bmenu_toggle").prop("checked", false);
           this.showResults = false;
           $("#searchResult").hide();
         });
-        $("#bmenu_toggle").click(function(e){
+        $("#bmenu_toggle").click(function(e) {
           e.stopPropagation();
         });
       });
     },
     sync() {
-      $(window).on('load', function() {
+      $(window).on("load", function() {
         $("#bmenu_toggle").prop("checked", false);
         var stickyNavTop = $(".my-nav").offset().top;
         var stickyNav = function() {
@@ -739,27 +748,45 @@ export default {
   watch: {
     keyword: {
       handler: function(keyword) {
-        if (keyword.length >= 3) {
+        let as = this;
+        if (keyword.length >= 2) {
           $(document).ready(function() {
-              $("#searchResult").show();
+            $("#searchResult").show();
           });
-
-          this.showResults = true;
-          this.getSearchResults(keyword);
+          setTimeout(function() {
+            as.searchLoading = true;
+          }, 200);
+          setTimeout(function() {
+            as.showResults = true;
+          }, 3200);
           this.stopLoader();
+          this.getSearchResults(keyword);
         } else {
-          let as = this;
-          setTimeout(function(){as.showResults = false;}, 1200);
-           this.stopLoader();
+          setTimeout(function() {
+            as.showResults = false;
+          }, 3200);
+          this.stopLoader();
         }
       }
     },
     loading: {
       handler: function(loading) {
-        if(loading) {
+        if (loading) {
           this.isLoading = true;
-        }else {
-          setTimeout(function(){as.isLoading = false;}, 900);
+        } else {
+          this.isLoading = false;
+        }
+      }
+    },
+    searching: {
+      handler: function(loading) {
+        let as = this;
+        if (loading) {
+          this.searchLoading = true;
+        } else {
+          setTimeout(function() {
+            as.searchLoading = false;
+          }, 3000);
         }
       }
     }
@@ -769,15 +796,14 @@ export default {
     this.fetchAllCategories();
     this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
-    document.addEventListener('click', this.documentClick);
+    document.addEventListener("click", this.documentClick);
     this.gottenResults = this.getResults;
     // console.log(this.userbalance);
   },
-  destroyed () {
+  destroyed() {
     // important to clean up!!
-    document.removeEventListener('click', this.documentClick);
+    document.removeEventListener("click", this.documentClick);
   }
-
 };
 </script>
 
@@ -860,7 +886,7 @@ export default {
   color: #fff;
 }
 
-.referal span{
+.referal span {
   margin-right: 5px;
 }
 .bmenu {
@@ -877,28 +903,28 @@ export default {
 .horizontal-main {
   border-bottom: none !important;
 }
-@media(min-width: 1320px) {
-    .container2 {
-        max-width: 1440px !important;
-        width: 144px !important;
-        /* padding: 0 8px!important; */
-    }
+@media (min-width: 1320px) {
+  .container2 {
+    max-width: 1440px !important;
+    width: 144px !important;
+    /* padding: 0 8px!important; */
+  }
 }
 
-@media(min-width: 1200px) {
-    .container2 {
-        max-width: 1320px !important;
-        width: 1320px !important;
-        /* padding: 0 8px!important; */
-    }
+@media (min-width: 1200px) {
+  .container2 {
+    max-width: 1320px !important;
+    width: 1320px !important;
+    /* padding: 0 8px!important; */
+  }
 }
 
-@media(min-width: 900px) {
-    .container2 {
-        max-width: 1200px !important;
-        width: 1200px !important;
-        /* padding: 0 8px!important; */
-    }
+@media (min-width: 900px) {
+  .container2 {
+    max-width: 1200px !important;
+    width: 1200px !important;
+    /* padding: 0 8px!important; */
+  }
 }
 /* .top-bar-hide {
   display: none !important;
