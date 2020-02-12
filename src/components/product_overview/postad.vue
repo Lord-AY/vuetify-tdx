@@ -1029,7 +1029,8 @@ export default {
       tab2: false,
       tab3: false,
       adAmount: 0,
-      tempdata: null
+      tempdata: null,
+      payments: null,
     };
   },
   props: {
@@ -1068,12 +1069,13 @@ export default {
       console.log("clicked a div");
     },
     callback: function(response) {
-      let customdata = {
-        source: "postad",
-        amount: this.adAmount / 100
-      };
-      const transactionResponse = Object.assign(customdata, response);
-      this.saveTransactions(response, this.ads);
+      this.payments = response;
+      // let customdata = {
+      //   source: "postad",
+      //   amount: this.adAmount / 100
+      // };
+      // const transactionResponse = Object.assign(customdata, response);
+      // this.saveTransactions(response, this.ads);
       // console.log(transactionResponse);
     },
     close: function() {
@@ -1198,6 +1200,17 @@ export default {
         }
       }
     },
+     handlePostAds(paymentResponse) {
+      // save transaction response
+      //  let customdata = {
+      //   source: "postad",
+      //   amount: this.adAmount / 100
+      // };
+      paymentResponse.amount = this.adAmount /100;
+      paymentResponse.source ='postad';
+       this.saveTransactions(paymentResponse);
+       this.processForm();
+    },
     sendFormRequest(images) {
       // console.log("Function called");
       let selected = this.selectedImages;
@@ -1264,6 +1277,11 @@ export default {
           } else {
             this.disabledBtn = true;
           }
+        }
+      },
+      payments: {
+        handler: function(payments) {
+          this.handlePostAds(payments);
         }
       },
     getErrors: {
