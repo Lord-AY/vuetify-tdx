@@ -207,10 +207,10 @@ export default {
       }
       const transactionResponse = Object.assign(customdata,response)
       // this.saveTransactions(response);
-      console.log(transactionResponse);
+      // console.log(transactionResponse);
     },
     close: function() {
-      console.log("Payment closed");
+      // console.log("Payment closed");
     },
   },
   watch: {
