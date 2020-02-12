@@ -114,8 +114,8 @@ export default {
         SET_ERRORS(state, error) {
             state.errors = error;
         },        
-        SET_USER_WALLET_HISTORY(state, error) {
-            state.walletHistory = error;
+        SET_USER_WALLET_HISTORY(state, data) {
+            state.walletHistory = data;
         },
         SET_USER_WALLET(state, data) {
             state.walletData = data;
