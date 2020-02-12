@@ -455,7 +455,7 @@ export default {
         if (loading) {
           this.isLoading = true;
         }
-        this.isLoading = true;
+        this.isLoading = false;
       }
     },
     paginatedProducts: {

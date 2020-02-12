@@ -1,4 +1,10 @@
 <template>
+  <div>
+    <div>
+    <div id="global-loader" v-show="isLoading">
+      <HomeLoader class="mobile-hidden"></HomeLoader>
+    </div>
+  </div>
   <div class="referals">
     <div id="wrapper">
       <!-- LEFT SIDEBAR -->
@@ -157,6 +163,7 @@
     <a href="#0" class="cd-top">Top</a>
     <!-- Email verification and reset password -->
   </div>
+</div>
 </template>
 <script>
 // require("../../public/assets/skins/color-skins/color15.css");
@@ -256,17 +263,20 @@
 import { mapActions, mapGetters } from "vuex";
 import dsidebar from "@/components/Dsidebar";
 import moment from "moment";
+import HomeLoader from "@/components/loaders/Homeloader";
 // import dheader from "@/components/Dheader";
 export default {
   name: "referals",
   data() {
     return {
       myreferals : [],
-      search_input: ''
+      search_input: '',
+      isLoading: true,
     };
   },
   components: {
-    dsidebar
+    dsidebar,
+    HomeLoader
   },
   computed: {
     ...mapGetters("auth", ["loading", "errors", "getReferee", "getUser"]),
@@ -298,6 +308,14 @@ export default {
   },
   watch: {
     $route: "sync",
+     loading: {
+      handler: function(loading) {
+        if (loading) {
+          this.isLoading = true;
+        }
+        this.isLoading = false;
+      }
+    },
   },
   created() {
     this.getUserReferees().then(data => {
