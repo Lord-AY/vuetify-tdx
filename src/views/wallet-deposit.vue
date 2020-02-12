@@ -155,7 +155,8 @@ export default {
     return {
       isLoading: true,
       userWallet: null,
-      paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
+      // paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
+      paystackkey: "pk_test_b9c529f4da742bbae2e19746ed9b9914f4e1f17c", //paystack public key
       amount: null,
       Depositamount: 0,
       userbalance: null,
@@ -183,7 +184,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "saveTransactionLogs"]),
+    ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "saveTransactionLogs", "saveTransactions"]),
     async checkUserWalletState(){
       await this.FetchUserwallet(this.getUser.id)
     },
@@ -223,8 +224,10 @@ export default {
         "walletid": this.userWallet,
         "activity": "deposite"
       }
-      const transactionResponse = Object.assign(customdata,response)
-      this.saveTransactions(response);
+      const transactionResponse = Object.assign(customdata,response);
+      // console.log(transactionResponse);
+      // console.log(walletLogData);
+      this.saveTransactions(transactionResponse);
       this.saveTransactionLogs(walletLogData);
       
     },
