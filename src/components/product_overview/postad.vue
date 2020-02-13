@@ -712,6 +712,7 @@ vue/no-parsing-error*/
                                       v-bind:class="{ active: tab1 }"
                                       data-toggle="tab"
                                       @click.prevent="addPayment(1)"
+                                      class="payment-tab"
                                     >
                                       <img
                                         src="@/assets/images/wallet.svg"
@@ -727,6 +728,7 @@ vue/no-parsing-error*/
                                       v-bind:class="{ active: tab2 }"
                                       data-toggle="tab"
                                       @click.prevent="addPayment(2)"
+                                      class="payment-tab"
                                     >
                                       <img
                                         src="@/assets/images/master_card.png"
@@ -742,6 +744,7 @@ vue/no-parsing-error*/
                                       v-bind:class="{ active: tab3 }"
                                       data-toggle="tab"
                                       @click.prevent="addPayment(3)"
+                                      class="payment-tab"
                                     >
                                       <i class="fa fa-university"></i> Cash
                                     </div>
@@ -771,7 +774,8 @@ vue/no-parsing-error*/
                                       </span> -->
                                     </div>
                                   </div>
-                                  <div class="form-group">
+                                  
+                                  <!-- <div class="form-group">
                                     <label class="form-label">Wallet PIN</label>
                                     <input
                                       type="number"
@@ -780,7 +784,7 @@ vue/no-parsing-error*/
                                       placeholder="PIN"
                                       name="wallet_pin"
                                     />
-                                  </div>
+                                  </div> -->
                                   <div
                                     class="col-lg-12"
                                     style="padding-left: 0px!important;"
@@ -795,11 +799,17 @@ vue/no-parsing-error*/
                                         />
                                         <span
                                           class="custom-control-label text-dark pl-2"
+                                          style="font-weight: 500!important"
                                           >I agree with the Terms and
                                           Conditions.</span
                                         >
                                       </label>
                                     </div>
+                                  </div>
+                                  <div class="pay-with-wallet">
+                                    <button class="btn btn-theme">
+                                      Pay with Wallet
+                                    </button>
                                   </div>
                                   <!-- <ul class=" mb-b-4 ">
                                     <li>
@@ -822,7 +832,7 @@ vue/no-parsing-error*/
                                     :callback="callback"
                                     :close="close"
                                     :embed="false"
-                                    class="btn btn-success ml-5"
+                                    class="btn btn-success"
                                   >
                                     <i class="fas fa-money-bill-alt"></i>
                                     Make Payment With Paystack
@@ -1323,6 +1333,31 @@ export default {
 };
 </script>
 <style>
+.payment-tab {
+  padding: 6px;
+  margin-right: 8px;
+}
+.payment-tab:hover {
+  cursor: pointer;
+}
+
+.pay-with-wallet .btn {
+  color: #fff!important;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.payButton {
+    background-color: #4caf50!important;
+    border-color: #4caf50!important;
+    border-radius: 6px!important;
+}
+.payButton:hover {
+    background-color: #367e38!important;
+    border-color: #367e38!important;
+}
+
 @media (max-width: 768px) {
   .panel-tabs > li {
     width: 100%;

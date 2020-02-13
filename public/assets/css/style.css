@@ -2784,7 +2784,7 @@ select.form-control:focus::-ms-value {
 }
 .custom-control-label::before {
 	position: absolute;
-	top: .25rem;
+	top: 6px;
 	left: 0;
 	display: block;
 	width: 1rem;
@@ -2799,7 +2799,7 @@ select.form-control:focus::-ms-value {
 }
 .custom-control-label::after {
 	position: absolute;
-	top: .25rem;
+	top: 6px;
 	left: 0;
 	display: block;
 	width: 1rem;
@@ -23284,7 +23284,7 @@ select.form-control:focus::-ms-value {
 }
 .custom-control-label::before {
 	position: absolute;
-	top: .25rem;
+	top: 6px;
 	left: 0;
 	display: block;
 	width: 1rem;
@@ -23299,7 +23299,7 @@ select.form-control:focus::-ms-value {
 }
 .custom-control-label::after {
 	position: absolute;
-	top: .25rem;
+	top: 6px;
 	left: 0;
 	display: block;
 	width: 1rem;

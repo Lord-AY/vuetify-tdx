@@ -896,6 +896,10 @@ export default {
   color: #fff;
 }
 
+.btn.btn-tx.btn-theme.post-ad-header-tx.text-dark:focus {
+  color: #fff!important;
+}
+
 .referal span {
   margin-right: 5px;
 }

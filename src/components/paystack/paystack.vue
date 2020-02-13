@@ -1,7 +1,7 @@
 <template>
   <button
     v-if="!embed"
-    class="payButton"
+    class="payButton btn-theme"
     @click="payWithPaystack"
   >
     <slot>Make Payment</slot>
@@ -128,4 +128,15 @@ export default {
     }
 }
 </script>
+<style>
+.payButton {
+    background-color: #4caf50!important;
+    border-color: #4caf50!important;
+    border-radius: 6px!important;
+}
+.payButton:hover {
+    background-color: #367e38!important;
+    border-color: #367e38!important;
+}
+</style>
 
