@@ -566,11 +566,11 @@ i.switch[disabled="disabled"] {
   border-right: 4px;
   font-size: 12px;
 }
-.horizontalMenu-list input.main-search {
+/* .horizontalMenu-list input.main-search {
   position: relative;
-  height: 50px !important;
+  height: 40px !important;
   padding-left: 30px;
-}
+} */
 
 html {
   font-size: 12px;

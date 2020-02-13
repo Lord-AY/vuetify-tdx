@@ -159,7 +159,7 @@
                       </select>
                     </li>
  -->
-                    <li class="dropdown mr-5">
+                    <li class="dropdown" style="margin-right: 24px">
                       <a
                         href="#"
                         class="text-dark dropdown-head"
@@ -410,6 +410,7 @@
     <!--Start Horizontal-main -->
     <div
       class="horizontal-main bg-dark-transparent my-nav clearfix mobile-hidden"
+      style="padding: 16px 0"
     >
       <div class="horizontal-mainwrapper container2 clearfix">
         <!--Nav-->
@@ -424,7 +425,7 @@
               <img src="@/assets/images/brand/TRADEXPLORAV3.1.png" alt />
             </router-link>
           </div>
-          <ul class="horizontalMenu-list" style="margin-top: 12px;">
+          <ul class="horizontalMenu-list" style="margin-top: auto; margin-bottom: auto">
             <li aria-haspopup="true" style="margin-right: 10px;">
               <!-- <button class="btn">
                 <i class="fa fa-bars" style="color: #4CAF50"></i> All Categories
@@ -511,7 +512,7 @@
                   id="text4"
                   v-model="keyword"
                   @keydown.enter="sendSearch"
-                  placeholder="Search products, brands and categories Using First 3 Letters"
+                  placeholder="Search products, brands and categories"
                   style="background-color: #fff!important; color: #232323!important; font-size: 15px!important; "
                 />
 
@@ -553,7 +554,7 @@
                   </div>
                 </div>
                 <span>
-                  <i class="fa fa-search location-gps mr-1"></i>
+                  <i class="fa fa-search location-gps mr-1" style=" margin-top: -4px"></i>
                 </span>
               </div>
               <div
@@ -815,7 +816,7 @@ export default {
 
 <style>
 /* Search bar styles */
-.search-result {
+.search-result, .dropdown_empty {
   margin-top: 8px;
   position: absolute;
   display: block;
@@ -833,6 +834,9 @@ export default {
   padding: 10px 16px !important;
   font-size: 16px !important;
   font-weight: 400 !important;
+}
+.header-search-button.btn {
+  padding: 4px 12px;
 }
 /* Sidebar Test Styles => Don't remove */
 .sidenav {
@@ -925,12 +929,12 @@ export default {
   }
 }
 
-@media (min-width: 900px) {
-  .container2 {
-    max-width: 1200px !important;
-    width: 1200px !important;
-    /* padding: 0 8px!important; */
-  }
+@media(min-width: 900px) {
+    .container2 {
+        max-width: 1200px !important;
+        width: 1152px !important;
+        /* padding: 0 8px!important; */
+    }
 }
 /* .top-bar-hide {
   display: none !important;

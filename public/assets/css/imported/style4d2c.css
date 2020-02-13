@@ -14984,7 +14984,11 @@ hr.accent-2 {
 
 @media (min-width: 992px) {
     .desktoplogo {
-        width: 18.74em;
+        width: 200px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 }
 

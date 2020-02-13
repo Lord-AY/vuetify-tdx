@@ -1431,6 +1431,10 @@ pre code {
 	}
 }
 @media (min-width:992px) {
+	
+	.horizontalMenu>.horizontalMenu-list>li label {
+		margin-bottom: 0px
+	}
 	.masthead {
 		height: 100%;
 		min-height: 0;
@@ -19136,6 +19140,9 @@ footer .border-top {
 @media (min-width:992px) and (max-width:1350px) {
 	.ecommerce-menu.horizontalMenu>.horizontalMenu-list>li>a {
 		padding: 9px 15px;
+	}
+	.horizontalMenu>.horizontalMenu-list>li {
+		padding: 0px;
 	}
 }
 @media (min-width:992px) and (max-width:1350px) {
@@ -42013,7 +42020,8 @@ body .modal-open {
 }
 
 .shopping_bag_btn span {
-    background-color: #4CAF50;
+	background-color: #4CAF50;
+	border-radius: 4px;
     color: #fff;
     display: inline-block;
     font-size: 12px;
@@ -42362,7 +42370,7 @@ experimental shii
 
 .horizontalMenu-list input.main-search {
 	position: relative;
-	height: 50px !important;
+	height: 40px !important;
 	padding-left: 30px !important;
   }
 
@@ -42386,7 +42394,8 @@ experimental shii
 	color: #999; 
 	line-height: 25px; 
 	margin-left: 10px; 
-	margin-top: 10px; 
+	margin-top: auto;
+	margin-bottom: auto; 
 	font-size: 16px;
 }
 
@@ -42396,13 +42405,14 @@ experimental shii
     font-size: 45px;
     line-height: 51px;
 	margin-right: 0;
-	margin-top: 12px;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .contact-us-header strong {
-	font-size: 20px ;
+	font-size: 16px ;
 	color: #4CAF50 ;
-	font-weight: 600!important;
+	font-weight: 700!important;
 }
 
 .row-tdx {
