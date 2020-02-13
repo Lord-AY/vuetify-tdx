@@ -35,4 +35,7 @@ export default {
   singleProductcomments(pid) {
     return Api().get(`product/comments/${pid}`);
   },
+  sellerProducts(uid) {
+    return Api().get(`product/product/creator/${uid}`);
+  }
 };
