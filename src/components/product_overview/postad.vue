@@ -1066,7 +1066,7 @@ export default {
     ...mapActions("product", ["fetchSubCategories"]),
     ...mapActions("transactions", ["saveTransactions"]),
     validateForn() {
-      console.log("clicked a div");
+      // console.log("clicked a div");
     },
     callback: function(response) {
       this.payments = response;
@@ -1264,7 +1264,7 @@ export default {
     },
     ads: {
         handler: function(ads) {
-          console.log("change happened");
+          // console.log("change happened");
           if (
             ads.title !== "" &&
             ads.cid !== "" &&
