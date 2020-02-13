@@ -1290,20 +1290,20 @@ export default {
     let as = this;
     setTimeout(function(){    
       as.userWallet = as.getwalletData.walletid; console.log(as.userWallet);}, 300);
-    console.log(this.userWallet);
+    // console.log(this.userWallet);
     this.ads.paymentype = "1";
   },
   watch: {
     $route: "sync",
     getwalletData: {
       handler: function(walletData) {
-        console.log(walletData);
+        // console.log(walletData);
           this.userWallet = this.getwalletData.walletid;
         }
     },
     uploaded: {
       handler: function(uploaded) {
-        console.log("uploaded watcher");
+        // console.log("uploaded watcher");
         this.sendFormRequest(uploaded);
       },
     },
