@@ -459,7 +459,7 @@
                   <router-link
                     to="/categories"
                     v-for="(category, index) in categories"
-                    :key="++index + index * 10"
+                    :key="++index + index * 1000"
                   >
                     <div @mouseover.prevent="getsubcategory(category.id)">
                       <span class="triangle-origin">
