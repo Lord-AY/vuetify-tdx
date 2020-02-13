@@ -66,7 +66,7 @@ vue/no-parsing-error*/
                             <div class="post-ad-content">
                               <!-- <div class="col-md-12 col-sm-12 col-lg-12"> -->
                               <!-- AD details -->
-                              <div class="ad-information ">
+                              <div class="ad-information " style="padding: 0px 15px;">
                                 <div class="ad-section-title">Ad Details</div>
                               </div>
                               <div class="row form-group-tx form-group">
@@ -189,7 +189,7 @@ vue/no-parsing-error*/
                                       />
                                       <span
                                         class="custom-control-label text-dark pl-2"
-                                        style="margin-left: -10px;"
+                                        style="font-weight: 500"
                                         >{{ field }}</span
                                       >
                                     </label>
@@ -282,7 +282,7 @@ vue/no-parsing-error*/
                                       />
                                       <span
                                         class="custom-control-label text-dark pl-2"
-                                        style="margin-left: -10px;"
+                                        style="font-weight: 500;"
                                         >Negotiable</span
                                       >
                                     </label>
@@ -314,6 +314,7 @@ vue/no-parsing-error*/
                                 <div class="col-md-12">
                                   <div
                                     class="p-2 border upload-image-box mb-4 form-group"
+                                    style="border-radius: 6px!important"
                                   >
                                     <label for="">Upload images</label>
                                     <p>
@@ -711,6 +712,7 @@ vue/no-parsing-error*/
                                       v-bind:class="{ active: tab1 }"
                                       data-toggle="tab"
                                       @click.prevent="addPayment(1)"
+                                      class="payment-tab"
                                     >
                                       <img
                                         src="@/assets/images/wallet.svg"
@@ -726,6 +728,7 @@ vue/no-parsing-error*/
                                       v-bind:class="{ active: tab2 }"
                                       data-toggle="tab"
                                       @click.prevent="addPayment(2)"
+                                      class="payment-tab"
                                     >
                                       <img
                                         src="@/assets/images/master_card.png"
@@ -741,6 +744,7 @@ vue/no-parsing-error*/
                                       v-bind:class="{ active: tab3 }"
                                       data-toggle="tab"
                                       @click.prevent="addPayment(3)"
+                                      class="payment-tab"
                                     >
                                       <i class="fa fa-university"></i> Cash
                                     </div>
@@ -770,7 +774,8 @@ vue/no-parsing-error*/
                                       </span> -->
                                     </div>
                                   </div>
-                                  <div class="form-group">
+                                  
+                                  <!-- <div class="form-group">
                                     <label class="form-label">Wallet PIN</label>
                                     <input
                                       type="number"
@@ -779,7 +784,7 @@ vue/no-parsing-error*/
                                       placeholder="PIN"
                                       name="wallet_pin"
                                     />
-                                  </div>
+                                  </div> -->
                                   <div
                                     class="col-lg-12"
                                     style="padding-left: 0px!important;"
@@ -794,11 +799,17 @@ vue/no-parsing-error*/
                                         />
                                         <span
                                           class="custom-control-label text-dark pl-2"
+                                          style="font-weight: 500!important"
                                           >I agree with the Terms and
                                           Conditions.</span
                                         >
                                       </label>
                                     </div>
+                                  </div>
+                                  <div class="pay-with-wallet">
+                                    <button class="btn btn-theme">
+                                      Pay with Wallet
+                                    </button>
                                   </div>
                                   <!-- <ul class=" mb-b-4 ">
                                     <li>
@@ -821,7 +832,7 @@ vue/no-parsing-error*/
                                     :callback="callback"
                                     :close="close"
                                     :embed="false"
-                                    class="btn btn-success ml-5"
+                                    class="btn btn-success"
                                   >
                                     <i class="fas fa-money-bill-alt"></i>
                                     Make Payment With Paystack
@@ -885,7 +896,7 @@ vue/no-parsing-error*/
         <div class="col-lg-4 col-md-12 mobile-hidden">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Benefits Of Premium Ad</h3>
+              <h3 class="card-title" style="font-size: 14px; font-weight: 600;" >Benefits Of Premium Ad</h3>
             </div>
             <div class="card-body pb-2">
               <ul class="list-unstyled widget-spec vertical-scroll mb-0">
@@ -954,7 +965,7 @@ vue/no-parsing-error*/
           </div>
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Terms And Conditions</h3>
+              <h3 class="card-title" style="font-size: 14px; font-weight: 600;">Terms And Conditions</h3>
             </div>
             <div class="card-body">
               <ul class="list-unstyled widget-spec  mb-0">
@@ -978,7 +989,7 @@ vue/no-parsing-error*/
           </div>
           <div class="card mb-0">
             <div class="card-header">
-              <h3 class="card-title">Ads</h3>
+              <h3 class="card-title" style="font-size: 14px; font-weight: 600;">Ads</h3>
             </div>
             <div class="card-body">
               <div class="ads">
@@ -1327,6 +1338,31 @@ export default {
 };
 </script>
 <style>
+.payment-tab {
+  padding: 6px;
+  margin-right: 8px;
+}
+.payment-tab:hover {
+  cursor: pointer;
+}
+
+.pay-with-wallet .btn {
+  color: #fff!important;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.payButton {
+    background-color: #4caf50!important;
+    border-color: #4caf50!important;
+    border-radius: 6px!important;
+}
+.payButton:hover {
+    background-color: #367e38!important;
+    border-color: #367e38!important;
+}
+
 @media (max-width: 768px) {
   .panel-tabs > li {
     width: 100%;

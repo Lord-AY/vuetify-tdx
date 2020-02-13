@@ -1255,13 +1255,19 @@
 	padding: 0;
 	float: left;
 }
+@media (min-width:992px) {
+	.horizontalMenu-list {
+		  margin-top: auto;
+		  margin-bottom: auto;
+	  }
+  }
 .horizontalMenu>.horizontalMenu-list>li {
 	text-align: center;
 	display: block;
 	padding: 0;
 	margin: 0;
 	float: left;
-	padding: 7.5px 0;
+	padding: 0;
 }
 .horizontalMenu>.horizontalMenu-list>li>a {
 	display: block;

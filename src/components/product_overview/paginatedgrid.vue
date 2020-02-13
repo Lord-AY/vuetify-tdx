@@ -848,9 +848,9 @@ button {
 .icon-reveal-btn {
   background-color: #232323 !important;
   color: #fff !important;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600 !important;
-  padding: 3px 10px !important;
+  padding: 3px 8px !important;
   display: none;
   border-radius: 50% !important;
   opacity: 0.4;

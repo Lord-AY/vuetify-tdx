@@ -9,28 +9,29 @@
       aria-multiselectable="true"
     >
       <div class="panel panel-default" id="red-titl">
-        <div class="panel-heading red-title" id="headingMain">
+        <div class="panel-heading red-title" id="headingMain" style="display: flex; justify-content: space-between; align-items: center; padding-right: 15px;">
           <h4 class="panel-title panel-title-side">
             <!-- <i class="more-less glyphicon glyphicon-plus"></i> -->
             Categories
           </h4>
+          <span>{{ categories.length }} ads</span>
         </div>
         <div class="panel-collapse">
           <div class="panel-body">
             <ul class="sub-categories">
-               <li
+               <!-- <li
                 @click.prevent="resetProductsData"
               >
               <a href="">All Categories</a>
-                <span>{{ categories.length }}</span>
-              </li>
+                <span>{{ categories.length }} ads</span>
+              </li> -->
               <li
                 v-for="(category, index) in categories"
                 :key="index"
                 @click.prevent="filterSelection(category)"
               >
                 <a href="">{{ category.name }} </a>
-                <span> {{ selectCategory(category.id) }}</span>
+                <span> {{ selectCategory(category.id) }} ads</span>
               </li>
             </ul>
           </div>
@@ -121,10 +122,12 @@ export default {
   /* opacity: 0.7; */
 }
 .sub-categories li span {
-  background-color: #232323;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 50%;
-  opacity: 0.7;
+  /* background-color: #232323; */
+  color: #232323;
+  /* padding: 2px 6px; */
+  /* border-radius: 50%; */
+  font-size: 14px;
+  opacity: 0.5;
+  font-weight: 600
 }
 </style>

@@ -3,16 +3,16 @@
     <div class="short-features">
       <div class="grid-style-2">
         <div class="heading-panel">
-          <div class="col-xs-12 col-md-12 col-sm-12 grid-flex-custom">
-            <h3
-              class="main-title text-left"
-              style="border-bottom: 2px solid #4CAF50;"
-            >
+          <div
+            class="col-xs-12 col-md-12 col-sm-12 grid-flex-custom"
+            style="margin-bottom: 16px"
+          >
+            <h3 class="main-title text-left" style="">
               Hot Sellers
             </h3>
             <span
               class="hotseller-sub"
-              style="display: inline; margin-left: 10px; color: #785edd;"
+              style="display: inline; margin-left: 0px; color: #785edd;"
             >
               Join the hot sellers and increase your sales over 1 million other
               sellers.
@@ -58,7 +58,7 @@
             <!-- <div class="col-xs-6 col-sm-8 col-md-10"> -->
             <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
               <div class="short-feature-body">
-                <slick ref="slick" :options="slickOptions"  v-if="hotsellers">     
+                <slick ref="slick" :options="slickOptions" v-if="hotsellers">
                   <div
                     class="item item-carousel"
                     v-for="(sellers, index) in hotsellers"
@@ -75,11 +75,13 @@
                         <div class="image-price">
                           <div class="image">
                             <a href="/#/">
-                               <img
+                              <img
                                 v-if="sellers.avatar"
                                 class="img-responsive"
                                 :alt="sellers.name"
-                                :src="`https://www.tradexplora.com.ng/media/${sellers.avatar}`"
+                                :src="
+                                  `https://www.tradexplora.com.ng/media/${sellers.avatar}`
+                                "
                               />
                               <img
                                 v-else
@@ -132,38 +134,53 @@
 /* eslint-disable no-undef */
 import ash from "lodash";
 import moment from "moment";
-import Slick from 'vue-slick';
+import Slick from "vue-slick";
 
 export default {
   name: "hotsellers",
   data() {
     return {
       slickOptions: {
-          //options can be used from the plugin documentation
-          slidesToShow: 4,
-          infinite: true,
-          accessibility: true,
-          adaptiveHeight: false,
-          arrows: true,
-          dots: false,
-          draggable: true,
-          edgeFriction: 0.30,
-          swipe: true,
-          autoplay: true
+        //options can be used from the plugin documentation
+        slidesToShow: 4,
+        Padding: '16px',
+        infinite: true,
+        accessibility: true,
+        adaptiveHeight: false,
+        arrows: true,
+        dots: false,
+        draggable: true,
+        edgeFriction: 0.3,
+        swipe: true,
+        autoplay: true,
+        // responsive: [
+        //   {
+        //     breakpoint: 1024,
+        //     settings: {
+        //       slidesToShow: 3,
+        //       slidesToScroll: 3,
+        //     }
+        //   },
+        //   {
+        //     breakpoint: 1024,
+        //     settings: {
+        //       slidesToShow: 3,
+        //       slidesToScroll: 3,
+        //     }
+        //   },
+        // ]
       }
-    }
+    };
   },
   props: {
     hotsellers: Array,
     isLoading: Boolean
   },
   components: {
-    Slick 
+    Slick
   },
   methods: {
-    sync: function() {
-
-    },
+    sync: function() {},
     format_date(value) {
       if (value) {
         return moment(String(value)).format("YYYY-MM-DD");

@@ -47,7 +47,7 @@
                       style="padding-left: 40px!important; width: 100%!important"
                     >
                       <optgroup label="Categories">
-                        <option>Category</option>
+                        <!-- <option>Category</option> -->
                         <option value="1"><a href="#">Phones & Tablets</a></option>
                         <option value="2">Real Estate</option>
                         <option value="3">Electronics</option>
@@ -57,7 +57,7 @@
                         <option value="7">Agriculture</option>
                       </optgroup>
                     </select>
-                    <span><i class="fa fa-bars location-gps mr-1"></i></span>
+                    <!-- <span><i class="fa fa-bars location-gps mr-1"></i></span> -->
                   </div>
 
                   <div class="main-search-button-container mb-0">
