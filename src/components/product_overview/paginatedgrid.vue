@@ -588,21 +588,21 @@
         </div>
       </div>
     </div>
-         <div class="viewall-similar" id="show-more-details" v-if="similarprods.length > 3">
-                    <a @click="limit = null" v-show="limitBtn"
+         <div class="viewall-similar" id="show-more-details">
+                    <a
                       >Show More
                       <i
                         class="fa fa-arrow-circle-right"
                         style="color: #4caf50;"
                       ></i
                     ></a>
-                    <a @click="limit = 3" v-show="!limitBtn"
+                   <!--  <a @click="limit = 3" v-show="!limitBtn"
                       >Show Less
                       <i
                         class="fa fa-arrow-circle-right"
                         style="color: #4caf50;"
                       ></i
-                    ></a>
+                    ></a> -->
                   </div>
   </div>
 </template>
