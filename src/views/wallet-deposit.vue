@@ -235,7 +235,7 @@ export default {
       const transactionResponse = Object.assign(customdata,response);
       // console.log(transactionResponse);
       this.userbalance = parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) + parseInt(this.amount);
-      console.log(walletLogData);
+      // console.log(walletLogData);
       this.saveTransactions(transactionResponse);
       this.saveTransactionLogs(walletLogData);
       this.amount = null;
