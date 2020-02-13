@@ -16,8 +16,8 @@
                 <div class="row">
                   <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
                     <h3 class="panel-title">
-                      Expired
-                      <span style="display: inline;">( 0 )</span>
+                      Expired 
+                      <span style="display: inline;">( {{ filteredRow.length }} )</span>
                     </h3>
                   </div>
 
@@ -32,19 +32,24 @@
                           class="form-control search-input"
                           name="search_title"
                           value
-                          placeholder="Search Inventory"
+                          placeholder="Search product"
+                          v-model="search_input"
+                          @keyup.enter="getUserReferees()"
                         />
-                        <input
+<!--                         <input
                           type="hidden"
                           name="page-type"
                           value="published-ads"
+                          v-model="search_input"
+                          @keyup.enter="getUserReferees()"
                         />
-                      </div>
+ -->                  </div>
                       <div class="form-group">
                         <button
                           type="submit"
-                          class="btn btn-theme btn-search"
+                          class="btn btn-theme"
                           style="padding: 6px 15px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; height: 38px;"
+                          @click.prevent="getUserReferees()"
                         >
                           Search
                         </button>
@@ -52,25 +57,6 @@
                     </form>
                   </div>
                 </div>
-                <!-- <h3 class="panel-title">
-                  Published
-                  <span style="display: inline;">( 0 )</span>
-                </h3>
-                <form class="form form-inline form-published-search" method="get">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="search_title"
-                      value
-                      placeholder="Search Inventory"
-                    />
-                    <input type="hidden" name="page-type" value="published-ads" />
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-theme">Search</button>
-                  </div>
-                </form> -->
               </div>
               <div class="panel-body">
                 <div class="table-responsive">
@@ -78,256 +64,78 @@
                     <thead>
                       <tr>
                         <!-- <th>S/N</th> -->
-                        <th></th>
+                        <th>S/n</th>
                         <th>detail</th>
                         <th>Category</th>
-                        <th>Views</th>
+                        <!-- <th>Views</th> -->
                         <th>action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody v-for="(product, index) in filteredRow" :key="index">
                       <!-- <tr> <td colspan="5"><h4> no Inventory found</h4></td> </tr> -->
-                      <tr>
-                        <!-- <td>1</td> -->
-                        <td>
-                          <span class="ad-image">
+                      <tr v-if="product.published == false">
+                        <!-- <div v-if="product.published == true"> -->
+                          <td>
+                            {{index}}
+                          </td>
+                          <td>
                             <a
                               href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
                             >
-                              <img
-                                src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg"
-                                alt="na me"
-                                class="img-responsive"
-                              />
+                              <span class="ad-title">{{ product.name }}</span>
                             </a>
-                          </span>
-                        </td>
-                        <td>
-                          <a
-                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                          >
-                            <span class="ad-title">na me</span>
-                          </a>
-                          <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3, 2019
-                          </span>
-                          <span class="pending-post-msg">
-                            <i class="fa fa-warning"></i> Your post is under
-                            review
-                          </span>
-                        </td>
-                        <td>
-                          <span class="ad-cats">
-                            <span class="padding_cats">
-                              <a
-                                href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                                >Aston Martin</a
-                              >
+                            <span class="ad-date">
+                              <i class="la la-calendar-o"></i> {{ format_date(product.createdAt) }}
                             </span>
-                            <span class="padding_cats">
-                              <a
-                                href="https://carspot.scriptsbundle.com/ad_category/db-11/"
-                                >DB 11</a
-                              >
+                            <span class="pending-post-msg">
+                              <i class="fa fa-warning"></i> Your post Live
+                              review
                             </span>
-                          </span>
-                        </td>
-                        <td>0</td>
-                        <td>
-                          <span class="ad-actions">
-                            <ul class="ad-actions-list">
-                              <li>
+                          </td>
+                          <td>
+                            <span class="ad-cats">
+                              <span class="padding_cats">
                                 <a
-                                  class="protip"
-                                  data-pt-title=" Edit Ad"
-                                  data-pt-position="top"
-                                  data-pt-scheme="dark-transparent"
-                                  data-pt-size="small"
-                                  href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
-                                  data-adid="3741"
+                                  href="#"
+                                  >{{ product.category  }}</a
                                 >
-                                  <i class="la la-edit"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a
-                                  class="protip delete_ad"
-                                  data-pt-title=" Delete Ad"
-                                  data-pt-position="top"
-                                  data-pt-scheme="dark-transparent"
-                                  data-pt-size="small"
-                                  href="javascript:void(0);"
-                                  data-adid="3741"
-                                  style="color: red;"
-                                >
-                                  <i class="la la-trash"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </span>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <!-- <td>1</td> -->
-                        <td>
-                          <span class="ad-image">
-                            <a
-                              href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                            >
-                              <img
-                                src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg"
-                                alt="na me"
-                                class="img-responsive"
-                              />
-                            </a>
-                          </span>
-                        </td>
-                        <td>
-                          <a
-                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                          >
-                            <span class="ad-title">na me</span>
-                          </a>
-                          <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3, 2019
-                          </span>
-                          <span class="pending-post-msg">
-                            <i class="fa fa-warning"></i> Your post is under
-                            review
-                          </span>
-                        </td>
-                        <td>
-                          <span class="ad-cats">
-                            <span class="padding_cats">
-                              <a
-                                href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                                >Aston Martin</a
-                              >
+                              </span>
                             </span>
-                            <span class="padding_cats">
-                              <a
-                                href="https://carspot.scriptsbundle.com/ad_category/db-11/"
-                                >DB 11</a
-                              >
+                          </td> 
+                          <td>
+                            <span class="ad-actions">
+                              <ul class="ad-actions-list">
+                                <li>
+                                  <a
+                                    class="protip"
+                                    data-pt-title=" Edit Ad"
+                                    data-pt-position="top"
+                                    data-pt-scheme="dark-transparent"
+                                    data-pt-size="small"
+                                    href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
+                                    data-adid="3741"
+                                  >
+                                    <i class="la la-edit"></i>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a
+                                    class="protip delete_ad"
+                                    data-pt-title=" Delete Ad"
+                                    data-pt-position="top"
+                                    data-pt-scheme="dark-transparent"
+                                    data-pt-size="small"
+                                    href="javascript:void(0);"
+                                    data-adid="3741"
+                                    style="color: red;"
+                                  >
+                                    <i class="la la-trash"></i>
+                                  </a>
+                                </li>
+                              </ul>
                             </span>
-                          </span>
-                        </td>
-                        <td>0</td>
-                        <td>
-                          <span class="ad-actions">
-                            <ul class="ad-actions-list">
-                              <li>
-                                <a
-                                  class="protip"
-                                  data-pt-title=" Edit Ad"
-                                  data-pt-position="top"
-                                  data-pt-scheme="dark-transparent"
-                                  data-pt-size="small"
-                                  href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
-                                  data-adid="3741"
-                                >
-                                  <i class="la la-edit"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a
-                                  class="protip delete_ad"
-                                  data-pt-title=" Delete Ad"
-                                  data-pt-position="top"
-                                  data-pt-scheme="dark-transparent"
-                                  data-pt-size="small"
-                                  href="javascript:void(0);"
-                                  data-adid="3741"
-                                  style="color: red;"
-                                >
-                                  <i class="la la-trash"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </span>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <!-- <td>1</td> -->
-                        <td>
-                          <span class="ad-image">
-                            <a
-                              href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                            >
-                              <img
-                                src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg"
-                                alt="na me"
-                                class="img-responsive"
-                              />
-                            </a>
-                          </span>
-                        </td>
-                        <td>
-                          <a
-                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                          >
-                            <span class="ad-title">na me</span>
-                          </a>
-                          <span class="ad-date">
-                            <i class="la la-calendar-o"></i> December 3, 2019
-                          </span>
-                          <span class="pending-post-msg">
-                            <i class="fa fa-warning"></i> Your post is under
-                            review
-                          </span>
-                        </td>
-                        <td>
-                          <span class="ad-cats">
-                            <span class="padding_cats">
-                              <a
-                                href="https://carspot.scriptsbundle.com/ad_category/aston-martin/"
-                                >Aston Martin</a
-                              >
-                            </span>
-                            <span class="padding_cats">
-                              <a
-                                href="https://carspot.scriptsbundle.com/ad_category/db-11/"
-                                >DB 11</a
-                              >
-                            </span>
-                          </span>
-                        </td>
-                        <td>0</td>
-                        <td>
-                          <span class="ad-actions">
-                            <ul class="ad-actions-list">
-                              <li>
-                                <a
-                                  class="protip"
-                                  data-pt-title=" Edit Ad"
-                                  data-pt-position="top"
-                                  data-pt-scheme="dark-transparent"
-                                  data-pt-size="small"
-                                  href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
-                                  data-adid="3741"
-                                >
-                                  <i class="la la-edit"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a
-                                  class="protip delete_ad"
-                                  data-pt-title=" Delete Ad"
-                                  data-pt-position="top"
-                                  data-pt-scheme="dark-transparent"
-                                  data-pt-size="small"
-                                  href="javascript:void(0);"
-                                  data-adid="3741"
-                                  style="color: red;"
-                                >
-                                  <i class="la la-trash"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </span>
-                        </td>
+                          </td>
+                        <!-- </div> -->
                       </tr>
                     </tbody>
                   </table>
@@ -369,109 +177,75 @@
     <!-- Email verification and reset password -->
   </div>
 </template>
+<style scoped>
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
+  /*@import '../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css';*/
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom2.css';
+</style>
 
 <script>
-require("../../public/assets/skins/color-skins/color15.css");
-require("../../public/assets/plugins/horizontal-menu/horizontal.css");
-require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
-require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
-require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css");
-require("../../public/assets/css/user-dashboard/protip.css");
-
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
-require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-require("../../public/assets/skins/color-skins/color15.css");
-require("../../public/assets/plugins/horizontal-menu/horizontal.css");
-require("../../public/assets/css/components.css");
-
+import { mapActions, mapGetters } from "vuex";
 import dsidebar from "@/components/Dsidebar";
+import moment from "moment";
 // import dheader from "@/components/Dheader";
 export default {
-  name: "expired",
+  name: "expired-inventory",
+  data() {
+    return {
+      myreferals : [],
+      search_input: '',
+      isLoading: true,
+    };
+  },
   components: {
     dsidebar
-  }
+  },
+  computed: {
+    ...mapGetters("product", ["sellerProducts"]),
+    filteredRow: function(){
+      return this.myreferals.filter((row) => {
+        for(var key in row){
+          if(String(row[key]).indexOf(this.search_input) !== -1){
+            return true;
+          }
+        }
+        return false;
+      });
+    }
+  },
+  methods: {
+    ...mapActions("product", ["fetchSellerProducts"]),
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD");
+      }
+    },
+    async getUserReferees() {
+      // console.log(payload);
+      await this.fetchSellerProducts();
+    },
+  },
+  watch: {
+    $route: "sync",
+     loading: {
+      handler: function(loading) {
+        if (loading) {
+          this.isLoading = true;
+        }
+        this.isLoading = false;
+      }
+    },
+  },
+  created() {
+    this.getUserReferees().then(data => {
+        // console.log(this.getReferee);
+        this.myreferals = this.sellerProducts;
+    });
+    // console.log(this.getUser);
+    
+  },
 };
 </script>
 
