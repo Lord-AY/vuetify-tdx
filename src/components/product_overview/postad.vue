@@ -765,8 +765,10 @@ vue/no-parsing-error*/
                                       <input
                                         type="text"
                                         class="form-control post-ad-input"
-                                        placeholder="Wallet ID"
-                                        name="wallet_id"
+                                        placeholder="userWallet"
+                                        disabled
+                                        v-model="userWallet"
+                                        
                                       />
                                       <!-- <span class="input-group-append">
                                         <button class="btn btn-info" type="button"><i class="fa fa-cc-visa"></i> &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
@@ -1042,6 +1044,7 @@ export default {
       adAmount: 0,
       tempdata: null,
       payments: null,
+      userWallet: null
     };
   },
   props: {
@@ -1064,6 +1067,7 @@ export default {
   computed: {
     ...mapGetters("product", ["getErrors", "fullCategories"]),
     ...mapGetters("auth", ["getUser"]),
+    ...mapGetters("transactions", ["getwalletData"]),
     reference() {
       let text = "";
       let possible =
@@ -1227,14 +1231,14 @@ export default {
        this.processForm();
     },
     sendFormRequest(images) {
-      console.log("send form Function called");
+      // console.log("send form Function called");
       let selected = this.selectedImages;
       // check if uploaded images are equals to selected images
       if (selected.length == images.length) {
         // console.log("arrays are equal");
         this.$emit("create-ads", images);
       } else {
-        console.log("arrays not yet equal");
+        // console.log("arrays not yet equal");
       }
     },
     show() {
@@ -1268,10 +1272,20 @@ export default {
   },
   created() {
     this.sync();
+    let as = this;
+    setTimeout(function(){    
+      as.userWallet = as.getwalletData.walletid; console.log(as.userWallet);}, 300);
+    console.log(this.userWallet);
     this.ads.paymentype = "1";
   },
   watch: {
     $route: "sync",
+    getwalletData: {
+      handler: function(walletData) {
+        console.log(walletData);
+          this.userWallet = this.getwalletData.walletid;
+        }
+    },
     uploaded: {
       handler: function(uploaded) {
         console.log("uploaded watcher");
