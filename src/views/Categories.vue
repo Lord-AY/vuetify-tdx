@@ -50,7 +50,7 @@
                         <div
                           class="card-header border border-bottom-0 bg-light"
                         >
-                          <a href="#" class="text-dark"
+                          <router-link :to="`/search/${category.name}`" class="text-dark"
                             ><h3 class="card-title">
                               <img
                                 :src="
@@ -61,7 +61,7 @@
                                 class="h-5"
                               />
                               <span class="category">{{ category.name }}</span>
-                            </h3></a
+                            </h3></router-link
                           >
                         </div>
                         <div v-if="category.subcategory">
@@ -75,11 +75,11 @@
                                 v-for="subcategory in category.subcategory"
                                 :Key="subcategory.id"
                               >
-                                <a href="#" class="text-dark"
+                                <router-link :to="`/search/${category.name}`" class="text-dark"
                                   ><i
                                     class="typcn typcn-chevron-right text-primary"
                                   ></i>
-                                  {{ subcategory.name }}</a
+                                  {{ subcategory.name }}</router-link
                                 >
                               </li>
                               <!--                        

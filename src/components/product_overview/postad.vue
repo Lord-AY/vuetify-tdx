@@ -1212,14 +1212,14 @@ export default {
        this.processForm();
     },
     sendFormRequest(images) {
-      // console.log("Function called");
+      console.log("send form Function called");
       let selected = this.selectedImages;
       // check if uploaded images are equals to selected images
       if (selected.length == images.length) {
         // console.log("arrays are equal");
         this.$emit("create-ads", images);
       } else {
-        // console.log("arrays not yet equal");
+        console.log("arrays not yet equal");
       }
     },
     show() {
@@ -1258,7 +1258,7 @@ export default {
     $route: "sync",
     uploaded: {
       handler: function(uploaded) {
-        // console.log(uploaded);
+        console.log("uploaded watcher");
         this.sendFormRequest(uploaded);
       },
     },
