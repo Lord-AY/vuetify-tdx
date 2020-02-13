@@ -85,12 +85,14 @@ export default {
     },
     createAds(e) {
       // create payload
-      // console.log("event emitted");
+      console.log("event emitted");
       const payload = {
         product: this.ads
       };
       // add image to payload
       payload.product.photos = e.toString();
+      // console.log(payload);
+      this.createProduct(payload);
     },
     async fetchCountries() {
       const res = await axios.get("https://restcountries.eu/rest/v2/all");
