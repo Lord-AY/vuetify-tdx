@@ -88,7 +88,7 @@ export default {
                     console.log(error);
                 });
         },
-        saveTransactions({ commit, rootState }, { payload, ads }) {
+        saveTransactions({ commit, rootState }, payload) {
             commit("auth/SET_LOADING", true, { root: true });
             commit("SET_PAYMENT_RESPONSE", null);
             const refinedPayload = {
@@ -110,11 +110,11 @@ export default {
                 paymentCode: payload.reference,
                 phone: rootState.auth.user.phone
             };
-            TransactionService.saveTransactions(refinedPayload)
+            TransactionService.saveTransaction(refinedPayload)
                 .then(({ data }) => {
-                    dispatch("product/createProduct", ads, { root: true });
-                    dispatch("saveTransactionLogs", ads, { root: true });
-                    // commit("auth/SET_LOADING", false, { root: true });
+                    // dispatch("saveTransactionLogs", ads, { root: true });
+                    commit("auth/SET_LOADING", false, { root: true });
+                    console.log(data);
                 })
                 .catch(error => {
                     console.log(error.response);
@@ -147,7 +147,7 @@ export default {
     mutations: {
         SET_ERRORS(state, error) {
             state.errors = error;
-        },        
+        },
         SET_USER_WALLET_HISTORY(state, data) {
             state.walletHistory = data;
         },
