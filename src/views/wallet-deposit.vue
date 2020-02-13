@@ -148,6 +148,7 @@ import { mapActions, mapGetters } from "vuex";
 import paystack from "vue-paystack";
 import DashboardLoader from "@/components/loaders/dashboardloader";
 import dsidebar from "@/components/Dsidebar";
+const formatCurrency = require("format-currency");
 // import dheader from "@/components/Dheader";
 export default {
   name: "wallet-deposit",
@@ -208,6 +209,9 @@ export default {
 
       }
     },
+    formatCurrency(data) {
+      return formatCurrency(data);
+    },
     callback: function(response){
       this.payments = response;
     },
@@ -218,8 +222,8 @@ export default {
       }
       let walletLogData = {
         "userid": this.getUser.id,
-        "currentBal": this.userWalletHistory[userWalletHistory.length -1].previousBal + this.amount,
-        "previousBal": this.userWalletHistory[userWalletHistory.length -1].previousBal + this.amount,
+        "currentBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) + parseInt(this.amount),
+        "previousBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) + parseInt(this.amount),
         "amount": this.amount,
         "currency": "NGN",
         "description": "deposit to wallet",
@@ -230,10 +234,11 @@ export default {
       }
       const transactionResponse = Object.assign(customdata,response);
       // console.log(transactionResponse);
-      // console.log(walletLogData);
+      this.userbalance = parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) + parseInt(this.amount);
+      console.log(walletLogData);
       this.saveTransactions(transactionResponse);
       this.saveTransactionLogs(walletLogData);
-      
+      this.amount = null;
     },
     close: function() {
       // console.log("Payment closed");
@@ -264,9 +269,12 @@ export default {
   },
   created() {
     this.FetchUserwallet(this.getUser.id);
-    this.userbalance = localStorage.getItem("walletBalance");
-    this.userWalletHistory.push(this.getwalletHistory);
-    // console.log(this.getwalletHistory);
+    // this.userWalletHistory.push(this.getwalletHistory);
+    var walletBalance = formatCurrency(
+      this.getwalletHistory[this.getwalletHistory.length - 1]
+    );
+    this.userbalance = formatCurrency(this.getwalletHistory[this.getwalletHistory.length - 1].currentBal);
+    // console.log(this.getwalletHistory[this.getwalletHistory.length - 1]);
   },
   beforeCreate() {
     // console.log("this is before created");

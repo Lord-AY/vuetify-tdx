@@ -362,6 +362,7 @@ export default {
       // set payload details
       let checkFields = payload.product.checkFields;
       let inputFields = payload.product.inputFields;
+      let adtype = payload.product.adtype;
       // convert object to comma seperated values
       let checkField = Object.keys(checkFields).map(function(k){return checkFields[k]}).join(",");
       let inputField = Object.keys(inputFields).map(function(k){return inputFields[k]}).join(",");
@@ -384,7 +385,7 @@ export default {
         subcategory: null,
         featured: false,
         tradexplorer: true,
-        adtype: payload.product.adType,
+        adtype: adtype,
         paymentype: 1,
         approved: true,
         published: true,

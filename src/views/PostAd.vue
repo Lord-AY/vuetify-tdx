@@ -59,7 +59,7 @@ export default {
         featured: false,
         tradexplorer: true,
         adtype: null,
-        paymentype: 1,
+        paymentype: null,
         approved: true,
         published: true,
         description: "",

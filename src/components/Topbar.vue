@@ -303,9 +303,11 @@
                           />
                           Balance
                         </router-link>
-                        <span style="line-height: 1.6!important">{{
-                          userbalance
-                        }}</span>
+                        <span style="line-height: 1.6!important">
+                          {{
+                            formatCurrency(getwalletHistory[getwalletHistory.length -1].currentBal)
+                          }}
+                        </span>
                       </li>
                       <li class="profile-dropdown-list">
                         <router-link
@@ -599,6 +601,7 @@ $(document).click(function(e) {
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
 // require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
+const formatCurrency = require("format-currency");
 import timer from "@/components/countdownTimer";
 import { mapGetters, mapActions, mapState } from "vuex";
 import SearchLoader from "@/components/loaders/SearchLoader";
@@ -625,12 +628,16 @@ export default {
     ...mapGetters("product", ["categories", "subcategories"]),
     ...mapState("search", ["searching"]),
     ...mapState("product", ["productloading"]),
-    ...mapGetters("search", ["getResults"])
+    ...mapGetters("search", ["getResults"]),
+    ...mapGetters("transactions", ["getwalletData", "getwalletHistory"]),
   },
   methods: {
     ...mapActions("product", ["fetchAllCategories", "fetchSubCategories"]),
     ...mapActions("search", ["searchAction"]),
     ...mapActions("auth", ["logoutUser"]),
+    formatCurrency(data) {
+      return formatCurrency(data);
+    },
     setLogout() {
       this.logoutUser();
     },

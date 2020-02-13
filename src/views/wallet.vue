@@ -315,10 +315,11 @@ export default {
     // this.FetchUserwalletHistory(this.getUser.id);
     this.FetchUserwalletHistory(this.getUser.id).then(data => {
         // console.log(this.getReferee);
-        this.userWalletHistory.push(this.getwalletHistory);
+        this.userWalletHistory = this.getwalletHistory;
         // this.mybal = this.userWalletHistory[this.userWalletHistory.length-1]
-        // console.log(this.mybal);
     });
+    // console.log(this.userWalletHistory);
+
     
   },
   beforeCreate() {

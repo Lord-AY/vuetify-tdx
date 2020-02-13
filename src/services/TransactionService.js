@@ -28,7 +28,7 @@ export default {
     saveTransaction(payload) {
         return Api().post(`users/${payload.userid}/dashboardinfo`, payload);
     },
-     logs(payload) {
-        return Api().post(`users/${userId}/wallet/savetransaction`, payload);
+    logs(payload) {
+        return Api().post(`users/${payload.userid}/wallet/savetransaction`, payload);
     }
 };

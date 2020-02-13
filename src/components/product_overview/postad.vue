@@ -1084,14 +1084,17 @@ export default {
     addPayment(type) {
       // console.log(type);
       if (type == "1") {
+        this.ads.paymentype = "1";
         this.tab1 = true;
         this.tab2 = false;
         this.tab3 = false;
       } else if (type == "2") {
+        this.ads.paymentype = "2";
         this.tab1 = false;
         this.tab2 = true;
         this.tab3 = false;
       } else if (type == "3") {
+        this.ads.paymentype = "3";
         this.tab1 = false;
         this.tab2 = false;
         this.tab3 = true;
@@ -1254,6 +1257,7 @@ export default {
   },
   created() {
     this.sync();
+    this.ads.paymentype = "1";
   },
   watch: {
     $route: "sync",

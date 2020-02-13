@@ -197,17 +197,9 @@ export default {
     this.loadfunc();
     if (this.getUser !== null) {
       this.fetchDashboardDetails();
-      this.FetchUserwalletHistory(this.getUser.id).then(data => {
-        // console.log(this.getwalletData);
-        this.userWalletHistory.push(this.getwalletHistory);
-        // this.mybal = this.userWalletHistory[this.userWalletHistory.length-1]
-        // console.log(this.mybal);
-      });
+      this.FetchUserwalletHistory(this.getUser.id);
     }
-    var walletBalance = formatCurrency(
-      this.userWalletHistory[this.userWalletHistory.length - 1]
-    );
-    localStorage.setItem("walletBalance", walletBalance);
+
   },
   beforeCreate() {
     // console.log("this is before created");

@@ -120,7 +120,7 @@ export default {
                     console.log(error.response);
                 });
         },
-        saveTransactionLogs({ commit }, payload) {
+        saveTransactionLogs({ commit, rootState }, payload) {
             commit("auth/SET_LOADING", true, { root: true });
             commit("SET_PAYMENT_RESPONSE", null);
             const refinedPayload = {
