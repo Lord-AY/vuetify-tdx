@@ -1289,7 +1289,7 @@ export default {
     this.sync();
     let as = this;
     setTimeout(function(){    
-      as.userWallet = as.getwalletData.walletid; console.log(as.userWallet);}, 300);
+      as.userWallet = as.getwalletData.walletid; }, 300);
     // console.log(this.userWallet);
     this.ads.paymentype = "1";
   },
