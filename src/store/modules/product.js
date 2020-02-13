@@ -14,6 +14,7 @@ export default {
     categories: null,
     subcategories: null,
     seller: null,
+    sellerProducts: null,
     similarProducts: [],
     success: null,
     errors: null,
@@ -37,6 +38,12 @@ export default {
     getHotSellers(state) {
       if (state.hotSellers !== null && state.hotSellers !== undefined) {
         return state.hotSellers;
+      }
+      return null;
+    },
+    sellerProducts(state) {
+      if (state.sellerProducts !== null && state.sellerProducts !== undefined) {
+        return state.sellerProducts;
       }
       return null;
     },
@@ -355,6 +362,16 @@ export default {
           // console.log(error.response.data);
         });
     },
+    fetchSellerProducts({commit, rootState}) {
+      commit("auth/SET_LOADING", true, { root: true });
+      return ProductService.sellerProducts(rootState.auth.user.id).then(({data}) => {
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_SELLERS_PRODUCTS", data);
+      }).catch(error => {
+        commit("auth/SET_LOADING", false, { root: true });
+        console.log(error);
+      })
+    },
     createProduct({ commit, rootState }, payload ) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
@@ -432,6 +449,9 @@ export default {
     },
     SET_SINGLE_CATEGORIES(state, data) {
       state.singleCategory = data;
+    },
+    SET_SELLERS_PRODUCTS(state, data) {
+      state.sellerProducts = data;
     },
     SET_CATEGORIES(state, data) {
       state.categories = data;
