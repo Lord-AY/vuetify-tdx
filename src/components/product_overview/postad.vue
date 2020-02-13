@@ -1255,19 +1255,34 @@ export default {
     onCancel() {
       // console.log("User cancelled the loader.");
     },
-    // showError() {
-    //   this.$notify({
-    //     group: "errors",
-    //     type: "error",
-    //     title: "Error Creating Ads",
-    //     width: "100%",
-    //     text: this.getErrors,
-    //     classes: "error",
-    //     duration: 10000,
-    //     speed: 1000,
-    //     position: "top right"
-    //   });
-    // },
+    showError() {
+      this.$notify({
+        group: "errors",
+        type: "error",
+        title: "Error Creating Ads",
+        width: "100%",
+        text: this.getErrors,
+        classes: "error",
+        duration: 10000,
+        speed: 1000,
+        position: "top right"
+      });
+    },
+      formErrors(errors) {
+        for(let err in errors) {
+          this.$notify({
+        group: "errors",
+        type: "error",
+        title: "Form Error",
+        width: "100%",
+        text: err,
+        classes: "error",
+        duration: 10000,
+        speed: 1000,
+        position: "top right"
+      });
+        }
+    },
     sync() {}
   },
   created() {
@@ -1319,7 +1334,15 @@ export default {
         if (errors === null || errors === undefined) {
           return;
         }
-        this.showError();
+        this.showError(errors);
+      }
+    },
+    errors: {
+      handler: function(errors) {
+        if (errors === null || errors === undefined) {
+          return;
+        }
+        this.formErrors(errors);
       }
     },
     loading: {
