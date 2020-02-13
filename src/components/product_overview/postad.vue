@@ -84,7 +84,7 @@ vue/no-parsing-error*/
                                             : ''
                                         "
                                         placeholder="Ad title"
-                                        v-model="sample"
+                                        v-model="ads.name"
                                         required
                                       />
                                   </div>
@@ -1025,8 +1025,8 @@ export default {
       currentSubCategory: [],
       categoryFields: [],
       categoryInputFields: [],
-      tab1: true,
-      tab2: false,
+      tab1: false,
+      tab2: true,
       tab3: false,
       adAmount: 0,
       tempdata: null,
@@ -1191,6 +1191,7 @@ export default {
               // let new_url_sec = ash.replace(new_url, ".", "#");
               // let new_url_secure = ash.replace(new_url_sec, ".", "#");
               this.uploaded.push(data.secure_url);
+              // console.log(this.uploaded);
             })
             .catch(() => {
               this.isLoading = false;

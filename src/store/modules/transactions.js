@@ -113,7 +113,7 @@ export default {
             TransactionService.saveTransaction(refinedPayload)
                 .then(({ data }) => {
                     // dispatch("saveTransactionLogs", ads, { root: true });
-                    commit("auth/SET_LOADING", false, { root: true });
+                    commit("auth/SET_LOADING", true, { root: true });
                     console.log(data);
                 })
                 .catch(error => {

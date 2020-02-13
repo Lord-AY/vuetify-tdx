@@ -160,7 +160,8 @@ export default {
       amount: null,
       Depositamount: 0,
       userbalance: null,
-      userWalletHistory: []
+      userWalletHistory: [],
+      payments: null
     };
   },
   components: {
@@ -207,7 +208,10 @@ export default {
 
       }
     },
-    callback: function(response) {
+    callback: function(response){
+      this.payments = response;
+    },
+    perfomaction(response) {
       let customdata = {
         "source":"Wallet Deposit",
         "amount": this.amount
@@ -250,6 +254,11 @@ export default {
           this.isLoading = false;
           // console.log(walletData);
         }
+      }
+    },
+    payments: {
+      handler: function(payments) {
+        this.perfomaction(payments);
       }
     },
   },
