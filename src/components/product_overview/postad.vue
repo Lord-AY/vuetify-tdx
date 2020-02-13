@@ -670,7 +670,7 @@ vue/no-parsing-error*/
                                       <div class="total-pricing-sub-div">
                                         <p>
                                           <i>
-                                            Total: &#8358; {{ adAmount }}.00</i
+                                            Total: &#8358; {{ adAmountClone }}.00</i
                                           >
                                         </p>
                                       </div>
@@ -811,7 +811,7 @@ vue/no-parsing-error*/
                                     </div>
                                   </div>
                                   <div class="pay-with-wallet">
-                                    <button class="btn btn-theme">
+                                    <button class="btn btn-theme" @click.prevent="payWithWallet">
                                       Pay with Wallet
                                     </button>
                                   </div>
@@ -1015,6 +1015,7 @@ import axios from "axios";
 import ash from "lodash";
 // Import component
 import Loading from "vue-loading-overlay";
+const formatCurrency = require("format-currency");
 import { mapState, mapActions, mapGetters } from "vuex";
 // Import stylesheet
 import "vue-loading-overlay/dist/vue-loading.css";
@@ -1044,9 +1045,11 @@ export default {
       tab2: true,
       tab3: false,
       adAmount: 0,
+      adAmountClone: 0,
       tempdata: null,
       payments: null,
-      userWallet: null
+      userWallet: null,
+      userbal: 0
     };
   },
   props: {
@@ -1069,7 +1072,7 @@ export default {
   computed: {
     ...mapGetters("product", ["getErrors", "fullCategories"]),
     ...mapGetters("auth", ["getUser"]),
-    ...mapGetters("transactions", ["getwalletData"]),
+    ...mapGetters("transactions", ["getwalletData", "getwalletHistory"]),
     reference() {
       let text = "";
       let possible =
@@ -1081,9 +1084,51 @@ export default {
   },
   methods: {
     ...mapActions("product", ["fetchSubCategories"]),
-    ...mapActions("transactions", ["saveTransactions"]),
+    ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "saveTransactionLogs", "saveTransactions"]),
+
+    formatCurrency(data) {
+      return formatCurrency(data);
+    },
     validateForn() {
       // console.log("clicked a div");
+    },
+    payWithWallet(){
+      console.log(this.userbal);
+      if(this.userbal < this.adAmountClone){
+        this.$swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Insufficient Balance In Wallet!',
+        })
+      }else{
+          let customdata = {
+            "source":"Wallet Deposit",
+            "amount": this.amount
+          }
+          let walletLogData = {
+            "userid": this.getUser.id,
+            "currentBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.amount),
+            "previousBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.amount),
+            "amount": this.amount,
+            "currency": "NGN",
+            "description": "deposit to wallet",
+            "type": "deposit",
+            "conversionRate": "360",
+            "walletid": this.userWallet,
+            "activity": "deposite"
+          }
+          const transactionResponse = Object.assign(customdata,response);
+          // console.log(transactionResponse);
+          this.userbalance = parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) + parseInt(this.amount);
+          // console.log(walletLogData);
+          this.saveTransactions(transactionResponse);
+          this.saveTransactionLogs(walletLogData);
+          this.$swal.fire({
+            icon: 'success',
+            title: 'Hurray...',
+            text: 'Your payment Was Successfull!',
+          })
+      }
     },
     callback: function(response) {
       this.payments = response;
@@ -1245,14 +1290,15 @@ export default {
     },
     show() {
       this.$notify({
-        group: "notify",
+        group: "success",
         title: "Important message",
-        text: "Hello user! This is a notification!"
+        text: "Your Ads has been summited for review!"
       });
     },
     setPayment(value, price) {
       this.ads.adtype = value;
       this.adAmount = price * 100;
+      this.adAmountClone = price;
     },
     onCancel() {
       // console.log("User cancelled the loader.");
@@ -1289,6 +1335,8 @@ export default {
   },
   created() {
     this.sync();
+    this.userbal = this.formatCurrency(this.getwalletHistory[this.getwalletHistory.length -1].currentBal);
+    // console.log(this.getwalletHistory);
     let as = this;
     setTimeout(function(){    
       as.userWallet = as.getwalletData.walletid; }, 300);
@@ -1297,6 +1345,14 @@ export default {
   },
   watch: {
     $route: "sync",
+    getwalletHistory: {
+      handler: function(resp){
+        console.log(resp);
+        if(resp){
+          this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
+        }
+      }
+    },
     getwalletData: {
       handler: function(walletData) {
         // console.log(walletData);
