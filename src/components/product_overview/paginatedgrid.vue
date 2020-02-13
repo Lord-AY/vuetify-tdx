@@ -446,13 +446,9 @@
                 </div>
               </div>
             </div>
-<!--             <infinite-loading spinner="bubbles" @infinite="loadMore" force-use-infinite-wrapper=".infinite-wrapper">
-                <div class="text-red" slot="no-more">No more Data</div>
-                <div class="text-red" slot="no-results">No more Data</div>
-            </infinite-loading> -->
           </div>
-          <!-- <infinite-loading :identifier="infiniteId" @infinite="infiniteHandler"></infinite-loading> -->
         </div>
+            
         <div v-else>
           <div
             class="posts-masonry"
@@ -592,6 +588,22 @@
         </div>
       </div>
     </div>
+         <div class="viewall-similar" id="show-more-details" v-if="similarprods.length > 3">
+                    <a @click="limit = null" v-show="limitBtn"
+                      >Show More
+                      <i
+                        class="fa fa-arrow-circle-right"
+                        style="color: #4caf50;"
+                      ></i
+                    ></a>
+                    <a @click="limit = 3" v-show="!limitBtn"
+                      >Show Less
+                      <i
+                        class="fa fa-arrow-circle-right"
+                        style="color: #4caf50;"
+                      ></i
+                    ></a>
+                  </div>
   </div>
 </template>
 <script>
