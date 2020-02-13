@@ -161,6 +161,7 @@ vue/no-parsing-error*/
                                 </div>
                               </transition>
                               <!-- Extra fields for category-->
+                              <!-- {{ categoryInputFields }} -->
                               <div
                                 class="row"
                                 v-show="
@@ -195,36 +196,37 @@ vue/no-parsing-error*/
                                     </label>
                                   </div>
                                 </div>
+                              </div>
+                              <div
+                                class="row form-group-tx form-group"
+                                v-show="
+                                  categoryInputFields.length > 0 &&
+                                    categoryInputFields[0] !== ''
+                                "
+                              >
                                 <div
-                                  class="row form-group-tx form-group"
-                                  v-show="
-                                    categoryInputFields.length > 0 &&
-                                      categoryInputFields[0] !== ''
-                                  "
+                                  class="col-md-12 col-sm-12 col-lg-12"
+                                  v-for="(field,
+                                  index) in categoryInputFields"
+                                  :key="index"
                                 >
-                                  <div
-                                    class="col-md-12 col-sm-12 col-lg-12"
-                                    v-for="(field,
-                                    index) in categoryInputFields"
-                                    :key="index"
-                                  >
-                                    <label class="form-label text-dark">{{
-                                      field
-                                    }}</label>
-                                    <div class="radio">
-                                      <input
-                                        type="text"
-                                        class="form-control post-ad-input"
-                                        placeholder="Ad title"
-                                        v-model="
-                                          ads.inputFields['field_' + index]
-                                        "
-                                        required
-                                      />
-                                    </div>
+                                  <label class="form-label text-dark">{{
+                                    field
+                                  }}</label>
+                                  <div class="radio">
+                                    <input
+                                      type="text"
+                                      class="form-control post-ad-input"
+                                      placeholder="Ad title"
+                                      v-model="
+                                        ads.inputFields['field_' + index]
+                                      "
+                                      required
+                                    />
                                   </div>
                                 </div>
                               </div>
+
                               <!-- Extra fields for category-->
                               <div class="row form-group-tx form-group">
                                 <div class="col-md-6"></div>
