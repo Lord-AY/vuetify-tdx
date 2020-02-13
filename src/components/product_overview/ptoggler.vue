@@ -6,10 +6,24 @@
       <div class="clearfix"></div>
       <div class="listingTopFilterBar">
         <div class="col-md-7 col-xs-12 col-sm-6 no-padding">
-          <ul class="filterAdType">
+          <ul class="filterAdType" style="font-size: 12px">
             <li class="active">
               <a href="javascript:void(0)" style="color: #232323;">
                 Found Ads
+                <small v-if="list.length == 0">({{ ads.length }})</small>
+                <small v-else>({{ list.length }})</small>
+              </a>
+            </li>
+            <li class="">
+              <a href="javascript:void(0)" style="color: #232323;">
+                Most Popular Sellers
+                <small v-if="list.length == 0">({{ ads.length }})</small>
+                <small v-else>({{ list.length }})</small>
+              </a>
+            </li>
+            <li class="">
+              <a href="javascript:void(0)" style="color: #232323;">
+                Today
                 <small v-if="list.length == 0">({{ ads.length }})</small>
                 <small v-else>({{ list.length }})</small>
               </a>

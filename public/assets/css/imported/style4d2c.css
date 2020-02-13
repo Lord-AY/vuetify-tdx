@@ -1866,6 +1866,7 @@ img.resize {
 }
 .category-grid-box-1 .image img {
     width: 100%;
+    object-fit: cover;
     /* height: 100%;
     position: relative;
     border-radius: 50%;
@@ -7342,7 +7343,7 @@ a.delete i {
     min-height: 46px;
     border-color: transparent!important;
     border-radius: 0;
-    margin-bottom: 30px
+    margin-bottom: 12px
 }
 ul.filterAdType {
     padding: 0
@@ -14304,8 +14305,8 @@ hr.accent-2 {
 
 .category-grid-box-tx .image img {
    
-    width: 10rem!important;
-    height: 10rem;
+    width: 64px!important;
+    height: 64px!important;
     position: relative;
     border-radius: 50%;
     object-fit: cover;
@@ -14598,9 +14599,9 @@ hr.accent-2 {
 .icon-reveal-btn {
     background-color: rgba(255,255,255,0.2)!important;
     color: #fff!important;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 600!important;
-    padding: 3px 10px!important;
+    padding: 3px 8px!important;
     display: none;
     border-radius: 50%!important;
 }
@@ -14615,7 +14616,7 @@ hr.accent-2 {
 .category-grid-box-1:hover .icon-reveal-btn {
     display: inline-block;
     position: absolute;
-    top: 166px!important;
+    top: 172px!important;
     right: 6px!important;
 }
 
@@ -14633,7 +14634,7 @@ hr.accent-2 {
     
     /* height: 45px; */
     
-    margin: 16px 0px;
+    margin: 16px 0px !important;
     border-bottom: 2px solid #ededed;
     padding-bottom: 15px;
 }

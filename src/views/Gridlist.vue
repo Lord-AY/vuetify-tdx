@@ -16,7 +16,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="/listbillers">
+                <router-link to="/listbillers" class="value-added-link">
                   <div class="d-flex value-added">
                     <div class="outline1">
                       <div class="outline2">
@@ -45,7 +45,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="/listbillers">
+                <router-link to="/listbillers" class="value-added-link">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -70,7 +70,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="/listbillers">
+                <router-link to="/listbillers" class="value-added-link">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -95,7 +95,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="/listbillers">
+                <router-link to="/listbillers" class="value-added-link">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -120,7 +120,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; "
               >
-                <router-link to="/listbillers">
+                <router-link to="/listbillers" class="value-added-link">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -145,7 +145,7 @@
                 class="col-md-2 col-sm-4 col-xs-4"
                 style="padding-left: 0px; padding-right: 0px; "
               >
-                <router-link to="/listbillers">
+                <router-link to="/listbillers" class="value-added-link">
                   <div class="d-flex value-added">
                     <div
                       class="icon-bg-service"
@@ -532,9 +532,12 @@ i.switch[disabled="disabled"] {
 .visible-xs-block {
   display: none !important;
 }
-
+.value-added-link:hover {
+  color: transparent!important;
+  text-decoration: none!important;
+} 
 .value-added-tx {
-  font-size: 1.5rem !important;
+  font-size: 16px !important;
   font-weight: normal !important;
 }
 .value-added-tx:hover {
@@ -542,8 +545,8 @@ i.switch[disabled="disabled"] {
 }
 
 .category-grid-box-tx .image img {
-  width: 8rem !important;
-  height: 8rem !important;
+  width: 64px !important;
+  height: 64px !important;
   margin-top: 20px;
 }
 
@@ -561,8 +564,10 @@ i.switch[disabled="disabled"] {
   border-radius: 0px;
 }
 .custom-select {
-  height: 4.6rem;
-  margin-right: 4px 0px;
+  height: 40px;
+  margin-left: -10px;
+  margin-top: 4px;
+  border: none;
   border-right: 4px;
   font-size: 12px;
 }

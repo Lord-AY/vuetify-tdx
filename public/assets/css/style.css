@@ -11428,7 +11428,7 @@ textarea[cols] {
 	display: block;
 	margin-bottom: .375rem;
 	font-weight: 500;
-	font-size: .875rem;
+	font-size: 14px!important;
 }
 .form-label-small {
 	float: right;
@@ -18419,12 +18419,12 @@ footer .border-top {
 }
 .widget-spec li {
 	margin-bottom: .5rem;
-	font-size: .9rem;
+	font-size: 14px!important;
 	display: flex;
 }
 .widget-spec1 li {
 	margin-bottom: .5rem;
-	font-size: .9rem;
+	font-size: 14px!important;
 }
 .support-list li a {
 	margin-bottom: .5rem;
@@ -31953,7 +31953,7 @@ textarea[cols] {
 	display: block;
 	margin-bottom: .375rem;
 	font-weight: 500;
-	font-size: .875rem;
+	font-size: 14px!important;
 }
 .form-label-small {
 	float: right;
@@ -41926,7 +41926,7 @@ body .modal-open {
 	}
 
 	.ad-section-title {
-		font-size: 1.3rem!important;
+		font-size: 18px!important;
 		font-weight: 500;
 		color: #4CAF50;
 		border-bottom: 1px solid #ededed;

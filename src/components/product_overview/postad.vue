@@ -66,7 +66,7 @@ vue/no-parsing-error*/
                             <div class="post-ad-content">
                               <!-- <div class="col-md-12 col-sm-12 col-lg-12"> -->
                               <!-- AD details -->
-                              <div class="ad-information ">
+                              <div class="ad-information " style="padding: 0px 15px;">
                                 <div class="ad-section-title">Ad Details</div>
                               </div>
                               <div class="row form-group-tx form-group">
@@ -189,7 +189,7 @@ vue/no-parsing-error*/
                                       />
                                       <span
                                         class="custom-control-label text-dark pl-2"
-                                        style="margin-left: -10px;"
+                                        style="font-weight: 500"
                                         >{{ field }}</span
                                       >
                                     </label>
@@ -282,7 +282,7 @@ vue/no-parsing-error*/
                                       />
                                       <span
                                         class="custom-control-label text-dark pl-2"
-                                        style="margin-left: -10px;"
+                                        style="font-weight: 500;"
                                         >Negotiable</span
                                       >
                                     </label>
@@ -314,6 +314,7 @@ vue/no-parsing-error*/
                                 <div class="col-md-12">
                                   <div
                                     class="p-2 border upload-image-box mb-4 form-group"
+                                    style="border-radius: 6px!important"
                                   >
                                     <label for="">Upload images</label>
                                     <p>
@@ -885,7 +886,7 @@ vue/no-parsing-error*/
         <div class="col-lg-4 col-md-12 mobile-hidden">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Benefits Of Premium Ad</h3>
+              <h3 class="card-title" style="font-size: 14px; font-weight: 600;" >Benefits Of Premium Ad</h3>
             </div>
             <div class="card-body pb-2">
               <ul class="list-unstyled widget-spec vertical-scroll mb-0">
@@ -954,7 +955,7 @@ vue/no-parsing-error*/
           </div>
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Terms And Conditions</h3>
+              <h3 class="card-title" style="font-size: 14px; font-weight: 600;">Terms And Conditions</h3>
             </div>
             <div class="card-body">
               <ul class="list-unstyled widget-spec  mb-0">
@@ -978,7 +979,7 @@ vue/no-parsing-error*/
           </div>
           <div class="card mb-0">
             <div class="card-header">
-              <h3 class="card-title">Ads</h3>
+              <h3 class="card-title" style="font-size: 14px; font-weight: 600;">Ads</h3>
             </div>
             <div class="card-body">
               <div class="ads">
