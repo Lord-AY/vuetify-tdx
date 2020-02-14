@@ -111,8 +111,13 @@
                             </p>
                           </div>
 
-                          <div class="follow">
-                            <p class="btn">
+                          <div class="follow" v-show="checkFollowing(sellers.id)">
+                            <p class="btn" @click="UnfollowSeller(sellers.id)">
+                              <i class="fa fa-user-plus"></i> Unfollow
+                            </p>
+                          </div>                          
+                          <div class="follow" v-show="!checkFollowing(sellers.id)">
+                            <p class="btn" @click="followSeller(sellers.id)">
                               <i class="fa fa-user-plus"></i> Follow
                             </p>
                           </div>
@@ -135,6 +140,7 @@
 import ash from "lodash";
 import moment from "moment";
 import Slick from "vue-slick";
+import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   name: "hotsellers",
@@ -179,8 +185,30 @@ export default {
   components: {
     Slick
   },
+  computed: {
+    ...mapGetters("auth", ["getfollowing"]),
+  },
   methods: {
+    ...mapActions("user", ["followSeller"]),
     sync: function() {},
+    checkFollowing(sellerid){
+      if(this.getfollowing.includes(sellerid)){
+        return true;
+      }else{
+        return false;
+      }
+    },
+    followSeller(sellerid){
+      let newFollower = this.getfollowing.push(sellerid);
+      this.followSeller(newFollower);
+    },
+    UnfollowSeller(sellerid){
+      const index = this.getfollowing.indexOf(sellerid);
+      if (index > -1) {
+        this.getfollowing.splice(index, 1);
+      }
+      this.followSeller(this.getfollowing);
+    },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("YYYY-MM-DD");

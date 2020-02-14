@@ -33,7 +33,7 @@ vue/no-parsing-error*/
                         <!-- Ad Details -->
                         <div class="row">
                           <div class="col-md-12">
-                            <div v-if="errors" class="">
+<!--                             <div v-if="errors" class="">
                               <div
                                 class="alert alert-danger alert-dismissible fade show"
                               >
@@ -47,7 +47,7 @@ vue/no-parsing-error*/
                                   &times;
                                 </button>
                               </div>
-                            </div>
+                            </div> -->
                             <div v-if="dbErrors && dbErrors.adType" class="">
                               <div
                                 class="alert alert-danger alert-dismissible fade show"
