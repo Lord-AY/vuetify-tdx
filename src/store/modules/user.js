@@ -83,7 +83,7 @@ export default {
         userid: rootState.auth.user.id,
         data: payloadStr
       };
-      UserService.following(payload).then(({data}) => {
+      UserService.following(refinedPayload).then(({data}) => {
         console.log(data);
         commit("auth/SET_USER_FOLLOWING", data, {root: true});
       }).catch(error => {
