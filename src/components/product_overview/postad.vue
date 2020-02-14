@@ -1390,7 +1390,7 @@ export default {
     $route: "sync",
     getwalletHistory: {
       handler: function(resp){
-        console.log(resp);
+        // console.log(resp);
         if(resp){
           this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
         }
