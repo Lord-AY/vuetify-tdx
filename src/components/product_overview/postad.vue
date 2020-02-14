@@ -161,6 +161,7 @@ vue/no-parsing-error*/
                                 </div>
                               </transition>
                               <!-- Extra fields for category-->
+                              <!-- {{ categoryInputFields }} -->
                               <div
                                 class="row"
                                 v-show="
@@ -195,36 +196,37 @@ vue/no-parsing-error*/
                                     </label>
                                   </div>
                                 </div>
+                              </div>
+                              <div
+                                class="row form-group-tx form-group"
+                                v-show="
+                                  categoryInputFields.length > 0 &&
+                                    categoryInputFields[0] !== ''
+                                "
+                              >
                                 <div
-                                  class="row form-group-tx form-group"
-                                  v-show="
-                                    categoryInputFields.length > 0 &&
-                                      categoryInputFields[0] !== ''
-                                  "
+                                  class="col-md-12 col-sm-12 col-lg-12"
+                                  v-for="(field,
+                                  index) in categoryInputFields"
+                                  :key="index"
                                 >
-                                  <div
-                                    class="col-md-12 col-sm-12 col-lg-12"
-                                    v-for="(field,
-                                    index) in categoryInputFields"
-                                    :key="index"
-                                  >
-                                    <label class="form-label text-dark">{{
-                                      field
-                                    }}</label>
-                                    <div class="radio">
-                                      <input
-                                        type="text"
-                                        class="form-control post-ad-input"
-                                        placeholder="Ad title"
-                                        v-model="
-                                          ads.inputFields['field_' + index]
-                                        "
-                                        required
-                                      />
-                                    </div>
+                                  <label class="form-label text-dark">{{
+                                    field
+                                  }}</label>
+                                  <div class="radio">
+                                    <input
+                                      type="text"
+                                      class="form-control post-ad-input"
+                                      placeholder="Ad title"
+                                      v-model="
+                                        ads.inputFields['field_' + index]
+                                      "
+                                      required
+                                    />
                                   </div>
                                 </div>
                               </div>
+
                               <!-- Extra fields for category-->
                               <div class="row form-group-tx form-group">
                                 <div class="col-md-6"></div>
@@ -668,7 +670,7 @@ vue/no-parsing-error*/
                                       <div class="total-pricing-sub-div">
                                         <p>
                                           <i>
-                                            Total: &#8358; {{ adAmount }}.00</i
+                                            Total: &#8358; {{ adAmountClone }}.00</i
                                           >
                                         </p>
                                       </div>
@@ -765,8 +767,10 @@ vue/no-parsing-error*/
                                       <input
                                         type="text"
                                         class="form-control post-ad-input"
-                                        placeholder="Wallet ID"
-                                        name="wallet_id"
+                                        placeholder="userWallet"
+                                        disabled
+                                        v-model="userWallet"
+                                        
                                       />
                                       <!-- <span class="input-group-append">
                                         <button class="btn btn-info" type="button"><i class="fa fa-cc-visa"></i> &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
@@ -796,6 +800,7 @@ vue/no-parsing-error*/
                                         <input
                                           type="checkbox"
                                           class="custom-control-input"
+                                          v-model="checkStatus"
                                         />
                                         <span
                                           class="custom-control-label text-dark pl-2"
@@ -807,7 +812,7 @@ vue/no-parsing-error*/
                                     </div>
                                   </div>
                                   <div class="pay-with-wallet">
-                                    <button class="btn btn-theme">
+                                    <button class="btn btn-theme" @click.prevent="validate">
                                       Pay with Wallet
                                     </button>
                                   </div>
@@ -832,6 +837,8 @@ vue/no-parsing-error*/
                                     :callback="callback"
                                     :close="close"
                                     :embed="false"
+                                    :ads="ads"
+                                    :selectedimg="selectedImages"
                                     class="btn btn-success"
                                   >
                                     <i class="fas fa-money-bill-alt"></i>
@@ -1006,11 +1013,13 @@ vue/no-parsing-error*/
 <script>
 /* eslint-disable no-undef */
 import VueUploadMultipleImage from "vue-upload-multiple-image";
-import paystack from "vue-paystack";
+// import paystack from "vue-paystack";
+import paystack from "@/components/vue-paystack/src";
 import axios from "axios";
 import ash from "lodash";
 // Import component
 import Loading from "vue-loading-overlay";
+const formatCurrency = require("format-currency");
 import { mapState, mapActions, mapGetters } from "vuex";
 // Import stylesheet
 import "vue-loading-overlay/dist/vue-loading.css";
@@ -1019,8 +1028,8 @@ export default {
   data() {
     return {
       selectedImages: [],
-      // paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
-      paystackkey: "pk_test_b9c529f4da742bbae2e19746ed9b9914f4e1f17c", //paystack public key
+      paystackkey: "pk_live_468f27ac1557a8dcdae2301a2376464b8e31c0dd", //paystack public key
+      // paystackkey: "pk_test_b9c529f4da742bbae2e19746ed9b9914f4e1f17c", //paystack public key
       email: null, // paystack customer email
       showPayment: false,
       adType: null,
@@ -1040,8 +1049,12 @@ export default {
       tab2: true,
       tab3: false,
       adAmount: 0,
+      adAmountClone: 0,
       tempdata: null,
       payments: null,
+      userWallet: null,
+      userbal: 0,
+      checkStatus: false
     };
   },
   props: {
@@ -1064,6 +1077,7 @@ export default {
   computed: {
     ...mapGetters("product", ["getErrors", "fullCategories"]),
     ...mapGetters("auth", ["getUser"]),
+    ...mapGetters("transactions", ["getwalletData", "getwalletHistory"]),
     reference() {
       let text = "";
       let possible =
@@ -1075,9 +1089,89 @@ export default {
   },
   methods: {
     ...mapActions("product", ["fetchSubCategories"]),
-    ...mapActions("transactions", ["saveTransactions"]),
+    ...mapActions("transactions", ["createUserwallet", "FetchUserwallet", "paymentStepOne", "saveTransactionLogs", "saveTransactions"]),
+
+    formatCurrency(data) {
+      return formatCurrency(data);
+    },
     validateForn() {
       // console.log("clicked a div");
+    },
+    validate(){
+        // console.log(this.selectedimg);
+        if (
+            this.ads.name !== "" &&
+            this.ads.cid !== "" &&
+            this.ads.description !== "" &&
+            this.ads.address !== "" &&
+            this.ads.amount !== "" &&
+            this.selectedimg.lenght > 0
+        ) {
+            // if (this.embed) {
+                this.payWithWallet()
+            // }
+        } else {
+            this.$swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Please Fill your Ad Details first',
+            })
+        }
+    },
+    payWithWallet(){
+      if(this.checkStatus == false){
+        this.$swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please Agree to Our Wallet Payment Terms',
+        })
+      }
+      // console.log(this.userbal);
+      if(this.userbal < this.adAmountClone){
+        this.$swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Insufficient Balance In Wallet!',
+        })
+      }else{
+          let response = {
+            "trxref":"wallet124",
+            "trans":"wallet234",
+            "trxref":"wallet434",
+            "transaction":"wallet543",
+            "reference":"wallet567",
+            "status":"success",
+            "message":"Success",
+            "response":"Approved"
+          }
+          let customdata = {
+            "source":"Wallet payment",
+            "amount": this.adAmountClone
+          }
+          let walletLogData = {
+            "userid": this.getUser.id,
+            "currentBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.adAmountClone),
+            "previousBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.adAmountClone),
+            "amount": this.adAmountClone,
+            "currency": "NGN",
+            "description": "deposit to wallet",
+            "type": "postAd",
+            "conversionRate": "360",
+            "walletid": this.userWallet,
+            "activity": "deposite"
+          }
+          const transactionResponse = Object.assign(customdata,response);
+          // console.log(walletLogData);
+          this.userbalance = parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.amount);
+          // console.log(walletLogData);
+          this.saveTransactions(transactionResponse);
+          this.saveTransactionLogs(walletLogData);
+          this.$swal.fire({
+            icon: 'success',
+            title: 'Hurray...',
+            text: 'Your payment Was Successfull!',
+          })
+      }
     },
     callback: function(response) {
       this.payments = response;
@@ -1227,26 +1321,27 @@ export default {
        this.processForm();
     },
     sendFormRequest(images) {
-      console.log("send form Function called");
+      // console.log("send form Function called");
       let selected = this.selectedImages;
       // check if uploaded images are equals to selected images
       if (selected.length == images.length) {
         // console.log("arrays are equal");
         this.$emit("create-ads", images);
       } else {
-        console.log("arrays not yet equal");
+        // console.log("arrays not yet equal");
       }
     },
     show() {
       this.$notify({
-        group: "notify",
+        group: "success",
         title: "Important message",
-        text: "Hello user! This is a notification!"
+        text: "Your Ads has been summited for review!"
       });
     },
     setPayment(value, price) {
       this.ads.adtype = value;
       this.adAmount = price * 100;
+      this.adAmountClone = price;
     },
     onCancel() {
       // console.log("User cancelled the loader.");
@@ -1283,13 +1378,33 @@ export default {
   },
   created() {
     this.sync();
+    this.userbal = this.formatCurrency(this.getwalletHistory[this.getwalletHistory.length -1].currentBal);
+    // console.log(this.getwalletHistory);
+    let as = this;
+    setTimeout(function(){    
+      as.userWallet = as.getwalletData.walletid; }, 300);
+    // console.log(this.userWallet);
     this.ads.paymentype = "1";
   },
   watch: {
     $route: "sync",
+    getwalletHistory: {
+      handler: function(resp){
+        // console.log(resp);
+        if(resp){
+          this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
+        }
+      }
+    },
+    getwalletData: {
+      handler: function(walletData) {
+        // console.log(walletData);
+          this.userWallet = this.getwalletData.walletid;
+        }
+    },
     uploaded: {
       handler: function(uploaded) {
-        console.log("uploaded watcher");
+        // console.log("uploaded watcher");
         this.sendFormRequest(uploaded);
       },
     },

@@ -293,7 +293,6 @@
                       <li
                         class="wallet-balance"
                         style="display: flex"
-                        v-if="userbalance"
                       >
                         <router-link to="/wallet">
                           <img
@@ -305,7 +304,7 @@
                         </router-link>
                         <span style="line-height: 1.6!important">
                           {{
-                            formatCurrency(getwalletHistory[getwalletHistory.length -1].currentBal)
+                            userbal
                           }}
                         </span>
                       </li>
@@ -460,7 +459,7 @@
                   <router-link
                     to="/categories"
                     v-for="(category, index) in categories"
-                    :key="++index + index * 10"
+                    :key="++index + index * 1000"
                   >
                     <div @mouseover.prevent="getsubcategory(category.id)">
                       <span class="triangle-origin">
@@ -617,7 +616,8 @@ export default {
       searchLoading: false,
       isOpened: false,
       gottenResults: [],
-      isLoading: true
+      isLoading: true,
+      userbal: ""
     };
   },
   components: {
@@ -760,6 +760,13 @@ export default {
     }
   },
   watch: {
+    getwalletHistory: {
+      handler: function(resp){
+        if(resp){
+          this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
+        }
+      }
+    },
     keyword: {
       handler: function(keyword) {
         let as = this;
@@ -812,6 +819,7 @@ export default {
     this.userbalance = localStorage.getItem("walletBalance");
     document.addEventListener("click", this.documentClick);
     this.gottenResults = this.getResults;
+    
     // console.log(this.userbalance);
   },
   destroyed() {

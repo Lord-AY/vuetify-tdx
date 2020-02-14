@@ -91,7 +91,7 @@
                         <span class="badge">0</span>
                       </router-link>
                     </li>
-                    <li>
+<!--                     <li>
                       <router-link to="/sold">
                         <span>Sold</span>
                         <span class="badge">0</span>
@@ -109,7 +109,7 @@
                         <span class="badge">0</span>
                       </router-link>
                     </li>
-                  </ul>
+ -->                  </ul>
                 </div>
               </li>
               <li>

@@ -198,6 +198,7 @@ export default {
     if (this.getUser !== null) {
       this.fetchDashboardDetails();
       this.FetchUserwalletHistory(this.getUser.id);
+      this.FetchUserwallet(this.getUser.id);
     }
 
   },

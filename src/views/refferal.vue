@@ -147,16 +147,7 @@
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />
     <input type="hidden" id="is_sticky_header" value="0" />
-    <input
-      type="hidden"
-      id="sticky_sb_logo_url"
-      value="https://carspot.scriptsbundle.com/wp-content/uploads/2017/06/logo-2.png"
-    />
-    <input
-      type="hidden"
-      id="static_sb_logo_url"
-      value="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/logo-1.png"
-    />
+    
     <input type="hidden" id="msg_notification_on" value="1" />
     <input type="hidden" id="msg_notification_time" value="1000000000" />
     <input type="hidden" id="is_unread_msgs" value="0" />

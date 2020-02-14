@@ -85,7 +85,7 @@ export default {
     },
     createAds(e) {
       // create payload
-      console.log("event emitted");
+      // console.log("event emitted");
       const payload = {
         product: this.ads
       };
