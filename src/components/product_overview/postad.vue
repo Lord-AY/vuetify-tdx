@@ -83,7 +83,7 @@ vue/no-parsing-error*/
                                             ? 'is-invalid'
                                             : ''
                                         "
-                                        placeholder="Ad title"
+                                        placeholder="Ad Name"
                                         v-model="ads.name"
                                         required
                                       />
