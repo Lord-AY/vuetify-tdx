@@ -31,6 +31,7 @@
                           type="text"
                           class="form-control search-input"
                           name="search_title"
+                          style="height: 40px!important; margin-left: 12px;"
                           value
                           placeholder="Search product"
                           v-model="search_input"

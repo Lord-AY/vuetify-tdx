@@ -225,7 +225,7 @@ computed: {
 
 <style >
 #sidebar-nav {
-  padding-top: 104.98px!important;
+  padding-top: 82px!important;
 }
 
 .nav-dash li {

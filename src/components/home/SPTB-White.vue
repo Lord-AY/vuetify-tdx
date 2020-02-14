@@ -33,7 +33,7 @@ import router from '../../router';
         <div v-if="ads">
       <slick ref="slick" :options="slickOptions">     
         <div class=""  v-for="product in ads" :key="product.id">
-          <div class=" mb-0">
+          <div class="card mb-0">
             <div class="item-card2-img">
             <!--   <router-link
                 :to="`/ProductDetails/${product.id}/${product.cid}`"

@@ -1,6 +1,6 @@
 <template>
   <div>
-      <canvas id="user-metrics" width="400" height="400"></canvas>
+      <canvas id="user-metrics" width="100%" height="50px"></canvas>
   </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
         const myChart = new Chart(ctx, {
             type: chartData.type,
             data: chartData.data,
+            responsive: true,
             options: chartData.options,
         });
       }

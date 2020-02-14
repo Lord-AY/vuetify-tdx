@@ -325,25 +325,28 @@ export default {
   border-bottom: none !important;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
-@media (min-width: 768px) {
+/* @media (min-width: 1440px) {
   .container2-dashboard {
-    width: 750px;
+    width: 138.25rem !important;
   }
 }
-@media (min-width: 992px) {
-  .container2-dashboard {
-    width: 970px;
-  }
-}
+
 @media (min-width: 1200px) {
   .container2-dashboard  {
     width: 122rem !important;
   }
+} */
+
+@media (min-width: 992px) {
+  .container2-dashboard {
+    max-width: 100%!important;
+    width: 95%!important;
+  }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 768px) {
   .container2-dashboard {
-    width: 138.25rem !important;
+    width: 750px;
   }
 }
 /* .top-bar-hide {

@@ -103,13 +103,14 @@
                 <input
                   type="text"
                   class="form-control form-control-tx br-tl-3  br-bl-3 footer-input"
-                  style="height: auto!important;"
+                  style="height: 40px!important;"
                   placeholder="Email"
                 />
                 <div class="input-group-append ">
                   <button
                     type="button"
                     class="btn btn-primary br-tr-3  br-br-3 footer-subscribe"
+                    style="height: 40px!important; line-height: 1!important;"
                   >
                     SUBSCRIBE
                   </button>
@@ -133,17 +134,19 @@
                     /></a>
                   </li>
                   <li>
-                    <a href="javascript:;"
+                    <a href="javascript:;" style="display:flex;align-items:center"
                       ><img
                         class="payment-card-icon-tx"
                         src="@/assets/images/visa_card.png"
+                        
                     /></a>
                   </li>
                   <li>
-                    <a href="javascript:;"
+                    <a href="javascript:;" style="display:flex;align-items:center"
                       ><img
                         class="payment-card-icon-tx"
                         src="@/assets/images/master_card.png"
+                        
                     /></a>
                   </li>
                 </ul>
