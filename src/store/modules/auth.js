@@ -27,7 +27,7 @@ export default {
     registerErrors: null,
     errors: null,
     referee: null,
-    following: null
+    following: []
   },
 
   getters: {

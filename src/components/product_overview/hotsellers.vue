@@ -111,7 +111,7 @@
                             </p>
                           </div>
 
-                          <div class="follow" v-show="checkFollowing(sellers.id)">
+<!--                           <div class="follow" v-show="checkFollowing(sellers.id)">
                             <p class="btn" @click="UnfollowSeller(sellers.id)">
                               <i class="fa fa-user-plus"></i> Unfollow
                             </p>
@@ -121,6 +121,7 @@
                               <i class="fa fa-user-plus"></i> Follow
                             </p>
                           </div>
+ -->                        
                         </div>
                       </div>
                     </div>
@@ -235,7 +236,9 @@ export default {
     this.sync();
     // }.bind(vm));
   },
-  created() {},
+  created() {
+    console.log(this.getFollowing)
+  },
   beforeMount() {}
 };
 </script>
