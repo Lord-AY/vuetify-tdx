@@ -112,8 +112,19 @@
                             </p>
                           </div>
 
-                          <div class="follow">
-                            <p class="btn">
+                          <div
+                            class="follow"
+                            v-show="checkFollowing(sellers.id)"
+                          >
+                            <p class="btn" @click="UnfollowSeller(sellers.id)">
+                              <i class="fa fa-user-plus"></i> Unfollow
+                            </p>
+                          </div>
+                          <div
+                            class="follow"
+                            v-show="!checkFollowing(sellers.id)"
+                          >
+                            <p class="btn" @click="followSeller(sellers.id)">
                               <i class="fa fa-user-plus"></i> Follow
                             </p>
                           </div>
@@ -136,41 +147,29 @@
 import ash from "lodash";
 import moment from "moment";
 import Slick from "vue-slick";
+import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   name: "hotsellers",
   data() {
     return {
       slickOptions: {
-        //options can be used from the plugin documentation
-        slidesToShow: 4,
-        // Padding: '16px',
-        infinite: true,
-        accessibility: true,
-        adaptiveHeight: false,
-        arrows: false,
-        dots: false,
-        draggable: true,
-        edgeFriction: 0.3,
-        swipe: true,
-        autoplay: true,
-        // responsive: [
-        //   {
-        //     breakpoint: 1024,
-        //     settings: {
-        //       slidesToShow: 3,
-        //       slidesToScroll: 3,
-        //     }
-        //   },
-        //   {
-        //     breakpoint: 1024,
-        //     settings: {
-        //       slidesToShow: 3,
-        //       slidesToScroll: 3,
-        //     }
-        //   },
-        // ]
-      }
+          //options can be used from the plugin documentation
+          slidesToShow: 4,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: true,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true,
+          cssEase: "ease",
+          autoplay: true,
+          nextArrow: '<i class="fa fa-arrow-right nextArrowBtn"></i>',
+          prevArrow: '<i class="fa fa-arrow-left prevArrowBtn"></i>'
+      },
+      exists: null
     };
   },
   props: {
@@ -180,8 +179,32 @@ export default {
   components: {
     Slick
   },
+  computed: {
+    ...mapGetters("auth", ["getFollowing"]),
+  },
   methods: {
+    ...mapActions("user", ["followSeller"]),
+    checkFollowing(sellerid) {
+      var exists = (this.getFollowing.indexOf(sellerid) > -1); //true
+      if(exists){
+        return true;
+      }else{
+        return false;
+      }
+    },
     sync: function() {},
+    followSeller(sellerid) {
+      // console.log(sellerid)
+      let newFollower = this.getFollowing.push(sellerid);
+      this.followSeller(newFollower);
+    },
+    UnfollowSeller(sellerid) {
+      const index = this.getFollowing.indexOf(sellerid);
+      if (index > -1) {
+        this.getFollowing.splice(index, 1);
+      }
+      this.followSeller(this.getFollowing);
+    },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("YYYY-MM-DD");
@@ -201,6 +224,19 @@ export default {
   watch: {
     $route: "sync"
   },
+  beforeUpdate() {
+      if (this.$refs.slick) {
+          this.$refs.slick.destroy();
+      }
+  },
+  updated() {
+      this.$nextTick(function () {
+          if (this.$refs.slick) {
+              this.$refs.slick.create(this.slickOptions);
+          }
+      });
+  },
+
   mounted() {
     // var vm = this;
     // vm.hotsellers = this.hotsellers;
@@ -208,7 +244,9 @@ export default {
     this.sync();
     // }.bind(vm));
   },
-  created() {},
+  created() {
+    // console.log(this.getFollowing)
+  },
   beforeMount() {}
 };
 </script>
@@ -239,5 +277,19 @@ p.btn {
     margin-left: 0px;
     margin-top: 10px;
   }
+}
+.nextArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    right: 0;
+    color: black;
+}
+.prevArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 0;
+    color: black;
 }
 </style>

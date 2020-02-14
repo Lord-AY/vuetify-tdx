@@ -762,9 +762,10 @@ export default {
   watch: {
     getwalletHistory: {
       handler: function(resp){
-        if(resp){
+        if(resp.length !== 0){
           this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
         }
+        return this.userbal = this.formatCurrency(0);
       }
     },
     keyword: {
