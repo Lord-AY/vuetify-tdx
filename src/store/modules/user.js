@@ -1,5 +1,5 @@
 import UserService from "@/services/UserService";
-
+import ash from 'lodash';
 export default {
   namespaced: true,
   state: {
@@ -74,6 +74,20 @@ export default {
           commit("auth/SET_LOADING", false, { root: true });
           // console.log(error.response);
         });
+    },
+     followSeller({commit, rootState}, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      let payloadStr = ash(payload).toString();
+      const refinedPayload =  {
+        userId: rootState.auth.user.id,
+        data: payloadStr
+      };
+      UserService.following(payload).then(({data}) => {
+        console.log(data);
+        commit("auth/SET_USER_FOLLOWING", data, {root: true});
+      }).catch(error => {
+        console.log(error);
+      })
     },
     fetchDashboardDetails({ commit, rootState, dispatch }) {
       commit("auth/SET_LOADING", true, { root: true });
