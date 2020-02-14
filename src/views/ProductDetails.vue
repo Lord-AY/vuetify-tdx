@@ -152,8 +152,8 @@ export default {
     // console.log("this is before created");
   },
   beforeMount() {
-    // console.log("this is before mounted");
-  },
+    this.isLoading = true;
+  },  
   mounted() {
     // console.log("this route just got mounted");
     // fetch single product for view

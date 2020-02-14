@@ -70,7 +70,7 @@
                   </li>
                 </ul>
               </div>
-
+              <!-- {{product.seller.id}} -->
 
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
@@ -90,10 +90,19 @@
                     <!-- <a data-toggle="pill" href="#menu3">Location Map</a> -->
                     <div href="#" class="nav-link">LocationMap</div>
                   </li>
+                  
                   <li>
-                    <div class="follow-seller">
-                      <i class="fa fa-user-plus"></i>
-                      <span class="tooltiptext">Follow Seller</span>
+                    <div v-show="checkFollowing()">
+                      <div class="follow-seller" @click.prevent="UnfollowSellerClick()">
+                        <i class="fa fa-user-plus"></i>
+                        <span class="tooltiptext" style='color:red'>Unfollow Seller</span>
+                      </div>              
+                    </div>   
+                    <div v-show="!checkFollowing()">   
+                      <div class="follow-seller" @click.prevent="followSellerClick()">
+                        <i class="fa fa-user-plus"></i>
+                        <span class="tooltiptext">Follow Seller</span>
+                      </div>
                     </div>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-Limit="pill" href="#menu3">Menu 3</a></li> -->
@@ -775,6 +784,28 @@ export default {
   },
   methods: {
     ...mapActions("chat", ["sendMessage"]),
+    ...mapActions("user", ["followSeller"]),
+    checkFollowing() {
+      var exists = (this.getFollowing.indexOf(this.product.seller.id) > -1); //true
+      if(exists){
+        return true;
+      }else{
+        return false;
+      }
+    },
+    followSellerClick() {
+      // console.log("to follow seller")
+      let newFollower = this.getFollowing.push(this.product.seller.id);
+      // console.log(newFollower);
+      this.followSeller(newFollower);
+    },
+    UnfollowSellerClick() {
+      const index = this.getFollowing.indexOf(this.product.seller.id);
+      if (index > -1) {
+        this.getFollowing.splice(index, 1);
+      }
+      this.followSeller(this.getFollowing);
+    },
     formatCurrency(data){
       return formatCurrency(data)
     },
@@ -934,7 +965,7 @@ export default {
       }
     },
     ...mapGetters("chat", ["getErrors", "getSuccess"]),
-    ...mapGetters("auth", ["isLoggedIn"])
+    ...mapGetters("auth", ["isLoggedIn", "getFollowing"])
   },
   watch: {
     $route: "sync",

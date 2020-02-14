@@ -85,7 +85,9 @@ export default {
       };
       UserService.following(refinedPayload).then(({data}) => {
         console.log(data);
-        commit("auth/SET_USER_FOLLOWING", data, {root: true});
+        followingArr = [];
+        followingArr = ash.split(data.following, ',');
+        commit("auth/SET_USER_FOLLOWING", followingArr, {root: true});
       }).catch(error => {
         console.log(error);
       })

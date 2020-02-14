@@ -66,7 +66,7 @@ import router from '../../router';
                     {{ product.region }}
                   </p>
                   <h5 class="font-weight-bold mb-2 price-tx">
-                    &#8358;{{ product.amount }}
+                    &#8358;{{ formatCurrency(product.amount) }}
                   </h5>
                 </div>
               </div>
@@ -116,6 +116,7 @@ import router from '../../router';
 <script>
 // require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 /* eslint-disable no-undef */
+const formatCurrency = require('format-currency');
 import Slick from 'vue-slick';
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
@@ -152,6 +153,9 @@ export default {
     Slick
   },
   methods: {
+    formatCurrency(data){
+      return formatCurrency(data)
+    },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
         return true;
