@@ -1,5 +1,5 @@
 <template>
-  <div class="row" style="margin-bottom: 24px; margin-top: -13px;">
+  <div class="row" style="margin-bottom: 24px!important; margin-top: -13px; border-bottom: 2px solid #ededed">
     <div class="short-features">
       <div class="grid-style-2">
         <div class="heading-panel">
@@ -159,15 +159,15 @@ export default {
           infinite: true,
           accessibility: true,
           adaptiveHeight: false,
-          arrows: true,
+          arrows: false,
           dots: false,
           draggable: true,
           edgeFriction: 0.30,
           swipe: true,
           cssEase: "ease",
           autoplay: true,
-          nextArrow: '<i class="fa fa-arrow-right nextArrowBtn"></i>',
-          prevArrow: '<i class="fa fa-arrow-left prevArrowBtn"></i>'
+          // nextArrow: '<i class="fa fa-arrow-right nextArrowBtn"></i>',
+          // prevArrow: '<i class="fa fa-arrow-left prevArrowBtn"></i>'
       },
       exists: null
     };
@@ -270,7 +270,7 @@ p.btn {
   cursor: default !important;
 }
 .new-hot-sellers {
-  left: 8.5rem !important;
+  left: 72px !important;
 }
 @media (max-width: 767px) {
   .hotseller-sub {

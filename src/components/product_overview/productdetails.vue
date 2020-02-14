@@ -617,7 +617,7 @@
                       View Contact
                     </div>
                   </div>
-                  <div v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600; cursor: pointer;" @click="showDetails = !showDetails">{{ product.seller.phone }}</div>
+                  <div class="selector number" v-if="showDetails" style="color: #fff!important; font-weight: 400; cursor: pointer;" @click="showDetails = !showDetails">{{ product.seller.phone }}</div>
                   
                 </div>
                 <div
