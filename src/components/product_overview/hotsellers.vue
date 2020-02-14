@@ -186,7 +186,7 @@ export default {
     Slick
   },
   computed: {
-    ...mapGetters("auth", ["getfollowing"]),
+    ...mapGetters("auth", ["getFollowing"]),
   },
   methods: {
     ...mapActions("user", ["followSeller"]),
