@@ -182,7 +182,6 @@
                 style="margin: -4em 5em 0 -4em;"
               ></HotSellerLoader>
             </div>
-            
  <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
@@ -190,6 +189,7 @@
                   :categories="categories"
                   @categoryChoice="filterByCategory"
                   @reset="resetCategories"
+                  @resetLimit="resetLimit"
                   :selected="selectedCategory"
                   :list="list"
                   :ads="paginatedProducts"
@@ -206,6 +206,7 @@
                   :is="currentComp"
                   :data="paginatedProducts"
                   :list="list"
+                  :baseLimit="baseLimit"
                   :loading="isLoading"
                 />
               </div>
@@ -250,6 +251,7 @@ export default {
       isLoading: true,
       selectedCategory: null,
       list: [],
+      baseLimit: 0,
       fullPage: true,
       prevRoute: null
     };
@@ -279,6 +281,9 @@ export default {
     sync() {},
     onPageChange() {
       this.currentPage = page;
+    },
+    resetLimit() {
+      this.baseLimit += 1;
     },
     showError() {
       this.$notify({

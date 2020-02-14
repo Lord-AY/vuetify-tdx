@@ -19,12 +19,12 @@
         <div class="panel-collapse">
           <div class="panel-body">
             <ul class="sub-categories">
-               <!-- <li
+               <li
                 @click.prevent="resetProductsData"
               >
               <a href="">All Categories</a>
-                <span>{{ categories.length }} ads</span>
-              </li> -->
+                <span>{{ categories.length }} categories</span>
+              </li>
               <li
                 v-for="(category, index) in categories"
                 :key="index"
@@ -96,6 +96,7 @@ export default {
     },
     resetProductsData() {
       this.$emit("reset");
+      this.$emit("resetLimit");
     }
   },
   created(){
