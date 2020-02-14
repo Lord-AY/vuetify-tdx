@@ -26,7 +26,8 @@ export default {
     loginErrors: null,
     registerErrors: null,
     errors: null,
-    referee: null
+    referee: null,
+    following: []
   },
 
   getters: {
@@ -57,6 +58,12 @@ export default {
     getUser(state) {
       if(state.user !== null && state.user !== undefined) {
       return state.user;
+      }
+      return null;
+    },
+    getFollowing(state) {
+      if(state.userfollowing !== null && state.following !== undefined) {
+        return state.following;
       }
       return null;
     },
@@ -172,7 +179,10 @@ export default {
             pictureUrl: data.pictureUrl,
             activation: data.activation
           };
+          let followArr = [];
+          followArr = ash.split(data.following, ",");
           commit("SET_USER_DATA", loggedUser);
+          commit("SET_USER_FOLLOWING", followArr);
           // send user to home
           router.push("/");
         })
@@ -236,8 +246,8 @@ export default {
           commit("RESET_REGISTER_STATE", null);
           commit("RESET_LOGIN_STATE", null);
           // send user to login page
-          // router.push("/login");
-          window.location.href = "/#/login";
+          router.push("/login");
+          // window.location.href = "/#/login";
         })
         .catch(error => {
           commit("SET_LOADING", false);
@@ -292,8 +302,12 @@ export default {
       state.loginData.email = nullval;
       state.loginData.password = nullval;
     },
+    SET_USER_FOLLOWING(state, data) {
+      state.following = data;
+    },
     SET_LOGOUT_ERRORS(state, error) {
       state.errors = error;
-    }
+    },
+
   }
 };

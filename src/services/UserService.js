@@ -19,5 +19,8 @@ export default {
     },
     transactions(userId){
     return Api().get(`product/dashboard/${userId}`);
+  },
+  following(payload) {
+    return Api().post(`${payload.userId}/followseller`, payload);
   }
 };

@@ -48,7 +48,7 @@
                   <h4 class="mb-0">{{ category.name }}</h4>
                   <span
                     class="badge badge-pill badge-primary-tx badge-primary w-15"
-                    ><p class="badge-tx">45</p></span
+                    ><p class="badge-tx">{{ selectCategory(category.id) }}</p></span
                   >
                 </div>
               </div>
@@ -72,6 +72,7 @@ export default {
   name: "SPTB",
   data() {
     return {
+      categoryCount :null,
       slickOptions: {
           //options can be used from the plugin documentation
           slidesToShow: 4,
@@ -91,13 +92,28 @@ export default {
     }
   },
   props: {
-    categories: [Object, Array]
+    categories: [Object, Array],
+    ads: [Object, Array]
   },
   components: {
     CategoryLoader,
     Slick 
   },
   methods: {
+    countEachCategory(){
+      var ress = this.ads.reduce(function(obj, v) {
+        obj[v.cid] = (obj[v.cid] || 0) + 1;
+        return obj;
+      }, {})
+      this.categoryCount = ress;
+    },
+    selectCategory(catid){
+      if(this.categoryCount[catid]){
+        return this.categoryCount[catid];
+      }else{
+        return 0;
+      }
+    },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
         return true;
@@ -119,6 +135,8 @@ export default {
     $route: "sync"
   },
   created() {
+    this.countEachCategory();
+    // console.log(this.categories);
     this.sync();
   },
   beforeUpdate() {

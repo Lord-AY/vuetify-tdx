@@ -6,7 +6,7 @@
     <div class="home">
       <start></start>
       <categories></categories>
-      <sptb :categories="categories"></sptb>
+      <sptb :categories="categories" :ads="productListings"></sptb>
       <sptbWhite :ads="productListings" :key="productRender"></sptbWhite>
       <sptb_pattern :ads="productListings"></sptb_pattern>
       <total_sellers class="mobile-hidden"></total_sellers>
