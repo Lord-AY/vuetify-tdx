@@ -800,6 +800,7 @@ vue/no-parsing-error*/
                                         <input
                                           type="checkbox"
                                           class="custom-control-input"
+                                          v-model="checkStatus"
                                         />
                                         <span
                                           class="custom-control-label text-dark pl-2"
@@ -811,7 +812,7 @@ vue/no-parsing-error*/
                                     </div>
                                   </div>
                                   <div class="pay-with-wallet">
-                                    <button class="btn btn-theme" @click.prevent="payWithWallet">
+                                    <button class="btn btn-theme" @click.prevent="validate">
                                       Pay with Wallet
                                     </button>
                                   </div>
@@ -836,6 +837,8 @@ vue/no-parsing-error*/
                                     :callback="callback"
                                     :close="close"
                                     :embed="false"
+                                    :ads="ads"
+                                    :selectedimg="selectedImages"
                                     class="btn btn-success"
                                   >
                                     <i class="fas fa-money-bill-alt"></i>
@@ -1010,7 +1013,8 @@ vue/no-parsing-error*/
 <script>
 /* eslint-disable no-undef */
 import VueUploadMultipleImage from "vue-upload-multiple-image";
-import paystack from "vue-paystack";
+// import paystack from "vue-paystack";
+import paystack from "@/components/vue-paystack/src";
 import axios from "axios";
 import ash from "lodash";
 // Import component
@@ -1049,7 +1053,8 @@ export default {
       tempdata: null,
       payments: null,
       userWallet: null,
-      userbal: 0
+      userbal: 0,
+      checkStatus: false
     };
   },
   props: {
@@ -1092,8 +1097,36 @@ export default {
     validateForn() {
       // console.log("clicked a div");
     },
+    validate(){
+        // console.log(this.selectedimg);
+        if (
+            this.ads.name !== "" &&
+            this.ads.cid !== "" &&
+            this.ads.description !== "" &&
+            this.ads.address !== "" &&
+            this.ads.amount !== "" &&
+            this.selectedimg.lenght > 0
+        ) {
+            // if (this.embed) {
+                this.payWithWallet()
+            // }
+        } else {
+            this.$swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Please Fill your Ad Details first',
+            })
+        }
+    },
     payWithWallet(){
-      console.log(this.userbal);
+      if(this.checkStatus == false){
+        this.$swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please Agree to Our Wallet Payment Terms',
+        })
+      }
+      // console.log(this.userbal);
       if(this.userbal < this.adAmountClone){
         this.$swal.fire({
           icon: 'error',
@@ -1101,25 +1134,35 @@ export default {
           text: 'Insufficient Balance In Wallet!',
         })
       }else{
+          let response = {
+            "trxref":"wallet124",
+            "trans":"wallet234",
+            "trxref":"wallet434",
+            "transaction":"wallet543",
+            "reference":"wallet567",
+            "status":"success",
+            "message":"Success",
+            "response":"Approved"
+          }
           let customdata = {
-            "source":"Wallet Deposit",
-            "amount": this.amount
+            "source":"Wallet payment",
+            "amount": this.adAmountClone
           }
           let walletLogData = {
             "userid": this.getUser.id,
-            "currentBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.amount),
-            "previousBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.amount),
-            "amount": this.amount,
+            "currentBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.adAmountClone),
+            "previousBal": parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.adAmountClone),
+            "amount": this.adAmountClone,
             "currency": "NGN",
             "description": "deposit to wallet",
-            "type": "deposit",
+            "type": "postAd",
             "conversionRate": "360",
             "walletid": this.userWallet,
             "activity": "deposite"
           }
           const transactionResponse = Object.assign(customdata,response);
-          // console.log(transactionResponse);
-          this.userbalance = parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) + parseInt(this.amount);
+          // console.log(walletLogData);
+          this.userbalance = parseInt(this.getwalletHistory[this.getwalletHistory.length -1].previousBal) - parseInt(this.amount);
           // console.log(walletLogData);
           this.saveTransactions(transactionResponse);
           this.saveTransactionLogs(walletLogData);
