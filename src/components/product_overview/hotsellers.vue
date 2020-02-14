@@ -169,7 +169,8 @@ export default {
           // nextArrow: '<i class="fa fa-arrow-right nextArrowBtn"></i>',
           // prevArrow: '<i class="fa fa-arrow-left prevArrowBtn"></i>'
       },
-      exists: null
+      exists: null,
+      followingClone:[]
     };
   },
   props: {
@@ -185,7 +186,7 @@ export default {
   methods: {
     ...mapActions("user", ["followSeller"]),
     checkFollowing(sellerid) {
-      var exists = (this.getFollowing.indexOf(sellerid) > -1); //true
+      var exists = (this.followingClone.indexOf(sellerid) > -1); //true
       if(exists){
         return true;
       }else{
@@ -195,16 +196,16 @@ export default {
     sync: function() {},
     followSellerClick(sellerid) {
       // console.log(sellerid)
-      let newFollower = this.getFollowing.push(sellerid);
-      // console.log(newFollower);
+      let newFollower = this.followingClone.push(sellerid);
+      console.log(this.followingClone);
       this.followSeller(newFollower);
     },
     UnfollowSellerClick(sellerid) {
-      const index = this.getFollowing.indexOf(sellerid);
+      const index = this.followingClone.indexOf(sellerid);
       if (index > -1) {
-        this.getFollowing.splice(index, 1);
+        this.followingClone.splice(index, 1);
       }
-      this.followSeller(this.getFollowing);
+      this.followSeller(this.followingClone);
     },
     format_date(value) {
       if (value) {
@@ -223,7 +224,14 @@ export default {
     }
   },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    getFollowing: {
+      handler: function(data) {
+        for(let i in this.getFollowing){
+          this.followingClone.push(this.getFollowing[i])
+        }
+      }
+    },
   },
   beforeUpdate() {
       if (this.$refs.slick) {
@@ -239,14 +247,12 @@ export default {
   },
 
   mounted() {
-    // var vm = this;
-    // vm.hotsellers = this.hotsellers;
-    // this.$nextTick(function(){
     this.sync();
-    // }.bind(vm));
   },
   created() {
-    // console.log(this.getFollowing)
+    for(let i in this.getFollowing){
+      this.followingClone.push(this.getFollowing[i])
+    }
   },
   beforeMount() {}
 };

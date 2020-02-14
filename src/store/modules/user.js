@@ -79,13 +79,14 @@ export default {
       commit("auth/SET_LOADING", true, { root: true });
       // console.log(rootState.auth.user);
       let payloadStr = ash(payload).toString();
+      console.log(payload.toString());
       const refinedPayload =  {
         userid: rootState.auth.user.id,
         data: payloadStr
       };
       UserService.following(refinedPayload).then(({data}) => {
-        console.log(data);
-        followingArr = [];
+        // console.log(data);
+        let followingArr = [];
         followingArr = ash.split(data.following, ',');
         commit("auth/SET_USER_FOLLOWING", followingArr, {root: true});
       }).catch(error => {
