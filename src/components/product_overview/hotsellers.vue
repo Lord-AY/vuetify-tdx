@@ -153,35 +153,22 @@ export default {
   data() {
     return {
       slickOptions: {
-        //options can be used from the plugin documentation
-        slidesToShow: 4,
-        Padding: "16px",
-        infinite: true,
-        accessibility: true,
-        adaptiveHeight: false,
-        arrows: true,
-        dots: false,
-        draggable: true,
-        edgeFriction: 0.3,
-        swipe: true,
-        autoplay: true
-        // responsive: [
-        //   {
-        //     breakpoint: 1024,
-        //     settings: {
-        //       slidesToShow: 3,
-        //       slidesToScroll: 3,
-        //     }
-        //   },
-        //   {
-        //     breakpoint: 1024,
-        //     settings: {
-        //       slidesToShow: 3,
-        //       slidesToScroll: 3,
-        //     }
-        //   },
-        // ]
-      }
+          //options can be used from the plugin documentation
+          slidesToShow: 4,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: true,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true,
+          cssEase: "ease",
+          autoplay: true,
+          nextArrow: '<i class="fa fa-arrow-right nextArrowBtn"></i>',
+          prevArrow: '<i class="fa fa-arrow-left prevArrowBtn"></i>'
+      },
+      exists: null
     };
   },
   props: {
@@ -192,30 +179,30 @@ export default {
     Slick
   },
   computed: {
-    ...mapGetters("auth", ["getFollowing"])
+    ...mapGetters("auth", ["getFollowing"]),
   },
   methods: {
     ...mapActions("user", ["followSeller"]),
-    sync: function() {},
     checkFollowing(sellerid) {
-      for (let i in this.getFollowing) {
-        if (this.getfollowing[i] == sellerid) {
-          return true;
-        } else {
-          return false;
-        }
+      var exists = (this.getFollowing.indexOf(sellerid) > -1); //true
+      if(exists){
+        return true;
+      }else{
+        return false;
       }
     },
+    sync: function() {},
     followSeller(sellerid) {
-      let newFollower = this.getfollowing.push(sellerid);
+      // console.log(sellerid)
+      let newFollower = this.getFollowing.push(sellerid);
       this.followSeller(newFollower);
     },
     UnfollowSeller(sellerid) {
-      const index = this.getfollowing.indexOf(sellerid);
+      const index = this.getFollowing.indexOf(sellerid);
       if (index > -1) {
-        this.getfollowing.splice(index, 1);
+        this.getFollowing.splice(index, 1);
       }
-      this.followSeller(this.getfollowing);
+      this.followSeller(this.getFollowing);
     },
     format_date(value) {
       if (value) {
@@ -236,6 +223,19 @@ export default {
   watch: {
     $route: "sync"
   },
+  beforeUpdate() {
+      if (this.$refs.slick) {
+          this.$refs.slick.destroy();
+      }
+  },
+  updated() {
+      this.$nextTick(function () {
+          if (this.$refs.slick) {
+              this.$refs.slick.create(this.slickOptions);
+          }
+      });
+  },
+
   mounted() {
     // var vm = this;
     // vm.hotsellers = this.hotsellers;
@@ -244,7 +244,7 @@ export default {
     // }.bind(vm));
   },
   created() {
-
+    // console.log(this.getFollowing)
   },
   beforeMount() {}
 };
@@ -276,5 +276,19 @@ p.btn {
     margin-left: 0px;
     margin-top: 10px;
   }
+}
+.nextArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    right: 0;
+    color: black;
+}
+.prevArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 0;
+    color: black;
 }
 </style>

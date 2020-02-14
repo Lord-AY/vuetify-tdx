@@ -762,7 +762,6 @@ export default {
   watch: {
     getwalletHistory: {
       handler: function(resp){
-        console.log(resp);
         if(resp.length !== 0){
           this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
         }
