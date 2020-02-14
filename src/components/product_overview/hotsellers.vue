@@ -94,6 +94,7 @@
                             <div
                               class="new-hot-sellers"
                               v-if="getdiff(sellers.createdAt) < 4"
+                              style="left: 72px!important"
                             >
                               new
                             </div>

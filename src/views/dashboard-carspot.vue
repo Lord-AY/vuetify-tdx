@@ -43,7 +43,7 @@
                       <!-- End Sidebar Trigger Button -->
                     </div>
                     <div class="panel-body">
-                      <div class="row">
+                      <!-- <div class="row">
                         <div class="col-md-3">
                           <div class="metric metric-services">
                             <span class="icon">
@@ -88,7 +88,7 @@
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="row">
                         <div class="col-md-3">
                           <div class="metric">

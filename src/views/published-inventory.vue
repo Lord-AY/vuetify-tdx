@@ -31,6 +31,7 @@
                           type="text"
                           class="form-control search-input"
                           name="search_title"
+                          style="height: 40px!important; margin-left: 12px;"
                           value
                           placeholder="Search product"
                           v-model="search_input"
@@ -80,7 +81,7 @@
                           </td>
                           <td>
                             <a
-                              href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
+                              href="Gridlist.vue"
                             >
                               <span class="ad-title">{{ product.name }}</span>
                             </a>
@@ -112,7 +113,7 @@
                                     data-pt-position="top"
                                     data-pt-scheme="dark-transparent"
                                     data-pt-size="small"
-                                    href="https://carspot.scriptsbundle.com/sell-your-car/?id=3741"
+                                    href="Gridlist.vue"
                                     data-adid="3741"
                                   >
                                     <i class="la la-edit"></i>
@@ -163,12 +164,12 @@
     <input
       type="hidden"
       id="sticky_sb_logo_url"
-      value="https://carspot.scriptsbundle.com/wp-content/uploads/2017/06/logo-2.png"
+      value=""
     />
     <input
       type="hidden"
       id="static_sb_logo_url"
-      value="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/logo-1.png"
+      value=""
     />
     <input type="hidden" id="msg_notification_on" value="1" />
     <input type="hidden" id="msg_notification_time" value="1000000000" />
