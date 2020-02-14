@@ -111,17 +111,22 @@
                             </p>
                           </div>
 
-<!--                           <div class="follow" v-show="checkFollowing(sellers.id)">
+                          <div
+                            class="follow"
+                            v-show="checkFollowing(sellers.id)"
+                          >
                             <p class="btn" @click="UnfollowSeller(sellers.id)">
                               <i class="fa fa-user-plus"></i> Unfollow
                             </p>
-                          </div>                          
-                          <div class="follow" v-show="!checkFollowing(sellers.id)">
+                          </div>
+                          <div
+                            class="follow"
+                            v-show="!checkFollowing(sellers.id)"
+                          >
                             <p class="btn" @click="followSeller(sellers.id)">
                               <i class="fa fa-user-plus"></i> Follow
                             </p>
                           </div>
- -->                        
                         </div>
                       </div>
                     </div>
@@ -150,7 +155,7 @@ export default {
       slickOptions: {
         //options can be used from the plugin documentation
         slidesToShow: 4,
-        Padding: '16px',
+        Padding: "16px",
         infinite: true,
         accessibility: true,
         adaptiveHeight: false,
@@ -159,7 +164,7 @@ export default {
         draggable: true,
         edgeFriction: 0.3,
         swipe: true,
-        autoplay: true,
+        autoplay: true
         // responsive: [
         //   {
         //     breakpoint: 1024,
@@ -187,23 +192,25 @@ export default {
     Slick
   },
   computed: {
-    ...mapGetters("auth", ["getFollowing"]),
+    ...mapGetters("auth", ["getFollowing"])
   },
   methods: {
     ...mapActions("user", ["followSeller"]),
     sync: function() {},
-    checkFollowing(sellerid){
-      if(this.getfollowing.includes(sellerid)){
-        return true;
-      }else{
-        return false;
+    checkFollowing(sellerid) {
+      for (let i in this.getFollowing) {
+        if (this.getfollowing[i] == sellerid) {
+          return true;
+        } else {
+          return false;
+        }
       }
     },
-    followSeller(sellerid){
+    followSeller(sellerid) {
       let newFollower = this.getfollowing.push(sellerid);
       this.followSeller(newFollower);
     },
-    UnfollowSeller(sellerid){
+    UnfollowSeller(sellerid) {
       const index = this.getfollowing.indexOf(sellerid);
       if (index > -1) {
         this.getfollowing.splice(index, 1);
@@ -237,7 +244,7 @@ export default {
     // }.bind(vm));
   },
   created() {
-    // console.log(this.getFollowing)
+
   },
   beforeMount() {}
 };
