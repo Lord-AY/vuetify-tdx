@@ -144,11 +144,11 @@ export default {
       slickOptions: {
         //options can be used from the plugin documentation
         slidesToShow: 4,
-        Padding: '16px',
+        // Padding: '16px',
         infinite: true,
         accessibility: true,
         adaptiveHeight: false,
-        arrows: true,
+        arrows: false,
         dots: false,
         draggable: true,
         edgeFriction: 0.3,
