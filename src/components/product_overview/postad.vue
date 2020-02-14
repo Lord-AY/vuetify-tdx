@@ -903,70 +903,28 @@ vue/no-parsing-error*/
         <div class="col-lg-4 col-md-12 mobile-hidden">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title" style="font-size: 14px; font-weight: 600;" >Benefits Of Premium Ad</h3>
+              <h3 class="card-title" style="font-size: 14px; font-weight: 600;" >Benefits Of Boosted Ads</h3>
             </div>
             <div class="card-body pb-2">
               <ul class="list-unstyled widget-spec vertical-scroll mb-0">
                 <li>
                   <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium Ads Active
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
                   >Premium ads are displayed on top
                 </li>
                 <li>
                   <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads will be Show in Google results
+                  >Reach a larger audience quickly.
                 </li>
                 <li>
                   <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium Ads Active
+                  >Make quick sales
                 </li>
                 <li>
                   <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads are displayed on top
+                  >Target premium audiences that will ensure purchase
                 </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads will be Show in Google results
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium Ads Active
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads are displayed on top
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads will be Show in Google results
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium Ads Active
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads are displayed on top
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads will be Show in Google results
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium Ads Active
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads are displayed on top
-                </li>
-                <li>
-                  <i class="fa fa-check text-success" aria-hidden="true"></i
-                  >Premium ads will be Show in Google results
-                </li>
+              
+                
               </ul>
             </div>
           </div>
