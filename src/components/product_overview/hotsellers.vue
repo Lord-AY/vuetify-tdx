@@ -170,7 +170,8 @@ export default {
           // prevArrow: '<i class="fa fa-arrow-left prevArrowBtn"></i>'
       },
       exists: null,
-      followingClone:[]
+      followingClone:[],
+      toStringvar: ''
     };
   },
   props: {
@@ -197,15 +198,17 @@ export default {
     followSellerClick(sellerid) {
       // console.log(sellerid)
       let newFollower = this.followingClone.push(sellerid);
-      console.log(this.followingClone);
-      this.followSeller(newFollower);
+      this.toStringvar = this.followingClone.join();  
+      // console.log(this.toStringvar);
+      this.followSeller(this.toStringvar);
     },
     UnfollowSellerClick(sellerid) {
       const index = this.followingClone.indexOf(sellerid);
       if (index > -1) {
         this.followingClone.splice(index, 1);
       }
-      this.followSeller(this.followingClone);
+      this.toStringvar = this.followingClone.join();  
+      this.followSeller(this.toStringvar);
     },
     format_date(value) {
       if (value) {

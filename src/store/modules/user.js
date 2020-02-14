@@ -77,12 +77,9 @@ export default {
     },
      followSeller({commit, rootState}, payload) {
       commit("auth/SET_LOADING", true, { root: true });
-      // console.log(rootState.auth.user);
-      let payloadStr = ash(payload).toString();
-      console.log(payload.toString());
       const refinedPayload =  {
         userid: rootState.auth.user.id,
-        data: payloadStr
+        data: payload
       };
       UserService.following(refinedPayload).then(({data}) => {
         // console.log(data);

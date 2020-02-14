@@ -53,8 +53,6 @@
                 <ul class="slides">
                   <li v-for="(photo, index) in product.photos" :key="index">
                     <a :href="photos" data-fancybox="group">
-                      <!-- <a href="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
-                      <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="@/assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
                       <img :alt="product.name" :src="photo" />
                     </a>
                     <i class="fa fa-search-plus zoom"></i>
@@ -766,7 +764,9 @@ export default {
           draggable: true,
           edgeFriction: 0.30,
           swipe: true
-      }
+      },
+      followingClone:[],
+      toStringvar: ""
     };
   },
   components: {
@@ -786,7 +786,7 @@ export default {
     ...mapActions("chat", ["sendMessage"]),
     ...mapActions("user", ["followSeller"]),
     checkFollowing() {
-      var exists = (this.getFollowing.indexOf(this.product.seller.id) > -1); //true
+      var exists = (this.followingClone.indexOf(this.product.seller.id) > -1); //true
       if(exists){
         return true;
       }else{
@@ -795,16 +795,18 @@ export default {
     },
     followSellerClick() {
       // console.log("to follow seller")
-      let newFollower = this.getFollowing.push(this.product.seller.id);
+      let newFollower = this.followingClone.push(this.product.seller.id);
+      this.toStringvar = this.followingClone.join();  
       // console.log(newFollower);
-      this.followSeller(newFollower);
+      this.followSeller(this.toStringvar);
     },
     UnfollowSellerClick() {
-      const index = this.getFollowing.indexOf(this.product.seller.id);
+      const index = this.followingClone.indexOf(this.product.seller.id);
       if (index > -1) {
-        this.getFollowing.splice(index, 1);
+        this.followingClone.splice(index, 1);
       }
-      this.followSeller(this.getFollowing);
+      this.toStringvar = this.followingClone.join();  
+      this.followSeller(this.toStringvar);
     },
     formatCurrency(data){
       return formatCurrency(data)
@@ -849,7 +851,7 @@ export default {
           controlNav: false,
           animationLoop: false,
           slideshow: false,
-          sync: "#carousel"
+          sync: "#carousel",
         });
       });
     },
@@ -969,6 +971,13 @@ export default {
   },
   watch: {
     $route: "sync",
+    getFollowing: {
+      handler: function(data) {
+        for(let i in this.getFollowing){
+          this.followingClone.push(this.getFollowing[i])
+        }
+      }
+    },
     limit: {
       handler: function(limit) {
         if (limit == null) {
@@ -1004,7 +1013,6 @@ export default {
       }
     }
   },
-
   created() {
     var tempfix = this.fsingleCategory;
     // array1.concat(array2)
@@ -1013,6 +1021,12 @@ export default {
       this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
     }
     // console.log(this.productcomment);
+    for(let i in this.getFollowing){
+      this.followingClone.push(this.getFollowing[i])
+    }
+    this.sync();
+  },
+  mounted: function(){
     this.sync();
   }
 };
