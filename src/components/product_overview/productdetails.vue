@@ -49,29 +49,28 @@
           <div class="col-md-8 col-xs-12 col-sm-12">
             <!-- Single Ad -->
             <div class="singlepage-detail">
-              <vue-image-slider :images="photos" :intervalVal=5000 :height=700 :width=1200 />              <!-- Listing Slider Thumb -->
-              <div>
-                <ul class="slides small-slides">
-                  <!-- <li v-for="(photo, index) in product.photos" :key="index">
-                    <img :alt="product.name" draggable="false" :src="photo"  class="img-responsive" />
-                  </li> -->
-                  <li>
-                        <!-- <simple-carousel-container loop :watch-it="photos">
-                            <simple-carousel-item v-for="(photo, index) in product.photos" :key="index">
-                              <img :alt="product.name" draggable="false" :src="photo"  class="img-responsive"  />
-                            </simple-carousel-item>
-                        </simple-carousel-container>
- -->                        
-                        <slick ref="slick" :options="slickOptions"  v-if="product.photos"> 
-                        <div v-for="(photo, index) in product.photos" :key="index">  
-                            <div>  
-                              <img :alt="product.name" style="width: 150px; height:120px"  draggable="false" :src="photo"  class="img-responsive"  />
-                            </div>
-                        </div>
-                        </slick>
+              <div id="single-slider" class="flexslider">
+                <ul class="slides">
+                  <li v-for="(photo, index) in product.photos" :key="index">
+                    <a :href="photos" data-fancybox="group">
+                      <!-- <a href="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
+                      <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="@/assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
+                      <img :alt="product.name" :src="photo" />
+                    </a>
+                    <i class="fa fa-search-plus zoom"></i>
                   </li>
                 </ul>
               </div>
+              <!-- Listing Slider Thumb -->
+              <div id="carousel" class="flexslider">
+                <ul class="slides small-slides">
+                  <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
+                  <li v-for="(photo, index) in product.photos" :key="index">
+                    <img :alt="product.name" draggable="false" :src="photo"  class="img-responsive" />
+                  </li>
+                </ul>
+              </div>
+
 
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
@@ -728,9 +727,11 @@ import SimilarProductLoader from "@/components/loaders/SimilarProductLoader";
 import { mapActions, mapGetters } from "vuex";
 import ash from "lodash";
 import moment from "moment";
-import VueImageSlider from 'vue-image-slider';
-import Slick from 'vue-slick';
-import './../../../node_modules/slick-carousel/slick/slick.css';
+let owl_carousel = require('owl.carousel');
+window.fn = owl_carousel;
+// import VueImageSlider from 'vue-image-slider';
+// import Slick from 'vue-slick';
+// import './../../../node_modules/slick-carousel/slick/slick.css';
 
 export default {
   name: "productDetails",
@@ -764,8 +765,8 @@ export default {
   },
   components: {
     SimilarProductLoader,
-    VueImageSlider,
-    Slick
+    // VueImageSlider,
+    // Slick
   },
   props: {
     product: Object,
@@ -779,6 +780,50 @@ export default {
     ...mapActions("chat", ["sendMessage"]),
     formatCurrency(data){
       return formatCurrency(data)
+    },
+    sync() {
+      $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+          items: 5,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          responsiveClass: true,
+          responsive: {
+            0: {
+              items: 1,
+              nav: false
+            },
+            600: {
+              items: 3,
+              nav: false
+            },
+            1000: {
+              items: 5,
+              nav: true
+            }
+          }
+        });
+        $("#carousel").flexslider({
+          animation: "slide",
+          controlNav: false,
+          animationLoop: false,
+          slideshow: false,
+          itemWidth: 160,
+          itemMargin: 5,
+          asNavFor: "#single-slider",
+          rtl: true
+        });
+        $("#single-slider").flexslider({
+          rtl: true,
+          animation: "slide",
+          controlNav: false,
+          animationLoop: false,
+          slideshow: false,
+          sync: "#carousel"
+        });
+      });
     },
     avatarCheck() {
       let avatar = this.getUser.pictureUrl;
@@ -850,9 +895,6 @@ export default {
       if (dateago){
         return  moment.duration(moment().diff(dateago)).humanize() + " ago";
       }
-    },
-    sync() {
-     
     },
     showError(error, title) {
       this.$notify({
@@ -933,18 +975,6 @@ export default {
         this.showSuccess(success);
       }
     }
-  },
-    beforeUpdate() {
-      if (this.$refs.slick) {
-          this.$refs.slick.destroy();
-      }
-  },
-  updated() {
-      this.$nextTick(function () {
-          if (this.$refs.slick) {
-              this.$refs.slick.create(this.slickOptions);
-          }
-      });
   },
 
   created() {

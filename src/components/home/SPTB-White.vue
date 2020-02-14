@@ -137,9 +137,10 @@ export default {
           draggable: true,
           edgeFriction: 0.30,
           swipe: true,
+          cssEase: "ease",
           autoplay: true,
-          nextArrow: '<i class="fa fa-arrow-right"></i>',
-          prevArrow: '<i class="fa fa-arrow-left"></i>'
+          nextArrow: '<i class="icon fa fa-arrow-right nextArrowBtn"></i>',
+          prevArrow: '<i class="icon fa fa-arrow-left prevArrowBtn"></i>'
       }
     }
   },
@@ -207,4 +208,20 @@ export default {
 .item-card2-img img {
   object-fit: cover;
 }
+
+.nextArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    right: 0;
+    color: black;
+}
+.prevArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 0;
+    color: black;
+}
+
 </style>
