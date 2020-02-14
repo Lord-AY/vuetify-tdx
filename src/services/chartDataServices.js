@@ -15,17 +15,17 @@ export const userChartData = {
           ],
           borderWidth: 3
         },
-        { // another line graph
-          label: 'Active',
-          data: [3, 9, 40, 27, 68, 3, 50, 49, 1, 12.4, 11, 1],
-          backgroundColor: [
-            '#45AAF1', // Green
-          ],
-          borderColor: [
-            '#45AAF1',
-          ],
-          borderWidth: 3
-        },
+        // { another line graph
+        //   label: 'Active',
+        //   data: [3, 9, 40, 27, 68, 3, 50, 49, 1, 12.4, 11, 1],
+        //   backgroundColor: [
+        //     '#45AAF1', Green
+        //   ],
+        //   borderColor: [
+        //     '#45AAF1',
+        //   ],
+        //   borderWidth: 3
+        // },
         // {  another line graph
         //   label: 'Expired',
         //   data: [4, 12, 1, 6.7, 46.8, 31.4, 50.7, 49.2, 13.0, 12.4, 11.0, 12.0],

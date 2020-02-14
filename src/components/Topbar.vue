@@ -935,7 +935,7 @@ export default {
 @media (min-width: 1320px) {
   .container2 {
     max-width: 1440px !important;
-    width: 144px !important;
+    width: 1440px !important;
     /* padding: 0 8px!important; */
   }
 }
