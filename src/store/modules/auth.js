@@ -64,7 +64,7 @@ export default {
     getFollowing(state) {
       if(state.userfollowing !== null && state.following !== undefined) {
         return state.following;
-      },
+      }
       return null;
     },
     firstName(state) {
