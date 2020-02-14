@@ -47,10 +47,11 @@
                   <div class="category-title-tx">
                     <p>Join Hot Sellers</p>
                   </div>
-
-                  <div class="follow">
-                    <p class="btn">Join</p>
-                  </div>
+                  <router-link to="/postad">
+                    <div class="follow">
+                      <p class="btn">Join</p>
+                    </div>
+                  </router-link>
                 </div>
               </div>
             </div>
