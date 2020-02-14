@@ -21,6 +21,6 @@ export default {
     return Api().get(`product/dashboard/${userId}`);
   },
   following(payload) {
-    return Api().post(`${payload.userId}/followseller`, payload);
+    return Api().post(`users/${payload.userid}/followseller`, payload);
   }
 };

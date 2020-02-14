@@ -115,7 +115,7 @@
                             class="follow"
                             v-show="checkFollowing(sellers.id)"
                           >
-                            <p class="btn" @click="UnfollowSeller(sellers.id)">
+                            <p class="btn" @click.prevent="UnfollowSellerClick(sellers.id)">
                               <i class="fa fa-user-plus"></i> Unfollow
                             </p>
                           </div>
@@ -123,7 +123,7 @@
                             class="follow"
                             v-show="!checkFollowing(sellers.id)"
                           >
-                            <p class="btn" @click="followSeller(sellers.id)">
+                            <p class="btn" @click.prevent="followSellerClick(sellers.id)">
                               <i class="fa fa-user-plus"></i> Follow
                             </p>
                           </div>
@@ -192,12 +192,13 @@ export default {
       }
     },
     sync: function() {},
-    followSeller(sellerid) {
+    followSellerClick(sellerid) {
       // console.log(sellerid)
       let newFollower = this.getFollowing.push(sellerid);
+      // console.log(newFollower);
       this.followSeller(newFollower);
     },
-    UnfollowSeller(sellerid) {
+    UnfollowSellerClick(sellerid) {
       const index = this.getFollowing.indexOf(sellerid);
       if (index > -1) {
         this.getFollowing.splice(index, 1);

@@ -319,10 +319,7 @@
                 id="ad_to_fav"
                 data-adid="1375"
               >
-                <img
-                  src="@/assets/images/compare.svg"
-                  style="height: 20px; color: #777; padding-right: 5px;"
-                />
+                <i class="fa fa-compress"></i>
                 <span class="hidetext"> Compare </span>
               </a>
               <div
