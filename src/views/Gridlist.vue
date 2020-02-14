@@ -283,7 +283,7 @@ export default {
       this.currentPage = page;
     },
     resetLimit() {
-      this.baseLimit = 10;
+      this.baseLimit += 1;
     },
     showError() {
       this.$notify({

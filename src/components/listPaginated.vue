@@ -26,11 +26,11 @@
                         </ul>
                       </div>
                       <div class="panel-body">
-                        <div class="tab-content">
+                        <div class="tab-content" v-if="list.lenght == 0">
                           <div
                             class="tab-pane fade in active"
                             id="tab1default"
-                            v-for="product in paginatedList"
+                            v-for="product in toggleLimit"
                             :key="product.id"
                           >
                             <div class="ads-list-archive featured_ads">
@@ -41,7 +41,9 @@
                                 <!-- Img Block -->
                                 <div class="ad-archive-img">
                                   <router-link
-                                    :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+                                    :to="
+                                      `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                    "
                                   >
                                     <img
                                       :src="product.photos[0]"
@@ -77,7 +79,9 @@
                                   <!-- Title -->
                                   <h3>
                                     <router-link
-                                      :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+                                      :to="
+                                        `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                      "
                                     >
                                       {{ product.name }}
                                     </router-link>
@@ -86,7 +90,9 @@
                                   <div class="category-title">
                                     <span class="padding_cats">
                                       <router-link
-                                       :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+                                        :to="
+                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                        "
                                         >{{ product.category }}</router-link
                                       >
                                     </span>
@@ -100,7 +106,9 @@
                                   <ul class="add_info">
                                     <li>
                                       <router-link
-                                          :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+                                        :to="
+                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                        "
                                       >
                                         <img
                                           :src="product.photos[1]"
@@ -124,7 +132,9 @@
                                         Favourite
                                       </a>
                                       <router-link
-                                        :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+                                        :to="
+                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                        "
                                         class="btn2 btn-list-tx btn-success"
                                       >
                                         <i class="fa fa-eye"></i> View Details
@@ -138,10 +148,161 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                        <div class="tab-content" v-else>
+                          <div
+                            class="tab-pane fade in active"
+                            id="tab1default"
+                            v-for="product in toggleLimit"
+                            :key="product.id"
+                          >
+                            <div class="ads-list-archive featured_ads">
+                              <!-- Image Block -->
+                              <div
+                                class="col-lg-4 col-md-4 col-sm-4 no-padding"
+                              >
+                                <!-- Img Block -->
+                                <div class="ad-archive-img">
+                                  <router-link
+                                    :to="
+                                      `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                    "
+                                  >
+                                    <img
+                                      :src="product.photos[0]"
+                                      :alt="product.name"
+                                      class="img-responsive"
+                                      style="max-height: 210px;min-height: 210px;"
+                                    />
+                                  </router-link>
+                                  <div
+                                    class="arrow-ribbon bg-primary bg-tag-tx"
+                                  >
+                                    Premium
+                                  </div>
+                                </div>
+                                <!-- Img Block -->
+                              </div>
+                              <!-- Ads Listing -->
+                              <div class="clearfix visible-xs-block"></div>
+                              <!-- Content Block -->
+                              <div
+                                class="col-lg-8 col-md-8 col-sm-8 no-padding"
+                              >
+                                <!-- Ad Desc -->
+                                <div class="ad-archive-desc">
+                                  <!-- Price -->
+                                  <div class="ad-price">
+                                    &#8358; {{ product.amount }}
+                                    <span class v-if="product.negotiable"
+                                      >(Negotiable)</span
+                                    >
+                                    <span class v-else>(Fixed)</span>
+                                  </div>
+                                  <!-- Title -->
+                                  <h3>
+                                    <router-link
+                                      :to="
+                                        `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                      "
+                                    >
+                                      {{ product.name }}
+                                    </router-link>
+                                  </h3>
+                                  <!-- Category -->
+                                  <div class="category-title">
+                                    <span class="padding_cats">
+                                      <router-link
+                                        :to="
+                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                        "
+                                        >{{ product.category }}</router-link
+                                      >
+                                    </span>
+                                  </div>
+                                  <!-- Short Description -->
+                                  <div class="clearfix visible-xs-block"></div>
+                                  <p class="hidden-sm">
+                                    {{ product.description }}
+                                  </p>
+                                  <!-- Ad Features -->
+                                  <ul class="add_info">
+                                    <li>
+                                      <router-link
+                                        :to="
+                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                        "
+                                      >
+                                        <img
+                                          :src="product.photos[1]"
+                                          :alt="product.name"
+                                        />
+                                      </router-link>
+                                    </li>
+                                  </ul>
+                                  <!-- Ad History -->
+                                  <div class="clearfix archive-history">
+                                    <div class="last-updated">
+                                      Posted : January 24, 2019
+                                    </div>
+                                    <div class="ad-meta">
+                                      <a
+                                        href="javascript:void(0);"
+                                        data-adid="1375"
+                                        class="btn btn-list-tx save-ad"
+                                      >
+                                        <i class="fa fa-heart-o"></i>
+                                        Favourite
+                                      </a>
+                                      <router-link
+                                        :to="
+                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
+                                        "
+                                        class="btn2 btn-list-tx btn-success"
+                                      >
+                                        <i class="fa fa-eye"></i> View Details
+                                      </router-link>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Ad Desc End -->
+                              </div>
+                              <!-- Content Block End -->
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
-
+<div
+                          class="viewall-similar mb-5 mt-5"
+                          id="show-more-details"
+                          v-if="
+                            data &&
+                              data.length !== limit &&
+                              list.length == 0
+                          "
+                        >
+                          <a @click="limit += 10" v-show="limitBtn">
+                            Show More
+                            <i
+                              class="fa fa-arrow-circle-right"
+                              style="color: #4caf50;"
+                            ></i
+                          ></a>
+                        </div>
+                        <div
+                          class="viewall-similar mb-5 mt-5"
+                          id="show-more-details"
+                          v-if="list && list.length > limit"
+                        >
+                          <a @click="limit += 10" v-show="limitBtn">
+                            Show More
+                            <i
+                              class="fa fa-arrow-circle-right"
+                              style="color: #4caf50;"
+                            ></i
+                          ></a>
+                        </div>
+                      </div>
                   <div class="clearfix"></div>
                   <!-- <div class="text-center margin-top-30 margin-bottom-20">
                   <ul class="pagination pagination-lg">
@@ -198,7 +359,9 @@ export default {
   data() {
     return {
       isLoading: false,
-      fullPage: true
+      fullPage: true,
+      limitBtn: true,
+      limit: 10
     };
   },
   props: {
@@ -206,6 +369,11 @@ export default {
       type: [Array, Object],
       required: true
     },
+    baseLimit: {
+      type: [Number]
+    },
+    list: [Array, Object],
+    loading: Boolean
   },
   components: {
     Loading
@@ -214,6 +382,20 @@ export default {
     paginatedList() {
       return this.data.slice(0, 10);
     },
+    toggleLimit() {
+      if (this.list.length == 0) {
+        if (this.limit !== this.data.length) {
+          // this.limit += 10;
+          return this.limit ? this.data.slice(0, this.limit) : this.data;
+        }
+      } else {
+        if (this.limit !== this.list.length) {
+          // this.limit += 10;
+          return this.limit ? this.list.slice(0, this.limit) : this.list;
+        }
+      }
+      return this.data;
+    }
   },
   methods: {
     sync() {
@@ -225,6 +407,29 @@ export default {
       handler: function(loading) {
         this.sync();
         this.isLoading = false;
+      }
+    },
+    limit: {
+      handler: function(limit) {
+        if (limit == this.data.lenght || limit == this.list.length) {
+          this.limitBtn = false;
+        } else {
+          this.limitBtn = true;
+        }
+      }
+    },
+    list: {
+      handler: function(list) {
+        if (list.length !== 0) {
+          this.limit = 10;
+        }
+      }
+    },
+    baseLimit: {
+      handler: function(limit) {
+        if (limit !== 0) {
+          this.limit = 10;
+        }
       }
     }
   }
@@ -282,7 +487,7 @@ button {
   cursor: pointer;
 }
 .btn-list-tx {
-  border-radius: 0px!important;
+  border-radius: 0px !important;
 }
 //----------  pagination
 //------------------------------------------------------------------------------
