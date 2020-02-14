@@ -237,7 +237,7 @@ export default {
     // }.bind(vm));
   },
   created() {
-    console.log(this.getFollowing)
+    // console.log(this.getFollowing)
   },
   beforeMount() {}
 };
