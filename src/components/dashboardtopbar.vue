@@ -142,33 +142,33 @@ export default {
     },
     sync() {
       $(document).ready(function() {
-        $("#bmenu_toggle").prop("checked", false);
-        var stickyNavTop = $('.my-nav').offset().top;
-        var stickyNav = function() {
-          var scrollTop = $(window).scrollTop();
-          if (scrollTop >= stickyNavTop) {
-              $("#topb").removeClass("mobile-hidden");
-              $(".my-nav").addClass("top-bar-fixed");
-            } else {
-              $(".my-nav").removeClass("top-bar-fixed");
-          }
-        }
+        // $("#bmenu_toggle").prop("checked", false);
+        // var stickyNavTop = $('.my-nav').offset().top;
+        // var stickyNav = function() {
+        //   var scrollTop = $(window).scrollTop();
+        //   if (scrollTop >= stickyNavTop) {
+        //       $("#topb").removeClass("mobile-hidden");
+        //       $(".my-nav").addClass("top-bar-fixed");
+        //     } else {
+        //       $(".my-nav").removeClass("top-bar-fixed");
+        //   }
+        // }
 
-        stickyNav();
-        $(window).scroll(function() {
-          stickyNav();
-        });
+        // stickyNav();
+        // $(window).scroll(function() {
+        //   stickyNav();
+        // });
 
-        $(window).scroll(function() {
-          var scroll = $(window).scrollTop();
-          // console.log("we are scrolling " + scroll);
-          if (scroll > 0) {
-            $("#topb").removeClass("mobile-hidden");
-            $("#topb").addClass("top-bar-hide");
-          } else {
-            $("#topb").removeClass("top-bar-hide");
-          }
-        });
+        // $(window).scroll(function() {
+        //   var scroll = $(window).scrollTop();
+        //   // console.log("we are scrolling " + scroll);
+        //   if (scroll > 0) {
+        //     $("#topb").removeClass("mobile-hidden");
+        //     $("#topb").addClass("top-bar-hide");
+        //   } else {
+        //     $("#topb").removeClass("top-bar-hide");
+        //   }
+        // });
         $("#tx-menu-toggle").click(function() {
           $(this).toggleClass("open");
         });

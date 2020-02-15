@@ -818,10 +818,14 @@ export default {
     this.fetchAllCategories();
     this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
+    this.userbal = this.formatCurrency(this.getwalletHistory[this.getwalletHistory.length -1].currentBal);
     document.addEventListener("click", this.documentClick);
     this.gottenResults = this.getResults;
     
     // console.log(this.userbalance);
+  },
+  mounted() {
+    this.sync();
   },
   destroyed() {
     // important to clean up!!
