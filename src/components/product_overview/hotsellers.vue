@@ -49,7 +49,7 @@
                   </div>
                   <router-link to="/postad">
                     <div class="follow">
-                      <p class="btn">Join</p>
+                      <p class="cusbutton">Join</p>
                     </div>
                   </router-link>
                 </div>
@@ -117,7 +117,7 @@
                             class="follow"
                             v-show="checkFollowing(sellers.id)"
                           >
-                            <p class="btn" @click.prevent="UnfollowSellerClick(sellers.id)">
+                            <p class="cusbutton" @click.prevent="UnfollowSellerClick(sellers.id)">
                               <i class="fa fa-user-plus"></i> Unfollow
                             </p>
                           </div>
@@ -125,7 +125,7 @@
                             class="follow"
                             v-show="!checkFollowing(sellers.id)"
                           >
-                            <p class="btn" @click.prevent="followSellerClick(sellers.id)">
+                            <p class="cusbutton" @click.prevent="followSellerClick(sellers.id)">
                               <i class="fa fa-user-plus"></i> Follow
                             </p>
                           </div>
@@ -306,4 +306,20 @@ p.btn {
     left: 0;
     color: black;
 }
+.cusbutton {
+  cursor: pointer;
+  position: relative;
+  font-size: 16px;
+}
+.cusbutton .hover {
+  display: none;
+  position: absolute;
+}
+.cusbutton:hover .hover {
+  display: block;
+}
+.cusbutton:hover .original {
+  display: none;
+}
+
 </style>

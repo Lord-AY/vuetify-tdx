@@ -111,14 +111,6 @@ export default {
   },
   watch: {
     $route: "sync",
-    loading: {
-      handler: function(loading) {
-        if (loading) {
-          this.isLoading = true;
-        }
-        this.isLoading = false;
-      }
-    }
   },
   created() {
     // console.log(this.$route.query.id);

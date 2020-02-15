@@ -76,7 +76,7 @@ export default {
         });
     },
      followSeller({commit, rootState}, payload) {
-      commit("auth/SET_LOADING", true, { root: true });
+      // commit("auth/SET_LOADING", true, { root: true });
       const refinedPayload =  {
         userid: rootState.auth.user.id,
         data: payload

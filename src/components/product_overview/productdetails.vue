@@ -212,104 +212,16 @@
 
             <div class="clearfix"></div>
             <div class="ad-share text-center">
-              <div
-                data-Limit="modal"
-                data-target=".share-ad"
-                class="small-box col-md-3 col-sm-3 col-xs-12"
-              >
-                <i class="fa fa-share-alt"></i>
-                <span class="hidetext">Share</span>
-              </div>
-              <div
-                class="modal fade share-ad"
-                tabindex="-1"
-                role="dialog"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content text-left">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&#10005;</span
-                        ><span class="sr-only">Close</span>
-                      </button>
-                      <h3 class="modal-title">Share</h3>
-                    </div>
-                    <div class="modal-body text-left">
-                      <div class="recent-ads">
-                        <div class="recent-ads-list">
-                          <div class="recent-ads-container">
-                            <div class="recent-ads-list-image">
-                              <a
-                                href="javascript:void(0);"
-                                class="recent-ads-list-image-inner"
-                              >
-                                <img
-                                  src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-360x270.jpg"
-                                  alt="2017 Maserati Ghibli SQ4 Blue"
-                                />
-                              </a>
-                            </div>
-                            <div class="recent-ads-list-content">
-                              <h3 class="recent-ads-list-title">
-                                <a href="javascript:void(0);">{{
-                                  product.name
-                                }}</a>
-                              </h3>
-                              <div class="recent-ads-list-price">
-                                {{ product.currency }} {{ product.amount
-                                }}<span class="">(Negotiable)</span>
-                              </div>
-                              <p>
-                                Looking to sell the car urgently. Engine is good
-                                condition. Complete service history available.
-                                Original return file is available. After Market
-                                Alloy rims. As good as a brand new car. Lady
-                                Driven Car in Immaculate Condition. No Work
-                                Required in Car. ...
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <h3>Link</h3>
-                      <p>
-                        <a href="javascript:void(0);"
-                          >https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/</a
-                        >
-                      </p>
-                    </div>
-                    <div class="modal-footer">
-                      <ul class="list-inline">
-                        <li>
-                          <a
-                            href="https://www.facebook.com/sharer/sharer.php?u=https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/"
-                            >Facebook,
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://plus.google.com/share?url=https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/"
-                            >Google+,
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://pinterest.com/pin/create/button/?url=https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/&amp;media=&amp;description=2017%20Maserati%20Ghibli%20SQ4%20Blue"
-                            >Pinterest,
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://twitter.com/intent/tweet?text=2017%20Maserati%20Ghibli%20SQ4%20Blue&amp;url=https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/"
-                            >Twitter</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+              <router-link to="/referal">
+                <div
+                  data-Limit="modal"
+                  data-target=".share-ad"
+                  class="small-box col-md-3 col-sm-3 col-xs-12"
+                >
+                  <i class="fa fa-share-alt"></i>
+                  <span class="hidetext">Share</span>
                 </div>
-              </div>
+              </router-link>
               <a
                 class="small-box col-md-3 col-sm-3 col-xs-12"
                 style="padding-left: 22px; padding-right: 22px;"
@@ -424,11 +336,9 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                           <!-- Img Block -->
                           <div class="ad-archive-img">
-                            <router-link
-                              :to="
-                                `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                              "
-                            >
+                          <router-link
+                            :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                          >
                                <img
                                       v-for="(image,
                                       index) in simProduct.photos.slice(0, 1)"
@@ -457,21 +367,21 @@
                             </div>
                             <!-- Title -->
                             <h3>
-                              <router-link
-                                :to="
-                                  `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                                "
-                                >{{ simProduct.name }}</router-link
+                          <router-link
+                            :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                          >
+                              {{ simProduct.name }}</router-link
                               >
                             </h3>
                             <!-- Category -->
                             <div class="category-title">
                               <span class="padding_cats"
-                                ><router-link
-                                  :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                                  "
-                                  >{{ simProduct.category }}</router-link
+                                >
+                            <router-link
+                              :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                            >
+                                  {{ simProduct.category }}
+                                  </router-link
                                 ></span
                               >
                             </div>
@@ -488,12 +398,12 @@
                                 :key="index"
                                 :class="index == 0 ? 'active' : ''"
                               >
-                                <router-link
-                                  :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                                  "
-                                  ><img :src="photo" :alt="simProduct.name"
-                                /></router-link>
+                              <router-link
+                                :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                              >
+                                <img :src="photo" :alt="simProduct.name"
+                                />
+                              </router-link>
                               </li>
                             </ul>
                             <!-- Ad History -->
@@ -511,13 +421,10 @@
                                   class="btn save-ad"
                                   ><i class="fa fa-heart-o"></i> </a
                                 >
-                                <router-link
-                                  :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                                  "
-                                  class="btn btn-success"
-                                >
-                                  <i class="fa fa-eye"></i></router-link
+                             <router-link
+                                :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                              >                                  
+                                <i class="fa fa-eye"></i></router-link
                                 >
                               </div>
                             </div>
@@ -1014,6 +921,7 @@ export default {
     }
   },
   created() {
+    window.scrollTo(0,0);
     var tempfix = this.fsingleCategory;
     // array1.concat(array2)
     // this.photos = this.product.photos;
