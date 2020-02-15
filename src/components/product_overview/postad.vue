@@ -885,7 +885,7 @@ vue/no-parsing-error*/
                     </div>
                   </div>
                 </transition>
-                <div
+<!--                 <div
                   class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 mb-5"
                 >
                   <div class="post-ad-submit-button">
@@ -896,7 +896,7 @@ vue/no-parsing-error*/
                       Post Your Ad
                     </button>
                   </div>
-                </div>
+                </div> -->
               </div>
             </form>
         </div>
@@ -1310,7 +1310,7 @@ export default {
         type: "error",
         title: "Error Creating Ads",
         width: "100%",
-        text: this.getErrors,
+        text: "Error posting ads",
         classes: "error",
         duration: 10000,
         speed: 1000,

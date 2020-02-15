@@ -386,9 +386,9 @@ export default {
 };
 </script>
 <style scoped>
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
+  /*@import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';*/
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom2.css';
+  /*@import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom2.css';*/
 </style>
 <style>
 .dashboard-main-content {
