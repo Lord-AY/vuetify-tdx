@@ -9,7 +9,7 @@
       </span>
     </button>-->
   <div>
-     <div id="global-loader" v-show="loading">
+     <div id="global-loader" v-show="isLoading">
       <DashboardLoader
         class="mobile-hidden"
       ></DashboardLoader>
@@ -301,6 +301,11 @@ import metrics from "@/components/metrics";
 // import dheader from "@/components/Dheader";
 export default {
   name: "dashboard",
+  data() {
+    return {
+      isLoading: true,
+    };
+  },
   components: {
     dsidebar,
     DashboardLoader,
@@ -377,6 +382,19 @@ export default {
         return this.getDashboard[0].Flight;
       }else{
         return 0 
+      }
+    },
+  },
+  watch: {
+    $route: "sync",
+    loading: {
+      handler: function(loading) {
+        if (loading) {
+          this.isLoading = true;
+          // console.log(this.isLoading);
+        }
+        this.isLoading = false;
+        // console.log(this.isLoading);
       }
     },
   },

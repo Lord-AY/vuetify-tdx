@@ -766,6 +766,7 @@ export default {
           this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
         }
         return this.userbal = this.formatCurrency(0);
+        // console.log(this.resp)
       }
     },
     keyword: {
@@ -906,8 +907,8 @@ export default {
 }
 /* Mega Menu Internals */
 .hide-at-start-wrapper {
-  position: absolute;
-  z-index: 1000;
+  /*position: absolute;
+  z-index: 1000;*/
   top: 94px;
   width: 100%;
 }

@@ -1,7 +1,7 @@
 import router from '../../router';
 <template>
   <!--Section-->
-  <section class="sptb bg-white2">
+  <section class="sptb bg-white2" style="background-color: #f6f6f6;">
     <div class="container">
       <div class="section-title center-block text-center mobile-hidden">
         <h2 style="display: inline-block; margin-left: 92px">Latest Ads</h2>

@@ -4,7 +4,7 @@
       <HomeLoader class="mobile-hidden"></HomeLoader>
     </div>
     <div class="home">
-      <start></start>
+      <start :isLoading="isLoading" @stop="stopLoader"></start>
       <categories></categories>
       <sptb :categories="categories" :ads="productListings"></sptb>
       <sptbWhite :ads="productListings" :key="productRender"></sptbWhite>
@@ -87,6 +87,10 @@ export default {
       "paymentStepOne",
       "FetchUserwalletHistory"
     ]),
+    stopLoader(){
+      // console.log("function emitted");
+      this.isLoading = false;
+    },
     forceRerender() {
       this.renderKey += 1;
       this.productRender += 1;
@@ -137,16 +141,16 @@ export default {
   },
   watch: {
     $route: "sync",
-    loading: {
-      handler: function(loading) {
-        if (loading) {
-          this.isLoading = true;
-          // console.log(this.isLoading);
-        }
-        this.isLoading = false;
-        // console.log(this.isLoading);
-      }
-    },
+    // loading: {
+    //   handler: function(loading) {
+    //     if (loading) {
+    //       this.isLoading = true;
+    //       // console.log(this.isLoading);
+    //     }
+    //     this.isLoading = true;
+    //     // console.log(this.isLoading);
+    //   }
+    // },
     getErrors: {
       handler: function(errors) {
         if (errors === null || errors === undefined) {
@@ -176,14 +180,14 @@ export default {
     getwalletData: {
       handler: function(walletData) {
         if (walletData == null) {
-          this.isLoading = true;
+          // this.isLoading = true;
           this.createUserwallet(this.getUser.id);
           this.userWallet = this.getwalletData.walletid;
           // console.log(this.getwalletData);
           // console.log("wallet changed");
         } else {
           this.userWallet = this.getwalletData.walletid;
-          this.isLoading = false;
+          // this.isLoading = false;
           // console.log(walletData);
         }
       }

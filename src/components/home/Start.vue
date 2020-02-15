@@ -1,24 +1,14 @@
 <template>
   <!--Start Section-->
-  <!-- <section class="owl-carousel" id="banner"> -->
   <section class="" id="banner">
     <div>
-<!--     <transition-group name="fade" tag="div">
-      <div v-for="i in [currentIndex]" :key="i">
-        <img :src="currentImg" />
-      </div>
-    </transition-group>
- -->    
     <simple-carousel-container loop :watch-it="images">
         <simple-carousel-item v-for="i in [currentIndex]" :key="i">
           <img :src="currentImg" />
         </simple-carousel-item>
     </simple-carousel-container>
-    <!-- <a class="prev" @click="prev" href="#">&#10094; Previous</a>
-    <a class="next" @click="next" href="#">&#10095; Next</a> -->
   </div>
   </section>
-  <!--/Section-->
 </template>
 
 <script>
@@ -31,7 +21,9 @@ export default {
     SimpleCarouselContainer,
     SimpleCarouselItem
   },
-
+  props: {
+    isLoading: Boolean
+  },
   data() {
     return {
       images: [
@@ -40,10 +32,25 @@ export default {
         "./assets/images/banners/buyairtime.jpg"
       ],
       timer: null,
-      currentIndex: 0
+      currentIndex: 0,
     };
   },
   methods: {
+    imageLoadedChecker() {
+      let imageLoaded = 0;
+      for (const imageSrc of this.images) {    
+        const img = new Image();
+        img.src = imageSrc;
+        img.onload = () => {
+          imageLoaded++;
+          if (imageLoaded === this.images.length) {
+            // this.isLoading = false;
+            console.log("Done !");
+            this.$emit('stop');
+          }
+        };
+      }
+    },
     sync() {
       
     },
@@ -68,6 +75,7 @@ export default {
   },
   created() {
     this.sync();
+    this.imageLoadedChecker();
   },
   mounted: function() {
     this.startSlide();
