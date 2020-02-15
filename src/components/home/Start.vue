@@ -45,7 +45,7 @@ export default {
           imageLoaded++;
           if (imageLoaded === this.images.length) {
             // this.isLoading = false;
-            console.log("Done !");
+            // console.log("Done !");
             this.$emit('stop');
           }
         };
