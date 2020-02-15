@@ -25,7 +25,6 @@
                 <div class="panel  panel-headline">
                   <div class="panel-heading">
                     <h3 class="panel-title">Messaging Panel</h3>
-                    <!-- <a href="#" data-target="#myModal" data-toggle="modal">Change Password</a> -->
                     <p class="panel-subtitle">Online</p>
                   </div>
                   <div
@@ -39,16 +38,6 @@
                               <div class="message-header">
                                 <h4>Inbox</h4>
                                 <ul class="tabs-menu nav">
-  <!--                                 <span>
-                                    <div
-                                      v-bind:class="{ active: tab1 }"
-                                      class="selector"
-                                      @click="toggle('all')"
-                                    >
-                                      <small>All Offers</small>
-                                    </div>
-                                  </span> -->
-                                  <!-- <div style="width:10px"></div> -->
                                   <span>
                                     <div
                                       v-bind:class="{ active: tab2 }"
@@ -71,43 +60,6 @@
                                 </ul>
                               </div>
                               <div class="">
-  <!--                               <div class="" v-if="tab1">
-                                  <div
-                                    class="list-wrap ps-container ps-active-y"
-                                  >
-                                    <ul class="message-history">
-                                      <li
-                                        class="message-grid"
-                                        v-for="(message,
-                                        index) in getMessagesUserTo"
-                                        :key="index"
-                                      >
-                                        <a href="#">
-                                          <div class="image img-square">
-                                            <img
-                                              src="../../public/assets/images/profile-product-details.jpg"
-                                              alt=""
-                                            />
-                                          </div>
-                                          <div class="user-name">
-                                            <div class="author">
-                                              <span>{{ message.from }}</span>
-                                              <div class="user-status"></div>
-                                            </div>
-                                            <p>
-                                              Honda Civic 2017 Sports Edition
-                                            </p>
-                                            <div class="time">
-                                              <span
-                                                ><i class="icon-envelope"></i
-                                              ></span>
-                                            </div>
-                                          </div>
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div> -->
                                 <div class="tab-pane" v-if="tab2">
                                   <div
                                     class="list-wrap ps-container ps-active-y"
@@ -432,99 +384,6 @@
   </div>
 </template>
 <script>
-// require("../../public/assets/skins/color-skins/color15.css");
-// require("../../public/assets/plugins/horizontal-menu/horizontal.css");
-// require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-// // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-// require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css");
-// require("../../public/assets/css/user-dashboard/protip.css");
-
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-// require("../../public/assets/skins/color-skins/color15.css");
-// require("../../public/assets/plugins/horizontal-menu/horizontal.css");
-// require("../../public/assets/css/components.css");
 
 import dsidebar from "@/components/Dsidebar";
 import { mapActions, mapGetters, mapState } from "vuex";
@@ -566,11 +425,6 @@ export default {
   },
     unique2() {
       if(this.sentOfferUsers !== null && this.sentOfferUsers !== undefined) {
-        // console.log("inside unique two");
-        // for(let i in this.sentOfferUsers){
-        //   console.log(this.sentOfferUsers[i]);
-        // }
-        // console.log(this.sentOfferUsers);
       return this.sentOfferUsers.reduce((seed, current) => {
         return Object.assign(seed, {
           [current.id]: current
@@ -594,7 +448,6 @@ export default {
     ]),
     scrollToElement() {
       const el = this.$el.querySelector('.messages');
-      // console.log("i am meant to scoll to last" + el)
       if (el) {
         el[el.length - 1].scrollHeight;
       }
@@ -603,8 +456,6 @@ export default {
       this.isValidationAllowed = true
     },
     noMessages() {
-      // console.log(this.messagesFrom);
-      // console.log(this.messages.length);
       if(this.messages.length < 1) {
          this.showMessage = false;
       } else {
@@ -612,9 +463,7 @@ export default {
         }
     },
     preventLeadingSpace(e) {
-      // only prevent the keypress if the value is blank
       if (!e.target.value) e.preventDefault();
-      // otherwise, if the leading character is a space, remove all leading white-space
        else if (e.target.value[0] == " ")
         e.target.value = e.target.value.replace(/^\s*/, "");
     },
@@ -649,9 +498,6 @@ export default {
       this.sentMessages = [];
       this.selectedId = userId;
       for (let user in stateMessages) {
-        // loop through to get selected user.
-        // if statement checks for the id and makes sure the selected user is empty.
-        // before looping and adding new seleceted user to prevent duplicate users
         if (stateMessages[user].senderId == userId || stateMessages[user].recieverId == userId  && ash.isEmpty(this.selectedUser)) {
           this.selectedUser.push({
             name: stateMessages[user].sernderName || stateMessages[user].recieverName,
@@ -659,9 +505,7 @@ export default {
           });
         }
       }
-      // loop through from messages,
       for (let message in stateMessages) {
-        // get messages logged in user sent to other chat user
         if (this.getUser.id == stateMessages[message].senderId && userId == stateMessages[message].recieverId) {
           this.sentMessages.push(stateMessages[message]);
         };
@@ -706,19 +550,6 @@ export default {
         }
       }
     },
-    // messagesFrom: {
-    //   handler: function() {
-    //     // this.fetchAllMessages()
-    //     this.getSentWithRecievedOfferUsers()
-    //   }
-    // },
-    //  messagesTo: {
-    //   handler: function() {
-    //     // this.fetchAllMessages()
-    //     this.getSentWithRecievedOfferUsers()
-    //   }
-    // }
-
   },
   created() {
     this.fetchAllMessages().then(data => {

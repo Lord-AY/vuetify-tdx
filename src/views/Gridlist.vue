@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="global-loader" v-show="isLoading">
+    <div id="global-loader" v-show="isLoading2">
       <GridListLoader class="mobile-hidden"></GridListLoader>
     </div>
     <div class="gridlist">
@@ -172,13 +172,13 @@
               <hotsellers
                 class="mobile-hidden"
                 :hotsellers="getHotSellers"
-                :isLoading="isLoading"
+                :isLoading="isLoading2"
               ></hotsellers>
             </div>
             <div v-else>
               <HotSellerLoader
                 class="mobile-hidden"
-                v-show="isLoading"
+                v-show="isLoading2"
                 style="margin: -4em 5em 0 -4em;"
               ></HotSellerLoader>
             </div>
@@ -207,7 +207,7 @@
                   :data="paginatedProducts"
                   :list="list"
                   :baseLimit="baseLimit"
-                  :loading="isLoading"
+                  :loading="isLoading2"
                 />
               </div>
             </div>
@@ -248,7 +248,7 @@ export default {
     return {
       currentComp: "paginatedGrid",
       currentPage: 1,
-      isLoading: true,
+      isLoading2: true,
       selectedCategory: null,
       list: [],
       baseLimit: 0,
@@ -458,18 +458,18 @@ export default {
     loading: {
       handler: function(loading) {
         if (loading) {
-          this.isLoading = true;
+          this.isLoading2 = true;
         }
-        this.isLoading = false;
+        this.isLoading2 = true;
       }
     },
     paginatedProducts: {
       handler: function(products) {
-        this.isLoading = true;
-        let as = this;
-        setTimeout(function() {
-          as.isLoading = false;
-        }, 1000);
+        this.isLoading2 = false;
+        // let as = this;
+        // setTimeout(function() {
+        //   as.isLoading2 = false;
+        // }, 1000);
       },
     getErrors: {
       handler: function(errors) {
@@ -504,7 +504,7 @@ export default {
     // console.log("this is before created");
   },
   beforeMount() {
-    this.isLoading = true;
+    this.isLoading2 = true;
   },
   mounted() {
     // console.log("this route just got mounted");

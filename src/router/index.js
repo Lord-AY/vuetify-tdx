@@ -10,6 +10,7 @@ import sample from '@/views/sample.vue';
 import ProductDetails from "../views/ProductDetails.vue";
 import signin from "../views/Signin.vue";
 import reset from "../views/Resetpass.vue";
+import maindashboard from "../views/dashboard-carspot.vue";
 // import gridlist from "../views/Gridlist.vue";
 
 Vue.use(VueRouter);
@@ -138,7 +139,7 @@ const routes = [
   {
     path: "/productDetails/:id/:cid/:uid",
     name: "productDetails",
-    component: ProductDetails,
+    component: () => import("../views/ProductDetails.vue"),
     meta: {
       header: 1
     },
@@ -238,7 +239,7 @@ const routes = [
   {
     path: "/maindashboard",
     name: "maindashboard",
-    component: () => import("../views/dashboard-carspot.vue"),
+    component: maindashboard,
     beforeEnter: (to, from, next) => {
       let auth = store.getters["auth/isLoggedIn"];
       if (!auth) {

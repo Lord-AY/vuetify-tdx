@@ -906,7 +906,6 @@ export default {
   z-index: 1000;
   top: 94px;
   width: 100%;
-  /* border-top: 3px solid #4caf50; */
 }
 .referal {
   color: #fff;
@@ -925,7 +924,6 @@ export default {
   font-size: 14px;
   text-align: left;
   font-weight: 400;
-  /* font-family: avenir; */
 }
 .my-nav {
   position: sticky;

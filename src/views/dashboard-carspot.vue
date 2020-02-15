@@ -43,7 +43,7 @@
                       <!-- End Sidebar Trigger Button -->
                     </div>
                     <div class="panel-body">
-                      <!-- <div class="row">
+                      <div class="row">
                         <div class="col-md-3">
                           <div class="metric metric-services">
                             <span class="icon">
@@ -88,7 +88,7 @@
                             </p>
                           </div>
                         </div>
-                      </div> -->
+                      </div>
                       <div class="row">
                         <div class="col-md-3">
                           <div class="metric">
@@ -288,32 +288,6 @@
         <!-- END MAIN -->
         <div class="clearfix"></div>
       </div>
-      <!-- <div class="text-center margin-top-30 margin-bottom-20">
-        <ul class="pagination pagination-lg">
-<li class="active"><a href="index.html">1</a></li>
-<li><a href="page/2/index.html">2</a></li>
-<li><a href="page/2/index.html" >Next Page &raquo;</a></li>
-</ul>
-    </div>-->
-
-      <!--Sticky header logic-->
-      <input type="hidden" id="header_style" value="transparent" />
-      <input type="hidden" id="is_sticky_header" value="0" />
-      <input
-        type="hidden"
-        id="sticky_sb_logo_url"
-        value="https://carspot.scriptsbundle.com/wp-content/uploads/2017/06/logo-2.png"
-      />
-      <input
-        type="hidden"
-        id="static_sb_logo_url"
-        value="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/logo-1.png"
-      />
-      <input type="hidden" id="msg_notification_on" value="1" />
-      <input type="hidden" id="msg_notification_time" value="1000000000" />
-      <input type="hidden" id="is_unread_msgs" value="0" />
-      <a href="#0" class="cd-top">Top</a>
-      <!-- Email verification and reset password -->
     </div>
 </template>
 <script>
@@ -414,8 +388,6 @@ export default {
 <style scoped>
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
-  /*@import '../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css';*/
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css';
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom2.css';
 </style>
 <style>
@@ -451,5 +423,32 @@ export default {
 }
 .metric-services .icon i {
   color: #fff !important;
+}
+html {
+  font-size: 12px;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
 }
 </style>

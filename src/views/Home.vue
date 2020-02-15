@@ -1,6 +1,6 @@
-<template>
+<template> 
   <div>
-    <div id="global-loader" v-show="loading">
+    <div id="global-loader" v-show="isLoading">
       <HomeLoader class="mobile-hidden"></HomeLoader>
     </div>
     <div class="home">

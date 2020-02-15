@@ -66,8 +66,8 @@
                     :key="index"
                   >
                     <div
-                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                      id="holder-1554"
+                      class="col-sellers-tx"
+                      id=""
                     >
                       <div class="category-grid-box-1 category-grid-box-tx">
                         <div class="hot-ribbon">
@@ -288,6 +288,9 @@ p.btn {
     margin-left: 0px;
     margin-top: 10px;
   }
+}
+.spaceRite {
+  margin-right: 4px;
 }
 .nextArrowBtn{
     position: absolute;
