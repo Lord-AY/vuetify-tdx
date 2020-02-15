@@ -1,6 +1,6 @@
 <template>
   <div class="product_details generic-wrapper">
-    <div class="main-content-area clearfix">
+    <div class="main-content-area clearfix" v-if="product">
       <section
         class="section-padding .margin-top-30 gray"
         style="padding-bottom: 50px; padding-top: 60px;"
@@ -1017,8 +1017,10 @@ export default {
     var tempfix = this.fsingleCategory;
     // array1.concat(array2)
     // this.photos = this.product.photos;
-    if(this.fsingleCategory.checkFields !== null){
-      this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
+    if(this.fsingleCategory){
+      if(this.fsingleCategory.checkFields !== null){
+        this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
+      }
     }
     // console.log(this.productcomment);
     for(let i in this.getFollowing){

@@ -53,9 +53,9 @@ import router from '../../router';
               <div class="item-card2">
                 <div class="item-card2-text">
                   <router-link
-                    :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+                    :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                     class="text-dark"
-                  >
+                    >
                     <h4 class="product-title-tx">
                       {{ product.name }}
                     </h4></router-link

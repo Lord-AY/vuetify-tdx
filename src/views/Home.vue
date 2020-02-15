@@ -72,7 +72,7 @@ export default {
       "paginatedProducts"
     ]),
     ...mapGetters("auth", ["loading", "errors", "getUser"]),
-    ...mapGetters("transactions", ["getwalletData"])
+    ...mapGetters("transactions", ["getwalletData", "getwalletHistory"])
   },
   methods: {
     ...mapActions("product", [
@@ -199,18 +199,17 @@ export default {
     // this.fetchAllCategories();
     this.fetchAllProducts();
     this.loadfunc();
-    if (this.getUser !== null) {
-      this.fetchDashboardDetails();
-      this.FetchUserwalletHistory(this.getUser.id);
-      this.FetchUserwallet(this.getUser.id);
-    }
-
   },
   beforeCreate() {
     // console.log("this is before created");
   },
   beforeMount() {
     this.isLoading = true;
+     if (this.getUser !== null) {
+      this.fetchDashboardDetails();
+      this.FetchUserwalletHistory(this.getUser.id);
+      this.FetchUserwallet(this.getUser.id);
+    }
   },
   mounted() {
     this.sync();

@@ -137,7 +137,7 @@ const routes = [
     }
   },
   {
-    path: "/productDetails/:id/:cid/:uid",
+    path: "/productDetails",
     name: "productDetails",
     component: () => import("../views/ProductDetails.vue"),
     meta: {

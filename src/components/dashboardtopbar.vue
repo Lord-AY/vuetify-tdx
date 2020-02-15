@@ -111,7 +111,7 @@
 
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/css/tdx-mega.css");
+// require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
 // import timer from "@/components/countdownTimer";
 import { mapGetters, mapActions } from "vuex";

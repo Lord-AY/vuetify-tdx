@@ -41,9 +41,7 @@
                                 <!-- Img Block -->
                                 <div class="ad-archive-img">
                                   <router-link
-                                    :to="
-                                      `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                    "
+                                    :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                                   >
                                     <img
                                       :src="product.photos[0]"
@@ -79,9 +77,7 @@
                                   <!-- Title -->
                                   <h3>
                                     <router-link
-                                      :to="
-                                        `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                      "
+                                      :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                                     >
                                       {{ product.name }}
                                     </router-link>
@@ -90,10 +86,9 @@
                                   <div class="category-title">
                                     <span class="padding_cats">
                                       <router-link
-                                        :to="
-                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                        "
-                                        >{{ product.category }}</router-link
+                                      :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                                    >
+                                      {{ product.category }}</router-link
                                       >
                                     </span>
                                   </div>
@@ -106,10 +101,9 @@
                                   <ul class="add_info">
                                     <li>
                                       <router-link
-                                        :to="
-                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                        "
-                                      >
+                                      :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                                    >
+
                                         <img
                                           :src="product.photos[1]"
                                           :alt="product.name"
@@ -132,11 +126,10 @@
                                         Favourite
                                       </a>
                                       <router-link
-                                        :to="
-                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                        "
+                                        :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                                         class="btn2 btn-list-tx btn-success"
                                       >
+
                                         <i class="fa fa-eye"></i> View Details
                                       </router-link>
                                     </div>
@@ -161,11 +154,9 @@
                                 class="col-lg-4 col-md-4 col-sm-4 no-padding"
                               >
                                 <!-- Img Block -->
-                                <div class="ad-archive-img">
+                                <div class="ad-archive-img">                                 
                                   <router-link
-                                    :to="
-                                      `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                    "
+                                        :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                                   >
                                     <img
                                       :src="product.photos[0]"
@@ -201,10 +192,9 @@
                                   <!-- Title -->
                                   <h3>
                                     <router-link
-                                      :to="
-                                        `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                      "
-                                    >
+                                        :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                                      >
+
                                       {{ product.name }}
                                     </router-link>
                                   </h3>
@@ -212,10 +202,10 @@
                                   <div class="category-title">
                                     <span class="padding_cats">
                                       <router-link
-                                        :to="
-                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                        "
-                                        >{{ product.category }}</router-link
+                                        :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                                        class="btn2 btn-list-tx btn-success"
+                                      >
+                                      {{ product.category }}</router-link
                                       >
                                     </span>
                                   </div>
@@ -228,10 +218,9 @@
                                   <ul class="add_info">
                                     <li>
                                       <router-link
-                                        :to="
-                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                        "
+                                        :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                                       >
+
                                         <img
                                           :src="product.photos[1]"
                                           :alt="product.name"
@@ -254,11 +243,10 @@
                                         Favourite
                                       </a>
                                       <router-link
-                                        :to="
-                                          `productDetails/${product.id}/${product.cid}/${product.uid}`
-                                        "
+                                        :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                                         class="btn2 btn-list-tx btn-success"
                                       >
+
                                         <i class="fa fa-eye"></i> View Details
                                       </router-link>
                                     </div>

@@ -70,7 +70,7 @@ export default {
     getSingleProduct() {
       this.isLoading = true;
       const payload = {
-        id: this.$route.params.id
+        id: this.$route.query.id
       };
       // console.log(payload);
       this.selectedProduct(payload);
@@ -79,7 +79,7 @@ export default {
       // console.log("got to single category");
       this.isLoading = true;
       const payload = {
-        cid: this.$route.params.cid
+        cid: this.$route.query.cid
       };
       // console.log(payload);
       this.fetchSingleCategory(payload);
@@ -87,7 +87,7 @@ export default {
     getSingleProductComment() {
       this.isLoading = true;
       const payload = {
-        id: this.$route.params.id
+        id: this.$route.query.id
       };
       // console.log(payload);
       this.fetchCommentForProduct(payload);
@@ -95,7 +95,7 @@ export default {
     getProductSeller() {
       this.isLoading = true;
       const payload = {
-        sellerId: this.$route.params.uid,
+        sellerId: this.$route.query.uid,
       };
       // console.log(payload);
       this.fetchSeller(payload);
@@ -103,8 +103,8 @@ export default {
     getSimilarProducts() {
       this.isLoading = true;
       const payload = {
-        cid: this.$route.params.cid,
-        id: this.$route.params.id
+        cid: this.$route.query.cid,
+        id: this.$route.query.id
       };
       this.fetchSimilarProducts(payload);
     }
@@ -121,6 +121,7 @@ export default {
     }
   },
   created() {
+    // console.log(this.$route.query.id);
     this.sync();
     this.$forceUpdate();
     // fetch single product for view

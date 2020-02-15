@@ -599,7 +599,7 @@ $(document).click(function(e) {
   var container = $(".toggle");
 });
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-// require("../../public/assets/css/tdx-mega.css");
+require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
 const formatCurrency = require("format-currency");
 import timer from "@/components/countdownTimer";
@@ -636,6 +636,7 @@ export default {
     ...mapActions("product", ["fetchAllCategories", "fetchSubCategories"]),
     ...mapActions("search", ["searchAction"]),
     ...mapActions("auth", ["logoutUser"]),
+    ...mapActions("transactions", ["FetchUserwalletHistory"]),
     formatCurrency(data) {
       return formatCurrency(data);
     },
@@ -684,7 +685,7 @@ export default {
     },
     documentClick(e) {
       $(document).ready(function() {
-        var isShown = $(".hide-at-start-wrapper").hasClass("show");
+        // var isShown = $(".hide-at-start-wrapper").hasClass("show");
         $(document).click(function() {
           $("#bmenu_toggle").prop("checked", false);
           this.showResults = false;
@@ -697,6 +698,7 @@ export default {
     },
     sync() {
       $(window).on("load", function() {
+
         $("#bmenu_toggle").prop("checked", false);
         var stickyNavTop = $(".my-nav").offset().top;
         var stickyNav = function() {
@@ -761,12 +763,8 @@ export default {
   },
   watch: {
     getwalletHistory: {
-      handler: function(resp){
-        if(resp.length !== 0){
-          this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
-        }
-        return this.userbal = this.formatCurrency(0);
-        // console.log(this.resp)
+      handler: function(resp){        
+        this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
       }
     },
     keyword: {
@@ -815,15 +813,21 @@ export default {
     }
   },
   created() {
-    this.sync();
+    // this.sync();
     this.fetchAllCategories();
     this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
     this.userbal = this.formatCurrency(this.getwalletHistory[this.getwalletHistory.length -1].currentBal);
     document.addEventListener("click", this.documentClick);
     this.gottenResults = this.getResults;
+     // $(".hide-at-start-wrapper").hide();
     
-    // console.log(this.userbalance);
+    // console.log(this.getwalletHistory);
+  },
+  beforeMount() {
+     if (this.getUser !== null) {
+      this.FetchUserwalletHistory(this.getUser.id);
+    }
   },
   mounted() {
     this.sync();
@@ -905,37 +909,7 @@ export default {
     font-size: 18px;
   }
 }
-/* Mega Menu Internals */
-.hide-at-start-wrapper {
-  /*position: absolute;
-  z-index: 1000;*/
-  top: 94px;
-  width: 100%;
-}
-.referal {
-  color: #fff;
-}
 
-.btn.btn-tx.btn-theme.post-ad-header-tx.text-dark:focus {
-  color: #fff!important;
-}
-
-.referal span {
-  margin-right: 5px;
-}
-.bmenu {
-  background: white;
-  color: black !important;
-  font-size: 14px;
-  text-align: left;
-  font-weight: 400;
-}
-.my-nav {
-  position: sticky;
-}
-.horizontal-main {
-  border-bottom: none !important;
-}
 @media (min-width: 1320px) {
   .container2 {
     max-width: 1440px !important;
@@ -962,6 +936,37 @@ export default {
 /* .top-bar-hide {
   display: none !important;
 } */
+
+.stupidline{
+    display: none;
+}
+.hide-at-start-wrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 84px;
+  width: 100%;
+  margin-top: -11px;
+  /* border-top: 3px solid #4caf50; */
+}
+.referal {
+  color: #fff;
+}
+.referal span{
+  margin-right: 5px;
+}
+.bmenu {
+  background: white;
+  color: black !important;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 400;
+  /* font-family: avenir; */
+}
+.my-nav {
+  position: sticky;
+}
+
+
 .header-search-button {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
   text-transform: uppercase;

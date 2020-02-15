@@ -334,11 +334,16 @@
                       <!-- <div class="hot-ribbon">
                       <img src="../../assets/images/hoticonv2.png" />
                     </div> -->
-                      <router-link
+                      <!-- <router-link
                         :to="
                           `productDetails/${product.id}/${product.cid}/${product.uid}`
                         "
                       >
+ -->                      
+                      <router-link
+                            :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                      >
+
                         <img
                           :src="product.photos[0]"
                           :alt="product.name"
@@ -432,11 +437,9 @@
                         <!-- <i class="fa fa-heart-o"></i> -->
                       </div>
                       <h3 class="product-name-tx">
-                        <router-link
-                          :to="
-                            `productDetails/${product.id}/${product.cid}/${product.uid}`
-                          "
-                        >
+                      <router-link
+                            :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                      >
                           {{ product.name }}
                         </router-link>
                       </h3>
@@ -472,10 +475,9 @@
                       <div class="button-reveal mobile-hidden">
                         <router-link
                           class="btn btn-block button-reveal-btn"
-                          :to="
-                            `productDetails/${product.id}/${product.cid}/${product.uid}`
-                          "
-                          >Contact Seller</router-link
+                            :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                          >
+                          Contact Seller</router-link
                         >
                       </div>
                       <div class="button-griddy hidden-desktop">
