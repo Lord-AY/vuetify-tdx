@@ -502,6 +502,12 @@
     <!-- Email verification and reset password -->
   </div>
 </template>
+<style scoped>
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom2.css';
+</style>
+
 <script>
 
 import dsidebar from "@/components/Dsidebar";

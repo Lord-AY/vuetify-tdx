@@ -562,11 +562,9 @@ export default {
 <style scoped>
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom2.css';
 </style>
-<style>
+<style><style>
 .selector {
   cursor: pointer;
 }
