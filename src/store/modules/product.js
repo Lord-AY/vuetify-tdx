@@ -372,6 +372,25 @@ export default {
         console.log(error);
       })
     },
+    fetchProductReport({commit}, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
+      const refinedPayload = {
+        uid: rootState.auth.user.id,
+        pid: payload.pid,
+        message:payload.message
+      }
+      return ProductService.report(refinedPayload)
+      .then(({data}) => {
+        // execute your commit here to state
+        console.log(data);
+      }).catch(error => {
+        // execute set_errors commit for error msg 
+        // commit('SET_ERRORS', 'error.response.data')
+        console.log(error.response)
+      })
+    }
     createProduct({ commit, rootState }, payload ) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
