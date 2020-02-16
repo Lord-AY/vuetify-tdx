@@ -31,6 +31,7 @@
                           type="text"
                           class="form-control search-input"
                           name="search_title"
+                          style="height: 40px!important; margin-left: 12px;"
                           value
                           placeholder="Search product"
                           v-model="search_input"
@@ -149,39 +150,13 @@
       <!-- END MAIN -->
       <div class="clearfix"></div>
     </div>
-    <!-- <div class="text-center margin-top-30 margin-bottom-20">
-        <ul class="pagination pagination-lg">
-<li class="active"><a href="index.html">1</a></li>
-<li><a href="page/2/index.html">2</a></li>
-<li><a href="page/2/index.html" >Next Page &raquo;</a></li>
-</ul>
-    </div>-->
 
-    <!--Sticky header logic-->
-    <input type="hidden" id="header_style" value="transparent" />
-    <input type="hidden" id="is_sticky_header" value="0" />
-    <input
-      type="hidden"
-      id="sticky_sb_logo_url"
-      value="https://carspot.scriptsbundle.com/wp-content/uploads/2017/06/logo-2.png"
-    />
-    <input
-      type="hidden"
-      id="static_sb_logo_url"
-      value="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/logo-1.png"
-    />
-    <input type="hidden" id="msg_notification_on" value="1" />
-    <input type="hidden" id="msg_notification_time" value="1000000000" />
-    <input type="hidden" id="is_unread_msgs" value="0" />
-    <a href="#0" class="cd-top">Top</a>
     <!-- Email verification and reset password -->
   </div>
 </template>
 <style scoped>
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
-  /*@import '../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css';*/
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css';
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom2.css';
 </style>
 

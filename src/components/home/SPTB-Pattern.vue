@@ -46,8 +46,12 @@ import router from '../../router';
               <div class="arrow-ribbon bg-tag-gold-tx">Gold</div>
             </div>
             <div class="item-card7-imgs">
-              <router-link
+<!--               <router-link
                 :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+              ></router-link>
+ -->              
+              <router-link
+                :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
               ></router-link>
               <img
                 :src="product.photos[0]"
@@ -63,13 +67,19 @@ import router from '../../router';
             <div class="card-body">
               <div class="item-card7-desc">
                 <div class="item-card7-text">
-                  <router-link
+<!--                   <router-link
                     :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
                     class="text-dark"
                   >
+ -->                  
+                  <router-link
+                    :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                    class="text-dark"
+                    >
                     <h4 class="product-title-tx">
                       {{ product.name }}
-                    </h4></router-link
+                    </h4>
+                  </router-link
                   >
 
                   <p class="">
@@ -77,7 +87,7 @@ import router from '../../router';
                     {{ product.region }}
                   </p>
                   <h5 class="font-weight-bold mb-0 price-tx">
-                    &#8358;{{ product.amount }}
+                    &#8358;{{ formatCurrency(product.amount) }}
                   </h5>
                 </div>
               </div>
@@ -112,6 +122,7 @@ import router from '../../router';
 
 <script>
 /* eslint-disable no-undef */
+const formatCurrency = require('format-currency');
 import Slick from 'vue-slick';
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
@@ -147,6 +158,9 @@ export default {
     Slick
   },
   methods: {
+    formatCurrency(data){
+      return formatCurrency(data)
+    },
     next () {
       this.$refs.slick.next()
     },

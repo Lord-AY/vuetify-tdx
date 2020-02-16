@@ -1,6 +1,6 @@
 <template>
   <div class="product_details generic-wrapper">
-    <div class="main-content-area clearfix">
+    <div class="main-content-area clearfix" v-if="product">
       <section
         class="section-padding .margin-top-30 gray"
         style="padding-bottom: 50px; padding-top: 60px;"
@@ -53,8 +53,6 @@
                 <ul class="slides">
                   <li v-for="(photo, index) in product.photos" :key="index">
                     <a :href="photos" data-fancybox="group">
-                      <!-- <a href="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006.jpg" data-fancybox="group"> -->
-                      <!-- <img alt="2017 Maserati Ghibli SQ4 Blue" src="@/assets/carspot-css/wp-content/uploads/2017/12/IMG_5006-650x420.jpg"> -->
                       <img :alt="product.name" :src="photo" />
                     </a>
                     <i class="fa fa-search-plus zoom"></i>
@@ -70,7 +68,7 @@
                   </li>
                 </ul>
               </div>
-
+              <!-- {{product.seller.id}} -->
 
               <div class="content-box-grid margin-top-20">
                 <ul class="nav nav-pills" style="margin-bottom: 16px;">
@@ -90,10 +88,19 @@
                     <!-- <a data-toggle="pill" href="#menu3">Location Map</a> -->
                     <div href="#" class="nav-link">LocationMap</div>
                   </li>
+                  
                   <li>
-                    <div class="follow-seller">
-                      <i class="fa fa-user-plus"></i>
-                      <span class="tooltiptext">Follow Seller</span>
+                    <div v-show="checkFollowing()">
+                      <div class="follow-seller" @click.prevent="UnfollowSellerClick()">
+                        <i class="fa fa-user-plus"></i>
+                        <span class="tooltiptext" style='color:red'>Unfollow Seller</span>
+                      </div>              
+                    </div>   
+                    <div v-show="!checkFollowing()">   
+                      <div class="follow-seller" @click.prevent="followSellerClick()">
+                        <i class="fa fa-user-plus"></i>
+                        <span class="tooltiptext">Follow Seller</span>
+                      </div>
                     </div>
                   </li>
                   <!-- <li class="tab-pane-tx"><a data-Limit="pill" href="#menu3">Menu 3</a></li> -->
@@ -205,104 +212,16 @@
 
             <div class="clearfix"></div>
             <div class="ad-share text-center">
-              <div
-                data-Limit="modal"
-                data-target=".share-ad"
-                class="small-box col-md-3 col-sm-3 col-xs-12"
-              >
-                <i class="fa fa-share-alt"></i>
-                <span class="hidetext">Share</span>
-              </div>
-              <div
-                class="modal fade share-ad"
-                tabindex="-1"
-                role="dialog"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content text-left">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&#10005;</span
-                        ><span class="sr-only">Close</span>
-                      </button>
-                      <h3 class="modal-title">Share</h3>
-                    </div>
-                    <div class="modal-body text-left">
-                      <div class="recent-ads">
-                        <div class="recent-ads-list">
-                          <div class="recent-ads-container">
-                            <div class="recent-ads-list-image">
-                              <a
-                                href="javascript:void(0);"
-                                class="recent-ads-list-image-inner"
-                              >
-                                <img
-                                  src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-360x270.jpg"
-                                  alt="2017 Maserati Ghibli SQ4 Blue"
-                                />
-                              </a>
-                            </div>
-                            <div class="recent-ads-list-content">
-                              <h3 class="recent-ads-list-title">
-                                <a href="javascript:void(0);">{{
-                                  product.name
-                                }}</a>
-                              </h3>
-                              <div class="recent-ads-list-price">
-                                {{ product.currency }} {{ product.amount
-                                }}<span class="">(Negotiable)</span>
-                              </div>
-                              <p>
-                                Looking to sell the car urgently. Engine is good
-                                condition. Complete service history available.
-                                Original return file is available. After Market
-                                Alloy rims. As good as a brand new car. Lady
-                                Driven Car in Immaculate Condition. No Work
-                                Required in Car. ...
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <h3>Link</h3>
-                      <p>
-                        <a href="javascript:void(0);"
-                          >https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/</a
-                        >
-                      </p>
-                    </div>
-                    <div class="modal-footer">
-                      <ul class="list-inline">
-                        <li>
-                          <a
-                            href="https://www.facebook.com/sharer/sharer.php?u=https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/"
-                            >Facebook,
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://plus.google.com/share?url=https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/"
-                            >Google+,
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://pinterest.com/pin/create/button/?url=https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/&amp;media=&amp;description=2017%20Maserati%20Ghibli%20SQ4%20Blue"
-                            >Pinterest,
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://twitter.com/intent/tweet?text=2017%20Maserati%20Ghibli%20SQ4%20Blue&amp;url=https://carspot.scriptsbundle.com/transparent-1/ad/2017-maserati-ghibli-sq4-blue-1695-miles/"
-                            >Twitter</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+              <router-link to="/referal">
+                <div
+                  data-Limit="modal"
+                  data-target=".share-ad"
+                  class="small-box col-md-3 col-sm-3 col-xs-12"
+                >
+                  <i class="fa fa-share-alt"></i>
+                  <span class="hidetext">Share</span>
                 </div>
-              </div>
+              </router-link>
               <a
                 class="small-box col-md-3 col-sm-3 col-xs-12"
                 style="padding-left: 22px; padding-right: 22px;"
@@ -319,10 +238,7 @@
                 id="ad_to_fav"
                 data-adid="1375"
               >
-                <img
-                  src="@/assets/images/compare.svg"
-                  style="height: 20px; color: #777; padding-right: 5px;"
-                />
+                <i class="fa fa-compress"></i>
                 <span class="hidetext"> Compare </span>
               </a>
               <div
@@ -420,11 +336,9 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                           <!-- Img Block -->
                           <div class="ad-archive-img">
-                            <router-link
-                              :to="
-                                `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                              "
-                            >
+                          <router-link
+                            :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                          >
                                <img
                                       v-for="(image,
                                       index) in simProduct.photos.slice(0, 1)"
@@ -453,21 +367,21 @@
                             </div>
                             <!-- Title -->
                             <h3>
-                              <router-link
-                                :to="
-                                  `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                                "
-                                >{{ simProduct.name }}</router-link
+                          <router-link
+                            :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                          >
+                              {{ simProduct.name }}</router-link
                               >
                             </h3>
                             <!-- Category -->
                             <div class="category-title">
                               <span class="padding_cats"
-                                ><router-link
-                                  :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                                  "
-                                  >{{ simProduct.category }}</router-link
+                                >
+                            <router-link
+                              :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                            >
+                                  {{ simProduct.category }}
+                                  </router-link
                                 ></span
                               >
                             </div>
@@ -484,12 +398,12 @@
                                 :key="index"
                                 :class="index == 0 ? 'active' : ''"
                               >
-                                <router-link
-                                  :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                                  "
-                                  ><img :src="photo" :alt="simProduct.name"
-                                /></router-link>
+                              <router-link
+                                :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                              >
+                                <img :src="photo" :alt="simProduct.name"
+                                />
+                              </router-link>
                               </li>
                             </ul>
                             <!-- Ad History -->
@@ -507,13 +421,10 @@
                                   class="btn save-ad"
                                   ><i class="fa fa-heart-o"></i> </a
                                 >
-                                <router-link
-                                  :to="
-                                    `/ProductDetails/${simProduct.id}/${simProduct.cid}/${simProduct.uid}`
-                                  "
-                                  class="btn btn-success"
-                                >
-                                  <i class="fa fa-eye"></i></router-link
+                             <router-link
+                                :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                              >                                  
+                                <i class="fa fa-eye"></i></router-link
                                 >
                               </div>
                             </div>
@@ -620,7 +531,7 @@
                       View Contact
                     </div>
                   </div>
-                  <div v-if="showDetails" style="color: #4baf50; margin-top: -.5em; font-weight: 600; cursor: pointer;" @click="showDetails = !showDetails">{{ product.seller.phone }}</div>
+                  <div class="selector number" v-if="showDetails" style="color: #fff!important; font-weight: 400; cursor: pointer;" @click="showDetails = !showDetails">{{ product.seller.phone }}</div>
                   
                 </div>
                 <div
@@ -760,7 +671,9 @@ export default {
           draggable: true,
           edgeFriction: 0.30,
           swipe: true
-      }
+      },
+      followingClone:[],
+      toStringvar: ""
     };
   },
   components: {
@@ -778,6 +691,30 @@ export default {
   },
   methods: {
     ...mapActions("chat", ["sendMessage"]),
+    ...mapActions("user", ["followSeller"]),
+    checkFollowing() {
+      var exists = (this.followingClone.indexOf(this.product.seller.id) > -1); //true
+      if(exists){
+        return true;
+      }else{
+        return false;
+      }
+    },
+    followSellerClick() {
+      // console.log("to follow seller")
+      let newFollower = this.followingClone.push(this.product.seller.id);
+      this.toStringvar = this.followingClone.join();  
+      // console.log(newFollower);
+      this.followSeller(this.toStringvar);
+    },
+    UnfollowSellerClick() {
+      const index = this.followingClone.indexOf(this.product.seller.id);
+      if (index > -1) {
+        this.followingClone.splice(index, 1);
+      }
+      this.toStringvar = this.followingClone.join();  
+      this.followSeller(this.toStringvar);
+    },
     formatCurrency(data){
       return formatCurrency(data)
     },
@@ -821,7 +758,7 @@ export default {
           controlNav: false,
           animationLoop: false,
           slideshow: false,
-          sync: "#carousel"
+          sync: "#carousel",
         });
       });
     },
@@ -937,10 +874,17 @@ export default {
       }
     },
     ...mapGetters("chat", ["getErrors", "getSuccess"]),
-    ...mapGetters("auth", ["isLoggedIn"])
+    ...mapGetters("auth", ["isLoggedIn", "getFollowing"])
   },
   watch: {
     $route: "sync",
+    getFollowing: {
+      handler: function(data) {
+        for(let i in this.getFollowing){
+          this.followingClone.push(this.getFollowing[i])
+        }
+      }
+    },
     limit: {
       handler: function(limit) {
         if (limit == null) {
@@ -976,15 +920,23 @@ export default {
       }
     }
   },
-
   created() {
+    window.scrollTo(0,0);
     var tempfix = this.fsingleCategory;
     // array1.concat(array2)
     // this.photos = this.product.photos;
-    if(this.fsingleCategory.checkFields !== null){
-      this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
+    if(this.fsingleCategory){
+      if(this.fsingleCategory.checkFields !== null){
+        this.singleCart = this.fsingleCategory.checkFields.split(',').concat(this.fsingleCategory.checkFields.split(','));
+      }
     }
     // console.log(this.productcomment);
+    for(let i in this.getFollowing){
+      this.followingClone.push(this.getFollowing[i])
+    }
+    this.sync();
+  },
+  mounted: function(){
     this.sync();
   }
 };

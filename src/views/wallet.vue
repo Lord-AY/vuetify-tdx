@@ -47,6 +47,7 @@
                           type="text"
                           class="form-control search-input"
                           name="search_title"
+                          style="height: 40px!important; margin-left: 12px;"
                           value
                           placeholder="Search Transactions"
                         />
@@ -96,10 +97,10 @@
                     <thead>
                       <tr>
                         <!-- <th>S/N</th> -->
-                        <th>Transaction ID</th>
-                        <th>Transaction Description</th>
-                        <th>activity</th>
-                        <th>Date</th>
+                        <th style="font-weight: 600; color: #232323">Transaction ID</th>
+                        <th style="font-weight: 600; color: #232323">Transaction Description</th>
+                        <th style="font-weight: 600; color: #232323">activity</th>
+                        <th style="font-weight: 600; color: #232323">Date</th>
                         <!-- <th>Action</th> -->
                         <!-- <th>action</th> -->
                       </tr>
@@ -114,11 +115,11 @@
                           </span>
                         </td>
                         <td>
-                          <a
-                            href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"
-                          >
+                          <!-- <a
+                            href=""
+                          > -->
                             <span class="padding_cats">{{ mydata.description }}</span>
-                          </a>
+                          <!-- </a> -->
                         </td>
                         <td>
                           <span class="ad-cats">
@@ -223,12 +224,12 @@
     <input
       type="hidden"
       id="sticky_sb_logo_url"
-      value="https://carspot.scriptsbundle.com/wp-content/uploads/2017/06/logo-2.png"
+      value=""
     />
     <input
       type="hidden"
       id="static_sb_logo_url"
-      value="https://carspot.scriptsbundle.com/wp-content/uploads/2018/04/logo-1.png"
+      value=""
     />
     <input type="hidden" id="msg_notification_on" value="1" />
     <input type="hidden" id="msg_notification_time" value="1000000000" />
@@ -330,9 +331,7 @@ export default {
 <style scoped>
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
   @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css';
+  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom2.css';
 </style>
 <style>
 .dashboard-main-content {

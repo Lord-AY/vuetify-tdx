@@ -76,15 +76,16 @@ export default {
         });
     },
      followSeller({commit, rootState}, payload) {
-      commit("auth/SET_LOADING", true, { root: true });
-      let payloadStr = ash(payload).toString();
+      // commit("auth/SET_LOADING", true, { root: true });
       const refinedPayload =  {
-        userId: rootState.auth.user.id,
-        data: payloadStr
+        userid: rootState.auth.user.id,
+        data: payload
       };
-      UserService.following(payload).then(({data}) => {
-        console.log(data);
-        commit("auth/SET_USER_FOLLOWING", data, {root: true});
+      UserService.following(refinedPayload).then(({data}) => {
+        // console.log(data);
+        let followingArr = [];
+        followingArr = ash.split(data.following, ',');
+        commit("auth/SET_USER_FOLLOWING", followingArr, {root: true});
       }).catch(error => {
         console.log(error);
       })

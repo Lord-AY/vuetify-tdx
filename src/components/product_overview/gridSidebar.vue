@@ -14,7 +14,7 @@
             <!-- <i class="more-less glyphicon glyphicon-plus"></i> -->
             Categories
           </h4>
-          <span>{{ categories.length }} ads</span>
+          <span>{{ categories.length }} Categories</span>
         </div>
         <div class="panel-collapse">
           <div class="panel-body">

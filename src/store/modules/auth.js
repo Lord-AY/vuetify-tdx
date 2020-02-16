@@ -62,7 +62,7 @@ export default {
       return null;
     },
     getFollowing(state) {
-      if(state.userfollowing !== null && state.following !== undefined) {
+      if(state.following !== null && state.following !== undefined) {
         return state.following;
       }
       return null;
@@ -181,6 +181,7 @@ export default {
           };
           let followArr = [];
           followArr = ash.split(data.following, ",");
+          // console.log(followArr);
           commit("SET_USER_DATA", loggedUser);
           commit("SET_USER_FOLLOWING", followArr);
           // send user to home

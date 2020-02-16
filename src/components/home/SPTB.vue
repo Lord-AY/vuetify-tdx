@@ -46,10 +46,9 @@
                 </div>
                 <div class="item-card-text item-card-text-tx">
                   <h4 class="mb-0">{{ category.name }}</h4>
-                  <span
-                    class="badge badge-pill badge-primary-tx badge-primary w-15"
-                    ><p class="badge-tx">{{ selectCategory(category.id) }}</p></span
-                  >
+                  <p class="badge badge-pill badge-primary-tx badge-primary " style="padding: 0 4px!important; border-radius: 20px!important;font-size: 14px!important; line-height: 1!important">
+                  <span class="badge-tx" style="margin: 4px 12px !important; font-size: 14px!important; line-height: 1!important">{{ selectCategory(category.id) }}</span>
+                    </p>
                 </div>
               </div>
             </div>

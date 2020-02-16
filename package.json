@@ -33,6 +33,7 @@
     "vue-infinite-scroll": "^2.0.2",
     "vue-loading-overlay": "^3.2.0",
     "vue-notification": "^1.3.20",
+    "vue-onload": "^0.3.0",
     "vue-owl-carousel": "^2.0.3",
     "vue-owl-carousel2": "^2.0.7",
     "vue-paystack": "^2.0.2",

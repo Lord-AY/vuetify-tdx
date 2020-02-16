@@ -19,9 +19,9 @@
           <div class="card">
             <div class="item7-card-img">
               <router-link
-                :to="
-                  `/ProductDetails/${comment.products.id}/${comment.products.cid}/${comment.products.uid}`"
-              ></router-link>
+                  :to="{ path: '/productDetails', query: { id: comment.products.id, cid: comment.products.cid, uid:comment.products.uid }}"
+                  >
+              </router-link>
               <img
                 :src="comment.products.photos[0]"
                 alt="img"
@@ -42,10 +42,9 @@
                 </div>
               </div>
               <router-link
-                class="text-dark"
-                :to="
-                  `/ProductDetails/${comment.products.id}/${comment.products.cid}/${comment.products.uid}`"
-              >
+                  class="text-dark"
+                  :to="{ path: '/productDetails', query: { id: comment.products.id, cid: comment.products.cid, uid:comment.products.uid }}"
+                  >
                 <h4 class="font-weight-semibold">
                   {{ comment.products.name }}
                 </h4>

@@ -1,7 +1,7 @@
 import router from '../../router';
 <template>
   <!--Section-->
-  <section class="sptb bg-white">
+  <section class="sptb bg-white2" style="background-color: #f6f6f6;">
     <div class="container">
       <div class="section-title center-block text-center mobile-hidden">
         <h2 style="display: inline-block; margin-left: 92px">Latest Ads</h2>
@@ -33,7 +33,7 @@ import router from '../../router';
         <div v-if="ads">
       <slick ref="slick" :options="slickOptions">     
         <div class=""  v-for="product in ads" :key="product.id">
-          <div class=" mb-0">
+          <div class="card mb-0">
             <div class="item-card2-img">
             <!--   <router-link
                 :to="`/ProductDetails/${product.id}/${product.cid}`"
@@ -53,9 +53,9 @@ import router from '../../router';
               <div class="item-card2">
                 <div class="item-card2-text">
                   <router-link
-                    :to="`productDetails/${product.id}/${product.cid}/${product.uid}`"
+                    :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                     class="text-dark"
-                  >
+                    >
                     <h4 class="product-title-tx">
                       {{ product.name }}
                     </h4></router-link
@@ -66,7 +66,7 @@ import router from '../../router';
                     {{ product.region }}
                   </p>
                   <h5 class="font-weight-bold mb-2 price-tx">
-                    &#8358;{{ product.amount }}
+                    &#8358;{{ formatCurrency(product.amount) }}
                   </h5>
                 </div>
               </div>
@@ -116,6 +116,7 @@ import router from '../../router';
 <script>
 // require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
 /* eslint-disable no-undef */
+const formatCurrency = require('format-currency');
 import Slick from 'vue-slick';
 import ProductLoader from "@/components/loaders/Productloader";
 import moment from "moment";
@@ -152,6 +153,9 @@ export default {
     Slick
   },
   methods: {
+    formatCurrency(data){
+      return formatCurrency(data)
+    },
     showLoader(data) {
       if (ash.isEmpty(data) || data == undefined || data == null) {
         return true;
@@ -223,5 +227,8 @@ export default {
     left: 0;
     color: black;
 }
-
+.bg-white {
+    background: #E8E8E6 !important;
+    color: #232323;
+}
 </style>

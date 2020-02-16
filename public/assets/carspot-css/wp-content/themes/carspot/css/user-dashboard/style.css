@@ -1,75 +1,3 @@
-/*	
-*	############################################################################################
-*	
-*	CarSpot - Car Dealer WordPress Theme
-*	---------------------------------------------------------------------
-*
-*	Author: 	ScriptsBundle
-*	Website: 	https://www.scriptsbundle.com/
-*	Copyright: 	Copyright 2019 ScriptsBundle
-*	
-*	############################################################################################
-*/
-/********************
- * GENERAL STYLES
- ********************/
- html {
-	position: relative;
-	min-height: 100%;
-}
-body {
-	/*background-color: #F3F5F8;*/
-	/*font-family: "Source Sans Pro", sans-serif;*/
-	font-family: "Poppins",sans-serif;
-	font-size: 14px;
-	color: #8D99A8;
-}
-a {
-	color: #3287B2;
-}
-a:hover, a:focus {
-	color: #3b98c8;
-	text-decoration: none;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    font-family: "Poppins",sans-serif;
-    font-weight: normal;
-    margin: 0;
-    background: 0;
-    line-height: 1.6em
-}
-h1 {
-    font-size: 36px
-}
-h2 {
-    font-size: 24px
-}
-h3 {
-    font-size: 20px
-}
-h4 {
-    font-size: 16px
-}
-h5 {
-    font-size: 14px;
-    line-height: 1.6
-}
-h6 {
-    font-size: 12px
-}
-p {
-    line-height: 1.6em;
-    font-size: 16px
-}
-th {
-	font-weight: 600;
-}
 .no-padding {
     padding: 0 !important;
 }
@@ -738,11 +666,11 @@ ul.notifications .mail-contnet .mail-desc {
 .sidebar .nav > li > a:hover i, .sidebar .nav > li > a:focus i, .sidebar .nav > li > a.active i {
 	color: #fff;
 }
-.sidebar .nav > li > a:focus, .sidebar .nav > li > a.active, .router-link-exact-active.router-link-active {
+/*.sidebar .nav > li > a:focus, .sidebar .nav > li > a.active, .router-link-exact-active.router-link-active {
 	background-color: #252c35;
 	border-left-color: #79d07c !important;
 }
-.sidebar .nav > li > a[data-toggle="collapse"] .icon-submenu {
+*/.sidebar .nav > li > a[data-toggle="collapse"] .icon-submenu {
 	display: inline-block;
 	vertical-align: middle;
 	 *vertical-align: auto;
@@ -774,7 +702,7 @@ ul.notifications .mail-contnet .mail-desc {
 	-webkit-transform: rotate(0deg);
 	transform: rotate(0deg);
 }
-.sidebar .nav > li > a .badge {
+/*.sidebar .nav > li > a .badge {
 	font-weight: 400;
 	background-color: #4CAF50;
 	min-width: 25px;
@@ -783,8 +711,7 @@ ul.notifications .mail-contnet .mail-desc {
 	line-height:normal;
 	border-radius:20px;
 }
-.sidebar .nav {
-/* submenu */ }
+*/
 .sidebar .nav i {
 	margin-right: 10px;
 	font-size: 18px;
@@ -838,141 +765,7 @@ ul.list-justify > li {
 ul.list-justify > li span {
 	float: right;
 }
-/********************
- * INPUTS
- ********************/
-.form-control {
-	background-color: #fff;
-    background-image: none;
-    border: 1px solid #eee;
-    border-radius: 0;
-    box-shadow: none;
-    color: #555;
-    font-size: 14px;
-    height: auto;
-    padding: 15px;
-    transition: all .2s cubic-bezier(0, 0, 0.58, 1) 0s;
-}
-.form-control:focus {
-	box-shadow: none;
-	border-color: #ccc;
-}
-.input-group {
-	-moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
-	-webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
-	box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
-}
-.input-group .form-control, .input-group-addon, .input-group-btn {
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
-.input-group-addon {
-	border: 1px solid #eaeaea;
-}
-/* fancy checkbox and radio button */
-.fancy-checkbox {
-	display: block;
-	font-weight: normal;
-}
-.fancy-checkbox input[type="checkbox"] {
-	display: none;
-}
-.fancy-checkbox input[type="checkbox"] + span {
-	display: inline-block;
-	vertical-align: middle;
- *vertical-align: auto;
- *zoom: 1;
- *display: inline;
-	cursor: pointer;
-	position: relative;
-	font-size: 13px;
-}
-.fancy-checkbox input[type="checkbox"] + span:before {
-	display: inline-block;
-	vertical-align: middle;
- *vertical-align: auto;
- *zoom: 1;
- *display: inline;
-	position: relative;
-	bottom: 1px;
-	width: 18px;
-	height: 18px;
-	margin-right: 5px;
-	content: "";
-	border: 1px solid #ccc;
-}
-.fancy-checkbox input[type="checkbox"]:checked + span:before {
-	font-family: FontAwesome;
-	content: '\f00c';
-	font-size: 12px;
-	color: #99a1a7;
-	text-align: center;
-	line-height: 16px;
-	background: #ededed;
-	border: 1px solid #ccc;
-}
-.fancy-checkbox.custom-color-green input[type="checkbox"]:checked + span:before {
-	color: #53D76A;
-	background-color: #fff;
-}
-.fancy-checkbox.custom-bgcolor-green input[type="checkbox"]:checked + span:before {
-	color: #fff;
-	background-color: #53D76A;
-	border-color: #32cf4d;
-}
-.fancy-radio {
-	display: block;
-	font-weight: normal;
-}
-.fancy-radio input[type="radio"] {
-	display: none;
-}
-.fancy-radio input[type="radio"] + span {
-	display: block;
-	cursor: pointer;
-	position: relative;
-	font-size: 13px;
-}
-.fancy-radio input[type="radio"] + span i {
-	display: inline-block;
-	vertical-align: middle;
- *vertical-align: auto;
- *zoom: 1;
- *display: inline;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	position: relative;
-	bottom: 1px;
-	content: "";
-	border: 1px solid #ccc;
-	width: 18px;
-	height: 18px;
-	margin-right: 5px;
-}
-.fancy-radio input[type="radio"]:checked + span i:after {
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
-	display: block;
-	position: relative;
-	top: 3px;
-	left: 3px;
-	content: '';
-	width: 10px;
-	height: 10px;
-	background-color: #99a1a7;
-}
-.fancy-radio.custom-color-green input[type="radio"]:checked + span i:after {
-	background-color: #53D76A;
-}
-.fancy-radio.custom-bgcolor-green input[type="radio"]:checked + span i {
-	background-color: #53D76A;
-}
-.fancy-radio.custom-bgcolor-green input[type="radio"]:checked + span i:after {
-	background-color: #fff;
-}
+
 /********************
  * BUTTONS
  ********************/
@@ -989,16 +782,18 @@ ul.list-justify > li span {
 .btn-group-lg > .btn, .btn-lg {
 	padding: 10px 28px;
 }
-.btn-group-sm > .btn, .btn-sm {
+/*.btn-group-sm > .btn, .btn-sm {
 	padding: 5px 18px;
 }
+*/
 .btn-group-xs > .btn, .btn-xs {
 	padding: 5px 14px;
 }
-.btn-primary {
+/*.btn-primary {
 	background-color: #E52D27;
 	border-color: #00a0f0;
 }
+*/
 .btn-primary:hover, .btn-primary:focus {
 	background-color: #00a0f0;
 	border-color: #00a0f0;
@@ -2717,7 +2512,7 @@ ul.activity-timeline > li:last-child:after {
   display: inline-block;
 }
 
-.dashboard-main .contact-caption .btn-profile {
+/*.dashboard-main .contact-caption .btn-profile {
   border: 1px solid #4CAF50;
   color: #4CAF50;
   background-color: white;
@@ -2725,8 +2520,8 @@ ul.activity-timeline > li:last-child:after {
   border-radius: 8px;
   font-size: 14px;
 }
-
-.dashboard-main .contact-caption .upload-btn-wrapper input[type=file] {
+*/
+/*.dashboard-main .contact-caption .upload-btn-wrapper input[type=file] {
   font-size: 100px;
   position: absolute;
   left: 0;
@@ -2985,7 +2780,7 @@ ul.activity-timeline > li:last-child:after {
 }
 .custom-alert-warning {
 	background-color: #feebe6;
-}
+}*/
 
 .custom-alert {
 	border-radius: 3px;

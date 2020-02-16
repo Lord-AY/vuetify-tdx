@@ -334,11 +334,16 @@
                       <!-- <div class="hot-ribbon">
                       <img src="../../assets/images/hoticonv2.png" />
                     </div> -->
-                      <router-link
+                      <!-- <router-link
                         :to="
                           `productDetails/${product.id}/${product.cid}/${product.uid}`
                         "
                       >
+ -->                      
+                      <router-link
+                            :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                      >
+
                         <img
                           :src="product.photos[0]"
                           :alt="product.name"
@@ -370,32 +375,71 @@
                     <div class="short-description-1 clearfix">
                       <div class="">
                         <div class="category-title" style="margin-bottom: 6px;">
-                          <span class="padding_cats">
-                            <router-link to="#">
-                              <i v-if="product.adtype == 0">regular</i>
-                              <i v-else-if="product.adtype == 1">urgent</i>
-                              <i v-else-if="product.adtype == 2">top ad</i>
-                              <i v-else-if="product.adtype == 3">gold</i>
-                              <i v-else-if="product.adtype == 4">Premium</i>
-                              <i v-else-if="product.adtype == 5">Hot seller</i>
-                              <i v-else>Regular</i>
-                            </router-link>
+                          <span
+                            v-if="product.adtype == 0"
+                            class="padding_cats"
+                            style="background-color: #eee; "
+                          >
+                            <!-- <router-link to="#"> -->
+                            <i style="color: #232323!important;">Regular</i>
+
+                            <!-- </router-link> -->
                           </span>
                           <span
+                            v-else-if="product.adtype == 1"
+                            class="padding_cats"
+                            style="background-color: #b9b9b9;"
+                          >
+                            <i>urgent</i>
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 2"
+                            class="padding_cats"
+                            style="background-color: #6b6b6b;"
+                          >
+                            <i>top ad</i>
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 3"
+                            class="padding_cats"
+                            style="background-color: #F0AC4E;"
+                          >
+                            <i>gold</i>
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 4"
+                            class="padding_cats"
+                            style="background-color: #26C781;"
+                          >
+                            <i>Premium</i>
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 5"
+                            class="padding_cats"
+                            style="background-color: #4caf50;"
+                          >
+                            <i>Hot seller</i>
+                          </span>
+                          <span
+                            v-else
+                            class="padding_cats"
+                            style="background-color: #eee;"
+                          >
+                            <i style="color: #232323!important;">Regular</i>
+                          </span>
+                          <!-- <span
                             class="padding_cats ml-3"
                             v-if="product.category"
                           >
                             <i>{{ product.category }}</i>
-                          </span>
+                          </span> -->
                         </div>
                         <!-- <i class="fa fa-heart-o"></i> -->
                       </div>
                       <h3 class="product-name-tx">
-                        <router-link
-                          :to="
-                            `productDetails/${product.id}/${product.cid}/${product.uid}`
-                          "
-                        >
+                      <router-link
+                            :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                      >
                           {{ product.name }}
                         </router-link>
                       </h3>
@@ -431,10 +475,9 @@
                       <div class="button-reveal mobile-hidden">
                         <router-link
                           class="btn btn-block button-reveal-btn"
-                          :to="
-                            `productDetails/${product.id}/${product.cid}/${product.uid}`
-                          "
-                          >Contact Seller</router-link
+                            :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
+                          >
+                          Contact Seller</router-link
                         >
                       </div>
                       <div class="button-griddy hidden-desktop">
@@ -512,18 +555,65 @@
                   <div class="short-description-1 clearfix">
                     <div class="">
                       <div class="category-title" style="margin-bottom: 6px;">
-                        <span class="padding_cats">
-                          <router-link to="#">
-                            <i v-if="product.adtype == 0">regular</i>
-                            <i v-else-if="product.adtype == 1">urgent</i>
-                            <i v-else-if="product.adtype == 2">top ad</i>
-                            <i v-else-if="product.adtype == 3">gold</i>
-                            <i v-else-if="product.adtype == 4">Premium</i>
-                            <i v-else-if="product.adtype == 5">Hot seller</i>
-                            <i v-else>Regular</i>
-                          </router-link>
-                        </span>
-                      </div>
+                          <span
+                            v-if="product.adtype == 0"
+                            class="padding_cats"
+                            style="background-color: #eee; "
+                          >
+                            <!-- <router-link to="#"> -->
+                            <i style="color: #232323!important;">Regular</i>
+
+                            <!-- </router-link> -->
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 1"
+                            class="padding_cats"
+                            style="background-color: #b9b9b9;"
+                          >
+                            <i>urgent</i>
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 2"
+                            class="padding_cats"
+                            style="background-color: #6b6b6b;"
+                          >
+                            <i>top ad</i>
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 3"
+                            class="padding_cats"
+                            style="background-color: #F0AC4E;"
+                          >
+                            <i>gold</i>
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 4"
+                            class="padding_cats"
+                            style="background-color: #26C781;"
+                          >
+                            <i>Premium</i>
+                          </span>
+                          <span
+                            v-else-if="product.adtype == 5"
+                            class="padding_cats"
+                            style="background-color: #4caf50;"
+                          >
+                            <i>Hot seller</i>
+                          </span>
+                          <span
+                            v-else
+                            class="padding_cats"
+                            style="background-color: #eee;"
+                          >
+                            <i style="color: #232323!important;">Regular</i>
+                          </span>
+                          <!-- <span
+                            class="padding_cats ml-3"
+                            v-if="product.category"
+                          >
+                            <i>{{ product.category }}</i>
+                          </span> -->
+                        </div>
                       <!-- <i class="fa fa-heart-o"></i> -->
                     </div>
                     <h3 class="product-name-tx">
@@ -647,7 +737,7 @@ export default {
       required: true
     },
     baseLimit: {
-      type: [Number],
+      type: [Number]
     },
     list: [Array, Object]
   },
@@ -732,20 +822,21 @@ export default {
     },
     list: {
       handler: function(list) {
-        if(list.length !== 0) {
+        if (list.length !== 0) {
           this.limit = 10;
         }
       }
     },
     baseLimit: {
       handler: function(limit) {
-        if(limit !== 0) {
+        if (limit !== 0) {
           this.limit = 10;
         }
       }
     }
   },
   created() {
+    window.scrollTo(0,0);
     this.paginateData();
     // console.log(this.products);
   }
@@ -825,6 +916,10 @@ button {
   bottom: 0;
   position: absolute;
   right: 0 !important;
+}
+#show-more-details {
+  display: flex;
+  justify-content: center;
 }
 .price-tagg {
   display: flex;
@@ -914,6 +1009,7 @@ button {
   display: none;
   border-radius: 50% !important;
   opacity: 0.4;
+  
 }
 
 .icon-reveal-btn:hover {
@@ -940,7 +1036,6 @@ button {
 }
 
 .padding_cats {
-  background-color: #4caf50;
   padding: 2px 8px;
   border-radius: 24px;
   color: #fff !important;

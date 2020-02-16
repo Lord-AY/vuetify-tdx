@@ -1,5 +1,5 @@
 <template>
-  <div class="row" style="margin-bottom: 24px; margin-top: -13px;">
+  <div class="row" style="margin-bottom: 24px!important; margin-top: -13px; border-bottom: 2px solid #ededed">
     <div class="short-features">
       <div class="grid-style-2">
         <div class="heading-panel">
@@ -47,10 +47,11 @@
                   <div class="category-title-tx">
                     <p>Join Hot Sellers</p>
                   </div>
-
-                  <div class="follow">
-                    <p class="btn">Join</p>
-                  </div>
+                  <router-link to="/postad">
+                    <div class="follow">
+                      <p class="cusbutton">Join</p>
+                    </div>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -65,8 +66,8 @@
                     :key="index"
                   >
                     <div
-                      class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-sellers-tx"
-                      id="holder-1554"
+                      class="col-sellers-tx"
+                      id=""
                     >
                       <div class="category-grid-box-1 category-grid-box-tx">
                         <div class="hot-ribbon">
@@ -94,6 +95,7 @@
                             <div
                               class="new-hot-sellers"
                               v-if="getdiff(sellers.createdAt) < 4"
+                              style="left: 72px!important"
                             >
                               new
                             </div>
@@ -115,7 +117,7 @@
                             class="follow"
                             v-show="checkFollowing(sellers.id)"
                           >
-                            <p class="btn" @click="UnfollowSeller(sellers.id)">
+                            <p class="cusbutton" @click.prevent="UnfollowSellerClick(sellers.id)">
                               <i class="fa fa-user-plus"></i> Unfollow
                             </p>
                           </div>
@@ -123,7 +125,7 @@
                             class="follow"
                             v-show="!checkFollowing(sellers.id)"
                           >
-                            <p class="btn" @click="followSeller(sellers.id)">
+                            <p class="cusbutton" @click.prevent="followSellerClick(sellers.id)">
                               <i class="fa fa-user-plus"></i> Follow
                             </p>
                           </div>
@@ -153,35 +155,24 @@ export default {
   data() {
     return {
       slickOptions: {
-        //options can be used from the plugin documentation
-        slidesToShow: 4,
-        Padding: "16px",
-        infinite: true,
-        accessibility: true,
-        adaptiveHeight: false,
-        arrows: true,
-        dots: false,
-        draggable: true,
-        edgeFriction: 0.3,
-        swipe: true,
-        autoplay: true
-        // responsive: [
-        //   {
-        //     breakpoint: 1024,
-        //     settings: {
-        //       slidesToShow: 3,
-        //       slidesToScroll: 3,
-        //     }
-        //   },
-        //   {
-        //     breakpoint: 1024,
-        //     settings: {
-        //       slidesToShow: 3,
-        //       slidesToScroll: 3,
-        //     }
-        //   },
-        // ]
-      }
+          //options can be used from the plugin documentation
+          slidesToShow: 4,
+          infinite: true,
+          accessibility: true,
+          adaptiveHeight: false,
+          arrows: false,
+          dots: false,
+          draggable: true,
+          edgeFriction: 0.30,
+          swipe: true,
+          cssEase: "ease",
+          autoplay: true,
+          // nextArrow: '<i class="fa fa-arrow-right nextArrowBtn"></i>',
+          // prevArrow: '<i class="fa fa-arrow-left prevArrowBtn"></i>'
+      },
+      exists: null,
+      followingClone:[],
+      toStringvar: ''
     };
   },
   props: {
@@ -192,30 +183,33 @@ export default {
     Slick
   },
   computed: {
-    ...mapGetters("auth", ["getFollowing"])
+    ...mapGetters("auth", ["getFollowing"]),
   },
   methods: {
     ...mapActions("user", ["followSeller"]),
-    sync: function() {},
     checkFollowing(sellerid) {
-      for (let i in this.getFollowing) {
-        if (this.getfollowing[i] == sellerid) {
-          return true;
-        } else {
-          return false;
-        }
+      var exists = (this.followingClone.indexOf(sellerid) > -1); //true
+      if(exists){
+        return true;
+      }else{
+        return false;
       }
     },
-    followSeller(sellerid) {
-      let newFollower = this.getfollowing.push(sellerid);
-      this.followSeller(newFollower);
+    sync: function() {},
+    followSellerClick(sellerid) {
+      // console.log(sellerid)
+      let newFollower = this.followingClone.push(sellerid);
+      this.toStringvar = this.followingClone.join();  
+      // console.log(this.toStringvar);
+      this.followSeller(this.toStringvar);
     },
-    UnfollowSeller(sellerid) {
-      const index = this.getfollowing.indexOf(sellerid);
+    UnfollowSellerClick(sellerid) {
+      const index = this.followingClone.indexOf(sellerid);
       if (index > -1) {
-        this.getfollowing.splice(index, 1);
+        this.followingClone.splice(index, 1);
       }
-      this.followSeller(this.getfollowing);
+      this.toStringvar = this.followingClone.join();  
+      this.followSeller(this.toStringvar);
     },
     format_date(value) {
       if (value) {
@@ -234,17 +228,35 @@ export default {
     }
   },
   watch: {
-    $route: "sync"
+    $route: "sync",
+    getFollowing: {
+      handler: function(data) {
+        for(let i in this.getFollowing){
+          this.followingClone.push(this.getFollowing[i])
+        }
+      }
+    },
   },
+  beforeUpdate() {
+      if (this.$refs.slick) {
+          this.$refs.slick.destroy();
+      }
+  },
+  updated() {
+      this.$nextTick(function () {
+          if (this.$refs.slick) {
+              this.$refs.slick.create(this.slickOptions);
+          }
+      });
+  },
+
   mounted() {
-    // var vm = this;
-    // vm.hotsellers = this.hotsellers;
-    // this.$nextTick(function(){
     this.sync();
-    // }.bind(vm));
   },
   created() {
-
+    for(let i in this.getFollowing){
+      this.followingClone.push(this.getFollowing[i])
+    }
   },
   beforeMount() {}
 };
@@ -268,7 +280,7 @@ p.btn {
   cursor: default !important;
 }
 .new-hot-sellers {
-  left: 8.5rem !important;
+  left: 72px !important;
 }
 @media (max-width: 767px) {
   .hotseller-sub {
@@ -277,4 +289,37 @@ p.btn {
     margin-top: 10px;
   }
 }
+.spaceRite {
+  margin-right: 4px;
+}
+.nextArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    right: 0;
+    color: black;
+}
+.prevArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 0;
+    color: black;
+}
+.cusbutton {
+  cursor: pointer;
+  position: relative;
+  font-size: 16px;
+}
+.cusbutton .hover {
+  display: none;
+  position: absolute;
+}
+.cusbutton:hover .hover {
+  display: block;
+}
+.cusbutton:hover .original {
+  display: none;
+}
+
 </style>

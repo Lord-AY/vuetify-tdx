@@ -111,7 +111,7 @@
 
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-require("../../public/assets/css/tdx-mega.css");
+// require("../../public/assets/css/tdx-mega.css");
 /* TDX custom Mega menu with no JS */
 // import timer from "@/components/countdownTimer";
 import { mapGetters, mapActions } from "vuex";
@@ -142,7 +142,7 @@ export default {
     },
     sync() {
       $(document).ready(function() {
-        $("#bmenu_toggle").prop("checked", false);
+        // $("#bmenu_toggle").prop("checked", false);
         // var stickyNavTop = $('.my-nav').offset().top;
         // var stickyNav = function() {
         //   var scrollTop = $(window).scrollTop();
@@ -301,7 +301,6 @@ export default {
   z-index: 1000;
   top: 94px;
   width: 100%;
-  /* border-top: 3px solid #4caf50; */
 }
 .bmenu {
   background: white;
@@ -309,7 +308,6 @@ export default {
   font-size: 14px;
   text-align: left;
   font-weight: 400;
-  /* font-family: avenir; */
 }
 .my-dashboard-nav {
   position: fixed !important;
@@ -325,25 +323,28 @@ export default {
   border-bottom: none !important;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
-@media (min-width: 768px) {
+/* @media (min-width: 1440px) {
   .container2-dashboard {
-    width: 750px;
+    width: 138.25rem !important;
   }
 }
-@media (min-width: 992px) {
-  .container2-dashboard {
-    width: 970px;
-  }
-}
+
 @media (min-width: 1200px) {
   .container2-dashboard  {
     width: 122rem !important;
   }
+} */
+
+@media (min-width: 992px) {
+  .container2-dashboard {
+    max-width: 100%!important;
+    width: 95%!important;
+  }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 768px) {
   .container2-dashboard {
-    width: 138.25rem !important;
+    width: 750px;
   }
 }
 /* .top-bar-hide {
