@@ -37,5 +37,8 @@ export default {
   },
   sellerProducts(uid) {
     return Api().get(`product/product/creator/${uid}`);
+  },
+  report(payload) {
+    return Api().post('product/reportProduct', payload);
   }
 };

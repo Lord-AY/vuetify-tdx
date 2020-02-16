@@ -191,7 +191,7 @@ const routes = [
     },
   },
   {
-    path: "/paymentitem/:payid/:type/:imageId",
+    path: "/paymentitem/:payid/",
     name: "paymentitem",
     component: () => import("../views/billerspaymentitem.vue"),
     meta: {
