@@ -69,15 +69,11 @@
                             <div class="item-card-desc item-card-desc-tx">
                               <router-link
                                 v-if="biller.mediumImageId"
-                                :to="
-                                  `paymentitem/${biller.billerid}/company/${biller.mediumImageId}`
-                                "
+                                :to="nextRoute(biller.mediumImageId,biller.billerId)"
                               ></router-link>
                               <router-link
                                 v-else
-                                :to="
-                                  `paymentitem/${biller.billerid}/default/${defaultImg}`
-                                "
+                                :to="nextRoute(defaultImg, biller.billerId)"
                               ></router-link>
                               <div class="item-card-img item-card-img-tx">
                                 <img
@@ -206,6 +202,10 @@ export default {
         }
       }
       // console.log(this.filteredBillers);
+    },
+    nextRoute(image) {
+      SET_SERVICE_IMG(image);
+      router.push(`paymentitem/${payId}`);
     }
   },
   watch: {
