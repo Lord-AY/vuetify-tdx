@@ -8,7 +8,7 @@
       role="tablist"
       aria-multiselectable="true"
     >
-      <div class="panel panel-default" id="red-titl">
+      <div class="panel panel-default setSideTab" id="red-titl">
         <div class="panel-heading red-title" id="headingMain" style="display: flex; justify-content: space-between; align-items: center; padding-right: 15px;">
           <h4 class="panel-title panel-title-side">
             <!-- <i class="more-less glyphicon glyphicon-plus"></i> -->
@@ -79,6 +79,32 @@ export default {
       }, {})
       this.categoryCount = ress;
     },
+    sync() {
+      $(window).on("load", function() {
+        var stickyNavTop = 360;
+        var stickyNav = function() {
+          var scrollTop = $(window).scrollTop();
+          // console.log(scrollTop);
+          if (scrollTop >= stickyNavTop) {
+            $(".panel-default").addClass("my-nav2");
+          } else {
+            $(".panel-default").removeClass("my-nav2");
+          }
+          if($(window).scrollTop() + $(window).height() > $(document).height() - 270) {
+            // console.log($(window).scrollTop() + $(window).height());
+            // console.log($(document).height());
+             $(".panel-default").addClass("lockSideNav");
+          }else{
+              $(".panel-default").removeClass("lockSideNav");
+          }
+        };
+
+        stickyNav();
+        $(window).scroll(function() {
+          stickyNav();
+        });
+      })
+    },
     filterSelection(category) {
       const payload = {
         type: category.id,
@@ -98,6 +124,9 @@ export default {
       this.$emit("reset");
       this.$emit("resetLimit");
     }
+  },
+  mounted() {
+    this.sync();
   },
   created(){
     this.countEachCategory();
@@ -130,5 +159,16 @@ export default {
   font-size: 14px;
   opacity: 0.5;
   font-weight: 600
+}
+.lockSideNav {
+  display: none;
+}
+.my-nav2 {
+  position: fixed;
+  top: 137px;
+}
+.setSideTab{
+    width: 266px !important;
+    left: 10%;
 }
 </style>

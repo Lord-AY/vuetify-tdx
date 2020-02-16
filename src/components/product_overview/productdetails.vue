@@ -50,19 +50,18 @@
             <!-- Single Ad -->
             <div class="singlepage-detail">
               <div id="single-slider" class="flexslider">
-                <ul class="slides">
+                <ul class="slides" v-viewer="{movable: false}">
                   <li v-for="(photo, index) in product.photos" :key="index">
                     <a :href="photos" data-fancybox="group">
                       <img :alt="product.name" :src="photo" />
                     </a>
-                    <i class="fa fa-search-plus zoom"></i>
+                    <i class="fa fa-search-plus zoom" @click="showZoom"></i>
                   </li>
                 </ul>
               </div>
               <!-- Listing Slider Thumb -->
               <div id="carousel" class="flexslider">
                 <ul class="slides small-slides">
-                  <!-- <li><img alt="2017 Maserati Ghibli SQ4 Blue" draggable="false" src="@/assets/carspot-css/wp-content/uploads/sites/28/2017/12/IMG_5006-200x112.jpg"></li> -->
                   <li v-for="(photo, index) in product.photos" :key="index">
                     <img :alt="product.name" draggable="false" :src="photo"  class="img-responsive" />
                   </li>
@@ -245,12 +244,14 @@
                 data-target=".report-quote"
                 data-Limit="modal"
                 class="small-box col-md-3 col-sm-3 col-xs-12"
+                @click.prevent="showReport(product.id,product.name)"
               >
                 <i class="fa fa-warning" style="color: red!important;"></i>
                 <span class="hidetext" style="color: red!important;"
                   >Report</span
                 >
               </div>
+              <reportModal :productname="product.name" :productid="product.id" @closeReport="closeReport" />
             </div>
             <div
               class="modal fade report-quote"
@@ -391,28 +392,31 @@
                               {{ simProduct.desciption }}
                             </p>
                             <!-- Ad Features -->
-                            <ul class="add_info">
-                              <li
-                                class="similar-ads-picture-thumbnails"
-                                v-for="(photo, index) in simProduct.photos"
-                                :key="index"
-                                :class="index == 0 ? 'active' : ''"
-                              >
-                              <router-link
-                                :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
-                              >
-                                <img :src="photo" :alt="simProduct.name"
-                                />
-                              </router-link>
-                              </li>
-                            </ul>
+
+                            <!-- <div id="carousel" class="flexslider"> -->
+                              <ul class="slides small-slides add_info">
+                                <li 
+                                  class="similar-ads-picture-thumbnails" 
+                                  v-for="(photo, index) in simProduct.photos"
+                                  :key="index"
+                                >
+                                <!-- :class="index == 0 ? 'active' : ''" -->
+                                <router-link
+                                  :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
+                                >
+                                  <img :src="photo" :alt="simProduct.name" />
+                                </router-link>
+                                </li>
+                              </ul>
+                            <!-- </div> -->
+
                             <!-- Ad History -->
                             <div class="clearfix archive-history">
                               <div style="margin-top: 8px;">
-                                Location : Area 11, Garki, Abuja, Nigeria
+                                Location : {{ simProduct.region }}
                               </div>
                               <div class="last-updated">
-                                Posted : July 21, 2017
+                                Posted : {{ daysago(format_date(simProduct.createdAt)) }}
                               </div>
                               <div class="ad-meta">
                                 <a
@@ -635,6 +639,7 @@
 // require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 const formatCurrency = require('format-currency')
 import SimilarProductLoader from "@/components/loaders/SimilarProductLoader";
+import reportModal from "@/components/modals/reportModal";
 import { mapActions, mapGetters } from "vuex";
 import ash from "lodash";
 import moment from "moment";
@@ -678,8 +683,7 @@ export default {
   },
   components: {
     SimilarProductLoader,
-    // VueImageSlider,
-    // Slick
+    reportModal
   },
   props: {
     product: Object,
@@ -833,6 +837,21 @@ export default {
         return  moment.duration(moment().diff(dateago)).humanize() + " ago";
       }
     },
+    showReport(id, name){
+      // console.log("to show report")
+      // console.log(name);
+      this.$modal.show('report-product', {
+        text: {"name":name, "id":id}
+      });
+    },
+    closeReport () {
+      this.$modal.hide('report-product');
+      this.showSuccess("Your Complain has been Submitted");
+    },
+    showZoom() {
+        const viewer = this.$el.querySelector('.slides').$viewer
+        viewer.show()
+    },
     showError(error, title) {
       this.$notify({
         group: "errors",
@@ -846,13 +865,13 @@ export default {
         position: "top right"
       });
     },
-    showSuccess() {
+    showSuccess(msgtext) {
       this.$notify({
         group: "notify",
         type: "success",
         title: "Success",
-        text: this.getSuccess,
-        position: "top right",
+        text: msgtext,
+        position: "center right",
         duration: 10000,
         speed: 500
       });
@@ -947,7 +966,7 @@ export default {
   cursor: pointer;
 }
 .zoom {
-  bottom: 59px;
+  bottom: 99px;
   left: 15px;
   color: #fff;
   font-size: 20px;

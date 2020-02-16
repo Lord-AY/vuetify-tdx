@@ -16,6 +16,10 @@ import en from 'vee-validate/dist/locale/en.json';
 import * as rules from 'vee-validate/dist/rules';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import 'viewerjs/dist/viewer.css';
+import Viewer from 'v-viewer';
+import VModal from 'vue-js-modal';
+
 
 require("firebase/firestore");
 var SocialSharing = require('vue-social-sharing');
@@ -51,6 +55,8 @@ Vue.use(Vue2Filters);
 Vue.use(ScrollLoader);
 Vue.use(underscore);
 Vue.use(infiniteScroll);
+Vue.use(Viewer)
+Vue.use(VModal)
 
 const options = {
     confirmButtonColor: '#41b882',

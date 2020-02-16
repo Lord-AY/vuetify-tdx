@@ -39,6 +39,9 @@ export default {
     return Api().get(`product/product/creator/${uid}`);
   },
   report(payload) {
-    return Api().post('product/reportProduct', payload);
+    return Api().post('product/reportproduct', payload);
+  },
+  wishlist(payload) {
+    return Api().post('product/wishlist', payload);
   }
 };
