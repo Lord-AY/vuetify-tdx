@@ -32,8 +32,10 @@ export default {
 
   getters: {
     errors(state) {
-      if (state.errors !== null && state.errors !== undefined)
+      if (state.errors !== null && state.errors !== undefined) {
         return state.errors;
+      }
+      return null;
     },
     getLoginError(state) {
       if (state.loginErrors !== null && state.loginErrors !== undefined) {
@@ -56,13 +58,13 @@ export default {
       return !!state.user;
     },
     getUser(state) {
-      if(state.user !== null && state.user !== undefined) {
-      return state.user;
+      if (state.user !== null && state.user !== undefined) {
+        return state.user;
       }
       return null;
     },
     getFollowing(state) {
-      if(state.following !== null && state.following !== undefined) {
+      if (state.following !== null && state.following !== undefined) {
         return state.following;
       }
       return null;
@@ -82,7 +84,7 @@ export default {
     registerUser({ commit, state }, payload) {
       // set inputs to state
       commit("SET_REGISTER_STATE", payload);
-       commit("SET_REGISTER_ERRORS", null);
+      commit("SET_REGISTER_ERRORS", null);
       commit("SET_LOADING", true);
       return AuthService.register({
         firstname: state.registerData.firstName,
@@ -136,11 +138,11 @@ export default {
         .then(({ data }) => {
           //   console.log(data);
           const data1 = data;
-          for(let i in data1){
+          for (let i in data1) {
             UserService.user(data[i].userId).then(({ data }) => {
               const data2 = data;
-              refree.push(Object.assign(data1[i], data2))
-            })
+              refree.push(Object.assign(data1[i], data2));
+            });
           }
           // console.log(refree);
           commit("auth/SET_LOADING", false, { root: true });
@@ -156,7 +158,7 @@ export default {
       commit("SET_LOGIN_STATE", payload);
       commit("SET_LOADING", true);
       commit("SET_ERRORS", null);
-       commit("SET_LOGIN_ERRORS", null);
+      commit("SET_LOGIN_ERRORS", null);
       return AuthService.login({
         email: state.loginData.email,
         password: state.loginData.password
@@ -195,9 +197,7 @@ export default {
             commit("SET_LOGIN_ERRORS", "Account not found, please try again");
           } else if (error.response.status == 404) {
             commit("SET_LOGIN_ERRORS", "Network error, please try again");
-          }else if (error.response.status == 400) {
-            commit("SET_LOGIN_ERRORS", error.response.data.message);
-          }else {
+          } else {
             // else account not verified or something else
             commit("SET_LOGIN_ERRORS", error.response.data.message);
           }
@@ -266,7 +266,7 @@ export default {
     SET_REFEREE(state, data) {
       state.referee = data;
     },
-    SET_ERRORS(state, data){
+    SET_ERRORS(state, data) {
       state.errors = data;
     },
     SET_REGISTER_STATE(state, { newUser }) {
@@ -282,7 +282,7 @@ export default {
       state.loginData.email = user.email;
       state.loginData.password = user.password;
     },
-    SET_RESET_SUCCESS:(state, success) => (state.loginErrors = success),
+    SET_RESET_SUCCESS: (state, success) => (state.loginErrors = success),
     SET_LOGIN_ERRORS: (state, errors) => (state.loginErrors = errors),
     SET_REGISTER_ERRORS: (state, errors) => (state.registerErrors = errors),
     SET_USER_DATA(state, loggedUser) {
@@ -308,7 +308,6 @@ export default {
     },
     SET_LOGOUT_ERRORS(state, error) {
       state.errors = error;
-    },
-
+    }
   }
 };
