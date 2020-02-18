@@ -79,14 +79,15 @@
                       class="alert alert-warning alert-dismissible"
                       role="alert"
                     >
-                   <!--    <button
-                        type="button"
-                        class="close"
-                        data-dismiss="alert"
-                        aria-label="Close"
-                        ><span aria-hidden="true">&times;</span></button
-                      > -->
                       <strong>Error!</strong> {{ errors.message || errors || getErrors }}
+                    </div>
+                  </div>
+                  <div v-if="loginErrors" class="" style="width:80%; margin: 1em auto;">
+                    <div
+                      class="alert alert-warning alert-dismissible"
+                      role="alert"
+                    >
+                      <strong>Error!</strong> {{ loginErrors }}
                     </div>
                   </div>
                   <div
@@ -253,6 +254,7 @@ export default {
     loginFields: Object,
     submit: Function,
     errors: [String, Object],
+    loginErrors: [String, Object],
     loading: Boolean
   }
 };
