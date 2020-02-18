@@ -474,7 +474,7 @@
                       </div>
                       <div class="button-reveal mobile-hidden">
                         <router-link
-                          class="btn btn-block button-reveal-btn"
+                          class="btn btn-block button-reveal-btn fixFontSize"
                             :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                           >
                           Contact Seller</router-link
@@ -482,10 +482,8 @@
                       </div>
                       <div class="button-griddy hidden-desktop">
                         <router-link
-                          class="btn btn-block btn-theme"
-                          :to="
-                            `productDetails/${product.id}/${product.cid}/${product.uid}`
-                          "
+                          class="btn btn-block btn-theme fixFontSize"
+                          :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                           >Contact Seller</router-link
                         >
                       </div>
@@ -656,7 +654,7 @@
                     </div>
                     <div class="button-reveal mobile-hidden">
                       <router-link
-                        class="btn btn-block button-reveal-btn"
+                        class="btn btn-block button-reveal-btn fixFontSize"
                         :to="
                           `productDetails/${product.id}/${product.cid}/${product.uid}`
                         "
@@ -665,7 +663,7 @@
                     </div>
                     <div class="button-griddy hidden-desktop">
                       <router-link
-                        class="btn btn-block btn-theme"
+                        class="btn btn-block btn-theme fixFontSize"
                         :to="
                           `productDetails/${product.id}/${product.cid}/${product.uid}`
                         "
@@ -842,6 +840,11 @@ export default {
   }
 };
 </script>
+<style>
+  .fixFontSize{
+    font-size: 12px;
+  }
+</style>
 <style scoped lang="scss">
 //----------  responsive breakpoints
 //------------------------------------------------------------------------------

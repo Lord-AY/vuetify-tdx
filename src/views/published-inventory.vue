@@ -150,13 +150,6 @@
       <!-- END MAIN -->
       <div class="clearfix"></div>
     </div>
-    <!-- <div class="text-center margin-top-30 margin-bottom-20">
-        <ul class="pagination pagination-lg">
-<li class="active"><a href="index.html">1</a></li>
-<li><a href="page/2/index.html">2</a></li>
-<li><a href="page/2/index.html" >Next Page &raquo;</a></li>
-</ul>
-    </div>-->
 
     <!--Sticky header logic-->
     <input type="hidden" id="header_style" value="transparent" />

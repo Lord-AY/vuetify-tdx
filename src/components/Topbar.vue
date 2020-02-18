@@ -510,7 +510,7 @@
                 <input
                   type="text"
                   class="form-control input-lg br-tr-md-0 br-br-md-0 main-search main-search-tx"
-                  id="text4"
+                  id="text5"
                   v-model="keyword"
                   @keydown.enter="sendSearch"
                   placeholder="Search products, brands and categories"
@@ -518,24 +518,22 @@
                 />
 
                 <!-- {{ getResults }} -->
-                <div id="searchResult" v-if="showResults">
-                  <!-- {{ getResults }} -->
-                  <div
+                <!-- <div
                     v-show="searchLoading"
                     class="search-result"
                     style="z-index: 2000"
                   >
-                    <div class="dropdown-header dropdown_empty">
-                      <SearchLoader v-show="searchLoading"></SearchLoader>
+ -->                <div class="dropdown-header dropdown_empty" v-show="searchLoading">
+                      <SearchLoader></SearchLoader>
                     </div>
-                  </div>
-                  <div v-if="getResults != null" class="search-result">
-                    <div
-                      v-if="getResults.length < 1"
-                      class="dropdown-header dropdown_empty"
-                    >
-                      No entry found
-                    </div>
+                <!-- </div> -->
+                <div id="searchResult" v-if="showResults">
+                  <!-- {{ getResults }} -->
+                  <div
+                    v-if="showError"
+                    class="dropdown-header dropdown_empty search-result" style="text-align:center;"
+                  >
+                    No entry found
                   </div>
                   <div class="search-result">
                     <ul class="dropdown search-dropdown">
@@ -617,7 +615,8 @@ export default {
       isOpened: false,
       gottenResults: [],
       isLoading: true,
-      userbal: ""
+      userbal: "",
+      noResult: false
     };
   },
   components: {
@@ -650,6 +649,13 @@ export default {
         cid: id
       };
       this.fetchSubCategories(payload);
+    },
+    showError(){
+      if(this.getResults.length < 1){
+        return true;
+      }else{
+        return false;
+      }
     },
     sendFetchSubCategories() {
       let categories = this.categories;
@@ -769,23 +775,28 @@ export default {
     },
     keyword: {
       handler: function(keyword) {
+        // console.log(keyword);
         let as = this;
         if (keyword.length >= 2) {
           $(document).ready(function() {
             $("#searchResult").show();
           });
-          setTimeout(function() {
-            as.searchLoading = true;
-          }, 200);
-          setTimeout(function() {
-            as.showResults = true;
-          }, 3200);
+          // setTimeout(function() {
+            this.searchLoading = true;
+          // }, 200);
+          // setTimeout(function() {
+            if(this.getResults.length > 0){
+              this.searchLoading = false;
+              this.showResults = true;
+            }
+          // }, 3200);
           this.stopLoader();
           this.getSearchResults(keyword);
         } else {
-          setTimeout(function() {
-            as.showResults = false;
-          }, 3200);
+            if(this.getResults.length > 0){
+              this.searchLoading = true;
+              this.showResults = false;
+            }
           this.stopLoader();
         }
       }
