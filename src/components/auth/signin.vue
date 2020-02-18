@@ -82,6 +82,14 @@
                       <strong>Error!</strong> {{ errors.message || errors || getErrors }}
                     </div>
                   </div>
+                  <div v-if="loginErrors" class="" style="width:80%; margin: 1em auto;">
+                    <div
+                      class="alert alert-warning alert-dismissible"
+                      role="alert"
+                    >
+                      <strong>Error!</strong> {{ loginErrors }}
+                    </div>
+                  </div>
                   <div
                     class="form-group form-group-tx row"
                     style="margin-bottom: 1.5rem!important;"
@@ -246,6 +254,7 @@ export default {
     loginFields: Object,
     submit: Function,
     errors: [String, Object],
+    loginErrors: [String, Object],
     loading: Boolean
   }
 };
