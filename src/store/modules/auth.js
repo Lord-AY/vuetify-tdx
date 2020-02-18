@@ -196,7 +196,7 @@ export default {
           } else if (error.response.status == 404) {
             commit("SET_LOGIN_ERRORS", "Network error, please try again");
           }else if (error.response.status == 400) {
-            commit("SET_LOGIN_ERRORS", error.response.data.password);
+            commit("SET_LOGIN_ERRORS", error.response.data.message);
           }else {
             // else account not verified or something else
             commit("SET_LOGIN_ERRORS", error.response.data.message);
