@@ -69,11 +69,11 @@
                             <div class="item-card-desc item-card-desc-tx">
                               <router-link
                                 v-if="biller.mediumImageId"
-                                :to="{ path: '/paymentitem', query: { id: biller.billerId, img: biller.mediumImageId, type: 'company' }}"
+                                :to="{ path: '/paymentitem', query: { id: biller.billerid, img: biller.mediumImageId, type: 'company' }}"
                               ></router-link>
                               <router-link
                                 v-else
-                                :to="{ path: '/paymentitem', query: { id: biller.billerId, img: defaultImg, type: 'default' }}"
+                                :to="{ path: '/paymentitem', query: { id: biller.billerid, img: defaultImg, type: 'default' }}"
                               ></router-link>
                               <div class="item-card-img item-card-img-tx">
                                 <img
