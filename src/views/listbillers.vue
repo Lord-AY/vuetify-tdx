@@ -115,29 +115,8 @@
                       pay for subscription and much more here on Tradexplora plus
                     </p>
                   </div>
-                  
                 </div>
-
-                
-
                 <div class="clearfix"></div>
-                <!-- <div class="text-center margin-top-30 margin-bottom-20">
-                  <ul class="pagination pagination-lg">
-                    <li class="active">
-                      <a href="index23c2.html?carspot_layout_type=1">1</a>
-                    </li>
-                    <li>
-                      <a href="page/2/index23c2.html?carspot_layout_type=1"
-                        >2</a
-                      >
-                    </li>
-                    <li>
-                      <a href="page/2/index23c2.html?carspot_layout_type=1"
-                        >Next Page &raquo;</a
-                      >
-                    </li>
-                  </ul>
-                </div> -->
               </div>
             </div>
           </div>

@@ -555,7 +555,7 @@ i.switch[disabled="disabled"] {
   color: #fff;
   border-radius: 0px;
 }
-.custom-select {
+.custom-select2 {
   height: 40px;
   margin-left: -10px;
   margin-top: 4px;
