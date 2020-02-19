@@ -4,7 +4,6 @@
       <GridListLoader class="mobile-hidden"></GridListLoader>
     </div>
     <div class="gridlist">
-      <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
       <div class="main-content-area clearfix">
         <section
           class="section-padding gray page-search"
@@ -182,7 +181,7 @@
                 style="margin: -4em 5em 0 -4em;"
               ></HotSellerLoader>
             </div>
- <!-- Row -->
+            <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
                 <gsidebar

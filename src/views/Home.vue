@@ -18,9 +18,6 @@
 </template>
 
 <script>
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
-// require("../../public/assets/css/iocustom.css");
-
 import { mapActions, mapGetters } from "vuex";
 
 // import timer from "@/components/countdownTimer";
@@ -181,19 +178,20 @@ export default {
   created() {
     this.sync();
     this.$forceUpdate();
-    // this.fetchAllCategories();
     this.fetchAllProducts();
     this.loadfunc();
   },
   beforeCreate() {
-    // console.log("this is before created");
+    
   },
   beforeMount() {
     this.isLoading = true;
      if (this.getUser !== null) {
-      this.fetchDashboardDetails();
-      this.FetchUserwalletHistory(this.getUser.id);
-      this.FetchUserwallet(this.getUser.id);
+      if(this.productListings != null){
+        this.fetchDashboardDetails();
+        this.FetchUserwalletHistory(this.getUser.id);
+        this.FetchUserwallet(this.getUser.id);
+      }
     }
   },
   mounted() {

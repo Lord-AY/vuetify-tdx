@@ -62,12 +62,6 @@
                           :src="singleProduct.photos[0]"
                         />
                         <h4>{{ singleProduct.name }}</h4>
-<!--                         <i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i> -->
-                        <!-- <span class="star-score"> (<strong>5</strong>)</span> -->
                       </td>
                       <td>
                         <img
@@ -76,12 +70,6 @@
                           :src="comparedSingleProduct.photos[0]"
                         />
                         <h4>{{ comparedSingleProduct.name }}</h4>
-<!--                         <i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-o"></i> -->
-                        <!-- <span class="star-score"> (<strong>4</strong>)</span> -->
                       </td>
                     </tr>
                   </tbody>
@@ -138,16 +126,13 @@ export default {
     ...mapActions("product", ["fetchComparedProducts", "comparedProduct","fetchSingleCategory"]),
     properties(string){
       let splicted =  ash.split(string, ",");
-      // console.log(splicted);
       return splicted;
     },
     singleCategory() {
-      // console.log("got to single category");
       this.isLoading = true;
       const payload = {
         cid: this.$route.query.cid
       };
-      // console.log(payload);
       this.fetchSingleCategory(payload);
     },
     compareProduct(){
@@ -183,9 +168,6 @@ export default {
   beforeMount() {
   },
   created() {
-    // console.log(this.singleProduct);
-    // console.log(this.comparedSingleProduct);
-    // console.log(this.$route.query.uid);
   },
   mounted: function(){
     this.pname = this.$route.query.name;

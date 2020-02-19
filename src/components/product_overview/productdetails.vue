@@ -39,12 +39,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="col-md-4 col-sm-4 detail_price col-xs-12">
-            <div class="singleprice-tag">
-               {{ product.amount |  currency }}
-              <span class="">(Negotiable)</span>
-            </div>
-          </div> -->
           <!-- Middle Content Area -->
           <div class="col-md-8 col-xs-12 col-sm-12">
             <!-- Single Ad -->
@@ -102,7 +96,6 @@
                       </div>
                     </div>
                   </li>
-                  <!-- <li class="tab-pane-tx"><a data-Limit="pill" href="#menu3">Menu 3</a></li> -->
                 </ul>
 
                 <div class="">
@@ -161,7 +154,6 @@
                           <h4 class="review-name" style="display: inline-block">
                             {{ comment.firstname }}  {{ comment.lastname}}:
                           </h4>
-                          <!-- <span class="rating-number">4</span> -->
                           <i class="fa fa-star star-rating-summary"></i>
                           <p class="review-date">{{ daysago(format_date(comment.createdAt)) }}</p>
                           <p class="review">
@@ -341,13 +333,13 @@
                             :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
                           >
                                <img
-                                      v-for="(image,
-                                      index) in simProduct.photos.slice(0, 1)"
-                                      :key="index"
-                                      :src="image"
-                                      :alt="simProduct.name"
-                                      class="img-responsive"
-                                    />
+                                  v-for="(image,
+                                  index) in simProduct.photos.slice(0, 1)"
+                                  :key="index"
+                                  :src="image"
+                                  :alt="simProduct.name"
+                                  class="img-responsive"
+                                />
                             </router-link>
                           </div>
                           <!-- Img Block -->
@@ -393,14 +385,12 @@
                             </p>
                             <!-- Ad Features -->
 
-                            <!-- <div id="carousel" class="flexslider"> -->
                               <ul class="slides small-slides add_info">
                                 <li 
                                   class="similar-ads-picture-thumbnails" 
                                   v-for="(photo, index) in simProduct.photos"
                                   :key="index"
                                 >
-                                <!-- :class="index == 0 ? 'active' : ''" -->
                                 <router-link
                                   :to="{ path: '/productDetails', query: { id: simProduct.id, cid: simProduct.cid, uid:simProduct.uid }}"
                                 >
@@ -408,7 +398,6 @@
                                 </router-link>
                                 </li>
                               </ul>
-                            <!-- </div> -->
 
                             <!-- Ad History -->
                             <div class="clearfix archive-history">
@@ -444,9 +433,6 @@
               <div class="row" style="margin-top: 36px!important;">
                 <div class="col-md-5"></div>
                 <div class="col-md-3">
-                  <!--                   <div class="viewall-similar">
-                    <a href="">Show More</a>
-                  </div> -->
                   <div class="viewall-similar" id="show-more-details" v-if="similarprods.length > 3">
                     <a @click="limit = null" v-show="limitBtn"
                       >Show More
@@ -475,7 +461,6 @@
                 <div id="singleprice-tag-tx">
                   &#x20A6; {{  formatCurrency(product.amount) }}
 
-                  <!-- <span class="">(Negotiable)</span> -->
                 </div>
               </div>
               <div class="white-bg user-contact-info">
@@ -633,10 +618,7 @@
 </template>
 <script>
 /* eslint-disable no-undef */
-// import productSlider from "@/components/product_overview/productSlider";
-// import pricingArea from "@/components/product_overview/pricingArea";
 
-// require("../../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
 const formatCurrency = require('format-currency')
 import SimilarProductLoader from "@/components/loaders/SimilarProductLoader";
 import reportModal from "@/components/modals/reportModal";
@@ -645,9 +627,6 @@ import ash from "lodash";
 import moment from "moment";
 let owl_carousel = require('owl.carousel');
 window.fn = owl_carousel;
-// import VueImageSlider from 'vue-image-slider';
-// import Slick from 'vue-slick';
-// import './../../../node_modules/slick-carousel/slick/slick.css';
 
 export default {
   name: "productDetails",
@@ -725,10 +704,9 @@ export default {
       }
     },
     followSellerClick() {
-      // console.log("to follow seller")
-      let newFollower = this.followingClone.push(this.product.seller.id);
-      this.toStringvar = this.followingClone.join();  
-      // console.log(newFollower);
+      let tempnewFollower = this.followingClone.push(this.product.seller.id);
+      let newFollower = _.uniq(followingClone, false);
+      this.toStringvar = this.followingClone.join();
       this.followSeller(this.toStringvar);
     },
     UnfollowSellerClick() {
@@ -736,7 +714,8 @@ export default {
       if (index > -1) {
         this.followingClone.splice(index, 1);
       }
-      this.toStringvar = this.followingClone.join();  
+      let newFollower = _.uniq(this.followingClone, false);
+      this.toStringvar = newFollower.join();  
       this.followSeller(this.toStringvar);
     },
     formatCurrency(data){

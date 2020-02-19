@@ -138,7 +138,7 @@ export default {
       const payload = {
         payId: this.$route.query.id
       };
-      console.log(payload);
+      // console.log(payload);
       this.paymentItem(payload);
     },
     selectPayment(payment) {
