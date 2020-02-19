@@ -21,12 +21,19 @@ export default {
     singleCategory: null,
     hotSellers: null,
     productloading: false,
-    comparedProducts: null
+    comparedProducts: [],
+    comparedResultProducts: null
   },
   getters: {
     productListings(state) {
       if (state.products !== null && state.products !== undefined) {
         return state.products;
+      }
+      return;
+    },
+    comparedSingleProduct(state) {
+      if (state.comparedResultProducts !== null && state.comparedResultProducts !== undefined) {
+        return state.comparedResultProducts;
       }
       return;
     },
@@ -266,6 +273,32 @@ export default {
           commit("SET_ERRORS", "Cant connect to server...");
         });
     },
+    comparedProduct({ commit, dispatch }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      return ProductService.product(payload)
+        .then(({ data }) => {
+          const photosArr = ash.split(data.photos, ",", 7);
+          data.photos = photosArr;
+          if(data.inputFields != null){
+            const inputFields = ash.split(data.inputFields, ",");
+            data.inputFields = inputFields;
+          }
+          if(data.checkFields != null){
+            const checkFields = ash.split(data.checkFields, ",");
+            data.checkFields = checkFields;
+          }
+          commit("auth/SET_LOADING", true, { root: true });
+          commit("SET_COMPAREDRESULT_PRODUCT", data);
+        })
+        .catch(() => {
+          commit(
+            "SET_ERRORS",
+            "Network Error, Please make sure you are connected..."
+          );
+          router.push("/gridlist");
+        });
+    },
     selectedProduct({ commit, dispatch }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
@@ -273,6 +306,15 @@ export default {
         .then(({ data }) => {
           const photosArr = ash.split(data.photos, ",", 7);
           data.photos = photosArr;
+
+          if(data.inputFields != null){
+            const inputFields = ash.split(data.inputFields, ",");
+            data.inputFields = inputFields;
+          }
+          if(data.checkFields != null){
+            const checkFields = ash.split(data.checkFields, ",");
+            data.checkFields = checkFields;
+          }
           commit("auth/SET_LOADING", true, { root: true });
           commit("SET_SINGLE_PRODUCT", data);
         })
@@ -434,7 +476,7 @@ export default {
       return ProductService.compare(payload)
         .then(({ data }) => {
           commit("SET_COMPARED_PRODUCT", data);
-          console.log(data);
+          // console.log(data);
         })
         .catch(error => {
           console.log(error);
@@ -561,6 +603,9 @@ export default {
     },
     SET_COMPARED_PRODUCT(state, data) {
       state.comparedProducts = data
+    },
+    SET_COMPAREDRESULT_PRODUCT(state, data) {
+      state.comparedResultProducts = data
     }
   }
 };

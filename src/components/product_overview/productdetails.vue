@@ -231,25 +231,15 @@
                 <i class="fa fa-heart-o active"></i>
                 <span class="hidetext"> Add to Wishlist </span>
               </a>
-              <router-link
-                :to="{ path: '/comparison', query: { id: product.id, cid: product.cid, uid:product.uid, name:product.name }}"
+              <a
                 class="small-box col-md-3 col-sm-3 col-xs-12"
                 id="ad_to_fav"
                 data-adid="1375"
+                @click.prevent="pustTocompare"
               >
                 <i class="fa fa-compress"></i>
                 <span class="hidetext"> Compare </span> 
-              </router-link>
-<!--               <a
-                class="small-box col-md-3 col-sm-3 col-xs-12"
-                href="../tempview/comparison.html"
-                id="ad_to_fav"
-                data-adid="1375"
-              >
-                <i class="fa fa-compress"></i>
-                <span class="hidetext"> Compare </span>
-              </a>
- -->              
+              </a>   
               <div
                 data-target=".report-quote"
                 data-Limit="modal"
@@ -706,6 +696,26 @@ export default {
   methods: {
     ...mapActions("chat", ["sendMessage"]),
     ...mapActions("user", ["followSeller"]),
+    ...mapActions("product", ["fetchComparedProducts"]),
+    compareProduct(){
+      let payload = {
+        cid:this.product.cid,
+        uid:this.product.uid,
+        name:this.product.name,
+      }
+      this.fetchComparedProducts(payload);
+    },
+    pustTocompare(){
+      if(this.getComparedProduct.length < 1){
+        this.$swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'There are no Product to Compare Against',
+        })
+      }else{
+        this.$router.push({ path: '/comparison', query: { id: this.product.id, cid: this.product.cid, uid:this.product.uid, name:this.product.name }})
+      }
+    },
     checkFollowing() {
       var exists = (this.followingClone.indexOf(this.product.seller.id) > -1); //true
       if(exists){
@@ -903,7 +913,8 @@ export default {
       }
     },
     ...mapGetters("chat", ["getErrors", "getSuccess"]),
-    ...mapGetters("auth", ["isLoggedIn", "getFollowing"])
+    ...mapGetters("auth", ["isLoggedIn", "getFollowing"]),
+    ...mapGetters("product", ["getComparedProduct"])
   },
   watch: {
     $route: "sync",
@@ -950,6 +961,7 @@ export default {
     }
   },
   created() {
+    // console.log(this.product);
     window.scrollTo(0,0);
     var tempfix = this.fsingleCategory;
     // array1.concat(array2)
@@ -964,6 +976,7 @@ export default {
       this.followingClone.push(this.getFollowing[i])
     }
     this.sync();
+    this.compareProduct();
   },
   mounted: function(){
     this.sync();
