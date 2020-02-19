@@ -43,5 +43,8 @@ export default {
   },
   wishlist(payload) {
     return Api().post('product/wishlist', payload);
-  }
+  },
+   compare(payload) {
+    return Api().post(`product/compare`, payload);
+  },
 };
