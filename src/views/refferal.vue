@@ -41,14 +41,7 @@
                           v-model="search_input"
                           @keyup.enter="getUserReferees()"
                         />
-<!--                         <input
-                          type="hidden"
-                          name="page-type"
-                          value="published-ads"
-                          v-model="search_input"
-                          @keyup.enter="getUserReferees()"
-                        />
- -->                  </div>
+                      </div>
                       <div class="form-group">
                         <button
                           type="submit"
@@ -81,8 +74,6 @@
                       <tr v-for="(referal, index) in filteredRow" :key="index">
                         <td>
                           {{index}}
-                          <!-- <span class="ad-image">
-                          <a href="https://carspot.scriptsbundle.com/?post_type=ad_post&amp;p=3741"><img src="https://carspot.scriptsbundle.com/wp-content/uploads/2019/12/5bc9d770704757.5bac0e19241a0-360x270.jpg" alt="na me" class="img-responsive"></a>                                     </span>-->
                         </td>
                         <td>
                           <a
@@ -214,13 +205,6 @@ export default {
 
 };
 </script>
-<style scoped>
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/style.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css';
-  @import '../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css';
-</style>
 <style>
 .dashboard-main-content {
   padding-top: 107px!important;

@@ -65,7 +65,7 @@ export default {
       commit("SET_SUCCESS_MSG", null);
       commit("SET_ERRORS", null);
       commit("SET_TRANSACTION_DETAILS", null);
-      commit("wallet/SET_PAYMENT_RESPONSE", null, {root: true});
+      commit("transactions/SET_PAYMENT_RESPONSE", null, {root: true});
       return TransactionService
         .billers()
         .then(({ data }) => {

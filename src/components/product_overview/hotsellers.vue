@@ -145,6 +145,7 @@
 
 <script>
 /* eslint-disable no-undef */
+import {_} from 'vue-underscore';
 import ash from "lodash";
 import moment from "moment";
 import Slick from "vue-slick";
@@ -198,9 +199,9 @@ export default {
     sync: function() {},
     followSellerClick(sellerid) {
       // console.log(sellerid)
-      let newFollower = this.followingClone.push(sellerid);
-      this.toStringvar = this.followingClone.join();  
-      // console.log(this.toStringvar);
+      let tempnewFollower = this.followingClone.push(sellerid);
+      let newFollower = _.uniq(followingClone, false);
+      this.toStringvar = this.followingClone.join();
       this.followSeller(this.toStringvar);
     },
     UnfollowSellerClick(sellerid) {
@@ -208,7 +209,8 @@ export default {
       if (index > -1) {
         this.followingClone.splice(index, 1);
       }
-      this.toStringvar = this.followingClone.join();  
+      let newFollower = _.uniq(this.followingClone, false);
+      this.toStringvar = newFollower.join();  
       this.followSeller(this.toStringvar);
     },
     format_date(value) {
@@ -228,14 +230,14 @@ export default {
     }
   },
   watch: {
-    $route: "sync",
-    getFollowing: {
-      handler: function(data) {
-        for(let i in this.getFollowing){
-          this.followingClone.push(this.getFollowing[i])
-        }
-      }
-    },
+    $route: "sync"
+    // getFollowing: {
+    //   handler: function(data) {
+    //     for(let i in this.getFollowing){
+    //       this.followingClone.push(this.getFollowing[i])
+    //     }
+    //   }
+    // },
   },
   beforeUpdate() {
       if (this.$refs.slick) {
@@ -257,6 +259,10 @@ export default {
     for(let i in this.getFollowing){
       this.followingClone.push(this.getFollowing[i])
     }
+    this.followingClone = this.followingClone.map(function (x) { 
+      return parseInt(x, 10); 
+    });
+    // console.log(this.followingClone);
   },
   beforeMount() {}
 };

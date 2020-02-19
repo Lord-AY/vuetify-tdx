@@ -966,14 +966,19 @@ export default {
   cursor: pointer;
 }
 .zoom {
-  bottom: 99px;
-  left: 15px;
-  color: #fff;
-  font-size: 20px;
   position: absolute;
-  padding: 6px 12px;
-  border-radius: 8px;
-  background-color: rgba(0,0,0,0.5);
+  top: 70%;
+  left: 3%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
 .breadcrumb {
   padding: 8px 15px 8px 0px !important;
@@ -1089,6 +1094,10 @@ textarea {
     position: relative;
     display: block;
     padding: 10px 15px;
+}
+.zoomicon {
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 1.5em;
 }
 </style>
 

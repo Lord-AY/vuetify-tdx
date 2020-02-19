@@ -4,7 +4,15 @@ import router from "./router";
 import store from "./store";
 import { sync } from "vuex-router-sync";
 import Notifications from "vue-notification";
-import firebase from "firebase";
+// import firebase from "firebase";
+import * as firebase from 'firebase/app';
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/functions";
+import "firebase/storage";
+import "firebase/messaging";
+import "firebase/database";
+import 'firebase/analytics';
 import Clipboard from 'v-clipboard';
 import VueChatScroll from 'vue-chat-scroll';
 import Vue2Filters from 'vue2-filters';
@@ -55,8 +63,9 @@ Vue.use(Vue2Filters);
 Vue.use(ScrollLoader);
 Vue.use(underscore);
 Vue.use(infiniteScroll);
-Vue.use(Viewer)
-Vue.use(VModal)
+Vue.use(Viewer);
+Vue.use(VModal);
+
 
 const options = {
     confirmButtonColor: '#41b882',

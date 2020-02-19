@@ -3,11 +3,6 @@
   <!-- <dheader></dheader> Is this even neccessary?-->
   <!--/Horizontal-main -->
 
-  <!-- <button class="hamburger hamburger--collapse" type="button">
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>-->
   <div>
      <div id="global-loader" v-show="isLoading">
       <DashboardLoader
@@ -34,12 +29,6 @@
                       <h3 class="panel-title">Dashboard Overview</h3>
                       <p class="panel-subtitle">Last logged in 40 mins Ago</p>
                       <!-- Sidebar Trigger Button -->
-                      <!-- <div class="hidden-desktop">
-                      <button
-                        class="btn btn-theme openbtn closed"
-                        style="color: #fff;"
-                      >&#9776; Open Sidebar</button>
-                    </div>-->
                       <!-- End Sidebar Trigger Button -->
                     </div>
                     <div class="panel-body">
@@ -175,13 +164,6 @@
                     <table
                       class="table dashboard-table table-fit table-striped"
                     >
-                      <!--<thead>
-                                <tr>
-                                    <th></th>
-                                    <th> detail</th>
-                                    <th> Views</th>
-                                </tr>
-                      </thead>-->
                         <tbody>
                           <tr>
                             <td colspan="5">
