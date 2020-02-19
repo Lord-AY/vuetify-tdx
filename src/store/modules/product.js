@@ -427,7 +427,7 @@ export default {
           console.log(error.response);
         });
     },
-    FetchcomparedProducts({ commit }, payload) {
+    fetchComparedProducts({ commit }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
       commit("SET_SUCCESS_MSG", null);
