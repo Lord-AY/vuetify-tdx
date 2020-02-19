@@ -48,7 +48,7 @@
                 </tbody>
               </table>
 
-              <div id="populate_data">
+              <div id="populate_data" v-if="getComparedProduct">
                 <table id="reviews-data">
                   <tbody>
                     <tr>
@@ -350,13 +350,29 @@
 </template>
 
 <script>
-
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "compare",
   data(){
     return{
        pname:null,
     }
+  },
+  methods: {
+    ...mapActions("product", ["fetchComparedProducts"]),
+    compareProduct(){
+      let payload = {
+        cid:this.$route.query.cid,
+        uid:this.$route.query.uid,
+        name:this.$route.query.name,
+      }
+      this.fetchComparedProducts(payload);
+    }
+  },
+  computed: {
+    ...mapGetters("product", ["getComparedProduct"])
+  },
+  beforeMount() {
   },
   created() {
     // console.log(this.$route.query.id);
@@ -365,6 +381,7 @@ export default {
   },
   mounted: function(){
     this.pname = this.$route.query.name;
+    this.compareProduct();
   }
 };
 </script>

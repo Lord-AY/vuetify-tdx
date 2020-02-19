@@ -433,7 +433,7 @@ export default {
       commit("SET_SUCCESS_MSG", null);
       return ProductService.compare(payload)
         .then(({ data }) => {
-          // commit("SET_COMPARED_PRODUCT", data);
+          commit("SET_COMPARED_PRODUCT", data);
           console.log(data);
         })
         .catch(error => {
