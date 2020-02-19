@@ -1,9 +1,9 @@
 <template>
   <div>
-<!--     <div id="global-loader">
+    <div id="global-loader" v-show="isLoading">
       <Homeloader class="mobile-hidden"></Homeloader>
     </div>
-    <div id="global-loader" v-show="isLoading">
+<!--      <div id="global-loader">
       <Homeloader class="mobile-hidden"></Homeloader>
     </div> -->
   <div id="billerpaymentitem">
@@ -112,7 +112,7 @@
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import PaymentModal from "@/components/paymentModal";
-// import Homeloader from "@/components/loaders/Homeloader";
+import Homeloader from "@/components/loaders/Homeloader";
 // import Loading from "vue-loading-overlay";
 export default {
   data() {
@@ -125,7 +125,8 @@ export default {
     };
   },
   components: {
-    PaymentModal
+    PaymentModal,
+    Homeloader
   },
   methods: {
     ...mapActions("valueAdded", [
