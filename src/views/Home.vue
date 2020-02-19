@@ -135,22 +135,11 @@ export default {
           this.fetchAllComments();
         })
         .catch(function(error) {
-          // console.log(error)
         });
     }
   },
   watch: {
     $route: "sync",
-    // loading: {
-    //   handler: function(loading) {
-    //     if (loading) {
-    //       this.isLoading = true;
-    //       // console.log(this.isLoading);
-    //     }
-    //     this.isLoading = true;
-    //     // console.log(this.isLoading);
-    //   }
-    // },
     getErrors: {
       handler: function(errors) {
         if (errors === null || errors === undefined) {
@@ -183,12 +172,8 @@ export default {
           // this.isLoading = true;
           this.createUserwallet(this.getUser.id);
           this.userWallet = this.getwalletData.walletid;
-          // console.log(this.getwalletData);
-          // console.log("wallet changed");
         } else {
           this.userWallet = this.getwalletData.walletid;
-          // this.isLoading = false;
-          // console.log(walletData);
         }
       }
     }

@@ -231,7 +231,16 @@
                 <i class="fa fa-heart-o active"></i>
                 <span class="hidetext"> Add to Wishlist </span>
               </a>
-              <a
+              <router-link
+                :to="{ path: '/comparison', query: { id: product.id, cid: product.cid, uid:product.uid, name:product.name }}"
+                class="small-box col-md-3 col-sm-3 col-xs-12"
+                id="ad_to_fav"
+                data-adid="1375"
+              >
+                <i class="fa fa-compress"></i>
+                <span class="hidetext"> Compare </span> 
+              </router-link>
+<!--               <a
                 class="small-box col-md-3 col-sm-3 col-xs-12"
                 href="../tempview/comparison.html"
                 id="ad_to_fav"
@@ -240,6 +249,7 @@
                 <i class="fa fa-compress"></i>
                 <span class="hidetext"> Compare </span>
               </a>
+ -->              
               <div
                 data-target=".report-quote"
                 data-Limit="modal"
