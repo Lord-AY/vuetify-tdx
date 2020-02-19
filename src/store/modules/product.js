@@ -2,7 +2,7 @@ import ProductService from "@/services/ProductService";
 import ash from "lodash";
 import router from "../../router";
 import UserService from "../../services/UserService";
-import {_} from 'vue-underscore';
+import { _ } from "vue-underscore";
 // import ash from 'lodash';
 export default {
   namespaced: true,
@@ -20,7 +20,8 @@ export default {
     errors: null,
     singleCategory: null,
     hotSellers: null,
-    productloading: false
+    productloading: false,
+    comparedProducts: null
   },
   getters: {
     productListings(state) {
@@ -54,14 +55,23 @@ export default {
       }
       return;
     },
+    getComparedProduct(state) {
+      if (state.comparedProducts !== null && state.comparedProducts !== undefined) {
+        return state.comparedProducts;
+      }
+      return null;
+    },
     ProductsComment(state) {
-      if (state.productComments !== null && state.productComments !== undefined) {
+      if (
+        state.productComments !== null &&
+        state.productComments !== undefined
+      ) {
         let comments = state.productComments;
         return comments;
       }
       return;
     },
-    subcategories(state){
+    subcategories(state) {
       if (state.subcategories !== null && state.subcategories !== undefined) {
         let subcat = state.subcategories;
         return subcat;
@@ -70,20 +80,24 @@ export default {
     },
     fullCategories(state) {
       const categories = state.categories;
-      if(categories !== null && categories !== undefined ) {
+      if (categories !== null && categories !== undefined) {
         return categories;
-      };
+      }
       return null;
     },
     categories(state) {
       const categories = state.categories;
       const subcategories = state.subcategories;
-      const substore = []
+      const substore = [];
       if (categories !== null && categories !== undefined) {
-        if(subcategories !== null && subcategories !== undefined && subcategories.length > 0) {
-          for(let category in categories) {
-            for( let subcat in subcategories) {
-              if(categories[category].id == subcategories[subcat].parent){
+        if (
+          subcategories !== null &&
+          subcategories !== undefined &&
+          subcategories.length > 0
+        ) {
+          for (let category in categories) {
+            for (let subcat in subcategories) {
+              if (categories[category].id == subcategories[subcat].parent) {
                 substore.push(subcategories[subcat]);
                 categories[category].subcategory = substore;
               }
@@ -190,7 +204,7 @@ export default {
             "Network Error, Please make sure you are connected..."
           );
         });
-    }, 
+    },
     fetchAllCategories({ commit }) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
@@ -201,7 +215,7 @@ export default {
           commit("SET_CATEGORIES", data);
         })
         .catch(error => {
-          // console.log(error); 
+          // console.log(error);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", "Network Error, error fetching ads categories");
         });
@@ -227,7 +241,7 @@ export default {
       commit("SET_ERRORS", null);
       return ProductService.singleCategory(payload)
         .then(({ data }) => {
-            // console.log(data);
+          // console.log(data);
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_SINGLE_CATEGORIES", data);
         })
@@ -237,19 +251,20 @@ export default {
           commit("SET_ERRORS", "Network Error, error fetching ads categories");
         });
     },
-    fetchSubCategories({commit}, payload) {
-        commit("SET_PRODUCT_LOADING", true);
-         commit("SET_ERRORS", null);
-         ProductService.subcategory(payload)
-         .then(({data}) => {
+    fetchSubCategories({ commit }, payload) {
+      commit("SET_PRODUCT_LOADING", true);
+      commit("SET_ERRORS", null);
+      ProductService.subcategory(payload)
+        .then(({ data }) => {
           commit("SET_PRODUCT_LOADING", false);
           let subcategories = data;
           // console.log(subcategories);
           commit("SET_SUBCATEGORIES", subcategories);
-         }).catch(error => {
+        })
+        .catch(error => {
           commit("SET_PRODUCT_LOADING", false);
           commit("SET_ERRORS", "Cant connect to server...");
-         });
+        });
     },
     selectedProduct({ commit, dispatch }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
@@ -259,7 +274,7 @@ export default {
           const photosArr = ash.split(data.photos, ",", 7);
           data.photos = photosArr;
           commit("auth/SET_LOADING", true, { root: true });
-          commit("SET_SINGLE_PRODUCT", data)
+          commit("SET_SINGLE_PRODUCT", data);
         })
         .catch(() => {
           commit(
@@ -275,7 +290,7 @@ export default {
       const refinedPayload = {
         cid: payload.cid,
         id: payload.id
-      }
+      };
       // console.log(refinedPayload);
       return ProductService.similar(refinedPayload)
         .then(({ data }) => {
@@ -309,17 +324,17 @@ export default {
           // console.log(error.response.data);
         });
     },
-    fetchCommentUser({commit}, payload){
+    fetchCommentUser({ commit }, payload) {
       // console.log("we eneterd");
       const payload2 = JSON.parse(JSON.stringify(payload));
       // console.log(payload2);
-      const fetchedComment = []
+      const fetchedComment = [];
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
       commit("SET_SUCCESS_MSG", null);
       return UserService.user(payload2[0].user)
         .then(({ data }) => {
-          const data2 = JSON.parse(JSON.stringify(data))
+          const data2 = JSON.parse(JSON.stringify(data));
           const joined = Object.assign(data2, payload2[0]);
           fetchedComment.push(joined);
           // console.log(joined);
@@ -331,16 +346,16 @@ export default {
           // console.log(error.response.data);
         });
     },
-    fetchCommentForProduct({ commit, dispatch }, payload){
+    fetchCommentForProduct({ commit, dispatch }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
       commit("SET_SUCCESS_MSG", null);
       ProductService.singleProductcomments(payload.id)
         .then(({ data }) => {
           commit("auth/SET_LOADING", false, { root: true });
-          if(data.length > 0){
-            dispatch("fetchCommentUser",data);
-           }
+          if (data.length > 0) {
+            dispatch("fetchCommentUser", data);
+          }
           // console.log(data);
         })
         .catch(error => {
@@ -362,53 +377,70 @@ export default {
           // console.log(error.response.data);
         });
     },
-    fetchSellerProducts({commit, rootState}) {
+    fetchSellerProducts({ commit, rootState }) {
       commit("auth/SET_LOADING", true, { root: true });
-      return ProductService.sellerProducts(rootState.auth.user.id).then(({data}) => {
-        commit("auth/SET_LOADING", false, { root: true });
-        commit("SET_SELLERS_PRODUCTS", data);
-      }).catch(error => {
-        commit("auth/SET_LOADING", false, { root: true });
-        console.log(error);
-      })
+      return ProductService.sellerProducts(rootState.auth.user.id)
+        .then(({ data }) => {
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_SELLERS_PRODUCTS", data);
+        })
+        .catch(error => {
+          commit("auth/SET_LOADING", false, { root: true });
+          console.log(error);
+        });
     },
-    fetchProductReport({commit, rootState}, payload) {
+    fetchProductReport({ commit, rootState }, payload) {
       commit("SET_ERRORS", null);
       commit("SET_SUCCESS_MSG", null);
       const refinedPayload = {
         uid: rootState.auth.user.id,
         pid: payload.pid,
-        message:payload.message
-      }
+        message: payload.message
+      };
       return ProductService.report(refinedPayload)
-      .then(({data}) => {
-        // execute your commit here to state
-        console.log(data);
-      }).catch(error => {
-        // execute set_errors commit for error msg 
-        // commit('SET_ERRORS', 'error.response.data')
-        console.log(error.response)
-      })
+        .then(({ data }) => {
+          // execute your commit here to state
+          console.log(data);
+        })
+        .catch(error => {
+          // execute set_errors commit for error msg
+          // commit('SET_ERRORS', 'error.response.data')
+          console.log(error.response);
+        });
     },
-    wishlist({commit, rootState}, payload) {
+    wishlist({ commit, rootState }, payload) {
       commit("SET_ERRORS", null);
       commit("SET_SUCCESS_MSG", null);
       const refinedPayload = {
         uid: rootState.auth.user.id,
         pid: payload.pid,
-        message:"user wish list this product"
-      }
+        message: "user wish list this product"
+      };
       return ProductService.report(refinedPayload)
-      .then(({data}) => {
-        // execute your commit here to state
-        // console.log(data);
-      }).catch(error => {
-        // execute set_errors commit for error msg 
-        // commit('SET_ERRORS', 'error.response.data')
-        console.log(error.response)
-      })
+        .then(({ data }) => {
+          // execute your commit here to state
+          // console.log(data);
+        })
+        .catch(error => {
+          // execute set_errors commit for error msg
+          // commit('SET_ERRORS', 'error.response.data')
+          console.log(error.response);
+        });
     },
-    createProduct({ commit, rootState }, payload ) {
+    FetchcomparedProducts({ commit }, payload) {
+      commit("auth/SET_LOADING", true, { root: true });
+      commit("SET_ERRORS", null);
+      commit("SET_SUCCESS_MSG", null);
+      return ProductService.compare(payload)
+        .then(({ data }) => {
+          // commit("SET_COMPARED_PRODUCT", data);
+          console.log(data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    createProduct({ commit, rootState }, payload) {
       commit("auth/SET_LOADING", true, { root: true });
       commit("SET_ERRORS", null);
       commit("SET_SUCCESS_MSG", null);
@@ -417,8 +449,16 @@ export default {
       let inputFields = payload.product.inputFields;
       let adtype = payload.product.adtype;
       // convert object to comma seperated values
-      let checkField = Object.keys(checkFields).map(function(k){return checkFields[k]}).join(",");
-      let inputField = Object.keys(inputFields).map(function(k){return inputFields[k]}).join(",");
+      let checkField = Object.keys(checkFields)
+        .map(function(k) {
+          return checkFields[k];
+        })
+        .join(",");
+      let inputField = Object.keys(inputFields)
+        .map(function(k) {
+          return inputFields[k];
+        })
+        .join(",");
 
       const product = {
         cid: payload.product.cid,
@@ -446,9 +486,9 @@ export default {
         keywords: [],
         canExchange: false
       };
-      if(payload.product.adtype > 1) {
+      if (payload.product.adtype > 1) {
         product.published = false;
-      };
+      }
       // console.log(product);
       return ProductService.createProduct(product, rootState.auth.user.token)
         .then(() => {
@@ -513,11 +553,14 @@ export default {
     SET_SELLER(state, data) {
       state.seller = data;
     },
-     SET_PRODUCT_LOADING(state, loading) {
+    SET_PRODUCT_LOADING(state, loading) {
       state.productloading = loading;
     },
     SET_SUBCATEGORIES(state, subcategories) {
       state.subcategories = subcategories;
+    },
+    SET_COMPARED_PRODUCT(state, data) {
+      state.comparedProducts = data
     }
   }
 };

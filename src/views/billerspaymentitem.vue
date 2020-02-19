@@ -39,10 +39,10 @@
                                         class="item-card-img item-card-img-tx"
                                       >
                                         <img
-                                          v-if="$route.params.type == 'company'"
+                                          v-if="$route.query.type == 'company'"
                                           :src="
                                             'https://quickteller.sandbox.interswitchng.com/Content/Images/Downloaded/' +
-                                              transform($route.params.imageId)
+                                              transform($route.query.img)
                                           "
                                           alt="img"
                                           class="br-tr-7 br-tl-7"
@@ -51,7 +51,7 @@
                                           v-else
                                           :src="
                                             'img/' +
-                                              transform($route.params.imageId)
+                                              transform($route.query.img)
                                           "
                                           alt="img"
                                           class="br-tr-7 br-tl-7"
@@ -136,8 +136,9 @@ export default {
     ...mapMutations("transactions", ["SET_PAYMENT_RESPONSE"]),
     sendPaymentItem() {
       const payload = {
-        payId: this.$route.params.payid
+        payId: this.$route.query.id
       };
+      console.log(payload);
       this.paymentItem(payload);
     },
     selectPayment(payment) {
