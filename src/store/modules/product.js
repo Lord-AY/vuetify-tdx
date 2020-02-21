@@ -167,6 +167,17 @@ const getters = {
     } else {
       return;
     }
+  },
+  productWithSeller(state) {
+    let seller = state.seller;
+    let product = state.product;
+    if (product !== null && product !== undefined) {
+      if (seller !== null && seller !== undefined) {
+        product.seller = seller;
+        return product;
+      }
+    }
+    return;
   }
 };
 const actions = {
