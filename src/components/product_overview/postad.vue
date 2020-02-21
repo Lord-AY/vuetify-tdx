@@ -33,21 +33,6 @@ vue/no-parsing-error*/
                         <!-- Ad Details -->
                         <div class="row">
                           <div class="col-md-12">
-<!--                             <div v-if="errors" class="">
-                              <div
-                                class="alert alert-danger alert-dismissible fade show"
-                              >
-                                <strong>Error!</strong>
-                                {{ errors }}
-                                <button
-                                  type="button"
-                                  class="close"
-                                  data-dismiss="alert"
-                                >
-                                  &times;
-                                </button>
-                              </div>
-                            </div> -->
                             <div v-if="dbErrors && dbErrors.adType" class="">
                               <div
                                 class="alert alert-danger alert-dismissible fade show"
@@ -697,12 +682,9 @@ vue/no-parsing-error*/
                           >Payments</span
                         >
                       </div>
-                      <!-- <div class="row">
-                  <div class="col-md-12">
-                    <div class="row"> -->
                       <div class="card-body">
                         <div class="tab-content card-body border mb-0 b-0">
-                          <div class="panel panel-payment panel-primary">
+                          <div class="panel-payment panel-primary">
                             <div
                               class=" tab-menu-heading border-0 pl-0 pr-0 pt-0"
                             >
@@ -770,25 +752,9 @@ vue/no-parsing-error*/
                                         placeholder="userWallet"
                                         disabled
                                         v-model="userWallet"
-                                        
                                       />
-                                      <!-- <span class="input-group-append">
-                                        <button class="btn btn-info" type="button"><i class="fa fa-cc-visa"></i> &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
-                                        <i class="fa fa-cc-mastercard"></i></button>
-                                      </span> -->
                                     </div>
                                   </div>
-                                  
-                                  <!-- <div class="form-group">
-                                    <label class="form-label">Wallet PIN</label>
-                                    <input
-                                      type="number"
-                                      class="form-control post-ad-input"
-                                      id="name1"
-                                      placeholder="PIN"
-                                      name="wallet_pin"
-                                    />
-                                  </div> -->
                                   <div
                                     class="col-lg-12"
                                     style="padding-left: 0px!important;"
@@ -816,16 +782,6 @@ vue/no-parsing-error*/
                                       Pay with Wallet
                                     </button>
                                   </div>
-                                  <!-- <ul class=" mb-b-4 ">
-                                    <li>
-                                      <a
-                                        href="#"
-                                        class="btn btn-primary  mb-0 mr-2"
-                                        style="padding: 8px 48px!important; font-weight: 500; font-size: 14px;"
-                                      >Pay</a
-                                      >
-                                    </li>
-                                  </ul> -->
                                 </div>
                                 <div v-if="tab2">
                                   <div @click.prevent="validateForn">
@@ -845,16 +801,6 @@ vue/no-parsing-error*/
                                     Make Payment With Paystack
                                   </paystack>
                                 </div>
-                                  <!-- <ul class=" mb-b-4 ">
-                                    <li>
-                                      <a
-                                        href="#"
-                                        class="btn btn-primary  mb-0 mr-2"
-                                        style="padding: 8px 48px!important; font-weight: 500; font-size: 14px;"
-                                      >Pay</a
-                                      >
-                                    </li>
-                                  </ul> -->
                                 </div>
                                 <div class="" v-if="tab3">
                                   <div class="cash-info">
@@ -878,16 +824,10 @@ vue/no-parsing-error*/
                           </div>
                         </div>
                       </div>
-                      <!-- </div>
-                    
-                  </div>
-                </div> -->
-                    </div>
+                      </div>
                   </div>
                 </transition>
-<!--                 <div
-                  class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 mb-5"
-                >
+                <div v-if="freeAds" class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 mb-5">
                   <div class="post-ad-submit-button">
                     <button
                       class="btn btn-primary bt-block"
@@ -896,7 +836,7 @@ vue/no-parsing-error*/
                       Post Your Ad
                     </button>
                   </div>
-                </div> -->
+                </div>
               </div>
             </form>
         </div>
@@ -1012,7 +952,8 @@ export default {
       payments: null,
       userWallet: null,
       userbal: 0,
-      checkStatus: false
+      checkStatus: false,
+      freeAds: false
     };
   },
   props: {
@@ -1300,6 +1241,10 @@ export default {
       this.ads.adtype = value;
       this.adAmount = price * 100;
       this.adAmountClone = price;
+      // console.log(value)
+      if(value == 1){
+        this.freeAds = true;
+      }
     },
     onCancel() {
       // console.log("User cancelled the loader.");

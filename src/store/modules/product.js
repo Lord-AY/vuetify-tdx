@@ -21,7 +21,8 @@ const DefaultState = () => {
     singleCategory: null,
     hotSellers: null,
     productloading: false,
-    comparedProducts: null
+    comparedProducts: [],
+    comparedResultProducts: null
   };
 };
 const state = DefaultState();
@@ -166,17 +167,6 @@ const getters = {
     } else {
       return;
     }
-  },
-  productWithSeller(state) {
-    let seller = state.seller;
-    let product = state.product;
-    if (product !== null && product !== undefined) {
-      if (seller !== null && seller !== undefined) {
-        product.seller = seller;
-        return product;
-      }
-    }
-    return;
   }
 };
 const actions = {
@@ -195,6 +185,204 @@ const actions = {
 
         commit("auth/SET_LOADING", false, { root: true });
         commit("SET_PRODUCTS", data);
+      })
+      .catch(() => {
+        commit("auth/SET_LOADING", false, { root: true });
+        commit(
+          "SET_ERRORS",
+          "Network Error, Please make sure you are connected..."
+        );
+      });
+  },
+  fetchAllCategories({ commit }) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    return ProductService.categories()
+      .then(({ data }) => {
+        //   console.log(data);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_CATEGORIES", data);
+      })
+      .catch(error => {
+        // console.log(error);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_ERRORS", "Network Error, error fetching ads categories");
+      });
+  },
+  fetchHotSellers({ commit }) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    return ProductService.hotsellers()
+      .then(({ data }) => {
+        //   console.log(data);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_HOT_SELLERS", data);
+      })
+      .catch(error => {
+        // console.log(error);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_ERRORS", "Network Error, error fetching ads categories");
+      });
+  },
+  fetchSingleCategory({ commit }, payload) {
+    // console.log(payload)
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    return ProductService.singleCategory(payload)
+      .then(({ data }) => {
+        // console.log(data);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_SINGLE_CATEGORIES", data);
+      })
+      .catch(error => {
+        // console.log(error);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_ERRORS", "Network Error, error fetching ads categories");
+      });
+  },
+  fetchSubCategories({ commit }, payload) {
+    commit("SET_PRODUCT_LOADING", true);
+    commit("SET_ERRORS", null);
+    ProductService.subcategory(payload)
+      .then(({ data }) => {
+        commit("SET_PRODUCT_LOADING", false);
+        let subcategories = data;
+        // console.log(subcategories);
+        commit("SET_SUBCATEGORIES", subcategories);
+      })
+      .catch(error => {
+        commit("SET_PRODUCT_LOADING", false);
+        commit("SET_ERRORS", "Cant connect to server...");
+      });
+  },
+  comparedProduct({ commit, dispatch }, payload) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    return ProductService.product(payload)
+      .then(({ data }) => {
+        const photosArr = ash.split(data.photos, ",", 7);
+        data.photos = photosArr;
+        if (data.inputFields != null) {
+          const inputFields = ash.split(data.inputFields, ",");
+          data.inputFields = inputFields;
+        }
+        if (data.checkFields != null) {
+          const checkFields = ash.split(data.checkFields, ",");
+          data.checkFields = checkFields;
+        }
+        commit("auth/SET_LOADING", true, { root: true });
+        commit("SET_COMPAREDRESULT_PRODUCT", data);
+      })
+      .catch(() => {
+        commit(
+          "SET_ERRORS",
+          "Network Error, Please make sure you are connected..."
+        );
+        router.push("/gridlist");
+      });
+  },
+  selectedProduct({ commit, dispatch }, payload) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    return ProductService.product(payload)
+      .then(({ data }) => {
+        const photosArr = ash.split(data.photos, ",", 7);
+        data.photos = photosArr;
+
+        if (data.inputFields != null) {
+          const inputFields = ash.split(data.inputFields, ",");
+          data.inputFields = inputFields;
+        }
+        if (data.checkFields != null) {
+          const checkFields = ash.split(data.checkFields, ",");
+          data.checkFields = checkFields;
+        }
+        commit("auth/SET_LOADING", true, { root: true });
+        commit("SET_SINGLE_PRODUCT", data);
+      })
+      .catch(() => {
+        commit(
+          "SET_ERRORS",
+          "Network Error, Please make sure you are connected..."
+        );
+        router.push("/gridlist");
+      });
+  },
+  fetchSimilarProducts({ commit, rootState, state }, payload) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    const refinedPayload = {
+      cid: payload.cid,
+      id: payload.id
+    };
+    // console.log(refinedPayload);
+    return ProductService.similar(refinedPayload)
+      .then(({ data }) => {
+        for (let product in data) {
+          // console.log(product);
+          const photosArr = ash.split(data[product].photos, ",", 7);
+          data[product].photos = photosArr;
+        }
+        // console.log(data);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_SIMILAR_PRODUCTS", data);
+      })
+      .catch(() => {
+        // console.log(error);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_ERRORS", "Network Error, Error getting similar ads.");
+      });
+  },
+  fetchAllComments({ commit }) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    commit("SET_SUCCESS_MSG", null);
+    return ProductService.comments()
+      .then(({ data }) => {
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_COMMENTS", data);
+        // console.log(data);
+      })
+      .catch(error => {
+        commit("auth/SET_LOADING", false, { root: true });
+        // console.log(error.response.data);
+      });
+  },
+  fetchCommentUser({ commit }, payload) {
+    // console.log("we eneterd");
+    const payload2 = JSON.parse(JSON.stringify(payload));
+    // console.log(payload2);
+    const fetchedComment = [];
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    commit("SET_SUCCESS_MSG", null);
+    return UserService.user(payload2[0].user)
+      .then(({ data }) => {
+        const data2 = JSON.parse(JSON.stringify(data));
+        const joined = Object.assign(data2, payload2[0]);
+        fetchedComment.push(joined);
+        // console.log(joined);
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_PRODUCT_COMMENTS", fetchedComment);
+      })
+      .catch(error => {
+        commit("auth/SET_LOADING", false, { root: true });
+        // console.log(error.response.data);
+      });
+  },
+  fetchCommentForProduct({ commit, dispatch }, payload) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    commit("SET_SUCCESS_MSG", null);
+    ProductService.singleProductcomments(payload.id)
+      .then(({ data }) => {
+        commit("auth/SET_LOADING", false, { root: true });
+        if (data.length > 0) {
+          dispatch("fetchCommentUser", data);
+        }
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_PRODUCTS", data);
+        // console.log(data);
       })
       .catch(() => {
         commit("auth/SET_LOADING", false, { root: true });
@@ -509,6 +697,142 @@ const actions = {
           commit("SET_ERRORS", error.response.data);
           // console.log(error.response.data);
         } else {
+        }
+      });
+  },
+  fetchSellerProducts({ commit, rootState }) {
+    commit("auth/SET_LOADING", true, { root: true });
+    return ProductService.sellerProducts(rootState.auth.user.id)
+      .then(({ data }) => {
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_SELLERS_PRODUCTS", data);
+      })
+      .catch(error => {
+        commit("auth/SET_LOADING", false, { root: true });
+        console.log(error);
+      });
+  },
+  fetchProductReport({ commit, rootState }, payload) {
+    commit("SET_ERRORS", null);
+    commit("SET_SUCCESS_MSG", null);
+    const refinedPayload = {
+      uid: rootState.auth.user.id,
+      pid: payload.pid,
+      message: payload.message
+    };
+    return ProductService.report(refinedPayload)
+      .then(({ data }) => {
+        // execute your commit here to state
+        console.log(data);
+      })
+      .catch(error => {
+        // execute set_errors commit for error msg
+        // commit('SET_ERRORS', 'error.response.data')
+        console.log(error.response);
+      });
+  },
+  wishlist({ commit, rootState }, payload) {
+    commit("SET_ERRORS", null);
+    commit("SET_SUCCESS_MSG", null);
+    const refinedPayload = {
+      uid: rootState.auth.user.id,
+      pid: payload.pid,
+      message: "user wish list this product"
+    };
+    return ProductService.report(refinedPayload)
+      .then(({ data }) => {
+        // execute your commit here to state
+        // console.log(data);
+      })
+      .catch(error => {
+        // execute set_errors commit for error msg
+        // commit('SET_ERRORS', 'error.response.data')
+        console.log(error.response);
+      });
+  },
+  fetchComparedProducts({ commit }, payload) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    commit("SET_SUCCESS_MSG", null);
+    return ProductService.compare(payload)
+      .then(({ data }) => {
+        commit("SET_COMPARED_PRODUCT", data);
+        // console.log(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
+  createProduct({ commit, rootState }, payload) {
+    commit("auth/SET_LOADING", true, { root: true });
+    commit("SET_ERRORS", null);
+    commit("SET_SUCCESS_MSG", null);
+    // set payload details
+    let checkFields = payload.product.checkFields;
+    let inputFields = payload.product.inputFields;
+    let adtype = payload.product.adtype;
+    // convert object to comma seperated values
+    let checkField = Object.keys(checkFields)
+      .map(function(k) {
+        return checkFields[k];
+      })
+      .join(",");
+    let inputField = Object.keys(inputFields)
+      .map(function(k) {
+        return inputFields[k];
+      })
+      .join(",");
+
+    const product = {
+      cid: payload.product.cid,
+      uid: rootState.auth.user.id,
+      name: payload.product.name,
+      photos: payload.product.photos,
+      videos: [],
+      inputFields: inputField,
+      checkFields: checkField,
+      region: payload.product.region || "Nigeria",
+      currency: "Naira",
+      creator:
+        rootState.auth.user.firstname + " " + rootState.auth.user.lastname,
+      price: null,
+      amount: payload.product.amount,
+      negotiable: payload.product.negotiable,
+      subcategory: null,
+      featured: false,
+      tradexplorer: true,
+      adtype: adtype,
+      paymentype: 1,
+      approved: true,
+      published: true,
+      description: payload.product.description,
+      keywords: [],
+      canExchange: false
+    };
+    if (payload.product.adtype > 1) {
+      product.published = false;
+    }
+    // console.log(product);
+    return ProductService.createProduct(product, rootState.auth.user.token)
+      .then(() => {
+        commit("auth/SET_LOADING", false, { root: true });
+        commit("SET_SUCCESS_MSG", "Your Ads have Successfully been created.");
+        // console.log(data);
+        // if(data.adtype > 1) {
+        //   router.push('/valueind');
+        // }
+        router.push("/gridlist");
+        // console.log(data);
+      })
+      .catch(error => {
+        if (error.response.status == 500 || error.response.status == 404) {
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", "Network Error, Error creating ads.");
+        } else if (error.response.status == 400) {
+          commit("auth/SET_LOADING", false, { root: true });
+          commit("SET_ERRORS", error.response.data);
+          // console.log(error.response.data);
+        } else {
           commit("auth/SET_LOADING", false, { root: true });
           commit("SET_ERRORS", error.response.data);
         }
@@ -563,6 +887,9 @@ const mutations = {
   },
   SET_COMPARED_PRODUCT(state, data) {
     state.comparedProducts = data;
+  },
+  SET_COMPAREDRESULT_PRODUCT(state, data) {
+    state.comparedResultProducts = data;
   }
 };
 export default {

@@ -210,8 +210,15 @@ const routes = [
     name: "comparison",
     component: () => import("../views/Comparison.vue"),
     meta: {
-      header: 3
-    }
+      header: 1
+    },
+    beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
   },
   {
     path: "/profile",

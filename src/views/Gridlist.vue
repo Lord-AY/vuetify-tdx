@@ -4,7 +4,6 @@
       <GridListLoader class="mobile-hidden"></GridListLoader>
     </div>
     <div class="gridlist">
-      <!-- <Loading :active.sync="isLoading" :is-full-page="fullPage"></Loading> -->
       <div class="main-content-area clearfix">
         <section
           class="section-padding gray page-search"
@@ -211,11 +210,6 @@
                 />
               </div>
             </div>
-
-            <!-- <component :is="currentComp" :products="productListings"></component> -->
-            <!-- <gridprops></gridprops> -->
-            <!--  <listprops
-            :data="paginatedProducts"></listprops> -->
           </div>
         </section>
       </div>
@@ -224,13 +218,6 @@
 </template>
 <script>
 require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
-// require("../../public/assets/plugins/select2/select2.min.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-// require("../../public/assets/css/imported/style4d2c.css");
-// require("../../public/assets/css/iocustom.css");
 import hotsellers from "@/components/product_overview/hotsellers";
 import HotSellerLoader from "@/components/loaders/hotsellerLoader";
 import gsidebar from "@/components/product_overview/gridSidebar";
@@ -582,7 +569,7 @@ i.switch[disabled="disabled"] {
   color: #fff;
   border-radius: 0px;
 }
-.custom-select {
+.custom-select2 {
   height: 40px;
   margin-left: -10px;
   margin-top: 4px;

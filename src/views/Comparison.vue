@@ -8,19 +8,10 @@
               <table class="selection-list">
                 <tbody>
                   <tr>
-                    <td>Select Car&#039;s You Want To Compare</td>
+                    <td>Select Product&#039;s You Want To Compare Against</td>
                     <td>
                       <div class="form-group">
-                        <select id="keyword1" class=" form-control make">
-                          <option value="671">Alfa Romeo 8C</option
-                          ><option value="669">Audi A5 Sport</option
-                          ><option value="666">2017 Toyota RAV4</option
-                          ><option value="663">renault suv 2016</option
-                          ><option value="660">2017 Honda CR-V</option
-                          ><option value="658">Mercedes-Benz C-Class</option
-                          ><option value="649">2017 Chevrolet Camaro</option
-                          ><option value="647">2016 Ford Escape Cape</option>
-                        </select>
+                        <input type="text" class="form-control make" v-model="pname" disabled="this field is not editable" />
                       </div>
                     </td>
                     <td>
@@ -29,15 +20,14 @@
                           id="keyword2"
                           name="keyword2"
                           class="form-control make"
+                          @change="setCompare($event)"
                         >
-                          <option value="671">Alfa Romeo 8C</option
-                          ><option value="669">Audi A5 Sport</option
-                          ><option value="666">2017 Toyota RAV4</option
-                          ><option value="663">renault suv 2016</option
-                          ><option value="660">2017 Honda CR-V</option
-                          ><option value="658">Mercedes-Benz C-Class</option
-                          ><option value="649">2017 Chevrolet Camaro</option
-                          ><option value="647">2016 Ford Escape Cape</option>
+                          <option value="">Select</option>
+                          <option
+                            v-for="result in getComparedProduct"
+                            :key="result.id"
+                            :value="result.id"
+                            >{{ result.name }}</option>
                         </select>
                       </div>
                     </td>
@@ -46,18 +36,21 @@
                     <td></td>
                     <td colspan="2">
                       <button
+                        :disabled="selected === ''"
                         type="button"
                         class="btn btn-block btn-theme"
                         id="comparison_button"
+                        @click.prevent="sendCompare"
                       >
-                        Comapre
+                        <span class="spinner-border" v-show="submitSpinner"></span>
+                        Compare
                       </button>
                     </td>
                   </tr>
                 </tbody>
               </table>
 
-              <div id="populate_data">
+              <div id="populate_data" v-if="comparedResult">
                 <table id="reviews-data">
                   <tbody>
                     <tr>
@@ -66,29 +59,17 @@
                         <img
                           class="img-responsive"
                           alt=""
-                          src="https://carspot.scriptsbundle.com/wp-content/uploads/2017/07/5.png"
+                          :src="singleProduct.photos[0]"
                         />
-                        <h4>Mercedes-Benz C-Class</h4>
-                        <i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i>
-                        <span class="star-score"> (<strong>5</strong>)</span>
+                        <h4>{{ singleProduct.name }}</h4>
                       </td>
                       <td>
                         <img
                           class="img-responsive"
                           alt=""
-                          src="https://carspot.scriptsbundle.com/wp-content/uploads/2017/07/6.png"
+                          :src="comparedSingleProduct.photos[0]"
                         />
-                        <h4>2017 Honda CR-V</h4>
-                        <i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-ofa fa-star"></i
-                        ><i class="fa fa-star-o"></i>
-                        <span class="star-score"> (<strong>4</strong>)</span>
+                        <h4>{{ comparedSingleProduct.name }}</h4>
                       </td>
                     </tr>
                   </tbody>
@@ -101,252 +82,21 @@
                     <div class="accordion-content" style="display: block;">
                       <table>
                         <tbody>
-                          <tr>
-                            <td>Engine Type</td>
-                            <td>211-hp, 2.0-liter I-4 (premium)</td>
-                            <td>200-hp, 2.0-liter I-4 (premium)</td>
-                          </tr>
-                          <tr>
-                            <td>Fuel Type</td>
-                            <td>Petrol</td>
-                            <td>Diesel</td>
-                          </tr>
-                          <tr>
-                            <td>Price</td>
-                            <td>$75,000</td>
-                            <td>$35,000</td>
-                          </tr>
-                          <tr>
-                            <td>Transmission</td>
-                            <td>Automatic</td>
-                            <td>Manual</td>
-                          </tr>
-                          <tr>
-                            <td>Vehicle Type</td>
-                            <td>Coupe</td>
-                            <td>SUV</td>
+                          <tr v-for="(props, index) in properties(getSingleCategory.inputFields)" :key="index">
+                            <td>{{props}}</td>
+                            <td>{{singleProduct.inputFields[index]}}  </td>
+                            <td>{{ comparedResult.inputFields[index]}} </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </li>
-                  <li id="first_accor">
-                    <h3 class="accordion-title"><a href="#">Engine</a></h3>
-                    <div class="accordion-content">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>Displacement</td>
-                            <td>998 cc</td>
-                            <td>1200 cc</td>
-                          </tr>
-                          <tr>
-                            <td>Engine size</td>
-                            <td>1.0 L</td>
-                            <td>14.0 L</td>
-                          </tr>
-                          <tr>
-                            <td>No Of Cylinders</td>
-                            <td>3</td>
-                            <td>4</td>
-                          </tr>
-                          <tr>
-                            <td>Super Charger</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-times"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Turbo Charger</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Valves Per Cylinder</td>
-                            <td>12</td>
-                            <td>16</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </li>
-                  <li id="first_accor">
-                    <h3 class="accordion-title"><a href="#">Performance</a></h3>
-                    <div class="accordion-content">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>Acceleration</td>
-                            <td>10.5 Seconds</td>
-                            <td>16.5 Seconds</td>
-                          </tr>
-                          <tr>
-                            <td>Max Output (HP)</td>
-                            <td>66 hp @ 6,000 rpm</td>
-                            <td>70 hp @ 6,000 rpm</td>
-                          </tr>
-                          <tr>
-                            <td>Max Torque (Nm)</td>
-                            <td>89 Nm @ 4,400 rpm</td>
-                            <td>70 Nm @ 4,400 rpm</td>
-                          </tr>
-                          <tr>
-                            <td>Mileage City</td>
-                            <td>11.2</td>
-                            <td>17.2</td>
-                          </tr>
-                          <tr>
-                            <td>Mileage Highway</td>
-                            <td>15.2</td>
-                            <td>13.2</td>
-                          </tr>
-                          <tr>
-                            <td>Power Train</td>
-                            <td>Front-Wheel Drive sonu</td>
-                            <td>Front-Wheel Drive</td>
-                          </tr>
-                          <tr>
-                            <td>Top Speed</td>
-                            <td>165 kmph</td>
-                            <td>195 kmph</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </li>
-                  <li id="first_accor">
-                    <h3 class="accordion-title"><a href="#">Features</a></h3>
-                    <div class="accordion-content">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>Air Conditioning System</td>
-                            <td>Manual Dial Cooler</td>
-                            <td>Manual</td>
-                          </tr>
-                          <tr>
-                            <td>Connectivity</td>
-                            <td>USB port and Aux-in</td>
-                            <td>USB port and Aux-in</td>
-                          </tr>
-                          <tr>
-                            <td>Cruise Control</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Entertainment System</td>
-                            <td>Navi-ready display audio</td>
-                            <td>Navi-ready display audio</td>
-                          </tr>
-                          <tr>
-                            <td>Front Parking Sensors</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Power Steering</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Power Windows</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Push Start Button</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Rear Parking Sensors</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Roof Rack</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Sunroof</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Warranty</td>
-                            <td>3 Years (100,000 km)</td>
-                            <td>5 Years (100,000 km)</td>
-                          </tr>
-                          <tr>
-                            <td>Wheel Metal Type</td>
-                            <td>Alloy</td>
-                            <td>Aluminum</td>
-                          </tr>
-                          <tr>
-                            <td>Wheel Size</td>
-                            <td>14 in</td>
-                            <td>16 in</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </li>
-                  <li id="first_accor">
-                    <h3 class="accordion-title">
-                      <a href="#">Safety &amp; Security</a>
+                  <li id="first_accor" v-for="(props, index) in properties(getSingleCategory.checkFields)"  :key="index">
+                    <h3 class="accordion-title" >
+                      <a href="javascript:void(0);">{{ props }}</a>
+                      <a>{{singleProduct.checkFields[index]}}</a>
+                      <a>{{ comparedResult.checkFields[index]}} </a>
                     </h3>
-                    <div class="accordion-content">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>ABS</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Driver's Airbag</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Electronic Brake Distribution</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Electronic Door Locks</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Front Passenger's Airbag</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Immobilizer</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Security Alarm</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Side Airbag</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                          <tr>
-                            <td>Stability Control</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
                   </li>
                 </ul>
               </div>
@@ -359,51 +109,70 @@
 </template>
 
 <script>
-// require("../../public/assets/skins/color-skins/color15.css");
-// require("../../public/assets/plugins/horizontal-menu/horizontal.css");
-// require("../../public/assets/carspot-css/wp-includes/css/dist/block-library/style.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/stylea1ec.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/contact-form-7/includes/css/styles58e0.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreenf43b.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/woocommerce/assets/css/woocommerce-layoutf43b.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/assets/leaflet/leaflet-search.min4d2c.css");
-// // require("../../public/assets/carspot-css/wp-content/themes/carspot/style4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/video_player4d2c.css");
-// // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bootstrap4d2c.css");
-
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bcustom.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
-// //
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/star-rating4d2c.css");
-// // require("../../public/assets/carspot-css/wp-content/themes/carspot/css/style4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/user-dashboard/jquery-confirm4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/datepicker.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/et-line-fonts4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min52c7.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/line-awesome.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/animate.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/flaticon24d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom_icons4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/select2.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/nouislider.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.carousel4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/owl.theme4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/custom4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/toastr.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/woocommerce4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/skins/minimal/minimal4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/jquery.fancybox.min4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/slider4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/carspot-menu4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/responsive-media4d2c.css");
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/colors/defualt.css");
-// require("../../public/assets/carspot-css/wp-content/plugins/add-to-any/addtoany.min9be6.css");
-
+import { mapActions, mapGetters } from "vuex";
+import ash from "lodash";
 export default {
-  name: "compare"
+  name: "compare",
+  data(){
+    return{
+       pname:null,
+       comparedResult: null,
+       selected: '',
+       isdisabled: true,
+       submitSpinner: false,
+    }
+  },
+  methods: {
+    ...mapActions("product", ["fetchComparedProducts", "comparedProduct","fetchSingleCategory"]),
+    properties(string){
+      let splicted =  ash.split(string, ",");
+      return splicted;
+    },
+    singleCategory() {
+      this.isLoading = true;
+      const payload = {
+        cid: this.$route.query.cid
+      };
+      this.fetchSingleCategory(payload);
+    },
+    compareProduct(){
+      let payload = {
+        cid:this.$route.query.cid,
+        uid:this.$route.query.uid,
+        name:this.$route.query.name,
+      }
+      this.fetchComparedProducts(payload);
+    },
+    setCompare(ev){
+      this.selected = ev.target.value;
+      this.isdisabled = false;
+      this.singleCategory();
+    },
+    sendCompare(){
+      this.submitSpinner = true;
+      const payload = {
+        id: this.selected
+      };
+      // console.log(ev.target.value)
+      this.comparedProduct(payload).then(data =>{
+        this.comparedResult = this.comparedSingleProduct;
+        this.submitSpinner = false;
+        this.selected = '';
+      });
+    }
+  },
+  computed: {
+    //getComparedProduct stands for dropdown
+    ...mapGetters("product", ["getComparedProduct", "comparedSingleProduct", "singleProduct", "getSingleCategory"])
+  },
+  beforeMount() {
+  },
+  created() {
+  },
+  mounted: function(){
+    this.pname = this.$route.query.name;
+    this.compareProduct();
+  }
 };
 </script>
 

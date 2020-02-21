@@ -18,9 +18,6 @@
 </template>
 
 <script>
-// require("../../public/assets/carspot-css/wp-content/themes/carspot/css/bstyle4d.css");
-// require("../../public/assets/css/iocustom.css");
-
 import { mapActions, mapGetters } from "vuex";
 
 // import timer from "@/components/countdownTimer";
@@ -149,22 +146,11 @@ export default {
           this.fetchAllComments();
         })
         .catch(function(error) {
-          // console.log(error)
         });
     }
   },
   watch: {
     $route: "sync",
-    // loading: {
-    //   handler: function(loading) {
-    //     if (loading) {
-    //       this.isLoading = true;
-    //       // console.log(this.isLoading);
-    //     }
-    //     this.isLoading = true;
-    //     // console.log(this.isLoading);
-    //   }
-    // },
     getErrors: {
       handler: function(errors) {
         if (errors === null || errors === undefined) {
@@ -205,12 +191,8 @@ export default {
           // this.isLoading = true;
           this.createUserwallet(this.getUser.id);
           this.userWallet = this.getwalletData.walletid;
-          // console.log(this.getwalletData);
-          // console.log("wallet changed");
         } else {
           this.userWallet = this.getwalletData.walletid;
-          // this.isLoading = false;
-          // console.log(walletData);
         }
       }
     }
@@ -218,19 +200,20 @@ export default {
   created() {
     this.sync();
     this.$forceUpdate();
-    // this.fetchAllCategories();
     this.fetchAllProducts();
     this.loadfunc();
   },
   beforeCreate() {
-    // console.log("this is before created");
+    
   },
   beforeMount() {
     this.isLoading = true;
-    if (this.getUser !== null) {
-      this.fetchDashboardDetails();
-      this.FetchUserwalletHistory(this.getUser.id);
-      this.FetchUserwallet(this.getUser.id);
+     if (this.getUser !== null) {
+      if(this.productListings != null){
+        this.fetchDashboardDetails();
+        this.FetchUserwalletHistory(this.getUser.id);
+        this.FetchUserwallet(this.getUser.id);
+      }
     }
   },
   mounted() {

@@ -147,7 +147,7 @@ export default {
       const payload = {
         payId: this.$route.query.id
       };
-      console.log(payload);
+      // console.log(payload);
       this.paymentItem(payload);
     },
     selectPayment(payment) {
@@ -160,7 +160,6 @@ export default {
       localStorage.setItem("walletDeposit", "1");
     },
     transform(image) {
-      // console.log(image);
       return image + ".png";
     }
   },
@@ -185,15 +184,15 @@ export default {
   },
   mounted() {
     // this.$forceUpdate();
-    if (localStorage.getItem('reloaded')) {
-        // The page was just reloaded. Clear the value from local storage
-        // so that it will reload the next time this page is visited.
-        localStorage.removeItem('reloaded');
-    } else {
-        // Set a flag so that we know not to reload the page twice.
-        localStorage.setItem('reloaded', '1');
-        location.reload();
-    }
+    // if (localStorage.getItem('reloaded')) {
+    //     // The page was just reloaded. Clear the value from local storage
+    //     // so that it will reload the next time this page is visited.
+    //     localStorage.removeItem('reloaded');
+    // } else {
+    //     // Set a flag so that we know not to reload the page twice.
+    //     localStorage.setItem('reloaded', '1');
+    //     location.reload();
+    // }
   },
 
 };
