@@ -182,7 +182,7 @@
                 style="margin: -4em 5em 0 -4em;"
               ></HotSellerLoader>
             </div>
- <!-- Row -->
+            <!-- Row -->
             <div class="row">
               <div class="col-md-3 col-sm-12 col-xs-12">
                 <gsidebar
@@ -236,7 +236,7 @@ import HotSellerLoader from "@/components/loaders/hotsellerLoader";
 import gsidebar from "@/components/product_overview/gridSidebar";
 import paginatedGrid from "@/components/product_overview/paginatedgrid";
 import listprops from "@/components/listPaginated";
-import Vue from 'vue';
+import Vue from "vue";
 import ptoggler from "@/components/product_overview/ptoggler";
 import { mapActions, mapGetters } from "vuex";
 import { bus } from "../main.js";
@@ -285,28 +285,42 @@ export default {
     resetLimit() {
       this.baseLimit += 1;
     },
-    showError() {
-      this.$notify({
-        group: "errors",
-        type: "error",
-        title: "Error Fetching Ads",
-        width: "100%",
-        text: this.getErrors,
-        classes: "error",
-        duration: 10000,
-        speed: 1000,
-        position: "top right"
+    showError(error, title) {
+      this.$swal.fire({
+        toast: true,
+        icon: "error",
+        width: 350,
+        padding: "1.5em",
+        background: "#fff",
+        position: "top-end",
+        title,
+        text: error,
+        showConfirmButton: false,
+        timer: 6000,
+        timerProgressBar: true,
+        onOpen: toast => {
+          toast.addEventListener("mouseenter", this.$swal.stopTimer);
+          toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+        }
       });
     },
-    showSuccess() {
-      this.$notify({
-        group: "notify",
-        type: "success",
+    showSuccess(message) {
+      this.$swal.fire({
+        toast: true,
+        icon: "success",
+        width: 350,
+        padding: "1.5em",
+        background: "#fff",
+        position: "top-end",
         title: "Success",
         text: this.getSuccess,
-        position: "top right",
-        duration: 10000,
-        speed: 1000
+        showConfirmButton: false,
+        timer: 6000,
+        timerProgressBar: true,
+        onOpen: toast => {
+          toast.addEventListener("mouseenter", this.$swal.stopTimer);
+          toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+        }
       });
     },
     chooseFilter(payload) {
@@ -471,14 +485,14 @@ export default {
         //   as.isLoading2 = false;
         // }, 1000);
       },
-    getErrors: {
-      handler: function(errors) {
-        if (errors === null || errors === undefined) {
-          return;
+      getErrors: {
+        handler: function(errors) {
+          if (errors === null || errors === undefined) {
+            return;
+          }
+          this.showError();
         }
-        this.showError();
       }
-    }
     },
     getSuccess: {
       handler: () => {
@@ -496,7 +510,7 @@ export default {
     this.fetchHotSellers();
     // this.filterByCategory(this.paginatedProducts, 1);
     this.selectedCategory = null;
-    Vue.set(this.list = []);
+    Vue.set((this.list = []));
     // console.log(this.paginatedProducts);
     // vm.$forceUpdate();
   },
@@ -538,9 +552,9 @@ i.switch[disabled="disabled"] {
   display: none !important;
 }
 .value-added-link:hover {
-  color: transparent!important;
-  text-decoration: none!important;
-} 
+  color: transparent !important;
+  text-decoration: none !important;
+}
 .value-added-tx {
   font-size: 16px !important;
   font-weight: normal !important;

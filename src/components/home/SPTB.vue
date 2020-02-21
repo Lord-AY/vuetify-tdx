@@ -26,7 +26,7 @@
 
       <!-- Testing new slickifying technique cause previous was bringing up heavy bugs -->
       <div class="center-text col-md-12 ">
-        <CategoryLoader v-show="showLoader(categories)"></CategoryLoader>
+        <ProductLoader v-show="showLoader(categories)"></ProductLoader>
       </div>
       <slick ref="slick" :options="slickOptions"  v-if="categories">
         <div class="item" v-for="category in categories" :key="category.id">
@@ -65,7 +65,7 @@
 /* eslint-disable no-undef */
 import Slick from 'vue-slick';
 import './../../../node_modules/slick-carousel/slick/slick.css';
-import CategoryLoader from "@/components/loaders/Categoryloader";
+import ProductLoader from "@/components/loaders/Productloader";
 import ash from "lodash";
 export default {
   name: "SPTB",
@@ -95,8 +95,8 @@ export default {
     ads: [Object, Array]
   },
   components: {
-    CategoryLoader,
-    Slick 
+    ProductLoader,
+    Slick
   },
   methods: {
     countEachCategory(){

@@ -1,4 +1,4 @@
-<template> 
+<template>
   <div>
     <div id="global-loader" v-show="isLoading">
       <HomeLoader class="mobile-hidden"></HomeLoader>
@@ -71,7 +71,7 @@ export default {
       "comments",
       "paginatedProducts"
     ]),
-    ...mapGetters("auth", ["loading", "errors", "getUser"]),
+    ...mapGetters("auth", ["loading", "errors", "getUser", "getMessage"]),
     ...mapGetters("transactions", ["getwalletData", "getwalletHistory"])
   },
   methods: {
@@ -87,7 +87,7 @@ export default {
       "paymentStepOne",
       "FetchUserwalletHistory"
     ]),
-    stopLoader(){
+    stopLoader() {
       // console.log("function emitted");
       this.isLoading = false;
     },
@@ -106,28 +106,42 @@ export default {
       window.location.reload();
     },
     showError(error, title) {
-      this.$notify({
-        group: "errors",
-        type: "error",
-        title,
-        width: "100%",
-        text: error,
-        classes: "error",
-        duration: 10000,
-        speed: 1000,
-        position: "top right"
-      });
+       this.$swal.fire({
+      toast: true,
+      icon: "error",
+      width: 350,
+      padding: '1.5em',
+      background: "#fff",
+      position: "top-end",
+      title,
+      text: error,
+      showConfirmButton: false,
+      timer: 6000,
+      timerProgressBar: true,
+      onOpen: toast => {
+        toast.addEventListener("mouseenter", this.$swal.stopTimer);
+        toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+      }
+    });
     },
-    showSuccess() {
-      this.$notify({
-        group: "notify",
-        type: "success",
-        title: "Success",
-        text: this.getSuccess,
-        position: "top right",
-        duration: 10000,
-        speed: 1000
-      });
+    showMessage(message) {
+       this.$swal.fire({
+      toast: true,
+      icon: "success",
+      width: 350,
+      padding: '1.5em',
+      background: "#fff",
+      position: "top-end",
+      title: 'Message',
+      text: message,
+      showConfirmButton: false,
+      timer: 6000,
+      timerProgressBar: true,
+      onOpen: toast => {
+        toast.addEventListener("mouseenter", this.$swal.stopTimer);
+        toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+      }
+    });
     },
     async loadfunc() {
       await this.fetchAllProducts()
@@ -169,6 +183,14 @@ export default {
         this.showError(errors, title);
       }
     },
+    getMessage: {
+      handler: function(message) {
+        if (message === null || message === undefined) {
+          return;
+        }
+        this.showMessage(message);
+      }
+    },
     getSuccess: {
       handler: success => {
         if (success === null || success === undefined) {
@@ -205,7 +227,7 @@ export default {
   },
   beforeMount() {
     this.isLoading = true;
-     if (this.getUser !== null) {
+    if (this.getUser !== null) {
       this.fetchDashboardDetails();
       this.FetchUserwalletHistory(this.getUser.id);
       this.FetchUserwallet(this.getUser.id);

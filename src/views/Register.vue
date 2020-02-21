@@ -63,9 +63,11 @@ export default {
     }
   },
   watch: {
-    getErrors(value) {
-      if (value !== null && value !== undefined) {
-        this.registerError = value;
+    getErrors(error) {
+      if (error !== null && error !== undefined) {
+        this.registerError = error;
+        let title = "Registration Error";
+        this.showError(error, title);
         // console.log(this.registerError);
       }
     }
@@ -108,6 +110,25 @@ export default {
     async fetchCountries() {
       const res = await axios.get("https://restcountries.eu/rest/v2/all");
       this.items = res.data;
+    },
+    showError(error, title) {
+      this.$swal.fire({
+        toast: true,
+        icon: "error",
+        width: 350,
+        padding: "1.5em",
+        background: "#fff",
+        position: "top-end",
+        title,
+        text: error,
+        showConfirmButton: false,
+        timer: 6000,
+        timerProgressBar: true,
+        onOpen: toast => {
+          toast.addEventListener("mouseenter", this.$swal.stopTimer);
+          toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+        }
+      });
     }
   }
 };
