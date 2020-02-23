@@ -29,7 +29,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('auth', ['getLoginError', 'errors']),
+    ...mapGetters("auth", ["getLoginError", "errors"]),
     loading() {
       return this.$store.getters["auth/loading"];
     }
@@ -40,13 +40,17 @@ export default {
       handler: function(error) {
         if (error !== null && error !== undefined) {
           this.dbErrors = error;
+          let title = "Login Errors";
+          this.showError(error, title);
         }
       }
     },
     getLoginError: {
-        handler: function(error) {
+      handler: function(error) {
         if (error !== null && error !== undefined) {
           this.vuexErrors = error;
+          let title = "Login Errors";
+          this.showError(error, title);
         }
       }
     }
@@ -59,9 +63,27 @@ export default {
         user: { email, password }
       };
       this.loginUser(payload);
+    },
+    showError(error, title) {
+      this.$swal.fire({
+        toast: true,
+        icon: "error",
+        width: 350,
+        padding: "1.5em",
+        background: "#fff",
+        position: "top-end",
+        title,
+        text: error,
+        showConfirmButton: false,
+        timer: 6000,
+        timerProgressBar: true,
+        onOpen: toast => {
+          toast.addEventListener("mouseenter", this.$swal.stopTimer);
+          toast.addEventListener("mouseleave", this.$swal.resumeTimer);
+        }
+      });
     }
   },
-  mounted() {
-  }
+  mounted() {}
 };
 </script>

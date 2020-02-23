@@ -166,7 +166,7 @@ export default {
     ListBillerLoader
   },
   computed: {
-    ...mapGetters("valueAdded", ["billerListings", "getBillerCategories"])
+    ...mapGetters("valueAdded", ["billerListings", "getBillerCategories", "getErrors", "getSuccess"])
   },
   methods: {
     ...mapActions("valueAdded", ["fetchAllBillers"]),
@@ -203,6 +203,14 @@ export default {
           this.isLoading = true;
         }
         this.isLoading = false;
+      }
+    },
+    getErrors: {
+      handler: function(error) {
+        if(error !== null && error !== undefined) {
+          let title = "Error !!"
+          this.showError(error, title)
+        }
       }
     }
   },

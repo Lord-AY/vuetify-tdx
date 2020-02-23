@@ -11,7 +11,7 @@ export default {
     <content-loader
         :height="896"
         :width="1520"
-        :speed="2"
+        :speed="1"
         primaryColor="#bebdbd"
         secondaryColor="#d2d3d2"
     >

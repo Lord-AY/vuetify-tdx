@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div id="global-loader" v-show="isLoading || transaction == null">
+      <Homeloader class="mobile-hidden"></Homeloader>
+    </div>
   <div id="billerpaymentitem">
     <div class="section-padding  gray page-search">
       <div class="container">
@@ -17,7 +20,7 @@
                       <div class="tab-panel active">
                         <div class="container">
                           <div class="row mt-5 mb-5">
-                            <div class="col-md-12">
+                            <div class="col-md-12" v-if="!paymentItems.errors">
                               <div
                                 class="col-md-4 mb-5"
                                 v-for="(payment,
@@ -88,6 +91,17 @@
                                 </transition>
                               </div>
                             </div>
+                            <div class="col-md-12" v-show="paymentItems.errors">
+                                <div class="card">
+                                  <div class="card-body">
+                                  <img src="assets/images/402.png" alt="" class="img-responsive m-auto">
+                                  <h3 class="m-auto text-center pt-4"> <strong> Sorry There are no transaction options for now, Thanks. </strong></h3>
+                                  <div class="text-center mt-3">
+                                  <router-link class="btn btn-success" to="listbillers"> Go Back</router-link>
+                                  </div>
+                                  </div>
+                                </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -104,9 +118,9 @@
 </div>
 </template>
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 import PaymentModal from "@/components/paymentModal";
-// import Homeloader from "@/components/loaders/Homeloader";
+import Homeloader from "@/components/loaders/Homeloader";
 // import Loading from "vue-loading-overlay";
 export default {
   data() {
@@ -119,7 +133,8 @@ export default {
     };
   },
   components: {
-    PaymentModal
+    PaymentModal,
+    Homeloader
   },
   methods: {
     ...mapActions("valueAdded", [
@@ -150,6 +165,7 @@ export default {
   },
   computed: {
     ...mapGetters("valueAdded", ["paymentItems"]),
+    ...mapState('valueAdded', ['transaction']),
     ...mapGetters("auth", ["getUser", "loading"])
   },
   watch: {
