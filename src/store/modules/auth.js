@@ -262,7 +262,7 @@ const actions = {
         commit("SET_LOGIN_ERRORS", null);
         commit("SET_REGISTER_ERRORS", null);
         commit("SET_MESSAGE", "Logging you out...");
-        // set user state with results
+        // reset all state to default after logout.
         commit('resetState');
         commit('product/resetState', {root: true});
         commit('valueAdded/resetState', {root: true});
@@ -270,6 +270,7 @@ const actions = {
         commit('chat/resetState', {root: true});
         commit('transactions/resetState', {root: true});
         commit('search/resetState', {root: true});
+        commit('cart/resetState', {root: true});
         // send user to login page
         router.push("/login");
         // window.location.href = "/#/login";

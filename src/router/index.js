@@ -114,6 +114,21 @@ const routes = [
     }
   },
   {
+    path: "/cart",
+    name: "cart",
+    component: () => import("../views/Cart.vue"),
+     beforeEnter: (to, from, next) => {
+      let auth = store.getters["auth/isLoggedIn"];
+      if (!auth) {
+        next({ name: "login" });
+      }
+      next();
+    },
+    meta: {
+      header: 1
+    }
+  },
+  {
     path: "/overview",
     name: "productoverview",
     component: () => import("../views/ProductOverview.vue"),
