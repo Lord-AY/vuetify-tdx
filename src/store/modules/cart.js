@@ -1,4 +1,5 @@
 import CartService from '@/services/CartService';
+import ash from 'lodash';
 // default state for resetting
 const DefaultState = () => {
     return {
@@ -25,25 +26,37 @@ const getters = {
         }
         return null;
     },
-     getErrors(state) {
+    getErrors(state) {
         if (state.error !== null && state.error !== undefined) {
             return state.error;
         }
         return null;
-    }
+    },
+    userCart(state) {
+        if (state.cartProducts.length > 0) {
+            return state.cartProducts;
+        }
+        return [];
+    },
 };
 // actions for taking actions, u sabi na.
 const actions = {
     addProductToCart({
-        commit
+        commit,
+        dispatch,
+        rootState
     }, payload) {
         commit('SET_LOADING', true);
+        commit('SET_MESSAGE', null);
+        commit('SET_ERROR_MSG', null);
+        payload.uid = rootState.auth.user.id;
         CartService.cartAdd(payload)
             .then(({
                 data
             }) => {
                 commit('SET_LOADING', false);
                 commit('SET_MESSAGE', "Product successfully added to your cart.");
+                dispatch('getUserCart');
                 // console.log(data);
             }).catch(error => {
                 // console.log(error);
@@ -54,12 +67,41 @@ const actions = {
                     commit('SET_ERROR_MSG', error.data.message);
                 }
             })
+    },
+    getUserCart({
+        commit,
+        rootState
+    }) {
+        console.log(rootState.auth.user.id);
+        let userId = rootState.auth.user.id;
+        commit('SET_LOADING', true);
+        commit('SET_ERROR_MSG', null);
+        CartService.getCart(userId)
+            .then(({
+                data
+            }) => {
+                commit('SET_LOADING', false);
+                console.log(data);
+                for (let product in data) {
+                    // console.log(product);
+                    const photosArr = ash.split(data[product].productsinfo.photos, ",", 7);
+                    data[product].productsinfo.photos = photosArr;
+                    // console.log(data);
+                }
+                commit('SET_USER_CART', data);
+            }).catch(error => {
+                commit('SET_LOADING', false);
+                console.log(error);
+            });
     }
 };
 // mutations for changing state.
 const mutations = {
     resetState(state) {
         Object.assign(state, DefaultState());
+    },
+    SET_USER_CART(state, cart) {
+        state.cartProducts = cart;
     },
     SET_LOADING(state, loading) {
         state.cartLoading = loading;
