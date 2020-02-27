@@ -85,10 +85,10 @@
                 <ul class="listnone custom" v-else>
                   <div class="" style="margin-top: auto; margin-right: 8px;">
                     <li>
-                      <a class="shopping_bag_btn" href="">
+                      <router-link class="shopping_bag_btn" to="/cart">
                         <i class="fa fa-shopping-cart"></i>
-                        <span>0</span>
-                      </a>
+                        <span>{{ userCart.length }}</span>
+                      </router-link>
                     </li>
                     <li>
                       <a class="shopping_bag_btn" href="">
@@ -456,12 +456,14 @@ export default {
     ...mapState("product", ["productloading"]),
     ...mapGetters("search", ["getResults"]),
     ...mapGetters("transactions", ["getwalletData", "getwalletHistory"]),
+    ...mapGetters("cart", ["userCart"]),
   },
   methods: {
     ...mapActions("product", ["fetchAllCategories", "fetchSubCategories"]),
     ...mapActions("search", ["searchAction"]),
     ...mapActions("auth", ["logoutUser"]),
     ...mapActions("transactions", ["FetchUserwalletHistory"]),
+    ...mapActions("cart", ["getUserCart"]),
     formatCurrency(data) {
       return formatCurrency(data);
     },
@@ -595,10 +597,10 @@ export default {
   },
   watch: {
     getwalletHistory: {
-      handler: function(resp){        
+      handler: function(resp) {
         this.userbal = this.formatCurrency(resp[resp.length -1].currentBal);
       }
-    },
+      },
     keyword: {
       handler: function(keyword) {
         // console.log(keyword);
@@ -651,6 +653,7 @@ export default {
   },
   created() {
     // this.sync();
+    this.getUserCart();
     this.fetchAllCategories();
     this.sendFetchSubCategories();
     this.userbalance = localStorage.getItem("walletBalance");
@@ -658,7 +661,6 @@ export default {
     document.addEventListener("click", this.documentClick);
     this.gottenResults = this.getResults;
      // $(".hide-at-start-wrapper").hide();
-    
     // console.log(this.getwalletHistory);
   },
   beforeMount() {

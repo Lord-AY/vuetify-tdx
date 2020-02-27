@@ -406,18 +406,20 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;" :disabled="cartLoader" @click="addToCart(product)" v-show="product.tradexplorer">
+                                <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;" :disabled="cartLoader" @click="addToCart(product)" v-show="product.tradexplorer && isLoggedIn">
                                     <div class="selector number" data-last="2221111999">
                                         <i class="fa fa-shopping-cart place-left mr-5" style="padding-top: 0em;"></i>
                                         Add To Cart
                                     </div>
                                 </div>
-                                <!--  <div class="" style=" font-size: 20px;" @click="addToCart(product)">
+                                <router-link to="/login">
+                                 <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;" v-show="!isLoggedIn">
                                     <div class="selector number" data-last="2221111999">
-                                        <i class="fa fa-shopping-cart place-left"></i>
-                                        Add To Cart
+                                        <i class="fa fa-shopping-cart place-left mr-5" style="padding-top: 0em;"></i>
+                                        Login To Purchase
                                     </div>
-                                </div> -->
+                                </div>
+                              </router-link>
                                 <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;" v-show="!product.tradexplorer">
                                     <div v-if="!showDetails">
                                         <div class="selector number" @click="showDetails = !showDetails" data-last="2221111999">
@@ -619,7 +621,6 @@ export default {
             const payload = {
                 cid: product.cid,
                 pid: product.id,
-                uid: product.uid,
                 quantity: 1
             };
             // console.log(payload);

@@ -34,18 +34,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr v-for="(product, index) in cartListing" :key="index">
                                             <th scope="row">
                                                 <div class="p-2">
-                                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-2_qxjis2.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                    <img v-for="(image,
+                                index) in product.productsinfo.photos.slice(0, 1)" :key="index" :src="image" alt="" width="70" class="img-fluid rounded shadow-sm">
                                                     <div class="ml-3 d-inline-block align-middle">
-                                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Gray Nike running shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
+                                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">{{ product.productsinfo.name }}</a></h5><span class="text-muted font-weight-normal font-italic">{{ product.productsinfo.category }}</span>
                                                     </div>
                                                 </div>
                                             </th>
-                                            <td class="align-middle"><strong>$79.00</strong></td>
-                                            <td class="align-middle"><div><input type="number" value="1" min="1"></div></td>
-                                            <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                                            <td class="align-middle"><strong>N{{ product.productsinfo.amount }}</strong></td>
+                                            <td class="align-middle"><div><input type="number" v-model="quantity['productQuantity_'+index]" value="1" min="1"></div></td>
+                                            <td class="align-middle"><a @click.prevent="deleteProduct" class="text-dark"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -97,9 +98,17 @@ export default {
     name: 'CartComponent',
     data() {
         return {
-            
+            quantity: {}
         };
     },
+    props: {
+        cartListing: [Array],
+    },
+    methods: {
+        deleteProduct() {
+            this.$emit('delete-product');
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
