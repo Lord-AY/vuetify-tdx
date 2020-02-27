@@ -406,7 +406,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;" :disabled="cartLoader" @click="addToCart(product)">
+                                <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;" :disabled="cartLoader" @click="addToCart(product)" v-show="product.tradexplorer">
                                     <div class="selector number" data-last="2221111999">
                                         <i class="fa fa-shopping-cart place-left mr-5" style="padding-top: 0em;"></i>
                                         Add To Cart
@@ -418,7 +418,7 @@
                                         Add To Cart
                                     </div>
                                 </div> -->
-                                <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;">
+                                <div class="btn btn-block btn-primary view-contact cusbutton" style=" font-size: 20px;" v-show="!product.tradexplorer">
                                     <div v-if="!showDetails">
                                         <div class="selector number" @click="showDetails = !showDetails" data-last="2221111999">
                                             <i class="fa fa-phone place-left"></i>
