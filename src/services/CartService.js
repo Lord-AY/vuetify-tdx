@@ -6,5 +6,11 @@ export default {
     },
     getCart(userId) {
         return Api().get(`carts/carts/${userId}`);
+    },
+    update(payload) {
+        return Api().put(`carts/carts`, payload);
+    },
+    delete(payload) {
+        return Api().delete(`carts/carts`, payload);
     }
 }

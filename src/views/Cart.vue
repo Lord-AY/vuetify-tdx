@@ -3,13 +3,13 @@
         <div id="global-loader" v-show="isLoading">
             <HomeLoader class="mobile-hidden"></HomeLoader>
         </div>
-        <cart-component :cartListing="userCart" @delete-product="removeProduct"></cart-component>
+        <cart-component :cartListing="userCart" @delete-cart="removeProduct" @update-cart="updateProduct"></cart-component>
     </div>
 </template>
 
 <script>
 import HomeLoader from "@/components/loaders/Homeloader";
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import CartComponent from '@/components/CartComponent';
 export default {
     name: "Cart",
@@ -26,8 +26,13 @@ export default {
         ...mapGetters('cart', ['userCart']),
     },
     methods: {
+        ...mapActions('cart', ['updateUserCart']),
         removeProduct() {
             console.log("clicked delete button.");
+        },
+        updateProduct(payload) {
+            // console.log(payload);
+            this.updateUserCart(payload);
         }
     }
 };
