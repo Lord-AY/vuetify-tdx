@@ -44,14 +44,18 @@
                                                     </div>
                                                 </div>
                                             </th>
-                                            <td class="align-middle" v-show="!quantity['productQuantity_'+index]"><strong>N{{ Number(product.productsinfo.amount) *  1 }}</strong></td>
+                                            <td class="align-middle" v-show="!quantity['productQuantity_'+index]"><strong>N{{ Number(product.productsinfo.amount) * product.quantity }}</strong></td>
                                             <td class="align-middle" v-if="quantity['productQuantity_'+index]"><strong>N{{ Number(product.productsinfo.amount) * Number(quantity['productQuantity_'+index]) }}</strong></td>
-                                            <td class="align-middle"><div><input type="number" v-model="quantity['productQuantity_'+index]" value="1" :min="product.quantity" :placeholder="product.quantity" @change="updateCart(product, quantity['productQuantity_'+index])" @keyup="updateCart(product, quantity['productQuantity_'+index])"></div></td>
-                                            <td class="align-middle"><a @click.prevent="deleteProduct" class="text-dark"><i class="fa fa-trash"></i></a>
+                                            <td class="align-middle">
+                                                <div><input type="number" v-model="quantity['productQuantity_'+index]" value="1" :min="product.quantity" :placeholder="product.quantity" @change="updateCart(product, quantity['productQuantity_'+index])" @keyup="updateCart(product, quantity['productQuantity_'+index])"></div>
+                                            </td>
+                                            <td class="align-middle"><a @click.prevent="activateModal(product)" class="text-dark"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <confirm-modal-component v-if="showModal" @close="showModal = false" @delete-product="deleteProduct" :product="selectedProduct" :loading="isLoading">
+                                </confirm-modal-component>
                             </div>
                             <!-- End -->
                         </div>
@@ -95,19 +99,29 @@
     </div>
 </template>
 <script>
+import ConfirmModal from '@/components/modals/confirm-modal';
 export default {
     name: 'CartComponent',
     data() {
         return {
-            quantity: {}
+            quantity: {},
+            showModal: false,
+            selectedProduct: null,
         };
+    },
+    components: {
+        'confirm-modal-component': ConfirmModal
     },
     props: {
         cartListing: [Array],
+        isLoading: [Boolean]
     },
     methods: {
-        deleteProduct() {
-            this.$emit('delete-cart');
+        deleteProduct(product) {
+            const payload = {
+                cartid: product.id
+            };
+            this.$emit('delete-cart', payload);
         },
         updateCart(cart, quantity) {
             // console.log(cartid);
@@ -115,10 +129,14 @@ export default {
                 id: cart.id,
                 cid: cart.cid,
                 pid: cart.pid,
-                quantity: quantity
+                quantity
             };
-            // console.log(payload);
+            console.log(payload);
             this.$emit('update-cart', payload);
+        },
+        activateModal(product) {
+            this.selectedProduct = product;
+            this.showModal = true;
         },
     }
 };

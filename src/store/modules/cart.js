@@ -69,14 +69,15 @@ const actions = {
             });
     },
     getUserCart({ commit, rootState }) {
-        console.log(rootState.auth.user.id);
+        // console.log(rootState.auth.user.id);
         let userId = rootState.auth.user.id;
         commit("SET_LOADING", true);
         commit("SET_ERROR_MSG", null);
+        commit("SET_MESSAGE", null);
         CartService.getCart(userId)
             .then(({ data }) => {
                 commit("SET_LOADING", false);
-                console.log(data);
+                // console.log(data);
                 for (let product in data) {
                     // console.log(product);
                     const photosArr = ash.split(
@@ -88,13 +89,14 @@ const actions = {
                     // console.log(data);
                 }
                 commit("SET_USER_CART", data);
+                commit("SET_MESSAGE", "Cart Updated.");
             })
             .catch(error => {
                 commit("SET_LOADING", false);
                 console.log(error);
             });
     },
-    updateUserCart({ commit, rootState }, payload) {
+    updateUserCart({ commit, dispatch, rootState }, payload) {
         commit("SET_LOADING", true);
         commit("SET_MESSAGE", "Updating your cart...");
         commit("SET_ERROR_MSG", null);
@@ -113,6 +115,22 @@ const actions = {
                 } else {
                     commit("SET_ERROR_MSG", error.response.data.message);
                 }
+            });
+    },
+    deleteCartProduct({ commit, dispatch, rootState }, payload) {
+        commit("SET_LOADING", true);
+        commit("SET_MESSAGE", null);
+        commit("SET_MESSAGE", "Removing product from cart...");
+        commit("SET_ERROR_MSG", null);
+        payload.uid = rootState.auth.user.id;
+        CartService.delete(payload)
+            .then(({ data }) => {
+                commit("SET_MESSAGE", "successfully removed product from cart");
+                dispatch("getUserCart");
+                commit("SET_MESSAGE", "Updating your cart...");
+            })
+            .catch(error => {
+                console.log(error);
             });
     }
 };
