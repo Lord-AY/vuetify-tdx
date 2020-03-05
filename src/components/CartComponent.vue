@@ -71,11 +71,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
-                            <div class="p-4">
-                                <p class="font-italic mb-4">If you have some information for the seller you can leave them in the box below</p>
-                                <textarea name="" cols="30" rows="2" class="form-control"></textarea>
-                            </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
@@ -83,10 +78,10 @@
                                 <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
                                 <ul class="list-unstyled mb-4">
                                     <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${{ cartTotal }}</strong></li>
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>${{ shippingFee }}</strong></li>
+                                    <!-- <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li> -->
                                     <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                                        <h5 class="font-weight-bold">${{ cartTotal }}</h5>
+                                        <h5 class="font-weight-bold">${{ cartTotal+shippingFee }}</h5>
                                     </li>
                                 </ul><a href="#" class=" mt-5 btn btn-theme rounded-pill py-4 btn-block no-border text-white">Proceed to checkout</a>
                             </div>
@@ -108,6 +103,7 @@ export default {
             showModal: false,
             selectedProduct: null,
             cartPrice: 0,
+            shippingFee: 20
         };
     },
     components: {
@@ -143,14 +139,12 @@ export default {
     },
     computed: {
         cartTotal() {
+            let shipping = this.shippingFee;
             return ash.sumBy(this.cartListing, function(cart) {
                 return (cart.productsinfo.amount * cart.quantity);
             })
         }
     },
-    created() {
-        this.cartTotal();
-    }
 };
 </script>
 <style lang="scss" scoped>
