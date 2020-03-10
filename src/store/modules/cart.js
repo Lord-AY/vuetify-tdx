@@ -1,14 +1,13 @@
-import CartService from '@/services/CartService';
-import ash from 'lodash';
+import CartService from "@/services/CartService";
+import ash from "lodash";
 // default state for resetting
 const DefaultState = () => {
     return {
         cartProducts: [],
         cartLoading: false,
         message: null,
-        error: null,
-    }
-
+        error: null
+    };
 };
 // changeable state for cart
 const state = DefaultState();
@@ -37,60 +36,100 @@ const getters = {
             return state.cartProducts;
         }
         return [];
-    },
+    }
 };
 // actions for taking actions, u sabi na.
 const actions = {
-    addProductToCart({
-        commit,
-        dispatch,
-        rootState
-    }, payload) {
-        commit('SET_LOADING', true);
-        commit('SET_MESSAGE', null);
-        commit('SET_ERROR_MSG', null);
+    addProductToCart({ commit, dispatch, rootState }, payload) {
+        commit("SET_LOADING", true);
+        commit("SET_MESSAGE", null);
+        commit("SET_ERROR_MSG", null);
         payload.uid = rootState.auth.user.id;
         CartService.cartAdd(payload)
-            .then(({
-                data
-            }) => {
-                commit('SET_LOADING', false);
-                commit('SET_MESSAGE', "Product successfully added to your cart.");
-                dispatch('getUserCart');
+            .then(({ data }) => {
+                commit("SET_LOADING", false);
+                commit(
+                    "SET_MESSAGE",
+                    "Product successfully added to your cart."
+                );
+                dispatch("getUserCart");
                 // console.log(data);
-            }).catch(error => {
-                // console.log(error);
-                commit('SET_LOADING', false);
-                if (error.response.status == 404) {
-                    commit('SET_ERROR_MSG', "Network Error, Please try again...");
-                } else {
-                    commit('SET_ERROR_MSG', error.data.message);
-                }
             })
+            .catch(error => {
+                // console.log(error);
+                commit("SET_LOADING", false);
+                if (error.response.status == 404) {
+                    commit(
+                        "SET_ERROR_MSG",
+                        "Network Error, Please try again..."
+                    );
+                } else {
+                    commit("SET_ERROR_MSG", error.data.message);
+                }
+            });
     },
-    getUserCart({
-        commit,
-        rootState
-    }) {
-        console.log(rootState.auth.user.id);
+    getUserCart({ commit, rootState }) {
+        // console.log(rootState.auth.user.id);
         let userId = rootState.auth.user.id;
-        commit('SET_LOADING', true);
-        commit('SET_ERROR_MSG', null);
+        commit("SET_LOADING", true);
+        commit("SET_ERROR_MSG", null);
+        commit("SET_MESSAGE", null);
         CartService.getCart(userId)
-            .then(({
-                data
-            }) => {
-                commit('SET_LOADING', false);
-                console.log(data);
+            .then(({ data }) => {
+                commit("SET_LOADING", false);
+                // console.log(data);
                 for (let product in data) {
                     // console.log(product);
-                    const photosArr = ash.split(data[product].productsinfo.photos, ",", 7);
+                    const photosArr = ash.split(
+                        data[product].productsinfo.photos,
+                        ",",
+                        7
+                    );
                     data[product].productsinfo.photos = photosArr;
                     // console.log(data);
                 }
-                commit('SET_USER_CART', data);
-            }).catch(error => {
-                commit('SET_LOADING', false);
+                commit("SET_USER_CART", data);
+                commit("SET_MESSAGE", "Cart Updated.");
+            })
+            .catch(error => {
+                commit("SET_LOADING", false);
+                console.log(error);
+            });
+    },
+    updateUserCart({ commit, dispatch, rootState }, payload) {
+        commit("SET_LOADING", true);
+        commit("SET_MESSAGE", "Updating your cart...");
+        commit("SET_ERROR_MSG", null);
+        // set user id in payload
+        payload.uid = rootState.auth.user.id;
+        CartService.update(payload)
+            .then(({ data }) => {
+                dispatch("getUserCart");
+            })
+            .catch(error => {
+                if (error.response.status == 404) {
+                    commit(
+                        "SET_ERROR_MSG",
+                        "Network Error, Please make sure you are connected..."
+                    );
+                } else {
+                    commit("SET_ERROR_MSG", error.response.data.message);
+                }
+            });
+    },
+    deleteCartProduct({ commit, dispatch, rootState }, payload) {
+        commit("SET_LOADING", true);
+        commit("SET_MESSAGE", null);
+        commit("SET_MESSAGE", "Removing product from cart...");
+        commit("SET_ERROR_MSG", null);
+        payload.uid = rootState.auth.user.id;
+        CartService.delete(payload)
+            .then(({ data }) => {
+                commit("SET_MESSAGE", "successfully removed product from cart");
+                dispatch("getUserCart");
+                commit("SET_MESSAGE", "Updating your cart...");
+            })
+            .catch(error => {
                 console.log(error);
             });
     }

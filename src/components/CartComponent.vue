@@ -44,13 +44,17 @@
                                                     </div>
                                                 </div>
                                             </th>
-                                            <td class="align-middle"><strong>N{{ product.productsinfo.amount }}</strong></td>
-                                            <td class="align-middle"><div><input type="number" v-model="quantity['productQuantity_'+index]" value="1" min="1"></div></td>
-                                            <td class="align-middle"><a @click.prevent="deleteProduct" class="text-dark"><i class="fa fa-trash"></i></a>
+                                            <td class="align-middle" v-show="!quantity['productQuantity_'+index]"><strong>N{{ Number(product.productsinfo.amount) * product.quantity }}</strong></td>
+                                            <td class="align-middle">
+                                                <div><input type="number" v-model="product.quantity" value="1" :min="1" :placeholder="product.quantity" @change="updateCart(product, product.quantity)" @keyup="updateCart(product, product.quantity)"></div>
+                                            </td>
+                                            <td class="align-middle"><a @click.prevent="activateModal(product)" class="text-dark"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <confirm-modal-component v-if="showModal" @close="showModal = false" @delete-product="deleteProduct" :product="selectedProduct" :loading="isLoading">
+                                </confirm-modal-component>
                             </div>
                             <!-- End -->
                         </div>
@@ -67,22 +71,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
-                            <div class="p-4">
-                                <p class="font-italic mb-4">If you have some information for the seller you can leave them in the box below</p>
-                                <textarea name="" cols="30" rows="2" class="form-control"></textarea>
-                            </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
                             <div class="p-4">
                                 <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
                                 <ul class="list-unstyled mb-4">
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${{ cartTotal }}</strong></li>
+                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>${{ shippingFee }}</strong></li>
+                                    <!-- <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li> -->
                                     <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                                        <h5 class="font-weight-bold">$400.00</h5>
+                                        <h5 class="font-weight-bold">${{ cartTotal+shippingFee }}</h5>
                                     </li>
                                 </ul><a href="#" class=" mt-5 btn btn-theme rounded-pill py-4 btn-block no-border text-white">Proceed to checkout</a>
                             </div>
@@ -94,21 +93,58 @@
     </div>
 </template>
 <script>
+import ConfirmModal from '@/components/modals/confirm-modal';
+import ash from 'lodash';
 export default {
     name: 'CartComponent',
     data() {
         return {
-            quantity: {}
+            quantity: {},
+            showModal: false,
+            selectedProduct: null,
+            cartPrice: 0,
+            shippingFee: 20
         };
+    },
+    components: {
+        'confirm-modal-component': ConfirmModal
     },
     props: {
         cartListing: [Array],
+        isLoading: [Boolean]
     },
     methods: {
-        deleteProduct() {
-            this.$emit('delete-product');
+        deleteProduct(product) {
+            const payload = {
+                cartid: product.id
+            };
+            this.$emit('delete-cart', payload);
+        },
+        updateCart(cart, quantity) {
+            // console.log(cartid);
+            const payload = {
+                id: cart.id,
+                cid: cart.cid,
+                pid: cart.pid,
+                quantity
+            };
+            console.log(payload);
+            this.$emit('update-cart', payload);
+            this.cartTotal();
+        },
+        activateModal(product) {
+            this.selectedProduct = product;
+            this.showModal = true;
+        },
+    },
+    computed: {
+        cartTotal() {
+            let shipping = this.shippingFee;
+            return ash.sumBy(this.cartListing, function(cart) {
+                return (cart.productsinfo.amount * cart.quantity);
+            })
         }
-    }
+    },
 };
 </script>
 <style lang="scss" scoped>
