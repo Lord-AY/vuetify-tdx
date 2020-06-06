@@ -2,6 +2,6 @@ import axios from "axios";
 
 export default () => {
   return axios.create({
-    baseURL: `https://www.tradexplora.com.ng/`
+    baseURL: `http://142.93.207.91/`
   });
 };

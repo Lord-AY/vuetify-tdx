@@ -121,14 +121,14 @@ export default {
             this.$emit('delete-cart', payload);
         },
         updateCart(cart, quantity) {
-            // console.log(cartid);
+            
             const payload = {
                 id: cart.id,
                 cid: cart.cid,
                 pid: cart.pid,
                 quantity
             };
-            console.log(payload);
+            
             this.$emit('update-cart', payload);
             this.cartTotal();
         },

@@ -33,6 +33,12 @@ const getters = {
     }
     return;
   },
+  comparedSingleProduct(state) {
+    if (state.comparedResultProducts !== null && state.comparedResultProducts !== undefined) {
+      return state.comparedResultProducts;
+    }
+    return;
+  },
   getSingleCategory(state) {
     if (state.singleCategory !== null && state.singleCategory !== undefined) {
       return state.singleCategory;

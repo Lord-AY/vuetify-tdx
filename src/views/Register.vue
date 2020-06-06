@@ -18,13 +18,10 @@ require("../../public/assets/css/icons.css");
 require("../../public/assets/plugins/horizontal-menu/horizontal.css");
 require("../../public/assets/plugins/select2/select2.min.css");
 require("../../public/assets/plugins/cookie/cookie.css");
-// require("../../public/assets/plugins/owl-carousel/owl.carousel.css");
 require("../../public/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css");
 require("../../public/assets/skins/color-skins/color15.css");
 require("../../public/assets/css/flaticon24d2c.css");
-// require("../../public/assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick.css");
-// require("../../public/assets/plugins/slick-1.8.1/slick-1.8.1/slick/slick-theme.css");
-require("../../public/assets/carspot-css/wp-content/themes/carspot/footerSpecial.css");
+
 
 import registerForm from "@/components/auth/register";
 import { mapActions } from "vuex";
