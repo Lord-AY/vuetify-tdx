@@ -520,7 +520,7 @@ const routes = [
 // mode: "history",
 // mode: "hash",
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes
 });
