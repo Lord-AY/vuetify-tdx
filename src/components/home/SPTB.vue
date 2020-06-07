@@ -37,7 +37,7 @@
                 <div class="item-card-img item-card-img-tx">
                   <img
                     :src="
-                      `https://www.tradexplora.com.ng/media/${category.icon}` ||
+                      `https://www.surgecode.com.ng/media/${category.icon}` ||
                         './assets/images/categories/car.svg'
                     "
                     alt="img"

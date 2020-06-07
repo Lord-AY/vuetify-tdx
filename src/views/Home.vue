@@ -65,7 +65,7 @@ export default {
       "productListings",
       "getErrors",
       "getSuccess",
-      "comments",
+      "comments", 
       "paginatedProducts"
     ]),
     ...mapGetters("auth", ["loading", "errors", "getUser", "getMessage"]),
@@ -144,6 +144,7 @@ export default {
       await this.fetchAllProducts()
         .then(data => {
           this.fetchAllComments();
+          this.fetchAllCategories();
         })
         .catch(function(error) {
         });

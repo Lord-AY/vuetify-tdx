@@ -117,14 +117,14 @@
                         v-if="getUser === null"
                         class="img-circle resize"
                         alt="Avatar"
-                        src="https://www.tradexplora.com.ng/media/avatar.png"
+                        src="https://www.surgecode.com.ng/media/avatar.png"
                       />
                       <img
                         class="img-circle resize"
                         v-else
                         alt="Avatar"
                         :src="
-                          `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`
+                          `https://www.surgecode.com.ng/media/${getUser.pictureUrl}`
                         "
                       />
                       <span class="caret" style="color: #fff!important"></span>

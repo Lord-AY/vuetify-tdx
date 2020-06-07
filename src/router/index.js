@@ -255,7 +255,7 @@ const routes = [
     name: "dashboard",
     component: () => import("../views/Dashboard.vue"),
     meta: {
-      header: 3
+      header: 1
     }
   },
   {

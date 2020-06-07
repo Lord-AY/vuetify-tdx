@@ -61,11 +61,18 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
+                  <!-- this section is after fixing user upload -->
+                    <!--                     
                     <img
                       class="img-circle resize"
                       alt="Avatar"
-                       :src="this.getUser !== null ? `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`
-                         : 'https://www.tradexplora.com.ng/media/avatar.png' "
+                       :src="this.getUser !== null ? `https://www.surgecode.com.ng/media/${getUser.pictureUrl}`
+                         : 'https://www.surgecode.com.ng/media/avatar.png' "
+                    /> -->
+                  <img
+                      class="img-circle resize"
+                      alt="Avatar"
+                       :src="https://www.surgecode.com.ng/media/avatar.png"
                     />
                     <span class="caret" style="color: #fff!important"></span>
                   </a>
