@@ -81,14 +81,14 @@
                                 class="img-responsive"
                                 :alt="sellers.name"
                                 :src="
-                                  `https://www.tradexplora.com.ng/media/${sellers.avatar}`
+                                  `https://www.surgecode.com.ng/media/${sellers.avatar}`
                                 "
                               />
                               <img
                                 v-else
                                 class="img-responsive"
                                 alt="Avatar"
-                                src="https://www.tradexplora.com.ng/media/avatar.png"
+                                src="https://www.surgecode.com.ng/media/avatar.png"
                               />
                             </a>
 

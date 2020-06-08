@@ -376,9 +376,9 @@
                                 <div class="user-info-card">
                                     <div class="user-photo col-md-12 col-sm-12  col-xs-12 center-with-flex">
                                         <a href="../../dealer/gavien72/index.html" class="link">
-                                            <img v-if="getUser === null" class="img-circle" alt="Profile Pic" src="https://www.tradexplora.com.ng/media/avatar.png" />
+                                            <img v-if="getUser === null" class="img-circle" alt="Profile Pic" src="https://www.surgecode.com.ng/media/avatar.png" />
                                             <img v-else class="img-circle" alt="Profile Pic" :src="
-                          `https://www.tradexplora.com.ng/media/${getUser.pictureUrl}`
+                          `https://www.surgecode.com.ng/media/${getUser.pictureUrl}`
                         " />
                                         </a>
                                         <!-- <div class="seller-online"></div> -->
