@@ -25,10 +25,10 @@
                 <a @click.prevent="setComponent('FavoriteAds',3)" class=" d-flex border-bottom" :class="activeStatus == 3 ? 'active' : ''">
                     <span class="icon1 mr-3"><i class="icon icon-heart"></i></span> My Favorite
                 </a>
-                <a @click.prevent="setComponent('ManagedAds',4)" class="d-flex border-bottom" :class="activeStatus == 3 ? 'active' : ''">
+                <a @click.prevent="setComponent('ManagedAds',4)" class="d-flex border-bottom" :class="activeStatus == 4 ? 'active' : ''">
                     <span class="icon1 mr-3"><i class="icon icon-folder-alt"></i></span> Managed Ads
                 </a>
-                <a href="payments.html" class=" d-flex  border-bottom">
+                <a @click.prevent="setComponent('UserPayments',5)" class="d-flex border-bottom">
                     <span class="icon1 mr-3"><i class="icon icon-credit-card"></i></span> Payments
                 </a>
                 <a href="orders.html" class="d-flex  border-bottom">

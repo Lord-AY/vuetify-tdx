@@ -39,6 +39,7 @@ import EditProfile from "@/components/EditProfile"
 import AdsManager from "@/components/AdsManager"
 import FavoriteAds from "@/components/FavoriteAds"
 import ManagedAds from "@/components/ManagedAds"
+import UserPayments from "@/components/UserPayments"
 import { mapGetters, mapState, mapActions } from "vuex";
 export default {
     components: {
@@ -46,7 +47,8 @@ export default {
         EditProfile,
         AdsManager,
         FavoriteAds,
-        ManagedAds
+        ManagedAds,
+        UserPayments
     },
     data() {
         return {
