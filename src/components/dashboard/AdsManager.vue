@@ -41,7 +41,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -75,7 +75,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/j2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -109,7 +109,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -143,7 +143,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -177,7 +177,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/l1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -211,7 +211,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h4.jpg" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -245,7 +245,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/j1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -279,7 +279,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -314,7 +314,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/v2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -348,7 +348,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -382,7 +382,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/v1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -416,7 +416,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f3.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -450,7 +450,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/j3.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -484,7 +484,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h3.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -519,7 +519,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/v1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -553,7 +553,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -587,7 +587,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/v1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -621,7 +621,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -655,7 +655,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -689,7 +689,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/j1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -739,7 +739,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -773,7 +773,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/j2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -807,7 +807,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/l1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -841,7 +841,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h4.jpg" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -875,7 +875,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/v2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -909,7 +909,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f3.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -943,7 +943,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/j3.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -977,7 +977,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h3.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1028,7 +1028,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/j1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1062,7 +1062,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1096,7 +1096,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/v1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1130,7 +1130,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1164,7 +1164,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/j1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1215,7 +1215,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1249,7 +1249,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/v1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1283,7 +1283,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1334,7 +1334,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1369,7 +1369,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/f2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1404,7 +1404,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/v1.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">
@@ -1454,7 +1454,7 @@
 															<div class="media mt-0 mb-0">
 																<div class="card-aside-img">
 																	<a href="#"></a>
-																	<img src="../assets/images/products/h2.png" alt="img">
+																	<img src="https://res.cloudinary.com/coderoute/image/upload/v1579633243/ecommerce/mzjv2ec65fbcbtjhztbx.jpg" alt="img">
 																</div>
 																<div class="media-body">
 																	<div class="card-item-desc ml-4 p-0 mt-2">

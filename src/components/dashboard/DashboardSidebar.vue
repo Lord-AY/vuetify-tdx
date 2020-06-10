@@ -8,7 +8,7 @@
                 <div class="profile-pic">
                     <div class="profile-pic-img">
                         <span class="bg-success dots" data-toggle="tooltip" data-placement="top" title="online"></span>
-                        <img src="../assets/images/faces/male/25.jpg" class="brround" alt="user">
+                        <img src="https://res.cloudinary.com/coderoute/image/upload/v1580833737/ecommerce/pywfxdwubswggl8oqfbp.jpg" class="brround" alt="user">
                     </div>
                     <a href="userprofile.html" class="text-dark">
                         <h4 class="mt-3 mb-0 font-weight-semibold">Robert McLean</h4>
@@ -28,17 +28,14 @@
                 <a @click.prevent="setComponent('ManagedAds',4)" class="d-flex border-bottom" :class="activeStatus == 4 ? 'active' : ''">
                     <span class="icon1 mr-3"><i class="icon icon-folder-alt"></i></span> Managed Ads
                 </a>
-                <a @click.prevent="setComponent('UserPayments',5)" class="d-flex border-bottom">
+                <a @click.prevent="setComponent('UserPayments',5)" class="d-flex border-bottom" :class="activeStatus == 5 ? 'active' : ''">
                     <span class="icon1 mr-3"><i class="icon icon-credit-card"></i></span> Payments
                 </a>
-                <a href="orders.html" class="d-flex  border-bottom">
+                <a @click.prevent="setComponent('UserOrders',6)" class="d-flex  border-bottom" :class="activeStatus == 6 ? 'active' : ''">
                     <span class="icon1 mr-3"><i class="icon icon-basket"></i></span> Orders
                 </a>
-                <a href="tips.html" class="d-flex border-bottom">
-                    <span class="icon1 mr-3"><i class="icon icon-game-controller"></i></span> Safety Tips
-                </a>
-                <a href="settings.html" class="d-flex border-bottom">
-                    <span class="icon1 mr-3"><i class="icon icon-settings"></i></span> Settings
+                <a @click.prevent="setComponent('DashboardSettings',7)" class="d-flex border-bottom" :class="activeStatus == 7 ? 'active' : ''">
+                    <span class="icon1 mr-3"><i class="icon icon-game-controller"></i></span> Settings
                 </a>
                 <a href="#" class="d-flex">
                     <span class="icon1 mr-3"><i class="icon icon-power"></i></span> Logout
