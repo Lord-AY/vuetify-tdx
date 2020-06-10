@@ -154,7 +154,7 @@
                                 class="col-lg-4 col-md-4 col-sm-4 no-padding"
                               >
                                 <!-- Img Block -->
-                                <div class="ad-archive-img">                                 
+                                <div class="ad-archive-img">
                                   <router-link
                                         :to="{ path: '/productDetails', query: { id: product.id, cid: product.cid, uid:product.uid }}"
                                   >
