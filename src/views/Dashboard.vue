@@ -38,13 +38,15 @@ import DashboardSidebar from "@/components/DashboardSidebar"
 import EditProfile from "@/components/EditProfile"
 import AdsManager from "@/components/AdsManager"
 import FavoriteAds from "@/components/FavoriteAds"
+import ManagedAds from "@/components/ManagedAds"
 import { mapGetters, mapState, mapActions } from "vuex";
 export default {
     components: {
         DashboardSidebar,
         EditProfile,
         AdsManager,
-        FavoriteAds
+        FavoriteAds,
+        ManagedAds
     },
     data() {
         return {
@@ -62,7 +64,7 @@ export default {
             this.getVerificationCode();
         },
         toggleComponent(nextComponent) {
-            console.log("event emitted !!!")
+          console.log("component changed !!!")
           this.component = nextComponent;
         }
     }
