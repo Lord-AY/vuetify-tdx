@@ -34,10 +34,10 @@
     <!--/User Dashboard-->
 </template>
 <script>
-import DashboardSidebar from "@/components/DashboardSidebar"
-import EditProfile from "@/components/EditProfile"
-import AdsManager from "@/components/AdsManager"
-import FavoriteAds from "@/components/FavoriteAds"
+import DashboardSidebar from "@/components/dashboard/DashboardSidebar"
+import EditProfile from "@/components/dashboard/EditProfile"
+import AdsManager from "@/components/dashboard/AdsManager"
+import FavoriteAds from "@/components/dashboard/FavoriteAds"
 import { mapGetters, mapState, mapActions } from "vuex";
 export default {
     components: {
